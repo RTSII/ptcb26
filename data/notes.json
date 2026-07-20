@@ -1,0 +1,196 @@
+{
+  "domains": [
+    {
+      "domain": "Medications",
+      "weight": "40%",
+      "summary": "The largest domain on the PTCE 2026. Focus on brand/generic pairs, drug classifications, common indications, insulin types, storage, and look-alike/sound-alike (LASA) drugs.",
+      "sections": [
+        {
+          "title": "Top Drug Classes & Suffixes",
+          "items": [
+            "ACE inhibitors (-pril): lisinopril, enalapril, ramipril — hypertension, heart failure. Watch for dry cough, hyperkalemia.",
+            "ARBs (-sartan): losartan, valsartan — alternative to ACE inhibitors; less cough.",
+            "Beta blockers (-olol): metoprolol, atenolol, carvedilol — hypertension, angina, heart failure.",
+            "Calcium channel blockers: amlodipine (-dipine), diltiazem, verapamil — hypertension.",
+            "Statins (-statin): atorvastatin, simvastatin, rosuvastatin — lower LDL cholesterol.",
+            "Proton pump inhibitors (-prazole): omeprazole, pantoprazole, esomeprazole — GERD, ulcers.",
+            "H2 blockers (-tidine): famotidine — heartburn.",
+            "SSRIs: sertraline, fluoxetine, escitalopram — depression, anxiety.",
+            "Benzodiazepines (-pam/-lam): lorazepam, alprazolam — anxiety (C-IV controlled)."
+          ]
+        },
+        {
+          "title": "Common Brand / Generic Pairs",
+          "items": [
+            "Lipitor = atorvastatin", "Prinivil/Zestril = lisinopril", "Glucophage = metformin",
+            "Synthroid = levothyroxine", "Prilosec = omeprazole", "Norvasc = amlodipine",
+            "Coumadin = warfarin", "Lasix = furosemide", "Zoloft = sertraline",
+            "Neurontin = gabapentin", "Ventolin/ProAir = albuterol", "Zithromax = azithromycin"
+          ]
+        },
+        {
+          "title": "Insulin Types",
+          "items": [
+            "Rapid-acting: lispro (Humalog), aspart (NovoLog), glulisine (Apidra) — onset ~15 min.",
+            "Short-acting: regular (Humulin R, Novolin R) — onset ~30 min.",
+            "Intermediate: NPH (Humulin N, Novolin N).",
+            "Long-acting (basal): glargine (Lantus/Basaglar), detemir (Levemir), degludec (Tresiba).",
+            "Storage: unopened refrigerated 36–46°F; do NOT freeze; opened may be kept at room temp for a limited time."
+          ]
+        },
+        {
+          "title": "Common OTC Active Ingredients",
+          "items": [
+            "Tylenol = acetaminophen (max 4,000 mg/day; hepatotoxic in overdose).",
+            "Advil/Motrin = ibuprofen (NSAID; take with food).",
+            "Aleve = naproxen (NSAID).", "Claritin = loratadine; Zyrtec = cetirizine; Allegra = fexofenadine (2nd-gen antihistamines).",
+            "Benadryl = diphenhydramine (1st-gen; sedating)."
+          ]
+        },
+        {
+          "title": "High-Alert & LASA Drugs",
+          "items": [
+            "High-alert: insulin, anticoagulants (heparin, warfarin), opioids, concentrated electrolytes (KCl), chemotherapy.",
+            "LASA examples: hydrOXYzine vs hydrALAZINE, predniSONE vs prednisoLONE, DOPamine vs DOBUTamine — use tall-man lettering."
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "Patient Safety",
+      "weight": "26.25%",
+      "summary": "Patient Safety and Quality Assurance. Covers error prevention, high-alert meds, ISMP error-prone abbreviations, NDC format, hygiene, and reporting.",
+      "sections": [
+        {
+          "title": "Error Prevention Basics",
+          "items": [
+            "Five rights: right patient, right drug, right dose, right route, right time.",
+            "Barcode scanning verifies the correct product against the order.",
+            "Independent double-checks for high-alert meds (e.g., insulin, heparin).",
+            "Medication reconciliation compares a patient's meds to new orders to prevent duplication/omission."
+          ]
+        },
+        {
+          "title": "ISMP Error-Prone Abbreviations (Avoid)",
+          "items": [
+            "'U' or 'u' → write 'units' (can look like 0 or 4).",
+            "'IU' → write 'international units'.",
+            "'QD'/'QOD' → write 'daily'/'every other day'.",
+            "Trailing zero (1.0 mg) → write 1 mg.",
+            "No leading zero (.5 mg) → write 0.5 mg.",
+            "'MS/MSO4/MgSO4' → spell out morphine sulfate or magnesium sulfate."
+          ]
+        },
+        {
+          "title": "NDC Format",
+          "items": [
+            "National Drug Code = unique 10- or 11-digit, 3-segment number.",
+            "Segment 1 = labeler/manufacturer; Segment 2 = product (strength, dosage form); Segment 3 = package size.",
+            "Common formats: 5-4-2, 5-3-2, 4-4-2 (may be padded to 11 digits with a leading zero)."
+          ]
+        },
+        {
+          "title": "Quality Assurance & Reporting",
+          "items": [
+            "REMS: Risk Evaluation and Mitigation Strategy (e.g., iPLEDGE for isotretinoin, clozapine REMS).",
+            "Report errors/near-misses to improve systems (non-punitive culture).",
+            "MedWatch: FDA program for reporting adverse events.",
+            "USP <795> non-sterile and <797> sterile compounding standards; <800> hazardous drugs."
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "Order Entry",
+      "weight": "21.25%",
+      "summary": "Order Entry and Processing. Sig code interpretation, pharmacy calculations, days supply, conversions, and prescription intake.",
+      "sections": [
+        {
+          "title": "Common Sig Codes",
+          "items": [
+            "PO = by mouth; PR = rectally; SL = sublingual; IV/IM/SC = injection routes.",
+            "BID = twice daily; TID = 3x daily; QID = 4x daily; QHS = at bedtime; QAM = every morning.",
+            "PRN = as needed; ac = before meals; pc = after meals; q6h = every 6 hours.",
+            "gtt = drop; OD = right eye; OS = left eye; OU = both eyes; AD/AS/AU = right/left/both ears.",
+            "ii tab = 2 tablets; i cap = 1 capsule."
+          ]
+        },
+        {
+          "title": "Key Conversions",
+          "items": [
+            "1 tsp = 5 mL; 1 tbsp = 15 mL; 1 fl oz = 30 mL.",
+            "1 kg = 2.2 lb; 1 lb = 454 g.",
+            "1 grain (gr) ≈ 65 mg; 1 oz = 28.4 g.",
+            "1 gallon = 3,785 mL; 1 pint = 473 mL.",
+            "Temperature: °C = (°F − 32) × 5/9."
+          ]
+        },
+        {
+          "title": "Core Calculations",
+          "items": [
+            "Days supply = total quantity ÷ amount used per day.",
+            "Percent strength: X% = X grams per 100 mL (or 100 g).",
+            "IV flow rate (mL/hr) = total volume ÷ total time (hr).",
+            "Drops/min = (volume × drop factor) ÷ time in minutes.",
+            "Alligation: use for mixing two strengths to make an intermediate strength (parts method)."
+          ]
+        },
+        {
+          "title": "Prescription Intake",
+          "items": [
+            "Verify patient identifiers: full name and date of birth.",
+            "Confirm drug, strength, dosage form, quantity, directions, prescriber, and DEA (if controlled).",
+            "Check insurance/DUR and allergies before adjudication.",
+            "Technicians enter data; the pharmacist performs the final clinical verification."
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "Federal Requirements",
+      "weight": "12.5%",
+      "summary": "Federal Requirements. DEA controlled substance schedules, DEA forms, refill rules, key laws (CSA, HIPAA, OBRA-90, PPPA, CMEA), and DEA number verification.",
+      "sections": [
+        {
+          "title": "DEA Controlled Substance Schedules",
+          "items": [
+            "C-I: no accepted medical use, high abuse (heroin, LSD, marijuana federally).",
+            "C-II: high abuse, accepted use — NO refills (oxycodone, hydrocodone, morphine, Adderall, fentanyl).",
+            "C-III: moderate abuse (Tylenol #3, testosterone) — up to 5 refills / 6 months.",
+            "C-IV: lower abuse (alprazolam, lorazepam, tramadol, zolpidem) — up to 5 refills / 6 months.",
+            "C-V: lowest abuse (cough syrups with codeine, pregabalin) — up to 5 refills / 6 months."
+          ]
+        },
+        {
+          "title": "DEA Forms",
+          "items": [
+            "Form 222: order/transfer Schedule II substances (electronic = CSOS).",
+            "Form 106: report theft or significant loss of controlled substances.",
+            "Form 41: record destruction/disposal of controlled substances.",
+            "Form 224: pharmacy application for DEA registration."
+          ]
+        },
+        {
+          "title": "Key Federal Laws",
+          "items": [
+            "Controlled Substances Act (1970): created the 5-schedule system.",
+            "HIPAA (1996): protects patient PHI (privacy & security).",
+            "OBRA-90: offer to counsel + prospective DUR.",
+            "Poison Prevention Packaging Act (1970): child-resistant containers.",
+            "CMEA (2005): pseudoephedrine limits 3.6 g/day, 9 g/30 days; logbook + ID.",
+            "FDCA (1938) & Durham-Humphrey Amendment (1951): Rx vs OTC classification.",
+            "Biennial (every 2 years) controlled substance inventory required."
+          ]
+        },
+        {
+          "title": "DEA Number Verification",
+          "items": [
+            "Format: 2 letters + 7 digits. First letter = registrant type; second letter = registrant's last-name initial.",
+            "Check digit math: (1st+3rd+5th digits) + 2×(2nd+4th+6th digits) = sum; the last digit of the sum must equal the 7th (check) digit.",
+            "Example: AB1234563 → (1+3+5)=9; (2+4+6)=12 ×2 =24; 9+24=33; last digit 3 = check digit 3. Valid."
+          ]
+        }
+      ]
+    }
+  ]
+}

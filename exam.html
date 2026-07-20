@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1f3a">
+  <title>Practice Exam · PTCE 2026</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="app-header">
+    <a href="index.html" class="logo">💊 PTCE <span>2026</span></a>
+    <a href="index.html" class="back-link">‹ Home</a>
+  </header>
+
+  <main class="container">
+    <!-- Intro -->
+    <div id="introScreen">
+      <h1 class="page-title">🎯 Practice Exam</h1>
+      <p class="page-sub">A simulated PTCE built to the 2026 domain weights.</p>
+      <div class="card-block">
+        <h3>Exam Blueprint</h3>
+        <div id="blueprintBars"></div>
+        <p class="muted" style="margin-top:12px;">Questions are drawn from the bank and weighted by domain. No rationale is shown until you finish. Passing is typically ~1400 scaled (about 66% correct).</p>
+      </div>
+      <div class="card-block">
+        <h3>Options</h3>
+        <label class="muted" style="display:block;margin-bottom:8px;">Exam length</label>
+        <div class="filter-row" id="lengthPick"></div>
+        <label class="muted" style="display:block;margin:10px 0 8px;">Time limit</label>
+        <div class="filter-row" id="examTimerPick"></div>
+      </div>
+      <button class="btn gold" id="startExamBtn" style="width:100%;">Begin Exam</button>
+    </div>
+
+    <!-- Exam -->
+    <div id="examScreen" class="hidden">
+      <div class="quiz-topbar">
+        <span id="examProgress">1 / 90</span>
+        <span class="timer" id="examTimer">—</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="examProgressFill"></div></div>
+      <div class="question-card" id="examQuestionCard"></div>
+      <div class="btn-row" style="justify-content:space-between;">
+        <button class="btn outline" id="examPrevBtn">‹ Prev</button>
+        <button class="btn" id="examNextBtn">Next ›</button>
+        <button class="btn gold hidden" id="submitExamBtn">Submit</button>
+      </div>
+      <p class="muted center" style="margin-top:10px;" id="answeredCount"></p>
+    </div>
+
+    <!-- Result -->
+    <div id="examResultScreen" class="hidden"></div>
+  </main>
+
+  <script src="js/app.js"></script>
+  <script src="js/exam.js"></script>
+</body>
+</html>
