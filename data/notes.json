@@ -3,20 +3,46 @@
     {
       "domain": "Medications",
       "weight": "40%",
-      "summary": "The largest domain on the PTCE 2026. Focus on brand/generic pairs, drug classifications, common indications, insulin types, storage, and look-alike/sound-alike (LASA) drugs.",
+      "summary": "The largest domain on the PTCE 2026. Focus on brand/generic pairs, drug classifications, mechanisms of action, indications, side effects, interactions, contraindications, insulin types, storage, and look-alike/sound-alike (LASA) drugs.",
       "sections": [
         {
           "title": "Top Drug Classes & Suffixes",
           "items": [
-            "ACE inhibitors (-pril): lisinopril, enalapril, ramipril — hypertension, heart failure. Watch for dry cough, hyperkalemia.",
-            "ARBs (-sartan): losartan, valsartan — alternative to ACE inhibitors; less cough.",
-            "Beta blockers (-olol): metoprolol, atenolol, carvedilol — hypertension, angina, heart failure.",
-            "Calcium channel blockers: amlodipine (-dipine), diltiazem, verapamil — hypertension.",
-            "Statins (-statin): atorvastatin, simvastatin, rosuvastatin — lower LDL cholesterol.",
-            "Proton pump inhibitors (-prazole): omeprazole, pantoprazole, esomeprazole — GERD, ulcers.",
+            "ACE inhibitors (-pril): lisinopril, enalapril, ramipril — hypertension, heart failure. Watch for dry cough, hyperkalemia, angioedema.",
+            "ARBs (-sartan): losartan, valsartan, olmesartan — alternative to ACE inhibitors; less cough.",
+            "Beta blockers (-olol): metoprolol, atenolol, carvedilol — hypertension, angina, heart failure; don't stop abruptly.",
+            "Calcium channel blockers: amlodipine (-dipine), diltiazem, verapamil — hypertension; non-DHP cause bradycardia/constipation.",
+            "Statins (-statin): atorvastatin, simvastatin, rosuvastatin — lower LDL; myopathy, ↑LFTs.",
+            "Proton pump inhibitors (-prazole): omeprazole, pantoprazole, esomeprazole — GERD, ulcers; take before meals.",
             "H2 blockers (-tidine): famotidine — heartburn.",
-            "SSRIs: sertraline, fluoxetine, escitalopram — depression, anxiety.",
-            "Benzodiazepines (-pam/-lam): lorazepam, alprazolam — anxiety (C-IV controlled)."
+            "SSRIs: sertraline, fluoxetine, escitalopram, paroxetine — depression, anxiety; serotonin syndrome risk.",
+            "Benzodiazepines (-pam/-lam): lorazepam, alprazolam, diazepam, clonazepam — anxiety, seizures (C-IV controlled).",
+            "Fluoroquinolones (-floxacin): ciprofloxacin, levofloxacin — tendon rupture black box, avoid dairy/antacids.",
+            "Macrolides (-thromycin): azithromycin, clarithromycin — QTc prolongation.",
+            "Tetracyclines (-cycline): doxycycline — photosensitivity, avoid dairy.",
+            "DPP-4 (-gliptin), SGLT-2 (-gliflozin), GLP-1 (-glutide): diabetes agents.",
+            "Triptans (-triptan): sumatriptan — migraine; CI in CAD."
+          ]
+        },
+        {
+          "title": "Mechanisms of Action by Class",
+          "items": [
+            "ACE inhibitors: block angiotensin-converting enzyme → ↓ angiotensin II → vasodilation.",
+            "ARBs: block angiotensin II receptor.",
+            "Statins: inhibit HMG-CoA reductase → ↓ cholesterol synthesis.",
+            "PPIs: irreversibly block H+/K+ ATPase proton pump.",
+            "Beta blockers: block beta-adrenergic receptors → ↓ HR, ↓ contractility.",
+            "Calcium channel blockers: block L-type Ca channels → vasodilation.",
+            "Loop diuretics (furosemide): inhibit Na-K-2Cl in loop of Henle.",
+            "Warfarin: inhibits vitamin K-dependent clotting factors (II, VII, IX, X).",
+            "Heparin: activates antithrombin III.",
+            "Metformin: ↓ hepatic glucose production, ↑ insulin sensitivity.",
+            "Sulfonylureas: ↑ pancreatic insulin secretion.",
+            "SSRIs: block serotonin reuptake.",
+            "Triptans: 5-HT1B/1D agonists → cranial vasoconstriction.",
+            "MAOIs: block monoamine oxidase → tyramine crisis + serotonin syndrome risk.",
+            "Levodopa/carbidopa: dopamine precursor; carbidopa blocks peripheral breakdown.",
+            "Allopurinol: inhibits xanthine oxidase → ↓ uric acid production."
           ]
         },
         {
@@ -25,17 +51,23 @@
             "Lipitor = atorvastatin", "Prinivil/Zestril = lisinopril", "Glucophage = metformin",
             "Synthroid = levothyroxine", "Prilosec = omeprazole", "Norvasc = amlodipine",
             "Coumadin = warfarin", "Lasix = furosemide", "Zoloft = sertraline",
-            "Neurontin = gabapentin", "Ventolin/ProAir = albuterol", "Zithromax = azithromycin"
+            "Neurontin = gabapentin", "Ventolin/ProAir = albuterol", "Zithromax = azithromycin",
+            "Eliquis = apixaban", "Xarelto = rivaroxaban", "Plavix = clopidogrel",
+            "Januvia = sitagliptin", "Jardiance = empagliflozin", "Ozempic/Wegovy = semaglutide",
+            "Cymbalta = duloxetine", "Wellbutrin = bupropion", "Lyrica = pregabalin",
+            "Advair = fluticasone/salmeterol", "Augmentin = amoxicillin/clavulanate", "Flexeril = cyclobenzaprine",
+            "Sinemet = carbidopa/levodopa", "Zyloprim = allopurinol", "Imitrex = sumatriptan"
           ]
         },
         {
           "title": "Insulin Types",
           "items": [
-            "Rapid-acting: lispro (Humalog), aspart (NovoLog), glulisine (Apidra) — onset ~15 min.",
-            "Short-acting: regular (Humulin R, Novolin R) — onset ~30 min.",
-            "Intermediate: NPH (Humulin N, Novolin N).",
-            "Long-acting (basal): glargine (Lantus/Basaglar), detemir (Levemir), degludec (Tresiba).",
-            "Storage: unopened refrigerated 36–46°F; do NOT freeze; opened may be kept at room temp for a limited time."
+            "Rapid-acting: lispro (Humalog), aspart (NovoLog), glulisine (Apidra) — onset ~15 min; give with meals.",
+            "Short-acting: regular (Humulin R, Novolin R) — onset ~30 min; only insulin safe IV.",
+            "Intermediate: NPH (Humulin N, Novolin N) — cloudy; peak 4–10 hr; mix last.",
+            "Long-acting (basal): glargine (Lantus/Basaglar), detemir (Levemir), degludec (Tresiba) — clear; do NOT mix.",
+            "Concentrated: Toujeo (glargine U-300), U-500 regular — NOT interchangeable unit-for-unit.",
+            "Storage: unopened refrigerated 36–46°F; do NOT freeze; opened may be kept at room temp for a limited time per product."
           ]
         },
         {
@@ -43,15 +75,70 @@
           "items": [
             "Tylenol = acetaminophen (max 4,000 mg/day; hepatotoxic in overdose).",
             "Advil/Motrin = ibuprofen (NSAID; take with food).",
-            "Aleve = naproxen (NSAID).", "Claritin = loratadine; Zyrtec = cetirizine; Allegra = fexofenadine (2nd-gen antihistamines).",
-            "Benadryl = diphenhydramine (1st-gen; sedating)."
+            "Aleve = naproxen (NSAID).",
+            "Claritin = loratadine; Zyrtec = cetirizine; Allegra = fexofenadine (2nd-gen antihistamines).",
+            "Benadryl = diphenhydramine (1st-gen; sedating).",
+            "Sudafed = pseudoephedrine (CMEA logbook; ↑ BP; behind counter).",
+            "Mucinex = guaifenesin (expectorant); Delsym = dextromethorphan (antitussive)."
           ]
         },
         {
           "title": "High-Alert & LASA Drugs",
           "items": [
-            "High-alert: insulin, anticoagulants (heparin, warfarin), opioids, concentrated electrolytes (KCl), chemotherapy.",
-            "LASA examples: hydrOXYzine vs hydrALAZINE, predniSONE vs prednisoLONE, DOPamine vs DOBUTamine — use tall-man lettering."
+            "High-alert (ISMP): insulin, anticoagulants (heparin, warfarin, DOACs), opioids, concentrated electrolytes (KCl), chemotherapy, neuromuscular blockers, methotrexate, digoxin.",
+            "LASA examples: hydrOXYzine vs hydrALAZINE, predniSONE vs prednisoLONE, DOPamine vs DOBUTamine, vinBLAStine vs vinCRIStine, Celebrex vs Cerebyx — use tall-man lettering.",
+            "Independent double-check required for all high-alert meds."
+          ]
+        },
+        {
+          "title": "Key Side Effects & Monitoring",
+          "items": [
+            "ACE inhibitors: dry cough, hyperkalemia, angioedema.",
+            "Statins: myopathy/rhabdomyolysis, ↑ LFTs.",
+            "Metformin: GI upset, lactic acidosis (rare).",
+            "Corticosteroids: hyperglycemia, adrenal suppression, osteoporosis, weight gain.",
+            "Fluoroquinolones: tendon rupture, QTc, peripheral neuropathy.",
+            "Metoclopramide: tardive dyskinesia (black box), EPS.",
+            "Amiodarone/pioglitazone: pioglitazone → HF exacerbation, bladder cancer risk.",
+            "Bisphosphonates: esophageal irritation — stay upright 30 min, empty stomach."
+          ]
+        },
+        {
+          "title": "Critical Interactions & Contraindications",
+          "items": [
+            "MAOI + SSRI/SNRI/triptan/tramadol/linezolid/dextromethorphan → serotonin syndrome.",
+            "MAOI + tyramine foods (aged cheese, wine, cured meats) → hypertensive crisis.",
+            "Warfarin: antidote vitamin K; monitor INR; many CYP + dietary (vitamin K) interactions.",
+            "Metformin: hold 48h around IV iodinated contrast (lactic acidosis).",
+            "Methotrexate: WEEKLY dosing for RA — daily = fatal error.",
+            "Nitroglycerin + PDE-5 inhibitors (sildenafil) → severe hypotension.",
+            "St. John's Wort induces CYP3A4 → ↓ OCPs, warfarin, many drugs.",
+            "Triptans/ergots: contraindicated in CAD, uncontrolled HTN.",
+            "PPIs (omeprazole) ↓ clopidogrel activation (CYP2C19).",
+            "Abacavir: HLA-B*5701 test before use (hypersensitivity)."
+          ]
+        },
+        {
+          "title": "Vaccine Storage",
+          "items": [
+            "Live attenuated (MMR, Varicella): FROZEN; CI in pregnancy/immunocompromised.",
+            "Inactivated influenza, Shingrix, pneumococcal, Tdap, Hep B: refrigerate 2–8°C.",
+            "COVID-19 mRNA: frozen/ultra-cold per product.",
+            "Rule: most vaccines refrigerate; MMR/Varicella freeze; NEVER freeze most others."
+          ]
+        },
+        {
+          "title": "Narrow Therapeutic Index (NTI) Drugs",
+          "items": [
+            "warfarin, digoxin, lithium, phenytoin, theophylline, levothyroxine, carbamazepine, valproic acid, tacrolimus, cyclosporine, aminoglycosides, vancomycin.",
+            "Require therapeutic drug monitoring; substitution caution."
+          ]
+        },
+        {
+          "title": "Known Teratogens (Pregnancy Safety)",
+          "items": [
+            "isotretinoin (iPLEDGE), thalidomide, warfarin, methotrexate, valproic acid, phenytoin, ACE inhibitors/ARBs, statins, tetracyclines, lithium, misoprostol.",
+            "REMS programs: iPLEDGE (isotretinoin), clozapine REMS, THALOMID/REVLIMID, TIRF (fentanyl)."
           ]
         }
       ]
@@ -59,15 +146,17 @@
     {
       "domain": "Patient Safety",
       "weight": "26.25%",
-      "summary": "Patient Safety and Quality Assurance. Covers error prevention, high-alert meds, ISMP error-prone abbreviations, NDC format, hygiene, and reporting.",
+      "summary": "Patient Safety and Quality Assurance. Covers error prevention, high-alert meds, ISMP error-prone abbreviations, NDC format, USP compounding standards, hygiene, and reporting.",
       "sections": [
         {
           "title": "Error Prevention Basics",
           "items": [
-            "Five rights: right patient, right drug, right dose, right route, right time.",
+            "Five rights: right patient, right drug, right dose, right route, right time (+ documentation, reason).",
+            "Use 2 identifiers: full name and date of birth.",
             "Barcode scanning verifies the correct product against the order.",
             "Independent double-checks for high-alert meds (e.g., insulin, heparin).",
-            "Medication reconciliation compares a patient's meds to new orders to prevent duplication/omission."
+            "Medication reconciliation compares a patient's meds to new orders to prevent duplication/omission.",
+            "Pharmacist performs final verification; a tech cannot verify their own work."
           ]
         },
         {
@@ -78,7 +167,8 @@
             "'QD'/'QOD' → write 'daily'/'every other day'.",
             "Trailing zero (1.0 mg) → write 1 mg.",
             "No leading zero (.5 mg) → write 0.5 mg.",
-            "'MS/MSO4/MgSO4' → spell out morphine sulfate or magnesium sulfate."
+            "'MS/MSO4/MgSO4' → spell out morphine sulfate or magnesium sulfate.",
+            "'μg' → write 'mcg'; 'cc' → write 'mL'; 'D/C' spell out; 'hs' → 'at bedtime'."
           ]
         },
         {
@@ -86,7 +176,27 @@
           "items": [
             "National Drug Code = unique 10- or 11-digit, 3-segment number.",
             "Segment 1 = labeler/manufacturer; Segment 2 = product (strength, dosage form); Segment 3 = package size.",
-            "Common formats: 5-4-2, 5-3-2, 4-4-2 (may be padded to 11 digits with a leading zero)."
+            "Common formats: 5-4-2, 5-3-2, 4-4-2 (padded to 11 digits with a leading zero in the short segment)."
+          ]
+        },
+        {
+          "title": "Medication Error Types & DUR",
+          "items": [
+            "Types: prescribing, transcription/entry, dispensing, administration, monitoring errors; near-miss = caught before patient.",
+            "Adverse drug event (ADE): harm from a drug (may or may not be an error).",
+            "Prospective DUR: BEFORE dispensing — interactions, allergies, duplication, dose.",
+            "Concurrent DUR: during therapy; Retrospective DUR: after dispensing (audits).",
+            "OBRA-90 (effective 1993): mandates prospective DUR + offer to counsel."
+          ]
+        },
+        {
+          "title": "USP Compounding Standards (effective Nov 1, 2023)",
+          "items": [
+            "USP <795> non-sterile: BUDs — aqueous oral ≤14 days refrigerated, topical ≤30 days, non-aqueous ≤90 days, solids ≤180 days.",
+            "USP <797> sterile: Category 1 (ISO 5, short BUD) vs Category 2 (ISO 7 buffer + ISO 8 ante).",
+            "PECs: LAFW/CAI for non-hazardous (ISO 5); BSC/CACI for hazardous.",
+            "USP <800> hazardous drugs (effective Dec 1, 2023): negative-pressure room, CSTDs, annual training, spill kits.",
+            "Gowning order (sterile): shoe covers → hair/beard cover → hand hygiene → gown → mask → sterile gloves."
           ]
         },
         {
@@ -94,8 +204,9 @@
           "items": [
             "REMS: Risk Evaluation and Mitigation Strategy (e.g., iPLEDGE for isotretinoin, clozapine REMS).",
             "Report errors/near-misses to improve systems (non-punitive culture).",
-            "MedWatch: FDA program for reporting adverse events.",
-            "USP <795> non-sterile and <797> sterile compounding standards; <800> hazardous drugs."
+            "MedWatch: FDA adverse event reporting; FAERS public database; ISMP MERP; VAERS for vaccines.",
+            "Root Cause Analysis (RCA): investigates WHY (reactive); FMEA: proactive failure analysis.",
+            "PPE donning: gown → mask → goggles → gloves; doffing: gloves → goggles → gown → mask."
           ]
         }
       ]
@@ -103,7 +214,7 @@
     {
       "domain": "Order Entry",
       "weight": "21.25%",
-      "summary": "Order Entry and Processing. Sig code interpretation, pharmacy calculations, days supply, conversions, and prescription intake.",
+      "summary": "Order Entry and Processing. Sig code interpretation, pharmacy calculations, days supply, conversions, prescription intake, refill rules, and insurance processing.",
       "sections": [
         {
           "title": "Common Sig Codes",
@@ -112,17 +223,17 @@
             "BID = twice daily; TID = 3x daily; QID = 4x daily; QHS = at bedtime; QAM = every morning.",
             "PRN = as needed; ac = before meals; pc = after meals; q6h = every 6 hours.",
             "gtt = drop; OD = right eye; OS = left eye; OU = both eyes; AD/AS/AU = right/left/both ears.",
-            "ii tab = 2 tablets; i cap = 1 capsule."
+            "ii tab = 2 tablets; i cap = 1 capsule; qs = quantity sufficient; UD = as directed."
           ]
         },
         {
           "title": "Key Conversions",
           "items": [
-            "1 tsp = 5 mL; 1 tbsp = 15 mL; 1 fl oz = 30 mL.",
+            "1 tsp = 5 mL; 1 tbsp = 15 mL; 1 fl oz = 30 mL; 1 cup = 240 mL.",
             "1 kg = 2.2 lb; 1 lb = 454 g.",
-            "1 grain (gr) ≈ 65 mg; 1 oz = 28.4 g.",
-            "1 gallon = 3,785 mL; 1 pint = 473 mL.",
-            "Temperature: °C = (°F − 32) × 5/9."
+            "1 grain (gr) ≈ 65 mg; 1 oz = 28.4 g; 1 g = 1,000 mg; 1 mg = 1,000 mcg.",
+            "1 gallon = 3,785 mL; 1 pint = 473 mL; 1 quart = 946 mL.",
+            "Temperature: °C = (°F − 32) × 5/9; body 37°C = 98.6°F; fridge 2–8°C = 36–46°F."
           ]
         },
         {
@@ -130,9 +241,12 @@
           "items": [
             "Days supply = total quantity ÷ amount used per day.",
             "Percent strength: X% = X grams per 100 mL (or 100 g).",
+            "Dilution: C1V1 = C2V2.",
             "IV flow rate (mL/hr) = total volume ÷ total time (hr).",
             "Drops/min = (volume × drop factor) ÷ time in minutes.",
-            "Alligation: use for mixing two strengths to make an intermediate strength (parts method)."
+            "Alligation: parts method for mixing two strengths to an intermediate strength.",
+            "Powder volume = final volume − diluent added.",
+            "Dose by weight = mg/kg × weight (kg)."
           ]
         },
         {
@@ -143,51 +257,107 @@
             "Check insurance/DUR and allergies before adjudication.",
             "Technicians enter data; the pharmacist performs the final clinical verification."
           ]
+        },
+        {
+          "title": "Refill Rules",
+          "items": [
+            "C-II: NO refills; Rx typically valid 30 days (state may vary).",
+            "C-III–C-V: up to 5 refills within 6 months of written date.",
+            "Non-controlled: per state law, commonly up to 1 year.",
+            "C-II partial fill: remainder within 72 hr (community) or 60 days (LTCF/terminally ill)."
+          ]
+        },
+        {
+          "title": "Insurance / Third-Party Processing",
+          "items": [
+            "BIN routes the claim; PCN sub-routing; Group ID and Member ID identify plan/patient.",
+            "DAW codes: 0 = no instruction, 1 = prescriber brand, 2 = patient brand.",
+            "COB = coordination of benefits (primary vs secondary).",
+            "Reject codes: 70 = not covered, 75 = prior auth required, 76 = plan limits/refill too soon, 25 = invalid prescriber ID."
+          ]
+        },
+        {
+          "title": "Auxiliary Labels",
+          "items": [
+            "Take with food: NSAIDs, metformin, iron. Empty stomach: levothyroxine, bisphosphonates.",
+            "Avoid alcohol: metronidazole, CNS depressants. Avoid sun: doxycycline, fluoroquinolones, sulfonamides.",
+            "May cause drowsiness: opioids, benzos, antihistamines. Shake well: suspensions.",
+            "Do not crush/chew: ER/XL/XR/SR, enteric-coated. Refrigerate/do not freeze: insulin, amoxicillin suspension."
+          ]
         }
       ]
     },
     {
       "domain": "Federal Requirements",
       "weight": "12.5%",
-      "summary": "Federal Requirements. DEA controlled substance schedules, DEA forms, refill rules, key laws (CSA, HIPAA, OBRA-90, PPPA, CMEA), and DEA number verification.",
+      "summary": "Federal Requirements. DEA controlled substance schedules, DEA forms, refill rules, key laws (CSA, HIPAA, OBRA-90, PPPA, CMEA, DSCSA), and DEA number verification.",
       "sections": [
         {
           "title": "DEA Controlled Substance Schedules",
           "items": [
             "C-I: no accepted medical use, high abuse (heroin, LSD, marijuana federally).",
-            "C-II: high abuse, accepted use — NO refills (oxycodone, hydrocodone, morphine, Adderall, fentanyl).",
-            "C-III: moderate abuse (Tylenol #3, testosterone) — up to 5 refills / 6 months.",
-            "C-IV: lower abuse (alprazolam, lorazepam, tramadol, zolpidem) — up to 5 refills / 6 months.",
-            "C-V: lowest abuse (cough syrups with codeine, pregabalin) — up to 5 refills / 6 months."
+            "C-II: high abuse, accepted use — NO refills (oxycodone, hydrocodone, morphine, Adderall, fentanyl, methadone).",
+            "C-III: moderate abuse (Tylenol #3, testosterone, buprenorphine) — up to 5 refills / 6 months.",
+            "C-IV: lower abuse (alprazolam, lorazepam, tramadol, zolpidem, carisoprodol) — up to 5 refills / 6 months.",
+            "C-V: lowest abuse (cough syrups with codeine, pregabalin) — up to 5 refills / 6 months.",
+            "Tramadol → C-IV (2014); hydrocodone combos → C-II (Oct 6, 2014)."
           ]
         },
         {
           "title": "DEA Forms",
           "items": [
-            "Form 222: order/transfer Schedule II substances (electronic = CSOS).",
-            "Form 106: report theft or significant loss of controlled substances.",
+            "Form 222: order/transfer Schedule I & II substances (electronic = CSOS); triplicate, no alterations, ship within 60 days, keep copy 3 for 2 years.",
+            "Form 106: report theft or significant loss of controlled substances (within 1 business day).",
             "Form 41: record destruction/disposal of controlled substances.",
-            "Form 224: pharmacy application for DEA registration."
+            "Form 224: pharmacy application for DEA registration (224a = renewal every 3 years).",
+            "CSOS (authorized 2005): electronic ordering of C-I/C-II; requires DEA digital certificate."
           ]
         },
         {
           "title": "Key Federal Laws",
           "items": [
-            "Controlled Substances Act (1970): created the 5-schedule system.",
-            "HIPAA (1996): protects patient PHI (privacy & security).",
-            "OBRA-90: offer to counsel + prospective DUR.",
-            "Poison Prevention Packaging Act (1970): child-resistant containers.",
-            "CMEA (2005): pseudoephedrine limits 3.6 g/day, 9 g/30 days; logbook + ID.",
-            "FDCA (1938) & Durham-Humphrey Amendment (1951): Rx vs OTC classification.",
+            "FDCA (1938): FDA drug safety authority; Durham-Humphrey (1951): Rx vs OTC classification.",
+            "Kefauver-Harris (1962): required proof of efficacy (thalidomide disaster).",
+            "Controlled Substances Act (1970): created the 5-schedule system; Poison Prevention Packaging Act (1970): child-resistant containers.",
+            "OBRA-90 (effective 1993): offer to counsel + prospective DUR.",
+            "HIPAA (1996; Privacy 2003, Security 2005): protects patient PHI.",
+            "CMEA (2005): pseudoephedrine limits 3.6 g/day, 9 g/30 days; logbook + photo ID.",
+            "DATA 2000: office-based buprenorphine for OUD; DSCSA (2013): track-and-trace (full enforcement Nov 2024).",
             "Biennial (every 2 years) controlled substance inventory required."
+          ]
+        },
+        {
+          "title": "HIPAA — Tech Specifics",
+          "items": [
+            "PHI = any info identifying the patient (name, DOB, Rx number, diagnosis).",
+            "Minimum necessary standard; Notice of Privacy Practices at first fill.",
+            "Permitted disclosures: treatment, payment, operations (TPO) without extra authorization.",
+            "Breach notification within 60 days; penalties civil ($100–$50,000/violation) and criminal."
+          ]
+        },
+        {
+          "title": "PPPA & Pseudoephedrine (CMEA)",
+          "items": [
+            "PPPA (1970): child-resistant packaging for Rx and certain OTC; patient may waive in writing.",
+            "PPPA exemptions: SL nitroglycerin, SL isosorbide, prednisone ≤105 mg, certain peds antibiotics.",
+            "CMEA: 3.6 g/day, 9 g/30 days pseudoephedrine; photo ID + logbook; kept behind counter."
           ]
         },
         {
           "title": "DEA Number Verification",
           "items": [
-            "Format: 2 letters + 7 digits. First letter = registrant type; second letter = registrant's last-name initial.",
+            "Format: 2 letters + 7 digits. First letter = registrant type (B = physician, C = pharmacy, M = mid-level); second letter = registrant's last-name initial.",
             "Check digit math: (1st+3rd+5th digits) + 2×(2nd+4th+6th digits) = sum; the last digit of the sum must equal the 7th (check) digit.",
             "Example: AB1234563 → (1+3+5)=9; (2+4+6)=12 ×2 =24; 9+24=33; last digit 3 = check digit 3. Valid."
+          ]
+        },
+        {
+          "title": "Recalls & Orange Book",
+          "items": [
+            "FDA recalls: Class I (serious/death), Class II (temporary/reversible), Class III (minor/labeling).",
+            "Orange Book codes: A/AB = therapeutically equivalent (substitutable); B = not equivalent.",
+            "NPI: 10-digit provider ID (effective 2007); required on claims; does NOT replace DEA number.",
+            "Rule of thumb: always follow the STRICTER of state vs federal law."
           ]
         }
       ]
