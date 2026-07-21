@@ -1,490 +1,72 @@
 {
   "questions": [
-    {
-      "id": 1,
-      "question": "Which medication class commonly ends in -pril?",
-      "choices": ["ACE inhibitors", "ARBs", "Beta blockers", "Statins"],
-      "answer": "ACE inhibitors",
-      "rationale": "ACE inhibitors commonly end in -pril, such as lisinopril, enalapril, and ramipril.",
-      "domain": "Medications",
-      "subtopic": "Drug Classes",
-      "difficulty": "easy"
-    },
-    {
-      "id": 2,
-      "question": "Which adverse effect is strongly associated with ACE inhibitors?",
-      "choices": ["Dry cough", "Orange urine", "Tendon rupture", "Gingival hyperplasia"],
-      "answer": "Dry cough",
-      "rationale": "ACE inhibitors may cause dry cough, hyperkalemia, and angioedema.",
-      "domain": "Medications",
-      "subtopic": "Side Effects",
-      "difficulty": "easy"
-    },
-    {
-      "id": 3,
-      "question": "Which drug is the generic name for Lipitor?",
-      "choices": ["Atorvastatin", "Rosuvastatin", "Simvastatin", "Pravastatin"],
-      "answer": "Atorvastatin",
-      "rationale": "Lipitor is the brand name for atorvastatin.",
-      "domain": "Medications",
-      "subtopic": "Brand/Generic",
-      "difficulty": "easy"
-    },
-    {
-      "id": 4,
-      "question": "What is the mechanism of action of statins?",
-      "choices": [
-        "Inhibit HMG-CoA reductase",
-        "Block angiotensin II receptors",
-        "Activate antithrombin III",
-        "Block serotonin reuptake"
-      ],
-      "answer": "Inhibit HMG-CoA reductase",
-      "rationale": "Statins inhibit HMG-CoA reductase, decreasing cholesterol synthesis.",
-      "domain": "Medications",
-      "subtopic": "Mechanism of Action",
-      "difficulty": "medium"
-    },
-    {
-      "id": 5,
-      "question": "Which insulin is considered rapid-acting?",
-      "choices": ["Insulin lispro", "Insulin regular", "Insulin NPH", "Insulin glargine"],
-      "answer": "Insulin lispro",
-      "rationale": "Lispro, aspart, and glulisine are rapid-acting insulins with onset around 15 minutes.",
-      "domain": "Medications",
-      "subtopic": "Insulin",
-      "difficulty": "easy"
-    },
-    {
-      "id": 6,
-      "question": "Which insulin is the only insulin commonly given intravenously?",
-      "choices": ["Regular insulin", "NPH insulin", "Insulin glargine", "Insulin detemir"],
-      "answer": "Regular insulin",
-      "rationale": "Regular insulin is short-acting and is the insulin used IV in appropriate settings.",
-      "domain": "Medications",
-      "subtopic": "Insulin",
-      "difficulty": "hard"
-    },
-    {
-      "id": 7,
-      "question": "Which insulin is cloudy and must be mixed carefully?",
-      "choices": ["NPH", "Lispro", "Glargine", "Degludec"],
-      "answer": "NPH",
-      "rationale": "NPH is intermediate-acting, cloudy, and should be gently mixed before use.",
-      "domain": "Medications",
-      "subtopic": "Insulin",
-      "difficulty": "medium"
-    },
-    {
-      "id": 8,
-      "question": "Which storage instruction is correct for unopened insulin?",
-      "choices": [
-        "Refrigerate at 36–46°F and do not freeze",
-        "Store frozen until opened",
-        "Store only at room temperature",
-        "Store near direct sunlight"
-      ],
-      "answer": "Refrigerate at 36–46°F and do not freeze",
-      "rationale": "Unopened insulin is generally refrigerated at 36–46°F and should not be frozen.",
-      "domain": "Medications",
-      "subtopic": "Storage",
-      "difficulty": "easy"
-    },
-    {
-      "id": 9,
-      "question": "What is the maximum adult daily dose of acetaminophen commonly tested for PTCE purposes?",
-      "choices": ["4000 mg/day", "1000 mg/day", "2000 mg/day", "6000 mg/day"],
-      "answer": "4000 mg/day",
-      "rationale": "Acetaminophen maximum daily dose is commonly tested as 4000 mg/day; overdose can cause hepatotoxicity.",
-      "domain": "Medications",
-      "subtopic": "OTC",
-      "difficulty": "easy"
-    },
-    {
-      "id": 10,
-      "question": "Which medication is a first-generation sedating antihistamine?",
-      "choices": ["Diphenhydramine", "Loratadine", "Fexofenadine", "Cetirizine"],
-      "answer": "Diphenhydramine",
-      "rationale": "Diphenhydramine is a first-generation antihistamine and is more sedating than second-generation agents.",
-      "domain": "Medications",
-      "subtopic": "OTC",
-      "difficulty": "easy"
-    },
-    {
-      "id": 11,
-      "question": "Which medication combination can cause severe hypotension?",
-      "choices": [
-        "Nitroglycerin and sildenafil",
-        "Metformin and food",
-        "Amoxicillin and water",
-        "Levothyroxine and water"
-      ],
-      "answer": "Nitroglycerin and sildenafil",
-      "rationale": "Nitrates plus PDE-5 inhibitors such as sildenafil can cause dangerous hypotension.",
-      "domain": "Medications",
-      "subtopic": "Interactions",
-      "difficulty": "medium"
-    },
-    {
-      "id": 12,
-      "question": "Which interaction is most associated with serotonin syndrome?",
-      "choices": [
-        "MAOI plus SSRI",
-        "Metformin plus food",
-        "Ibuprofen plus food",
-        "Insulin plus glucose tablets"
-      ],
-      "answer": "MAOI plus SSRI",
-      "rationale": "MAOIs combined with serotonergic drugs such as SSRIs, SNRIs, triptans, tramadol, linezolid, or dextromethorphan can cause serotonin syndrome.",
-      "domain": "Medications",
-      "subtopic": "Interactions",
-      "difficulty": "hard"
-    },
-    {
-      "id": 13,
-      "question": "Methotrexate for rheumatoid arthritis is usually dosed how?",
-      "choices": ["Weekly", "Daily", "Every 2 hours", "Only once yearly"],
-      "answer": "Weekly",
-      "rationale": "Methotrexate for RA is typically weekly. Daily dosing for RA is a serious and potentially fatal error.",
-      "domain": "Medications",
-      "subtopic": "High-Alert",
-      "difficulty": "hard"
-    },
-    {
-      "id": 14,
-      "question": "Which medication is considered narrow therapeutic index?",
-      "choices": ["Warfarin", "Loratadine", "Guaifenesin", "Docusate"],
-      "answer": "Warfarin",
-      "rationale": "Warfarin is an NTI drug requiring close monitoring with INR.",
-      "domain": "Medications",
-      "subtopic": "NTI",
-      "difficulty": "medium"
-    },
-    {
-      "id": 15,
-      "question": "What is the antidote for warfarin?",
-      "choices": ["Vitamin K", "Protamine", "Naloxone", "Flumazenil"],
-      "answer": "Vitamin K",
-      "rationale": "Vitamin K reverses warfarin. Protamine reverses heparin; naloxone reverses opioids; flumazenil reverses benzodiazepines.",
-      "domain": "Medications",
-      "subtopic": "Antidotes",
-      "difficulty": "medium"
-    },
-    {
-      "id": 16,
-      "question": "Which vaccine storage statement is correct?",
-      "choices": [
-        "MMR and varicella are stored frozen",
-        "All vaccines are stored frozen",
-        "All vaccines are stored at room temperature",
-        "Shingrix must be frozen"
-      ],
-      "answer": "MMR and varicella are stored frozen",
-      "rationale": "MMR and varicella are live vaccines commonly stored frozen. Most other vaccines are refrigerated.",
-      "domain": "Medications",
-      "subtopic": "Vaccine Storage",
-      "difficulty": "medium"
-    },
-    {
-      "id": 17,
-      "question": "Which LASA pair is commonly tested?",
-      "choices": [
-        "Hydroxyzine and hydralazine",
-        "Acetaminophen and Tylenol",
-        "Atorvastatin and Lipitor",
-        "Ibuprofen and Motrin"
-      ],
-      "answer": "Hydroxyzine and hydralazine",
-      "rationale": "Hydroxyzine and hydralazine are look-alike/sound-alike drugs. Tall-man lettering helps reduce errors.",
-      "domain": "Medications",
-      "subtopic": "LASA",
-      "difficulty": "medium"
-    },
-    {
-      "id": 18,
-      "question": "Which class is associated with tendon rupture risk?",
-      "choices": ["Fluoroquinolones", "Penicillins", "SSRIs", "H2 blockers"],
-      "answer": "Fluoroquinolones",
-      "rationale": "Fluoroquinolones such as ciprofloxacin and levofloxacin carry a tendon rupture warning.",
-      "domain": "Medications",
-      "subtopic": "Side Effects",
-      "difficulty": "medium"
-    },
-    {
-      "id": 19,
-      "question": "What should patients avoid taking close to levothyroxine?",
-      "choices": ["Calcium and iron", "Water", "Plain toast", "Air"],
-      "answer": "Calcium and iron",
-      "rationale": "Calcium, iron, and antacids can decrease levothyroxine absorption; separate by several hours.",
-      "domain": "Medications",
-      "subtopic": "Interactions",
-      "difficulty": "medium"
-    },
-    {
-      "id": 20,
-      "question": "Which drug class ends in -gliflozin?",
-      "choices": ["SGLT-2 inhibitors", "DPP-4 inhibitors", "GLP-1 agonists", "ACE inhibitors"],
-      "answer": "SGLT-2 inhibitors",
-      "rationale": "Empagliflozin and canagliflozin are SGLT-2 inhibitors.",
-      "domain": "Medications",
-      "subtopic": "Drug Classes",
-      "difficulty": "medium"
-    },
-    {
-      "id": 21,
-      "question": "What are the five rights of medication safety?",
-      "choices": [
-        "Right patient, drug, dose, route, time",
-        "Right pharmacy, bin, PCN, group, copay",
-        "Right prescriber, DEA, NPI, address, phone",
-        "Right label, bag, receipt, copay, signature"
-      ],
-      "answer": "Right patient, drug, dose, route, time",
-      "rationale": "The core five rights are right patient, right drug, right dose, right route, and right time.",
-      "domain": "Patient Safety",
-      "subtopic": "Error Prevention",
-      "difficulty": "easy"
-    },
-    {
-      "id": 22,
-      "question": "Which patient identifiers should be used at pickup or intake?",
-      "choices": [
-        "Full name and date of birth",
-        "Only first name",
-        "Only prescription number",
-        "Hair color and shoe size"
-      ],
-      "answer": "Full name and date of birth",
-      "rationale": "Two identifiers such as full name and DOB reduce wrong-patient errors.",
-      "domain": "Patient Safety",
-      "subtopic": "Error Prevention",
-      "difficulty": "easy"
-    },
-    {
-      "id": 23,
-      "question": "Which abbreviation should be avoided because it can be mistaken for zero or four?",
-      "choices": ["U", "mL", "mg", "mcg"],
-      "answer": "U",
-      "rationale": "U should be written as 'units' to avoid dangerous misinterpretation.",
-      "domain": "Patient Safety",
-      "subtopic": "ISMP Abbreviations",
-      "difficulty": "easy"
-    },
-    {
-      "id": 24,
-      "question": "Which is the safest way to write one-half milligram?",
-      "choices": ["0.5 mg", ".5 mg", "0.50 mg", "1/2.0 mg"],
-      "answer": "0.5 mg",
-      "rationale": "Use a leading zero before a decimal. Avoid trailing zeros.",
-      "domain": "Patient Safety",
-      "subtopic": "ISMP Abbreviations",
-      "difficulty": "medium"
-    },
-    {
-      "id": 25,
-      "question": "What does the first segment of an NDC identify?",
-      "choices": ["Labeler/manufacturer", "Package size", "Patient ID", "Prescriber DEA"],
-      "answer": "Labeler/manufacturer",
-      "rationale": "The first NDC segment identifies the labeler or manufacturer.",
-      "domain": "Patient Safety",
-      "subtopic": "NDC",
-      "difficulty": "medium"
-    },
-    {
-      "id": 26,
-      "question": "Prospective DUR occurs when?",
-      "choices": [
-        "Before dispensing",
-        "After the patient has finished therapy",
-        "Only during annual inventory",
-        "Only after an error reaches the patient"
-      ],
-      "answer": "Before dispensing",
-      "rationale": "Prospective DUR is performed before dispensing to catch interactions, allergies, duplicate therapy, and dose issues.",
-      "domain": "Patient Safety",
-      "subtopic": "DUR",
-      "difficulty": "medium"
-    },
-    {
-      "id": 27,
-      "question": "OBRA-90 is associated with which pharmacy requirement?",
-      "choices": [
-        "Offer to counsel and prospective DUR",
-        "Creation of DEA schedules",
-        "Pseudoephedrine daily limits",
-        "Child-resistant packaging"
-      ],
-      "answer": "Offer to counsel and prospective DUR",
-      "rationale": "OBRA-90, effective 1993, requires offer to counsel and prospective DUR.",
-      "domain": "Patient Safety",
-      "subtopic": "DUR",
-      "difficulty": "medium"
-    },
-    {
-      "id": 28,
-      "question": "USP <795> covers what type of compounding?",
-      "choices": ["Non-sterile compounding", "Sterile compounding", "Hazardous drug handling only", "Controlled substance inventory"],
-      "answer": "Non-sterile compounding",
-      "rationale": "USP <795> covers non-sterile compounding.",
-      "domain": "Patient Safety",
-      "subtopic": "USP Compounding",
-      "difficulty": "medium"
-    },
-    {
-      "id": 29,
-      "question": "USP <797> primarily covers what?",
-      "choices": ["Sterile compounding", "Non-sterile compounding", "Pseudoephedrine sales", "DEA registration"],
-      "answer": "Sterile compounding",
-      "rationale": "USP <797> governs sterile compounding standards.",
-      "domain": "Patient Safety",
-      "subtopic": "USP Compounding",
-      "difficulty": "medium"
-    },
-    {
-      "id": 30,
-      "question": "USP <800> is focused on what?",
-      "choices": ["Hazardous drugs", "Prescription transfers", "OTC labeling", "DEA numbers"],
-      "answer": "Hazardous drugs",
-      "rationale": "USP <800> covers hazardous drug handling, PPE, containment, and safety procedures.",
-      "domain": "Patient Safety",
-      "subtopic": "USP Compounding",
-      "difficulty": "medium"
-    },
-    {
-      "id": 31,
-      "question": "Which reporting program is used for FDA adverse event reporting?",
-      "choices": ["MedWatch", "CSOS", "CMEA", "Orange Book"],
-      "answer": "MedWatch",
-      "rationale": "MedWatch is the FDA's adverse event reporting program.",
-      "domain": "Patient Safety",
-      "subtopic": "Reporting",
-      "difficulty": "easy"
-    },
-    {
-      "id": 32,
-      "question": "What is a near miss?",
-      "choices": [
-        "An error caught before reaching the patient",
-        "An error that caused death",
-        "A drug recall",
-        "A controlled substance inventory discrepancy only"
-      ],
-      "answer": "An error caught before reaching the patient",
-      "rationale": "A near miss is an error or potential error intercepted before reaching the patient.",
-      "domain": "Patient Safety",
-      "subtopic": "Error Prevention",
-      "difficulty": "easy"
-    },
-    {
-      "id": 33,
-      "question": "RCA is best described as what?",
-      "choices": [
-        "Reactive analysis of why an error happened",
-        "Proactive prediction of failures before they occur",
-        "A DEA ordering system",
-        "A vaccine reporting database"
-      ],
-      "answer": "Reactive analysis of why an error happened",
-      "rationale": "Root Cause Analysis investigates why an error happened after the event.",
-      "domain": "Patient Safety",
-      "subtopic": "QA",
-      "difficulty": "hard"
-    },
-    {
-      "id": 34,
-      "question": "FMEA is best described as what?",
-      "choices": [
-        "Proactive analysis of possible failures",
-        "FDA vaccine reporting",
-        "DEA number validation",
-        "Retrospective drug utilization review"
-      ],
-      "answer": "Proactive analysis of possible failures",
-      "rationale": "Failure Mode and Effects Analysis is proactive and helps identify weaknesses before errors occur.",
-      "domain": "Patient Safety",
-      "subtopic": "QA",
-      "difficulty": "hard"
-    },
-    {
-      "id": 35,
-      "question": "Which abbreviation means by mouth?",
-      "choices": ["PO", "PR", "SL", "IM"],
-      "answer": "PO",
-      "rationale": "PO means by mouth.",
-      "domain": "Order Entry",
-      "subtopic": "Sig Codes",
-      "difficulty": "easy"
-    },
-    {
-      "id": 36,
-      "question": "What does BID mean?",
-      "choices": ["Twice daily", "Three times daily", "Four times daily", "At bedtime"],
-      "answer": "Twice daily",
-      "rationale": "BID means twice daily.",
-      "domain": "Order Entry",
-      "subtopic": "Sig Codes",
-      "difficulty": "easy"
-    },
-    {
-      "id": 37,
-      "question": "What does QHS mean?",
-      "choices": ["At bedtime", "Every morning", "Every hour", "Before meals"],
-      "answer": "At bedtime",
-      "rationale": "QHS means at bedtime.",
-      "domain": "Order Entry",
-      "subtopic": "Sig Codes",
-      "difficulty": "easy"
-    },
-    {
-      "id": 38,
-      "question": "What does OU mean on an ophthalmic prescription?",
-      "choices": ["Both eyes", "Right eye", "Left eye", "Both ears"],
-      "answer": "Both eyes",
-      "rationale": "OU means both eyes. OD is right eye, OS is left eye.",
-      "domain": "Order Entry",
-      "subtopic": "Sig Codes",
-      "difficulty": "medium"
-    },
-    {
-      "id": 39,
-      "question": "How many mL are in 1 teaspoon?",
-      "choices": ["5 mL", "10 mL", "15 mL", "30 mL"],
-      "answer": "5 mL",
-      "rationale": "1 teaspoon equals 5 mL.",
-      "domain": "Order Entry",
-      "subtopic": "Conversions",
-      "difficulty": "easy"
-    },
-    {
-      "id": 40,
-      "question": "How many mL are in 1 tablespoon?",
-      "choices": ["15 mL", "5 mL", "30 mL", "60 mL"],
-      "answer": "15 mL",
-      "rationale": "1 tablespoon equals 15 mL.",
-      "domain": "Order Entry",
-      "subtopic": "Conversions",
-      "difficulty": "easy"
-    },
-    {
-      "id": 41,
-      "question": "How many pounds are in 1 kilogram?",
-      "choices": ["2.2 lb", "1.2 lb", "4.54 lb", "10 lb"],
-      "answer": "2.2 lb",
-      "rationale": "1 kg equals approximately 2.2 lb.",
-      "domain": "Order Entry",
-      "subtopic": "Conversions",
-      "difficulty": "easy"
-    },
-    {
-      "id": 42,
-      "question": "Which formula calculates days supply?",
-      "choices": [
-        "Total quantity divided by amount used per day",
-        "Amount used per day divided by total quantity",
-        "Quantity multiplied by prescriber DEA",
-        "Copay divided by quantity"
-      ],
-      "answer": "Total quantity divided by amount used per day",
-      "rationale": "Days supply = total quantity ÷ amount used per day.",
-      "domain": "Order Entry",
-      "subtopic": "Calculations",
+    { "id": 1, "domain": "Medications", "question": "What is the generic name for Lipitor?", "options": ["Atorvastatin", "Simvastatin", "Lisinopril", "Losartan"], "answer": 0, "rationale": "Lipitor is the brand name for atorvastatin, an HMG-CoA reductase inhibitor (statin) used to lower LDL cholesterol." },
+    { "id": 2, "domain": "Medications", "question": "Metoprolol belongs to which drug class?", "options": ["ACE inhibitor", "Beta blocker", "Calcium channel blocker", "Diuretic"], "answer": 1, "rationale": "Metoprolol (Lopressor/Toprol XL) is a beta-1 selective beta blocker used for hypertension and angina." },
+    { "id": 3, "domain": "Medications", "question": "Which of the following is a rapid-acting insulin?", "options": ["Glargine", "NPH", "Lispro", "Detemir"], "answer": 2, "rationale": "Lispro (Humalog) is rapid-acting with onset ~15 minutes. Glargine and detemir are long-acting; NPH is intermediate-acting." },
+    { "id": 4, "domain": "Medications", "question": "The suffix '-pril' most commonly indicates which drug class?", "options": ["ARBs", "ACE inhibitors", "Beta blockers", "Statins"], "answer": 1, "rationale": "Drugs ending in '-pril' (lisinopril, enalapril, ramipril) are ACE inhibitors. ARBs end in '-sartan'." },
+    { "id": 5, "domain": "Medications", "question": "What is the maximum recommended daily dose of acetaminophen for a healthy adult?", "options": ["1,000 mg", "2,000 mg", "4,000 mg", "6,000 mg"], "answer": 2, "rationale": "The general maximum is 4,000 mg/day; exceeding it risks hepatotoxicity. Many manufacturers now recommend 3,000 mg." },
+    { "id": 6, "domain": "Medications", "question": "Azithromycin (Zithromax) belongs to which antibiotic class?", "options": ["Penicillin", "Macrolide", "Fluoroquinolone", "Cephalosporin"], "answer": 1, "rationale": "Azithromycin is a macrolide antibiotic, commonly dispensed as a Z-Pak." },
+    { "id": 7, "domain": "Medications", "question": "Which medication requires INR monitoring?", "options": ["Warfarin", "Metformin", "Amlodipine", "Omeprazole"], "answer": 0, "rationale": "Warfarin (Coumadin) is a vitamin K antagonist anticoagulant that requires regular INR monitoring to ensure therapeutic and safe levels." },
+    { "id": 8, "domain": "Medications", "question": "What is the brand name for omeprazole?", "options": ["Nexium", "Protonix", "Prilosec", "Zantac"], "answer": 2, "rationale": "Prilosec is the brand for omeprazole, a proton pump inhibitor. Nexium=esomeprazole, Protonix=pantoprazole." },
+    { "id": 9, "domain": "Medications", "question": "Unopened insulin vials should be stored at which temperature?", "options": ["Room temperature only", "Freezer (-4°F)", "Refrigerated 36–46°F", "Below 0°F"], "answer": 2, "rationale": "Unopened insulin must be refrigerated at 36–46°F (2–8°C). Freezing destroys insulin; do not freeze." },
+    { "id": 10, "domain": "Medications", "question": "Albuterol is used primarily to treat which condition?", "options": ["Hypertension", "Asthma/bronchospasm", "Diabetes", "Depression"], "answer": 1, "rationale": "Albuterol (ProAir/Ventolin) is a short-acting beta-2 agonist (SABA) rescue inhaler used to relieve bronchospasm in asthma/COPD." },
+    { "id": 11, "domain": "Medications", "question": "Which of the following is an ARB?", "options": ["Lisinopril", "Losartan", "Metoprolol", "Furosemide"], "answer": 1, "rationale": "Losartan is an angiotensin II receptor blocker (ARB), identified by the '-sartan' suffix." },
+    { "id": 12, "domain": "Medications", "question": "Levothyroxine is used to treat:", "options": ["Hyperthyroidism", "Hypothyroidism", "Diabetes", "Hypertension"], "answer": 1, "rationale": "Levothyroxine (Synthroid) is synthetic T4 used as replacement therapy for hypothyroidism." },
+    { "id": 13, "domain": "Medications", "question": "Which drug is first-line oral therapy for type 2 diabetes?", "options": ["Insulin glargine", "Metformin", "Glipizide", "Pioglitazone"], "answer": 1, "rationale": "Metformin (Glucophage), a biguanide, is the first-line oral agent for type 2 diabetes." },
+    { "id": 14, "domain": "Medications", "question": "Which auxiliary label is most appropriate for an NSAID like ibuprofen?", "options": ["Take on an empty stomach", "May cause drowsiness", "Take with food", "Avoid sunlight"], "answer": 2, "rationale": "NSAIDs can cause GI irritation, so 'Take with food' reduces stomach upset and ulcer risk." },
+    { "id": 15, "domain": "Medications", "question": "Sertraline (Zoloft) belongs to which class?", "options": ["SSRI", "SNRI", "Tricyclic", "MAOI"], "answer": 0, "rationale": "Sertraline is a selective serotonin reuptake inhibitor (SSRI) antidepressant." },
+    { "id": 16, "domain": "Medications", "question": "Furosemide (Lasix) is which type of diuretic?", "options": ["Thiazide", "Loop", "Potassium-sparing", "Osmotic"], "answer": 1, "rationale": "Furosemide is a loop diuretic acting on the loop of Henle; used for edema and heart failure." },
+    { "id": 17, "domain": "Medications", "question": "Which of these is a look-alike/sound-alike (LASA) pair?", "options": ["Hydroxyzine / Hydralazine", "Aspirin / Ibuprofen", "Insulin / Metformin", "Warfarin / Heparin"], "answer": 0, "rationale": "Hydroxyzine (antihistamine) and hydralazine (antihypertensive) are a classic LASA pair; tall-man lettering helps prevent errors." },
+    { "id": 18, "domain": "Medications", "question": "Amoxicillin belongs to which class?", "options": ["Macrolide", "Penicillin", "Tetracycline", "Sulfonamide"], "answer": 1, "rationale": "Amoxicillin is a penicillin (beta-lactam) antibiotic." },
+    { "id": 19, "domain": "Medications", "question": "Which statin is NOT correctly matched to its brand?", "options": ["Atorvastatin – Lipitor", "Simvastatin – Zocor", "Rosuvastatin – Crestor", "Pravastatin – Zetia"], "answer": 3, "rationale": "Pravastatin's brand is Pravachol. Zetia is ezetimibe, which is not a statin." },
+    { "id": 20, "domain": "Medications", "question": "Loratadine (Claritin) is best described as:", "options": ["First-generation antihistamine", "Second-generation antihistamine", "Decongestant", "Corticosteroid"], "answer": 1, "rationale": "Loratadine is a second-generation, non-sedating antihistamine." },
+    { "id": 21, "domain": "Medications", "question": "Gabapentin (Neurontin) is commonly used for:", "options": ["Hypertension", "Neuropathic pain and seizures", "Acid reflux", "Anticoagulation"], "answer": 1, "rationale": "Gabapentin is an anticonvulsant used for neuropathic pain and as an adjunct for seizures." },
+    { "id": 22, "domain": "Medications", "question": "Which is a proton pump inhibitor?", "options": ["Ranitidine", "Famotidine", "Pantoprazole", "Diphenhydramine"], "answer": 2, "rationale": "Pantoprazole (Protonix) is a PPI. Famotidine/ranitidine are H2 blockers." },
+    { "id": 23, "domain": "Medications", "question": "The generic name for Norvasc is:", "options": ["Amlodipine", "Atenolol", "Amiodarone", "Alprazolam"], "answer": 0, "rationale": "Norvasc is amlodipine, a dihydropyridine calcium channel blocker." },
+    { "id": 24, "domain": "Medications", "question": "Which vitamin's activity does warfarin antagonize?", "options": ["Vitamin C", "Vitamin D", "Vitamin K", "Vitamin B12"], "answer": 2, "rationale": "Warfarin inhibits vitamin K-dependent clotting factor synthesis; high vitamin K intake reduces its effect." },
+    { "id": 25, "domain": "Medications", "question": "Which class does clopidogrel (Plavix) belong to?", "options": ["Anticoagulant", "Antiplatelet", "Thrombolytic", "Statin"], "answer": 1, "rationale": "Clopidogrel is an antiplatelet agent used to prevent clots after cardiac events or stents." },
+    { "id": 26, "domain": "Medications", "question": "Which storage condition defines USP controlled room temperature?", "options": ["36–46°F", "59–86°F", "68–77°F", "0–32°F"], "answer": 2, "rationale": "USP controlled room temperature is 68–77°F (20–25°C)." },
+    { "id": 27, "domain": "Medications", "question": "Which drug is a high-alert medication?", "options": ["Acetaminophen", "Insulin", "Loratadine", "Docusate"], "answer": 1, "rationale": "Insulin is an ISMP high-alert medication; errors can cause significant patient harm." },
+    { "id": 28, "domain": "Patient Safety", "question": "Tall-man lettering is used primarily to prevent errors with:", "options": ["Expired drugs", "Look-alike/sound-alike drug names", "Refrigerated drugs", "Controlled substance theft"], "answer": 1, "rationale": "Tall-man lettering (e.g., hydrOXYzine vs hydrALAZINE) visually distinguishes LASA drug names to prevent mix-ups." },
+    { "id": 29, "domain": "Patient Safety", "question": "Which is an ISMP error-prone abbreviation that should be avoided?", "options": ["mg", "mL", "U (for units)", "PO"], "answer": 2, "rationale": "'U' can be misread as a zero or four; 'units' should be spelled out per ISMP guidelines." },
+    { "id": 30, "domain": "Patient Safety", "question": "Why should '1.0 mg' be avoided?", "options": ["Trailing zero may be misread as 10 mg", "It is too small", "Leading zeros are required", "It is not metric"], "answer": 0, "rationale": "A trailing zero (1.0) can be misread as 10 if the decimal is missed. Write '1 mg'." },
+    { "id": 31, "domain": "Patient Safety", "question": "Which is an example of a high-alert medication class?", "options": ["Antihistamines", "Anticoagulants", "Antacids", "Laxatives"], "answer": 1, "rationale": "Anticoagulants (heparin, warfarin) are high-alert; errors carry a high risk of serious harm." },
+    { "id": 32, "domain": "Patient Safety", "question": "What is the purpose of medication reconciliation?", "options": ["To bill insurance", "To compare current meds against orders to prevent errors", "To reorder stock", "To count controlled substances"], "answer": 1, "rationale": "Med reconciliation compares a patient's medication list to new orders to prevent omissions, duplications, and interactions." },
+    { "id": 33, "domain": "Patient Safety", "question": "The NDC number identifies all EXCEPT:", "options": ["Labeler/manufacturer", "Product (strength/dosage form)", "Package size", "Patient name"], "answer": 3, "rationale": "The NDC's three segments identify labeler, product, and package size — not patient information." },
+    { "id": 34, "domain": "Patient Safety", "question": "A REMS program is designed to:", "options": ["Lower drug prices", "Mitigate serious risks of certain drugs", "Speed up FDA approval", "Track prescriber sales"], "answer": 1, "rationale": "A Risk Evaluation and Mitigation Strategy (REMS) manages known serious risks (e.g., iPLEDGE for isotretinoin)." },
+    { "id": 35, "domain": "Patient Safety", "question": "Which practice reduces dispensing errors at the point of verification?", "options": ["Skipping the label check", "Barcode scanning the product", "Guessing the NDC", "Removing the DUR"], "answer": 1, "rationale": "Barcode scanning verifies the correct product against the order, reducing wrong-drug errors." },
+    { "id": 36, "domain": "Patient Safety", "question": "A patient's medication should be double-checked by a pharmacist especially when it is:", "options": ["An OTC vitamin", "A high-alert medication like insulin", "A cosmetic item", "A first-aid bandage"], "answer": 1, "rationale": "High-alert medications like insulin warrant independent double-checks due to severe harm potential." },
+    { "id": 37, "domain": "Patient Safety", "question": "What should a technician do if they notice a potential drug interaction during entry?", "options": ["Ignore it", "Override silently", "Alert the pharmacist", "Delete the profile"], "answer": 2, "rationale": "Technicians must flag potential interactions to the pharmacist, who performs the clinical DUR and decision-making." },
+    { "id": 38, "domain": "Patient Safety", "question": "The 'five rights' of medication safety include all EXCEPT:", "options": ["Right patient", "Right drug", "Right price", "Right dose"], "answer": 2, "rationale": "The five rights are right patient, drug, dose, route, and time. Price is not one of them." },
+    { "id": 39, "domain": "Patient Safety", "question": "Which action helps prevent contamination during non-sterile compounding?", "options": ["Skipping hand hygiene", "Cleaning the counter and equipment before use", "Using expired ingredients", "Reusing dirty spatulas"], "answer": 1, "rationale": "Cleaning surfaces/equipment and proper hand hygiene reduce contamination risk during compounding." },
+    { "id": 40, "domain": "Patient Safety", "question": "Where should information about a drug's storage, side effects, and interactions be found for counseling support?", "options": ["Package insert / drug reference", "The cash register", "The delivery log", "The employee schedule"], "answer": 0, "rationale": "The FDA-approved package insert and drug references provide storage, interaction, and safety data." },
+    { "id": 41, "domain": "Patient Safety", "question": "Which color/label typically warns 'May cause drowsiness'?", "options": ["An auxiliary warning label", "The NDC label", "The insurance receipt", "The price sticker"], "answer": 0, "rationale": "Auxiliary (warning) labels communicate cautions such as drowsiness, take with food, or avoid alcohol." },
+    { "id": 42, "domain": "Order Entry", "question": "Decode the sig: 'i tab PO BID'.", "options": ["One tablet by mouth once daily", "One tablet by mouth twice daily", "Two tablets by mouth at bedtime", "One tablet rectally twice daily"], "answer": 1, "rationale": "'i tab PO BID' = take one tablet by mouth twice daily." },
+    { "id": 43, "domain": "Order Entry", "question": "What is the days supply for 90 tablets with sig '1 tab PO TID'?", "options": ["30 days", "45 days", "90 days", "15 days"], "answer": 0, "rationale": "TID = 3 tablets/day; 90 ÷ 3 = 30 days supply." },
+    { "id": 44, "domain": "Order Entry", "question": "How many mL are in 1 tablespoon?", "options": ["5 mL", "10 mL", "15 mL", "30 mL"], "answer": 2, "rationale": "1 tablespoon = 15 mL; 1 teaspoon = 5 mL." },
+    { "id": 45, "domain": "Order Entry", "question": "'gtt' in a sig stands for:", "options": ["Gram", "Drop", "Tablet", "Grain"], "answer": 1, "rationale": "'gtt' (gutta) means drop; 'gtts' is drops." },
+    { "id": 46, "domain": "Order Entry", "question": "Convert 154 lb to kg (1 kg = 2.2 lb).", "options": ["70 kg", "154 kg", "338 kg", "77 kg"], "answer": 0, "rationale": "154 ÷ 2.2 = 70 kg." },
+    { "id": 47, "domain": "Order Entry", "question": "How many grams of dextrose are in 1,000 mL of D5W (5% dextrose)?", "options": ["5 g", "50 g", "500 g", "0.5 g"], "answer": 1, "rationale": "5% = 5 g per 100 mL; in 1,000 mL that is 50 g." },
+    { "id": 48, "domain": "Order Entry", "question": "'OU' in an ophthalmic sig means:", "options": ["Right eye", "Left eye", "Both eyes", "Both ears"], "answer": 2, "rationale": "OU = both eyes; OD = right eye; OS = left eye. (AU/AD/AS refer to ears.)" },
+    { "id": 49, "domain": "Order Entry", "question": "A patient needs 250 mg but tablets are 125 mg. How many tablets per dose?", "options": ["0.5", "1", "2", "4"], "answer": 2, "rationale": "250 mg ÷ 125 mg/tab = 2 tablets per dose." },
+    { "id": 50, "domain": "Order Entry", "question": "'q6h' means:", "options": ["Every 6 hours", "6 times daily", "Every 6 days", "At 6 PM"], "answer": 0, "rationale": "'q6h' = every 6 hours (quaque 6 hora)." },
+    { "id": 51, "domain": "Order Entry", "question": "Calculate the IV flow rate for 1,000 mL over 8 hours.", "options": ["100 mL/hr", "125 mL/hr", "150 mL/hr", "80 mL/hr"], "answer": 1, "rationale": "1,000 mL ÷ 8 hr = 125 mL/hr." },
+    { "id": 52, "domain": "Order Entry", "question": "'ac' on a prescription means to take the medication:", "options": ["After meals", "Before meals", "At bedtime", "With water"], "answer": 1, "rationale": "'ac' (ante cibum) = before meals; 'pc' = after meals." },
+    { "id": 53, "domain": "Order Entry", "question": "1 grain (gr) is approximately equal to:", "options": ["5 mg", "15 mg", "65 mg", "500 mg"], "answer": 2, "rationale": "1 grain ≈ 65 mg (sometimes rounded to 60 mg)." },
+    { "id": 54, "domain": "Order Entry", "question": "How many days will 30 mL of eye drops last at 1 drop each eye BID (20 drops/mL)?", "options": ["150 days", "300 days", "75 days", "600 drops"], "answer": 0, "rationale": "2 drops/dose × 2 doses = 4 drops/day. 30 mL × 20 drops/mL = 600 drops. 600 ÷ 4 = 150 days." },
+    { "id": 55, "domain": "Order Entry", "question": "When entering a new prescription, which patient identifier is required to ensure the correct profile?", "options": ["Favorite color", "Date of birth", "Shoe size", "Employer"], "answer": 1, "rationale": "Full name plus date of birth are standard identifiers to match the correct patient profile and avoid errors." },
+    { "id": 56, "domain": "Federal Requirements", "question": "Which DEA schedule has no accepted medical use in the U.S.?", "options": ["Schedule I", "Schedule II", "Schedule III", "Schedule IV"], "answer": 0, "rationale": "Schedule I drugs (e.g., heroin, LSD) have high abuse potential and no accepted medical use." },
+    { "id": 57, "domain": "Federal Requirements", "question": "How many refills are allowed for a Schedule II prescription?", "options": ["Zero", "Two", "Five", "Unlimited"], "answer": 0, "rationale": "C-II prescriptions may not be refilled; a new prescription is required each time." },
+    { "id": 58, "domain": "Federal Requirements", "question": "Schedule III–V prescriptions may be refilled up to:", "options": ["5 times within 6 months", "3 times within 12 months", "Unlimited within 1 year", "Never"], "answer": 0, "rationale": "C-III to C-V may be refilled up to 5 times within 6 months of the issue date." },
+    { "id": 59, "domain": "Federal Requirements", "question": "Which DEA form is used to order Schedule II controlled substances?", "options": ["DEA Form 41", "DEA Form 106", "DEA Form 222", "DEA Form 224"], "answer": 2, "rationale": "DEA Form 222 (or its electronic CSOS equivalent) is required to order/transfer Schedule II substances." },
+    { "id": 60, "domain": "Federal Requirements", "question": "Which DEA form reports theft or significant loss of controlled substances?", "options": ["DEA Form 222", "DEA Form 106", "DEA Form 41", "DEA Form 363"], "answer": 1, "rationale": "DEA Form 106 documents theft or significant loss of controlled substances." },
+    { "id": 61, "domain": "Federal Requirements", "question": "HIPAA primarily protects:", "options": ["Drug pricing", "Protected Health Information (PHI)", "DEA registration", "Insurance profits"], "answer": 1, "rationale": "HIPAA safeguards the privacy and security of patients' Protected Health Information (PHI)." },
+    { "id": 62, "domain": "Federal Requirements", "question": "OBRA-90 requires pharmacies to:", "options": ["Offer counseling and perform DUR", "Sell only generics", "Report all sales to DEA", "Refuse Medicaid patients"], "answer": 0, "rationale": "OBRA-90 mandates an offer to counsel and prospective drug utilization review (DUR), initially for Medicaid patients." },
+    { "id": 63, "domain": "Federal Requirements", "question": "The Combat Methamphetamine Epidemic Act limits daily pseudoephedrine sales to:", "options": ["1.2 g", "3.6 g", "9 g", "15 g"], "answer": 1, "rationale": "CMEA limits are 3.6 g per day and 9 g per 30 days per purchaser, with logbook and ID requirements." },
+    { "id": 64, "domain": "Federal Requirements", "question": "How often must a controlled substance inventory generally be performed?", "options": ["Monthly", "Annually", "Every 2 years (biennial)", "Every 5 years"], "answer": 2, "rationale": "A biennial (every two years) controlled substance inventory is federally required." },
+    { "id": 65, "domain": "Federal Requirements", "question": "The Poison Prevention Packaging Act requires:", "options": ["Tamper-evident seals only", "Child-resistant containers", "Braille labels", "Amber vials"], "answer": 1, "rationale": "The PPPA (1970) requires child-resistant packaging for most prescription and many OTC drugs." },
+    { "id": 66, "domain": "Federal Requirements", "question": "Which law established the DEA drug schedules?", "options": ["HIPAA", "Controlled Substances Act (1970)", "OBRA-90", "FDCA (1938)"], "answer": 1, "rationale": "The Controlled Substances Act of 1970 created the current five-schedule classification system." },
+    { "id": 67, "domain": "Federal Requirements", "question": "A valid DEA number's second letter typically corresponds to:", "options": ["The drug schedule", "The registrant's last name initial", "The state", "The pharmacy zip code"], "answer": 1, "rationale": "The second letter of a DEA number usually matches the first letter of the registrant's last name (the first letter denotes registrant type)." },
+    { "id": 68, "domain": "Federal Requirements", "question": "Which DEA form is used to document destruction/disposal of controlled substances?", "options": ["DEA Form 41", "DEA Form 222", "DEA Form 106", "DEA Form 224"], "answer": 0, "rationale": "DEA Form 41 records the destruction/disposal of controlled substances." }
+  ]
+}
