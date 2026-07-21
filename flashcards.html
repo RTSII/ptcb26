@@ -1,50 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#0b1f3a">
-  <title>Flashcards · PTCE 2026</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <header class="app-header">
-    <a href="index.html" class="logo">💊 PTCE <span>2026</span></a>
-    <a href="index.html" class="back-link">‹ Home</a>
-  </header>
+{
+  "flashcards": [
+    { "id": 1, "front": "What suffix identifies ACE inhibitors, and name three?", "back": "-pril: lisinopril, enalapril, ramipril. Used for HTN and heart failure. Watch for dry cough, hyperkalemia, angioedema.", "domain": "Medications", "subtopic": "Drug Classes", "difficulty": "easy" },
+    { "id": 2, "front": "How do ARBs differ from ACE inhibitors?", "back": "ARBs (-sartan: losartan, valsartan) block the angiotensin II receptor instead of the enzyme; cause less cough.", "domain": "Medications", "subtopic": "Drug Classes", "difficulty": "medium" },
+    { "id": 3, "front": "MOA of statins?", "back": "Inhibit HMG-CoA reductase → ↓ cholesterol synthesis. Watch for myopathy/rhabdomyolysis and ↑LFTs.", "domain": "Medications", "subtopic": "Mechanism of Action", "difficulty": "medium" },
+    { "id": 4, "front": "MOA of PPIs (-prazole)?", "back": "Irreversibly block the H+/K+ ATPase proton pump. Take before meals; long-term use ↓Mg and B12.", "domain": "Medications", "subtopic": "Mechanism of Action", "difficulty": "medium" },
+    { "id": 5, "front": "Beta blocker suffix + key safety point?", "back": "-olol (metoprolol, atenolol, carvedilol). For HTN, angina, HF. Do NOT stop abruptly.", "domain": "Medications", "subtopic": "Drug Classes", "difficulty": "easy" },
+    { "id": 6, "front": "Non-DHP calcium channel blockers and their risks?", "back": "Diltiazem, verapamil → bradycardia and constipation. (DHPs like amlodipine cause peripheral edema.)", "domain": "Medications", "subtopic": "Drug Classes", "difficulty": "medium" },
+    { "id": 7, "front": "Fluoroquinolone suffix + black box warning?", "back": "-floxacin (ciprofloxacin, levofloxacin). Black box: tendon rupture. Avoid dairy/antacids; also QTc and neuropathy risk.", "domain": "Medications", "subtopic": "Drug Classes", "difficulty": "medium" },
+    { "id": 8, "front": "Brand name for atorvastatin?", "back": "Lipitor.", "domain": "Medications", "subtopic": "Brand/Generic", "difficulty": "easy" },
+    { "id": 9, "front": "Generic for Coumadin?", "back": "Warfarin.", "domain": "Medications", "subtopic": "Brand/Generic", "difficulty": "easy" },
+    { "id": 10, "front": "Generic for Ozempic/Wegovy?", "back": "Semaglutide (GLP-1 agonist).", "domain": "Medications", "subtopic": "Brand/Generic", "difficulty": "medium" },
+    { "id": 11, "front": "Generic for Jardiance?", "back": "Empagliflozin (SGLT-2 inhibitor, -gliflozin).", "domain": "Medications", "subtopic": "Brand/Generic", "difficulty": "medium" },
+    { "id": 12, "front": "Name the rapid-acting insulins and onset.", "back": "Lispro (Humalog), aspart (NovoLog), glulisine (Apidra); onset ~15 min; give with meals.", "domain": "Medications", "subtopic": "Insulin", "difficulty": "medium" },
+    { "id": 13, "front": "Which insulin is the only one safe to give IV?", "back": "Regular (short-acting: Humulin R, Novolin R); onset ~30 min.", "domain": "Medications", "subtopic": "Insulin", "difficulty": "hard" },
+    { "id": 14, "front": "Which insulin is cloudy and must be mixed last?", "back": "NPH (intermediate: Humulin N, Novolin N); peak 4–10 hr.", "domain": "Medications", "subtopic": "Insulin", "difficulty": "medium" },
+    { "id": 15, "front": "Name the long-acting basal insulins.", "back": "Glargine (Lantus/Basaglar), detemir (Levemir), degludec (Tresiba). Clear; do NOT mix.", "domain": "Medications", "subtopic": "Insulin", "difficulty": "medium" },
+    { "id": 16, "front": "Insulin storage rules?", "back": "Unopened refrigerated 36–46°F; do NOT freeze; opened may be kept at room temp for a limited time per product.", "domain": "Medications", "subtopic": "Storage", "difficulty": "easy" },
+    { "id": 17, "front": "Max daily acetaminophen (Tylenol) dose?", "back": "4,000 mg/day; hepatotoxic in overdose.", "domain": "Medications", "subtopic": "OTC", "difficulty": "easy" },
+    { "id": 18, "front": "Which antihistamine is 1st-gen and sedating?", "back": "Diphenhydramine (Benadryl). 2nd-gen (loratadine, cetirizine, fexofenadine) are less sedating.", "domain": "Medications", "subtopic": "OTC", "difficulty": "easy" },
+    { "id": 19, "front": "List the high-alert medication categories (ISMP).", "back": "Insulin, anticoagulants (heparin, warfarin, DOACs), opioids, concentrated electrolytes (KCl), chemo, neuromuscular blockers, methotrexate, digoxin.", "domain": "Medications", "subtopic": "High-Alert", "difficulty": "hard" },
+    { "id": 20, "front": "Give two classic LASA pairs needing tall-man lettering.", "back": "hydrOXYzine/hydrALAZINE and DOPamine/DOBUTamine (also predniSONE/prednisoLONE, vinBLAStine/vinCRIStine).", "domain": "Medications", "subtopic": "LASA", "difficulty": "medium" },
+    { "id": 21, "front": "What causes serotonin syndrome?", "back": "MAOI combined with SSRI/SNRI, triptan, tramadol, linezolid, or dextromethorphan.", "domain": "Medications", "subtopic": "Interactions", "difficulty": "hard" },
+    { "id": 22, "front": "Methotrexate dosing pitfall for RA?", "back": "Dosed WEEKLY for RA — daily dosing is a fatal error.", "domain": "Medications", "subtopic": "Interactions", "difficulty": "hard" },
+    { "id": 23, "front": "Why avoid nitroglycerin with sildenafil (PDE-5 inhibitors)?", "back": "Causes severe hypotension.", "domain": "Medications", "subtopic": "Interactions", "difficulty": "medium" },
+    { "id": 24, "front": "Which vaccines must be stored FROZEN?", "back": "Live attenuated: MMR and Varicella. Contraindicated in pregnancy/immunocompromised.", "domain": "Medications", "subtopic": "Vaccine Storage", "difficulty": "medium" },
+    { "id": 25, "front": "Name five narrow therapeutic index (NTI) drugs.", "back": "Warfarin, digoxin, lithium, phenytoin, theophylline (also levothyroxine, carbamazepine, valproic acid, tacrolimus, vancomycin).", "domain": "Medications", "subtopic": "NTI", "difficulty": "hard" },
+    { "id": 26, "front": "What is warfarin's antidote?", "back": "Vitamin K. Monitor INR; watch CYP and dietary (vitamin K) interactions.", "domain": "Medications", "subtopic": "Interactions", "difficulty": "medium" },
 
-  <main class="container">
-    <h1 class="page-title">🗂️ Flashcards</h1>
-    <p class="page-sub">Tap a card to flip. Filter by domain below.</p>
+    { "id": 27, "front": "What are the five rights of medication safety?", "back": "Right patient, right drug, right dose, right route, right time (plus documentation and reason).", "domain": "Patient Safety", "subtopic": "Error Prevention", "difficulty": "easy" },
+    { "id": 28, "front": "Which two identifiers verify a patient?", "back": "Full name and date of birth.", "domain": "Patient Safety", "subtopic": "Error Prevention", "difficulty": "easy" },
+    { "id": 29, "front": "Write 'U' or 'u' as what, and why?", "back": "Write 'units' — 'U' can be misread as 0 or 4.", "domain": "Patient Safety", "subtopic": "ISMP Abbreviations", "difficulty": "easy" },
+    { "id": 30, "front": "Why avoid a trailing zero (1.0 mg)?", "back": "Write '1 mg' — a missed decimal (10 mg) causes 10x overdose. Also always use a leading zero (0.5 mg).", "domain": "Patient Safety", "subtopic": "ISMP Abbreviations", "difficulty": "medium" },
+    { "id": 31, "front": "What do the three NDC segments represent?", "back": "Seg 1 = labeler/manufacturer; Seg 2 = product (strength, form); Seg 3 = package size. 10- or 11-digit code.", "domain": "Patient Safety", "subtopic": "NDC", "difficulty": "medium" },
+    { "id": 32, "front": "Difference between prospective and retrospective DUR?", "back": "Prospective = before dispensing (interactions, allergies, dose). Retrospective = audits after dispensing. Concurrent = during therapy.", "domain": "Patient Safety", "subtopic": "DUR", "difficulty": "medium" },
+    { "id": 33, "front": "USP <795> BUD for aqueous oral compounds?", "back": "≤14 days refrigerated. (<795> effective Nov 1, 2023.)", "domain": "Patient Safety", "subtopic": "USP Compounding", "difficulty": "hard" },
+    { "id": 34, "front": "What does USP <800> govern, and when effective?", "back": "Hazardous drug handling: negative-pressure room, CSTDs, annual training, spill kits. Effective Dec 1, 2023.", "domain": "Patient Safety", "subtopic": "USP Compounding", "difficulty": "hard" },
+    { "id": 35, "front": "Correct sterile gowning order?", "back": "Shoe covers → hair/beard cover → hand hygiene → gown → mask → sterile gloves.", "domain": "Patient Safety", "subtopic": "USP Compounding", "difficulty": "hard" },
+    { "id": 36, "front": "What is MedWatch?", "back": "FDA's adverse event reporting program. Related: FAERS database, ISMP MERP, VAERS (vaccines).", "domain": "Patient Safety", "subtopic": "Reporting", "difficulty": "medium" },
+    { "id": 37, "front": "RCA vs FMEA?", "back": "RCA = reactive analysis of why an error happened. FMEA = proactive analysis to prevent failures.", "domain": "Patient Safety", "subtopic": "QA", "difficulty": "hard" },
 
-    <div class="filter-row" id="filterRow"></div>
+    { "id": 38, "front": "What do BID, TID, and QID mean?", "back": "BID = twice daily, TID = three times daily, QID = four times daily.", "domain": "Order Entry", "subtopic": "Sig Codes", "difficulty": "easy" },
+    { "id": 39, "front": "Decode: ac, pc, QHS, PRN.", "back": "ac = before meals; pc = after meals; QHS = at bedtime; PRN = as needed.", "domain": "Order Entry", "subtopic": "Sig Codes", "difficulty": "easy" },
+    { "id": 40, "front": "What do OD, OS, OU mean?", "back": "OD = right eye, OS = left eye, OU = both eyes. (AD/AS/AU = right/left/both ears.)", "domain": "Order Entry", "subtopic": "Sig Codes", "difficulty": "medium" },
+    { "id": 41, "front": "Convert: 1 tsp, 1 tbsp, 1 fl oz to mL.", "back": "1 tsp = 5 mL; 1 tbsp = 15 mL; 1 fl oz = 30 mL.", "domain": "Order Entry", "subtopic": "Conversions", "difficulty": "easy" },
+    { "id": 42, "front": "How many kg in 1 lb, and grams in 1 lb?", "back": "1 kg = 2.2 lb; 1 lb = 454 g.", "domain": "Order Entry", "subtopic": "Conversions", "difficulty": "easy" },
+    { "id": 43, "front": "1 grain ≈ how many mg?", "back": "1 gr ≈ 65 mg.", "domain": "Order Entry", "subtopic": "Conversions", "difficulty": "medium" },
+    { "id": 44, "front": "Days supply formula?", "back": "Days supply = total quantity ÷ amount used per day.", "domain": "Order Entry", "subtopic": "Calculations", "difficulty": "easy" },
+    { "id": 45, "front": "What does a 5% solution mean?", "back": "5 g per 100 mL (or 100 g). Percent strength = grams per 100.", "domain": "Order Entry", "subtopic": "Calculations", "difficulty": "medium" },
+    { "id": 46, "front": "Dilution formula?", "back": "C1V1 = C2V2.", "domain": "Order Entry", "subtopic": "Calculations", "difficulty": "medium" },
+    { "id": 47, "front": "IV flow rate (mL/hr) formula?", "back": "Total volume ÷ total time (hr). Drops/min = (volume × drop factor) ÷ time in minutes.", "domain": "Order Entry", "subtopic": "Calculations", "difficulty": "hard" },
+    { "id": 48, "front": "When is alligation used?", "back": "To mix two strengths to make an intermediate strength (parts method).", "domain": "Order Entry", "subtopic": "Calculations", "difficulty": "hard" },
+    { "id": 49, "front": "What do DAW codes 0, 1, and 2 mean?", "back": "0 = no instruction; 1 = prescriber requires brand; 2 = patient requests brand.", "domain": "Order Entry", "subtopic": "Insurance", "difficulty": "medium" },
+    { "id": 50, "front": "Insurance reject 75 vs 76?", "back": "75 = prior authorization required; 76 = refill too soon / plan limit exceeded.", "domain": "Order Entry", "subtopic": "Insurance", "difficulty": "medium" },
+    { "id": 51, "front": "Which meds get 'do not crush' labels?", "back": "ER/XL/XR/SR and enteric-coated products.", "domain": "Order Entry", "subtopic": "Auxiliary Labels", "difficulty": "easy" },
 
-    <div id="cardArea">
-      <div class="flashcard-wrap">
-        <div class="flashcard" id="flashcard">
-          <div class="face front">
-            <span class="domain-tag" id="frontDomain"></span>
-            <div class="q-text" id="frontText">Loading…</div>
-            <span class="flip-hint">Tap to reveal</span>
-          </div>
-          <div class="face back">
-            <span class="domain-tag" id="backDomain"></span>
-            <div class="a-text" id="backText"></div>
-            <span class="flip-hint">Tap to flip back</span>
-          </div>
-        </div>
-      </div>
-      <p class="card-counter" id="counter"></p>
-      <div class="btn-row" style="justify-content:space-between;">
-        <button class="btn outline" id="prevBtn">‹ Prev</button>
-        <button class="btn gold" id="flipBtn">Flip</button>
-        <button class="btn" id="nextBtn">Next ›</button>
-      </div>
-      <p class="muted center" style="margin-top:14px;">Swipe left/right on the card to navigate.</p>
-    </div>
-  </main>
-
-  <script src="js/app.js"></script>
-  <script src="js/flashcards.js"></script>
-</body>
-</html>
+    { "id": 52, "front": "How many refills are allowed for C-II drugs?", "back": "NONE. Rx typically valid ~30 days (state varies).", "domain": "Federal Requirements", "subtopic": "Schedules", "difficulty": "easy" },
+    { "id": 53, "front": "Refill limit for C-III through C-V?", "back": "Up to 5 refills within 6 months of the written date.", "domain": "Federal Requirements", "subtopic": "Schedules", "difficulty": "medium" },
+    { "id": 54, "front": "Give two examples each of C-II and C-IV drugs.", "back": "C-II: oxycodone, Adderall. C-IV: alprazolam, tramadol.", "domain": "Federal Requirements", "subtopic": "Schedules", "difficulty": "medium" },
+    { "id": 55, "front": "What is DEA Form 222 used for?", "back": "Ordering/transferring Schedule I & II substances (electronic version = CSOS). Keep copy 3 for 2 years.", "domain": "Federal Requirements", "subtopic": "DEA Forms", "difficulty": "medium" },
+    { "id": 56, "front": "DEA Forms 106 and 41 purposes?", "back": "106 = report theft/significant loss (within 1 business day). 41 = record destruction/disposal.", "domain": "Federal Requirements", "subtopic": "DEA Forms", "difficulty": "medium" },
+    { "id": 57, "front": "What did the CSA (1970) establish?", "back": "The 5-schedule controlled substance system.", "domain": "Federal Requirements", "subtopic": "Federal Laws", "difficulty": "easy" },
+    { "id": 58, "front": "What does OBRA-90 require?", "back": "Offer to counsel + prospective DUR (effective 1993).", "domain": "Federal Requirements", "subtopic": "Federal Laws", "difficulty": "medium" },
+    { "id": 59, "front": "CMEA (2005) pseudoephedrine limits?", "back": "3.6 g/day and 9 g/30 days; requires logbook + photo ID; kept behind counter.", "domain": "Federal Requirements", "subtopic": "Federal Laws", "difficulty": "hard" },
+    { "id": 60, "front": "What does HIPAA protect?", "back": "Patient PHI — any identifying info (name, DOB, Rx#, diagnosis). Privacy Rule 2003, Security Rule 2005.", "domain": "Federal Requirements", "subtopic": "Federal Laws", "difficulty": "medium" },
+    { "id": 61, "front": "Verify DEA number AB1234563.", "back": "(1+3+5)=9; (2+4+6)=12×2=24; 9+24=33; last digit 3 = 7th digit 3. Valid. 1st letter = registrant type, 2nd = last-name initial.", "domain": "Federal Requirements", "subtopic": "DEA Verification", "difficulty": "hard" },
+    { "id": 62, "front": "FDA recall classes I, II, III?", "back": "Class I = serious/death; Class II = temporary/reversible; Class III = minor/labeling.", "domain": "Federal Requirements", "subtopic": "Recalls", "difficulty": "medium" },
+    { "id": 63, "front": "Orange Book A vs B rating?", "back": "A/AB = therapeutically equivalent (substitutable); B = not equivalent.", "domain": "Federal Requirements", "subtopic": "Orange Book", "difficulty": "medium" },
+    { "id": 64, "front": "State vs federal law — which applies?", "back": "Always follow the stricter of the two.", "domain": "Federal Requirements", "subtopic": "Federal Laws", "difficulty": "easy" }
+]
+}
