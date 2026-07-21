@@ -1,109 +1,43 @@
-# PTCE 2026 Study App
+## Current Project Status
 
-A lightweight, mobile-first study tool for the **PTCB Pharmacy Technician Certification Exam (PTCE) 2026**.
+The application is implemented from the repository root. The initial HTML, CSS, JavaScript, and JSON files are present.
 
-Built for a nationally certified pharmacy technician retaking the PTCE who wants a fast, high-yield refresher system instead of a generic prep course.
+### Completed
 
-The app uses plain **HTML, CSS, JavaScript, and JSON data files** — no frameworks, no build step, no backend, no login. It runs locally through a browser using a small localhost server.
+- [x] Defined project purpose and scope
+- [x] Defined PTCE domain weights
+- [x] Selected static HTML/CSS/JavaScript architecture
+- [x] Selected JSON as the study-content source
+- [x] Selected `localStorage` for progress
+- [x] Created `data/notes.json`
+- [x] Created `data/flashcards.json`
+- [x] Created `data/questions.json`
+- [x] Created shared `js/app.js` utilities
+- [x] Created notes page and rendering logic
+- [x] Created flashcard page and rendering logic
+- [x] Created quiz page and rendering logic
+- [x] Created practice-exam page and rendering logic
+- [x] Created dashboard page and rendering logic
+- [x] Created shared mobile-first stylesheet
 
-## Purpose
+### Current Work
 
-This project is a private personal study system designed to:
+- [ ] Test every page through localhost
+- [ ] Verify all JSON files load without console errors
+- [ ] Verify domain names match across all data and JavaScript files
+- [ ] Verify quiz scoring and rationale display
+- [ ] Verify exam weighting and limited-bank behavior
+- [ ] Verify dashboard calculations
+- [ ] Verify `localStorage` persistence
+- [ ] Test on iPhone Safari
+- [ ] Expand `questions.json` from 66 to at least 90 questions
+- [ ] Perform pharmacy-content accuracy review
+- [ ] Perform final accessibility and mobile UX review
 
-- Review all official PTCE 2026 content domains.
-- Drill high-yield flashcards.
-- Practice multiple-choice questions with rationales.
-- Simulate weighted PTCE-style practice exams.
-- Track weak domains and subtopics locally.
-- Stay lean, fast, editable, and easy to run from a local repo.
-
-This is **not** a commercial app and does not need enterprise features, accounts, sync, analytics, or a backend.
-
-## Core Requirements
-
-- Must run locally on PC through a localhost browser.
-- Must work well on mobile, especially iPhone-sized screens.
-- Must use static files only:
-  - HTML
-  - CSS
-  - JavaScript
-  - JSON
-- Must keep study content in JSON files.
-- Must avoid unnecessary frameworks, package managers, bundlers, or databases.
-- Must be easy to edit manually.
-- Must use `localStorage` for saved progress.
-- Must keep markdown files limited to project state, roadmap, and coordination.
-
-## Exam Blueprint
-
-PTCE 2026 study content and practice weighting should align with the official PTCB domain structure:
-
-| Domain | Weight |
-|---|---:|
-| Medications | 40% |
-| Patient Safety & Quality Assurance | 26.25% |
-| Order Entry & Processing | 21.25% |
-| Federal Requirements | 12.5% |
-
-The practice exam should draw questions in approximately these proportions.
-
-For a 90-question simulated exam, use this target distribution:
-
-| Domain | Approx. Questions |
-|---|---:|
-| Medications | 36 |
-| Patient Safety & Quality Assurance | 24 |
-| Order Entry & Processing | 19 |
-| Federal Requirements | 11 |
-| Total | 90 |
-
-## Tech Stack
-
-- Plain HTML5
-- CSS3
-- Vanilla JavaScript
-- JSON data files
-- Browser `fetch()` for loading data
-- Browser `localStorage` for progress
-- Localhost server for development/use
-
-No required dependencies.
-
-## Theme / UX Direction
-
-- Mobile-first layout.
-- Optimized for quick use on iPhone Safari and desktop browsers.
-- Navy / white / gold visual direction.
-- Large touch targets.
-- Fast navigation.
-- Scannable cards, tables, and short study chunks.
-- Built for retaking and rapid review, not beginner textbook reading.
-
-## Current Project Structure
-
-Current intended repo structure:
+## Current Stage
 
 ```text
-ptcb26/
-├── README.md
-├── ROADMAP.md
-└── app/
-    ├── index.html
-    ├── notes.html
-    ├── flashcards.html
-    ├── quiz.html
-    ├── exam.html
-    ├── dashboard.html
-    ├── css/
-    │   └── style.css
-    ├── js/
-    │   ├── app.js
-    │   ├── notes.js
-    │   ├── flashcards.js
-    │   ├── quiz.js
-    │   ├── exam.js
-    │   └── dashboard.js
-    └── data/
-        ├── notes.json
-        ├── flashcards.json
-        └── questions.json
+Stages 1–3: Complete
+Stage 4: Initial UI implementation complete
+Stage 5: Integration testing and QA
+Stage 6: Question-bank expansion and content refinement
