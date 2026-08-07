@@ -1,5 +1,26 @@
 # PTCE 2026 Study App - Integration Testing Report
 
+> **Addendum (August 6, 2026):** This report predates the Stage 5 integration refactor
+> (shared `window.App` API, standardized domain names, rebuilt quiz/exam engines,
+> question-bank expansion to 152, and the synthwave × Matrix UI overhaul).
+>
+> **Re-verification on the current codebase (August 6, 2026):**
+> - All 6 JS files pass `node --check`; all 3 JSON files parse and validate
+>   (152 questions: sequential unique IDs, 4 options each, in-range answers,
+>   valid difficulty, standardized domains).
+> - A jsdom functional harness exercised every page with real user flows:
+>   quiz (Quick 10 end-to-end scoring + review, Chapter Test subtopic filtering,
+>   Custom mode with answer persistence), exam (full 90 questions in the
+>   36/24/19/11 blueprint distribution, scaled 30-question mode, countdown timer,
+>   submit + score report), flashcards (filter, flip, navigation, reviewed
+>   tracking), notes rendering, dashboard stats/accuracy/history, and
+>   localStorage persistence — **69/69 checks passed**.
+> - Localhost smoke test: all 16 pages/assets return HTTP 200.
+> - One defect found and fixed during this pass: `js/app.js` Matrix FX now guards
+>   against unavailable canvas 2D contexts.
+> - Remaining manual verification: visual/theme inspection in a real browser and
+>   iPhone Safari testing (Stage 8).
+
 **Date:** July 21, 2026  
 **Tester:** Abacus AI Agent  
 **Test Environment:** localhost:8000 (Python HTTP server)  

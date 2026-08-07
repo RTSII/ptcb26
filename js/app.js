@@ -1,157 +1,159 @@
-/* PTCE 2026 - shared utilities, data loading, localStorage helpers */
-(function (global) {
-  "use strict";
-
-  var STORAGE_KEY = "ptce2026_progress_v1";
-
-  var DOMAINS = [
-    "Medications",
-    "Patient Safety",
-    "Order Entry",
-    "Federal Requirements"
-  ];
-
-  // PTCE 2026 domain weights (used for the practice exam blueprint)
-  var DOMAIN_WEIGHTS = {
-    "Medications": 40,
-    "Patient Safety": 26.25,
-    "Order Entry": 21.25,
-    "Federal Requirements": 12.5
-  };
-
-  var DOMAIN_LABELS = {
-    "Medications": "Medications",
-    "Patient Safety": "Patient Safety & QA",
-    "Order Entry": "Order Entry & Processing",
-    "Federal Requirements": "Federal Requirements"
-  };
-
-  /* ---------- Data loading (works over file:// and http) ---------- */
-  function loadJSON(path) {
-    return fetch(path, { cache: "no-store" })
-      .then(function (res) {
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        return res.json();
-      });
-  }
-
-  /* ---------- localStorage progress store ---------- */
-  function defaultProgress() {
-    return {
-      cardsReviewed: 0,
-      quizzes: [],   // { date, domain, total, correct, byDomain:{dom:{correct,total}} }
-      exams: []      // { date, total, correct, scaled, byDomain:{...} }
-    };
-  }
-
-  function getProgress() {
+// Shared utilities for PTCE 2026 Study App
+const Storage = (() => {
+  const KEY = 'ptce2026_progress_v1';
+  const defaults = () => ({
+    flashcards: { known: [], unknown: [], reviewed: [] },
+    quizzes: [],
+    exams: [],
+    lastVisit: null
+  });
+  const read = () => {
     try {
-      var raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) return defaultProgress();
-      var p = JSON.parse(raw);
-      if (!p.quizzes) p.quizzes = [];
-      if (!p.exams) p.exams = [];
-      if (typeof p.cardsReviewed !== "number") p.cardsReviewed = 0;
-      return p;
-    } catch (e) {
-      return defaultProgress();
+      const raw = localStorage.getItem(KEY);
+      if (!raw) return defaults();
+      const data = JSON.parse(raw);
+      return {
+        flashcards: {
+          known: Array.isArray(data.flashcards?.known) ? data.flashcards.known : [],
+          unknown: Array.isArray(data.flashcards?.unknown) ? data.flashcards.unknown : [],
+          reviewed: Array.isArray(data.flashcards?.reviewed) ? data.flashcards.reviewed : []
+        },
+        quizzes: Array.isArray(data.quizzes) ? data.quizzes : [],
+        exams: Array.isArray(data.exams) ? data.exams : [],
+        lastVisit: data.lastVisit || null
+      };
+    } catch {
+      return defaults();
     }
-  }
-
-  function saveProgress(p) {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(p)); }
-    catch (e) { /* storage may be unavailable */ }
-  }
-
-  function resetProgress() {
-    try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
-  }
-
-  function incrementCardsReviewed(n) {
-    var p = getProgress();
-    p.cardsReviewed += (n || 1);
-    saveProgress(p);
-  }
-
-  function recordQuiz(entry) {
-    var p = getProgress();
-    entry.date = new Date().toISOString();
-    p.quizzes.unshift(entry);
-    if (p.quizzes.length > 50) p.quizzes = p.quizzes.slice(0, 50);
-    saveProgress(p);
-  }
-
-  function recordExam(entry) {
-    var p = getProgress();
-    entry.date = new Date().toISOString();
-    p.exams.unshift(entry);
-    if (p.exams.length > 30) p.exams = p.exams.slice(0, 30);
-    saveProgress(p);
-  }
-
-  /* Aggregate accuracy per domain across all quizzes + exams */
-  function domainAccuracy() {
-    var p = getProgress();
-    var agg = {};
-    DOMAINS.forEach(function (d) { agg[d] = { correct: 0, total: 0 }; });
-    function merge(byDomain) {
-      if (!byDomain) return;
-      Object.keys(byDomain).forEach(function (d) {
-        if (!agg[d]) agg[d] = { correct: 0, total: 0 };
-        agg[d].correct += byDomain[d].correct || 0;
-        agg[d].total += byDomain[d].total || 0;
-      });
+  };
+  const write = (data) => localStorage.setItem(KEY, JSON.stringify(data));
+  const touch = () => { const d = read(); d.lastVisit = new Date().toISOString(); write(d); };
+  const recordQuiz = (attempt) => { const d = read(); d.quizzes.unshift(attempt); write(d); };
+  const recordExam = (attempt) => { const d = read(); d.exams.unshift(attempt); write(d); };
+  const setFlashStatus = (id, status) => {
+    const d = read();
+    const { known, unknown } = d.flashcards;
+    const inKnown = known.includes(id);
+    const inUnknown = unknown.includes(id);
+    if (status === 'known') {
+      if (!inKnown) known.push(id);
+      if (inUnknown) d.flashcards.unknown = unknown.filter(x => x !== id);
+    } else if (status === 'unknown') {
+      if (!inUnknown) unknown.push(id);
+      if (inKnown) d.flashcards.known = known.filter(x => x !== id);
     }
-    p.quizzes.forEach(function (q) { merge(q.byDomain); });
-    p.exams.forEach(function (e) { merge(e.byDomain); });
-    return agg;
-  }
+    write(d);
+  };
+  const markReviewed = (id) => {
+    const d = read();
+    if (!d.flashcards.reviewed.includes(id)) {
+      d.flashcards.reviewed.push(id);
+      write(d);
+    }
+  };
+  const clear = () => localStorage.removeItem(KEY);
+  return { read, write, touch, recordQuiz, recordExam, setFlashStatus, markReviewed, clear };
+})();
 
-  /* ---------- Helpers ---------- */
-  function shuffle(arr) {
-    var a = arr.slice();
-    for (var i = a.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var t = a[i]; a[i] = a[j]; a[j] = t;
+const Util = (() => {
+  const shuffle = (arr) => {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
     }
     return a;
-  }
-
-  function pct(correct, total) {
-    if (!total) return 0;
-    return Math.round((correct / total) * 100);
-  }
-
-  function getParam(name) {
-    var m = new RegExp("[?&]" + name + "=([^&]*)").exec(global.location.search);
-    return m ? decodeURIComponent(m[1]) : null;
-  }
-
-  function formatTime(seconds) {
-    var m = Math.floor(seconds / 60);
-    var s = seconds % 60;
-    return m + ":" + (s < 10 ? "0" : "") + s;
-  }
-
-  function domainLabel(d) { return DOMAIN_LABELS[d] || d; }
-
-  global.PTCE = {
-    STORAGE_KEY: STORAGE_KEY,
-    DOMAINS: DOMAINS,
-    DOMAIN_WEIGHTS: DOMAIN_WEIGHTS,
-    DOMAIN_LABELS: DOMAIN_LABELS,
-    loadJSON: loadJSON,
-    getProgress: getProgress,
-    saveProgress: saveProgress,
-    resetProgress: resetProgress,
-    incrementCardsReviewed: incrementCardsReviewed,
-    recordQuiz: recordQuiz,
-    recordExam: recordExam,
-    domainAccuracy: domainAccuracy,
-    shuffle: shuffle,
-    pct: pct,
-    getParam: getParam,
-    formatTime: formatTime,
-    domainLabel: domainLabel
   };
-})(window);
+  const sample = (arr, n) => {
+    const s = shuffle(arr);
+    return s.slice(0, Math.min(n, s.length));
+  };
+  const groupBy = (arr, key) => arr.reduce((m, x) => {
+    const k = typeof key === 'function' ? key(x) : x[key];
+    (m[k] = m[k] || []).push(x);
+    return m;
+  }, {});
+  const pct = (num, den) => (den ? Math.round((num / den) * 100) : 0);
+  const el = (sel, root = document) => root.querySelector(sel);
+  const els = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+  const escapeHtml = (s) => (s || '').replace(/[&<>"']/g, m => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[m]));
+  const formatDuration = (ms) => {
+    if (!ms || ms < 0) return '—';
+    const sec = Math.round(ms / 1000);
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    return m > 0 ? `${m}m ${s}s` : `${s}s`;
+  };
+  const fetchJSON = async (path) => {
+    const res = await fetch(path, { cache: 'no-cache' });
+    if (!res.ok) throw new Error(`Failed to load ${path}: ${res.status}`);
+    return res.json();
+  };
+  return { shuffle, sample, groupBy, pct, el, els, escapeHtml, formatDuration, fetchJSON };
+})();
+
+const DOMAINS = ['Medications', 'Patient Safety and Quality Assurance', 'Order Entry and Processing', 'Federal Requirements'];
+
+// Matrix rain background FX (subtle, respects reduced-motion)
+const FX = (() => {
+  const CHARS = 'アカサタナハマヤラワ0123456789ABCDEFXYZ$#%&';
+  let canvas, ctx, drops, rafId, lastT = 0;
+  const FONT = 15;
+  const INTERVAL = 66;
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const cols = Math.ceil(canvas.width / FONT);
+    drops = Array.from({ length: cols }, () => Math.floor(Math.random() * canvas.height / FONT));
+  }
+
+  function draw(t) {
+    rafId = requestAnimationFrame(draw);
+    if (t - lastT < INTERVAL) return;
+    lastT = t;
+    ctx.fillStyle = 'rgba(3, 0, 20, 0.14)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = FONT + 'px "Share Tech Mono", monospace';
+    drops.forEach((y, i) => {
+      const ch = CHARS[Math.floor(Math.random() * CHARS.length)];
+      const x = i * FONT;
+      const bright = Math.random() < 0.06;
+      ctx.fillStyle = bright ? '#b4ffb9' : '#00ff41';
+      ctx.globalAlpha = bright ? 0.9 : 0.55;
+      ctx.fillText(ch, x, y * FONT);
+      ctx.globalAlpha = 1;
+      if (y * FONT > canvas.height && Math.random() > 0.976) drops[i] = 0;
+      else drops[i] = y + 1;
+    });
+  }
+
+  function start() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    canvas = document.createElement('canvas');
+    canvas.id = 'matrixRain';
+    canvas.setAttribute('aria-hidden', 'true');
+    document.body.prepend(canvas);
+    ctx = canvas.getContext('2d');
+    if (!ctx) { canvas.remove(); return; }
+    resize();
+    window.addEventListener('resize', resize);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) { cancelAnimationFrame(rafId); }
+      else { lastT = 0; rafId = requestAnimationFrame(draw); }
+    });
+    rafId = requestAnimationFrame(draw);
+  }
+
+  return { start };
+})();
+
+window.App = { Storage, Util, DOMAINS, FX };
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', FX.start);
+} else {
+  FX.start();
+}

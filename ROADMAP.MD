@@ -87,11 +87,14 @@ The project does not use an `app/` subdirectory. Future changes must preserve th
 ## Current Stage
 
 ```text
-Stages 1–3: Complete
-Stage 4: Initial implementation complete
-Stage 5: Integration testing and QA — active
-Stage 6: Question-bank expansion and content validation — next
-Stage 7: Mobile polish and initial release
+Stages 1–4: Complete
+Stage 5: Integration refactor complete (shared window.App API, standardized domain
+         names across all modules and data, rebuilt quiz/exam engines);
+         re-verified via localhost and a 69-check jsdom functional harness
+Stage 6: Question-bank expansion complete — 152 of 152 questions
+Stage 6B: UI overhaul — synthwave × Matrix dark theme complete
+Stage 7: Content validation — active (next)
+Stage 8: Mobile polish and initial release
 ```
 
 ## Stage 1 — Scope and Architecture
@@ -184,11 +187,11 @@ Initial version complete.
 - [x] Added difficulty metadata.
 - [x] Distributed content across all four PTCE domains.
 
-### Current Limitation
+### Current Status
 
-The current project state records 66 questions.
+Complete. The question bank holds 152 unique, validated questions (q001–q152): Medications 60, Patient Safety and Quality Assurance 38, Order Entry and Processing 38, Federal Requirements 16 (~40/25/25/10 distribution).
 
-At least 90 unique, valid questions are required for one full unique 90-question practice exam. The immediate minimum expansion is 24 additional questions.
+A full 90-question practice exam now draws entirely unique questions in the official 36/24/19/11 blueprint distribution (verified by automated test).
 
 ## Stage 4 — Initial Application Implementation
 
@@ -434,19 +437,19 @@ Support a full unique 90-question exam and improve repeat practice.
 
 ### Status
 
-Next after critical integration defects are fixed.
+Complete. Expanded from 66 to 152 validated questions; the full unique 90-question exam is fully supported.
 
-### Immediate Target
-
-Expand from 66 to at least 90 unique questions.
-
-Minimum additional questions needed:
+### Final Distribution
 
 ```text
-24
+Medications                           60 questions (39.5%)
+Patient Safety and Quality Assurance  38 questions (25%)
+Order Entry and Processing            38 questions (25%)
+Federal Requirements                  16 questions (10.5%)
+Total: 152 unique questions (sequential IDs q001–q152)
 ```
 
-### Target Domain Balance
+All questions were validated programmatically: sequential unique IDs, exactly four options, in-range answer index, valid difficulty, and standardized full domain names.
 
 For a 90-question minimum bank:
 
@@ -545,6 +548,27 @@ After the minimum release:
 ```
 
 This larger target reduces repetition and supports more useful repeat exams.
+
+## Stage 6B — UI Overhaul (Synthwave × Matrix)
+
+### Objective
+
+Replace the initial light theme with a cohesive dark "synthwave × Matrix" interface expressed consistently across every page, component, and state.
+
+### Status
+
+Complete.
+
+### Scope
+
+- [x] Full `css/style.css` rewrite: deep-space palette, neon pink/cyan/violet/green accents, glow treatments, perspective grid and scanline background
+- [x] Matrix falling-character canvas background initialized by `js/app.js`, disabled under `prefers-reduced-motion`
+- [x] Themed header, hero, menu cards, buttons, pills, and form controls
+- [x] Themed flashcard faces (3D flip), quiz/exam option rows, rationales, progress bars, timers, and score reports
+- [x] Themed notes accordions and dashboard stat/history blocks
+- [x] Display fonts (Orbitron, Rajdhani, Share Tech Mono) with system fallbacks
+- [x] Keyboard-focus visibility and contrast preserved
+- [x] Zero functional regressions across all six pages (JS syntax, JSON validity, ID/class audit, and localhost HTTP 200 smoke test all verified)
 
 ## Stage 7 — Content Validation
 
@@ -694,20 +718,21 @@ Optional features must not delay correcting core data, scoring, persistence, or 
 
 Follow this order to avoid adding content on top of an unverified application:
 
-1. Replace and separate `README.md` and `ROADMAP.md`.
+1. ~~Replace and separate `README.md` and `ROADMAP.md`.~~ (done)
 2. Standardize `ROADMAP.MD` to `ROADMAP.md`.
 3. Run the app through localhost.
-4. Test every page for fetch and console errors.
+4. Test every page for fetch and console errors (re-verify after the Stage 5 refactor).
 5. Validate all three JSON files.
-6. Verify quiz scoring and rationale behavior.
+6. Verify quiz scoring, Chapter Test filtering, and review behavior.
 7. Verify practice-exam weighting and limited-bank behavior.
 8. Verify `localStorage` persistence.
 9. Verify dashboard calculations.
 10. Fix integration defects.
-11. Expand the question bank from 66 to at least 90.
-12. Perform pharmacy-content validation.
-13. Complete iPhone Safari and accessibility testing.
-14. Mark the initial personal-use release complete.
+11. ~~Complete the UI overhaul (Stage 6B — synthwave × Matrix dark theme).~~ (done)
+12. ~~Expand the question bank from 94 to 152 per the reserved ID ranges.~~ (done — 152/152)
+13. Perform pharmacy-content validation.
+14. Complete iPhone Safari and accessibility testing.
+15. Mark the initial personal-use release complete.
 
 ## Decision Log
 

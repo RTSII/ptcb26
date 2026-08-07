@@ -1,198 +1,225 @@
-/* Quiz mode: domain filter, timer, instant rationale, scoring */
-(function () {
-  "use strict";
-  var P = window.PTCE;
+// Quiz and Chapter Test module
+(async function () {
+  const { Storage, Util, DOMAINS } = window.App;
 
-  var bank = [];
-  var quiz = [];
-  var current = 0;
-  var correctCount = 0;
-  var byDomain = {};
-  var answered = false;
-  var settings = { domain: "All", count: 10, timer: 0 };
-  var timerId = null, timeLeft = 0;
+  const params = new URLSearchParams(location.search);
+  const initialMode = params.get('mode') || 'quick10';
 
-  var el = {
-    setup: document.getElementById("setupScreen"),
-    quiz: document.getElementById("quizScreen"),
-    result: document.getElementById("resultScreen"),
-    domainPick: document.getElementById("domainPick"),
-    countPick: document.getElementById("countPick"),
-    timerPick: document.getElementById("timerPick"),
-    startBtn: document.getElementById("startBtn"),
-    qProgress: document.getElementById("qProgress"),
-    timer: document.getElementById("timer"),
-    progressFill: document.getElementById("progressFill"),
-    questionCard: document.getElementById("questionCard"),
-    quitBtn: document.getElementById("quitBtn"),
-    nextQBtn: document.getElementById("nextQBtn")
-  };
+  const setupEl = Util.el('#setup');
+  const quizEl = Util.el('#quiz');
+  const resultsEl = Util.el('#results');
+  const loadErrorEl = Util.el('#loadError');
 
-  function pills(container, options, initial, onPick) {
-    container.innerHTML = "";
-    options.forEach(function (opt) {
-      var b = document.createElement("button");
-      b.className = "pill" + (opt.value === initial ? " active" : "");
-      b.textContent = opt.label;
-      b.addEventListener("click", function () {
-        container.querySelectorAll(".pill").forEach(function (p) { p.classList.remove("active"); });
-        b.classList.add("active");
-        onPick(opt.value);
-      });
-      container.appendChild(b);
+  const modeSel = Util.el('#mode');
+  const domainSel = Util.el('#domain');
+  const subtopicSel = Util.el('#subtopic');
+  const countInput = Util.el('#count');
+  const startBtn = Util.el('#startBtn');
+
+  const qnum = Util.el('#qnum');
+  const qdomain = Util.el('#qdomain');
+  const qtext = Util.el('#qtext');
+  const choicesEl = Util.el('#choices');
+  const prevBtn = Util.el('#prevBtn');
+  const nextBtn = Util.el('#nextBtn');
+  const progBar = Util.el('#progBar');
+
+  const scoreLine = Util.el('#scoreLine');
+  const scoreBar = Util.el('#scoreBar');
+  const reviewEl = Util.el('#review');
+  const retryBtn = Util.el('#retryBtn');
+
+  let allQuestions = [];
+  let session = [];
+  let idx = 0;
+  let answers = [];
+  let startTime = 0;
+
+  // Initialize
+  modeSel.value = initialMode === 'quick' ? 'quick10' : initialMode;
+  toggleModeFields();
+  await loadData();
+
+  // Events
+  modeSel.addEventListener('change', toggleModeFields);
+  domainSel.addEventListener('change', updateSubtopics);
+  startBtn.addEventListener('click', startQuiz);
+  prevBtn.addEventListener('click', () => nav(-1));
+  nextBtn.addEventListener('click', () => nav(1));
+  retryBtn.addEventListener('click', () => location.reload());
+
+  function toggleModeFields() {
+    const mode = modeSel.value;
+    const domainRow = Util.el('#domainRow');
+    const subtopicRow = Util.el('#subtopicRow');
+    const countRow = Util.el('#countRow');
+
+    if (mode === 'quick10') {
+      domainRow.style.display = 'none';
+      subtopicRow.style.display = 'none';
+      countInput.value = 10;
+      countInput.disabled = true;
+    } else if (mode === 'chapter') {
+      domainRow.style.display = 'block';
+      subtopicRow.style.display = 'block';
+      countInput.disabled = false;
+      countInput.value = 10;
+      updateSubtopics();
+    } else {
+      domainRow.style.display = 'block';
+      subtopicRow.style.display = 'none';
+      countInput.disabled = false;
+    }
+  }
+
+  async function loadData() {
+    try {
+      const data = await Util.fetchJSON('data/questions.json');
+      allQuestions = data.questions || data || [];
+      if (!allQuestions.length) throw new Error('No questions found');
+      populateDomains();
+    } catch (err) {
+      console.error(err);
+      setupEl.style.display = 'none';
+      loadErrorEl.style.display = 'block';
+    }
+  }
+
+  function populateDomains() {
+    // Only include domains that actually have questions
+    const available = new Set(allQuestions.map(q => q.domain));
+    DOMAINS.forEach(d => {
+      if (available.has(d) && !Array.from(domainSel.options).some(o => o.value === d)) {
+        const opt = document.createElement('option');
+        opt.value = d;
+        opt.textContent = d;
+        domainSel.appendChild(opt);
+      }
     });
   }
 
-  function buildSetup() {
-    var domOpts = [{ label: "All Domains", value: "All" }].concat(P.DOMAINS.map(function (d) {
-      return { label: P.domainLabel(d), value: d };
-    }));
-    pills(el.domainPick, domOpts, "All", function (v) { settings.domain = v; });
-    pills(el.countPick, [
-      { label: "5", value: 5 }, { label: "10", value: 10 },
-      { label: "20", value: 20 }, { label: "All", value: 999 }
-    ], 10, function (v) { settings.count = v; });
-    pills(el.timerPick, [
-      { label: "No timer", value: 0 }, { label: "30s / Q", value: 30 },
-      { label: "60s / Q", value: 60 }
-    ], 0, function (v) { settings.timer = v; });
+  function updateSubtopics() {
+    const domain = domainSel.value;
+    subtopicSel.innerHTML = '<option value="">All</option>';
+    if (domain === 'All') return;
+
+    const subs = [...new Set(allQuestions
+      .filter(q => q.domain === domain)
+      .map(q => q.subtopic)
+      .filter(Boolean))].sort();
+
+    subs.forEach(s => {
+      const opt = document.createElement('option');
+      opt.value = s;
+      opt.textContent = s;
+      subtopicSel.appendChild(opt);
+    });
   }
 
   function startQuiz() {
-    var pool = settings.domain === "All" ? bank : bank.filter(function (q) { return q.domain === settings.domain; });
-    pool = P.shuffle(pool);
-    var n = settings.count === 999 ? pool.length : Math.min(settings.count, pool.length);
-    quiz = pool.slice(0, n);
-    if (!quiz.length) return;
-    current = 0; correctCount = 0; byDomain = {};
-    el.setup.classList.add("hidden");
-    el.result.classList.add("hidden");
-    el.quiz.classList.remove("hidden");
-    renderQuestion();
+    const mode = modeSel.value;
+    const domain = domainSel.value;
+    const subtopic = subtopicSel.value;
+    let pool = allQuestions;
+
+    if (mode === 'quick10') {
+      pool = Util.sample(allQuestions, 10);
+    } else {
+      if (domain !== 'All') {
+        pool = pool.filter(q => q.domain === domain);
+      }
+      if (mode === 'chapter' && subtopic) {
+        pool = pool.filter(q => q.subtopic === subtopic);
+      }
+      const count = Math.min(parseInt(countInput.value) || 10, pool.length);
+      pool = Util.sample(pool, count);
+    }
+
+    if (!pool.length) {
+      alert('No questions available for this selection.');
+      return;
+    }
+
+    session = pool;
+    answers = new Array(session.length).fill(null);
+    idx = 0;
+    startTime = Date.now();
+
+    setupEl.style.display = 'none';
+    quizEl.style.display = 'block';
+    resultsEl.style.display = 'none';
+    render();
   }
 
-  function startTimer() {
-    stopTimer();
-    if (!settings.timer) { el.timer.textContent = "No timer"; el.timer.classList.remove("warn"); return; }
-    timeLeft = settings.timer;
-    el.timer.classList.remove("warn");
-    el.timer.textContent = P.formatTime(timeLeft);
-    timerId = setInterval(function () {
-      timeLeft--;
-      el.timer.textContent = P.formatTime(timeLeft);
-      if (timeLeft <= 5) el.timer.classList.add("warn");
-      if (timeLeft <= 0) { stopTimer(); if (!answered) autoReveal(); }
-    }, 1000);
-  }
-  function stopTimer() { if (timerId) { clearInterval(timerId); timerId = null; } }
+  function render() {
+    const q = session[idx];
+    qnum.textContent = `Question ${idx + 1}/${session.length}`;
+    qdomain.textContent = q.subtopic ? `${q.domain} • ${q.subtopic}` : q.domain;
+    qtext.textContent = q.question;
 
-  function renderQuestion() {
-    answered = false;
-    el.nextQBtn.classList.add("hidden");
-    var q = quiz[current];
-    el.qProgress.textContent = "Question " + (current + 1) + " of " + quiz.length;
-    el.progressFill.style.width = ((current) / quiz.length * 100) + "%";
-
-    var opts = q.options.map(function (opt, i) {
-      var letter = String.fromCharCode(65 + i);
-      return '<button class="option" data-i="' + i + '"><span class="letter">' + letter + '</span><span>' + opt + '</span></button>';
-    }).join("");
-
-    el.questionCard.innerHTML =
-      '<div class="q-domain">' + P.domainLabel(q.domain) + '</div>' +
-      '<div class="q-text">' + q.question + '</div>' +
-      '<div class="options">' + opts + '</div>' +
-      '<div class="rationale" id="rationale"><strong>Rationale:</strong> ' + q.rationale + '</div>';
-
-    el.questionCard.querySelectorAll(".option").forEach(function (b) {
-      b.addEventListener("click", function () { selectAnswer(parseInt(b.dataset.i, 10)); });
+    choicesEl.innerHTML = '';
+    q.options.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'choice' + (answers[idx] === i ? ' selected' : '');
+      btn.innerHTML = `<strong>${String.fromCharCode(65 + i)}.</strong> ${Util.escapeHtml(opt)}`;
+      btn.onclick = () => {
+        answers[idx] = i;
+        Util.els('.choice', choicesEl).forEach(c => c.classList.remove('selected'));
+        btn.classList.add('selected');
+      };
+      choicesEl.appendChild(btn);
     });
-    startTimer();
+
+    progBar.style.width = `${((idx + 1) / session.length) * 100}%`;
+    prevBtn.disabled = idx === 0;
+    nextBtn.textContent = idx === session.length - 1 ? 'Finish' : 'Next';
   }
 
-  function autoReveal() { selectAnswer(-1); }
-
-  function selectAnswer(choice) {
-    if (answered) return;
-    answered = true;
-    stopTimer();
-    var q = quiz[current];
-    if (!byDomain[q.domain]) byDomain[q.domain] = { correct: 0, total: 0 };
-    byDomain[q.domain].total++;
-
-    var opts = el.questionCard.querySelectorAll(".option");
-    opts.forEach(function (b) {
-      b.classList.add("disabled");
-      var i = parseInt(b.dataset.i, 10);
-      if (i === q.answer) b.classList.add("correct");
-      if (i === choice && choice !== q.answer) b.classList.add("wrong");
-    });
-    if (choice === q.answer) { correctCount++; byDomain[q.domain].correct++; }
-
-    document.getElementById("rationale").classList.add("show");
-    el.progressFill.style.width = ((current + 1) / quiz.length * 100) + "%";
-    el.nextQBtn.classList.remove("hidden");
-    el.nextQBtn.textContent = current === quiz.length - 1 ? "See Results" : "Next ›";
-  }
-
-  function nextQuestion() {
-    if (!answered) return;
-    if (current === quiz.length - 1) { finish(); return; }
-    current++;
-    renderQuestion();
+  function nav(delta) {
+    if (delta === 1 && idx === session.length - 1) {
+      finish();
+      return;
+    }
+    idx = Math.max(0, Math.min(session.length - 1, idx + delta));
+    render();
   }
 
   function finish() {
-    stopTimer();
-    P.recordQuiz({
-      domain: settings.domain,
-      total: quiz.length,
-      correct: correctCount,
-      byDomain: byDomain
+    const duration = Date.now() - startTime;
+    let correct = 0;
+    const results = session.map((q, i) => {
+      const isCorrect = answers[i] === q.answer;
+      if (isCorrect) correct++;
+      return { ...q, userAnswer: answers[i], isCorrect };
     });
-    var score = P.pct(correctCount, quiz.length);
-    var cls = score >= 66 ? "pass" : "fail";
-    var breakdown = Object.keys(byDomain).map(function (d) {
-      var b = byDomain[d]; var pc = P.pct(b.correct, b.total);
-      return '<div class="domain-row"><div class="dr-head"><span>' + P.domainLabel(d) +
-        '</span><span>' + b.correct + '/' + b.total + ' (' + pc + '%)</span></div>' +
-        '<div class="bar-track"><div class="bar-fill" style="width:' + pc + '%"></div></div></div>';
-    }).join("");
 
-    el.quiz.classList.add("hidden");
-    el.result.classList.remove("hidden");
-    el.result.innerHTML =
-      '<div class="score-card"><div class="score-big ' + cls + '">' + score + '%</div>' +
-      '<div class="score-label">' + correctCount + ' of ' + quiz.length + ' correct</div>' +
-      '<div class="domain-breakdown">' + breakdown + '</div></div>' +
-      '<div class="btn-row" style="justify-content:center;">' +
-      '<button class="btn gold" id="againBtn">New Quiz</button>' +
-      '<a class="btn outline" href="dashboard.html">View Dashboard</a></div>';
-    document.getElementById("againBtn").addEventListener("click", function () {
-      el.result.classList.add("hidden");
-      el.setup.classList.remove("hidden");
+    const score = Util.pct(correct, session.length);
+    quizEl.style.display = 'none';
+    resultsEl.style.display = 'block';
+    scoreLine.textContent = `Score: ${correct}/${session.length} (${score}%) • ${Util.formatDuration(duration)}`;
+    scoreBar.style.width = `${score}%`;
+
+    // Record attempt
+    Storage.recordQuiz({
+      date: new Date().toISOString(),
+      mode: modeSel.value,
+      domain: domainSel.value,
+      subtopic: subtopicSel.value || null,
+      total: session.length,
+      correct: correct,
+      score: score,
+      duration: duration,
+      questions: results.map(r => ({ id: r.id, correct: r.isCorrect }))
     });
+
+    // Review list
+    reviewEl.innerHTML = '<h3>Review</h3>' + results.map((r, i) => `
+      <div class="review-item ${r.isCorrect ? 'correct' : 'incorrect'}">
+        <p><strong>Q${i + 1}:</strong> ${Util.escapeHtml(r.question)}</p>
+        <p>Your answer: <strong>${r.userAnswer !== null ? Util.escapeHtml(r.options[r.userAnswer]) : '—'}</strong></p>
+        <p>Correct answer: <strong>${Util.escapeHtml(r.options[r.answer])}</strong></p>
+        <p class="rationale"><em>${Util.escapeHtml(r.rationale)}</em></p>
+      </div>
+    `).join('');
   }
-
-  el.startBtn.addEventListener("click", startQuiz);
-  el.nextQBtn.addEventListener("click", nextQuestion);
-  el.quitBtn.addEventListener("click", function () {
-    stopTimer();
-    el.quiz.classList.add("hidden");
-    el.setup.classList.remove("hidden");
-  });
-
-  P.loadJSON("data/questions.json")
-    .then(function (data) {
-      bank = data.questions || [];
-      buildSetup();
-      // Quick 10 shortcut
-      if (P.getParam("mode") === "quick") {
-        settings = { domain: "All", count: 10, timer: 0 };
-        startQuiz();
-      }
-    })
-    .catch(function () {
-      el.setup.innerHTML = '<p class="empty-state">Could not load questions. If opening the file directly, run a local server (see README).</p>';
-    });
 })();

@@ -1,89 +1,111 @@
-/* Dashboard: stats, domain accuracy, weak domain, history, reset */
+// Dashboard: local progress stats, domain accuracy, weak-area hint, quiz history
 (function () {
-  "use strict";
-  var P = window.PTCE;
+  const { Storage, Util, DOMAINS } = window.App;
 
-  function fmtDate(iso) {
-    try {
-      var d = new Date(iso);
-      return d.toLocaleDateString() + " " + d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-    } catch (e) { return iso; }
+  function esc(s) { return Util.escapeHtml(String(s)); }
+
+  function scoreOf(a) {
+    return typeof a.score === 'number' ? a.score : Util.pct(a.correct || 0, a.total || 0);
   }
 
-  function render() {
-    var p = P.getProgress();
+  function modeLabel(a) {
+    if (a.mode === 'quick10') return 'Quick 10';
+    if (a.mode === 'chapter') return 'Chapter: ' + (a.subtopic || a.domain || 'All');
+    if (a.mode === 'custom') return 'Custom: ' + (a.domain || 'All');
+    return 'Quiz';
+  }
 
-    // Top stats
-    var quizzes = p.quizzes || [];
-    var exams = p.exams || [];
-    var avg = 0;
-    if (quizzes.length) {
-      var sum = quizzes.reduce(function (a, q) { return a + P.pct(q.correct, q.total); }, 0);
-      avg = Math.round(sum / quizzes.length);
-    }
-    document.getElementById("statQuizzes").textContent = quizzes.length;
-    document.getElementById("statAvg").textContent = avg + "%";
-    document.getElementById("statCards").textContent = p.cardsReviewed || 0;
-    document.getElementById("statExams").textContent = exams.length;
+  function render(p, byDomain) {
+    Util.el('#statQuizzes').textContent = p.quizzes.length;
+    const avg = p.quizzes.length
+      ? Math.round(p.quizzes.reduce(function (s, x) { return s + scoreOf(x); }, 0) / p.quizzes.length)
+      : 0;
+    Util.el('#statAvg').textContent = avg + '%';
+    Util.el('#statCards').textContent = p.flashcards.reviewed.length;
+    Util.el('#statExams').textContent = p.exams.length;
 
-    // Domain accuracy
-    var agg = P.domainAccuracy();
-    var hasData = P.DOMAINS.some(function (d) { return agg[d].total > 0; });
-    if (hasData) {
-      var html = P.DOMAINS.map(function (d) {
-        var a = agg[d]; var pc = P.pct(a.correct, a.total);
-        return '<div class="domain-row"><div class="dr-head"><span>' + P.domainLabel(d) +
-          '</span><span>' + (a.total ? a.correct + '/' + a.total + ' (' + pc + '%)' : 'no data') +
-          '</span></div><div class="bar-track"><div class="bar-fill" style="width:' + pc + '%"></div></div></div>';
-      }).join("");
-      document.getElementById("domainAccuracy").innerHTML = html;
+    const domRows = DOMAINS.map(function (d) {
+      const v = byDomain[d] || { correct: 0, total: 0 };
+      const pc = Util.pct(v.correct, v.total);
+      return '<div class="domain-row"><div class="dr-head"><span>' + esc(d) +
+        '</span><span>' + v.correct + '/' + v.total + ' (' + pc + '%)</span></div>' +
+        '<div class="bar-track"><div class="bar-fill" style="width:' + pc + '%"></div></div></div>';
+    }).join('');
+    Util.el('#domainAccuracy').innerHTML = domRows;
 
-      // Weak domain (lowest accuracy among those with data)
-      var weak = null;
-      P.DOMAINS.forEach(function (d) {
-        if (agg[d].total > 0) {
-          var pc = P.pct(agg[d].correct, agg[d].total);
-          if (weak === null || pc < weak.pc) weak = { d: d, pc: pc };
-        }
-      });
-      if (weak) {
-        document.getElementById("weakDomain").innerHTML =
-          '<p><strong>' + P.domainLabel(weak.d) + '</strong> — ' + weak.pc + '% accuracy.</p>' +
-          '<p class="muted" style="margin-top:6px;">Focus here. ' +
-          '<a href="quiz.html">Practice this domain →</a></p>';
+    let weak = null, weakPct = 101;
+    DOMAINS.forEach(function (d) {
+      const v = byDomain[d];
+      if (v && v.total >= 3) {
+        const pc = Util.pct(v.correct, v.total);
+        if (pc < weakPct) { weakPct = pc; weak = d; }
       }
+    });
+    const weakEl = Util.el('#weakDomain');
+    if (weak) {
+      weakEl.innerHTML = '<strong>' + esc(weak) + '</strong> — ' + weakPct +
+        '% correct. Review notes and flashcards for this domain, then run a focused quiz.';
+    } else {
+      weakEl.textContent = 'Complete some quizzes to reveal your weakest domain.';
     }
 
-    // Quiz history
-    if (quizzes.length) {
-      var qh = quizzes.slice(0, 10).map(function (q) {
-        var pc = P.pct(q.correct, q.total);
-        return '<div class="domain-row"><div class="dr-head"><span>' +
-          (q.domain === "All" ? "All Domains" : P.domainLabel(q.domain)) +
-          ' · ' + fmtDate(q.date) + '</span><span>' + pc + '%</span></div>' +
-          '<div class="bar-track"><div class="bar-fill" style="width:' + pc + '%"></div></div></div>';
-      }).join("");
-      document.getElementById("quizHistory").innerHTML = qh;
+    const hist = p.quizzes.slice(0, 10);
+    if (hist.length) {
+      const h = hist.map(function (q) {
+        const date = new Date(q.date);
+        const when = isNaN(date) ? '' : date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        return '<div class="hist-row"><span>' + esc(modeLabel(q)) + '<br><small class="muted">' + when +
+          '</small></span><span class="hist-score">' + scoreOf(q) + '%</span></div>';
+      }).join('');
+      Util.el('#quizHistory').innerHTML = h;
+    } else {
+      Util.el('#quizHistory').innerHTML = '<p class="empty-state">No quiz attempts yet. Take a quiz!</p>';
     }
 
-    // Best exam
-    if (exams.length) {
-      var best = exams.reduce(function (a, b) { return b.scaled > a.scaled ? b : a; });
-      var pc = P.pct(best.correct, best.total);
-      var passed = best.scaled >= 1400;
-      document.getElementById("examHistory").innerHTML =
-        '<p>Best scaled score: <strong style="color:' + (passed ? '#1f9d55' : '#d64545') + '">' +
-        best.scaled + '</strong> (' + pc + '%, ' + best.correct + '/' + best.total + ')</p>' +
-        '<p class="muted" style="margin-top:4px;">' + exams.length + ' exam(s) completed · last ' + fmtDate(exams[0].date) + '</p>';
+    const be = Util.el('#examHistory');
+    if (p.exams.length) {
+      const best = p.exams.reduce(function (m, x) {
+        return scoreOf(x) > scoreOf(m) ? x : m;
+      }, p.exams[0]);
+      be.innerHTML = '<div class="score-big">' + scoreOf(best) + '%</div>' +
+        '<div class="muted">' + (best.correct || 0) + '/' + (best.total || 0) + ' correct · ' +
+        (best.scaled ? 'Scaled ' + best.scaled + ' · ' : '') +
+        Util.formatDuration(best.duration) + ' · ' + new Date(best.date).toLocaleDateString() + '</div>';
+    } else {
+      be.innerHTML = '<p class="empty-state">No practice exams yet.</p>';
     }
   }
 
-  document.getElementById("resetBtn").addEventListener("click", function () {
-    if (confirm("Reset all progress? This cannot be undone.")) {
-      P.resetProgress();
+  function aggregateDomainAccuracy(p, questions) {
+    const idMap = {};
+    questions.forEach(function (q) { idMap[q.id] = q; });
+    const byDomain = {};
+    p.quizzes.concat(p.exams).forEach(function (attempt) {
+      (attempt.questions || []).forEach(function (r) {
+        const q = idMap[r.id];
+        if (!q) return;
+        const d = q.domain;
+        if (!byDomain[d]) byDomain[d] = { correct: 0, total: 0 };
+        byDomain[d].total++;
+        if (r.correct) byDomain[d].correct++;
+      });
+    });
+    return byDomain;
+  }
+
+  Util.el('#resetBtn').addEventListener('click', function () {
+    if (confirm('Reset all saved progress? This cannot be undone.')) {
+      Storage.clear();
       location.reload();
     }
   });
 
-  render();
+  const progress = Storage.read();
+  Util.fetchJSON('data/questions.json')
+    .then(function (data) {
+      render(progress, aggregateDomainAccuracy(progress, data.questions || data || []));
+    })
+    .catch(function () {
+      render(progress, {});
+    });
 })();

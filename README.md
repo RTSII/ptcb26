@@ -38,32 +38,38 @@ Because the percentages do not convert perfectly into whole questions, the 90-qu
 
 ## Current Project Status
 
-The initial application is implemented directly from the repository root.
+The application is implemented directly from the repository root.
 
 ### Implemented
 
 - Home study hub
 - JSON-driven notes viewer
-- Domain-tagged flashcards
-- Multiple-choice quiz mode
+- Domain-tagged flashcards with flip, swipe, filters, and reviewed tracking
+- Multiple-choice quiz mode with end-of-session answer review
+- Chapter Test mode (filter by domain, then subtopic)
 - Quick 10 quiz mode
-- Weighted practice-exam interface
-- Progress dashboard
+- Weighted practice-exam interface using the 36/24/19/11 blueprint distribution
+- Progress dashboard with per-domain accuracy breakdown
 - Shared mobile-first styling
-- Shared JavaScript utilities
+- Shared JavaScript utilities (`window.App`: Storage, Util, DOMAINS)
 - Browser-based progress persistence
 - Notes, flashcards, and question data files
+- Standardized full domain names across all data files and modules
 
 ### Current Development Stage
 
 ```text
-Stages 1–3: Planning and initial content complete
-Stage 4: Initial application implementation complete
-Stage 5: Integration testing and QA in progress
-Stage 6: Question-bank expansion and content validation next
+Stages 1–4: Planning, content, and initial implementation complete
+Stage 5: Core integration refactor complete (shared App API, aligned domain names,
+         rebuilt quiz/exam engines)
+Stage 6: Question-bank expansion complete — 152 validated questions
+         (Medications 60, Patient Safety and Quality Assurance 38,
+          Order Entry and Processing 38, Federal Requirements 16)
+Stage 7: UI overhaul — synthwave × Matrix dark theme complete
+Stage 8: Content validation and mobile/device testing next
 ```
 
-The existing interfaces and JavaScript modules must still be tested together through localhost before the initial release is considered complete.
+Verified August 6, 2026: all six pages and every JS/JSON/CSS asset serve over localhost (HTTP 200); a jsdom functional harness covering index, notes, flashcards, quiz (Quick 10, Chapter, Custom), exam (30/90-question, timer, scoring), and dashboard passes 69/69 checks; all JSON validates and all JS files pass syntax checks. The full 90-question practice exam now draws completely unique questions in the official 36/24/19/11 blueprint distribution.
 
 ## Technology
 
@@ -85,6 +91,18 @@ The project intentionally does not use:
 - A compilation step
 - A cloud dependency for normal study use
 
+## UI Theme
+
+The interface uses a dark "synthwave × Matrix" theme:
+
+- Deep-space backgrounds with a perspective neon grid and scanline overlay
+- Neon pink, cyan, violet, and matrix-green accent palette
+- A Matrix-style falling-character canvas background (respects `prefers-reduced-motion`)
+- Neon-glow cards, buttons, progress bars, and score displays
+- Orbitron and Share Tech Mono display fonts (loaded from Google Fonts with system fallbacks)
+
+All styling lives in `css/style.css`; the background effect is initialized by `js/app.js`.
+
 ## Repository Structure
 
 The application runs directly from the repository root.
@@ -93,6 +111,7 @@ The application runs directly from the repository root.
 ptcb26/
 ├── README.md
 ├── ROADMAP.md
+├── TESTING_REPORT.md
 ├── index.html
 ├── notes.html
 ├── flashcards.html
@@ -123,7 +142,7 @@ There is no `app/` subdirectory. All documentation and code must use the root-ba
 | `index.html` | Main study hub and navigation |
 | `notes.html` | High-yield notes organized by domain |
 | `flashcards.html` | Active-recall flashcard study |
-| `quiz.html` | Multiple-choice practice questions |
+| `quiz.html` | Multiple-choice practice (Quick 10, Chapter Test, Custom) |
 | `quiz.html?mode=quick` | Random Quick 10 session |
 | `exam.html` | Weighted PTCE-style practice exam |
 | `dashboard.html` | Scores, progress, and weak-area review |
@@ -132,18 +151,20 @@ There is no `app/` subdirectory. All documentation and code must use the root-ba
 
 ### `js/app.js`
 
-Shared application utilities and browser-storage functions.
+Shared application utilities and browser-storage functions, exposed as `window.App`.
 
 Responsibilities include:
 
-- Loading JSON data
-- Reading query parameters
-- Shuffling data
-- Managing saved progress
+- Loading JSON data (`Util.fetchJSON`)
+- Shuffling and sampling data (`Util.shuffle`, `Util.sample`)
+- Managing saved progress (`Storage` under `ptce2026_progress_v1`)
 - Recording quiz attempts
 - Recording exam attempts
-- Calculating performance information
-- Providing shared functionality to page-specific modules
+- Tracking reviewed/known flashcards
+- Calculating percentages and formatting durations
+- Escaping rendered HTML
+- Providing the standardized `DOMAINS` list
+- Initializing the Matrix-style background effect (`FX`)
 
 ### `js/notes.js`
 
@@ -191,13 +212,12 @@ data/questions.json
 Responsibilities include:
 
 - Building quiz sessions
-- Supporting standard and Quick 10 modes
+- Supporting Quick 10, Chapter Test (domain/subtopic), and Custom modes
 - Rendering answer choices
 - Evaluating answers
-- Displaying rationales
+- Displaying rationales in the end-of-session review
 - Calculating results
-- Saving quiz attempts
-- Tracking missed domains and subtopics
+- Saving quiz attempts with per-question outcomes
 
 ### `js/exam.js`
 
@@ -316,11 +336,11 @@ Each question should use this schema:
 {
   "id": "unique-question-id",
   "question": "Question text",
-  "choices": [
-    "Choice A",
-    "Choice B",
-    "Choice C",
-    "Choice D"
+  "options": [
+    "Option A",
+    "Option B",
+    "Option C",
+    "Option D"
   ],
   "answer": 0,
   "rationale": "Explanation of the correct answer",
@@ -330,13 +350,13 @@ Each question should use this schema:
 }
 ```
 
-The `answer` value must correspond to the correct zero-based position in `choices`.
+The `answer` value must correspond to the correct zero-based position in `options`.
 
 Example:
 
 ```json
 {
-  "choices": [
+  "options": [
     "Correct answer",
     "Distractor",
     "Distractor",

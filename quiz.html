@@ -3,53 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#0b1f3a">
-  <title>Quiz · PTCE 2026</title>
+  <meta name="theme-color" content="#030014">
+  <title>Quiz • PTCE 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="app-header">
     <a href="index.html" class="logo">💊 PTCE <span>2026</span></a>
-    <a href="index.html" class="back-link">‹ Home</a>
+    <span class="crumb">Quiz</span>
   </header>
 
   <main class="container">
-    <!-- Setup screen -->
-    <div id="setupScreen">
-      <h1 class="page-title">📝 Quiz Mode</h1>
-      <p class="page-sub">Pick a domain and length. Rationale shown after each answer.</p>
+    <section id="setup" class="card-block">
+      <h2>Build Your Quiz</h2>
+      <div class="row">
+        <label for="mode">Mode</label>
+        <select id="mode">
+          <option value="quick10">Quick 10</option>
+          <option value="chapter">Chapter Test (by Subtopic)</option>
+          <option value="custom">Custom</option>
+        </select>
+      </div>
+      <div class="row" id="domainRow" style="display:none;">
+        <label for="domain">Domain</label>
+        <select id="domain">
+          <option>All</option>
+          <option>Medications</option>
+          <option>Patient Safety and Quality Assurance</option>
+          <option>Order Entry and Processing</option>
+          <option>Federal Requirements</option>
+        </select>
+      </div>
+      <div class="row" id="subtopicRow" style="display:none;">
+        <label for="subtopic">Subtopic</label>
+        <select id="subtopic">
+          <option value="">All</option>
+        </select>
+      </div>
+      <div class="row" id="countRow">
+        <label for="count">Number of Questions</label>
+        <input id="count" type="number" min="5" max="50" step="5" value="10">
+      </div>
+      <div class="row">
+        <button id="startBtn" class="cta">Start Quiz</button>
+        <a class="button ghost" href="index.html">Back</a>
+      </div>
+    </section>
 
-      <div class="card-block">
-        <h3>Domain</h3>
-        <div class="filter-row" id="domainPick"></div>
+    <section id="quiz" class="card-block" style="display:none;">
+      <div class="quiz-header">
+        <div id="qnum" class="chip">Question 1/10</div>
+        <div id="qdomain" class="chip">Domain</div>
       </div>
-      <div class="card-block">
-        <h3>Number of Questions</h3>
-        <div class="filter-row" id="countPick"></div>
+      <div class="progress"><div id="progBar" class="progress-bar" style="width:0%"></div></div>
+      <div id="qtext" class="qtext"></div>
+      <div id="choices" class="choices"></div>
+      <div class="actions">
+        <button id="prevBtn" class="button ghost">Previous</button>
+        <button id="nextBtn" class="cta">Next</button>
       </div>
-      <div class="card-block">
-        <h3>Timer</h3>
-        <div class="filter-row" id="timerPick"></div>
-      </div>
-      <button class="btn gold" id="startBtn" style="width:100%;">Start Quiz</button>
-    </div>
+    </section>
 
-    <!-- Quiz screen -->
-    <div id="quizScreen" class="hidden">
-      <div class="quiz-topbar">
-        <span id="qProgress">Question 1</span>
-        <span class="timer" id="timer">—</span>
+    <section id="results" class="card-block" style="display:none;">
+      <h2>Results</h2>
+      <p><strong id="scoreLine"></strong></p>
+      <div class="progress"><div id="scoreBar" class="progress-bar" style="width:0%"></div></div>
+      <div id="review"></div>
+      <div class="row" style="margin-top:16px;">
+        <button id="retryBtn" class="cta">Retry</button>
+        <a class="button" href="dashboard.html">View Dashboard</a>
+        <a class="button ghost" href="index.html">Home</a>
       </div>
-      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-      <div class="question-card" id="questionCard"></div>
-      <div class="btn-row" style="justify-content:space-between;">
-        <button class="btn outline" id="quitBtn">Quit</button>
-        <button class="btn gold hidden" id="nextQBtn">Next ›</button>
-      </div>
-    </div>
+    </section>
 
-    <!-- Result screen -->
-    <div id="resultScreen" class="hidden"></div>
+    <section id="loadError" class="card-block" style="display:none;">
+      <h2>Failed to load questions</h2>
+      <p>Ensure you are serving the folder over localhost (e.g., <code>python -m http.server</code>) so fetch of <code>data/questions.json</code> is allowed.</p>
+    </section>
   </main>
 
   <script src="js/app.js"></script>

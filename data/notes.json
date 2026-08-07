@@ -48,15 +48,33 @@
         {
           "title": "Common Brand / Generic Pairs",
           "items": [
-            "Lipitor = atorvastatin", "Prinivil/Zestril = lisinopril", "Glucophage = metformin",
-            "Synthroid = levothyroxine", "Prilosec = omeprazole", "Norvasc = amlodipine",
-            "Coumadin = warfarin", "Lasix = furosemide", "Zoloft = sertraline",
-            "Neurontin = gabapentin", "Ventolin/ProAir = albuterol", "Zithromax = azithromycin",
-            "Eliquis = apixaban", "Xarelto = rivaroxaban", "Plavix = clopidogrel",
-            "Januvia = sitagliptin", "Jardiance = empagliflozin", "Ozempic/Wegovy = semaglutide",
-            "Cymbalta = duloxetine", "Wellbutrin = bupropion", "Lyrica = pregabalin",
-            "Advair = fluticasone/salmeterol", "Augmentin = amoxicillin/clavulanate", "Flexeril = cyclobenzaprine",
-            "Sinemet = carbidopa/levodopa", "Zyloprim = allopurinol", "Imitrex = sumatriptan"
+            "Lipitor = atorvastatin",
+            "Prinivil/Zestril = lisinopril",
+            "Glucophage = metformin",
+            "Synthroid = levothyroxine",
+            "Prilosec = omeprazole",
+            "Norvasc = amlodipine",
+            "Coumadin = warfarin",
+            "Lasix = furosemide",
+            "Zoloft = sertraline",
+            "Neurontin = gabapentin",
+            "Ventolin/ProAir = albuterol",
+            "Zithromax = azithromycin",
+            "Eliquis = apixaban",
+            "Xarelto = rivaroxaban",
+            "Plavix = clopidogrel",
+            "Januvia = sitagliptin",
+            "Jardiance = empagliflozin",
+            "Ozempic/Wegovy = semaglutide",
+            "Cymbalta = duloxetine",
+            "Wellbutrin = bupropion",
+            "Lyrica = pregabalin",
+            "Advair = fluticasone/salmeterol",
+            "Augmentin = amoxicillin/clavulanate",
+            "Flexeril = cyclobenzaprine",
+            "Sinemet = carbidopa/levodopa",
+            "Zyloprim = allopurinol",
+            "Imitrex = sumatriptan"
           ]
         },
         {
@@ -144,7 +162,7 @@
       ]
     },
     {
-      "domain": "Patient Safety",
+      "domain": "Patient Safety and Quality Assurance",
       "weight": "26.25%",
       "summary": "Patient Safety and Quality Assurance. Covers error prevention, high-alert meds, ISMP error-prone abbreviations, NDC format, USP compounding standards, hygiene, and reporting.",
       "sections": [
@@ -212,7 +230,7 @@
       ]
     },
     {
-      "domain": "Order Entry",
+      "domain": "Order Entry and Processing",
       "weight": "21.25%",
       "summary": "Order Entry and Processing. Sig code interpretation, pharmacy calculations, days supply, conversions, prescription intake, refill rules, and insurance processing.",
       "sections": [
