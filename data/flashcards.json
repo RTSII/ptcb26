@@ -407,6 +407,396 @@
       "domain": "Federal Requirements",
       "front": "What law created the current drug schedules?",
       "back": "The Controlled Substances Act (CSA) of 1970."
+    },
+    {
+      "id": "69",
+      "domain": "Medications",
+      "front": "Warfarin (Coumadin)",
+      "back": "Anticoagulant (vitamin K antagonist). Monitor INR. Many interactions; keep vitamin K intake consistent. High-alert."
+    },
+    {
+      "id": "70",
+      "domain": "Medications",
+      "front": "Heparin",
+      "back": "Anticoagulant. Monitor aPTT/anti-Xa and platelets (HIT risk). Reversed by protamine sulfate. High-alert."
+    },
+    {
+      "id": "71",
+      "domain": "Medications",
+      "front": "Insulin glargine (Lantus)",
+      "back": "Long-acting basal insulin; onset ~2–4 h, no pronounced peak, ~24 h duration. Cannot be mixed with other insulins. Refrigerate unopened."
+    },
+    {
+      "id": "72",
+      "domain": "Medications",
+      "front": "Insulin aspart / lispro (NovoLog / Humalog)",
+      "back": "Rapid-acting bolus insulin; onset ~15 min, peak 1–2 h. Given at mealtime."
+    },
+    {
+      "id": "73",
+      "domain": "Medications",
+      "front": "-statin suffix",
+      "back": "HMG-CoA reductase inhibitors for cholesterol: atorvastatin (Lipitor), simvastatin (Zocor), rosuvastatin (Crestor). Take in the evening (simvastatin). Watch myalgia/liver enzymes."
+    },
+    {
+      "id": "74",
+      "domain": "Medications",
+      "front": "-prazole suffix",
+      "back": "Proton pump inhibitors for GERD/ulcers: omeprazole (Prilosec), pantoprazole (Protonix), esomeprazole (Nexium). Take 30–60 min before first meal."
+    },
+    {
+      "id": "75",
+      "domain": "Medications",
+      "front": "-olol suffix",
+      "back": "Beta blockers: metoprolol, atenolol (Tenormin), propranolol. Lower HR/BP. Caution in asthma; do not stop abruptly."
+    },
+    {
+      "id": "76",
+      "domain": "Medications",
+      "front": "Amoxicillin",
+      "back": "Aminopenicillin antibiotic. Common for ear/strep infections. Refrigerate the reconstituted suspension; discard after 14 days."
+    },
+    {
+      "id": "77",
+      "domain": "Medications",
+      "front": "Azithromycin (Zithromax, Z-Pak)",
+      "back": "Macrolide antibiotic. Z-Pak = 6 tabs (500 mg day 1, then 250 mg daily ×4). Watch QT prolongation."
+    },
+    {
+      "id": "78",
+      "domain": "Medications",
+      "front": "Albuterol (ProAir, Ventolin)",
+      "back": "Short-acting beta-agonist (SABA) rescue bronchodilator for asthma. Inhaler/nebulizer. Prime before first use."
+    },
+    {
+      "id": "79",
+      "domain": "Medications",
+      "front": "Prednisone",
+      "back": "Oral corticosteroid. Taper after prolonged use; take with food. LASA pair: predniSONE vs prednisoLONE."
+    },
+    {
+      "id": "80",
+      "domain": "Medications",
+      "front": "Digoxin (Lanoxin)",
+      "back": "Cardiac glycoside for HF/AFib. NARROW THERAPEUTIC INDEX — toxicity shows nausea, yellow-green visual halos. Check level & K+."
+    },
+    {
+      "id": "81",
+      "domain": "Medications",
+      "front": "Levothyroxine (Synthroid)",
+      "back": "Thyroid hormone replacement. Take on empty stomach 30–60 min before breakfast, consistent brand. Separate from Ca/Fe by 4 h."
+    },
+    {
+      "id": "82",
+      "domain": "Medications",
+      "front": "Hydrochlorothiazide (HCTZ)",
+      "back": "Thiazide diuretic for HTN. Take in morning; monitor K+ (hypokalemia) and uric acid/gout."
+    },
+    {
+      "id": "83",
+      "domain": "Medications",
+      "front": "Furosemide (Lasix)",
+      "back": "Loop diuretic for edema/HF. \"Loop = loses potassium.\" Monitor K+; may cause ototoxicity at high doses."
+    },
+    {
+      "id": "84",
+      "domain": "Medications",
+      "front": "Teratogenic drugs to know",
+      "back": "Isotretinoin, warfarin, methotrexate, ACE inhibitors/ARBs, statins, tetracyclines, valproate, finasteride (crushed, handling risk in pregnancy)."
+    },
+    {
+      "id": "85",
+      "domain": "Medications",
+      "front": "Insulin storage",
+      "back": "Unopened insulin: refrigerate 36–46°F (2–8°C). In-use vial/pen: room temp, discard ~28 days (glargine/detemir). Never freeze; avoid heat/light."
+    },
+    {
+      "id": "86",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "MedWatch",
+      "back": "FDA voluntary program for reporting adverse events, product problems, and medication errors (Form FDA 3500)."
+    },
+    {
+      "id": "87",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "Recall classes",
+      "back": "Class I = serious harm/death likely. Class II = temporary/reversible harm. Class III = unlikely to cause harm."
+    },
+    {
+      "id": "88",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "USP <795>",
+      "back": "Non-STERILE compounding standards (creams, suspensions, capsules)."
+    },
+    {
+      "id": "89",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "USP <797>",
+      "back": "STERILE compounding standards (IVs, injections, eye drops) — cleanroom, garbing, BUDs."
+    },
+    {
+      "id": "90",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "USP <800>",
+      "back": "Hazardous drug HANDLING standards — PPE, containment (C-PEC/C-SEC), for both sterile & non-sterile HDs."
+    },
+    {
+      "id": "91",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "NIOSH hazardous drug PPE",
+      "back": "Double chemotherapy-tested gloves + impermeable gown for compounding HDs; add eye/face & respiratory protection per risk."
+    },
+    {
+      "id": "92",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "Near miss / close call",
+      "back": "An error intercepted BEFORE reaching the patient. Report to fix system weaknesses."
+    },
+    {
+      "id": "93",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "NCC MERP categories",
+      "back": "A=potential; B=no reach; C=reached, no harm; D=monitoring; E-I = increasing harm (I=death)."
+    },
+    {
+      "id": "94",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "PDSA cycle",
+      "back": "Plan-Do-Study-Act — iterative quality-improvement cycle."
+    },
+    {
+      "id": "95",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "Methotrexate (high-alert)",
+      "back": "For RA/psoriasis dosed ONCE WEEKLY; daily dosing is a fatal error. Confirm day-of-week instructions."
+    },
+    {
+      "id": "96",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "Tall Man lettering",
+      "back": "Capitalize differentiating letters to separate look-alike names: predniSONE/prednisoLONE, hydrALAZINE/hydrOXYzine, DOBUTamine/DOPamine."
+    },
+    {
+      "id": "97",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "Prospective DUR",
+      "back": "Screening for interactions/duplication/contraindications BEFORE dispensing (at order entry). Retrospective DUR reviews patterns afterward."
+    },
+    {
+      "id": "98",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "Garbing order (sterile)",
+      "back": "Dirtiest to cleanest: shoe covers → hair/beard cover → mask → gown → sterile gloves LAST (after hand hygiene)."
+    },
+    {
+      "id": "99",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "Sharps disposal",
+      "back": "Puncture-resistant, closable sharps container — never regular trash/recycling."
+    },
+    {
+      "id": "100",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "Vaccine storage",
+      "back": "Most refrigerated vaccines: 2–8°C (36–46°F); do NOT freeze. Some (e.g., mRNA) have frozen/ultra-cold requirements."
+    },
+    {
+      "id": "101",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "Beyond-use date (BUD)",
+      "back": "Date after which a COMPOUNDED preparation must not be used — assigned per USP/stability, NOT the manufacturer expiration date."
+    },
+    {
+      "id": "102",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "Independent double check",
+      "back": "Two qualified staff separately verify high-alert meds (insulin, anticoagulants, chemotherapy) before dispensing/administration."
+    },
+    {
+      "id": "103",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "Medication reconciliation",
+      "back": "Compare all home meds vs new orders at EVERY transition of care (admit/transfer/discharge) to catch omissions & duplications."
+    },
+    {
+      "id": "104",
+      "domain": "Order Entry and Processing",
+      "front": "q6h",
+      "back": "Every 6 hours. qhs = every night at bedtime. qh = every hour."
+    },
+    {
+      "id": "105",
+      "domain": "Order Entry and Processing",
+      "front": "ac / pc",
+      "back": "ac = before meals; pc = after meals. hs = at bedtime."
+    },
+    {
+      "id": "106",
+      "domain": "Order Entry and Processing",
+      "front": "OU / OD / OS vs AU / AD / AS",
+      "back": "OU/OD/OS = both/right/left EYE. AU/AD/AS = both/right/left EAR."
+    },
+    {
+      "id": "107",
+      "domain": "Order Entry and Processing",
+      "front": "PRN",
+      "back": "As needed (pro re nata)."
+    },
+    {
+      "id": "108",
+      "domain": "Order Entry and Processing",
+      "front": "1:1000 concentration",
+      "back": "1 g per 1000 mL = 1 mg/mL (epinephrine)."
+    },
+    {
+      "id": "109",
+      "domain": "Order Entry and Processing",
+      "front": "Alligation",
+      "back": "Mix strengths to a target. Parts of HIGH = target − low; parts of LOW = high − target. e.g., 70%+20%→50%: 30 parts 70%, 20 parts 20% = 3:2."
+    },
+    {
+      "id": "110",
+      "domain": "Order Entry and Processing",
+      "front": "Days supply",
+      "back": "Tablets: qty ÷ tabs-per-day. Round DOWN for billing. Insulin: (mL × 100 units) ÷ units/day."
+    },
+    {
+      "id": "111",
+      "domain": "Order Entry and Processing",
+      "front": "U-100 insulin",
+      "back": "100 units per mL. A 10 mL vial = 1,000 units. At 20 units/day lasts 50 days."
+    },
+    {
+      "id": "112",
+      "domain": "Order Entry and Processing",
+      "front": "DAW codes",
+      "back": "DAW 0 = substitution allowed (default). DAW 1 = prescriber requires brand (dispense as written). DAW 2 = patient requests brand."
+    },
+    {
+      "id": "113",
+      "domain": "Order Entry and Processing",
+      "front": "Birthday rule",
+      "back": "For a child on both parents' plans: primary = parent whose birth MONTH/DAY comes earlier in the calendar year."
+    },
+    {
+      "id": "114",
+      "domain": "Order Entry and Processing",
+      "front": "Roman numerals",
+      "back": "ss=½, I=1, V=5, X=10, L=50, C=100, D=500, M=1000. XLIV=44, XC=90."
+    },
+    {
+      "id": "115",
+      "domain": "Order Entry and Processing",
+      "front": "1 grain (gr)",
+      "back": "≈ 65 mg (often rounded to 60 mg)."
+    },
+    {
+      "id": "116",
+      "domain": "Order Entry and Processing",
+      "front": "Household conversions",
+      "back": "1 tsp = 5 mL; 1 tbsp = 15 mL = 3 tsp; 1 oz ≈ 30 mL; 1 kg = 2.2 lb."
+    },
+    {
+      "id": "117",
+      "domain": "Order Entry and Processing",
+      "front": "Flow rate (gtt/min)",
+      "back": "(volume in mL ÷ time in min) × drop factor (gtt/mL)."
+    },
+    {
+      "id": "118",
+      "domain": "Order Entry and Processing",
+      "front": "Signa / inscription / subscription",
+      "back": "Signa = directions to patient; inscription = drug & strength; subscription = quantity/refill instructions."
+    },
+    {
+      "id": "119",
+      "domain": "Order Entry and Processing",
+      "front": "Prior authorization (PA)",
+      "back": "Prescriber must justify medical necessity to the insurer BEFORE the claim is paid."
+    },
+    {
+      "id": "120",
+      "domain": "Federal Requirements",
+      "front": "HIPAA",
+      "back": "Protects PHI privacy/security. Pharmacies must give a Notice of Privacy Practices. Minimum necessary rule."
+    },
+    {
+      "id": "121",
+      "domain": "Federal Requirements",
+      "front": "OBRA-90",
+      "back": "Mandates prospective DUR and pharmacist OFFER TO COUNSEL on new Medicaid Rxs."
+    },
+    {
+      "id": "122",
+      "domain": "Federal Requirements",
+      "front": "DEA Form 222 / CSOS",
+      "back": "Order/purchase Schedule I–II controlled substances."
+    },
+    {
+      "id": "123",
+      "domain": "Federal Requirements",
+      "front": "DEA Form 106",
+      "back": "Report theft or significant loss of controlled substances."
+    },
+    {
+      "id": "124",
+      "domain": "Federal Requirements",
+      "front": "DEA Form 41",
+      "back": "Record destruction/disposal of controlled substances."
+    },
+    {
+      "id": "125",
+      "domain": "Federal Requirements",
+      "front": "DEA Form 224",
+      "back": "Pharmacy DEA registration; renew every 3 YEARS."
+    },
+    {
+      "id": "126",
+      "domain": "Federal Requirements",
+      "front": "C-II refill rules",
+      "back": "No refills; new prescription each time. Written or EPCS. Fax allowed for hospice/LTCF/home-infusion exception."
+    },
+    {
+      "id": "127",
+      "domain": "Federal Requirements",
+      "front": "C-III–C-V refills",
+      "back": "Up to 5 refills within 6 months of issue date."
+    },
+    {
+      "id": "128",
+      "domain": "Federal Requirements",
+      "front": "CMEA (pseudoephedrine)",
+      "back": "Max 3.6 g/day and 9 g per 30 days per purchaser; ID + logbook required; behind the counter."
+    },
+    {
+      "id": "129",
+      "domain": "Federal Requirements",
+      "front": "CSA schedules",
+      "back": "C-I no accepted medical use (heroin); C-II high abuse (oxycodone, amphetamine); C-III–V decreasing abuse potential."
+    },
+    {
+      "id": "130",
+      "domain": "Federal Requirements",
+      "front": "DEA number check",
+      "back": "2 letters + 7 digits. Verify: add digits 1+3+5; add 2+4+6 and ×2; sum them — last digit of total = 7th (check) digit."
+    },
+    {
+      "id": "131",
+      "domain": "Federal Requirements",
+      "front": "Biennial inventory",
+      "back": "Controlled-substance inventory required every 2 YEARS (biennial); C-II exact count, others may estimate."
+    },
+    {
+      "id": "132",
+      "domain": "Federal Requirements",
+      "front": "FDCA 1938 / Durham-Humphrey / Kefauver-Harris",
+      "back": "1938 = safety after sulfanilamide; 1951 = Rx vs OTC distinction; 1962 = safety AND efficacy + GMP."
+    },
+    {
+      "id": "133",
+      "domain": "Federal Requirements",
+      "front": "Poison Prevention Packaging Act",
+      "back": "Requires child-resistant containers for most Rx/OTC (patient may request easy-open)."
     }
   ]
 }

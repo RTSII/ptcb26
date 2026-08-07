@@ -158,6 +158,41 @@
             "isotretinoin (iPLEDGE), thalidomide, warfarin, methotrexate, valproic acid, phenytoin, ACE inhibitors/ARBs, statins, tetracyclines, lithium, misoprostol.",
             "REMS programs: iPLEDGE (isotretinoin), clozapine REMS, THALOMID/REVLIMID, TIRF (fentanyl)."
           ]
+        },
+        {
+          "title": "Dosage Forms & Routes",
+          "items": [
+            "Sublingual (SL): dissolves under tongue, rapid absorption, bypasses first-pass (nitroglycerin). Buccal = between cheek and gum.",
+            "Enteric-coated: resists stomach acid, dissolves in small intestine — do NOT crush (aspirin EC, omeprazole).",
+            "Extended-release (ER/XL/SR/CR/LA): releases over time — do NOT crush, split, or chew (risk of dose dumping).",
+            "Orally disintegrating tablets (ODT) dissolve on the tongue; effervescent tablets must be dissolved in water first.",
+            "Transdermal patches: steady absorption, bypass first-pass; rotate sites, do not cut reservoir patches, fold before disposal (fentanyl).",
+            "Suppositories (rectal/vaginal) bypass first-pass partially; store some refrigerated. Inhalers often need priming.",
+            "Suspensions: \"shake well before use.\" Reconstituted antibiotic suspensions usually refrigerated, discard after 14 days."
+          ]
+        },
+        {
+          "title": "Respiratory, Psych & Miscellaneous Agents",
+          "items": [
+            "SABA rescue: albuterol (ProAir, Ventolin). ICS maintenance: fluticasone (Flovent). LABA: salmeterol (never alone in asthma).",
+            "Montelukast (Singulair): leukotriene antagonist for asthma/allergic rhinitis; boxed warning for neuropsychiatric effects.",
+            "SSRIs (-oxetine/-sertraline): fluoxetine (Prozac), sertraline (Zoloft) — take weeks to work; risk serotonin syndrome with MAOIs/triptans.",
+            "SNRIs: duloxetine (Cymbalta), venlafaxine (Effexor) — depression, anxiety, neuropathic pain.",
+            "Benzodiazepines (-azepam/-azolam): alprazolam (Xanax), lorazepam (Ativan) — C-IV, sedation/dependence; reversed by flumazenil.",
+            "Z-hypnotics: zolpidem (Ambien), eszopiclone (Lunesta) — C-IV for insomnia.",
+            "SGLT2 inhibitors (-gliflozin): empagliflozin (Jardiance) — diabetes; watch genital infections, DKA. GLP-1 agonists: semaglutide (Ozempic).",
+            "Thiazolidinediones (-glitazone): pioglitazone (Actos). Biguanide: metformin (Glucophage) — first-line T2DM; hold before contrast dye.",
+            "Alpha-1 blockers (-azosin/-ulosin): tamsulosin (Flomax) for BPH — first-dose orthostatic hypotension."
+          ]
+        },
+        {
+          "title": "Musculoskeletal, Bone & Gout",
+          "items": [
+            "NSAIDs: ibuprofen (Advil/Motrin), naproxen (Aleve), meloxicam (Mobic), celecoxib (Celebrex) — GI bleed risk; take with food.",
+            "Bisphosphonates: alendronate (Fosamax) for osteoporosis — take with plain water 30+ min before food, stay upright.",
+            "Allopurinol (Zyloprim): xanthine oxidase inhibitor for chronic gout prevention. Colchicine for acute gout flares.",
+            "Acetaminophen (Tylenol) max 4 g/day (many use 3 g); hepatotoxicity in overdose — antidote N-acetylcysteine."
+          ]
         }
       ]
     },
@@ -225,6 +260,37 @@
             "MedWatch: FDA adverse event reporting; FAERS public database; ISMP MERP; VAERS for vaccines.",
             "Root Cause Analysis (RCA): investigates WHY (reactive); FMEA: proactive failure analysis.",
             "PPE donning: gown → mask → goggles → gloves; doffing: gloves → goggles → gown → mask."
+          ]
+        },
+        {
+          "title": "Reporting Programs & Recalls",
+          "items": [
+            "FDA MedWatch: voluntary reporting of adverse events, product problems, medication errors (Form 3500 professionals / 3500B consumers).",
+            "ISMP MERP: voluntary, confidential national error reporting to identify and share prevention strategies.",
+            "Recall classes: Class I = serious harm/death likely; Class II = temporary/reversible harm; Class III = unlikely harm.",
+            "NCC MERP error categories: A potential → B no reach → C reach/no harm → D monitoring → E–I increasing harm (I = death).",
+            "Report near misses (intercepted errors) too — they reveal system weaknesses before harm occurs."
+          ]
+        },
+        {
+          "title": "Quality Improvement Methods",
+          "items": [
+            "Root cause analysis (RCA): systems-based review to find underlying process failures (not individual blame) after an error.",
+            "PDSA cycle (Plan-Do-Study-Act): iterative method to test and refine quality improvements.",
+            "Independent double checks: two qualified staff separately verify high-alert meds before dispensing/administration.",
+            "Prospective DUR screens before dispensing; retrospective DUR reviews prescribing/dispensing patterns afterward.",
+            "Medication reconciliation at every transition of care prevents omissions, duplications, and dose errors."
+          ]
+        },
+        {
+          "title": "Infection Control & Hazardous Materials",
+          "items": [
+            "Hand hygiene: soap + water for at least 20 seconds; alcohol-based rub when hands not visibly soiled.",
+            "Sharps: rigid, puncture-resistant, closable sharps containers; never recap used needles by hand.",
+            "NIOSH maintains the list of hazardous drugs (antineoplastics, hormones, some antivirals).",
+            "Hazardous-drug PPE: two pairs of chemotherapy-tested gloves + impermeable gown; eye/face/respiratory protection per risk.",
+            "Sterile garbing order (dirtiest→cleanest): shoe covers → hair/beard cover → mask → gown → sterile gloves last.",
+            "Vaccine storage: most refrigerated at 2–8°C (36–46°F), do not freeze; monitor with calibrated thermometers and document temps."
           ]
         }
       ]
@@ -302,6 +368,28 @@
             "May cause drowsiness: opioids, benzos, antihistamines. Shake well: suspensions.",
             "Do not crush/chew: ER/XL/XR/SR, enteric-coated. Refrigerate/do not freeze: insulin, amoxicillin suspension."
           ]
+        },
+        {
+          "title": "Essential Calculations Reference",
+          "items": [
+            "Concentration: ratio 1:1000 = 1 g/1000 mL = 1 mg/mL. Percent = g per 100 mL (0.9% = 0.9 g/100 mL).",
+            "Percent to decimal: divide by 100 (0.75% = 0.0075). mg per g = %×10 (0.25% cream = 2.5 mg/g).",
+            "Weight-based dose: mg/kg/day × weight in kg. Convert lb→kg by dividing by 2.2.",
+            "Alligation: parts of high = target − low; parts of low = high − target (e.g., 70% + 20% → 50% is 3:2).",
+            "IV flow rate: gtt/min = (mL ÷ minutes) × drop factor; mL/hr = total volume ÷ hours.",
+            "Temperature: °F = (°C × 9/5) + 32; °C = (°F − 32) × 5/9.",
+            "Days supply: tablets qty ÷ per-day; insulin (mL × 100) ÷ units/day; drops/ sprays multiply mL × 20 (or actuations) ÷ per-day; round down for billing."
+          ]
+        },
+        {
+          "title": "Reading the Prescription",
+          "items": [
+            "Parts: inscription (drug/strength), subscription (quantity/refills), Signa/sig (patient directions).",
+            "\"Disp #30\" = dispense 30; refills are authorized separately (e.g., \"Refills: 2\").",
+            "DAW codes: 0 substitution allowed, 1 prescriber requires brand, 2 patient requests brand.",
+            "Red flags to clarify with pharmacist: illegible handwriting, unusual dose, missing quantity/sig, or dangerous abbreviation.",
+            "Verify patient identity with two identifiers (full name + date of birth) before filling to prevent wrong-patient errors."
+          ]
         }
       ]
     },
@@ -376,6 +464,17 @@
             "Orange Book codes: A/AB = therapeutically equivalent (substitutable); B = not equivalent.",
             "NPI: 10-digit provider ID (effective 2007); required on claims; does NOT replace DEA number.",
             "Rule of thumb: always follow the STRICTER of state vs federal law."
+          ]
+        },
+        {
+          "title": "Counseling & Omnibus Laws",
+          "items": [
+            "OBRA-90: requires prospective DUR and a pharmacist OFFER TO COUNSEL on new prescriptions (Medicaid).",
+            "HIPAA: protects PHI; provide Notice of Privacy Practices; use/disclose only the minimum necessary.",
+            "FDCA 1938 (safety), Durham-Humphrey 1951 (Rx vs OTC), Kefauver-Harris 1962 (safety + efficacy, GMP).",
+            "Controlled Substances Act 1970: created the five DEA schedules; enforced by the DEA.",
+            "Poison Prevention Packaging Act 1970: child-resistant containers (patients may request easy-open).",
+            "Combat Methamphetamine Epidemic Act: pseudoephedrine/ephedrine limits 3.6 g/day, 9 g/30 days, ID + logbook, behind the counter."
           ]
         }
       ]

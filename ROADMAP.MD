@@ -93,6 +93,8 @@ Stage 5: Integration refactor complete (shared window.App API, standardized doma
          re-verified via localhost and a 69-check jsdom functional harness
 Stage 6: Question-bank expansion complete — 152 of 152 questions
 Stage 6B: UI overhaul — synthwave × Matrix dark theme complete
+Stage 6C: Content expansion complete — flashcards 68 → 133, notes → 40 sections
+          / 251 bullets covering every question subtopic across all four domains
 Stage 7: Content validation — active (next)
 Stage 8: Mobile polish and initial release
 ```
@@ -569,6 +571,27 @@ Complete.
 - [x] Display fonts (Orbitron, Rajdhani, Share Tech Mono) with system fallbacks
 - [x] Keyboard-focus visibility and contrast preserved
 - [x] Zero functional regressions across all six pages (JS syntax, JSON validity, ID/class audit, and localhost HTTP 200 smoke test all verified)
+
+## Stage 6C — Content Expansion (Flashcards & Notes)
+
+### Objective
+
+Expand active-recall flashcards and compressed study notes so every question-bank subtopic and PTCE content area has corresponding study material from start to finish.
+
+### Status
+
+Complete.
+
+### Completed
+
+- [x] Flashcards expanded 68 → 133 cards across all four domains (Medications 47, Patient Safety and Quality Assurance 28, Order Entry and Processing 30, Federal Requirements 28)
+- [x] Notes expanded to 40 sections / 251 bullets across all four domains
+- [x] Medications: added Dosage Forms & Routes; Respiratory/Psych/Misc; Musculoskeletal/Bone/Gout sections
+- [x] Patient Safety: added Reporting Programs & Recalls; Quality Improvement Methods; Infection Control & Hazardous Materials sections
+- [x] Order Entry: added Essential Calculations Reference; Reading the Prescription sections
+- [x] Federal: added Counseling & Omnibus Laws section
+- [x] Coverage mapped to all question subtopics (Medications 22, Patient Safety 16, Order Entry 5, Federal 6)
+- [x] Verified rendering: all 133 cards and all 251 note bullets render; no duplicate flashcard IDs
 
 ## Stage 7 — Content Validation
 

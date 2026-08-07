@@ -65,11 +65,13 @@ Stage 5: Core integration refactor complete (shared App API, aligned domain name
 Stage 6: Question-bank expansion complete — 152 validated questions
          (Medications 60, Patient Safety and Quality Assurance 38,
           Order Entry and Processing 38, Federal Requirements 16)
-Stage 7: UI overhaul — synthwave × Matrix dark theme complete
-Stage 8: Content validation and mobile/device testing next
+Stage 6B: UI overhaul — synthwave × Matrix dark theme complete
+Stage 6C: Content expansion complete — flashcards 68 → 133 cards,
+          notes → 40 sections / 251 bullets covering every question subtopic
+Stage 7: Content validation and mobile/device testing next
 ```
 
-Verified August 6, 2026: all six pages and every JS/JSON/CSS asset serve over localhost (HTTP 200); a jsdom functional harness covering index, notes, flashcards, quiz (Quick 10, Chapter, Custom), exam (30/90-question, timer, scoring), and dashboard passes 69/69 checks; all JSON validates and all JS files pass syntax checks. The full 90-question practice exam now draws completely unique questions in the official 36/24/19/11 blueprint distribution.
+Verified August 6, 2026: all six pages and every JS/JSON/CSS asset serve over localhost (HTTP 200); a jsdom functional harness covering index, notes, flashcards, quiz (Quick 10, Chapter, Custom), exam (30/90-question, timer, scoring), and dashboard passes 69/69 checks; all JSON validates and all JS files pass syntax checks. The full 90-question practice exam now draws completely unique questions in the official 36/24/19/11 blueprint distribution. Flashcards expanded to 133 cards and study notes to 40 sections / 251 bullets spanning every question subtopic across all four domains.
 
 ## Technology
 
