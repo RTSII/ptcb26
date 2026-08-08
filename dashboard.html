@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#030014">
   <title>Dashboard · PTCE 2026</title>
+  <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -28,13 +29,23 @@
     </div>
 
     <div class="card-block">
+      <h3>Score Trend</h3>
+      <div id="trendChart"><p class="muted">Take quizzes to see your score trend.</p></div>
+    </div>
+
+    <div class="card-block">
       <h3>Accuracy by Domain</h3>
       <div id="domainAccuracy"><p class="muted">No data yet. Take a quiz to see your breakdown.</p></div>
     </div>
 
     <div class="card-block">
-      <h3>Weakest Domain</h3>
+      <h3>Focus Area</h3>
       <div id="weakDomain"><p class="muted">Take a few quizzes to identify your focus area.</p></div>
+      <div class="btn-row" style="margin-top:12px;">
+        <a class="btn gold" href="quiz.html?mode=missed">Review Missed Questions</a>
+        <a class="btn" href="quiz.html?mode=weak">Quiz Weakest Domain</a>
+        <a class="btn outline" href="quiz.html?mode=weaksub">Quiz Weakest Subtopic</a>
+      </div>
     </div>
 
     <div class="card-block">
@@ -45,6 +56,16 @@
     <div class="card-block">
       <h3>Best Practice Exam</h3>
       <div id="examHistory"><p class="muted">No exams completed yet.</p></div>
+    </div>
+
+    <div class="card-block">
+      <h3>Backup & Restore</h3>
+      <p class="muted">Export your progress to a file, or import a previous backup.</p>
+      <div class="btn-row">
+        <button class="btn" id="exportBtn">Export Progress</button>
+        <label class="btn outline" for="importFile" style="margin:0;">Import Progress</label>
+        <input type="file" id="importFile" accept="application/json,.json" class="hidden">
+      </div>
     </div>
 
     <div class="btn-row">

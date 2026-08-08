@@ -41,10 +41,12 @@
         if (pc < weakPct) { weakPct = pc; weak = d; }
       }
     });
+    renderTrend(p);
+
     const weakEl = Util.el('#weakDomain');
     if (weak) {
       weakEl.innerHTML = '<strong>' + esc(weak) + '</strong> — ' + weakPct +
-        '% correct. Review notes and flashcards for this domain, then run a focused quiz.';
+        '% correct. Use the buttons below to drill it.';
     } else {
       weakEl.textContent = 'Complete some quizzes to reveal your weakest domain.';
     }
@@ -76,6 +78,22 @@
     }
   }
 
+  function renderTrend(p) {
+    const chart = Util.el('#trendChart');
+    const all = p.quizzes.slice(0, 15).reverse(); // oldest -> newest
+    if (!all.length) { chart.innerHTML = '<p class="muted">Take quizzes to see your score trend.</p>'; return; }
+    const bars = all.map(function (a) {
+      const s = scoreOf(a);
+      const h = Math.max(4, s);
+      const color = s >= 80 ? 'var(--green)' : (s >= 60 ? 'var(--cyan)' : 'var(--pink)');
+      return '<div class="trend-bar" title="' + esc(modeLabel(a)) + ' — ' + s + '%">' +
+        '<div class="trend-fill" style="height:' + h + '%;background:' + color + ';"></div>' +
+        '<span class="trend-val">' + s + '</span></div>';
+    }).join('');
+    chart.innerHTML = '<div class="trend-chart">' + bars + '</div>' +
+      '<p class="muted center" style="margin-top:6px;">Last ' + all.length + ' quiz score(s), oldest → newest</p>';
+  }
+
   function aggregateDomainAccuracy(p, questions) {
     const idMap = {};
     questions.forEach(function (q) { idMap[q.id] = q; });
@@ -98,6 +116,34 @@
       Storage.clear();
       location.reload();
     }
+  });
+
+  // Export progress to a JSON download
+  Util.el('#exportBtn').addEventListener('click', function () {
+    const blob = new Blob([Storage.exportJSON()], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'ptce2026-progress.json';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  });
+
+  // Import progress from a JSON file
+  Util.el('#importFile').addEventListener('change', function (e) {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function () {
+      try {
+        Storage.importJSON(reader.result);
+        location.reload();
+      } catch (err) {
+        alert('Import failed: not a valid progress file.');
+      }
+    };
+    reader.readAsText(file);
   });
 
   const progress = Storage.read();

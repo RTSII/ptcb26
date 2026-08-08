@@ -1,4 +1,4 @@
-// Quiz and Chapter Test module
+// Quiz module: Quick 10, Chapter Test, Custom, Missed Review, Weak-area modes
 (async function () {
   const { Storage, Util, DOMAINS } = window.App;
 
@@ -13,6 +13,7 @@
   const modeSel = Util.el('#mode');
   const domainSel = Util.el('#domain');
   const subtopicSel = Util.el('#subtopic');
+  const diffSel = Util.el('#difficulty');
   const countInput = Util.el('#count');
   const startBtn = Util.el('#startBtn');
 
@@ -23,6 +24,7 @@
   const prevBtn = Util.el('#prevBtn');
   const nextBtn = Util.el('#nextBtn');
   const progBar = Util.el('#progBar');
+  const bookmarkBtn = Util.el('#bookmarkBtn');
 
   const scoreLine = Util.el('#scoreLine');
   const scoreBar = Util.el('#scoreBar');
@@ -36,7 +38,9 @@
   let startTime = 0;
 
   // Initialize
-  modeSel.value = initialMode === 'quick' ? 'quick10' : initialMode;
+  const validModes = ['quick10', 'chapter', 'custom', 'missed', 'weak', 'weaksub'];
+  const startMode = validModes.includes(initialMode) ? initialMode : (initialMode === 'quick' ? 'quick10' : 'quick10');
+  modeSel.value = startMode;
   toggleModeFields();
   await loadData();
 
@@ -47,29 +51,32 @@
   prevBtn.addEventListener('click', () => nav(-1));
   nextBtn.addEventListener('click', () => nav(1));
   retryBtn.addEventListener('click', () => location.reload());
+  bookmarkBtn.addEventListener('click', toggleCurrentBookmark);
 
   function toggleModeFields() {
     const mode = modeSel.value;
     const domainRow = Util.el('#domainRow');
     const subtopicRow = Util.el('#subtopicRow');
+    const diffRow = Util.el('#diffRow');
     const countRow = Util.el('#countRow');
 
+    const showDomain = ['chapter', 'custom', 'weak', 'weaksub'].includes(mode);
+    const showSub = mode === 'chapter' || mode === 'weaksub';
+    domainRow.style.display = showDomain ? 'block' : 'none';
+    subtopicRow.style.display = showSub ? 'block' : 'none';
+    diffRow.style.display = (mode === 'custom' || mode === 'weak' || mode === 'weaksub') ? 'block' : 'none';
+
     if (mode === 'quick10') {
-      domainRow.style.display = 'none';
-      subtopicRow.style.display = 'none';
       countInput.value = 10;
       countInput.disabled = true;
-    } else if (mode === 'chapter') {
-      domainRow.style.display = 'block';
-      subtopicRow.style.display = 'block';
-      countInput.disabled = false;
-      countInput.value = 10;
-      updateSubtopics();
+    } else if (mode === 'missed') {
+      countInput.disabled = true;
+      countInput.value = Storage.getMissed().length || 0;
     } else {
-      domainRow.style.display = 'block';
-      subtopicRow.style.display = 'none';
       countInput.disabled = false;
+      if (mode === 'chapter') countInput.value = 10;
     }
+    if (mode === 'chapter' || mode === 'weak' || mode === 'weaksub') updateSubtopics();
   }
 
   async function loadData() {
@@ -86,7 +93,6 @@
   }
 
   function populateDomains() {
-    // Only include domains that actually have questions
     const available = new Set(allQuestions.map(q => q.domain));
     DOMAINS.forEach(d => {
       if (available.has(d) && !Array.from(domainSel.options).some(o => o.value === d)) {
@@ -102,12 +108,10 @@
     const domain = domainSel.value;
     subtopicSel.innerHTML = '<option value="">All</option>';
     if (domain === 'All') return;
-
     const subs = [...new Set(allQuestions
       .filter(q => q.domain === domain)
       .map(q => q.subtopic)
       .filter(Boolean))].sort();
-
     subs.forEach(s => {
       const opt = document.createElement('option');
       opt.value = s;
@@ -116,23 +120,68 @@
     });
   }
 
+  // accuracy map from all recorded attempts
+  function accuracyBy(fn) {
+    const acc = {};
+    Storage.read().quizzes.concat(Storage.read().exams).forEach(a => {
+      (a.questions || []).forEach(r => {
+        const q = allQuestions.find(x => x.id === r.id);
+        if (!q) return;
+        const k = fn(q);
+        if (!k) return;
+        if (!acc[k]) acc[k] = { c: 0, t: 0 };
+        acc[k].t++;
+        if (r.correct) acc[k].c++;
+      });
+    });
+    return acc;
+  }
+
+  function weakestKey(acc) {
+    let key = null, worst = 101;
+    Object.keys(acc).forEach(k => {
+      if (acc[k].t >= 3) {
+        const p = (acc[k].c / acc[k].t) * 100;
+        if (p < worst) { worst = p; key = k; }
+      }
+    });
+    return key;
+  }
+
   function startQuiz() {
     const mode = modeSel.value;
     const domain = domainSel.value;
     const subtopic = subtopicSel.value;
+    const difficulty = diffSel.value;
     let pool = allQuestions;
 
     if (mode === 'quick10') {
       pool = Util.sample(allQuestions, 10);
-    } else {
-      if (domain !== 'All') {
-        pool = pool.filter(q => q.domain === domain);
+    } else if (mode === 'missed') {
+      const missedIds = new Set(Storage.getMissed());
+      pool = allQuestions.filter(q => missedIds.has(q.id));
+      pool = Util.shuffle(pool);
+      if (!pool.length) {
+        alert('No missed questions yet. Complete a quiz or exam first.');
+        return;
       }
-      if (mode === 'chapter' && subtopic) {
-        pool = pool.filter(q => q.subtopic === subtopic);
-      }
-      const count = Math.min(parseInt(countInput.value) || 10, pool.length);
-      pool = Util.sample(pool, count);
+    } else if (mode === 'weak') {
+      const acc = accuracyBy(q => q.domain);
+      const weakDomain = domain !== 'All' ? domain : (weakestKey(acc) || null);
+      pool = weakDomain ? pool.filter(q => q.domain === weakDomain) : pool;
+      if (difficulty) pool = pool.filter(q => q.difficulty === difficulty);
+      pool = Util.sample(pool, Math.min(parseInt(countInput.value) || 10, pool.length));
+    } else if (mode === 'weaksub') {
+      const acc = accuracyBy(q => q.subtopic);
+      const weakSub = subtopic || weakestKey(acc);
+      if (weakSub) pool = pool.filter(q => q.subtopic === weakSub);
+      if (domain !== 'All') pool = pool.filter(q => q.domain === domain);
+      if (difficulty) pool = pool.filter(q => q.difficulty === difficulty);
+      pool = Util.sample(pool, Math.min(parseInt(countInput.value) || 10, pool.length));
+    } else { // custom
+      if (domain !== 'All') pool = pool.filter(q => q.domain === domain);
+      if (difficulty) pool = pool.filter(q => q.difficulty === difficulty);
+      pool = Util.sample(pool, Math.min(parseInt(countInput.value) || 10, pool.length));
     }
 
     if (!pool.length) {
@@ -156,6 +205,7 @@
     qnum.textContent = `Question ${idx + 1}/${session.length}`;
     qdomain.textContent = q.subtopic ? `${q.domain} • ${q.subtopic}` : q.domain;
     qtext.textContent = q.question;
+    updateBookmarkBtn();
 
     choicesEl.innerHTML = '';
     q.options.forEach((opt, i) => {
@@ -173,6 +223,19 @@
     progBar.style.width = `${((idx + 1) / session.length) * 100}%`;
     prevBtn.disabled = idx === 0;
     nextBtn.textContent = idx === session.length - 1 ? 'Finish' : 'Next';
+  }
+
+  function updateBookmarkBtn() {
+    const on = Storage.isBookmarked('question', session[idx].id);
+    bookmarkBtn.classList.toggle('bookmarked', on);
+    bookmarkBtn.textContent = on ? '★ Bookmarked' : '☆ Bookmark';
+    bookmarkBtn.setAttribute('aria-pressed', on);
+  }
+
+  function toggleCurrentBookmark() {
+    if (!session[idx]) return;
+    Storage.toggleBookmark('question', session[idx].id);
+    updateBookmarkBtn();
   }
 
   function nav(delta) {
@@ -199,7 +262,6 @@
     scoreLine.textContent = `Score: ${correct}/${session.length} (${score}%) • ${Util.formatDuration(duration)}`;
     scoreBar.style.width = `${score}%`;
 
-    // Record attempt
     Storage.recordQuiz({
       date: new Date().toISOString(),
       mode: modeSel.value,
@@ -212,7 +274,6 @@
       questions: results.map(r => ({ id: r.id, correct: r.isCorrect }))
     });
 
-    // Review list
     reviewEl.innerHTML = '<h3>Review</h3>' + results.map((r, i) => `
       <div class="review-item ${r.isCorrect ? 'correct' : 'incorrect'}">
         <p><strong>Q${i + 1}:</strong> ${Util.escapeHtml(r.question)}</p>

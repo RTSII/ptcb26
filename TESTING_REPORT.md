@@ -21,6 +21,15 @@
 > - Remaining manual verification: visual/theme inspection in a real browser and
 >   iPhone Safari testing (Stage 8).
 
+> **Addendum (August 8, 2026):** Stage 10 enhancements were integrated and the codebase was re-validated.
+>
+> - Added a "Review Missed" quick action to `index.html` linking to `quiz.html?mode=missed`; the card displays the current missed-question count and dims when no misses exist.
+> - All 6 JS files pass `node --check`; all 3 JSON files parse and validate (152 questions, 133 flashcards, notes data).
+> - Localhost smoke test (Python `http.server 8000`) passes for all six pages, the new `quiz.html?mode=missed` route, and every required asset (`css/style.css`, `js/*.js`, `data/*.json`, `manifest.json`, `sw.js`, `icon.svg`).
+> - Data validation: 152 unique sequential question IDs, 4 options each, in-range answers, valid difficulty labels, standardized domains, 133 unique flashcard IDs, all required fields present.
+> - Stage 10 features already implemented and verified in source: missed/weak-domain/weak-subtopic quiz modes, bookmarking, Leitner spaced-repetition filter, difficulty filtering, configurable exam length/timer, dashboard score trend, JSON export/import, PWA manifest on all pages, and offline service worker registration.
+> - Remaining manual verification: pharmacist content validation (Stage 7) and iPhone Safari / accessibility QA (Stage 8).
+
 **Date:** July 21, 2026  
 **Tester:** Abacus AI Agent  
 **Test Environment:** localhost:8000 (Python HTTP server)  
@@ -273,3 +282,20 @@ The PTCE 2026 Study App is fully functional and ready for personal study use. Tw
 **Signed off:** Abacus AI Agent  
 **Commit:** 658a272 (Fix: Restore working flashcards.html and questions.json)  
 **Repository:** https://github.com/RTSII/ptcb26
+
+
+---
+
+## AI Session Continuation Prompt
+
+When resuming this project in a new chat, paste the following prompt to restore context:
+
+```
+Continue working on the PTCE 2026 Study App (ptcb26).
+- Repository root: c:\Users\rtsii\OneDrive\Desktop\PTCB26\ptcb26
+- Testing baseline: all 6 JS files pass node --check, all 3 JSON files validate, and localhost:8000 smoke test covers all 6 pages + quiz.html?mode=missed + all assets.
+- Latest verified state: August 8, 2026 — home-page "Review Missed" quick action added; Stage 10 enhancements integrated (missed/weak quiz modes, bookmarking, Leitner SR, difficulty filters, exam length/timer, score trends, export/import, PWA manifest + service worker).
+- Remaining QA: pharmacist content validation (Stage 7) and iPhone Safari / accessibility testing (Stage 8).
+- When testing changes, add a new dated addendum to this file rather than overwriting the July 21, 2026 base report.
+- Do not add backend/framework dependencies; keep the project static and root-based.
+```

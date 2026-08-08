@@ -1,0 +1,19 @@
+{
+  "name": "PTCE 2026 Study App",
+  "short_name": "PTCE 2026",
+  "description": "PTCB PTCE exam study hub: notes, flashcards, quizzes, and practice exams.",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#030014",
+  "theme_color": "#030014",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

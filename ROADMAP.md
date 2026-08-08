@@ -95,8 +95,11 @@ Stage 6: Question-bank expansion complete — 152 of 152 questions
 Stage 6B: UI overhaul — synthwave × Matrix dark theme complete
 Stage 6C: Content expansion complete — flashcards 68 → 133, notes → 40 sections
           / 251 bullets covering every question subtopic across all four domains
-Stage 7: Content validation — active (next)
-Stage 8: Mobile polish and initial release
+Stage 7: Content validation — active (pharmacist review pending)
+Stage 8: Mobile polish and initial release — pending iPhone Safari + accessibility QA
+Stage 10: Optional enhancements integrated — missed review, weak-area quizzes,
+          bookmarking, spaced repetition, difficulty filters, session length/timer,
+          score trends, export/import, PWA manifest + service worker
 ```
 
 ## Stage 1 — Scope and Architecture
@@ -715,27 +718,27 @@ Produce a stable personal-use release.
 
 ## Stage 10 — Optional Enhancements
 
-These tasks are deferred until the core release is stable.
+These enhancements were integrated after the core implementation stabilized.
 
-- [ ] Missed-question review mode
-- [ ] Needs-review flashcard session
-- [ ] Weak-domain quiz mode
-- [ ] Weak-subtopic quiz mode
-- [ ] Question bookmarking
-- [ ] Flashcard bookmarking
-- [ ] Session-length selection
-- [ ] Difficulty filtering
-- [ ] More detailed dashboard trends
-- [ ] Export progress to JSON
-- [ ] Import progress from JSON
-- [ ] Dark mode
-- [ ] Offline service worker
-- [ ] Installable PWA support
-- [ ] GitHub Pages deployment
-- [ ] Larger 150–250-question bank
-- [ ] Larger flashcard bank
+- [x] Missed-question review mode (`quiz.html?mode=missed` + home-page quick action)
+- [x] Needs-review flashcard session ("Due / New" filter using Leitner boxes)
+- [x] Weak-domain quiz mode (`quiz.html?mode=weak`)
+- [x] Weak-subtopic quiz mode (`quiz.html?mode=weaksub`)
+- [x] Question bookmarking
+- [x] Flashcard bookmarking
+- [x] Session-length selection (30 / 60 / 90 questions in Practice Exam)
+- [x] Difficulty filtering (quiz custom/weak/weaksub modes)
+- [x] More detailed dashboard trends (score-over-time bar chart + per-domain accuracy)
+- [x] Export progress to JSON
+- [x] Import progress from JSON
+- [x] Dark mode (synthwave × Matrix theme is the default)
+- [x] Offline service worker (`sw.js`)
+- [x] Installable PWA support (`manifest.json` linked on all six pages)
+- [ ] GitHub Pages deployment (files are static-ready; push to `origin main` to deploy)
+- [ ] Larger 150–250-question bank (currently 152)
+- [ ] Larger flashcard bank (currently 133)
 
-Optional features must not delay correcting core data, scoring, persistence, or mobile-use defects.
+Remaining optional work is non-blocking and can proceed after Stage 7/8 release criteria are met.
 
 ## Immediate Work Order
 
@@ -746,16 +749,17 @@ Follow this order to avoid adding content on top of an unverified application:
 3. Run the app through localhost.
 4. Test every page for fetch and console errors (re-verify after the Stage 5 refactor).
 5. Validate all three JSON files.
-6. Verify quiz scoring, Chapter Test filtering, and review behavior.
-7. Verify practice-exam weighting and limited-bank behavior.
-8. Verify `localStorage` persistence.
-9. Verify dashboard calculations.
+6. Verify quiz scoring, Chapter Test filtering, missed review, and weak-area modes.
+7. Verify practice-exam weighting, configurable length, and timer behavior.
+8. Verify `localStorage` persistence, export/import, and bookmarking.
+9. Verify dashboard calculations, score trends, and weak-area links.
 10. Fix integration defects.
 11. ~~Complete the UI overhaul (Stage 6B — synthwave × Matrix dark theme).~~ (done)
 12. ~~Expand the question bank from 94 to 152 per the reserved ID ranges.~~ (done — 152/152)
-13. Perform pharmacy-content validation.
-14. Complete iPhone Safari and accessibility testing.
-15. Mark the initial personal-use release complete.
+13. ~~Integrate Stage 10 optional enhancements.~~ (done)
+14. Perform pharmacy-content validation.
+15. Complete iPhone Safari and accessibility testing.
+16. Deploy to GitHub Pages and mark the initial personal-use release complete.
 
 ## Decision Log
 
@@ -811,3 +815,22 @@ Follow this order to avoid adding content on top of an unverified application:
 - The app should not silently duplicate questions to reach 90.
 - The minimum bank target is 90 validated questions.
 - The preferred later bank target is 150–250 questions.
+
+
+---
+
+## AI Session Continuation Prompt
+
+When resuming this project in a new chat, paste the following prompt to restore context:
+
+```
+Continue working on the PTCE 2026 Study App (ptcb26).
+- Repository root: c:\Users\rtsii\OneDrive\Desktop\PTCB26\ptcb26
+- Architecture: static, root-based, vanilla HTML/CSS/JS/JSON, browser localStorage (key: ptce2026_progress_v1), no backend/framework/build step.
+- Current stage: Stage 7 (pharmacist content validation) and Stage 8 (iPhone Safari + accessibility QA) are the active release blockers; Stage 10 enhancements are complete.
+- Completed Stage 10 features: home-page "Review Missed" quick action, missed-question review, weak-domain/subtopic quizzes, question/flashcard bookmarking, Leitner spaced repetition, difficulty filtering, configurable exam length/timer, dashboard score trends, JSON export/import, offline service worker, PWA manifest on all pages.
+- Data sources of truth: data/notes.json, data/flashcards.json, data/questions.json.
+- Do not duplicate study content into markdown, do not create an app/ subdirectory, and do not add a backend or framework.
+- Use the exact file-naming convention: README.md and ROADMAP.md (lowercase .md extension).
+- Before finishing any change, run: node --check on all JS files, JSON parse validation, and a localhost:8000 smoke test for all pages/assets.
+```

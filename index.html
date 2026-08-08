@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#030014">
+  <link rel="manifest" href="manifest.json">
   <title>PTCE 2026 Study App</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,6 +53,11 @@
         <div class="title">Quick 10</div>
         <div class="desc">Fast 10-question warm-up</div>
       </a>
+      <a class="menu-card wide" href="quiz.html?mode=missed" id="reviewMissedCard">
+        <div class="icon">🔁</div>
+        <div class="title">Review Missed</div>
+        <div class="desc" id="reviewMissedDesc">Re-quiz questions you answered incorrectly</div>
+      </a>
     </nav>
 
     <div class="card-block" style="margin-top:22px;">
@@ -77,6 +83,18 @@
           w.pct + '%"></div></div></div>';
       }).join('');
       document.getElementById('weightBars').innerHTML = html;
+
+      var missedCount = (window.App && window.App.Storage) ? window.App.Storage.getMissed().length : 0;
+      var missedCard = document.getElementById('reviewMissedCard');
+      var missedDesc = document.getElementById('reviewMissedDesc');
+      if (missedCard && missedDesc) {
+        if (missedCount > 0) {
+          missedDesc.textContent = missedCount + ' question' + (missedCount === 1 ? '' : 's') + ' waiting for review';
+        } else {
+          missedCard.classList.add('dimmed');
+          missedDesc.textContent = 'No missed questions yet — take a quiz or exam first';
+        }
+      }
     })();
   </script>
 </body>

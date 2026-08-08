@@ -267,6 +267,8 @@ code {
 }
 .menu-card .desc { font-size: 0.82rem; color: var(--ink-dim); }
 .menu-card.wide { grid-column: 1 / -1; }
+.menu-card.dimmed { opacity: 0.55; cursor: default; }
+.menu-card.dimmed:hover { transform: none; border-color: var(--line); box-shadow: none; }
 
 /* ============ Buttons ============ */
 .btn, .button {
@@ -790,4 +792,68 @@ select option { background: var(--bg2); }
   }
   body::before { animation: none; }
   .flashcard, .flashcard.flipped { transition: none; }
+}
+
+/* ============ Enhancements: bookmarks, grading, trend chart ============ */
+.q-toolbar { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.q-toolbar .qtext { flex: 1; }
+
+.bookmark-btn {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  background: rgba(255, 211, 25, 0.06);
+  color: var(--amber);
+  border: 1px solid rgba(255, 211, 25, 0.5);
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: box-shadow 0.15s ease, background 0.15s ease;
+}
+.bookmark-btn:hover { background: rgba(255, 211, 25, 0.16); box-shadow: 0 0 10px rgba(255, 211, 25, 0.4); }
+.bookmark-btn.bookmarked {
+  background: linear-gradient(90deg, rgba(255, 211, 25, 0.28), rgba(255, 42, 109, 0.2));
+  color: #fff;
+  border-color: var(--amber);
+  box-shadow: 0 0 12px rgba(255, 211, 25, 0.5);
+  text-shadow: 0 0 8px rgba(255, 211, 25, 0.7);
+}
+
+/* Flashcard self-grading */
+.grade-row { margin-top: 10px; }
+.grade-yes { color: var(--green); border-color: rgba(0, 255, 65, 0.6); background: rgba(0, 255, 65, 0.06); text-shadow: 0 0 8px rgba(0, 255, 65, 0.6); }
+.grade-yes:hover { background: rgba(0, 255, 65, 0.16); box-shadow: var(--glow-green); }
+.grade-no { color: var(--pink); border-color: rgba(255, 42, 109, 0.6); background: rgba(255, 42, 109, 0.06); text-shadow: 0 0 8px rgba(255, 42, 109, 0.6); }
+.grade-no:hover { background: rgba(255, 42, 109, 0.16); box-shadow: var(--glow-pink); }
+
+/* Score trend chart */
+.trend-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 140px;
+  padding: 8px 4px 0;
+  border-bottom: 1px solid rgba(5, 217, 232, 0.25);
+}
+.trend-bar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  min-width: 0;
+}
+.trend-fill {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 0 10px currentColor;
+  transition: height 0.3s ease;
+}
+.trend-val {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--ink-dim);
+  margin-top: 4px;
 }

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#030014">
   <title>Quiz • PTCE 2026</title>
+  <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -25,6 +26,9 @@
           <option value="quick10">Quick 10</option>
           <option value="chapter">Chapter Test (by Subtopic)</option>
           <option value="custom">Custom</option>
+          <option value="missed">Missed Questions Review</option>
+          <option value="weak">Weakest Domain</option>
+          <option value="weaksub">Weakest Subtopic</option>
         </select>
       </div>
       <div class="row" id="domainRow" style="display:none;">
@@ -43,6 +47,15 @@
           <option value="">All</option>
         </select>
       </div>
+      <div class="row" id="diffRow" style="display:none;">
+        <label for="difficulty">Difficulty</label>
+        <select id="difficulty">
+          <option value="">All</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
       <div class="row" id="countRow">
         <label for="count">Number of Questions</label>
         <input id="count" type="number" min="5" max="50" step="5" value="10">
@@ -59,7 +72,10 @@
         <div id="qdomain" class="chip">Domain</div>
       </div>
       <div class="progress"><div id="progBar" class="progress-bar" style="width:0%"></div></div>
-      <div id="qtext" class="qtext"></div>
+      <div class="q-toolbar">
+        <div id="qtext" class="qtext"></div>
+        <button id="bookmarkBtn" class="bookmark-btn" aria-pressed="false" title="Bookmark question">☆ Bookmark</button>
+      </div>
       <div id="choices" class="choices"></div>
       <div class="actions">
         <button id="prevBtn" class="button ghost">Previous</button>

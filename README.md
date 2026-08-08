@@ -42,14 +42,22 @@ The application is implemented directly from the repository root.
 
 ### Implemented
 
-- Home study hub
+- Home study hub with direct "Review Missed" quick action
 - JSON-driven notes viewer
 - Domain-tagged flashcards with flip, swipe, filters, and reviewed tracking
 - Multiple-choice quiz mode with end-of-session answer review
 - Chapter Test mode (filter by domain, then subtopic)
 - Quick 10 quiz mode
+- Missed-question review mode (`quiz.html?mode=missed`)
+- Weakest-domain and weakest-subtopic quiz modes
+- Question and flashcard bookmarking
+- Spaced-repetition (Leitner) scheduling for flashcards
+- Difficulty filtering in quiz and custom modes
 - Weighted practice-exam interface using the 36/24/19/11 blueprint distribution
-- Progress dashboard with per-domain accuracy breakdown
+- Configurable exam length (30 / 60 / 90 questions) and timer
+- Progress dashboard with score trend, per-domain accuracy, and weak-area actions
+- Export / import progress as JSON for backup across devices
+- Offline service worker and installable PWA manifest on all six pages
 - Shared mobile-first styling
 - Shared JavaScript utilities (`window.App`: Storage, Util, DOMAINS)
 - Browser-based progress persistence
@@ -68,10 +76,13 @@ Stage 6: Question-bank expansion complete — 152 validated questions
 Stage 6B: UI overhaul — synthwave × Matrix dark theme complete
 Stage 6C: Content expansion complete — flashcards 68 → 133 cards,
           notes → 40 sections / 251 bullets covering every question subtopic
-Stage 7: Content validation and mobile/device testing next
+Stage 7: Content validation and mobile/device testing in progress
+Stage 10: Optional enhancements integrated — missed review, weak-area quizzes,
+          bookmarking, spaced repetition, difficulty filters, exam length/timer,
+          score trends, export/import, PWA manifest, and service worker
 ```
 
-Verified August 6, 2026: all six pages and every JS/JSON/CSS asset serve over localhost (HTTP 200); a jsdom functional harness covering index, notes, flashcards, quiz (Quick 10, Chapter, Custom), exam (30/90-question, timer, scoring), and dashboard passes 69/69 checks; all JSON validates and all JS files pass syntax checks. The full 90-question practice exam now draws completely unique questions in the official 36/24/19/11 blueprint distribution. Flashcards expanded to 133 cards and study notes to 40 sections / 251 bullets spanning every question subtopic across all four domains.
+Verified August 8, 2026: all six pages and every JS/JSON/CSS asset serve over localhost (HTTP 200); a localhost smoke test covering all pages, the new `quiz.html?mode=missed` route, and all static assets passes; all JSON validates and all JS files pass syntax checks; the full 90-question practice exam draws unique questions in the official 36/24/19/11 blueprint distribution. Manual content validation by a pharmacist and iPhone Safari / accessibility QA remain for the final release criteria.
 
 ## Technology
 
@@ -141,13 +152,16 @@ There is no `app/` subdirectory. All documentation and code must use the root-ba
 
 | Page | Purpose |
 |---|---|
-| `index.html` | Main study hub and navigation |
+| `index.html` | Main study hub and navigation; includes "Review Missed" quick action |
 | `notes.html` | High-yield notes organized by domain |
-| `flashcards.html` | Active-recall flashcard study |
-| `quiz.html` | Multiple-choice practice (Quick 10, Chapter Test, Custom) |
+| `flashcards.html` | Active-recall flashcard study with spaced-repetition filter |
+| `quiz.html` | Multiple-choice practice (Quick 10, Chapter Test, Custom, Missed Review, Weak-area) |
 | `quiz.html?mode=quick` | Random Quick 10 session |
-| `exam.html` | Weighted PTCE-style practice exam |
-| `dashboard.html` | Scores, progress, and weak-area review |
+| `quiz.html?mode=missed` | Re-quiz questions answered incorrectly |
+| `quiz.html?mode=weak` | Quiz filtered to your weakest domain |
+| `quiz.html?mode=weaksub` | Quiz filtered to your weakest subtopic |
+| `exam.html` | Weighted PTCE-style practice exam with configurable length/timer |
+| `dashboard.html` | Scores, trends, weak-area actions, and backup/restore |
 
 ## JavaScript Modules
 
@@ -508,3 +522,22 @@ Do not expect JSON `fetch()` operations to work reliably when opening pages dire
 
 - [ ] Exam questions are selected by domain weight.
 - [ ] The same question is not unintentionally repeated.
+
+
+---
+
+## AI Session Continuation Prompt
+
+When resuming this project in a new chat, paste the following prompt to restore context:
+
+```
+Continue working on the PTCE 2026 Study App (ptcb26).
+- Tech stack: vanilla HTML5, CSS3, JavaScript, JSON data files, browser localStorage; no framework, build step, backend, or database.
+- Repository root: c:\Users\rtsii\OneDrive\Desktop\PTCB26\ptcb26
+- Key files: index.html, notes.html, flashcards.html, quiz.html, exam.html, dashboard.html, css/style.css, js/app.js, js/quiz.js, js/exam.js, js/flashcards.js, js/dashboard.js, js/notes.js, data/questions.json, data/flashcards.json, data/notes.json, manifest.json, sw.js, icon.svg.
+- Current state: 152 validated questions, 133 flashcards, 40 notes sections, all 6 pages link manifest.json, service worker registered in js/app.js, PWA-ready.
+- Implemented Stage 10 enhancements: home-page "Review Missed" quick action, missed-question review mode, weak-domain/subtopic quizzes, question/flashcard bookmarking, Leitner spaced repetition, difficulty filtering, configurable exam length/timer, score-trend dashboard, JSON export/import progress.
+- Remaining release work: pharmacist content validation (drug facts, law dates, USP/calculations), iPhone Safari + accessibility QA (tap targets, contrast, reduced-motion, screen-reader labels), GitHub Pages deployment.
+- Do not create an app/ subdirectory, do not add a backend, and do not duplicate study content into markdown.
+- Validate any changes with: node --check on all JS files, JSON parse checks, and a localhost:8000 smoke test for all pages and assets.
+```

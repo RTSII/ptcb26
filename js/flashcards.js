@@ -1,10 +1,11 @@
-// Flashcard deck: flip, prev/next, swipe, domain filter, reviewed tracking
+// Flashcard deck: flip, prev/next, swipe, domain + spaced-repetition filters, bookmarking
 (function () {
   const { Storage, Util, DOMAINS } = window.App;
 
   let allCards = [];
   let cards = [];
   let idx = 0;
+  let mode = 'all'; // 'all' | 'due'
   const sessionReviewed = new Set();
 
   const el = {
@@ -17,17 +18,21 @@
     counter: Util.el('#counter'),
     prevBtn: Util.el('#prevBtn'),
     nextBtn: Util.el('#nextBtn'),
-    flipBtn: Util.el('#flipBtn')
+    flipBtn: Util.el('#flipBtn'),
+    knewBtn: Util.el('#knewBtn'),
+    didntKnowBtn: Util.el('#didntKnowBtn'),
+    bookmarkBtn: Util.el('#bookmarkCardBtn')
   };
 
+  const FILTERS = ['All', 'Due / New'].concat(DOMAINS);
+
   function buildFilters() {
-    const domains = ['All'].concat(DOMAINS);
     el.filterRow.innerHTML = '';
-    domains.forEach(function (d, i) {
+    FILTERS.forEach(function (d, i) {
       const b = document.createElement('button');
       b.className = 'pill' + (i === 0 ? ' active' : '');
       b.textContent = d;
-      b.dataset.domain = d;
+      b.dataset.filter = d;
       b.addEventListener('click', function () {
         el.filterRow.querySelectorAll('.pill').forEach(function (p) { p.classList.remove('active'); });
         b.classList.add('active');
@@ -37,8 +42,19 @@
     });
   }
 
-  function applyFilter(domain) {
-    cards = domain === 'All' ? allCards.slice() : allCards.filter(function (c) { return c.domain === domain; });
+  function applyFilter(f) {
+    if (f === 'Due / New') {
+      mode = 'due';
+      const ids = allCards.map(c => c.id);
+      const due = new Set(Storage.dueCards(ids));
+      cards = allCards.filter(c => due.has(c.id));
+    } else if (f === 'All') {
+      mode = 'all';
+      cards = allCards.slice();
+    } else {
+      mode = 'all';
+      cards = allCards.filter(c => c.domain === f);
+    }
     cards = Util.shuffle(cards);
     idx = 0;
     render();
@@ -46,9 +62,14 @@
 
   function render() {
     if (!cards.length) {
-      el.frontText.textContent = 'No cards in this domain.';
+      el.frontDomain.textContent = '';
+      el.backDomain.textContent = '';
+      el.frontText.textContent = mode === 'due'
+        ? 'Nothing due right now. New cards and anything you missed will appear here.'
+        : 'No cards in this domain.';
       el.backText.textContent = '';
       el.counter.textContent = '';
+      updateBookmark();
       return;
     }
     el.flashcard.classList.remove('flipped');
@@ -58,6 +79,7 @@
     el.frontText.textContent = c.front;
     el.backText.textContent = c.back;
     el.counter.textContent = 'Card ' + (idx + 1) + ' of ' + cards.length;
+    updateBookmark();
 
     if (!sessionReviewed.has(c.id)) {
       sessionReviewed.add(c.id);
@@ -65,14 +87,35 @@
     }
   }
 
+  function updateBookmark() {
+    if (!cards.length) { el.bookmarkBtn.textContent = '☆ Bookmark'; el.bookmarkBtn.classList.remove('bookmarked'); return; }
+    const on = Storage.isBookmarked('card', cards[idx].id);
+    el.bookmarkBtn.classList.toggle('bookmarked', on);
+    el.bookmarkBtn.textContent = on ? '★ Bookmarked' : '☆ Bookmark';
+    el.bookmarkBtn.setAttribute('aria-pressed', on);
+  }
+
   function flip() { el.flashcard.classList.toggle('flipped'); }
   function next() { if (cards.length) { idx = (idx + 1) % cards.length; render(); } }
   function prev() { if (cards.length) { idx = (idx - 1 + cards.length) % cards.length; render(); } }
+
+  function grade(knew) {
+    if (!cards.length) return;
+    Storage.gradeCard(cards[idx].id, knew);
+    next();
+  }
 
   el.flashcard.addEventListener('click', flip);
   el.flipBtn.addEventListener('click', function (e) { e.stopPropagation(); flip(); });
   el.nextBtn.addEventListener('click', next);
   el.prevBtn.addEventListener('click', prev);
+  el.knewBtn.addEventListener('click', function () { grade(true); });
+  el.didntKnowBtn.addEventListener('click', function () { grade(false); });
+  el.bookmarkBtn.addEventListener('click', function () {
+    if (!cards.length) return;
+    Storage.toggleBookmark('card', cards[idx].id);
+    updateBookmark();
+  });
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'ArrowRight') next();
