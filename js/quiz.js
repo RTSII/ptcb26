@@ -44,6 +44,23 @@
   toggleModeFields();
   await loadData();
 
+  // Deep-link support: e.g. course lessons link to quiz.html?mode=custom&domain=Medications&count=15
+  const urlDomain = params.get('domain');
+  if (urlDomain && ['chapter', 'custom', 'weak', 'weaksub'].includes(startMode)) {
+    if (Array.from(domainSel.options).some(o => o.value === urlDomain)) {
+      domainSel.value = urlDomain;
+      updateSubtopics();
+    }
+  }
+  const urlCount = parseInt(params.get('count'), 10);
+  if (urlCount && !countInput.disabled) {
+    countInput.value = Math.min(50, Math.max(5, urlCount));
+  }
+  const urlSubtopic = params.get('subtopic');
+  if (urlSubtopic && Array.from(subtopicSel.options).some(o => o.value === urlSubtopic)) {
+    subtopicSel.value = urlSubtopic;
+  }
+
   // Events
   modeSel.addEventListener('change', toggleModeFields);
   domainSel.addEventListener('change', updateSubtopics);

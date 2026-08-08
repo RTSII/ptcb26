@@ -20,6 +20,18 @@
 >   against unavailable canvas 2D contexts.
 > - Remaining manual verification: visual/theme inspection in a real browser and
 >   iPhone Safari testing (Stage 8).
+>
+> **Addendum (August 8, 2026) — Study Course & enhancements:**
+> - New `course.html` + `js/course.js` + `data/course.json` (12 modules / 39 lessons).
+> - jsdom harness covering the course passed **23/23**: module list render, all 39
+>   lesson links, overall progress, per-module "Test Yourself" deep-links, lesson
+>   reader (title/bullets/key-points), mark-complete + lastLesson persistence,
+>   prev/next navigation, resume button, and the deep-linked domain quiz
+>   (`quiz.html?mode=custom&domain=Medications&count=15` starts a 15-question
+>   Medications quiz).
+> - All 8 JS files (incl. `sw.js`) pass `node --check`; all 5 JSON files validate.
+> - Localhost smoke test: all 22 pages/assets return HTTP 200.
+> - Course content accuracy still requires pharmacist review (Stage 7).
 
 > **Addendum (August 8, 2026):** Stage 10 enhancements were integrated and the codebase was re-validated.
 >

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#030014">
+  <title>Study Course · PTCE 2026</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="app-header">
+    <a href="index.html" class="logo">💊 PTCE <span>2026</span></a>
+    <a href="index.html" class="back-link">‹ Home</a>
+  </header>
+
+  <main class="container">
+    <div id="courseListWrap">
+      <h1 class="page-title">📖 Study Course</h1>
+      <p class="page-sub">Work through all four domains in order. Mark lessons complete as you go.</p>
+      <div id="courseList"><p class="muted">Loading course…</p></div>
+    </div>
+
+    <div id="lessonView" class="card-block" style="display:none;"></div>
+
+    <div id="loadError" class="card-block" style="display:none;">
+      <h3>Failed to load course</h3>
+      <p>Ensure you are serving the folder over localhost (e.g., <code>python -m http.server</code>) so fetch of <code>data/course.json</code> is allowed.</p>
+    </div>
+  </main>
+
+  <script src="js/app.js"></script>
+  <script src="js/course.js"></script>
+</body>
+</html>

@@ -10,6 +10,7 @@ This project provides a high-yield alternative to generic or outdated exam-prepa
 
 Primary goals:
 
+- Teach all PTCE 2026 content domains through a structured study course.
 - Refresh all PTCE 2026 content domains efficiently.
 - Review compressed, exam-focused notes.
 - Drill domain-tagged flashcards.
@@ -42,6 +43,7 @@ The application is implemented directly from the repository root.
 
 ### Implemented
 
+- **Structured study course** (`course.html`) — 12 modules / 39 lessons spanning all four domains, with per-module progress, lesson completion tracking, resume, and "Test Yourself" links into the quiz engine
 - Home study hub with direct "Review Missed" quick action
 - JSON-driven notes viewer
 - Domain-tagged flashcards with flip, swipe, filters, and reviewed tracking
@@ -56,9 +58,10 @@ The application is implemented directly from the repository root.
 - Difficulty filtering in quiz and custom modes
 - Weighted practice-exam interface using the 36/24/19/11 blueprint distribution
 - Configurable exam length (30 / 60 / 90 questions) and timer
+- Course quiz deep-linking (`quiz.html?mode=custom&domain=…&count=…`)
 - Progress dashboard with score trend, per-domain accuracy, and weak-area actions
 - Export / import progress as JSON for backup across devices
-- Offline service worker and installable PWA manifest on all six pages
+- Offline service worker and installable PWA manifest on all seven pages
 - Shared mobile-first styling
 - Shared JavaScript utilities (`window.App`: Storage, Util, DOMAINS)
 - Browser-based progress persistence
@@ -77,13 +80,15 @@ Stage 6: Question-bank expansion complete — 180 validated questions
 Stage 6B: UI overhaul — synthwave × Matrix dark theme complete
 Stage 6C: Content expansion complete — flashcards 133 → 163 cards,
           notes expanded with additional calculation, federal, and safety bullets
+Stage 6D: Study course complete — 12 modules / 39 lessons covering every domain;
+          course progress tracked, lessons link into the quiz engine for testing
 Stage 7: Content validation and mobile/device testing in progress
 Stage 10: Optional enhancements integrated — missed/bookmarked review, weak-area quizzes,
           bookmarking, spaced repetition, difficulty filters, exam length/timer,
           score trends, export/import, PWA manifest, service worker, and PC Chrome layout
 ```
 
-Verified August 8, 2026: all six pages and every JS/JSON/CSS asset serve over localhost (HTTP 200); a localhost smoke test covering all pages, the `quiz.html?mode=missed` and `quiz.html?mode=bookmarked` routes, and all static assets passes; all JSON validates and all JS files pass syntax checks; the full 90-question practice exam draws unique questions in the official 36/24/19/11 blueprint distribution. Manual content validation by a pharmacist and iPhone Safari / accessibility QA remain for the final release criteria.
+Verified August 8, 2026: all seven pages and every JS/JSON/CSS asset serve over localhost (HTTP 200); a jsdom functional harness covering the course (module list, lesson reader, completion tracking, resume, deep-linked quizzes) passes 23/23 checks; all JSON validates and all JS files pass syntax checks; the full 90-question practice exam draws unique questions in the official 36/24/19/11 blueprint distribution. The study course (12 modules / 39 lessons) now covers every domain. Manual content validation by a pharmacist and iPhone Safari / accessibility QA remain for the final release criteria.
 
 ## Technology
 
@@ -127,21 +132,27 @@ ptcb26/
 ├── ROADMAP.md
 ├── TESTING_REPORT.md
 ├── index.html
+├── course.html
 ├── notes.html
 ├── flashcards.html
 ├── quiz.html
 ├── exam.html
 ├── dashboard.html
+├── manifest.json
+├── sw.js
+├── icon.svg
 ├── css/
 │   └── style.css
 ├── js/
 │   ├── app.js
+│   ├── course.js
 │   ├── notes.js
 │   ├── flashcards.js
 │   ├── quiz.js
 │   ├── exam.js
 │   └── dashboard.js
 └── data/
+    ├── course.json
     ├── notes.json
     ├── flashcards.json
     └── questions.json
@@ -154,6 +165,7 @@ There is no `app/` subdirectory. All documentation and code must use the root-ba
 | Page | Purpose |
 |---|---|
 | `index.html` | Main study hub and navigation; includes "Review Missed" quick action |
+| `course.html` | Structured study course — 12 modules / 39 lessons across all four domains |
 | `notes.html` | High-yield notes organized by domain |
 | `flashcards.html` | Active-recall flashcard study with spaced-repetition filter |
 | `quiz.html` | Multiple-choice practice (Quick 10, Chapter Test, Custom, Missed Review, Weak-area) |
@@ -183,6 +195,24 @@ Responsibilities include:
 - Escaping rendered HTML
 - Providing the standardized `DOMAINS` list
 - Initializing the Matrix-style background effect (`FX`)
+- Tracking course lesson completion (`Storage.markLessonComplete`, `getCourseProgress`)
+
+### `js/course.js`
+
+Loads and renders:
+
+```text
+data/course.json
+```
+
+Responsibilities include:
+
+- Rendering the module list with per-module and overall progress
+- Rendering individual lessons (intro, bullets, key points)
+- Marking lessons complete and persisting course progress
+- Resume-from-last-lesson
+- Linking each module to a deep-linked, domain-filtered quiz for self-testing
+- Client-side routing via the `?lesson=` query parameter
 
 ### `js/notes.js`
 
@@ -272,6 +302,21 @@ Reads saved browser progress and displays:
 Study content belongs only in the JSON files under `data/`.
 
 Markdown files are for project documentation, planning, state tracking, and AI/user coordination. They should not duplicate the full study content.
+
+### `data/course.json`
+
+Source of truth for the structured study course (the instructional core of the app).
+
+Expected top-level structure:
+
+```json
+{
+  "title": "PTCE 2026 Study Course",
+  "modules": []
+}
+```
+
+Each module has an `id`, `domain`, `title`, `desc`, a `quiz` pointer (`{ domain, count }`), and a `lessons` array. Each lesson has an `id`, `title`, `intro`, a `bullets` array (the teaching points), and a `keyPoints` array (high-yield takeaways). Lessons are ordered so a learner can work straight through the course, then self-test each module via a deep-linked, domain-filtered quiz.
 
 ### `data/notes.json`
 
@@ -536,10 +581,11 @@ When resuming this project in a new chat, paste the following prompt to restore 
 Continue working on the PTCE 2026 Study App (ptcb26).
 - Tech stack: vanilla HTML5, CSS3, JavaScript, JSON data files, browser localStorage; no framework, build step, backend, or database.
 - Repository root: c:\Users\rtsii\OneDrive\Desktop\PTCB26\ptcb26
-- Key files: index.html, notes.html, flashcards.html, quiz.html, exam.html, dashboard.html, css/style.css, js/app.js, js/quiz.js, js/exam.js, js/flashcards.js, js/dashboard.js, js/notes.js, data/questions.json, data/flashcards.json, data/notes.json, manifest.json, sw.js, icon.svg.
-- Current state: 180 validated questions, 163 flashcards, 40 notes sections, all 6 pages link manifest.json, service worker registered in js/app.js (cache version v2), PWA-ready, desktop-optimized for Windows PC Chrome at 1100px+.
+- Key files: index.html, course.html, notes.html, flashcards.html, quiz.html, exam.html, dashboard.html, css/style.css, js/app.js, js/course.js, js/quiz.js, js/exam.js, js/flashcards.js, js/dashboard.js, js/notes.js, data/course.json, data/questions.json, data/flashcards.json, data/notes.json, manifest.json, sw.js, icon.svg.
+- STUDY COURSE (newest, the instructional core): course.html + js/course.js render data/course.json — 12 modules / 39 lessons across all four domains. Each module has id/domain/title/desc/quiz{domain,count}/lessons[]; each lesson has id/title/intro/bullets[]/keyPoints[]. Progress stored in Storage.course {completed[], lastLesson} via markLessonComplete/getCourseProgress/setLastLesson. Lessons deep-link to domain-filtered quizzes via quiz.html?mode=custom&domain=<Domain>&count=<n> (deep-link param support added in js/quiz.js init). Client-side routing via ?lesson=<id>.
+- Current state: 180 validated questions, 163 flashcards, 40 notes sections, 12 course modules / 39 lessons, all 7 pages link manifest.json, service worker registered in js/app.js (cache ptce-2026-v2, caches all pages + course assets), PWA-ready, desktop-optimized for Windows PC Chrome at 1100px+.
 - Implemented Stage 10 enhancements: home-page "Review Missed" and "Review Bookmarked" quick actions, missed/bookmarked/weak-domain/weak-subtopic quiz modes, question/flashcard bookmarking with dedicated review filters, Leitner spaced repetition, difficulty filtering, configurable exam length/timer, score-trend dashboard, JSON export/import progress.
-- Remaining release work: pharmacist content validation (drug facts, law dates, USP/calculations), iPhone Safari + accessibility QA (tap targets, contrast, reduced-motion, screen-reader labels), GitHub Pages deployment.
+- Remaining release work: pharmacist content validation (drug facts, law dates, USP/calculations, course lesson accuracy), iPhone Safari + accessibility QA (tap targets, contrast, reduced-motion, screen-reader labels), GitHub Pages deployment.
 - Do not create an app/ subdirectory, do not add a backend, and do not duplicate study content into markdown.
-- Validate any changes with: node --check on all JS files, JSON parse checks, and a localhost:8000 smoke test for all pages and assets.
+- Validate any changes with: node --check on all JS files, JSON parse checks, and a localhost:8000 smoke test for all pages and assets (course.html and data/course.json included).
 ```

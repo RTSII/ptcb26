@@ -1,0 +1,846 @@
+{
+  "title": "PTCE 2026 Study Course",
+  "modules": [
+    {
+      "id": "m1",
+      "domain": "Medications",
+      "title": "Drug Classes, Names & Pharmacology Basics",
+      "desc": "Generic/brand naming, drug stems, major therapeutic classes, and how drugs work.",
+      "quiz": {
+        "domain": "Medications",
+        "count": 15
+      },
+      "lessons": [
+        {
+          "id": "m1l1",
+          "title": "Generic vs Brand Names & Drug Stems",
+          "intro": "Every drug has one official generic (nonproprietary) name and one or more brand (trade/proprietary) names. The PTCE heavily tests generic↔brand pairs. Learning suffix \"stems\" lets you identify a drug's class instantly.",
+          "bullets": [
+            "Generic names are lowercase; brand names are capitalized (e.g., lisinopril vs Zestril).",
+            "Common stems reveal the class: -pril = ACE inhibitor, -sartan = ARB, -olol = beta blocker, -statin = HMG-CoA reductase inhibitor, -prazole = PPI, -tidine = H2 blocker, -azepam/-azolam = benzodiazepine.",
+            "-sartan: losartan (Cozaar), valsartan (Diovan). -statin: atorvastatin (Lipitor), simvastatin (Zocor), rosuvastatin (Crestor).",
+            "Antibiotics: -cillin = penicillins (amoxicillin), ceph- = cephalosporins (cephalexin/Keflex), -mycin = macrolides (azithromycin/Zithromax), -floxacin = fluoroquinolones (ciprofloxacin/Cipro).",
+            "On the exam, brand names often appear in the question and you must supply the generic class or a clinical fact."
+          ],
+          "keyPoints": [
+            "One generic name, many brand names",
+            "Learn stems to identify the class",
+            "-pril, -sartan, -olol, -statin, -prazole, -tidine are high-yield"
+          ]
+        },
+        {
+          "id": "m1l2",
+          "title": "Cardiovascular & Cholesterol Agents",
+          "intro": "The largest PTCE medication group. Know the class, brand name, and key safety point for each.",
+          "bullets": [
+            "ACE inhibitors (-pril): lisinopril (Zestril/Prinivil), enalapril — for HTN/HF; classic dry cough (bradykinin) and angioedema risk.",
+            "ARBs (-sartan): losartan, valsartan — same indications as ACEIs without the cough; both classes are teratogenic (avoid in pregnancy).",
+            "Beta blockers (-olol): metoprolol (Lopressor=IR tartrate, Toprol-XL=ER succinate), atenolol (Tenormin) — lower HR/BP; caution in asthma, do not stop abruptly.",
+            "Calcium channel blockers: amlodipine (Norvasc, dihydropyridine → vasodilation, ankle edema); diltiazem/verapamil (non-DHP → also slow heart rate).",
+            "Statins (-statin): atorvastatin, simvastatin, rosuvastatin — lower LDL; report unexplained muscle pain (myopathy/rhabdomyolysis); simvastatin interacts with grapefruit (CYP3A4).",
+            "Diuretics: hydrochlorothiazide/HCTZ (thiazide, hypokalemia), furosemide/Lasix (loop, \"loses potassium\"), spironolactone (potassium-sparing)."
+          ],
+          "keyPoints": [
+            "ACEI dry cough",
+            "ARB = no cough",
+            "Statin → muscle pain",
+            "Grapefruit + simvastatin",
+            "Furosemide wastes K+"
+          ]
+        },
+        {
+          "id": "m1l3",
+          "title": "Antibiotics & Anti-Infectives",
+          "intro": "Know the major antibiotic classes, their stems, spectrum, and signature safety points.",
+          "bullets": [
+            "Penicillins (-cillin): amoxicillin, amoxicillin/clavulanate (Augmentin) — common for ear/strep; watch for allergy/anaphylaxis.",
+            "Cephalosporins (ceph-/-cef-): cephalexin (Keflex) — generations 1–5 with broadening gram-negative coverage.",
+            "Macrolides (-mycin): azithromycin (Zithromax/Z-Pak = 6 tabs, 500 mg day 1 then 250 mg ×4), clarithromycin — QT prolongation risk.",
+            "Fluoroquinolones (-floxacin): ciprofloxacin (Cipro), levofloxacin — BOXED WARNING: tendonitis/tendon rupture (esp. age >60), QT, avoid in children.",
+            "Tetracyclines: doxycycline, tetracycline — avoid in children <8 and pregnancy (permanent tooth discoloration); chelate with dairy/antacids.",
+            "Sulfonamides: sulfamethoxazole/trimethoprim (Bactrim) — sulfa allergy, hyperkalemia, photosensitivity.",
+            "Antifungals: fluconazole (Diflucan). Antivirals: acyclovir (Zovirax), oseltamivir (Tamiflu)."
+          ],
+          "keyPoints": [
+            "Z-Pak = 6 tablets",
+            "Fluoroquinolone tendon rupture",
+            "Tetracycline <8 years old",
+            "Check penicillin allergy"
+          ]
+        },
+        {
+          "id": "m1l4",
+          "title": "Endocrine: Diabetes & Thyroid",
+          "intro": "Diabetes agents are frequently tested by class and mechanism; thyroid drugs have strict administration rules.",
+          "bullets": [
+            "Metformin (Glucophage): first-line biguanide for T2DM; GI upset; hold before iodinated contrast (lactic acidosis risk); take with food.",
+            "Sulfonylureas: glipizide, glimepiride, glyburide — stimulate insulin release; main risk is HYPOGLYCEMIA.",
+            "SGLT2 inhibitors (-gliflozin): empagliflozin (Jardiance) — increase urinary glucose excretion; genital infections, DKA risk.",
+            "GLP-1 agonists: semaglutide (Ozempic), liraglutide (Victoza) — injectable, weight loss, GI upset.",
+            "DPP-4 inhibitors (-gliptin): sitagliptin (Januvia). Thiazolidinediones (-glitazone): pioglitazone (Actos) — weight gain, fluid retention/HF caution.",
+            "Insulin types: rapid (lispro/Humalog, aspart/NovoLog ~15 min), short (Regular), intermediate (NPH), long (glargine/Lantus, detemir ~24 h, no peak). Refrigerate unopened; in-use ~28 days at room temp.",
+            "Levothyroxine (Synthroid): T4 replacement — take on empty stomach 30–60 min before breakfast, separate from calcium/iron by 4 h, consistent brand."
+          ],
+          "keyPoints": [
+            "Metformin = first-line, hold for contrast",
+            "Sulfonylureas → hypoglycemia",
+            "Insulin onset: rapid 15min, glargine no peak",
+            "Levothyroxine empty stomach"
+          ]
+        },
+        {
+          "id": "m1l5",
+          "title": "CNS, Psychiatric & Pain Agents",
+          "intro": "Antidepressants, anxiolytics, sedatives, and analgesics — know class, schedule, and key warnings.",
+          "bullets": [
+            "SSRIs (-oxetine/-sertraline/-talopram): fluoxetine (Prozac), sertraline (Zoloft), escitalopram (Lexapro) — take 2–4 weeks to work; risk serotonin syndrome with MAOIs/triptans.",
+            "SNRIs: duloxetine (Cymbalta), venlafaxine (Effexor) — depression, anxiety, neuropathic pain.",
+            "Benzodiazepines (-azepam/-azolam): alprazolam (Xanax), lorazepam (Ativan), diazepam (Valium) — C-IV, sedation/dependence; overdose reversed by flumazenil.",
+            "Z-hypnotics for insomnia: zolpidem (Ambien), eszopiclone (Lunesta) — C-IV; next-day impairment.",
+            "NSAIDs: ibuprofen (Advil/Motrin), naproxen (Aleve), meloxicam (Mobic), celecoxib (Celebrex) — GI bleed/CV risk, take with food.",
+            "Acetaminophen (Tylenol): max 4 g/day (many recommend 3 g); hepatotoxicity in overdose; antidote N-acetylcysteine. Often combined with opioids (Norco = hydrocodone/APAP).",
+            "Opioids (C-II): oxycodone, hydrocodone/APAP (Norco), tramadol (C-IV) — sedation, constipation (no tolerance), respiratory depression; reversed by naloxone."
+          ],
+          "keyPoints": [
+            "SSRI + MAOI = serotonin syndrome",
+            "Benzos & Z-drugs = C-IV",
+            "APAP max 4 g/day",
+            "Naloxone reverses opioids"
+          ]
+        },
+        {
+          "id": "m1l6",
+          "title": "Respiratory, GI & Miscellaneous",
+          "intro": "Respiratory inhalers, GI acid agents, and other high-frequency drugs.",
+          "bullets": [
+            "SABA rescue inhalers: albuterol (ProAir, Ventolin) — short-acting beta-agonist; prime the inhaler before first use.",
+            "Inhaled corticosteroids (maintenance): fluticasone (Flovent); LABA: salmeterol (never used alone in asthma).",
+            "Montelukast (Singulair): leukotriene receptor antagonist for asthma/allergic rhinitis — boxed warning for neuropsychiatric effects.",
+            "PPIs (-prazole): omeprazole (Prilosec), pantoprazole (Protonix), esomeprazole (Nexium) — take 30–60 min before the first meal; long-term use → B12 deficiency, fracture risk.",
+            "H2 blockers (-tidine): famotidine (Pepcid) — reduce gastric acid; weaker than PPIs.",
+            "Bisphosphonates: alendronate (Fosamax) for osteoporosis — take with plain water 30+ min before food and remain upright to prevent esophagitis.",
+            "Gout: allopurinol (Zyloprim, chronic prevention), colchicine (acute flare). Antihistamines: loratadine (Claritin, non-sedating), diphenhydramine (Benadryl, sedating)."
+          ],
+          "keyPoints": [
+            "Albuterol = rescue; prime inhaler",
+            "PPIs before first meal",
+            "Alendronate: plain water, stay upright",
+            "Montelukast boxed warning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m2",
+      "domain": "Medications",
+      "title": "High-Alert, LASA & Special-Population Medications",
+      "desc": "High-alert drugs, look-alike/sound-alike pairs, narrow-therapeutic-index drugs, and pregnancy/teratogen rules.",
+      "quiz": {
+        "domain": "Medications",
+        "count": 12
+      },
+      "lessons": [
+        {
+          "id": "m2l1",
+          "title": "High-Alert Medications",
+          "intro": "High-alert medications bear a heightened risk of significant harm when used in error. The ISMP list is a PTCE favorite.",
+          "bullets": [
+            "High-alert classes: insulin, anticoagulants (warfarin, heparin, DOACs), opioids, concentrated electrolytes (KCl), chemotherapy, and methotrexate.",
+            "Insulin: wrong-dose errors are common and dangerous; U-100 = 100 units/mL; use independent double checks.",
+            "Anticoagulants: warfarin (monitor INR), heparin (monitor aPTT, HIT risk), DOACs (apixaban/Eliquis, rivaroxaban/Xarelto) — bleeding is the major harm.",
+            "Concentrated potassium chloride injection must ALWAYS be diluted before IV use — undiluted rapid IV push can cause fatal cardiac arrest.",
+            "Risk-reduction strategies: independent double checks, standardized order sets, Tall Man lettering, and pharmacist profile review before ADC removal."
+          ],
+          "keyPoints": [
+            "Insulin, anticoagulants, opioids, KCl, chemo = high-alert",
+            "KCl concentrate must be diluted",
+            "Independent double checks reduce harm"
+          ]
+        },
+        {
+          "id": "m2l2",
+          "title": "Look-Alike Sound-Alike (LASA) & Tall Man Lettering",
+          "intro": "LASA pairs cause many dispensing errors. ISMP recommends Tall Man lettering to differentiate them.",
+          "bullets": [
+            "Tall Man lettering capitalizes the DISsimilar letters: predniSONE vs prednisoLONE; hydrALAZINE vs hydrOXYzine; DOBUTamine vs DOPamine; niCARdipine vs NIFEdipine.",
+            "Classic LASA pairs: predniSONE/prednisoLONE, hydrALAZINE (BP)/hydrOXYzine (antihistamine), clonidine/clonazepam, lamotrigine/lamivudine.",
+            "Prevention: segregate look-alike products on shelves, add warning labels to bins, use barcode scanning at verification, and read the full name + indication.",
+            "The goal is to draw attention to the differing letters, not to change pronunciation."
+          ],
+          "keyPoints": [
+            "Capitalize differing letters",
+            "predniSONE/prednisoLONE",
+            "Segregate + barcode scan"
+          ]
+        },
+        {
+          "id": "m2l3",
+          "title": "Narrow Therapeutic Index & Monitoring",
+          "intro": "NTI drugs have a small margin between therapeutic and toxic doses and usually require blood-level monitoring.",
+          "bullets": [
+            "Digoxin (Lanoxin): cardiac glycoside for HF/AFib — toxicity shows nausea, vomiting, and yellow-green visual halos; check level and potassium.",
+            "Warfarin: monitor INR; keep dietary vitamin K intake consistent.",
+            "Lithium, phenytoin (Dilantin), theophylline, and carbamazepine are other classic NTI drugs requiring levels.",
+            "Hypokalemia (low K+) increases digoxin toxicity risk — diuretics that waste potassium compound this."
+          ],
+          "keyPoints": [
+            "Digoxin toxicity = yellow-green halos + nausea",
+            "Warfarin = INR",
+            "Low K+ worsens digoxin toxicity"
+          ]
+        },
+        {
+          "id": "m2l4",
+          "title": "Pregnancy, Teratogens & Special Populations",
+          "intro": "Certain drugs are contraindicated in pregnancy; technicians must recognize teratogens and handling restrictions.",
+          "bullets": [
+            "Known teratogens (avoid in pregnancy): isotretinoin (Accutane), warfarin, methotrexate, ACE inhibitors/ARBs, statins, tetracyclines, valproate, and finasteride.",
+            "Isotretinoin requires the iPLEDGE REMS program with strict pregnancy-prevention measures.",
+            "Finasteride/dutasteride: crushed or broken tablets are a handling hazard to pregnant women (absorbed through skin).",
+            "Pediatric caution: tetracyclines (<8 y tooth staining), fluoroquinolones (cartilage), aspirin in children with viral illness (Reye's syndrome).",
+            "The old letter categories (A/B/C/D/X) were replaced by the Pregnancy and Lactation Labeling Rule (PLLR) narrative format, but \"Category X = teratogen\" still appears on older references/exams."
+          ],
+          "keyPoints": [
+            "Isotretinoin = iPLEDGE REMS",
+            "Finasteride crushed = pregnancy handling hazard",
+            "Aspirin in kids = Reye's"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m3",
+      "domain": "Medications",
+      "title": "Dosage Forms, Routes, Storage & Interactions",
+      "desc": "Dosage-form handling rules, routes of administration, storage requirements, and major interactions.",
+      "quiz": {
+        "domain": "Medications",
+        "count": 12
+      },
+      "lessons": [
+        {
+          "id": "m3l1",
+          "title": "Dosage Forms & Routes",
+          "intro": "How a drug is formulated determines how it must be handled and administered — a frequent PTCE topic.",
+          "bullets": [
+            "Sublingual (SL) dissolves under the tongue for rapid absorption and bypasses first-pass metabolism (nitroglycerin). Buccal = between cheek and gum.",
+            "Enteric-coated (EC) resists stomach acid and dissolves in the small intestine — do NOT crush (aspirin EC, omeprazole).",
+            "Extended-release (ER/XL/SR/CR/LA) releases over time — do NOT crush, split, or chew (risk of dose dumping).",
+            "Orally disintegrating tablets (ODT) dissolve on the tongue; effervescent tablets must be fully dissolved in water first.",
+            "Transdermal patches give steady absorption and bypass first-pass; rotate sites, never cut reservoir patches, fold before disposal (fentanyl patch is high-alert).",
+            "Suspensions: \"shake well before use.\" Inhalers and many nasal sprays require priming before first use or after prolonged non-use."
+          ],
+          "keyPoints": [
+            "SL bypasses first-pass",
+            "Do NOT crush EC or ER",
+            "Patches: rotate, don't cut",
+            "Prime inhalers"
+          ]
+        },
+        {
+          "id": "m3l2",
+          "title": "Storage Requirements",
+          "intro": "Proper storage preserves potency and safety; the PTCE tests specific temperature requirements.",
+          "bullets": [
+            "Refrigerated (36–46°F / 2–8°C): unopened insulin, reconstituted antibiotic suspensions, many vaccines, some biologics.",
+            "Unopened insulin must be refrigerated; once in use, most vials/pens can stay at room temperature for ~28 days (glargine, detemir). Never freeze insulin.",
+            "Reconstituted antibiotic suspensions (amoxicillin) are usually refrigerated and discarded after 14 days.",
+            "Room temperature (68–77°F / 20–25°C) is the default for most tablets/capsules; protect from moisture and light.",
+            "Nitroglycerin SL tablets are light- and moisture-sensitive — store in the original amber glass bottle.",
+            "Most refrigerated vaccines must be stored at 2–8°C (36–46°F) and must NOT be frozen; some require frozen or ultra-cold storage."
+          ],
+          "keyPoints": [
+            "Insulin/vaccines: 2–8°C, don't freeze",
+            "Amoxicillin susp: refrigerate, discard 14 days",
+            "Nitroglycerin: original amber bottle"
+          ]
+        },
+        {
+          "id": "m3l3",
+          "title": "Major Drug Interactions",
+          "intro": "Technicians flag potential interactions for the pharmacist. Know the classic high-yield combinations.",
+          "bullets": [
+            "Warfarin + NSAIDs/aspirin → increased bleeding risk; warfarin + many antibiotics (Bactrim, metronidazole, macrolides) → increased INR.",
+            "MAOI + SSRI/serotonergic drugs → serotonin syndrome (avoid; require washout period).",
+            "Sildenafil (Viagra) + nitrates (nitroglycerin) → severe hypotension (contraindicated).",
+            "Grapefruit juice inhibits intestinal CYP3A4 → raises levels of simvastatin and many other 3A4 substrates.",
+            "ACE inhibitor + potassium-sparing diuretic (spironolactone) or K+ supplements → hyperkalemia.",
+            "Calcium/iron/antacids chelate and block absorption of tetracyclines, fluoroquinolones, and levothyroxine — separate administration by several hours."
+          ],
+          "keyPoints": [
+            "Warfarin + NSAID = bleeding",
+            "Sildenafil + nitrate = hypotension",
+            "Grapefruit + simvastatin",
+            "Separate Ca/Fe from tetracyclines"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m4",
+      "domain": "Patient Safety and Quality Assurance",
+      "title": "Error Prevention, Reporting & Continuous Quality Improvement",
+      "desc": "The medication-use process, error categories, reporting programs, and quality-improvement methods.",
+      "quiz": {
+        "domain": "Patient Safety and Quality Assurance",
+        "count": 12
+      },
+      "lessons": [
+        {
+          "id": "m4l1",
+          "title": "The Medication-Use Process & the Five Rights",
+          "intro": "Medication safety is built on verifying the \"five rights\" at every step and understanding where errors occur.",
+          "bullets": [
+            "The five rights: right PATIENT, right DRUG, right DOSE, right ROUTE, right TIME. (Some add right documentation and right indication.)",
+            "The medication-use process: prescribing → transcribing/order entry → dispensing → administration → monitoring. Errors can occur at each step.",
+            "A technician's role: accurate order entry, correct product selection, barcode scanning, and flagging concerns to the pharmacist.",
+            "Verify the patient with two identifiers (full name + date of birth) before filling or dispensing."
+          ],
+          "keyPoints": [
+            "Five rights: patient, drug, dose, route, time",
+            "Two identifiers: name + DOB",
+            "Flag concerns to the pharmacist"
+          ]
+        },
+        {
+          "id": "m4l2",
+          "title": "Error Types, Near Misses & NCC MERP Categories",
+          "intro": "Understanding error severity categories drives a culture of safety and reporting.",
+          "bullets": [
+            "A near miss (close call) is an error INTERCEPTED before reaching the patient — report it to fix system weaknesses.",
+            "NCC MERP categories: A = circumstances with error potential; B = error did NOT reach patient; C = reached patient, NO harm; D = reached patient, required monitoring.",
+            "Categories E–I = increasing harm: E = temporary harm requiring intervention; F = hospitalization; G = permanent harm; H = life-sustaining intervention; I = death.",
+            "Error-prone abbreviations to avoid (ISMP): \"U\" for units (spell out), trailing zeros (write 1 mg not 1.0 mg), \"QD\"/\"QOD\" (use daily/every other day)."
+          ],
+          "keyPoints": [
+            "Near miss = caught before patient",
+            "Category C = reached patient, no harm",
+            "Avoid \"U\", trailing zeros, QD/QOD"
+          ]
+        },
+        {
+          "id": "m4l3",
+          "title": "Reporting Programs & Recalls",
+          "intro": "Know where and how medication errors and adverse events are reported, and the FDA recall classes.",
+          "bullets": [
+            "FDA MedWatch: voluntary reporting of adverse events, product problems, and medication errors (Form 3500 for professionals, 3500B for consumers).",
+            "ISMP MERP (Medication Errors Reporting Program): voluntary, CONFIDENTIAL national error reporting to share prevention strategies.",
+            "VAERS: Vaccine Adverse Event Reporting System (for vaccines).",
+            "Recall classes: Class I = reasonable probability of SERIOUS harm or death; Class II = temporary/reversible harm; Class III = UNLIKELY to cause harm.",
+            "When a recall occurs: check lot numbers, quarantine affected stock, and follow the recall instructions for return/disposal."
+          ],
+          "keyPoints": [
+            "MedWatch = FDA adverse events",
+            "ISMP MERP = confidential error reporting",
+            "Class I = serious harm/death"
+          ]
+        },
+        {
+          "id": "m4l4",
+          "title": "Continuous Quality Improvement (CQI)",
+          "intro": "Quality improvement uses structured methods to reduce errors and improve processes.",
+          "bullets": [
+            "Root cause analysis (RCA): a SYSTEMS-based review after an error to find underlying process failures — not individual blame.",
+            "PDSA cycle (Plan-Do-Study-Act): the standard iterative cycle for testing and refining quality-improvement changes.",
+            "Independent double checks: two qualified staff separately verify high-alert medications (insulin, anticoagulants, chemotherapy) before dispensing/administration.",
+            "Prospective DUR screens for interactions/duplications/contraindications BEFORE dispensing (at order entry); retrospective DUR reviews patterns afterward.",
+            "Medication reconciliation compares all home medications to new orders at EVERY transition of care (admission, transfer, discharge)."
+          ],
+          "keyPoints": [
+            "RCA = system focus, not blame",
+            "PDSA = Plan-Do-Study-Act",
+            "Med rec at every transition of care"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m5",
+      "domain": "Patient Safety and Quality Assurance",
+      "title": "Sterile & Non-Sterile Compounding (USP)",
+      "desc": "USP <795>, <797>, <800>, cleanroom practices, garbing, and beyond-use dating.",
+      "quiz": {
+        "domain": "Patient Safety and Quality Assurance",
+        "count": 12
+      },
+      "lessons": [
+        {
+          "id": "m5l1",
+          "title": "USP Standards Overview",
+          "intro": "The three USP chapters that govern compounding are heavily tested.",
+          "bullets": [
+            "USP <795>: NON-STERILE compounding standards — oral suspensions, topical creams, capsules, suppositories.",
+            "USP <797>: STERILE compounding standards — IV admixtures, injections, ophthalmics; covers cleanroom design, garbing, and beyond-use dates (BUDs).",
+            "USP <800>: safe HANDLING of HAZARDOUS DRUGS across both sterile and non-sterile settings — PPE, containment (C-PEC/C-SEC), and personnel protection.",
+            "Beyond-use date (BUD): the date after which a COMPOUNDED preparation must NOT be used — assigned per USP limits and stability data, NOT the manufacturer expiration date."
+          ],
+          "keyPoints": [
+            "<795> non-sterile",
+            "<797> sterile",
+            "<800> hazardous drugs",
+            "BUD ≠ expiration date"
+          ]
+        },
+        {
+          "id": "m5l2",
+          "title": "Sterile Compounding: Cleanroom & Garbing",
+          "intro": "Sterile compounding requires a controlled environment and strict aseptic technique.",
+          "bullets": [
+            "Air quality (ISO classes): ISO 5 = compounding area (PEC/hood), ISO 7 = buffer room, ISO 8 = ante-room.",
+            "Laminar airflow workbenches provide ISO 5 HEPA-filtered air; work at least 6 inches inside the hood and avoid blocking first air.",
+            "Garbing proceeds from DIRTIEST to CLEANEST: shoe covers → hair/beard cover → face mask → gown → then proper hand hygiene → sterile gloves LAST.",
+            "Hand hygiene: scrub hands and forearms; don sterile powder-free gloves after entering the buffer area; sanitize gloves with sterile 70% IPA.",
+            "Clean the PEC with sterile 70% isopropyl alcohol; buffer/ante rooms are cleaned per a defined schedule."
+          ],
+          "keyPoints": [
+            "ISO 5 hood / ISO 7 buffer / ISO 8 ante",
+            "Garb dirtiest→cleanest; gloves last",
+            "Sterile 70% IPA for cleaning"
+          ]
+        },
+        {
+          "id": "m5l3",
+          "title": "Hazardous Drugs & Infection Control",
+          "intro": "Safe handling protects both patients and workers from hazardous-drug exposure and contamination.",
+          "bullets": [
+            "NIOSH maintains the list of hazardous drugs (antineoplastics, hormones, some antivirals).",
+            "Hazardous-drug compounding PPE: TWO pairs of chemotherapy-tested gloves + an impermeable gown; add eye/face and respiratory protection per risk.",
+            "Use a containment primary engineering control (C-PEC, e.g., BSC or CACI) inside a containment secondary engineering control (C-SEC) with negative pressure for HDs.",
+            "Hand hygiene: soap and water for at least 20 seconds; alcohol-based rub when hands are not visibly soiled.",
+            "Sharps (needles/syringes): rigid, puncture-resistant, closable sharps containers — never regular trash or recycling; never recap by hand.",
+            "Vaccine storage: most refrigerated at 2–8°C (36–46°F), do NOT freeze; monitor with calibrated thermometers and document temperatures."
+          ],
+          "keyPoints": [
+            "NIOSH = HD list",
+            "Double chemo gloves + gown",
+            "Sharps → puncture-resistant container",
+            "Hand hygiene ≥ 20 seconds"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6",
+      "domain": "Patient Safety and Quality Assurance",
+      "title": "Safety Technologies & the Dispensary Workflow",
+      "desc": "Barcode scanning, automated dispensing cabinets, REMS programs, and workflow safeguards.",
+      "quiz": {
+        "domain": "Patient Safety and Quality Assurance",
+        "count": 10
+      },
+      "lessons": [
+        {
+          "id": "m6l1",
+          "title": "Safety Technology & Workflow Safeguards",
+          "intro": "Technology and process design reduce dispensing errors at the point of care.",
+          "bullets": [
+            "Barcode scanning verifies the correct product (NDC) against the order at the point of verification, reducing wrong-drug errors.",
+            "Automated dispensing cabinets (ADCs): requiring pharmacist PROFILE REVIEW before a drug can be removed closes the dangerous \"override\" gap.",
+            "Drug utilization review (DUR): prospective screening at order entry; technicians flag interaction/duplication alerts to the pharmacist for the clinical decision.",
+            "Auxiliary (warning) labels communicate cautions: \"May cause drowsiness,\" \"Take with food,\" \"Avoid alcohol,\" \"Refrigerate.\"",
+            "REMS (Risk Evaluation and Mitigation Strategy): FDA-required programs to manage known serious risks (e.g., iPLEDGE for isotretinoin, clozapine REMS).",
+            "Tall Man lettering, look-alike bin segregation, and limiting available concentrations/strengths are additional error-reduction strategies."
+          ],
+          "keyPoints": [
+            "Barcode scan = right product",
+            "ADC overrides = error risk",
+            "REMS manages serious risks (iPLEDGE)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m7",
+      "domain": "Order Entry and Processing",
+      "title": "Reading Prescriptions & SIG Codes",
+      "desc": "Prescription components, common abbreviations, and directions interpretation.",
+      "quiz": {
+        "domain": "Order Entry and Processing",
+        "count": 12
+      },
+      "lessons": [
+        {
+          "id": "m7l1",
+          "title": "Parts of a Prescription",
+          "intro": "A prescription has defined parts; understanding them is essential for accurate order entry.",
+          "bullets": [
+            "Inscription: the medication name and strength.",
+            "Subscription: the dispensing instructions — quantity to dispense and any special preparation.",
+            "Signa (\"sig\"): the directions for the patient (how to take it).",
+            "\"Disp #30\" = dispense a quantity of 30; refills are authorized separately (e.g., \"Refills: 2\").",
+            "Other elements: prescriber info + DEA number (for controls), patient name/DOB/address, date written, and prescriber signature.",
+            "Red flags requiring pharmacist clarification: illegible handwriting, unusual dose, missing quantity/sig, dangerous abbreviations."
+          ],
+          "keyPoints": [
+            "Inscription = drug+strength",
+            "Subscription = quantity/refills",
+            "Signa = patient directions",
+            "Disp #30 = dispense 30"
+          ]
+        },
+        {
+          "id": "m7l2",
+          "title": "Common SIG Codes & Abbreviations",
+          "intro": "Memorize the high-frequency Latin abbreviations used in directions.",
+          "bullets": [
+            "Frequency: qd/daily, BID (twice daily), TID (three times), QID (four times), q4h/q6h (every 4/6 hours), qhs (every night at bedtime), PRN (as needed).",
+            "Meals/timing: ac (before meals), pc (after meals), hs (at bedtime).",
+            "Routes: PO (by mouth), SL (sublingual), PR (rectally), top (topically), IM/IV/SubQ (injections).",
+            "Eyes/ears: OU = both eyes, OD = right eye, OS = left eye; AU = both ears, AD = right ear, AS = left ear.",
+            "Amounts: i = one, ii = two, ss = one-half; tab = tablet, cap = capsule, gtt(s) = drop(s), supp = suppository.",
+            "Other: ud / ut dict = as directed, STAT = immediately, NR = no refills, DAW = dispense as written."
+          ],
+          "keyPoints": [
+            "BID/TID/QID",
+            "qhs = at bedtime; qh = every hour",
+            "OU/OD/OS = eyes; AU/AD/AS = ears",
+            "PRN = as needed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m8",
+      "domain": "Order Entry and Processing",
+      "title": "Pharmacy Calculations",
+      "desc": "Conversions, days supply, ratio/percent strength, alligation, and IV flow rates.",
+      "quiz": {
+        "domain": "Order Entry and Processing",
+        "count": 15
+      },
+      "lessons": [
+        {
+          "id": "m8l1",
+          "title": "Conversions & Household Measures",
+          "intro": "Master the unit conversions that underpin most calculation questions.",
+          "bullets": [
+            "Weight: 1 kg = 2.2 lb. Convert lb→kg by dividing by 2.2 (154 lb ÷ 2.2 = 70 kg).",
+            "Volume: 1 tsp = 5 mL; 1 tbsp = 15 mL = 3 tsp; 1 fl oz ≈ 30 mL; 1 L = 1000 mL.",
+            "Weight (metric): 1 g = 1000 mg; 1 mg = 1000 mcg.",
+            "Apothecary: 1 grain (gr) ≈ 65 mg (often rounded to 60 mg).",
+            "Roman numerals: ss = ½, I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000. (XLIV = 44, XC = 90.)",
+            "Temperature: °F = (°C × 9/5) + 32; °C = (°F − 32) × 5/9."
+          ],
+          "keyPoints": [
+            "1 kg = 2.2 lb",
+            "1 tbsp = 15 mL; 1 tsp = 5 mL",
+            "1 gr ≈ 65 mg",
+            "°F = (°C×1.8)+32"
+          ]
+        },
+        {
+          "id": "m8l2",
+          "title": "Dosage, Days Supply & Quantity",
+          "intro": "The most common calculation tasks: dose size, days supply, and quantity to dispense.",
+          "bullets": [
+            "Dose from strength: (desired dose ÷ available strength) × quantity per unit. 250 mg needed, 125 mg tabs → 2 tabs.",
+            "Weight-based dose: mg/kg/day × weight in kg (15 mg/kg/day × 18 kg = 270 mg/day).",
+            "Days supply (tablets): quantity ÷ tablets per day. 90 tabs at TID (3/day) = 30 days. Round DOWN for billing.",
+            "Insulin days supply: (mL × 100 units for U-100) ÷ units per day. A 10 mL vial = 1,000 units; at 20 units/day lasts 50 days.",
+            "Eye/ear drops: total drops = mL × 20 drops/mL; days = total drops ÷ drops per day. 30 mL at 4 drops/day = 150 days.",
+            "Inhalers: days = total actuations ÷ puffs per day. 200 actuations at 2 puffs BID (4/day) = 50 days."
+          ],
+          "keyPoints": [
+            "Days supply round DOWN",
+            "U-100 insulin = 100 units/mL",
+            "Drops: 20 gtt/mL",
+            "Inhaler: actuations ÷ puffs/day"
+          ]
+        },
+        {
+          "id": "m8l3",
+          "title": "Ratio/Percent Strength, Dilution & Alligation",
+          "intro": "Concentration expressions and mixing problems appear regularly on the PTCE.",
+          "bullets": [
+            "Percent strength = grams per 100 mL. 0.9% NaCl = 0.9 g per 100 mL; in 500 mL that is 4.5 g. D5W = 5 g dextrose per 100 mL (50 g per 1,000 mL).",
+            "Ratio strength: 1:1000 = 1 g per 1000 mL = 1 mg/mL (epinephrine).",
+            "Percent ↔ decimal: divide by 100 (0.75% = 0.0075). mg per gram = %×10 (0.25% cream = 2.5 mg/g).",
+            "Alligation (mixing two strengths to a target): parts of HIGH = target − low; parts of LOW = high − target. To make 50% from 70% + 20%: 30 parts of 70%, 20 parts of 20% → ratio 3:2.",
+            "Dilution: C1V1 = C2V2 keeps the amount of drug constant when changing concentration/volume."
+          ],
+          "keyPoints": [
+            "Percent = g/100 mL",
+            "1:1000 = 1 mg/mL",
+            "Alligation: high=target−low, low=high−target",
+            "C1V1 = C2V2"
+          ]
+        },
+        {
+          "id": "m8l4",
+          "title": "IV Flow Rates",
+          "intro": "Flow-rate calculations determine how fast an IV runs.",
+          "bullets": [
+            "mL per hour = total volume ÷ total hours. 1,000 mL over 8 hours = 125 mL/hr.",
+            "Drops per minute: gtt/min = (volume in mL ÷ time in minutes) × drop factor (gtt/mL).",
+            "Example: 1,000 mL over 6 hours with a 15 gtt/mL set → (1000 ÷ 360) × 15 ≈ 42 gtt/min.",
+            "Know common drop factors: 10, 15, 20 gtt/mL (macro) and 60 gtt/mL (micro)."
+          ],
+          "keyPoints": [
+            "mL/hr = volume ÷ hours",
+            "gtt/min = (mL ÷ min) × drop factor",
+            "Micro drip = 60 gtt/mL"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m9",
+      "domain": "Order Entry and Processing",
+      "title": "Insurance Billing & Order Processing",
+      "desc": "Third-party billing, DAW codes, prior authorization, and coordination of benefits.",
+      "quiz": {
+        "domain": "Order Entry and Processing",
+        "count": 10
+      },
+      "lessons": [
+        {
+          "id": "m9l1",
+          "title": "Third-Party Billing & DAW Codes",
+          "intro": "Accurate billing prevents claim rejections and ensures the correct product is dispensed.",
+          "bullets": [
+            "DAW codes: DAW 0 = substitution allowed (default); DAW 1 = prescriber requires brand (dispense as written); DAW 2 = patient requests brand.",
+            "Common rejections: \"Refill too soon,\" \"NDC not covered,\" \"Prior authorization required,\" and incorrect days supply or patient DOB.",
+            "Patient identity: full name + date of birth are required to match the correct profile; a DOB mismatch is a common rejection cause.",
+            "BIN, PCN, Group, and Member ID numbers on the insurance card route the claim to the correct payer."
+          ],
+          "keyPoints": [
+            "DAW 0 = generic OK; DAW 1 = brand required",
+            "Name + DOB for profile match",
+            "Know BIN/PCN/Group/ID"
+          ]
+        },
+        {
+          "id": "m9l2",
+          "title": "Prior Authorization & Coordination of Benefits",
+          "intro": "Some drugs require payer approval; some patients have more than one plan.",
+          "bullets": [
+            "Prior authorization (PA): the prescriber must justify medical necessity to the insurer BEFORE the claim will pay.",
+            "Coordination of benefits (COB) determines which plan is primary when a patient has multiple insurers.",
+            "Birthday rule (dependent children on both parents' plans): the primary plan is the parent whose birth MONTH/DAY falls earlier in the calendar year.",
+            "Medicare is primary for patients 65+ (with exceptions); Medicaid is generally the payer of last resort.",
+            "Coupon/discount cards can lower cash price but do not combine with insurance on the same claim."
+          ],
+          "keyPoints": [
+            "PA = prescriber justifies to payer first",
+            "Birthday rule: earlier month/day = primary",
+            "Medicaid = payer of last resort"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m10",
+      "domain": "Federal Requirements",
+      "title": "Controlled Substances & DEA Regulations",
+      "desc": "CSA schedules, DEA forms, refill rules, recordkeeping, and the Combat Methamphetamine Epidemic Act.",
+      "quiz": {
+        "domain": "Federal Requirements",
+        "count": 12
+      },
+      "lessons": [
+        {
+          "id": "m10l1",
+          "title": "Controlled Substance Schedules",
+          "intro": "The Controlled Substances Act (1970) created five schedules based on abuse potential and accepted medical use.",
+          "bullets": [
+            "Schedule I: HIGH abuse potential, NO accepted medical use — heroin, LSD, marijuana (federal). No prescriptions.",
+            "Schedule II: high abuse potential WITH accepted medical use — oxycodone, hydrocodone/APAP (Norco), morphine, fentanyl, amphetamine (Adderall), methylphenidate (Ritalin).",
+            "Schedule III: moderate abuse potential — Tylenol #3 (codeine/APAP), buprenorphine products, anabolic steroids.",
+            "Schedule IV: lower abuse potential — benzodiazepines (alprazolam, lorazepam), zolpidem (Ambien), tramadol.",
+            "Schedule V: lowest abuse potential — some cough preparations with limited codeine (e.g., guaifenesin/codeine), pregabalin (Lyrica)."
+          ],
+          "keyPoints": [
+            "C-I = no medical use",
+            "C-II = opioids + stimulants",
+            "Benzos/tramadol = C-IV",
+            "Lower number = higher abuse potential"
+          ]
+        },
+        {
+          "id": "m10l2",
+          "title": "Schedule II–V Prescription & Refill Rules",
+          "intro": "Refill and transmission rules differ sharply by schedule.",
+          "bullets": [
+            "C-II: NO refills — a new prescription is required each time; written or electronic (EPCS); no telephone call-ins except a true emergency.",
+            "C-II fax exception: prescribers may fax C-II prescriptions for hospice, long-term care facility, and home-infusion patients.",
+            "C-III–C-V: up to 5 refills within 6 MONTHS of the issue date.",
+            "Emergency C-II oral authorization: the pharmacist may fill a quantity for the emergency period; the prescriber must deliver a written follow-up prescription within 7 days.",
+            "Partial filling of C-II is allowed under specific conditions; C-III–V partial fills follow refill accounting rules."
+          ],
+          "keyPoints": [
+            "C-II = no refills",
+            "C-III–V = 5 refills / 6 months",
+            "Hospice/LTCF/home-infusion C-II fax exception"
+          ]
+        },
+        {
+          "id": "m10l3",
+          "title": "DEA Forms, Registration & Recordkeeping",
+          "intro": "Specific DEA forms document ordering, theft/loss, destruction, and registration of controlled substances.",
+          "bullets": [
+            "DEA Form 222 (or electronic CSOS): used to ORDER Schedule I–II controlled substances.",
+            "DEA Form 106: report THEFT or significant LOSS of controlled substances.",
+            "DEA Form 41: document DESTRUCTION/disposal of controlled substances.",
+            "DEA Form 224: pharmacy DEA registration; renew every 3 YEARS.",
+            "Controlled-substance inventory: required every 2 YEARS (biennial); C-II drugs need an EXACT count, C-III–V may be estimated (unless a container holds >1000).",
+            "DEA number: 2 letters + 7 digits; the 2nd letter usually matches the registrant's last-name initial. Check-digit verification: add digits 1+3+5; add digits 2+4+6 and multiply by 2; the sum's last digit = the 7th digit."
+          ],
+          "keyPoints": [
+            "222 = order C-II",
+            "106 = theft/loss",
+            "41 = destruction",
+            "224 = registration (3 yr)",
+            "Biennial (2 yr) inventory"
+          ]
+        },
+        {
+          "id": "m10l4",
+          "title": "Combat Methamphetamine Epidemic Act (CMEA)",
+          "intro": "CMEA restricts OTC sales of pseudoephedrine and ephedrine to curb methamphetamine production.",
+          "bullets": [
+            "Pseudoephedrine (Sudafed) and ephedrine are kept BEHIND THE COUNTER (not a prescription, but restricted).",
+            "Daily sales limit: 3.6 grams per purchaser per day.",
+            "30-day limit: 9 grams per purchaser (7.5 g for mail-order).",
+            "Requirements: photo ID verification and entry into a written or electronic LOGBOOK (name, address, date/time, product, quantity).",
+            "Products must be stored behind the counter or in a locked cabinet."
+          ],
+          "keyPoints": [
+            "PSE behind the counter",
+            "3.6 g/day, 9 g/30 days",
+            "Photo ID + logbook required"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m11",
+      "domain": "Federal Requirements",
+      "title": "Patient Privacy, Counseling & Consumer Protection Laws",
+      "desc": "HIPAA, OBRA-90, and the consumer-protection statutes that shape pharmacy practice.",
+      "quiz": {
+        "domain": "Federal Requirements",
+        "count": 8
+      },
+      "lessons": [
+        {
+          "id": "m11l1",
+          "title": "HIPAA & Patient Privacy",
+          "intro": "HIPAA protects patients' health information and gives them specific rights.",
+          "bullets": [
+            "HIPAA safeguards Protected Health Information (PHI) — any individually identifiable health information.",
+            "Pharmacies must provide a Notice of Privacy Practices (NPP) explaining how PHI is used and disclosed.",
+            "Minimum necessary rule: use or disclose only the minimum PHI needed for the task.",
+            "PHI may be shared without authorization for Treatment, Payment, and healthcare Operations (TPO).",
+            "Avoid discussing patient information in public areas; verify identity before releasing information; shred PHI documents."
+          ],
+          "keyPoints": [
+            "HIPAA protects PHI",
+            "Notice of Privacy Practices required",
+            "TPO = no authorization needed",
+            "Minimum necessary rule"
+          ]
+        },
+        {
+          "id": "m11l2",
+          "title": "OBRA-90 & Counseling Requirements",
+          "intro": "The Omnibus Budget Reconciliation Act of 1990 established counseling and DUR requirements.",
+          "bullets": [
+            "OBRA-90 mandates a prospective drug utilization review (DUR) before dispensing Medicaid prescriptions.",
+            "Pharmacists must make an OFFER TO COUNSEL patients (or caregivers) on new prescriptions — the patient may decline.",
+            "Counseling content: drug name, purpose, how to take, side effects, storage, and what to do about a missed dose.",
+            "Technicians facilitate counseling offers but the pharmacist provides the clinical counseling."
+          ],
+          "keyPoints": [
+            "OBRA-90 = prospective DUR + offer to counsel",
+            "Patient may decline counseling",
+            "Pharmacist counsels, tech offers"
+          ]
+        },
+        {
+          "id": "m11l3",
+          "title": "Consumer Protection & Packaging Laws",
+          "intro": "Several federal laws govern drug safety, labeling, and packaging.",
+          "bullets": [
+            "Pure Food and Drug Act (1906): prohibited adulterated/misbranded drugs — the start of federal drug regulation.",
+            "Food, Drug, and Cosmetic Act (FDCA) 1938: required drugs be proven SAFE (after the sulfanilamide elixir disaster); created the FDA's modern authority.",
+            "Durham-Humphrey Amendment (1951): established the prescription (legend) vs OTC distinction.",
+            "Kefauver-Harris Amendment (1962): required drugs be proven safe AND EFFECTIVE, and established Good Manufacturing Practices (GMP).",
+            "Poison Prevention Packaging Act (1970): requires CHILD-RESISTANT containers for most prescription and many OTC drugs (patients may request easy-open caps).",
+            "Drug Listing Act / NDC: every drug has a National Drug Code identifying labeler, product, and package size."
+          ],
+          "keyPoints": [
+            "FDCA 1938 = safety",
+            "Durham-Humphrey 1951 = Rx vs OTC",
+            "Kefauver-Harris 1962 = safety + efficacy + GMP",
+            "PPPA 1970 = child-resistant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m12",
+      "domain": "Federal Requirements",
+      "title": "Agencies, Recalls & Practice Regulations",
+      "desc": "The regulatory agencies, recall procedures, and laws that govern the pharmacy workplace.",
+      "quiz": {
+        "domain": "Federal Requirements",
+        "count": 8
+      },
+      "lessons": [
+        {
+          "id": "m12l1",
+          "title": "Regulatory Agencies & Their Roles",
+          "intro": "Know which agency does what — a common exam distinction.",
+          "bullets": [
+            "FDA: drug safety, approval, labeling, recalls, MedWatch, and REMS programs.",
+            "DEA: enforces the Controlled Substances Act; registration, schedules, and diversion control.",
+            "State Boards of Pharmacy: license pharmacists/technicians and regulate practice within the state.",
+            "OSHA: workplace safety — hazardous chemicals, bloodborne pathogens, Safety Data Sheets (SDS).",
+            "CDC: immunization guidance and public-health recommendations (with ACIP for vaccines).",
+            "NIOSH: identifies hazardous drugs and safe-handling guidance."
+          ],
+          "keyPoints": [
+            "FDA = drugs/recalls",
+            "DEA = controlled substances",
+            "OSHA = workplace safety (SDS)",
+            "NIOSH = hazardous drug list"
+          ]
+        },
+        {
+          "id": "m12l2",
+          "title": "Recalls, Expiration & Stock Management",
+          "intro": "Handling recalls and expired/damaged stock correctly protects patients.",
+          "bullets": [
+            "Recall classes: Class I = serious harm/death likely; Class II = temporary/reversible harm; Class III = unlikely harm.",
+            "On a recall: identify affected lot numbers, quarantine the stock, and follow manufacturer/wholesaler return instructions.",
+            "Rotate stock using FEFO (First-Expired, First-Out) to minimize expired product.",
+            "Never dispense expired medication; remove expired/damaged units from active stock promptly.",
+            "The NDC number (labeler-product-package) is used to identify recalled products and process returns."
+          ],
+          "keyPoints": [
+            "Class I = most serious",
+            "FEFO = first-expired, first-out",
+            "Never dispense expired drugs"
+          ]
+        },
+        {
+          "id": "m12l3",
+          "title": "Technician Scope of Practice & Workplace Safety",
+          "intro": "Technicians work under pharmacist supervision within defined legal boundaries.",
+          "bullets": [
+            "Technicians may: enter orders, fill/count medications, manage inventory, process insurance, and compound under supervision.",
+            "Technicians may NOT: provide clinical counseling, perform the final DUR/clinical verification, or take new verbal prescriptions (varies by state).",
+            "The pharmacist is responsible for the final check and all clinical decisions.",
+            "Safety Data Sheets (SDS) describe chemical hazards; OSHA requires they be accessible to staff.",
+            "State laws and Boards of Pharmacy set technician registration/licensure and ratio requirements."
+          ],
+          "keyPoints": [
+            "Tech ≠ counseling/final DUR",
+            "Pharmacist = final check",
+            "OSHA/SDS = workplace chemical safety"
+          ]
+        }
+      ]
+    }
+  ]
+}

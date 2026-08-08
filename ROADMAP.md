@@ -95,6 +95,8 @@ Stage 6: Question-bank expansion complete — 180 of 180 questions
 Stage 6B: UI overhaul — synthwave × Matrix dark theme complete; desktop layout optimized for PC Chrome
 Stage 6C: Content expansion complete — flashcards 133 → 163, notes expanded with additional
           calculation, federal, and safety bullets across all four domains
+Stage 6D: Study course complete — 12 modules / 39 lessons covering every domain; course
+          progress tracked; lessons deep-link into domain-filtered quizzes
 Stage 7: Content validation — active (pharmacist review pending)
 Stage 8: Mobile polish and initial release — pending iPhone Safari + accessibility QA
 Stage 10: Optional enhancements integrated — missed/bookmarked review, weak-area quizzes,
@@ -595,6 +597,30 @@ Complete.
 - [x] Federal: added Counseling & Omnibus Laws section
 - [x] Coverage mapped to all question subtopics (Medications 22, Patient Safety 16, Order Entry 5, Federal 6)
 - [x] Verified rendering: all 133 cards and all 251 note bullets render; no duplicate flashcard IDs
+
+## Stage 6D — Structured Study Course
+
+### Objective
+
+Add the instructional core of the app: a complete, ordered study course covering every PTCE 2026 domain, from which quizzes and exams draw. The course is the primary learning path for an experienced technician refreshing for a retake.
+
+### Status
+
+Complete.
+
+### Completed
+
+- [x] Created `data/course.json` — 12 modules / 39 lessons (208 teaching bullets, 138 key points) across all four domains
+- [x] Medications (m1–m3): drug classes/names/pharmacology; high-alert, LASA & special-population; dosage forms, routes, storage & interactions
+- [x] Patient Safety and Quality Assurance (m4–m6): error prevention/reporting/CQI; sterile & non-sterile compounding (USP <795>/<797>/<800>); safety technology & dispensary workflow
+- [x] Order Entry and Processing (m7–m9): prescription reading & SIG codes; calculations (conversions, days supply, ratio/percent, alligation, IV flow); insurance billing & order processing
+- [x] Federal Requirements (m10–m12): controlled substances & DEA; privacy/counseling/consumer-protection laws; agencies, recalls & practice regulations
+- [x] Created `js/course.js` and `course.html` — module list, lesson reader, per-module and overall progress, lesson completion, resume-from-last-lesson, prev/next navigation, and "Test Yourself" deep-links into domain-filtered quizzes
+- [x] Added course progress tracking to `js/app.js` (`Storage.course`, `markLessonComplete`, `getCourseProgress`, `setLastLesson`)
+- [x] Added quiz deep-link params (`?mode=custom&domain=…&count=…`) in `js/quiz.js` so course modules launch targeted quizzes
+- [x] Added a prominent featured "Study Course" card to `index.html`
+- [x] Themed course components in `css/style.css` and added course files to the service-worker cache (v2)
+- [x] Verified via jsdom harness (23/23 checks: module list, lesson reader, completion, resume, deep-linked quiz, home card) and localhost HTTP 200 for all 22 assets
 
 ## Stage 7 — Content Validation
 

@@ -10,6 +10,8 @@ const Storage = (() => {
     bookmarkedCards: [],
     // missed questions: { [id]: { wrong: n, last: ISO } }
     missed: {},
+    // course progress: completed lesson ids + last-opened lesson
+    course: { completed: [], lastLesson: null },
     quizzes: [],
     exams: [],
     lastVisit: null
@@ -29,6 +31,10 @@ const Storage = (() => {
         bookmarkedQuestions: Array.isArray(data.bookmarkedQuestions) ? data.bookmarkedQuestions : [],
         bookmarkedCards: Array.isArray(data.bookmarkedCards) ? data.bookmarkedCards : [],
         missed: (data.missed && typeof data.missed === 'object') ? data.missed : {},
+        course: {
+          completed: Array.isArray(data.course?.completed) ? data.course.completed : [],
+          lastLesson: data.course?.lastLesson || null
+        },
         quizzes: Array.isArray(data.quizzes) ? data.quizzes : [],
         exams: Array.isArray(data.exams) ? data.exams : [],
         lastVisit: data.lastVisit || null
@@ -156,11 +162,29 @@ const Storage = (() => {
     write(data);
     return true;
   };
+  // ---- Course progress ----
+  const markLessonComplete = (lessonId) => {
+    const d = read();
+    if (!d.course.completed.includes(lessonId)) {
+      d.course.completed.push(lessonId);
+      write(d);
+    }
+  };
+  const setLastLesson = (lessonId) => {
+    const d = read();
+    d.course.lastLesson = lessonId;
+    write(d);
+  };
+  const getCourseProgress = () => {
+    const d = read();
+    return { completed: d.course.completed.slice(), lastLesson: d.course.lastLesson };
+  };
   const clear = () => localStorage.removeItem(KEY);
   return {
     read, write, touch, recordQuiz, recordExam, setFlashStatus, markReviewed, clear,
     toggleBookmark, isBookmarked, getBookmarks, recordQuestionOutcome, getMissed,
-    gradeCard, dueCards, exportJSON, importJSON
+    gradeCard, dueCards, exportJSON, importJSON,
+    markLessonComplete, setLastLesson, getCourseProgress
   };
 })();
 
