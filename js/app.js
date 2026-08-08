@@ -99,6 +99,10 @@ const Storage = (() => {
     const d = read();
     return (kind === 'card' ? d.bookmarkedCards : d.bookmarkedQuestions).includes(id);
   };
+  const getBookmarks = (kind) => {
+    const d = read();
+    return kind === 'card' ? d.bookmarkedCards.slice() : d.bookmarkedQuestions.slice();
+  };
   // ---- Missed questions ----
   const recordQuestionOutcome = (id, correct) => {
     const d = read();
@@ -155,7 +159,7 @@ const Storage = (() => {
   const clear = () => localStorage.removeItem(KEY);
   return {
     read, write, touch, recordQuiz, recordExam, setFlashStatus, markReviewed, clear,
-    toggleBookmark, isBookmarked, recordQuestionOutcome, getMissed,
+    toggleBookmark, isBookmarked, getBookmarks, recordQuestionOutcome, getMissed,
     gradeCard, dueCards, exportJSON, importJSON
   };
 })();

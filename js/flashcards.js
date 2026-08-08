@@ -24,7 +24,7 @@
     bookmarkBtn: Util.el('#bookmarkCardBtn')
   };
 
-  const FILTERS = ['All', 'Due / New'].concat(DOMAINS);
+  const FILTERS = ['All', 'Due / New', 'Bookmarked'].concat(DOMAINS);
 
   function buildFilters() {
     el.filterRow.innerHTML = '';
@@ -48,6 +48,10 @@
       const ids = allCards.map(c => c.id);
       const due = new Set(Storage.dueCards(ids));
       cards = allCards.filter(c => due.has(c.id));
+    } else if (f === 'Bookmarked') {
+      mode = 'bookmarked';
+      const bm = new Set(Storage.getBookmarks('card'));
+      cards = allCards.filter(c => bm.has(c.id));
     } else if (f === 'All') {
       mode = 'all';
       cards = allCards.slice();
@@ -64,9 +68,13 @@
     if (!cards.length) {
       el.frontDomain.textContent = '';
       el.backDomain.textContent = '';
-      el.frontText.textContent = mode === 'due'
-        ? 'Nothing due right now. New cards and anything you missed will appear here.'
-        : 'No cards in this domain.';
+      if (mode === 'due') {
+        el.frontText.textContent = 'Nothing due right now. New cards and anything you missed will appear here.';
+      } else if (mode === 'bookmarked') {
+        el.frontText.textContent = 'No bookmarked cards yet. Tap the star while studying a card.';
+      } else {
+        el.frontText.textContent = 'No cards in this domain.';
+      }
       el.backText.textContent = '';
       el.counter.textContent = '';
       updateBookmark();

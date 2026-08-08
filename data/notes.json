@@ -21,7 +21,8 @@
             "Macrolides (-thromycin): azithromycin, clarithromycin — QTc prolongation.",
             "Tetracyclines (-cycline): doxycycline — photosensitivity, avoid dairy.",
             "DPP-4 (-gliptin), SGLT-2 (-gliflozin), GLP-1 (-glutide): diabetes agents.",
-            "Triptans (-triptan): sumatriptan — migraine; CI in CAD."
+            "Triptans (-triptan): sumatriptan — migraine; CI in CAD.",
+            "-olol suffix = beta blockers (e.g., metoprolol, propranolol)."
           ]
         },
         {
@@ -74,7 +75,8 @@
             "Flexeril = cyclobenzaprine",
             "Sinemet = carbidopa/levodopa",
             "Zyloprim = allopurinol",
-            "Imitrex = sumatriptan"
+            "Imitrex = sumatriptan",
+            "Lipitor = atorvastatin."
           ]
         },
         {
@@ -85,7 +87,10 @@
             "Intermediate: NPH (Humulin N, Novolin N) — cloudy; peak 4–10 hr; mix last.",
             "Long-acting (basal): glargine (Lantus/Basaglar), detemir (Levemir), degludec (Tresiba) — clear; do NOT mix.",
             "Concentrated: Toujeo (glargine U-300), U-500 regular — NOT interchangeable unit-for-unit.",
-            "Storage: unopened refrigerated 36–46°F; do NOT freeze; opened may be kept at room temp for a limited time per product."
+            "Storage: unopened refrigerated 36–46°F; do NOT freeze; opened may be kept at room temp for a limited time per product.",
+            "Rapid-acting: lispro, aspart, glulisine — onset ~15 min; mealtime.",
+            "Long-acting: glargine, detemir — basal ~24 hours; minimal peak.",
+            "Unopened insulin: refrigerate. In-use: may be room temp per manufacturer; never freeze."
           ]
         },
         {
@@ -105,7 +110,8 @@
           "items": [
             "High-alert (ISMP): insulin, anticoagulants (heparin, warfarin, DOACs), opioids, concentrated electrolytes (KCl), chemotherapy, neuromuscular blockers, methotrexate, digoxin.",
             "LASA examples: hydrOXYzine vs hydrALAZINE, predniSONE vs prednisoLONE, DOPamine vs DOBUTamine, vinBLAStine vs vinCRIStine, Celebrex vs Cerebyx — use tall-man lettering.",
-            "Independent double-check required for all high-alert meds."
+            "Independent double-check required for all high-alert meds.",
+            "High-alert classes: anticoagulants, insulin, opioids, neuromuscular blockers, chemotherapy."
           ]
         },
         {
@@ -118,7 +124,8 @@
             "Fluoroquinolones: tendon rupture, QTc, peripheral neuropathy.",
             "Metoclopramide: tardive dyskinesia (black box), EPS.",
             "Amiodarone/pioglitazone: pioglitazone → HF exacerbation, bladder cancer risk.",
-            "Bisphosphonates: esophageal irritation — stay upright 30 min, empty stomach."
+            "Bisphosphonates: esophageal irritation — stay upright 30 min, empty stomach.",
+            "ACE inhibitors (e.g., lisinopril) — dry, persistent cough."
           ]
         },
         {
@@ -133,7 +140,8 @@
             "St. John's Wort induces CYP3A4 → ↓ OCPs, warfarin, many drugs.",
             "Triptans/ergots: contraindicated in CAD, uncontrolled HTN.",
             "PPIs (omeprazole) ↓ clopidogrel activation (CYP2C19).",
-            "Abacavir: HLA-B*5701 test before use (hypersensitivity)."
+            "Abacavir: HLA-B*5701 test before use (hypersensitivity).",
+            "Grapefruit inhibits CYP3A4, raising levels of statins, calcium channel blockers, and other substrates."
           ]
         },
         {
@@ -168,7 +176,8 @@
             "Orally disintegrating tablets (ODT) dissolve on the tongue; effervescent tablets must be dissolved in water first.",
             "Transdermal patches: steady absorption, bypass first-pass; rotate sites, do not cut reservoir patches, fold before disposal (fentanyl).",
             "Suppositories (rectal/vaginal) bypass first-pass partially; store some refrigerated. Inhalers often need priming.",
-            "Suspensions: \"shake well before use.\" Reconstituted antibiotic suspensions usually refrigerated, discard after 14 days."
+            "Suspensions: \"shake well before use.\" Reconstituted antibiotic suspensions usually refrigerated, discard after 14 days.",
+            "Sublingual (SL): under the tongue for rapid absorption; nitroglycerin is a classic example."
           ]
         },
         {
@@ -259,7 +268,8 @@
             "Report errors/near-misses to improve systems (non-punitive culture).",
             "MedWatch: FDA adverse event reporting; FAERS public database; ISMP MERP; VAERS for vaccines.",
             "Root Cause Analysis (RCA): investigates WHY (reactive); FMEA: proactive failure analysis.",
-            "PPE donning: gown → mask → goggles → gloves; doffing: gloves → goggles → gown → mask."
+            "PPE donning: gown → mask → goggles → gloves; doffing: gloves → goggles → gown → mask.",
+            "Tall Man lettering distinguishes LASA pairs (e.g., hydrALAZINE vs hydrOXYzine)."
           ]
         },
         {
@@ -290,7 +300,11 @@
             "NIOSH maintains the list of hazardous drugs (antineoplastics, hormones, some antivirals).",
             "Hazardous-drug PPE: two pairs of chemotherapy-tested gloves + impermeable gown; eye/face/respiratory protection per risk.",
             "Sterile garbing order (dirtiest→cleanest): shoe covers → hair/beard cover → mask → gown → sterile gloves last.",
-            "Vaccine storage: most refrigerated at 2–8°C (36–46°F), do not freeze; monitor with calibrated thermometers and document temps."
+            "Vaccine storage: most refrigerated at 2–8°C (36–46°F), do not freeze; monitor with calibrated thermometers and document temps.",
+            "NIOSH publishes the List of Hazardous Drugs in Healthcare Settings for safe handling.",
+            "USP <797> — standards for compounding sterile preparations.",
+            "USP <800> — standards for handling hazardous drugs.",
+            "USP <795> — standards for non-sterile compounding."
           ]
         }
       ]
@@ -307,7 +321,8 @@
             "BID = twice daily; TID = 3x daily; QID = 4x daily; QHS = at bedtime; QAM = every morning.",
             "PRN = as needed; ac = before meals; pc = after meals; q6h = every 6 hours.",
             "gtt = drop; OD = right eye; OS = left eye; OU = both eyes; AD/AS/AU = right/left/both ears.",
-            "ii tab = 2 tablets; i cap = 1 capsule; qs = quantity sufficient; UD = as directed."
+            "ii tab = 2 tablets; i cap = 1 capsule; qs = quantity sufficient; UD = as directed.",
+            "bid — bis in die (twice daily)."
           ]
         },
         {
@@ -330,7 +345,14 @@
             "Drops/min = (volume × drop factor) ÷ time in minutes.",
             "Alligation: parts method for mixing two strengths to an intermediate strength.",
             "Powder volume = final volume − diluent added.",
-            "Dose by weight = mg/kg × weight (kg)."
+            "Dose by weight = mg/kg × weight (kg).",
+            "Dilution: C1V1 = C2V2 (use the same concentration units on both sides).",
+            "Reconstitution: total mg in vial ÷ final reconstituted mL = final mg/mL; the final volume may exceed the diluent volume.",
+            "IV admixture units/hour: total units ÷ total mL × infusion rate in mL/hr.",
+            "BSA (Mosteller): √(height[cm] × weight[kg] / 3600).",
+            "Dose by weight: convert lb to kg (÷2.2), then multiply mg/kg by kg.",
+            "1:1000 concentration = 1 g per 1000 mL = 1 mg/mL.",
+            "D10W = 10 g dextrose per 100 mL."
           ]
         },
         {
@@ -378,7 +400,10 @@
             "Alligation: parts of high = target − low; parts of low = high − target (e.g., 70% + 20% → 50% is 3:2).",
             "IV flow rate: gtt/min = (mL ÷ minutes) × drop factor; mL/hr = total volume ÷ hours.",
             "Temperature: °F = (°C × 9/5) + 32; °C = (°F − 32) × 5/9.",
-            "Days supply: tablets qty ÷ per-day; insulin (mL × 100) ÷ units/day; drops/ sprays multiply mL × 20 (or actuations) ÷ per-day; round down for billing."
+            "Days supply: tablets qty ÷ per-day; insulin (mL × 100) ÷ units/day; drops/ sprays multiply mL × 20 (or actuations) ÷ per-day; round down for billing.",
+            "Alligation: used to mix two solutions of different strengths to obtain a desired intermediate strength.",
+            "Percentage strength: % w/v = g/100 mL; % v/v = mL/100 mL; % w/w = g/100 g.",
+            "Ratio strength: 1:X means 1 g (or mL) per X mL total solution."
           ]
         },
         {
@@ -416,7 +441,11 @@
             "Form 106: report theft or significant loss of controlled substances (within 1 business day).",
             "Form 41: record destruction/disposal of controlled substances.",
             "Form 224: pharmacy application for DEA registration (224a = renewal every 3 years).",
-            "CSOS (authorized 2005): electronic ordering of C-I/C-II; requires DEA digital certificate."
+            "CSOS (authorized 2005): electronic ordering of C-I/C-II; requires DEA digital certificate.",
+            "DEA Form 222 — order, return, or dispose of Schedule II controlled substances.",
+            "DEA Form 106 — report theft or significant loss of controlled substances.",
+            "DEA Form 41 — record destruction/disposal of controlled substances.",
+            "DEA Form 224 — pharmacy registration; renewed every 3 years."
           ]
         },
         {
@@ -429,7 +458,11 @@
             "HIPAA (1996; Privacy 2003, Security 2005): protects patient PHI.",
             "CMEA (2005): pseudoephedrine limits 3.6 g/day, 9 g/30 days; logbook + photo ID.",
             "DATA 2000: office-based buprenorphine for OUD; DSCSA (2013): track-and-trace (full enforcement Nov 2024).",
-            "Biennial (every 2 years) controlled substance inventory required."
+            "Biennial (every 2 years) controlled substance inventory required.",
+            "CSOS — Controlled Substance Ordering System for electronic Schedule II orders.",
+            "Controlled-substance prescription records must be maintained for at least 2 years.",
+            "Schedule III-V prescriptions may be transferred one time only if refills remain.",
+            "C-II partial fills allowed when pharmacy cannot supply full quantity; remainder must be supplied within 72 hours."
           ]
         },
         {

@@ -49,8 +49,9 @@ The application is implemented directly from the repository root.
 - Chapter Test mode (filter by domain, then subtopic)
 - Quick 10 quiz mode
 - Missed-question review mode (`quiz.html?mode=missed`)
+- Bookmarked-question review mode (`quiz.html?mode=bookmarked`)
 - Weakest-domain and weakest-subtopic quiz modes
-- Question and flashcard bookmarking
+- Question and flashcard bookmarking with dedicated review filters
 - Spaced-repetition (Leitner) scheduling for flashcards
 - Difficulty filtering in quiz and custom modes
 - Weighted practice-exam interface using the 36/24/19/11 blueprint distribution
@@ -70,19 +71,19 @@ The application is implemented directly from the repository root.
 Stages 1–4: Planning, content, and initial implementation complete
 Stage 5: Core integration refactor complete (shared App API, aligned domain names,
          rebuilt quiz/exam engines)
-Stage 6: Question-bank expansion complete — 152 validated questions
-         (Medications 60, Patient Safety and Quality Assurance 38,
-          Order Entry and Processing 38, Federal Requirements 16)
+Stage 6: Question-bank expansion complete — 180 validated questions
+         (Medications 69, Patient Safety and Quality Assurance 42,
+          Order Entry and Processing 46, Federal Requirements 23)
 Stage 6B: UI overhaul — synthwave × Matrix dark theme complete
-Stage 6C: Content expansion complete — flashcards 68 → 133 cards,
-          notes → 40 sections / 251 bullets covering every question subtopic
+Stage 6C: Content expansion complete — flashcards 133 → 163 cards,
+          notes expanded with additional calculation, federal, and safety bullets
 Stage 7: Content validation and mobile/device testing in progress
-Stage 10: Optional enhancements integrated — missed review, weak-area quizzes,
+Stage 10: Optional enhancements integrated — missed/bookmarked review, weak-area quizzes,
           bookmarking, spaced repetition, difficulty filters, exam length/timer,
-          score trends, export/import, PWA manifest, and service worker
+          score trends, export/import, PWA manifest, service worker, and PC Chrome layout
 ```
 
-Verified August 8, 2026: all six pages and every JS/JSON/CSS asset serve over localhost (HTTP 200); a localhost smoke test covering all pages, the new `quiz.html?mode=missed` route, and all static assets passes; all JSON validates and all JS files pass syntax checks; the full 90-question practice exam draws unique questions in the official 36/24/19/11 blueprint distribution. Manual content validation by a pharmacist and iPhone Safari / accessibility QA remain for the final release criteria.
+Verified August 8, 2026: all six pages and every JS/JSON/CSS asset serve over localhost (HTTP 200); a localhost smoke test covering all pages, the `quiz.html?mode=missed` and `quiz.html?mode=bookmarked` routes, and all static assets passes; all JSON validates and all JS files pass syntax checks; the full 90-question practice exam draws unique questions in the official 36/24/19/11 blueprint distribution. Manual content validation by a pharmacist and iPhone Safari / accessibility QA remain for the final release criteria.
 
 ## Technology
 
@@ -158,6 +159,7 @@ There is no `app/` subdirectory. All documentation and code must use the root-ba
 | `quiz.html` | Multiple-choice practice (Quick 10, Chapter Test, Custom, Missed Review, Weak-area) |
 | `quiz.html?mode=quick` | Random Quick 10 session |
 | `quiz.html?mode=missed` | Re-quiz questions answered incorrectly |
+| `quiz.html?mode=bookmarked` | Re-quiz questions you have starred |
 | `quiz.html?mode=weak` | Quiz filtered to your weakest domain |
 | `quiz.html?mode=weaksub` | Quiz filtered to your weakest subtopic |
 | `exam.html` | Weighted PTCE-style practice exam with configurable length/timer |
@@ -535,8 +537,8 @@ Continue working on the PTCE 2026 Study App (ptcb26).
 - Tech stack: vanilla HTML5, CSS3, JavaScript, JSON data files, browser localStorage; no framework, build step, backend, or database.
 - Repository root: c:\Users\rtsii\OneDrive\Desktop\PTCB26\ptcb26
 - Key files: index.html, notes.html, flashcards.html, quiz.html, exam.html, dashboard.html, css/style.css, js/app.js, js/quiz.js, js/exam.js, js/flashcards.js, js/dashboard.js, js/notes.js, data/questions.json, data/flashcards.json, data/notes.json, manifest.json, sw.js, icon.svg.
-- Current state: 152 validated questions, 133 flashcards, 40 notes sections, all 6 pages link manifest.json, service worker registered in js/app.js, PWA-ready.
-- Implemented Stage 10 enhancements: home-page "Review Missed" quick action, missed-question review mode, weak-domain/subtopic quizzes, question/flashcard bookmarking, Leitner spaced repetition, difficulty filtering, configurable exam length/timer, score-trend dashboard, JSON export/import progress.
+- Current state: 180 validated questions, 163 flashcards, 40 notes sections, all 6 pages link manifest.json, service worker registered in js/app.js (cache version v2), PWA-ready, desktop-optimized for Windows PC Chrome at 1100px+.
+- Implemented Stage 10 enhancements: home-page "Review Missed" and "Review Bookmarked" quick actions, missed/bookmarked/weak-domain/weak-subtopic quiz modes, question/flashcard bookmarking with dedicated review filters, Leitner spaced repetition, difficulty filtering, configurable exam length/timer, score-trend dashboard, JSON export/import progress.
 - Remaining release work: pharmacist content validation (drug facts, law dates, USP/calculations), iPhone Safari + accessibility QA (tap targets, contrast, reduced-motion, screen-reader labels), GitHub Pages deployment.
 - Do not create an app/ subdirectory, do not add a backend, and do not duplicate study content into markdown.
 - Validate any changes with: node --check on all JS files, JSON parse checks, and a localhost:8000 smoke test for all pages and assets.

@@ -91,13 +91,13 @@ Stages 1–4: Complete
 Stage 5: Integration refactor complete (shared window.App API, standardized domain
          names across all modules and data, rebuilt quiz/exam engines);
          re-verified via localhost and a 69-check jsdom functional harness
-Stage 6: Question-bank expansion complete — 152 of 152 questions
-Stage 6B: UI overhaul — synthwave × Matrix dark theme complete
-Stage 6C: Content expansion complete — flashcards 68 → 133, notes → 40 sections
-          / 251 bullets covering every question subtopic across all four domains
+Stage 6: Question-bank expansion complete — 180 of 180 questions
+Stage 6B: UI overhaul — synthwave × Matrix dark theme complete; desktop layout optimized for PC Chrome
+Stage 6C: Content expansion complete — flashcards 133 → 163, notes expanded with additional
+          calculation, federal, and safety bullets across all four domains
 Stage 7: Content validation — active (pharmacist review pending)
 Stage 8: Mobile polish and initial release — pending iPhone Safari + accessibility QA
-Stage 10: Optional enhancements integrated — missed review, weak-area quizzes,
+Stage 10: Optional enhancements integrated — missed/bookmarked review, weak-area quizzes,
           bookmarking, spaced repetition, difficulty filters, session length/timer,
           score trends, export/import, PWA manifest + service worker
 ```
@@ -721,7 +721,9 @@ Produce a stable personal-use release.
 These enhancements were integrated after the core implementation stabilized.
 
 - [x] Missed-question review mode (`quiz.html?mode=missed` + home-page quick action)
+- [x] Bookmarked-question review mode (`quiz.html?mode=bookmarked` + home-page quick action)
 - [x] Needs-review flashcard session ("Due / New" filter using Leitner boxes)
+- [x] Bookmarked flashcard filter ("Bookmarked" pill)
 - [x] Weak-domain quiz mode (`quiz.html?mode=weak`)
 - [x] Weak-subtopic quiz mode (`quiz.html?mode=weaksub`)
 - [x] Question bookmarking
@@ -734,9 +736,10 @@ These enhancements were integrated after the core implementation stabilized.
 - [x] Dark mode (synthwave × Matrix theme is the default)
 - [x] Offline service worker (`sw.js`)
 - [x] Installable PWA support (`manifest.json` linked on all six pages)
+- [x] Desktop/PC Chrome layout optimization (900px container, larger type/cards at ≥1100px)
 - [ ] GitHub Pages deployment (files are static-ready; push to `origin main` to deploy)
-- [ ] Larger 150–250-question bank (currently 152)
-- [ ] Larger flashcard bank (currently 133)
+- [x] Larger 150–250-question bank (currently 180)
+- [x] Larger flashcard bank (currently 163)
 
 Remaining optional work is non-blocking and can proceed after Stage 7/8 release criteria are met.
 
@@ -828,8 +831,8 @@ Continue working on the PTCE 2026 Study App (ptcb26).
 - Repository root: c:\Users\rtsii\OneDrive\Desktop\PTCB26\ptcb26
 - Architecture: static, root-based, vanilla HTML/CSS/JS/JSON, browser localStorage (key: ptce2026_progress_v1), no backend/framework/build step.
 - Current stage: Stage 7 (pharmacist content validation) and Stage 8 (iPhone Safari + accessibility QA) are the active release blockers; Stage 10 enhancements are complete.
-- Completed Stage 10 features: home-page "Review Missed" quick action, missed-question review, weak-domain/subtopic quizzes, question/flashcard bookmarking, Leitner spaced repetition, difficulty filtering, configurable exam length/timer, dashboard score trends, JSON export/import, offline service worker, PWA manifest on all pages.
-- Data sources of truth: data/notes.json, data/flashcards.json, data/questions.json.
+- Completed Stage 10 features: home-page "Review Missed" and "Review Bookmarked" quick actions, missed/bookmarked/weak-domain/weak-subtopic quiz modes, question/flashcard bookmarking with dedicated review filters, Leitner spaced repetition, difficulty filtering, configurable exam length/timer, dashboard score trends, JSON export/import, offline service worker, PWA manifest on all pages, desktop-optimized PC Chrome layout.
+- Data sources of truth: data/notes.json, data/flashcards.json, data/questions.json (180 questions, 163 flashcards).
 - Do not duplicate study content into markdown, do not create an app/ subdirectory, and do not add a backend or framework.
 - Use the exact file-naming convention: README.md and ROADMAP.md (lowercase .md extension).
 - Before finishing any change, run: node --check on all JS files, JSON parse validation, and a localhost:8000 smoke test for all pages/assets.

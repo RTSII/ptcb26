@@ -781,6 +781,22 @@ select option { background: var(--bg2); }
   .menu-grid { grid-template-columns: repeat(3, 1fr); }
   .hero h1 { font-size: 2rem; }
   .flashcard { min-height: 320px; }
+  .hero { padding: 44px 28px 36px; }
+  .hero p { font-size: 0.95rem; }
+}
+
+@media (min-width: 1100px) {
+  .container { max-width: 900px; padding: 28px 28px 90px; }
+  .menu-grid { grid-template-columns: repeat(4, 1fr); }
+  .hero h1 { font-size: 2.35rem; }
+  .page-title { font-size: 1.65rem; }
+  .btn, .button, .cta { font-size: 0.84rem; padding: 14px 22px; }
+  .flashcard { min-height: 360px; }
+  .flashcard .face .q-text { font-size: 1.25rem; }
+  .flashcard .face .a-text { font-size: 1.1rem; }
+  .q-text, .qtext { font-size: 1.2rem; }
+  .stats-grid { grid-template-columns: repeat(4, 1fr); }
+  .stat-box .num { font-size: 2.2rem; }
 }
 
 /* ============ Reduced motion ============ */

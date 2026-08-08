@@ -58,6 +58,11 @@
         <div class="title">Review Missed</div>
         <div class="desc" id="reviewMissedDesc">Re-quiz questions you answered incorrectly</div>
       </a>
+      <a class="menu-card wide" href="quiz.html?mode=bookmarked" id="reviewBookmarkedCard">
+        <div class="icon">⭐</div>
+        <div class="title">Review Bookmarked</div>
+        <div class="desc" id="reviewBookmarkedDesc">Re-study questions and cards you have starred</div>
+      </a>
     </nav>
 
     <div class="card-block" style="margin-top:22px;">
@@ -93,6 +98,20 @@
         } else {
           missedCard.classList.add('dimmed');
           missedDesc.textContent = 'No missed questions yet — take a quiz or exam first';
+        }
+      }
+
+      var bmCount = (window.App && window.App.Storage) ? window.App.Storage.getBookmarks('question').length : 0;
+      var bmCard = document.getElementById('reviewBookmarkedCard');
+      var bmDesc = document.getElementById('reviewBookmarkedDesc');
+      if (bmCard && bmDesc) {
+        if (bmCount > 0) {
+          bmDesc.textContent = bmCount + ' question' + (bmCount === 1 ? '' : 's') + ' and ' +
+            ((window.App && window.App.Storage) ? window.App.Storage.getBookmarks('card').length : 0) + ' card' +
+            (((window.App && window.App.Storage) ? window.App.Storage.getBookmarks('card').length : 0) === 1 ? '' : 's') + ' bookmarked';
+        } else {
+          bmCard.classList.add('dimmed');
+          bmDesc.textContent = 'No bookmarks yet — star questions or cards while studying';
         }
       }
     })();

@@ -38,7 +38,7 @@
   let startTime = 0;
 
   // Initialize
-  const validModes = ['quick10', 'chapter', 'custom', 'missed', 'weak', 'weaksub'];
+  const validModes = ['quick10', 'chapter', 'custom', 'missed', 'bookmarked', 'weak', 'weaksub'];
   const startMode = validModes.includes(initialMode) ? initialMode : (initialMode === 'quick' ? 'quick10' : 'quick10');
   modeSel.value = startMode;
   toggleModeFields();
@@ -72,6 +72,9 @@
     } else if (mode === 'missed') {
       countInput.disabled = true;
       countInput.value = Storage.getMissed().length || 0;
+    } else if (mode === 'bookmarked') {
+      countInput.disabled = true;
+      countInput.value = Storage.getBookmarks('question').length || 0;
     } else {
       countInput.disabled = false;
       if (mode === 'chapter') countInput.value = 10;
@@ -163,6 +166,14 @@
       pool = Util.shuffle(pool);
       if (!pool.length) {
         alert('No missed questions yet. Complete a quiz or exam first.');
+        return;
+      }
+    } else if (mode === 'bookmarked') {
+      const bmIds = new Set(Storage.getBookmarks('question'));
+      pool = allQuestions.filter(q => bmIds.has(q.id));
+      pool = Util.shuffle(pool);
+      if (!pool.length) {
+        alert('No bookmarked questions yet. Tap the star while taking a quiz or exam.');
         return;
       }
     } else if (mode === 'weak') {

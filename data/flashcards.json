@@ -797,6 +797,186 @@
       "domain": "Federal Requirements",
       "front": "Poison Prevention Packaging Act",
       "back": "Requires child-resistant containers for most Rx/OTC (patient may request easy-open)."
+    },
+    {
+      "id": "134",
+      "domain": "Order Entry and Processing",
+      "front": "C1V1 = C2V2 (dilution formula)",
+      "back": "Concentration1 × Volume1 = Concentration2 × Volume2. Used for stock dilutions and percentage-strength problems."
+    },
+    {
+      "id": "135",
+      "domain": "Order Entry and Processing",
+      "front": "1:1000 epinephrine concentration",
+      "back": "1 g drug per 1000 mL solution = 1 mg/mL."
+    },
+    {
+      "id": "136",
+      "domain": "Order Entry and Processing",
+      "front": "D10W dextrose concentration",
+      "back": "10 g dextrose per 100 mL of solution."
+    },
+    {
+      "id": "137",
+      "domain": "Order Entry and Processing",
+      "front": "Mosteller BSA formula",
+      "back": "BSA (m²) = √(height[cm] × weight[kg] / 3600)."
+    },
+    {
+      "id": "138",
+      "domain": "Order Entry and Processing",
+      "front": "mg/kg/day dose calculation",
+      "back": "Convert weight to kg, then multiply by dose per kg. Example: 22 lb = 10 kg; 5 mg/kg = 50 mg/day."
+    },
+    {
+      "id": "139",
+      "domain": "Order Entry and Processing",
+      "front": "IV infusion units/hour",
+      "back": "Total units ÷ total mL × rate mL/hr. Example: 20,000 units/1000 mL × 25 mL/hr = 500 units/hr."
+    },
+    {
+      "id": "140",
+      "domain": "Order Entry and Processing",
+      "front": "Reconstitution concentration",
+      "back": "Total mg in vial ÷ final reconstituted mL = mg/mL. Watch for diluent plus powder volume."
+    },
+    {
+      "id": "141",
+      "domain": "Federal Requirements",
+      "front": "DEA Form 222",
+      "back": "Orders, returns, or disposals of Schedule II controlled substances."
+    },
+    {
+      "id": "142",
+      "domain": "Federal Requirements",
+      "front": "DEA Form 106",
+      "back": "Report theft or significant loss of controlled substances to the DEA."
+    },
+    {
+      "id": "143",
+      "domain": "Federal Requirements",
+      "front": "DEA Form 41",
+      "back": "Record destruction/disposal of controlled substances by authorized entity."
+    },
+    {
+      "id": "144",
+      "domain": "Federal Requirements",
+      "front": "DEA Form 224",
+      "back": "Application for pharmacy DEA registration; renewed every 3 years."
+    },
+    {
+      "id": "145",
+      "domain": "Federal Requirements",
+      "front": "CSOS",
+      "back": "Controlled Substance Ordering System — DEA electronic ordering for Schedule II drugs."
+    },
+    {
+      "id": "146",
+      "domain": "Federal Requirements",
+      "front": "C-III transfer rule",
+      "back": "One-time transfer allowed between pharmacies if refills remain."
+    },
+    {
+      "id": "147",
+      "domain": "Federal Requirements",
+      "front": "C-II partial fill rule",
+      "back": "If pharmacy cannot supply full C-II quantity, remainder must be supplied within 72 hours."
+    },
+    {
+      "id": "148",
+      "domain": "Federal Requirements",
+      "front": "Controlled-substance record retention",
+      "back": "Federal law requires controlled-substance prescription records be kept at least 2 years."
+    },
+    {
+      "id": "149",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "NIOSH hazardous drug list",
+      "back": "National Institute for Occupational Safety and Health publishes the list of hazardous drugs for safe handling in healthcare."
+    },
+    {
+      "id": "150",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "USP <797>",
+      "back": "Standards for compounding sterile preparations."
+    },
+    {
+      "id": "151",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "USP <800>",
+      "back": "Standards for handling hazardous drugs to minimize exposure."
+    },
+    {
+      "id": "152",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "USP <795>",
+      "back": "Standards for non-sterile compounding."
+    },
+    {
+      "id": "153",
+      "domain": "Medications",
+      "front": "ISMP high-alert medication examples",
+      "back": "Anticoagulants, insulin, opioids, neuromuscular blockers, chemotherapy — drugs that can cause significant harm if misused."
+    },
+    {
+      "id": "154",
+      "domain": "Medications",
+      "front": "Rapid-acting insulin examples",
+      "back": "Lispro, aspart, glulisine. Onset ~15 min; given at mealtime."
+    },
+    {
+      "id": "155",
+      "domain": "Medications",
+      "front": "Long-acting insulin examples",
+      "back": "Glargine, detemir. Basal coverage ~24 hours; minimal peak."
+    },
+    {
+      "id": "156",
+      "domain": "Medications",
+      "front": "Grapefruit-CYP3A4 interaction",
+      "back": "Grapefruit inhibits intestinal CYP3A4, raising levels of statins, calcium channel blockers, and other substrates."
+    },
+    {
+      "id": "157",
+      "domain": "Medications",
+      "front": "Insulin storage",
+      "back": "Unopened vials: refrigerate. In-use vials: may be room temperature per manufacturer; never freeze."
+    },
+    {
+      "id": "158",
+      "domain": "Medications",
+      "front": "Sublingual route",
+      "back": "Medication placed under the tongue for rapid systemic absorption (e.g., nitroglycerin)."
+    },
+    {
+      "id": "159",
+      "domain": "Medications",
+      "front": "Lipitor generic",
+      "back": "Atorvastatin."
+    },
+    {
+      "id": "160",
+      "domain": "Medications",
+      "front": "ACE inhibitor cough",
+      "back": "Dry, persistent cough is a common adverse effect of ACE inhibitors (e.g., lisinopril)."
+    },
+    {
+      "id": "161",
+      "domain": "Medications",
+      "front": "-olol suffix",
+      "back": "Beta blockers (e.g., metoprolol, propranolol)."
+    },
+    {
+      "id": "162",
+      "domain": "Medications",
+      "front": "hydrALAZINE vs hydrOXYzine",
+      "back": "Classic LASA pair using Tall Man lettering to reduce confusion."
+    },
+    {
+      "id": "163",
+      "domain": "Order Entry and Processing",
+      "front": "Sig code \"bid\"",
+      "back": "Bis in die — twice daily."
     }
   ]
 }
