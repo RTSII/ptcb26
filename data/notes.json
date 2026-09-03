@@ -156,10 +156,12 @@
         {
           "title": "Narrow Therapeutic Index (NTI) Drugs",
           "items": [
-            "Removed as a dedicated PTCE knowledge area on the January 6, 2026 outline (old 1.8). Still useful as high-alert / monitoring context, not as a standalone NTI-list drill.",
+            "OPTIONAL / ARCHIVE — not emphasized on the January 6, 2026 PTCE. Removed as a dedicated PTCE knowledge area on the January 6, 2026 outline (old 1.8). Still useful as high-alert / monitoring context, not as a standalone NTI-list drill.",
             "Classic examples: warfarin, digoxin, lithium, phenytoin, theophylline, levothyroxine, carbamazepine, valproic acid, tacrolimus, cyclosporine, aminoglycosides, vancomycin.",
             "These agents often need therapeutic drug monitoring; treat them as high-alert rather than memorizing a standalone NTI roster."
-          ]
+          ],
+          "optional": true,
+          "badge": "Not emphasized on 2026 PTCE"
         },
         {
           "title": "Known Teratogens (Pregnancy Safety)",
@@ -307,6 +309,17 @@
             "USP <800> — standards for handling hazardous drugs.",
             "USP <795> — non-sterile compounding chapter (not a dedicated 2026 PTCE procedure skill)."
           ]
+        },
+        {
+          "title": "Immunization Workflow — VIS, VAERS & Pharmacist Hand-off",
+          "items": [
+            "VIS (Vaccine Information Statement): CDC sheet required by the National Childhood Vaccine Injury Act before each dose of a covered vaccine.",
+            "Give the current VIS edition before immunization (not only afterward). Document the VIS publication date and the date it was provided.",
+            "Post-immunization care (outline 3.3): observe for syncope/anaphylaxis; seat a faint-feeling patient; notify the pharmacist. Do not send them to drive off untreated.",
+            "VAERS reports vaccine adverse events (outline 3.4). MedWatch is the general FDA drug/device program — do not mix the two.",
+            "OTC recommendation, therapeutic substitution, DUR/ADE, and allergy/interaction alerts require pharmacist intervention (3.3). Techs gather facts and escalate.",
+            "Purple Book (FDA biologics interchangeability) is not a January 2026 PTCE knowledge area — not treated as tested. Orange Book A/AB codes remain the small-molecule TE reference already in Federal notes."
+          ]
         }
       ]
     },
@@ -371,7 +384,7 @@
             "C-II: NO refills; Rx typically valid 30 days (state may vary).",
             "C-III–C-V: up to 5 refills within 6 months of written date.",
             "Non-controlled: per state law, commonly up to 1 year.",
-            "C-II partial fills: if the pharmacy cannot supply the full quantity, the remainder must be provided within 72 hours. Under CARA (2016), if the patient or prescriber requests a partial fill, remaining portions may be dispensed within 30 days of the written date. LTCF/terminally ill: remainder within 60 days."
+            "C-II partial fills: if the pharmacy cannot supply the full quantity, remainder within 72 hours. If the patient or prescriber requests a partial (CARA 2016), remaining portions within 30 days of the written date — this is the rule most often tested now. LTCF/terminally ill: 60 days. Do not treat 72 hours as the only C-II partial-fill rule."
           ]
         },
         {
@@ -422,7 +435,7 @@
     {
       "domain": "Federal Requirements",
       "weight": "18.75%",
-      "summary": "Federal Requirements (18.75% as of the January 6, 2026 outline). DEA schedules and forms, refill rules, key laws (CSA, HIPAA, OBRA-90, PPPA, CMEA), expanded FDA recall requirements (2.5), and DSCSA product tracing (2.6).",
+      "summary": "Federal Requirements (18.75% as of the January 6, 2026 outline). DEA schedules and forms, refill and C-II partial-fill rules (including CARA 30-day), restricted programs (2.4 REMS/CMEA), take-back and CS destruction (Form 41 vs 222), expanded FDA recalls (2.5), and DSCSA product tracing (2.6). The DATA 2000 X-waiver was eliminated in December 2022.",
       "sections": [
         {
           "title": "DEA Controlled Substance Schedules",
@@ -446,7 +459,8 @@
             "DEA Form 222 — order or transfer Schedule I & II (single-sheet paper or CSOS); not for destruction.",
             "DEA Form 106 — report theft or significant loss of controlled substances.",
             "DEA Form 41 — record destruction/disposal of controlled substances.",
-            "DEA Form 224 — pharmacy registration; renewed every 3 years."
+            "DEA Form 224 — pharmacy registration; renewed every 3 years.",
+            "Take-back (2.3): unused patient-owned controlled substances go to a DEA-authorized collector, mail-back, or National Take Back event — never back into dispensable stock."
           ]
         },
         {
@@ -463,7 +477,7 @@
             "CSOS — Controlled Substance Ordering System for electronic Schedule II orders.",
             "Controlled-substance prescription records must be maintained for at least 2 years.",
             "Schedule III-V prescriptions may be transferred one time only if refills remain.",
-            "C-II partial fills: 72 hours when the pharmacy cannot supply the full quantity; 30 days from the written date when the patient or prescriber requests a partial under CARA (2016). LTCF/terminally ill: 60 days."
+            "C-II partial fills (learn both clocks): pharmacy cannot supply → remainder within 72 hours. Patient or prescriber requests a partial (CARA 2016 — the modern common scenario) → remaining portions within 30 days of the written date. LTCF/terminally ill → 60 days. After the window, leftover quantity needs a new prescription."
           ]
         },
         {
@@ -484,6 +498,17 @@
           ]
         },
         {
+          "title": "Restricted Drug Programs (2.4) — REMS & CMEA",
+          "items": [
+            "Knowledge area 2.4: federal restricted programs and related processing — pseudoephedrine (CMEA) and Risk Evaluation and Mitigation Strategies (REMS).",
+            "REMS: FDA-required extra safety steps for drugs with serious risks. Common elements: pharmacy/prescriber certification, patient enrollment, Medication Guides, and lab or authorization checks before dispense.",
+            "Clozapine REMS: severe neutropenia/agranulocytosis risk. Pharmacy must be certified. Confirm a current acceptable ANC (absolute neutrophil count) / REMS authorization before dispensing. Techs escalate a failed check — they do not override it.",
+            "iPLEDGE (isotretinoin): teratogen. Prescriber, certified pharmacy, and patient (including males) are enrolled. Typical fill is a 30-day supply with no refills after program authorization. Females of reproductive potential need monthly pregnancy tests and a short pickup window.",
+            "Other high-yield REMS: TIRF (transmucosal immediate-release fentanyl — opioid-tolerant patients only); thalidomide/lenalidomide pregnancy-prevention programs. Know the program name and the tech action (stop / notify pharmacist).",
+            "CMEA (still 2.4): pseudoephedrine/ephedrine 3.6 g/day and 9 g/30 days, photo ID + logbook, stored behind the counter or locked."
+          ]
+        },
+        {
           "title": "DEA Number Verification",
           "items": [
             "Format: 2 letters + 7 digits. First letter = registrant type (B = physician, C = pharmacy, M = mid-level); second letter = registrant's last-name initial.",
@@ -500,7 +525,9 @@
             "Market withdrawal is not a recall — the firm removes a product for a minor violation that would not be subject to legal action (e.g., a tamper-evident issue that is not a safety recall).",
             "Orange Book codes: A/AB = therapeutically equivalent (substitutable); B = not equivalent.",
             "NPI: 10-digit provider ID (effective 2007); required on claims; does NOT replace DEA number.",
-            "Rule of thumb: always follow the STRICTER of state vs federal law."
+            "Rule of thumb: always follow the STRICTER of state vs federal law.",
+            "On any recall: match NDC + lot + expiration, quarantine, document, and follow the notice for returns and patient notification. Class I is pulled immediately.",
+            "Take-back programs (2.3) are for unwanted patient-owned drugs (especially controls). A recall is a firm/FDA action on specific lots still in the supply chain — do not mix the two workflows."
           ]
         },
         {

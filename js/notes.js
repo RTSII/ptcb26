@@ -13,7 +13,9 @@
     area.innerHTML = domains.map(function (d, di) {
       const sections = d.sections.map(function (s) {
         const items = s.items.map(function (it) { return '<li>' + esc(it) + '</li>'; }).join('');
-        return '<div class="note-section"><h4>' + esc(s.title) + '</h4><ul>' + items + '</ul></div>';
+        const opt = s.optional ? ' optional' : '';
+        const badge = s.optional ? '<span class="archive-badge">' + esc(s.badge || 'Not emphasized on 2026 PTCE') + '</span>' : '';
+        return '<div class="note-section' + opt + '"><h4>' + esc(s.title) + badge + '</h4><ul>' + items + '</ul></div>';
       }).join('');
       return '<details class="note-domain"' + (di === 0 ? ' open' : '') + '>' +
         '<summary>' + esc(d.domain) + '<span class="weight-badge">' + esc(d.weight) + '</span></summary>' +

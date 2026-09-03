@@ -175,8 +175,8 @@
         },
         {
           "id": "m2l3",
-          "title": "Narrow Therapeutic Index & Monitoring",
-          "intro": "A dedicated NTI-list knowledge area (old 1.8) was removed from the January 2026 outline. These agents still matter as high-alert / monitoring drugs, not as a standalone roster to memorize.",
+          "title": "Narrow Therapeutic Index & Monitoring (optional archive)",
+          "intro": "OPTIONAL / NOT EMPHASIZED ON THE 2026 PTCE. A dedicated NTI-list knowledge area (old 1.8) was removed from the January 2026 outline. Skip this lesson on the default path. These agents still matter as high-alert / monitoring drugs if you want extra review.",
           "bullets": [
             "Digoxin (Lanoxin): cardiac glycoside for HF/AFib — toxicity shows nausea, vomiting, and yellow-green visual halos; check level and potassium.",
             "Warfarin: monitor INR; keep dietary vitamin K intake consistent.",
@@ -187,7 +187,9 @@
             "Digoxin toxicity = yellow-green halos + nausea",
             "Warfarin = INR",
             "Low K+ worsens digoxin toxicity"
-          ]
+          ],
+          "optional": true,
+          "badge": "Not emphasized on 2026 PTCE"
         },
         {
           "id": "m2l4",
@@ -357,8 +359,8 @@
     {
       "id": "m5",
       "domain": "Patient Safety and Quality Assurance",
-      "title": "Sterile & Non-Sterile Compounding (USP)",
-      "desc": "USP <795>, <797>, <800>, cleanroom practices, garbing, and beyond-use dating.",
+      "title": "USP Chapter IDs, Hazardous Drugs & Infection Control",
+      "desc": "Recognize which USP chapter applies, handle hazardous drugs, and meet 3.6 hygiene/cleaning standards. Dedicated USP <795> nonsterile technique is optional/archive — not emphasized on the 2026 PTCE.",
       "quiz": {
         "domain": "Patient Safety and Quality Assurance",
         "count": 12
@@ -416,14 +418,32 @@
             "Sharps → puncture-resistant container",
             "Hand hygiene ≥ 20 seconds"
           ]
+        },
+        {
+          "id": "m5l4",
+          "optional": true,
+          "badge": "Not emphasized on 2026 PTCE",
+          "title": "USP <795> nonsterile technique (optional archive)",
+          "intro": "OPTIONAL / NOT EMPHASIZED ON THE 2026 PTCE. Dedicated nonsterile compounding procedures (old 1.9 / related 4.1) were removed. Keep this only as historical review. Default-path study is chapter ID, hazardous-drug handling, and counting-tray/counter hygiene.",
+          "bullets": [
+            "Historical <795> technique topics included BUD assignment by risk, component selection, and nonsterile compounding steps (trituration, geometric dilution, levigation).",
+            "Those procedure skills are not a January 2026 tested knowledge area. If you see a BUD/technique item, treat it as archive — not core PTCE.",
+            "Still in scope nearby: which chapter is <795> vs <797> vs <800>, and 3.6 cleaning of trays, counters, equipment, handwashing, and PPE.",
+            "Do not spend default study time memorizing nonsterile BUD tables."
+          ],
+          "keyPoints": [
+            "795 technique = optional archive",
+            "Chapter ID still useful",
+            "Hygiene/PPE remain tested (3.6)"
+          ]
         }
       ]
     },
     {
       "id": "m6",
       "domain": "Patient Safety and Quality Assurance",
-      "title": "Safety Technologies & the Dispensary Workflow",
-      "desc": "Barcode scanning, automated dispensing cabinets, REMS programs, and workflow safeguards.",
+      "title": "Safety Technologies, Workflow & Pharmacist Intervention",
+      "desc": "Barcode/ADC safeguards, REMS hand-off, pharmacist-intervention triggers (DUR, OTC, substitution), and immunization workflow (VIS before the dose, post-immunization care, VAERS).",
       "quiz": {
         "domain": "Patient Safety and Quality Assurance",
         "count": 10
@@ -439,12 +459,35 @@
             "Drug utilization review (DUR): prospective screening at order entry; technicians flag interaction/duplication alerts to the pharmacist for the clinical decision.",
             "Auxiliary (warning) labels communicate cautions: \"May cause drowsiness,\" \"Take with food,\" \"Avoid alcohol,\" \"Refrigerate.\"",
             "REMS (Risk Evaluation and Mitigation Strategy): FDA-required programs to manage known serious risks (e.g., iPLEDGE for isotretinoin, clozapine REMS).",
-            "Tall Man lettering, look-alike bin segregation, and limiting available concentrations/strengths are additional error-reduction strategies."
+            "Tall Man lettering, look-alike bin segregation, and limiting available concentrations/strengths are additional error-reduction strategies.",
+            "Issues that require pharmacist intervention (outline 3.3): DUR alerts, adverse drug events, OTC recommendations, therapeutic substitution, misuse/adherence concerns, allergies, and drug interactions.",
+            "A technician’s job at those alerts is to stop, gather the facts, and notify the pharmacist — not to override a clinical alert or recommend a product."
           ],
           "keyPoints": [
             "Barcode scan = right product",
             "ADC overrides = error risk",
-            "REMS manages serious risks (iPLEDGE)"
+            "REMS manages serious risks (iPLEDGE)",
+            "DUR / OTC / substitution → pharmacist",
+            "Do not override clinical alerts"
+          ]
+        },
+        {
+          "id": "m6l2",
+          "title": "Pharmacist Intervention & Immunization Workflow (VIS / VAERS)",
+          "intro": "Outline 3.3 and 3.4 include pharmacist intervention and event reporting. Immunizing pharmacies add VIS (before the dose), post-immunization observation, and VAERS. Purple Book biologics interchangeability is not a 2026 PTCE knowledge area.",
+          "bullets": [
+            "VIS (Vaccine Information Statement): CDC sheet required by federal law before each dose of a covered vaccine. Use the current edition; document the VIS date and the date given.",
+            "Give the VIS before immunization — not only afterward and not only if the patient asks.",
+            "Post-immunization care: watch for syncope and anaphylaxis; seat a faint-feeling patient; notify the pharmacist. Do not send them to the parking lot untreated.",
+            "VAERS = vaccine adverse events. MedWatch = general FDA drug/device/medication-error reports. Know which system matches the product.",
+            "OTC recommendation and therapeutic substitution always go to the pharmacist (3.3).",
+            "Purple Book (FDA licensed biologics / interchangeability) is not named on the January 2026 outline — skip it as tested content. Orange Book A/AB remains the small-molecule TE shorthand in Federal notes."
+          ],
+          "keyPoints": [
+            "VIS before each covered dose",
+            "Document VIS edition + date given",
+            "VAERS for vaccines; MedWatch for drugs",
+            "OTC / substitution = pharmacist"
           ]
         }
       ]
@@ -549,19 +592,17 @@
         },
         {
           "id": "m8l3",
-          "title": "Ratio/Percent Strength, Dilution & Alligation",
-          "intro": "Concentration expressions and dilution still appear on the PTCE. Alligation was removed from the January 2026 calculation list — do not treat it as a tested skill.",
+          "title": "Ratio/Percent Strength & Dilution",
+          "intro": "Concentration expressions and dilution still appear on the PTCE (outline 4.1). Alligation was removed from the January 2026 calculation list — it lives in the optional archive lesson that follows.",
           "bullets": [
             "Percent strength = grams per 100 mL. 0.9% NaCl = 0.9 g per 100 mL; in 500 mL that is 4.5 g. D5W = 5 g dextrose per 100 mL (50 g per 1,000 mL).",
             "Ratio strength: 1:1000 = 1 g per 1000 mL = 1 mg/mL (epinephrine).",
             "Percent ↔ decimal: divide by 100 (0.75% = 0.0075). mg per gram = %×10 (0.25% cream = 2.5 mg/g).",
-            "Alligation (REMOVED from the January 2026 outline): historical parts method for mixing two strengths. Do not practice it as a 2026 tested skill.",
             "Dilution: C1V1 = C2V2 keeps the amount of drug constant when changing concentration/volume — this remains in scope."
           ],
           "keyPoints": [
             "Percent = g/100 mL",
             "1:1000 = 1 mg/mL",
-            "Alligation removed from 2026 outline",
             "C1V1 = C2V2 (still tested)"
           ]
         },
@@ -579,6 +620,23 @@
             "mL/hr = volume ÷ hours",
             "gtt/min = (mL ÷ min) × drop factor",
             "Micro drip = 60 gtt/mL"
+          ]
+        },
+        {
+          "id": "m8l5",
+          "optional": true,
+          "badge": "Not emphasized on 2026 PTCE",
+          "title": "Alligation (optional archive)",
+          "intro": "OPTIONAL / NOT EMPHASIZED ON THE 2026 PTCE. Alligation was removed from the January 2026 calculation list. Skip it on the default path. Use C1V1 = C2V2 for dilution and concentration.",
+          "bullets": [
+            "Historical method: parts of the higher strength = target − lower; parts of the lower strength = higher − target.",
+            "Example (archive only): mix 70% and 20% to make 50% → 30 parts of 70% and 20 parts of 20% = 3:2.",
+            "Default 2026 skill: C1V1 = C2V2, percent strength (g/100 mL), and ratio strength (1:1000 = 1 mg/mL).",
+            "q136 in the bank is tagged featured:false so it does not enter default exams or weak-area weighting."
+          ],
+          "keyPoints": [
+            "Alligation = not a 2026 tested skill",
+            "Use C1V1 = C2V2 instead"
           ]
         }
       ]
@@ -647,13 +705,15 @@
             "Schedule II: high abuse potential WITH accepted medical use — oxycodone, hydrocodone/APAP (Norco), morphine, fentanyl, amphetamine (Adderall), methylphenidate (Ritalin).",
             "Schedule III: moderate abuse potential — Tylenol #3 (codeine/APAP), buprenorphine products, anabolic steroids.",
             "Schedule IV: lower abuse potential — benzodiazepines (alprazolam, lorazepam), zolpidem (Ambien), tramadol.",
-            "Schedule V: lowest abuse potential — some cough preparations with limited codeine (e.g., guaifenesin/codeine), pregabalin (Lyrica)."
+            "Schedule V: lowest abuse potential — some cough preparations with limited codeine (e.g., guaifenesin/codeine), pregabalin (Lyrica).",
+            "Buprenorphine is Schedule III. The DATA 2000 X-waiver was eliminated in December 2022 (MAT Act) — a separate X number is no longer required to prescribe buprenorphine for OUD."
           ],
           "keyPoints": [
             "C-I = no medical use",
             "C-II = opioids + stimulants",
             "Benzos/tramadol = C-IV",
-            "Lower number = higher abuse potential"
+            "Lower number = higher abuse potential",
+            "X-waiver eliminated Dec 2022"
           ]
         },
         {
@@ -665,12 +725,18 @@
             "C-II fax exception: prescribers may fax C-II prescriptions for hospice, long-term care facility, and home-infusion patients.",
             "C-III–C-V: up to 5 refills within 6 MONTHS of the issue date.",
             "Emergency C-II oral authorization: the pharmacist may fill a quantity for the emergency period; the prescriber must deliver a written follow-up prescription within 7 days.",
-            "Partial filling of C-II is allowed under specific conditions; C-III–V partial fills follow refill accounting rules."
+            "C-II partial fills — learn the modern rule: if the patient or prescriber requests a partial (CARA 2016), remaining portions must be filled within 30 days of the written date.",
+            "If the pharmacy cannot supply the full C-II quantity, the older rule still applies: remainder within 72 hours, then a new prescription is required.",
+            "LTCF or terminally ill patients: remaining portions of C-II partial fills may be dispensed for up to 60 days from the written date.",
+            "After the applicable window, leftover quantity cannot be filled. Total dispensed cannot exceed the written amount. Document each partial."
           ],
           "keyPoints": [
             "C-II = no refills",
             "C-III–V = 5 refills / 6 months",
-            "Hospice/LTCF/home-infusion C-II fax exception"
+            "Hospice/LTCF/home-infusion C-II fax exception",
+            "CARA request = 30 days from written date",
+            "Cannot supply = 72 hours",
+            "LTCF/terminal = 60 days"
           ]
         },
         {
@@ -678,19 +744,22 @@
           "title": "DEA Forms, Registration & Recordkeeping",
           "intro": "Specific DEA forms document ordering, theft/loss, destruction, and registration of controlled substances.",
           "bullets": [
-            "DEA Form 222 (or electronic CSOS): used to ORDER Schedule I–II controlled substances.",
-            "DEA Form 106: report THEFT or significant LOSS of controlled substances.",
-            "DEA Form 41: document DESTRUCTION/disposal of controlled substances.",
+            "DEA Form 222 (single-sheet paper — not the old triplicate — or electronic CSOS): used to ORDER or TRANSFER Schedule I–II. Destruction/disposal is Form 41, never 222.",
+            "DEA Form 106: report THEFT or significant LOSS of controlled substances (notify DEA within 1 business day).",
+            "DEA Form 41: document DESTRUCTION/disposal of pharmacy-owned controlled substances.",
             "DEA Form 224: pharmacy DEA registration; renew every 3 YEARS.",
             "Controlled-substance inventory: required every 2 YEARS (biennial); C-II drugs need an EXACT count, C-III–V may be estimated (unless a container holds >1000).",
-            "DEA number: 2 letters + 7 digits; the 2nd letter usually matches the registrant's last-name initial. Check-digit verification: add digits 1+3+5; add digits 2+4+6 and multiply by 2; the sum's last digit = the 7th digit."
+            "DEA number: 2 letters + 7 digits; the 2nd letter usually matches the registrant's last-name initial. Check-digit verification: add digits 1+3+5; add digits 2+4+6 and multiply by 2; the sum's last digit = the 7th digit.",
+            "Take-back (2.3): unused patient-owned CS go to a DEA-authorized collector, mail-back, or National Take Back Day — they are never restocked into dispensable inventory.",
+            "C-II storage: locked substantially constructed cabinet, or dispersed among non-controls so they are not obvious theft targets."
           ],
           "keyPoints": [
-            "222 = order C-II",
+            "222 = order/transfer C-I/II (single-sheet or CSOS)",
+            "41 = destruction (not 222)",
             "106 = theft/loss",
-            "41 = destruction",
             "224 = registration (3 yr)",
-            "Biennial (2 yr) inventory"
+            "Take-back ≠ restock",
+            "Biennial inventory; C-II exact count"
           ]
         },
         {
@@ -708,6 +777,25 @@
             "PSE behind the counter",
             "3.6 g/day, 9 g/30 days",
             "Photo ID + logbook required"
+          ]
+        },
+        {
+          "id": "m10l5",
+          "title": "Restricted Programs: REMS, iPLEDGE & Clozapine (2.4)",
+          "intro": "Knowledge area 2.4 is federal restricted-drug processing: CMEA (pseudoephedrine) plus REMS. Go beyond a one-line isotretinoin mention — know clozapine ANC rules and the technician’s “do not override” role.",
+          "bullets": [
+            "REMS (Risk Evaluation and Mitigation Strategy): extra FDA-required steps for drugs with known serious risks — certification, enrollment, labs, or Medication Guides.",
+            "Clozapine REMS: agranulocytosis/severe neutropenia. Pharmacy must be certified. Check that a current acceptable ANC (absolute neutrophil count) / REMS authorization exists before dispensing.",
+            "iPLEDGE (isotretinoin): teratogen. Prescriber, certified pharmacy, and all patients (including males) enroll. Typical fill = 30-day supply, no refills, authorization each time. Females of reproductive potential: monthly pregnancy test and a short pickup window.",
+            "TIRF REMS: transmucosal immediate-release fentanyl for opioid-tolerant patients (usually cancer breakthrough pain) — fatal respiratory depression risk if used in opioid-naïve patients.",
+            "Tech action on any REMS reject: stop, do not override, notify the pharmacist. A paper “waiver” does not replace REMS.",
+            "CMEA sits in the same 2.4 bucket: 3.6 g/day, 9 g/30 days, photo ID + logbook, behind the counter."
+          ],
+          "keyPoints": [
+            "Clozapine = ANC + certified pharmacy",
+            "iPLEDGE = 30-day / no refill / all sexes enrolled",
+            "Never override a REMS block",
+            "CMEA = 3.6 g/day, 9 g/30 days"
           ]
         }
       ]
@@ -809,18 +897,23 @@
         {
           "id": "m12l2",
           "title": "Recalls, Expiration & Stock Management",
-          "intro": "Handling recalls and expired/damaged stock correctly protects patients.",
+          "intro": "Handling recalls (expanded 2.5) and expired/damaged stock correctly protects patients. Take-back is a separate 2.3 workflow for patient-owned leftovers.",
           "bullets": [
             "Recall classes: Class I = serious harm/death likely; Class II = temporary/reversible harm; Class III = unlikely harm.",
             "On a recall: identify affected lot numbers, quarantine the stock, and follow manufacturer/wholesaler return instructions.",
             "Rotate stock using FEFO (First-Expired, First-Out) to minimize expired product.",
             "Never dispense expired medication; remove expired/damaged units from active stock promptly.",
-            "The NDC number (labeler-product-package) is used to identify recalled products and process returns."
+            "The NDC number (labeler-product-package) is used to identify recalled products and process returns.",
+            "A manufacturer or the FDA may initiate a recall; pharmacy action is the same: pull matching lots, quarantine, document, follow the notice.",
+            "A market withdrawal is not a recall — the firm removes product for a minor violation that would not usually trigger legal recall action.",
+            "Do not confuse a lot-specific recall with a patient take-back of leftover pills from home."
           ],
           "keyPoints": [
             "Class I = most serious",
             "FEFO = first-expired, first-out",
-            "Never dispense expired drugs"
+            "Never dispense expired drugs",
+            "Match NDC + lot + expiry, then quarantine",
+            "Market withdrawal ≠ recall class"
           ]
         },
         {

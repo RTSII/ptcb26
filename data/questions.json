@@ -2037,8 +2037,9 @@
         "5:2"
       ],
       "answer": 2,
-      "rationale": "Alligation (50−20 = 30 parts of 70%; 70−50 = 20 parts of 20%; ratio 3:2) was removed from the January 2026 PTCE calculation list. Retained only as a tagged review item — not a 2026 tested skill. Prefer C1V1 = C2V2 for dilution.",
-      "difficulty": "hard"
+      "rationale": "Alligation (50−20 = 30 parts of 70%; 70−50 = 20 parts of 20%; ratio 3:2) was removed from the January 2026 PTCE calculation list. This item is tagged featured:false so it is excluded from default exams, Quick 10, and weak-area weighting. Prefer C1V1 = C2V2 for dilution. Open Chapter Test → Calculations to review it as archive.",
+      "difficulty": "hard",
+      "featured": false
     },
     {
       "id": "q137",
@@ -2464,16 +2465,16 @@
       "id": "q165",
       "domain": "Federal Requirements",
       "subtopic": "Schedule II-V Rules",
-      "question": "A partial fill of a Schedule II prescription is allowed within how many days of the prescription date if the pharmacy cannot supply the full quantity?",
+      "question": "A patient asks the pharmacy to partially fill a Schedule II oxycodone prescription today and pick up the remainder later. Under the federal CARA (2016) rule, remaining portions must be dispensed within:",
       "options": [
-        "24 hours",
-        "72 hours",
-        "7 days",
-        "30 days"
+        "72 hours of the first partial fill",
+        "7 days of the written date",
+        "30 days of the written date",
+        "6 months of the written date"
       ],
-      "answer": 1,
-      "rationale": "A partial fill of a C-II prescription is permitted if the pharmacy cannot supply the full quantity and the remainder is supplied within 72 hours.",
-      "difficulty": "hard"
+      "answer": 2,
+      "rationale": "CARA (2016) allows C-II partial fills when the patient or prescriber requests them; remaining portions must be filled within 30 days of the written date. The older 72-hour clock applies only when the pharmacy cannot supply the full quantity — not when a partial is requested. LTCF/terminally ill patients have a 60-day remainder window.",
+      "difficulty": "medium"
     },
     {
       "id": "q166",
@@ -2849,6 +2850,441 @@
       "answer": 1,
       "rationale": "The TS is the seller’s electronic attestation: it is authorized, received the product from an authorized partner, and did not knowingly provide suspect or illegitimate product. TI carries the product/lot/party facts; TS is the compliance statement.",
       "difficulty": "medium"
+    },
+    {
+      "id": "q191",
+      "domain": "Federal Requirements",
+      "subtopic": "Schedule II-V Rules",
+      "question": "A pharmacy can fill only 20 of 60 tablets on a Schedule II prescription today because the remaining stock is on backorder. If the pharmacy cannot supply the full quantity, federal law requires the remainder to be provided within:",
+      "options": [
+        "24 hours",
+        "72 hours",
+        "30 days of the written date",
+        "60 days of the written date"
+      ],
+      "answer": 1,
+      "rationale": "When the pharmacy cannot supply the full C-II quantity, the remainder must be provided within 72 hours (and a new prescription is needed after that). Do not confuse this older “cannot supply” clock with the CARA 30-day window that applies when the patient or prescriber requests a partial fill.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q192",
+      "domain": "Federal Requirements",
+      "subtopic": "Schedule II-V Rules",
+      "question": "For a Schedule II prescription written for a long-term care facility (LTCF) patient or a terminally ill patient, remaining portions of partial fills may be dispensed for up to:",
+      "options": [
+        "72 hours",
+        "7 days",
+        "30 days",
+        "60 days"
+      ],
+      "answer": 3,
+      "rationale": "Federal law allows C-II partial fills for LTCF or terminally ill patients for up to 60 days from the written date. CARA’s 30-day window covers patient- or prescriber-requested partials; the 72-hour clock is the “pharmacy cannot supply” rule.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q193",
+      "domain": "Federal Requirements",
+      "subtopic": "Schedule II-V Rules",
+      "question": "A patient requested a CARA partial fill of a Schedule II prescription written 32 days ago. Ten tablets remain on the original quantity. The technician should:",
+      "options": [
+        "Dispense the remaining 10 tablets because some quantity is still unused",
+        "Refuse the leftover quantity — remaining portions must be filled within 30 days of the written date; a new prescription is required",
+        "Convert the leftover to a Schedule III refill",
+        "Fill it after the pharmacist documents a verbal 72-hour extension"
+      ],
+      "answer": 1,
+      "rationale": "Under CARA, remaining portions of a patient- or prescriber-requested C-II partial must be dispensed within 30 days of the written date. After day 30 the leftover cannot be filled; the patient needs a new prescription. There is no verbal 72-hour extension of the CARA window.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q194",
+      "domain": "Federal Requirements",
+      "subtopic": "REMS",
+      "question": "The clozapine REMS program exists primarily to manage which serious risk?",
+      "options": [
+        "Severe neutropenia (agranulocytosis) tracked with absolute neutrophil count (ANC)",
+        "QT prolongation that requires a baseline ECG at every fill",
+        "Teratogenicity managed only with iPLEDGE pregnancy tests",
+        "Serotonin syndrome from MAOI combinations"
+      ],
+      "answer": 0,
+      "rationale": "Clozapine can cause severe neutropenia. The clozapine REMS requires certified pharmacies and current ANC documentation before dispensing. iPLEDGE is the isotretinoin pregnancy-prevention REMS — do not mix the two programs.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q195",
+      "domain": "Federal Requirements",
+      "subtopic": "REMS",
+      "question": "Before a clozapine prescription can be dispensed, a technician-level REMS checkpoint is that:",
+      "options": [
+        "The patient signed a HIPAA waiver at drop-off",
+        "The pharmacy is certified in the clozapine REMS and a current acceptable ANC (or REMS authorization) is on file",
+        "The prescriber has a DATA 2000 X-waiver",
+        "The drug is billed as a Schedule II controlled substance"
+      ],
+      "answer": 1,
+      "rationale": "Clozapine REMS requires pharmacy certification and confirmation of a current acceptable ANC / REMS authorization before dispense. Clozapine is not a C-II, and the X-waiver no longer exists. Techs flag a missing ANC or failed REMS check to the pharmacist — they do not override it.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q196",
+      "domain": "Federal Requirements",
+      "subtopic": "REMS",
+      "question": "Under iPLEDGE, isotretinoin is typically dispensed as:",
+      "options": [
+        "A 90-day supply with two refills if the pregnancy test is negative",
+        "A maximum 30-day supply with no refills, after program authorization",
+        "An unlimited quantity if the patient is male",
+        "A one-year supply mailed from the wholesaler"
+      ],
+      "answer": 1,
+      "rationale": "iPLEDGE limits isotretinoin to a 30-day supply with no refills. Each fill needs current program authorization. Males are enrolled too — they are not exempt from iPLEDGE. Females of reproductive potential also have a short pickup window after a negative pregnancy test.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q197",
+      "domain": "Federal Requirements",
+      "subtopic": "REMS",
+      "question": "Which statement about iPLEDGE is accurate?",
+      "options": [
+        "Only female patients of reproductive potential must be enrolled; male patients are exempt",
+        "Prescribers, pharmacies, and patients (including males) must be enrolled, and the pharmacy must obtain authorization before dispensing",
+        "Any community pharmacy may dispense isotretinoin without program certification",
+        "iPLEDGE authorization can be overridden at the register if the patient is picking up for a spouse"
+      ],
+      "answer": 1,
+      "rationale": "iPLEDGE enrolls prescribers, certified pharmacies, and all patients — including males — because the drug is teratogenic and sharing/donation is prohibited. Authorization is required before each dispense; techs must not override a REMS block.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q198",
+      "domain": "Federal Requirements",
+      "subtopic": "REMS",
+      "question": "A claim rejects because REMS authorization is missing for a restricted drug. The technician should:",
+      "options": [
+        "Override the reject and dispense a 3-day emergency supply",
+        "Switch the patient to a therapeutic alternative without the pharmacist",
+        "Stop, do not dispense, and notify the pharmacist so certification, labs, or program authorization can be completed",
+        "Ask the patient to sign a paper waiver in place of REMS"
+      ],
+      "answer": 2,
+      "rationale": "REMS (knowledge area 2.4) is a federal restricted-drug program. A tech cannot override a REMS block or invent a paper waiver. Escalate to the pharmacist so the certified pharmacy can complete the required authorization or labs.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q199",
+      "domain": "Federal Requirements",
+      "subtopic": "REMS",
+      "question": "Transmucosal immediate-release fentanyl (TIRF) products are covered by a REMS because they:",
+      "options": [
+        "Are OTC cough suppressants that must stay behind the counter",
+        "Are indicated only for opioid-tolerant patients (typically breakthrough cancer pain) and have a high risk of fatal respiratory depression in opioid-naïve patients",
+        "Require monthly ANC checks like clozapine",
+        "Are interchangeable with any extended-release oxycodone tablet"
+      ],
+      "answer": 1,
+      "rationale": "TIRF REMS exists because these high-potency fentanyl products can be fatal in opioid-naïve patients. They are reserved for opioid-tolerant patients, usually with cancer breakthrough pain. This is not an ANC program and not an OTC CMEA rule.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q200",
+      "domain": "Federal Requirements",
+      "subtopic": "Controlled Substances",
+      "question": "A patient wants to dispose of leftover oxycodone tablets. The preferred federal option is to:",
+      "options": [
+        "Return them to regular pharmacy stock for redispensing",
+        "Place them in the pharmacy’s regular trash after crushing",
+        "Use a DEA-authorized collector, mail-back package, or National Prescription Drug Take Back event",
+        "Ship them to the DEA on a Form 222"
+      ],
+      "answer": 2,
+      "rationale": "Knowledge area 2.3 includes take-back programs. Unused patient-owned controlled substances should go to a DEA-authorized collector, mail-back, or take-back event — not back into stock, not regular trash, and not a Form 222 order form.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q201",
+      "domain": "Federal Requirements",
+      "subtopic": "Controlled Substances",
+      "question": "A patient returns unused Schedule II tablets that were previously dispensed. May the pharmacy restock and redispense them?",
+      "options": [
+        "Yes, if the seals look intact and the expiration date has not passed",
+        "Yes, after the pharmacist documents the return on Form 41",
+        "No — patient-returned controlled substances must not be returned to active stock for redispensing",
+        "Yes, if the original prescription still has remaining quantity"
+      ],
+      "answer": 2,
+      "rationale": "Once a controlled substance has been dispensed to a patient, it cannot be returned to the pharmacy’s dispensable inventory. Form 41 records destruction of pharmacy-owned CS, not restocking of patient returns. Direct the patient to an authorized take-back option.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q202",
+      "domain": "Federal Requirements",
+      "subtopic": "Controlled Substances",
+      "question": "Which site may collect unwanted controlled substances from patients under federal take-back rules?",
+      "options": [
+        "Any retail store with a locked lost-and-found box",
+        "A DEA-registered authorized collector (for example a registered pharmacy or hospital) or a DEA take-back event",
+        "The patient’s neighbor who works at a clinic",
+        "Any mailbox, as long as the envelope is marked “controlled substances”"
+      ],
+      "answer": 1,
+      "rationale": "Only DEA-registered authorized collectors and official take-back events/mail-back programs may accept patient-owned controlled substances. A random mailbox or unlocked box is not a lawful collector.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q203",
+      "domain": "Federal Requirements",
+      "subtopic": "Recalls",
+      "question": "A Class I recall notice arrives for a tablet the pharmacy stocks. The technician’s first actions are to:",
+      "options": [
+        "Continue dispensing from that NDC until the wholesaler sends a replacement",
+        "Identify affected NDC, lot, and expiration, quarantine the stock, and notify the pharmacist",
+        "Destroy every bottle of that drug name regardless of lot and file Form 222",
+        "Call every patient who ever used the pharmacy, including for unrelated drugs"
+      ],
+      "answer": 1,
+      "rationale": "Expanded FDA recall handling (2.5): match NDC + lot + expiration, quarantine affected units, document, and follow the recall notice for returns and any patient notification. Do not keep dispensing the recalled lot, and do not use Form 222 (that is C-I/II ordering).",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q204",
+      "domain": "Federal Requirements",
+      "subtopic": "Recalls",
+      "question": "How does an FDA market withdrawal differ from a recall?",
+      "options": [
+        "A market withdrawal is a Class I recall by another name",
+        "A market withdrawal is a firm’s removal for a minor violation that would not usually trigger a legal recall action",
+        "A market withdrawal applies only to controlled substances",
+        "Pharmacies may ignore market withdrawals but must always ignore Class III recalls"
+      ],
+      "answer": 1,
+      "rationale": "A market withdrawal is not a recall. The firm removes product for a minor issue that would not typically be subject to legal action. Pharmacy staff should still follow the notice, but it is not classified as Class I/II/III.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q205",
+      "domain": "Federal Requirements",
+      "subtopic": "Recalls",
+      "question": "Who may initiate a medication recall, and what is the pharmacy’s duty either way?",
+      "options": [
+        "Only the DEA may initiate recalls; pharmacies only notify state boards",
+        "A manufacturer or the FDA may initiate; the pharmacy still identifies lots, quarantines stock, and follows the notice",
+        "Only state boards may initiate; pharmacies wait 30 days before pulling stock",
+        "Only wholesalers may initiate; pharmacies continue to dispense until a Form 41 is filed"
+      ],
+      "answer": 1,
+      "rationale": "Recalls may be firm-initiated or FDA-requested/ordered. Pharmacy action is the same: identify, quarantine, document, and follow return/patient-notification instructions. DEA and Form 41 are controlled-substance tools, not the recall-initiation path.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q206",
+      "domain": "Federal Requirements",
+      "subtopic": "Pharmacy Law",
+      "question": "As of December 2022 (MAT Act), which statement about office-based buprenorphine for opioid-use disorder is correct?",
+      "options": [
+        "The prescriber must still hold a DATA 2000 X-waiver (DEA number starting with X)",
+        "A separate X-waiver is no longer required — a DEA-registered practitioner with Schedule III authority may prescribe buprenorphine for OUD",
+        "Buprenorphine for OUD may be prescribed only by addiction-board certified psychiatrists",
+        "Buprenorphine for OUD was moved to Schedule II and now requires Form 222"
+      ],
+      "answer": 1,
+      "rationale": "The DATA 2000 X-waiver was eliminated in December 2022 by the MAT Act. Any DEA-registered practitioner with Schedule III authority may prescribe buprenorphine for OUD. Do not reject a legitimate buprenorphine Rx solely because the DEA number is not an “X” number.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q207",
+      "domain": "Federal Requirements",
+      "subtopic": "Controlled Substances",
+      "question": "Federal rules allow Schedule II stock to be stored by:",
+      "options": [
+        "Leaving C-II bottles on the fastest-moving OTC endcap for convenience",
+        "Keeping them in a locked, substantially constructed cabinet, or dispersing them throughout non-controlled stock to obstruct theft",
+        "Storing them only in the employee break-room refrigerator",
+        "Mixing them in the same take-back receptacle used for patient returns"
+      ],
+      "answer": 1,
+      "rationale": "2.3 storage: C-II drugs must be in a locked, substantially constructed cabinet or dispersed among non-controls so they are not obvious theft targets. They are not OTC merchandising and must not sit in a patient take-back bin.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q208",
+      "domain": "Federal Requirements",
+      "subtopic": "Pharmacy Law",
+      "question": "Discarded warfarin tablets and nicotine patches are often handled as which type of waste, distinct from DEA Form 41 controlled-substance destruction?",
+      "options": [
+        "P-listed (acutely hazardous) pharmaceutical waste under EPA/RCRA rules",
+        "Schedule I inventory that requires a Form 222 transfer",
+        "Ordinary paper recycling if blister packs are empty",
+        "USP <795> nonsterile compounding waste only"
+      ],
+      "answer": 0,
+      "rationale": "Knowledge area 2.1 includes hazardous (e.g., P-list) pharmaceutical waste. Warfarin and nicotine are classic P-listed examples. Form 41 is for destroying controlled substances; Form 222 is for ordering/transferring C-I/II — neither is the P-list waste stream.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q209",
+      "domain": "Federal Requirements",
+      "subtopic": "DEA Forms",
+      "question": "An executed paper DEA Form 222 that is not used to complete an order is generally considered expired after:",
+      "options": [
+        "7 days",
+        "60 days",
+        "6 months",
+        "2 years"
+      ],
+      "answer": 1,
+      "rationale": "Unused executed Form 222 orders expire after 60 days. Keep executed forms and related records for at least 2 years. Paper 222 is now single-sheet (not triplicate); destruction of CS is Form 41.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q210",
+      "domain": "Federal Requirements",
+      "subtopic": "Controlled Substances",
+      "question": "During the federally required biennial controlled-substance inventory, Schedule II drugs must be:",
+      "options": [
+        "Estimated if the bottle is unopened",
+        "Counted as an exact physical count",
+        "Omitted if they were counted the previous month",
+        "Reported on DEA Form 224 instead of an inventory record"
+      ],
+      "answer": 1,
+      "rationale": "C-II inventory requires an exact count. C-III–V may be estimated unless a container holds more than 1,000 units. Form 224 is registration, not the inventory record. Inventory is at least every 2 years.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q211",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "Immunization Safety",
+      "question": "When must a Vaccine Information Statement (VIS) be provided to the patient (or caregiver)?",
+      "options": [
+        "Only if the patient asks for written information after leaving",
+        "Before each dose of a VIS-covered vaccine is administered",
+        "Only with the first lifetime dose of any vaccine",
+        "Only when a vaccine adverse event has already occurred"
+      ],
+      "answer": 1,
+      "rationale": "Federal law (National Childhood Vaccine Injury Act) requires the current VIS before each dose of covered vaccines — not after the shot and not only on request. Post-immunization care and VAERS reporting are separate 3.3/3.4 tasks.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q212",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "Immunization Safety",
+      "question": "Vaccine Information Statements (VIS) are:",
+      "options": [
+        "FDA Medication Guides that replace pharmacist counseling on every oral tablet",
+        "CDC information sheets required by federal law before covered immunizations",
+        "DEA Form 41 destruction receipts for unused vaccines",
+        "Orange Book therapeutic-equivalence codes for interchangeable biologics"
+      ],
+      "answer": 1,
+      "rationale": "VIS documents are produced by the CDC and required before administration of vaccines covered by the National Childhood Vaccine Injury Act. They are not Medication Guides, DEA forms, or Orange Book codes. (The Purple Book is not a 2026 PTCE knowledge area.)",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q213",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "Immunization Safety",
+      "question": "Which documentation practice is required when giving a VIS?",
+      "options": [
+        "Record the VIS edition/publication date and the date it was given to the patient or caregiver",
+        "File the VIS in the DEA biennial inventory binder",
+        "Have the patient initial the Form 222",
+        "Replace the VIS with the drug’s package insert after the injection"
+      ],
+      "answer": 0,
+      "rationale": "Use the current VIS edition and document the VIS publication date plus the date it was provided. Package inserts and DEA forms do not replace the VIS. After immunization, observe for immediate reactions and use VAERS for vaccine adverse events.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q214",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "Pharmacist Intervention",
+      "question": "A patient asks the technician which OTC cough syrup is “best” for a child. The correct action is to:",
+      "options": [
+        "Recommend a product based on personal experience",
+        "Refer the request to the pharmacist — OTC recommendations require pharmacist intervention",
+        "Sell the most expensive brand to reduce liability",
+        "Tell the patient all OTC cough products are interchangeable"
+      ],
+      "answer": 1,
+      "rationale": "PTCE knowledge area 3.3 lists OTC recommendation as an issue that requires pharmacist intervention. Technicians may gather facts and offer the counseling/OTC handoff; they do not select therapy.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q215",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "Immunization Safety",
+      "question": "Immediately after a vaccination, a patient looks pale and says they feel faint. The technician should:",
+      "options": [
+        "Send them to the parking lot to “walk it off” before telling anyone",
+        "Seat or recline the patient, notify the pharmacist, and follow the pharmacy’s post-immunization care process (syncope/anaphylaxis)",
+        "Give a second vaccine dose to “boost” the response",
+        "Document the event only if the patient requests a VIS"
+      ],
+      "answer": 1,
+      "rationale": "Post-immunization delivery care is a 3.3 pharmacist-intervention topic. Syncope is common after vaccines — sit/recline, do not let the patient drive off untreated, and get the pharmacist. Anaphylaxis kits and VAERS are pharmacist-led next steps if needed.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q216",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "Error Reporting",
+      "question": "A suspected adverse reaction to an influenza vaccine should be reported to:",
+      "options": [
+        "VAERS (Vaccine Adverse Event Reporting System)",
+        "DEA Form 106",
+        "CSOS",
+        "The Orange Book publisher"
+      ],
+      "answer": 0,
+      "rationale": "VAERS is the federal vaccine adverse-event system (knowledge area 3.4). MedWatch is the general drug/device program. Form 106 is theft/loss of controlled substances; CSOS is C-II ordering.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q217",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "Infection Control",
+      "question": "After counting penicillin tablets on a tray, the technician’s next hygiene step before counting a sulfonamide is to:",
+      "options": [
+        "Wipe or clean the counting tray and spatula so residue is not transferred",
+        "Use the same tray because both drugs are antibiotics",
+        "Blow the tray clean with compressed air only",
+        "Rinse the tray with sterile 70% IPA inside an ISO 5 hood"
+      ],
+      "answer": 0,
+      "rationale": "Knowledge area 3.6 tests cleaning of counting trays, counters, and equipment. Penicillin or sulfa residue can contaminate the next fill and trigger an allergy. This is dispensary hygiene — not sterile-hood compounding technique.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q218",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "DUR",
+      "question": "A prospective DUR alert fires for therapeutic duplication during order entry. The technician should:",
+      "options": [
+        "Override the alert and fill both prescriptions to avoid delaying the patient",
+        "Stop and notify the pharmacist — therapeutic duplication and substitution decisions require pharmacist intervention",
+        "Delete the older drug from the profile without telling anyone",
+        "Tell the patient to take both drugs on alternate days"
+      ],
+      "answer": 1,
+      "rationale": "DUR alerts, therapeutic substitution, and duplication are 3.3 pharmacist-intervention issues. Techs identify and escalate; they do not independently override clinical alerts or change therapy.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q219",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "Pharmacist Intervention",
+      "question": "Which task must be handled by the pharmacist rather than completed independently by the technician?",
+      "options": [
+        "Counting tablets and generating a label after a verified order",
+        "Selecting an OTC product or making a therapeutic substitution for the prescribed drug",
+        "Asking for the patient’s name and date of birth at pickup",
+        "Scanning the NDC barcode during fill"
+      ],
+      "answer": 1,
+      "rationale": "3.3: OTC recommendation and therapeutic substitution require pharmacist intervention. Counting, barcode scanning, and two-identifier pickup are core technician tasks under pharmacist supervision.",
+      "difficulty": "easy"
     }
   ]
 }

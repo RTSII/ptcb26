@@ -93,14 +93,13 @@ Stages 1–4: Complete
 Stage 5: Integration refactor complete (shared window.App API, standardized domain
          names across all modules and data, rebuilt quiz/exam engines);
          re-verified via localhost and a 69-check jsdom functional harness
-Stage 6: Question-bank expansion complete — 190 validated questions (incl. DSCSA pack)
+Stage 6: Question-bank expansion complete — later grown in Stage 7
 Stage 6B: UI overhaul — synthwave × Matrix dark theme complete; desktop layout optimized for PC Chrome
-Stage 6C: Content expansion complete — flashcards 133 → 163, notes expanded with additional
-          calculation, federal, and safety bullets across all four domains
-Stage 6D: Study course complete — 12 modules / 40 lessons covering every domain
-          (includes DSCSA lesson m12l4); course progress tracked; lessons deep-link
-          into domain-filtered quizzes
-Stage 7: Content validation — active (pharmacist review pending)
+Stage 6C: Content expansion complete — later grown in Stage 7
+Stage 6D: Study course complete — later expanded in Stage 7
+Stage 7: Content pack added (post-2020 / January 2026 deltas). Schema/ID validation
+         via `node validate.js` is complete. Pharmacist content review is still pending
+         and is not implied by the schema checks.
 Stage 8: Mobile polish and initial release — pending iPhone Safari + accessibility QA
 Stage 10: Optional enhancements integrated — missed/bookmarked review, weak-area quizzes,
           bookmarking, spaced repetition, difficulty filters, session length/timer,
@@ -627,11 +626,26 @@ Complete.
 - [x] Themed course components in `css/style.css` and added course files to the service-worker cache (v2)
 - [x] Verified via jsdom harness (23/23 checks: module list, lesson reader, completion, resume, deep-linked quiz, home card) and localhost HTTP 200 for all 22 assets
 
-## Stage 7 — Content Validation
+## Stage 7 — Content Pack + Validation
 
 ### Objective
 
-Review all notes, cards, and questions for exam relevance and factual accuracy.
+Expand notes, cards, questions, and course lessons so an experienced CPhT (baseline ~2020) can study what the January 6, 2026 outline actually tests. Schema validation is automated; pharmacist review of drug/law facts remains a separate release gate.
+
+### Stage 7 content pack (September 3, 2026)
+
+- [x] CARA / C-II partial fills taught as the modern 30-day patient-or-prescriber-request rule (plus 72-hour cannot-supply and 60-day LTCF clocks)
+- [x] REMS depth beyond isotretinoin: clozapine ANC / pharmacy certification, iPLEDGE accuracy, TIRF, tech “do not override”
+- [x] VIS (Vaccine Information Statements) added under Safety immunization workflow (3.3/3.4)
+- [x] Purple Book skipped — not named on the official 2026 outline (documented in the PR)
+- [x] DATA 2000 X-waiver marked eliminated (MAT Act, Dec 2022); Form 222 is single-sheet / CSOS; Form 41 is destruction
+- [x] Alligation, dedicated NTI list, and USP `<795>` technique demoted to optional/archive and excluded from default exam / weak-area weighting
+- [x] Federal bank grown past 40 unique items; take-back and expanded recall handling added
+- [x] Thin Safety module m6 filled with pharmacist-intervention and immunization workflow
+- [x] ROADMAP / TESTING_REPORT / README updated; SW cache `ptce-2026-v6`
+- [ ] Pharmacist review of drug facts, law dates, and lesson accuracy (not done in this pack)
+
+### Medication Review
 
 ### Medication Review
 
@@ -861,9 +875,9 @@ When resuming this project in a new chat, paste the following prompt to restore 
 Continue working on the PTCE 2026 Study App (ptcb26).
 - Repository root: c:\Users\rtsii\OneDrive\Desktop\PTCB26\ptcb26
 - Architecture: static, root-based, vanilla HTML/CSS/JS/JSON, browser localStorage (key: ptce2026_progress_v1), no backend/framework/build step.
-- Current stage: Stage 7 (pharmacist content validation) and Stage 8 (iPhone Safari + accessibility QA) are the active release blockers; Stage 10 enhancements are complete.
+- Current stage: Stage 7 content pack is in; pharmacist content review and Stage 8 (iPhone Safari + accessibility QA) remain release blockers. Stage 10 enhancements are complete. Schema validation (`node validate.js`) is not pharmacist validation.
 - Completed Stage 10 features: home-page "Review Missed" and "Review Bookmarked" quick actions, missed/bookmarked/weak-domain/weak-subtopic quiz modes, question/flashcard bookmarking with dedicated review filters, Leitner spaced repetition, difficulty filtering, configurable exam length/timer, dashboard score trends, JSON export/import, offline service worker, PWA manifest on all pages, desktop-optimized PC Chrome layout.
-- Data sources of truth: data/notes.json, data/flashcards.json, data/questions.json (190 questions including 10 DSCSA, 171 flashcards including 8 DSCSA). Official January 6, 2026 weights: 35 / 23.75 / 22.50 / 18.75; exam draw 32/21/20/17.
+- Data sources of truth: data/notes.json, data/flashcards.json, data/questions.json, data/course.json (219 questions, Federal 53 / Safety 51, 190 flashcards). Official January 6, 2026 weights: 35 / 23.75 / 22.50 / 18.75; exam draw 32/21/20/17. SW cache ptce-2026-v6.
 - Do not duplicate study content into markdown, do not create an app/ subdirectory, and do not add a backend or framework.
 - Use the exact file-naming convention: README.md and ROADMAP.md (lowercase .md extension).
 - Before finishing any change, run: node --check on all JS files, JSON parse validation, and a localhost:8000 smoke test for all pages/assets.
