@@ -9,6 +9,9 @@
 >   CARA 30-day C-II partial fills; Form 222 single-sheet. Home quiz card copy no longer claims
 >   a timer or instant rationale. Service worker cache bumped to `ptce-2026-v4`.
 > - `node validate.js` is the no-framework smoke suite for the above.
+> - Home UI (Windows Chrome): redundant `.hero` removed; tablet/desktop breakpoints
+>   densify `.menu-card` / weights / footer so course + core cards + weights fit a
+>   typical 1080p window. Mobile padding unchanged. Cache `ptce-2026-v5`.
 >
 > **Addendum (September 3, 2026) — Official January 6, 2026 outline alignment:**
 > - Runtime and docs now use the official PTCE Content Outline effective January 6, 2026

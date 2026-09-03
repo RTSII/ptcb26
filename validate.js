@@ -154,11 +154,15 @@ console.log('\nHome copy');
 const home = read('index.html');
 if (/Timed questions with instant rationale/.test(home)) fail('index.html quiz card still claims timed/instant rationale');
 else ok('index.html quiz card copy no longer claims a timer or instant rationale');
+if (/class="hero"/.test(home)) fail('index.html still has the redundant hero block');
+else ok('index.html hero block removed');
+if (!/class="home"/.test(home)) fail('index.html body should have class="home" for desktop densify');
+else ok('index.html body.home present');
 
 console.log('\nService worker');
 const sw = read('sw.js');
-if (!/ptce-2026-v4/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v4');
-else ok('sw.js cache is ptce-2026-v4');
+if (!/ptce-2026-v5/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v5');
+else ok('sw.js cache is ptce-2026-v5');
 
 console.log(failed ? '\nFAILED ' + failed + ' check(s)' : '\nAll checks passed.');
 process.exit(failed ? 1 : 0);
