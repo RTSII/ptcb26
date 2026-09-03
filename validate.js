@@ -64,6 +64,18 @@ if (questions.length) {
   if (dup.length) fail('duplicate question ids: ' + [...new Set(dup)].join(', '));
   else ok(questions.length + ' unique question ids');
 
+  const badOpts = questions.filter(q => !Array.isArray(q.options) || q.options.length !== 4);
+  if (badOpts.length) fail(badOpts.length + ' questions do not have exactly 4 options');
+  else ok('all questions have 4 options');
+
+  const badAns = questions.filter(q => !Number.isInteger(q.answer) || q.answer < 0 || q.answer > 3);
+  if (badAns.length) fail(badAns.length + ' questions have out-of-range answers');
+  else ok('all answers are in range 0–3');
+
+  const emptyR = questions.filter(q => !q.rationale || !String(q.rationale).trim());
+  if (emptyR.length) fail(emptyR.length + ' questions have empty rationales');
+  else ok('all rationales are non-empty');
+
   const badDomain = questions.filter(q => !DOMAINS.includes(q.domain));
   if (badDomain.length) fail('unexpected question domains: ' + [...new Set(badDomain.map(q => q.domain))].join(', '));
   else ok('question domain names unchanged');
@@ -96,6 +108,33 @@ if (questions.length) {
       fail('q160 rationale still treats Form 222 as disposal without Form 41');
     } else ok('q160 rationale distinguishes Form 41 for destruction');
   }
+
+  const q165 = questions.find(q => q.id === 'q165');
+  if (!q165) fail('q165 missing');
+  else if (!/CARA|patient|prescriber/i.test(q165.question) || !/30 days/i.test(q165.question + q165.options.join(' '))) {
+    fail('q165 should test CARA 30-day patient/prescriber-requested C-II partials');
+  } else ok('q165 tests CARA 30-day C-II partial fills');
+
+  const federal = questions.filter(q => q.domain === 'Federal Requirements');
+  if (federal.length < 40) fail('Federal bank should be ≥40 unique items, got ' + federal.length);
+  else ok('Federal bank has ' + federal.length + ' questions');
+
+  const remss = questions.filter(q => q.subtopic === 'REMS' && q.domain === 'Federal Requirements');
+  if (remss.length < 5) fail('need ≥5 Federal REMS questions, got ' + remss.length);
+  else ok(remss.length + ' Federal REMS questions');
+
+  const q136 = questions.find(q => q.id === 'q136');
+  if (!q136) fail('q136 missing');
+  else if (q136.featured !== false) fail('q136 (alligation) should be featured:false');
+  else ok('q136 alligation excluded from default featured path');
+
+  const deadWaiver = questions.filter(q =>
+    /X-waiver/i.test(JSON.stringify(q)) &&
+    /required/i.test(q.question + q.options.join(' ') + q.rationale) &&
+    !/no longer required|eliminated|was eliminated/i.test(q.question + q.options.join(' ') + q.rationale)
+  );
+  if (deadWaiver.length) fail('questions still treat X-waiver as current required law: ' + deadWaiver.map(q => q.id).join(', '));
+  else ok('no question treats DATA 2000 X-waiver as current required law');
 }
 
 if (cards.length) {
@@ -161,8 +200,22 @@ else ok('index.html body.home present');
 
 console.log('\nService worker');
 const sw = read('sw.js');
-if (!/ptce-2026-v5/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v5');
-else ok('sw.js cache is ptce-2026-v5');
+if (!/ptce-2026-v6/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v6');
+else ok('sw.js cache is ptce-2026-v6');
+
+console.log('\nDefault-path filters');
+const examSrc = read('js/exam.js');
+const quizSrcFull = read('js/quiz.js');
+if (!/featured !== false/.test(examSrc)) fail('exam.js must skip featured:false items');
+else ok('exam.js excludes featured:false from the default draw');
+if (!/q\.featured !== false/.test(quizSrcFull) && !/featured !== false/.test(quizSrcFull)) {
+  fail('quiz.js must skip featured:false in Quick 10 / weak modes');
+} else ok('quiz.js excludes featured:false from Quick 10 / weak modes');
+
+const courseSrc = read('js/course.js');
+if (!/optional/.test(courseSrc) || !/archive-badge/.test(courseSrc)) {
+  fail('course.js should render optional/archive lessons off the featured path');
+} else ok('course.js labels optional 2026-archive lessons');
 
 console.log(failed ? '\nFAILED ' + failed + ' check(s)' : '\nAll checks passed.');
 process.exit(failed ? 1 : 0);

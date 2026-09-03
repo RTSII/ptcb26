@@ -45,7 +45,7 @@ The application is implemented directly from the repository root.
 
 ### Implemented
 
-- **Structured study course** (`course.html`) — 12 modules / 40 lessons spanning all four domains, with per-module progress, lesson completion tracking, resume, and "Test Yourself" links into the quiz engine
+- **Structured study course** (`course.html`) — 12 modules / 44 lessons (41 featured + 3 optional 2026-archive) spanning all four domains, with per-module progress, lesson completion tracking, resume, and "Test Yourself" links into the quiz engine
 - Home study hub with direct "Review Missed" quick action
 - JSON-driven notes viewer
 - Domain-tagged flashcards with flip, swipe, filters, and reviewed tracking
@@ -76,22 +76,18 @@ The application is implemented directly from the repository root.
 Stages 1–4: Planning, content, and initial implementation complete
 Stage 5: Core integration refactor complete (shared App API, aligned domain names,
          rebuilt quiz/exam engines)
-Stage 6: Question-bank expansion complete — 190 validated questions
-         (Medications 69, Patient Safety and Quality Assurance 42,
-          Order Entry and Processing 46, Federal Requirements 33, including 10 DSCSA)
+Stage 6: Question-bank expansion complete — later grown in Stage 7
 Stage 6B: UI overhaul — synthwave × Matrix dark theme complete
-Stage 6C: Content expansion complete — flashcards 133 → 163 cards,
-          notes expanded with additional calculation, federal, and safety bullets
-Stage 6D: Study course complete — 12 modules / 40 lessons covering every domain
-          (includes a Federal Requirements DSCSA lesson);
-          course progress tracked, lessons link into the quiz engine for testing
-Stage 7: Content validation and mobile/device testing in progress
+Stage 6C: Content expansion complete — flashcards later grown in Stage 7
+Stage 6D: Study course complete — later expanded in Stage 7
+Stage 7: Content pack added (post-2020 / January 2026 deltas) — schema validation
+         via `node validate.js`. Pharmacist content review is still pending.
 Stage 10: Optional enhancements integrated — missed/bookmarked review, weak-area quizzes,
           bookmarking, spaced repetition, difficulty filters, exam length/timer,
           score trends, export/import, PWA manifest, service worker, and PC Chrome layout
 ```
 
-Verified September 3, 2026: practice-exam weights and 90-question counts updated to the official January 6, 2026 outline (35 / 23.75 / 22.50 / 18.75 → 32 / 21 / 20 / 17). DSCSA content pack added (10 questions, 8 flashcards, notes section, course lesson m12l4). Alligation / dedicated nonsterile compounding / dedicated NTI items are tagged as removed-from-2026-outline. Manual content validation by a pharmacist and iPhone Safari / accessibility QA remain for the final release criteria.
+Verified September 3, 2026: practice-exam weights follow the official January 6, 2026 outline (35 / 23.75 / 22.50 / 18.75 → 32 / 21 / 20 / 17). Stage 7 content pack added CARA 30-day C-II partials, clozapine/iPLEDGE REMS depth, VIS immunization workflow, take-back and expanded recalls, and stripped DATA 2000 X-waiver / triplicate Form 222 language. Bank is 219 questions (Federal 53, Safety 51) and 190 flashcards. Course is 12 modules / 41 featured + 3 optional archive lessons. Alligation / dedicated NTI / USP `<795>` technique are optional and excluded from default exam and weak-area weighting. `node validate.js` covers schema/ID/domain/copy smoke checks — it is not pharmacist validation. iPhone Safari / accessibility QA remain for the final release criteria.
 
 ## Technology
 
@@ -168,7 +164,7 @@ There is no `app/` subdirectory. All documentation and code must use the root-ba
 | Page | Purpose |
 |---|---|
 | `index.html` | Main study hub and navigation; includes "Review Missed" quick action |
-| `course.html` | Structured study course — 12 modules / 40 lessons across all four domains |
+| `course.html` | Structured study course — 12 modules / 41 featured lessons + 3 optional 2026-archive lessons |
 | `notes.html` | High-yield notes organized by domain |
 | `flashcards.html` | Active-recall flashcard study with spaced-repetition filter |
 | `quiz.html` | Multiple-choice practice (Quick 10, Chapter Test, Custom, Missed Review, Weak-area) |
@@ -584,10 +580,10 @@ Continue working on the PTCE 2026 Study App (ptcb26).
 - Tech stack: vanilla HTML5, CSS3, JavaScript, JSON data files, browser localStorage; no framework, build step, backend, or database.
 - Repository root: c:\Users\rtsii\OneDrive\Desktop\PTCB26\ptcb26
 - Key files: index.html, course.html, notes.html, flashcards.html, quiz.html, exam.html, dashboard.html, css/style.css, js/app.js, js/course.js, js/quiz.js, js/exam.js, js/flashcards.js, js/dashboard.js, js/notes.js, data/course.json, data/questions.json, data/flashcards.json, data/notes.json, manifest.json, sw.js, icon.svg.
-- STUDY COURSE (newest, the instructional core): course.html + js/course.js render data/course.json — 12 modules / 40 lessons across all four domains. Each module has id/domain/title/desc/quiz{domain,count}/lessons[]; each lesson has id/title/intro/bullets[]/keyPoints[]. Progress stored in Storage.course {completed[], lastLesson} via markLessonComplete/getCourseProgress/setLastLesson. Lessons deep-link to domain-filtered quizzes via quiz.html?mode=custom&domain=<Domain>&count=<n> (deep-link param support added in js/quiz.js init). Client-side routing via ?lesson=<id>.
-- Current state: aligned to the official January 6, 2026 PTCE outline (35 / 23.75 / 22.50 / 18.75; exam 32/21/20/17). 190 questions (10 DSCSA), 171 flashcards (8 DSCSA), notes include a DSCSA section, 12 course modules / 40 lessons (m12l4 DSCSA). Service worker cache ptce-2026-v5. PWA-ready, desktop-optimized for Windows PC Chrome at 1100px+.
-- Implemented Stage 10 enhancements: home-page "Review Missed" and "Review Bookmarked" quick actions, missed/bookmarked/weak-domain/weak-subtopic quiz modes, question/flashcard bookmarking with dedicated review filters, Leitner spaced repetition, difficulty filtering, configurable exam length/timer, score-trend dashboard, JSON export/import progress.
-- Remaining release work: pharmacist content validation (drug facts, law dates, USP/calculations, course lesson accuracy), iPhone Safari + accessibility QA (tap targets, contrast, reduced-motion, screen-reader labels), GitHub Pages deployment.
+- STUDY COURSE: course.html + js/course.js render data/course.json — 12 modules / 41 featured lessons + 3 optional archive lessons (NTI list, USP 795 technique, alligation). Optional lessons are labeled "not emphasized on 2026 PTCE" and skipped on default next/prev and progress. Each module has id/domain/title/desc/quiz{domain,count}/lessons[]; each lesson has id/title/intro/bullets[]/keyPoints[] and optional/badge when archived. Progress stored in Storage.course {completed[], lastLesson}.
+- Current state: official January 6, 2026 PTCE outline (35 / 23.75 / 22.50 / 18.75; exam 32/21/20/17). 219 questions (Federal 53 including DSCSA + Stage 7 REMS/CARA/take-back/recalls; Safety 51 including VIS), 190 flashcards, notes include DSCSA + Restricted Programs (2.4) + VIS. Service worker cache ptce-2026-v6.
+- Stage 7 pack: CARA 30-day C-II partials, clozapine/iPLEDGE REMS, VIS, take-back, expanded recalls, X-waiver eliminated, Form 222 single-sheet vs Form 41. Purple Book skipped (not on 2026 outline). featured:false items (alligation q136) are excluded from default exam / Quick 10 / weak-area pools.
+- Remaining release work: pharmacist content validation (drug facts, law dates, USP/calculations, course lesson accuracy) — schema validation is not pharmacist review. iPhone Safari + accessibility QA, GitHub Pages deployment.
 - Do not create an app/ subdirectory, do not add a backend, and do not duplicate study content into markdown.
 - Validate any changes with: `node validate.js` (node --check on all JS files, JSON parse, unique IDs, domain names, Chapter Test subtopic filter, content/copy smoke assertions), plus a localhost:8000 smoke test for all pages and assets (course.html and data/course.json included).
 ```

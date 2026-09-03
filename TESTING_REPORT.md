@@ -1,5 +1,19 @@
 # PTCE 2026 Study App - Integration Testing Report
 
+> **Addendum (September 3, 2026) — Stage 7 content pack:**
+> - Post-2020 / January 2026 teaching pack: CARA 30-day C-II partials (q165 rewritten;
+>   q191–q193 added), REMS depth including clozapine ANC (q194–q199), VIS immunization
+>   workflow (q211–q213), take-back / expanded recalls / X-waiver eliminated / Form 222
+>   vs 41 (q200–q210), and Safety pharmacist-intervention items (q214–q219).
+> - Bank is now **219 questions** (Federal **53**, Safety **51**) and **190 flashcards**.
+>   Course is 12 modules / **41 featured + 3 optional archive** lessons (NTI, USP 795
+>   technique, alligation). Optional lessons are labeled and skipped on default next/prev
+>   and featured progress. q136 (`featured: false`) is excluded from default exam, Quick 10,
+>   and weak-area pools.
+> - Purple Book was **not** added: it is not named on the official January 6, 2026 outline.
+> - Docs updated; service worker cache bumped to `ptce-2026-v6`.
+> - `node validate.js` is schema/copy smoke only — **not** pharmacist content validation.
+>
 > **Addendum (September 3, 2026) — QA follow-ups after PR #1:**
 > - Chapter Test (`js/quiz.js` `startQuiz()`) now filters by selected subtopic, not only domain.
 > - Flashcard `id` values are all strings; bookmark/Leitner comparisons coerce to string.
@@ -338,7 +352,7 @@ When resuming this project in a new chat, paste the following prompt to restore 
 Continue working on the PTCE 2026 Study App (ptcb26).
 - Repository root: c:\Users\rtsii\OneDrive\Desktop\PTCB26\ptcb26
 - Testing baseline: all 6 JS files pass node --check, all 3 JSON files validate, and localhost:8000 smoke test covers all 6 pages + quiz.html?mode=missed + quiz.html?mode=bookmarked + all assets.
-- Latest verified state: September 3, 2026 — official January 6, 2026 outline weights (35 / 23.75 / 22.50 / 18.75; exam 32/21/20/17); 190 questions (10 DSCSA) and 171 flashcards (8 DSCSA); course 12 modules / 40 lessons.
+- Latest verified state: September 3, 2026 — official January 6, 2026 outline weights (35 / 23.75 / 22.50 / 18.75; exam 32/21/20/17); 219 questions and 190 flashcards; course 12 modules / 41 featured + 3 optional archive lessons; SW cache `ptce-2026-v6`. Schema validation is not pharmacist review.
 - Remaining QA: pharmacist content validation (Stage 7) and iPhone Safari / accessibility testing (Stage 8).
 - When testing changes, add a new dated addendum to this file rather than overwriting the July 21, 2026 base report.
 - Do not add backend/framework dependencies; keep the project static and root-based.

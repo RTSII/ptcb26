@@ -280,7 +280,8 @@
       "id": "47",
       "domain": "Order Entry and Processing",
       "front": "Alligation: how much of 10% and 2% to make 5% cream? (removed from 2026 outline)",
-      "back": "Not a January 2026 PTCE tested skill. Historical: 5−2=3 parts of 10%; 10−5=5 parts of 2% → 3:5. Use C1V1 = C2V2 for dilution instead."
+      "back": "Not a January 2026 PTCE tested skill. Historical: 5−2=3 parts of 10%; 10−5=5 parts of 2% → 3:5. Use C1V1 = C2V2 for dilution instead.",
+      "featured": false
     },
     {
       "id": "48",
@@ -652,7 +653,8 @@
       "id": "109",
       "domain": "Order Entry and Processing",
       "front": "Alligation (removed from 2026 outline)",
-      "back": "Not a January 2026 PTCE tested calculation. Historical: parts of HIGH = target − low; parts of LOW = high − target. Prefer C1V1 = C2V2."
+      "back": "Not a January 2026 PTCE tested calculation. Historical: parts of HIGH = target − low; parts of LOW = high − target. Prefer C1V1 = C2V2.",
+      "featured": false
     },
     {
       "id": "110",
@@ -1025,6 +1027,120 @@
       "domain": "Federal Requirements",
       "front": "Form used to notify FDA of illegitimate product (DSCSA)",
       "back": "Form FDA 3911. Also notify immediate trading partners. FDA used phased implementation milestones for electronic tracing — learn the duty, not a single exemption end-date."
+    },
+    {
+      "id": "172",
+      "domain": "Federal Requirements",
+      "front": "CARA (2016) C-II partial fill — patient or prescriber request",
+      "back": "Remaining portions must be dispensed within 30 days of the written date. This is the modern default when a partial is requested — not the 72-hour “cannot supply” clock."
+    },
+    {
+      "id": "173",
+      "domain": "Federal Requirements",
+      "front": "Three federal C-II partial-fill clocks",
+      "back": "Pharmacy cannot supply full quantity → remainder within 72 hours. Patient/prescriber requests a partial (CARA) → remainder within 30 days of the written date. LTCF or terminally ill → 60 days."
+    },
+    {
+      "id": "174",
+      "domain": "Federal Requirements",
+      "front": "Clozapine REMS — what is monitored?",
+      "back": "Absolute neutrophil count (ANC). Clozapine can cause severe neutropenia/agranulocytosis. A current acceptable ANC / REMS authorization is required before dispensing."
+    },
+    {
+      "id": "175",
+      "domain": "Federal Requirements",
+      "front": "Clozapine REMS — pharmacy requirement",
+      "back": "The pharmacy must be certified in the clozapine REMS. Techs do not override a failed ANC/REMS check; they notify the pharmacist."
+    },
+    {
+      "id": "176",
+      "domain": "Federal Requirements",
+      "front": "iPLEDGE (isotretinoin) — key dispense limits",
+      "back": "Certified pharmacy; patient, prescriber, and pharmacy enrolled (including males); typically a 30-day supply with no refills; authorization required before each dispense. Females of reproductive potential need monthly pregnancy tests and a short pickup window."
+    },
+    {
+      "id": "177",
+      "domain": "Federal Requirements",
+      "front": "What should a technician do when a REMS authorization rejects?",
+      "back": "Do not override and do not invent a paper waiver. Stop, do not dispense, and notify the pharmacist so program certification, labs, or authorization can be completed."
+    },
+    {
+      "id": "178",
+      "domain": "Federal Requirements",
+      "front": "TIRF REMS covers which products and why?",
+      "back": "Transmucosal immediate-release fentanyl. Reserved for opioid-tolerant patients (typically cancer breakthrough pain) because of fatal respiratory-depression risk in opioid-naïve patients."
+    },
+    {
+      "id": "179",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "What is a VIS?",
+      "back": "Vaccine Information Statement — a CDC information sheet required by federal law (National Childhood Vaccine Injury Act) before each dose of a covered vaccine."
+    },
+    {
+      "id": "180",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "When is a VIS given?",
+      "back": "Before the vaccine is administered — not only afterward, and not only if the patient asks. Use the current edition."
+    },
+    {
+      "id": "181",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "VIS documentation to record",
+      "back": "VIS edition/publication date and the date it was given to the patient or caregiver. This is separate from VAERS (vaccine adverse-event reporting)."
+    },
+    {
+      "id": "182",
+      "domain": "Federal Requirements",
+      "front": "Preferred disposal of leftover patient-owned controlled substances",
+      "back": "DEA-authorized collector, mail-back package, or National Prescription Drug Take Back event. Do not restock patient returns; do not use Form 222."
+    },
+    {
+      "id": "183",
+      "domain": "Federal Requirements",
+      "front": "May a pharmacy restock patient-returned C-II tablets?",
+      "back": "No. Once dispensed to a patient, controlled substances cannot return to dispensable stock. Direct the patient to an authorized take-back option."
+    },
+    {
+      "id": "184",
+      "domain": "Federal Requirements",
+      "front": "DATA 2000 X-waiver status (after Dec 2022)",
+      "back": "Eliminated by the MAT Act (December 2022). A separate X-waiver is no longer required. Any DEA-registered practitioner with Schedule III authority may prescribe buprenorphine for OUD."
+    },
+    {
+      "id": "185",
+      "domain": "Federal Requirements",
+      "front": "Form 222 vs Form 41 — roles",
+      "back": "Form 222 (single-sheet paper or CSOS) orders or transfers Schedule I/II. Form 41 records destruction/disposal of controlled substances. 222 is not a destruction form; paper 222 is not the old triplicate."
+    },
+    {
+      "id": "186",
+      "domain": "Federal Requirements",
+      "front": "Federal C-II storage options",
+      "back": "Locked, substantially constructed cabinet, or dispersed through non-controlled stock so the C-II bottles are not obvious theft targets."
+    },
+    {
+      "id": "187",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "OTC product selection — who decides?",
+      "back": "The pharmacist. OTC recommendation is a PTCE pharmacist-intervention item (3.3). Techs gather information and hand off; they do not recommend therapy."
+    },
+    {
+      "id": "188",
+      "domain": "Patient Safety and Quality Assurance",
+      "front": "Vaccine adverse events are reported to…",
+      "back": "VAERS (Vaccine Adverse Event Reporting System). MedWatch is the general FDA drug/device program."
+    },
+    {
+      "id": "189",
+      "domain": "Federal Requirements",
+      "front": "P-listed pharmaceutical waste vs Form 41",
+      "back": "P-list (EPA/RCRA) covers acutely hazardous discarded drugs such as warfarin and nicotine. Form 41 is only for controlled-substance destruction — not the P-list waste stream."
+    },
+    {
+      "id": "190",
+      "domain": "Federal Requirements",
+      "front": "REMS knowledge area on the 2026 outline",
+      "back": "Federal 2.4 — restricted drug programs (pseudoephedrine/CMEA and REMS). Examples: iPLEDGE (isotretinoin), clozapine REMS (ANC), TIRF (fentanyl), lenalidomide/thalidomide pregnancy programs."
     }
   ]
 }

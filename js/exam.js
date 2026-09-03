@@ -41,8 +41,12 @@
     answeredCount: Util.el('#answeredCount')
   };
 
+  function featuredOnly(questions) {
+    return questions.filter(function (q) { return q.featured !== false; });
+  }
+
   function generateExamQuestions(questions) {
-    const byDomain = Util.groupBy(questions, 'domain');
+    const byDomain = Util.groupBy(featuredOnly(questions), 'domain');
     const distribution = BLUEPRINT_90;
 
     let examQuestions = [];
@@ -66,7 +70,7 @@
 
   // Scale the 90-question blueprint distribution to a shorter exam length
   function generateScaledExam(questions, total) {
-    const byDomain = Util.groupBy(questions, 'domain');
+    const byDomain = Util.groupBy(featuredOnly(questions), 'domain');
     const blueprint = BLUEPRINT_90;
 
     let running = 0;

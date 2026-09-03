@@ -168,6 +168,8 @@
     return key;
   }
 
+  function isFeatured(q) { return q.featured !== false; }
+
   function startQuiz() {
     const mode = modeSel.value;
     const domain = domainSel.value;
@@ -176,7 +178,7 @@
     let pool = allQuestions;
 
     if (mode === 'quick10') {
-      pool = Util.sample(allQuestions, 10);
+      pool = Util.sample(allQuestions.filter(isFeatured), 10);
     } else if (mode === 'missed') {
       const missedIds = new Set(Storage.getMissed());
       pool = allQuestions.filter(q => missedIds.has(q.id));
@@ -196,12 +198,14 @@
     } else if (mode === 'weak') {
       const acc = accuracyBy(q => q.domain);
       const weakDomain = domain !== 'All' ? domain : (weakestKey(acc) || null);
+      pool = pool.filter(isFeatured);
       pool = weakDomain ? pool.filter(q => q.domain === weakDomain) : pool;
       if (difficulty) pool = pool.filter(q => q.difficulty === difficulty);
       pool = Util.sample(pool, Math.min(parseInt(countInput.value) || 10, pool.length));
     } else if (mode === 'weaksub') {
       const acc = accuracyBy(q => q.subtopic);
       const weakSub = subtopic || weakestKey(acc);
+      pool = pool.filter(isFeatured);
       if (weakSub) pool = pool.filter(q => q.subtopic === weakSub);
       if (domain !== 'All') pool = pool.filter(q => q.domain === domain);
       if (difficulty) pool = pool.filter(q => q.difficulty === difficulty);

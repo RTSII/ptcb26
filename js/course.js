@@ -29,11 +29,30 @@
 
   function progress() { return Storage.getCourseProgress(); }
   function isDone(id) { return progress().completed.includes(id); }
+  function isOptional(lesson) { return !!(lesson && lesson.optional); }
+  function featuredOf(lessons) { return lessons.filter(function (l) { return !isOptional(l); }); }
 
   function overallPct() {
-    const total = flatLessons.length;
-    const done = progress().completed.length;
-    return total ? Math.round((done / total) * 100) : 0;
+    const featured = flatLessons.filter(function (x) { return !isOptional(x.lesson); });
+    const doneIds = new Set(progress().completed);
+    const done = featured.filter(function (x) { return doneIds.has(x.lesson.id); }).length;
+    return featured.length ? Math.round((done / featured.length) * 100) : 0;
+  }
+
+  function navNeighbor(flatIndex, dir) {
+    const currentOptional = isOptional(flatLessons[flatIndex].lesson);
+    for (let i = flatIndex + dir; i >= 0 && i < flatLessons.length; i += dir) {
+      if (currentOptional || !isOptional(flatLessons[i].lesson)) return flatLessons[i];
+    }
+    return null;
+  }
+
+  function lessonLinkHtml(l, done) {
+    const opt = isOptional(l);
+    const badge = opt ? '<span class="archive-badge">' + esc(l.badge || 'Not emphasized on 2026 PTCE') + '</span>' : '';
+    return '<a class="lesson-link' + (done ? ' done' : '') + (opt ? ' optional' : '') + '" href="course.html?lesson=' + encodeURIComponent(l.id) + '">' +
+      '<span class="lesson-check">' + (done ? '✓' : '○') + '</span>' +
+      '<span class="lesson-title">' + esc(l.title) + badge + '</span></a>';
   }
 
   function quizUrl(mod) {
@@ -45,32 +64,36 @@
     const p = progress();
     const done = new Set(p.completed);
     const pct = overallPct();
+    const featuredTotal = flatLessons.filter(function (x) { return !isOptional(x.lesson); }).length;
+    const featuredDone = flatLessons.filter(function (x) { return !isOptional(x.lesson) && done.has(x.lesson.id); }).length;
 
     let html = '<div class="course-overall">' +
-      '<div class="course-overall-head"><span>Course Progress</span><span>' + done.size + ' / ' + flatLessons.length + ' lessons (' + pct + '%)</span></div>' +
+      '<div class="course-overall-head"><span>Course Progress</span><span>' + featuredDone + ' / ' + featuredTotal + ' featured lessons (' + pct + '%)</span></div>' +
       '<div class="bar-track"><div class="bar-fill" style="width:' + pct + '%"></div></div>' +
       (p.lastLesson ? '<a class="btn gold" style="margin-top:12px;" href="course.html?lesson=' + encodeURIComponent(p.lastLesson) + '">Resume: ' + esc(lessonIndex.get(p.lastLesson).lesson.title) + '</a>' : '') +
       '</div>';
 
     html += course.modules.map(function (m) {
-      const total = m.lessons.length;
-      const completed = m.lessons.filter(l => done.has(l.id)).length;
-      const mpct = total ? Math.round((completed / total) * 100) : 0;
-      const lessons = m.lessons.map(function (l) {
-        const d = done.has(l.id);
-        return '<a class="lesson-link' + (d ? ' done' : '') + '" href="course.html?lesson=' + encodeURIComponent(l.id) + '">' +
-          '<span class="lesson-check">' + (d ? '✓' : '○') + '</span>' +
-          '<span class="lesson-title">' + esc(l.title) + '</span></a>';
+      const featured = featuredOf(m.lessons);
+      const optional = m.lessons.filter(isOptional);
+      const completed = featured.filter(l => done.has(l.id)).length;
+      const mpct = featured.length ? Math.round((completed / featured.length) * 100) : 0;
+      const lessons = featured.map(function (l) {
+        return lessonLinkHtml(l, done.has(l.id));
       }).join('');
+      const archive = optional.length
+        ? '<div class="archive-block"><div class="archive-label">Optional / not emphasized on 2026 PTCE</div>' +
+          optional.map(function (l) { return lessonLinkHtml(l, done.has(l.id)); }).join('') + '</div>'
+        : '';
       return '<details class="module' + (mpct === 100 ? ' module-complete' : '') + '">' +
         '<summary>' +
           '<span class="module-title">' + esc(m.title) + '</span>' +
-          '<span class="module-meta">' + completed + '/' + total + '</span>' +
+          '<span class="module-meta">' + completed + '/' + featured.length + '</span>' +
         '</summary>' +
         '<div class="module-body">' +
           '<p class="module-desc">' + esc(m.desc) + '</p>' +
           '<div class="bar-track module-bar"><div class="bar-fill" style="width:' + mpct + '%"></div></div>' +
-          '<div class="lesson-list">' + lessons + '</div>' +
+          '<div class="lesson-list">' + lessons + archive + '</div>' +
           '<a class="btn gold module-quiz" href="' + quizUrl(m) + '">Test Yourself: ' + esc(m.domain) + ' Quiz</a>' +
         '</div>' +
         '</details>';
@@ -86,14 +109,18 @@
     currentFlat = flatIndex;
     Storage.setLastLesson(lessonId);
 
-    const prev = flatLessons[flatIndex - 1];
-    const next = flatLessons[flatIndex + 1];
+    const prev = navNeighbor(flatIndex, -1);
+    const next = navNeighbor(flatIndex, 1);
     const done = isDone(lessonId);
+    const optBanner = isOptional(l)
+      ? '<div class="archive-banner">' + esc(l.badge || 'Not emphasized on 2026 PTCE') + ' — optional archive, skipped on the default study path.</div>'
+      : '';
 
     let html = '<div class="lesson-header">' +
       '<span class="crumb">' + esc(m.domain) + '</span>' +
       '<span class="lesson-domain">' + esc(m.title) + '</span>' +
       '</div>' +
+      optBanner +
       '<h2 class="lesson-title-main">' + esc(l.title) + '</h2>' +
       '<p class="lesson-intro">' + esc(l.intro) + '</p>' +
       '<div class="lesson-body"><ul>' +
