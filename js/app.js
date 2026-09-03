@@ -1,6 +1,7 @@
 // Shared utilities for PTCE 2026 Study App
 const Storage = (() => {
   const KEY = 'ptce2026_progress_v1';
+  const idStr = (id) => String(id);
   const defaults = () => ({
     flashcards: { known: [], unknown: [], reviewed: [] },
     // spaced-repetition box per card id: { [id]: { box: 1-5, due: ISO } }
@@ -23,13 +24,13 @@ const Storage = (() => {
       const data = JSON.parse(raw);
       return {
         flashcards: {
-          known: Array.isArray(data.flashcards?.known) ? data.flashcards.known : [],
-          unknown: Array.isArray(data.flashcards?.unknown) ? data.flashcards.unknown : [],
-          reviewed: Array.isArray(data.flashcards?.reviewed) ? data.flashcards.reviewed : []
+          known: Array.isArray(data.flashcards?.known) ? data.flashcards.known.map(idStr) : [],
+          unknown: Array.isArray(data.flashcards?.unknown) ? data.flashcards.unknown.map(idStr) : [],
+          reviewed: Array.isArray(data.flashcards?.reviewed) ? data.flashcards.reviewed.map(idStr) : []
         },
         cardState: (data.cardState && typeof data.cardState === 'object') ? data.cardState : {},
-        bookmarkedQuestions: Array.isArray(data.bookmarkedQuestions) ? data.bookmarkedQuestions : [],
-        bookmarkedCards: Array.isArray(data.bookmarkedCards) ? data.bookmarkedCards : [],
+        bookmarkedQuestions: Array.isArray(data.bookmarkedQuestions) ? data.bookmarkedQuestions.map(idStr) : [],
+        bookmarkedCards: Array.isArray(data.bookmarkedCards) ? data.bookmarkedCards.map(idStr) : [],
         missed: (data.missed && typeof data.missed === 'object') ? data.missed : {},
         course: {
           completed: Array.isArray(data.course?.completed) ? data.course.completed : [],
@@ -71,6 +72,7 @@ const Storage = (() => {
     write(d);
   };
   const setFlashStatus = (id, status) => {
+    id = idStr(id);
     const d = read();
     const { known, unknown } = d.flashcards;
     const inKnown = known.includes(id);
@@ -85,6 +87,7 @@ const Storage = (() => {
     write(d);
   };
   const markReviewed = (id) => {
+    id = idStr(id);
     const d = read();
     if (!d.flashcards.reviewed.includes(id)) {
       d.flashcards.reviewed.push(id);
@@ -93,6 +96,7 @@ const Storage = (() => {
   };
   // ---- Bookmarks ----
   const toggleBookmark = (kind, id) => {
+    id = idStr(id);
     const d = read();
     const key = kind === 'card' ? 'bookmarkedCards' : 'bookmarkedQuestions';
     const arr = d[key];
@@ -103,7 +107,7 @@ const Storage = (() => {
   };
   const isBookmarked = (kind, id) => {
     const d = read();
-    return (kind === 'card' ? d.bookmarkedCards : d.bookmarkedQuestions).includes(id);
+    return (kind === 'card' ? d.bookmarkedCards : d.bookmarkedQuestions).includes(idStr(id));
   };
   const getBookmarks = (kind) => {
     const d = read();
@@ -111,6 +115,7 @@ const Storage = (() => {
   };
   // ---- Missed questions ----
   const recordQuestionOutcome = (id, correct) => {
+    id = idStr(id);
     const d = read();
     if (correct) {
       delete d.missed[id];
@@ -126,6 +131,7 @@ const Storage = (() => {
   // ---- Spaced repetition (Leitner) ----
   const BOX_INTERVALS = [0, 1, 2, 4, 7, 15]; // days per box index 1..5
   const gradeCard = (id, knew) => {
+    id = idStr(id);
     const d = read();
     const s = d.cardState[id] || { box: 1, due: null };
     s.box = knew ? Math.min(5, s.box + 1) : 1;
@@ -145,7 +151,7 @@ const Storage = (() => {
   const dueCards = (allIds) => {
     const d = read();
     const now = Date.now();
-    return allIds.filter(id => {
+    return allIds.map(idStr).filter(id => {
       const s = d.cardState[id];
       if (!s) return true;                       // never studied
       if (d.flashcards.unknown.includes(id)) return true;

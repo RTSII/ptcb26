@@ -334,7 +334,7 @@
       "id": "q023",
       "domain": "Medications",
       "subtopic": "Antibiotics",
-      "question": "Which antibiotic requires the 'shake well' instruction and refrigeration after reconstitution, and is commonly dispensed as a pink suspension?",
+      "question": "Which antibiotic is commonly dispensed as a pink suspension that must be shaken well, and is usually refrigerated after reconstitution?",
       "options": [
         "Amoxicillin",
         "Cephalexin",
@@ -342,7 +342,7 @@
         "Ciprofloxacin"
       ],
       "answer": 0,
-      "rationale": "Amoxicillin oral suspension requires refrigeration after reconstitution (though it can be kept at room temperature for up to 14 days if needed) and must be shaken well before each dose. It is commonly dispensed as a pink, bubble-gum flavored suspension for pediatric use.",
+      "rationale": "Amoxicillin oral suspension is commonly a pink, bubble-gum flavored product that must be shaken well before each dose. After reconstitution it is often refrigerated; manufacturer labeling also allows room-temperature storage for up to 14 days if needed. Refrigeration is preferred storage, not an absolute requirement.",
       "difficulty": "easy"
     },
     {
@@ -963,7 +963,7 @@
     {
       "id": "q065",
       "domain": "Federal Requirements",
-      "subtopic": "USP Standards",
+      "subtopic": "PPPA",
       "question": "The Poison Prevention Packaging Act requires:",
       "options": [
         "Tamper-evident seals only",
@@ -972,7 +972,7 @@
         "Amber vials"
       ],
       "answer": 1,
-      "rationale": "The PPPA (1970) requires child-resistant packaging for most prescription and many OTC drugs; USP container standards define the performance testing for such packaging.",
+      "rationale": "The Poison Prevention Packaging Act (PPPA, 1970) requires child-resistant packaging for most prescription and many OTC drugs. Patients may request non-child-resistant containers. This is a federal packaging law, not a USP compounding or container chapter.",
       "difficulty": "medium"
     },
     {
@@ -2374,31 +2374,31 @@
       "id": "q159",
       "domain": "Order Entry and Processing",
       "subtopic": "Calculations",
-      "question": "A 1:1000 epinephrine solution contains how many mg per mL?",
+      "question": "A 1:10,000 epinephrine solution (typical crash-cart IV dilution) contains how many mg per mL?",
       "options": [
+        "0.01 mg/mL",
         "0.1 mg/mL",
         "1 mg/mL",
-        "10 mg/mL",
-        "100 mg/mL"
+        "10 mg/mL"
       ],
       "answer": 1,
-      "rationale": "1:1000 means 1 g per 1000 mL = 1 mg/mL.",
+      "rationale": "1:10,000 = 1 g per 10,000 mL = 1000 mg per 10,000 mL = 0.1 mg/mL. Distinguish from 1:1000 (1 mg/mL), the more concentrated IM/anaphylaxis strength.",
       "difficulty": "medium"
     },
     {
       "id": "q160",
       "domain": "Federal Requirements",
       "subtopic": "DEA Forms",
-      "question": "Which DEA form is used to order Schedule II controlled substances from a supplier?",
+      "question": "Which statement about DEA Form 222 is correct?",
       "options": [
-        "DEA Form 106",
-        "DEA Form 222",
-        "DEA Form 41",
-        "DEA Form 224"
+        "It is a triplicate paper form used to destroy Schedule II substances",
+        "It is used (single-sheet paper or electronic CSOS) to order Schedule I and II substances; destruction is documented on Form 41",
+        "It reports theft or significant loss of controlled substances",
+        "It is the pharmacy's DEA registration application"
       ],
       "answer": 1,
-      "rationale": "DEA Form 222 is the official triplicate form used to order, return, or dispose of Schedule II controlled substances.",
-      "difficulty": "easy"
+      "rationale": "Paper DEA Form 222 has been a single-sheet format since the triplicate form was discontinued around 2021; CSOS is the electronic equivalent. Form 222 is for ordering or transferring Schedule I and II substances, not disposal — destruction is recorded on DEA Form 41. Form 106 reports theft/loss; Form 224 is registration.",
+      "difficulty": "medium"
     },
     {
       "id": "q161",

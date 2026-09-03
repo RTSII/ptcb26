@@ -1,5 +1,15 @@
 # PTCE 2026 Study App - Integration Testing Report
 
+> **Addendum (September 3, 2026) — QA follow-ups after PR #1:**
+> - Chapter Test (`js/quiz.js` `startQuiz()`) now filters by selected subtopic, not only domain.
+> - Flashcard `id` values are all strings; bookmark/Leitner comparisons coerce to string.
+> - Content/copy: q065 retagged PPPA; q023 refrigeration wording softened; q159 differentiated
+>   from q127 (1:10,000 vs 1:1000); q160 differentiated from q060 and Form 222 rationale corrected
+>   (single-sheet, not triplicate; destruction is Form 41). Notes: X-waiver eliminated Dec 2022;
+>   CARA 30-day C-II partial fills; Form 222 single-sheet. Home quiz card copy no longer claims
+>   a timer or instant rationale. Service worker cache bumped to `ptce-2026-v4`.
+> - `node validate.js` is the no-framework smoke suite for the above.
+>
 > **Addendum (September 3, 2026) — Official January 6, 2026 outline alignment:**
 > - Runtime and docs now use the official PTCE Content Outline effective January 6, 2026
 >   (PTCB Job Analysis 2024): Medications **35%**, Patient Safety **23.75%**,
