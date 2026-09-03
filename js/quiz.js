@@ -206,6 +206,11 @@
       if (domain !== 'All') pool = pool.filter(q => q.domain === domain);
       if (difficulty) pool = pool.filter(q => q.difficulty === difficulty);
       pool = Util.sample(pool, Math.min(parseInt(countInput.value) || 10, pool.length));
+    } else if (mode === 'chapter') {
+      // Chapter Test: domain + selected subtopic (empty subtopic = all in domain)
+      if (domain !== 'All') pool = pool.filter(q => q.domain === domain);
+      if (subtopic) pool = pool.filter(q => q.subtopic === subtopic);
+      pool = Util.sample(pool, Math.min(parseInt(countInput.value) || 10, pool.length));
     } else { // custom
       if (domain !== 'All') pool = pool.filter(q => q.domain === domain);
       if (difficulty) pool = pool.filter(q => q.difficulty === difficulty);

@@ -45,13 +45,13 @@
   function applyFilter(f) {
     if (f === 'Due / New') {
       mode = 'due';
-      const ids = allCards.map(c => c.id);
-      const due = new Set(Storage.dueCards(ids));
-      cards = allCards.filter(c => due.has(c.id));
+      const ids = allCards.map(c => String(c.id));
+      const due = new Set(Storage.dueCards(ids).map(String));
+      cards = allCards.filter(c => due.has(String(c.id)));
     } else if (f === 'Bookmarked') {
       mode = 'bookmarked';
-      const bm = new Set(Storage.getBookmarks('card'));
-      cards = allCards.filter(c => bm.has(c.id));
+      const bm = new Set(Storage.getBookmarks('card').map(String));
+      cards = allCards.filter(c => bm.has(String(c.id)));
     } else if (f === 'All') {
       mode = 'all';
       cards = allCards.slice();
@@ -147,7 +147,11 @@
 
   Util.fetchJSON('data/flashcards.json')
     .then(function (data) {
-      allCards = data.cards || [];
+      allCards = (data.cards || []).map(function (c) {
+        var copy = Object.assign({}, c);
+        copy.id = String(c.id);
+        return copy;
+      });
       buildFilters();
       applyFilter('All');
     })

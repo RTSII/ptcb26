@@ -371,7 +371,7 @@
             "C-II: NO refills; Rx typically valid 30 days (state may vary).",
             "C-III–C-V: up to 5 refills within 6 months of written date.",
             "Non-controlled: per state law, commonly up to 1 year.",
-            "C-II partial fill: remainder within 72 hr (community) or 60 days (LTCF/terminally ill)."
+            "C-II partial fills: if the pharmacy cannot supply the full quantity, the remainder must be provided within 72 hours. Under CARA (2016), if the patient or prescriber requests a partial fill, remaining portions may be dispensed within 30 days of the written date. LTCF/terminally ill: remainder within 60 days."
           ]
         },
         {
@@ -438,12 +438,12 @@
         {
           "title": "DEA Forms",
           "items": [
-            "Form 222: order/transfer Schedule I & II substances (electronic = CSOS); triplicate, no alterations, ship within 60 days, keep copy 3 for 2 years.",
+            "Form 222: order/transfer Schedule I & II substances (paper is now single-sheet, not the old triplicate; electronic = CSOS). No alterations; unused executed forms expire in 60 days; keep records 2 years. Destruction/disposal is Form 41, not 222.",
             "Form 106: report theft or significant loss of controlled substances (within 1 business day).",
             "Form 41: record destruction/disposal of controlled substances.",
             "Form 224: pharmacy application for DEA registration (224a = renewal every 3 years).",
             "CSOS (authorized 2005): electronic ordering of C-I/C-II; requires DEA digital certificate.",
-            "DEA Form 222 — order, return, or dispose of Schedule II controlled substances.",
+            "DEA Form 222 — order or transfer Schedule I & II (single-sheet paper or CSOS); not for destruction.",
             "DEA Form 106 — report theft or significant loss of controlled substances.",
             "DEA Form 41 — record destruction/disposal of controlled substances.",
             "DEA Form 224 — pharmacy registration; renewed every 3 years."
@@ -458,12 +458,12 @@
             "OBRA-90 (effective 1993): offer to counsel + prospective DUR.",
             "HIPAA (1996; Privacy 2003, Security 2005): protects patient PHI.",
             "CMEA (2005): pseudoephedrine limits 3.6 g/day, 9 g/30 days; logbook + photo ID.",
-            "DATA 2000: office-based buprenorphine for OUD. DSCSA (2013) is now its own 2026 knowledge area (2.6) — see the DSCSA section.",
+            "The DATA 2000 X-waiver for office-based buprenorphine was eliminated in December 2022 (MAT Act). Any DEA-registered practitioner with Schedule III authority may prescribe buprenorphine for OUD; a separate X-waiver is no longer required. DSCSA (2013) is its own 2026 knowledge area (2.6) — see the DSCSA section.",
             "Biennial (every 2 years) controlled substance inventory required.",
             "CSOS — Controlled Substance Ordering System for electronic Schedule II orders.",
             "Controlled-substance prescription records must be maintained for at least 2 years.",
             "Schedule III-V prescriptions may be transferred one time only if refills remain.",
-            "C-II partial fills allowed when pharmacy cannot supply full quantity; remainder must be supplied within 72 hours."
+            "C-II partial fills: 72 hours when the pharmacy cannot supply the full quantity; 30 days from the written date when the patient or prescriber requests a partial under CARA (2016). LTCF/terminally ill: 60 days."
           ]
         },
         {
