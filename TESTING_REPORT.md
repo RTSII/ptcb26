@@ -1,5 +1,21 @@
 # PTCE 2026 Study App - Integration Testing Report
 
+> **Addendum (September 3, 2026) — Official January 6, 2026 outline alignment:**
+> - Runtime and docs now use the official PTCE Content Outline effective January 6, 2026
+>   (PTCB Job Analysis 2024): Medications **35%**, Patient Safety **23.75%**,
+>   Order Entry **22.50%**, Federal Requirements **18.75%**.
+> - Full 90-question practice exam draws **32 / 21 / 20 / 17** (was 36 / 24 / 19 / 11).
+>   `js/exam.js` `EXAM_WEIGHTS` + `BLUEPRINT_90` are the runtime source; home bars in
+>   `index.html` and domain `weight` fields in `data/notes.json` match.
+> - DSCSA pack added under Federal Requirements: **10 questions** (q181–q190),
+>   **8 flashcards** (164–171), a notes section, and course lesson `m12l4`.
+>   Bank is now 190 questions / 171 flashcards. Course is 12 modules / 40 lessons.
+> - Removed-from-2026-outline items were tagged, not deleted: alligation (q136,
+>   cards 47/109), dedicated nonsterile compounding procedure (q040 reframed to
+>   hygiene/cleaning; USP `<795>` IDs annotated), dedicated NTI-list notes/lesson.
+> - Historical checklists below still describe the pre-2026-weight verification
+>   (40 / 26.25 / 21.25 / 12.5). Treat this addendum as the current baseline.
+>
 > **Addendum (August 6, 2026):** This report predates the Stage 5 integration refactor
 > (shared `window.App` API, standardized domain names, rebuilt quiz/exam engines,
 > question-bank expansion to 152, and the synthwave × Matrix UI overhaul).
@@ -309,7 +325,7 @@ When resuming this project in a new chat, paste the following prompt to restore 
 Continue working on the PTCE 2026 Study App (ptcb26).
 - Repository root: c:\Users\rtsii\OneDrive\Desktop\PTCB26\ptcb26
 - Testing baseline: all 6 JS files pass node --check, all 3 JSON files validate, and localhost:8000 smoke test covers all 6 pages + quiz.html?mode=missed + quiz.html?mode=bookmarked + all assets.
-- Latest verified state: August 8, 2026 — content expanded to 180 questions and 163 flashcards; bookmarked question/card review routes added; desktop layout optimized for Windows PC Chrome; all other Stage 10 enhancements integrated.
+- Latest verified state: September 3, 2026 — official January 6, 2026 outline weights (35 / 23.75 / 22.50 / 18.75; exam 32/21/20/17); 190 questions (10 DSCSA) and 171 flashcards (8 DSCSA); course 12 modules / 40 lessons.
 - Remaining QA: pharmacist content validation (Stage 7) and iPhone Safari / accessibility testing (Stage 8).
 - When testing changes, add a new dated addendum to this file rather than overwriting the July 21, 2026 base report.
 - Do not add backend/framework dependencies; keep the project static and root-based.

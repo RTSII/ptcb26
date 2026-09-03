@@ -2,12 +2,20 @@
 (function () {
   const { Storage, Util, DOMAINS } = window.App;
 
+  // Official PTCE Content Outline effective January 6, 2026 (PTCB Job Analysis 2024)
   const EXAM_WEIGHTS = {
-    'Medications': 40,
-    'Patient Safety and Quality Assurance': 26.25,
-    'Order Entry and Processing': 21.25,
-    'Federal Requirements': 12.5
+    'Medications': 35,
+    'Patient Safety and Quality Assurance': 23.75,
+    'Order Entry and Processing': 22.5,
+    'Federal Requirements': 18.75
   };
+
+  const BLUEPRINT_90 = [
+    { domain: 'Medications', count: 32 },
+    { domain: 'Patient Safety and Quality Assurance', count: 21 },
+    { domain: 'Order Entry and Processing', count: 20 },
+    { domain: 'Federal Requirements', count: 17 }
+  ];
 
   let bank = [];
   let exam = [];        // { q, choice }
@@ -35,12 +43,7 @@
 
   function generateExamQuestions(questions) {
     const byDomain = Util.groupBy(questions, 'domain');
-    const distribution = [
-      { domain: 'Medications', count: 36 },
-      { domain: 'Patient Safety and Quality Assurance', count: 24 },
-      { domain: 'Order Entry and Processing', count: 19 },
-      { domain: 'Federal Requirements', count: 11 }
-    ];
+    const distribution = BLUEPRINT_90;
 
     let examQuestions = [];
     let warnings = [];
@@ -64,12 +67,7 @@
   // Scale the 90-question blueprint distribution to a shorter exam length
   function generateScaledExam(questions, total) {
     const byDomain = Util.groupBy(questions, 'domain');
-    const blueprint = [
-      { domain: 'Medications', count: 36 },
-      { domain: 'Patient Safety and Quality Assurance', count: 24 },
-      { domain: 'Order Entry and Processing', count: 19 },
-      { domain: 'Federal Requirements', count: 11 }
-    ];
+    const blueprint = BLUEPRINT_90;
 
     let running = 0;
     const distribution = blueprint.map(({ domain, count }) => {

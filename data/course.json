@@ -134,7 +134,7 @@
       "id": "m2",
       "domain": "Medications",
       "title": "High-Alert, LASA & Special-Population Medications",
-      "desc": "High-alert drugs, look-alike/sound-alike pairs, narrow-therapeutic-index drugs, and pregnancy/teratogen rules.",
+      "desc": "High-alert drugs, look-alike/sound-alike pairs, monitoring-intensive agents (former dedicated NTI list), and pregnancy/teratogen rules.",
       "quiz": {
         "domain": "Medications",
         "count": 12
@@ -176,7 +176,7 @@
         {
           "id": "m2l3",
           "title": "Narrow Therapeutic Index & Monitoring",
-          "intro": "NTI drugs have a small margin between therapeutic and toxic doses and usually require blood-level monitoring.",
+          "intro": "A dedicated NTI-list knowledge area (old 1.8) was removed from the January 2026 outline. These agents still matter as high-alert / monitoring drugs, not as a standalone roster to memorize.",
           "bullets": [
             "Digoxin (Lanoxin): cardiac glycoside for HF/AFib — toxicity shows nausea, vomiting, and yellow-green visual halos; check level and potassium.",
             "Warfarin: monitor INR; keep dietary vitamin K intake consistent.",
@@ -367,9 +367,9 @@
         {
           "id": "m5l1",
           "title": "USP Standards Overview",
-          "intro": "The three USP chapters that govern compounding are heavily tested.",
+          "intro": "Know which USP chapter applies. Dedicated nonsterile compounding procedures (old 1.9 / 4.1) were removed from the January 2026 outline — do not treat <795> technique or BUD tables as core tested skills.",
           "bullets": [
-            "USP <795>: NON-STERILE compounding standards — oral suspensions, topical creams, capsules, suppositories.",
+            "USP <795>: NON-STERILE compounding chapter (oral suspensions, topicals, capsules). Removed as a dedicated 2026 procedure skill — chapter ID only.",
             "USP <797>: STERILE compounding standards — IV admixtures, injections, ophthalmics; covers cleanroom design, garbing, and beyond-use dates (BUDs).",
             "USP <800>: safe HANDLING of HAZARDOUS DRUGS across both sterile and non-sterile settings — PPE, containment (C-PEC/C-SEC), and personnel protection.",
             "Beyond-use date (BUD): the date after which a COMPOUNDED preparation must NOT be used — assigned per USP limits and stability data, NOT the manufacturer expiration date."
@@ -503,7 +503,7 @@
       "id": "m8",
       "domain": "Order Entry and Processing",
       "title": "Pharmacy Calculations",
-      "desc": "Conversions, days supply, ratio/percent strength, alligation, and IV flow rates.",
+      "desc": "Conversions, days supply, ratio/percent strength, dilution, and IV flow rates. Alligation is not a 2026 tested skill.",
       "quiz": {
         "domain": "Order Entry and Processing",
         "count": 15
@@ -550,19 +550,19 @@
         {
           "id": "m8l3",
           "title": "Ratio/Percent Strength, Dilution & Alligation",
-          "intro": "Concentration expressions and mixing problems appear regularly on the PTCE.",
+          "intro": "Concentration expressions and dilution still appear on the PTCE. Alligation was removed from the January 2026 calculation list — do not treat it as a tested skill.",
           "bullets": [
             "Percent strength = grams per 100 mL. 0.9% NaCl = 0.9 g per 100 mL; in 500 mL that is 4.5 g. D5W = 5 g dextrose per 100 mL (50 g per 1,000 mL).",
             "Ratio strength: 1:1000 = 1 g per 1000 mL = 1 mg/mL (epinephrine).",
             "Percent ↔ decimal: divide by 100 (0.75% = 0.0075). mg per gram = %×10 (0.25% cream = 2.5 mg/g).",
-            "Alligation (mixing two strengths to a target): parts of HIGH = target − low; parts of LOW = high − target. To make 50% from 70% + 20%: 30 parts of 70%, 20 parts of 20% → ratio 3:2.",
-            "Dilution: C1V1 = C2V2 keeps the amount of drug constant when changing concentration/volume."
+            "Alligation (REMOVED from the January 2026 outline): historical parts method for mixing two strengths. Do not practice it as a 2026 tested skill.",
+            "Dilution: C1V1 = C2V2 keeps the amount of drug constant when changing concentration/volume — this remains in scope."
           ],
           "keyPoints": [
             "Percent = g/100 mL",
             "1:1000 = 1 mg/mL",
-            "Alligation: high=target−low, low=high−target",
-            "C1V1 = C2V2"
+            "Alligation removed from 2026 outline",
+            "C1V1 = C2V2 (still tested)"
           ]
         },
         {
@@ -781,10 +781,10 @@
       "id": "m12",
       "domain": "Federal Requirements",
       "title": "Agencies, Recalls & Practice Regulations",
-      "desc": "The regulatory agencies, recall procedures, and laws that govern the pharmacy workplace.",
+      "desc": "Regulatory agencies, expanded FDA recall requirements (2.5), DSCSA product tracing (2.6), and workplace practice rules.",
       "quiz": {
         "domain": "Federal Requirements",
-        "count": 8
+        "count": 10
       },
       "lessons": [
         {
@@ -838,6 +838,25 @@
             "Tech ≠ counseling/final DUR",
             "Pharmacist = final check",
             "OSHA/SDS = workplace chemical safety"
+          ]
+        },
+        {
+          "id": "m12l4",
+          "title": "DSCSA Essentials for Technicians",
+          "intro": "DSCSA (knowledge area 2.6, added on the January 6, 2026 outline) is the federal track-and-trace law for prescription drugs. Learn durable duties — serialization, authorized partners, suspect vs illegitimate handling, and 6-year records — not rapidly changing exemption end-dates.",
+          "bullets": [
+            "Product identifier: each package carries a unique serialized ID (usually a 2D data matrix) with NDC, serial number, lot number, and expiration date.",
+            "Electronic exchange: trading partners send Transaction Information (TI: who/what/when/lot) and a Transaction Statement (TS: seller attests it is authorized and did not knowingly ship suspect/illegitimate product). Transaction History (TH) was the earlier lot-level pedigree; package-level tracing uses TI + TS.",
+            "Authorized trading partners: licensed/registered manufacturers, wholesale distributors, dispensers (pharmacies), and repackagers. Accept product only from authorized partners.",
+            "Suspect = reason to believe the product may be counterfeit, diverted, stolen, intentionally adulterated, or unfit. Illegitimate = credible evidence that it is. First action: do not dispense; quarantine and notify the pharmacist.",
+            "If confirmed illegitimate: notify FDA (Form FDA 3911) and immediate trading partners. Keep DSCSA transaction records for 6 years (not the 2-year CSA clock).",
+            "FDA used phased implementation milestones for electronic package-level tracing. Exam focus is the technician duties above, not a specific exemption sunset date."
+          ],
+          "keyPoints": [
+            "Identifier = NDC + serial + lot + expiry",
+            "Electronic TI + TS (not a paper TH)",
+            "Buy only from authorized partners",
+            "Quarantine suspect; 6-year records"
           ]
         }
       ]

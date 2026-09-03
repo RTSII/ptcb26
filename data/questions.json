@@ -589,15 +589,15 @@
       "id": "q040",
       "domain": "Patient Safety and Quality Assurance",
       "subtopic": "Infection Control",
-      "question": "Which action helps prevent contamination during non-sterile compounding?",
+      "question": "Which action best follows hygiene and cleaning standards at the dispensing counter?",
       "options": [
-        "Skipping hand hygiene",
-        "Cleaning the counter and equipment before use",
-        "Using expired ingredients",
-        "Reusing dirty spatulas"
+        "Skipping hand hygiene between patients",
+        "Cleaning the counting tray and counter before use",
+        "Using expired cleaning solution on purpose",
+        "Reusing a visibly dirty spatula to count tablets"
       ],
       "answer": 1,
-      "rationale": "Cleaning surfaces/equipment and proper hand hygiene reduce contamination risk during compounding.",
+      "rationale": "Patient Safety knowledge area 3.6 tests hygiene and cleaning (handwashing, trays, counters, equipment) — not nonsterile compounding procedures, which were removed from the January 2026 outline.",
       "difficulty": "easy"
     },
     {
@@ -1497,7 +1497,7 @@
         "Therapeutic response"
       ],
       "answer": 1,
-      "rationale": "Digoxin has a narrow therapeutic index; visual disturbances (yellow-green halos), nausea, and arrhythmias signal toxicity.",
+      "rationale": "Yellow-green visual halos, nausea, and arrhythmias signal digoxin toxicity (a high-alert / monitoring issue). A standalone NTI-list knowledge area was removed from the January 2026 outline; toxicity recognition remains in-scope under medications and safety.",
       "difficulty": "medium"
     },
     {
@@ -1572,7 +1572,7 @@
         "Vaccine administration"
       ],
       "answer": 0,
-      "rationale": "USP <795> covers non-sterile compounding such as oral suspensions, topical creams, and capsules.",
+      "rationale": "USP <795> is the non-sterile compounding chapter. Dedicated nonsterile compounding procedures were removed from the January 2026 PTCE outline; this item is chapter identification only, not a compounding-skill drill.",
       "difficulty": "easy"
     },
     {
@@ -2037,7 +2037,7 @@
         "5:2"
       ],
       "answer": 2,
-      "rationale": "Alligation: 50−20 = 30 parts of 70%; 70−50 = 20 parts of 20%; ratio 30:20 = 3:2.",
+      "rationale": "Alligation (50−20 = 30 parts of 70%; 70−50 = 20 parts of 20%; ratio 3:2) was removed from the January 2026 PTCE calculation list. Retained only as a tagged review item — not a 2026 tested skill. Prefer C1V1 = C2V2 for dilution.",
       "difficulty": "hard"
     },
     {
@@ -2698,6 +2698,156 @@
       ],
       "answer": 0,
       "rationale": "hydrALAZINE and hydrOXYzine are classic LASA (look-alike/sound-alike) drugs differentiated with Tall Man lettering.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q181",
+      "domain": "Federal Requirements",
+      "subtopic": "DSCSA",
+      "question": "Under the Drug Supply Chain Security Act (DSCSA), a serialized product identifier on a prescription-drug package typically includes which set of data?",
+      "options": [
+        "NDC, serial number, lot number, and expiration date",
+        "DEA number, NPI, and patient date of birth",
+        "BIN, PCN, and group number",
+        "Prescriber NPI and pharmacy NCPDP number only"
+      ],
+      "answer": 0,
+      "rationale": "DSCSA product identifiers (usually a 2D data matrix) encode the NDC, a unique serial number, lot number, and expiration date so each package can be traced.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q182",
+      "domain": "Federal Requirements",
+      "subtopic": "DSCSA",
+      "question": "At the package-level interoperable tracing stage of DSCSA, authorized trading partners exchange which records electronically?",
+      "options": [
+        "Only a paper pedigree listing every prior owner",
+        "Transaction Information (TI) and a Transaction Statement (TS)",
+        "DEA Form 222 and Form 106",
+        "A Medication Guide and PPI"
+      ],
+      "answer": 1,
+      "rationale": "Current FDA DSCSA framing uses electronic exchange of Transaction Information (who/what/when/lot) plus a Transaction Statement (the seller attests it is authorized and did not knowingly ship suspect or illegitimate product). A separate Transaction History (TH) document was the earlier lot-level model.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q183",
+      "domain": "Federal Requirements",
+      "subtopic": "DSCSA",
+      "question": "Which parties are authorized trading partners under DSCSA?",
+      "options": [
+        "Only the FDA and DEA",
+        "Any cash-paying patient who picks up a prescription",
+        "Licensed/registered manufacturers, wholesale distributors, dispensers (pharmacies), and repackagers",
+        "Only hospital purchasing groups"
+      ],
+      "answer": 2,
+      "rationale": "DSCSA authorized trading partners are manufacturers, wholesale distributors, dispensers (including pharmacies), and repackagers that hold the required federal/state licensure or registration.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q184",
+      "domain": "Federal Requirements",
+      "subtopic": "DSCSA",
+      "question": "A community pharmacy technician is offered a shipment of brand tablets from an unlicensed internet seller at a steep discount. Under DSCSA, the correct action is to:",
+      "options": [
+        "Accept the shipment if the bottles look sealed",
+        "Accept it only if the pharmacist later verifies the NDC",
+        "Refuse the product — dispensers may accept prescription drugs only from authorized trading partners",
+        "Accept it and report it on DEA Form 41"
+      ],
+      "answer": 2,
+      "rationale": "Dispensers may accept DSCSA-covered product only from authorized trading partners. An unlicensed seller is not authorized; do not take the product into inventory.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q185",
+      "domain": "Federal Requirements",
+      "subtopic": "DSCSA",
+      "question": "How does DSCSA distinguish a suspect product from an illegitimate product?",
+      "options": [
+        "Suspect means expired; illegitimate means recalled",
+        "Suspect means there is reason to believe the product may be counterfeit, diverted, stolen, or unfit; illegitimate means there is credible evidence that it is",
+        "Suspect applies only to controlled substances; illegitimate applies only to OTCs",
+        "The terms are interchangeable and have no legal difference"
+      ],
+      "answer": 1,
+      "rationale": "Suspect = reason to believe the product may be counterfeit, diverted, stolen, intentionally adulterated, or otherwise unfit. Illegitimate = credible evidence confirming that status. Quarantine starts at the suspect stage.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q186",
+      "domain": "Federal Requirements",
+      "subtopic": "DSCSA",
+      "question": "A technician notices a bottle whose 2D barcode will not scan and whose lot/serial data do not match the invoice. The first technician-level DSCSA action is to:",
+      "options": [
+        "Dispense it if the tablet imprint looks correct",
+        "Return it to stock and wait for the next inventory",
+        "Quarantine/segregate the product, do not dispense it, and notify the pharmacist so it can be investigated as suspect",
+        "Destroy it immediately in the regular trash"
+      ],
+      "answer": 2,
+      "rationale": "Identifier mismatches are a classic suspect-product trigger. Do not dispense. Quarantine the package, notify the pharmacist, and investigate. Destruction or FDA notification comes after the investigation, not as the first step.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q187",
+      "domain": "Federal Requirements",
+      "subtopic": "DSCSA",
+      "question": "How long must a dispenser retain DSCSA transaction records (TI/TS and related tracing records)?",
+      "options": [
+        "90 days",
+        "1 year",
+        "2 years",
+        "6 years"
+      ],
+      "answer": 3,
+      "rationale": "DSCSA requires trading partners, including dispensers, to maintain transaction records for 6 years. Do not confuse this with the federal 2-year controlled-substance recordkeeping period.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q188",
+      "domain": "Federal Requirements",
+      "subtopic": "DSCSA",
+      "question": "After a pharmacy confirms that a quarantined bottle is illegitimate, which notification is required under DSCSA?",
+      "options": [
+        "Notify only the state board, using DEA Form 222",
+        "Notify FDA (Form FDA 3911) and immediate trading partners",
+        "Notify CMS using a DUR reject code",
+        "No notification is required if the bottle was never dispensed"
+      ],
+      "answer": 1,
+      "rationale": "Confirmed illegitimate product must be reported to FDA (Form FDA 3911) and to immediate trading partners so the supply chain can be traced. Not dispensing the bottle does not remove the notification duty.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "q189",
+      "domain": "Federal Requirements",
+      "subtopic": "DSCSA",
+      "question": "What is the primary purpose of DSCSA product serialization?",
+      "options": [
+        "To replace the NDC system for insurance billing",
+        "To let each package be uniquely identified and traced through the supply chain",
+        "To set beyond-use dates for compounded preparations",
+        "To calculate child-resistant packaging test scores"
+      ],
+      "answer": 1,
+      "rationale": "Serialization assigns a unique identifier to each package so trading partners can verify and trace product through the supply chain and support recall or suspect-product investigations. It does not replace the NDC for billing.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "q190",
+      "domain": "Federal Requirements",
+      "subtopic": "DSCSA",
+      "question": "A wholesaler’s Transaction Statement (TS) under DSCSA is best described as:",
+      "options": [
+        "A patient counseling leaflet required by OBRA-90",
+        "The seller’s attestation that it is an authorized trading partner and did not knowingly ship suspect or illegitimate product",
+        "A biennial controlled-substance inventory",
+        "An Orange Book therapeutic-equivalence code"
+      ],
+      "answer": 1,
+      "rationale": "The TS is the seller’s electronic attestation: it is authorized, received the product from an authorized partner, and did not knowingly provide suspect or illegitimate product. TI carries the product/lot/party facts; TS is the compliance statement.",
       "difficulty": "medium"
     }
   ]
