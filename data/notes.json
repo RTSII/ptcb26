@@ -2,8 +2,8 @@
   "domains": [
     {
       "domain": "Medications",
-      "weight": "40%",
-      "summary": "The largest domain on the PTCE 2026. Focus on brand/generic pairs, drug classifications, mechanisms of action, indications, side effects, interactions, contraindications, insulin types, storage, and look-alike/sound-alike (LASA) drugs.",
+      "weight": "35%",
+      "summary": "The largest domain on the PTCE (35% as of the January 6, 2026 outline). Focus on brand/generic pairs, drug classifications, mechanisms of action, indications, side effects, interactions, contraindications, insulin types, storage, and look-alike/sound-alike (LASA) drugs. Dedicated NTI-list items are no longer a standalone knowledge area.",
       "sections": [
         {
           "title": "Top Drug Classes & Suffixes",
@@ -156,8 +156,9 @@
         {
           "title": "Narrow Therapeutic Index (NTI) Drugs",
           "items": [
-            "warfarin, digoxin, lithium, phenytoin, theophylline, levothyroxine, carbamazepine, valproic acid, tacrolimus, cyclosporine, aminoglycosides, vancomycin.",
-            "Require therapeutic drug monitoring; substitution caution."
+            "Removed as a dedicated PTCE knowledge area on the January 6, 2026 outline (old 1.8). Still useful as high-alert / monitoring context, not as a standalone NTI-list drill.",
+            "Classic examples: warfarin, digoxin, lithium, phenytoin, theophylline, levothyroxine, carbamazepine, valproic acid, tacrolimus, cyclosporine, aminoglycosides, vancomycin.",
+            "These agents often need therapeutic drug monitoring; treat them as high-alert rather than memorizing a standalone NTI roster."
           ]
         },
         {
@@ -207,8 +208,8 @@
     },
     {
       "domain": "Patient Safety and Quality Assurance",
-      "weight": "26.25%",
-      "summary": "Patient Safety and Quality Assurance. Covers error prevention, high-alert meds, ISMP error-prone abbreviations, NDC format, USP compounding standards, hygiene, and reporting.",
+      "weight": "23.75%",
+      "summary": "Patient Safety and Quality Assurance (23.75% as of the January 6, 2026 outline). Covers error prevention, high-alert meds, ISMP error-prone abbreviations, NDC format, hygiene, reporting, and technician-relevant USP/hazardous-drug handling. Dedicated nonsterile compounding procedures are no longer a core knowledge area.",
       "sections": [
         {
           "title": "Error Prevention Basics",
@@ -254,7 +255,7 @@
         {
           "title": "USP Compounding Standards (effective Nov 1, 2023)",
           "items": [
-            "USP <795> non-sterile: BUDs — aqueous oral ≤14 days refrigerated, topical ≤30 days, non-aqueous ≤90 days, solids ≤180 days.",
+            "USP <795> (non-sterile compounding chapter): dedicated nonsterile compounding procedures were removed from the January 2026 PTCE outline — do not treat BUD tables or compounding technique as core tested skills.",
             "USP <797> sterile: Category 1 (ISO 5, short BUD) vs Category 2 (ISO 7 buffer + ISO 8 ante).",
             "PECs: LAFW/CAI for non-hazardous (ISO 5); BSC/CACI for hazardous.",
             "USP <800> hazardous drugs (effective Dec 1, 2023): negative-pressure room, CSTDs, annual training, spill kits.",
@@ -304,15 +305,15 @@
             "NIOSH publishes the List of Hazardous Drugs in Healthcare Settings for safe handling.",
             "USP <797> — standards for compounding sterile preparations.",
             "USP <800> — standards for handling hazardous drugs.",
-            "USP <795> — standards for non-sterile compounding."
+            "USP <795> — non-sterile compounding chapter (not a dedicated 2026 PTCE procedure skill)."
           ]
         }
       ]
     },
     {
       "domain": "Order Entry and Processing",
-      "weight": "21.25%",
-      "summary": "Order Entry and Processing. Sig code interpretation, pharmacy calculations, days supply, conversions, prescription intake, refill rules, and insurance processing.",
+      "weight": "22.50%",
+      "summary": "Order Entry and Processing (22.50% as of the January 6, 2026 outline). Sig code interpretation, pharmacy calculations, days supply, conversions, prescription intake, refill rules, and insurance processing. Alligation is not a tested calculation skill on the 2026 outline.",
       "sections": [
         {
           "title": "Common Sig Codes",
@@ -343,7 +344,7 @@
             "Dilution: C1V1 = C2V2.",
             "IV flow rate (mL/hr) = total volume ÷ total time (hr).",
             "Drops/min = (volume × drop factor) ÷ time in minutes.",
-            "Alligation: parts method for mixing two strengths to an intermediate strength.",
+            "Alligation (mixing two strengths to an intermediate): removed from the January 2026 PTCE calculation list — not a tested skill.",
             "Powder volume = final volume − diluent added.",
             "Dose by weight = mg/kg × weight (kg).",
             "Dilution: C1V1 = C2V2 (use the same concentration units on both sides).",
@@ -397,11 +398,11 @@
             "Concentration: ratio 1:1000 = 1 g/1000 mL = 1 mg/mL. Percent = g per 100 mL (0.9% = 0.9 g/100 mL).",
             "Percent to decimal: divide by 100 (0.75% = 0.0075). mg per g = %×10 (0.25% cream = 2.5 mg/g).",
             "Weight-based dose: mg/kg/day × weight in kg. Convert lb→kg by dividing by 2.2.",
-            "Alligation: parts of high = target − low; parts of low = high − target (e.g., 70% + 20% → 50% is 3:2).",
+            "Alligation (removed from the January 2026 outline): parts of high = target − low; parts of low = high − target. Review only if needed for practice, not as a 2026 tested skill.",
             "IV flow rate: gtt/min = (mL ÷ minutes) × drop factor; mL/hr = total volume ÷ hours.",
             "Temperature: °F = (°C × 9/5) + 32; °C = (°F − 32) × 5/9.",
             "Days supply: tablets qty ÷ per-day; insulin (mL × 100) ÷ units/day; drops/ sprays multiply mL × 20 (or actuations) ÷ per-day; round down for billing.",
-            "Alligation: used to mix two solutions of different strengths to obtain a desired intermediate strength.",
+            "Alligation is not on the January 2026 PTCE calculation list; use C1V1 = C2V2 for dilution/concentration instead.",
             "Percentage strength: % w/v = g/100 mL; % v/v = mL/100 mL; % w/w = g/100 g.",
             "Ratio strength: 1:X means 1 g (or mL) per X mL total solution."
           ]
@@ -420,8 +421,8 @@
     },
     {
       "domain": "Federal Requirements",
-      "weight": "12.5%",
-      "summary": "Federal Requirements. DEA controlled substance schedules, DEA forms, refill rules, key laws (CSA, HIPAA, OBRA-90, PPPA, CMEA, DSCSA), and DEA number verification.",
+      "weight": "18.75%",
+      "summary": "Federal Requirements (18.75% as of the January 6, 2026 outline). DEA schedules and forms, refill rules, key laws (CSA, HIPAA, OBRA-90, PPPA, CMEA), expanded FDA recall requirements (2.5), and DSCSA product tracing (2.6).",
       "sections": [
         {
           "title": "DEA Controlled Substance Schedules",
@@ -457,7 +458,7 @@
             "OBRA-90 (effective 1993): offer to counsel + prospective DUR.",
             "HIPAA (1996; Privacy 2003, Security 2005): protects patient PHI.",
             "CMEA (2005): pseudoephedrine limits 3.6 g/day, 9 g/30 days; logbook + photo ID.",
-            "DATA 2000: office-based buprenorphine for OUD; DSCSA (2013): track-and-trace (full enforcement Nov 2024).",
+            "DATA 2000: office-based buprenorphine for OUD. DSCSA (2013) is now its own 2026 knowledge area (2.6) — see the DSCSA section.",
             "Biennial (every 2 years) controlled substance inventory required.",
             "CSOS — Controlled Substance Ordering System for electronic Schedule II orders.",
             "Controlled-substance prescription records must be maintained for at least 2 years.",
@@ -491,12 +492,27 @@
           ]
         },
         {
-          "title": "Recalls & Orange Book",
+          "title": "FDA Medication Recalls (expanded 2.5)",
           "items": [
-            "FDA recalls: Class I (serious/death), Class II (temporary/reversible), Class III (minor/labeling).",
+            "Recall classes: Class I = reasonable probability of serious harm or death; Class II = temporary/reversible harm or remote serious harm; Class III = not likely to cause harm (often labeling/packaging).",
+            "Recalls may cover medications, devices, supplies, and dietary supplements — identify by NDC, lot, and expiration, then quarantine affected stock.",
+            "A manufacturer or the FDA may initiate a recall; pharmacy action is the same: pull, quarantine, document, and follow the recall notice for returns/patient notification.",
+            "Market withdrawal is not a recall — the firm removes a product for a minor violation that would not be subject to legal action (e.g., a tamper-evident issue that is not a safety recall).",
             "Orange Book codes: A/AB = therapeutically equivalent (substitutable); B = not equivalent.",
             "NPI: 10-digit provider ID (effective 2007); required on claims; does NOT replace DEA number.",
             "Rule of thumb: always follow the STRICTER of state vs federal law."
+          ]
+        },
+        {
+          "title": "DSCSA — Drug Supply Chain Security Act (2.6)",
+          "items": [
+            "DSCSA (2013, Title II of DQSA) is knowledge area 2.6 on the January 2026 outline: product tracing, handling, and records for recall and investigation of suspect/illegitimate product.",
+            "Serialization: each package carries a unique product identifier (usually a 2D data matrix) with NDC, serial number, lot number, and expiration date.",
+            "Trading partners exchange Transaction Information (TI) and a Transaction Statement (TS) electronically. Transaction History (TH) was the earlier lot-level paper/electronic statement of prior owners; package-level interoperable tracing uses electronic TI + TS rather than a separate TH document.",
+            "Authorized trading partners: manufacturers, wholesale distributors, dispensers (pharmacies), and repackagers that are appropriately licensed/registered. Dispensers may accept product only from authorized partners.",
+            "Suspect product: reason to believe it may be counterfeit, diverted, stolen, intentionally adulterated, or otherwise unfit. Illegitimate product: credible evidence that it is one of those things.",
+            "Technician action on suspect product: do not dispense; quarantine/segregate; notify the pharmacist; investigate and, if confirmed illegitimate, notify FDA (Form FDA 3911) and immediate trading partners.",
+            "Keep DSCSA transaction records for 6 years. FDA used phased implementation milestones for electronic package-level tracing; learn the durable duties above rather than a specific exemption end-date."
           ]
         },
         {

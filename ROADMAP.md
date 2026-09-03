@@ -49,11 +49,13 @@ The completed app should provide:
 
 | Domain | Weight | 90-Question Target |
 |---|---:|---:|
-| Medications | 40% | 36 |
-| Patient Safety and Quality Assurance | 26.25% | 24 |
-| Order Entry and Processing | 21.25% | 19 |
-| Federal Requirements | 12.5% | 11 |
+| Medications | 35% | 32 |
+| Patient Safety and Quality Assurance | 23.75% | 21 |
+| Order Entry and Processing | 22.50% | 20 |
+| Federal Requirements | 18.75% | 17 |
 | **Total** | **100%** | **90** |
+
+Official PTCE Content Outline effective January 6, 2026 (PTCB Job Analysis 2024). Added: DSCSA (2.6) and expanded FDA recalls (2.5). Removed from the tested core: dedicated nonsterile compounding procedures, alligation, and a dedicated NTI-list knowledge area.
 
 ## Current Repository Structure
 
@@ -91,12 +93,13 @@ Stages 1–4: Complete
 Stage 5: Integration refactor complete (shared window.App API, standardized domain
          names across all modules and data, rebuilt quiz/exam engines);
          re-verified via localhost and a 69-check jsdom functional harness
-Stage 6: Question-bank expansion complete — 180 of 180 questions
+Stage 6: Question-bank expansion complete — 190 validated questions (incl. DSCSA pack)
 Stage 6B: UI overhaul — synthwave × Matrix dark theme complete; desktop layout optimized for PC Chrome
 Stage 6C: Content expansion complete — flashcards 133 → 163, notes expanded with additional
           calculation, federal, and safety bullets across all four domains
-Stage 6D: Study course complete — 12 modules / 39 lessons covering every domain; course
-          progress tracked; lessons deep-link into domain-filtered quizzes
+Stage 6D: Study course complete — 12 modules / 40 lessons covering every domain
+          (includes DSCSA lesson m12l4); course progress tracked; lessons deep-link
+          into domain-filtered quizzes
 Stage 7: Content validation — active (pharmacist review pending)
 Stage 8: Mobile polish and initial release — pending iPhone Safari + accessibility QA
 Stage 10: Optional enhancements integrated — missed/bookmarked review, weak-area quizzes,
@@ -198,7 +201,7 @@ Initial version complete.
 
 Complete. The question bank holds 152 unique, validated questions (q001–q152): Medications 60, Patient Safety and Quality Assurance 38, Order Entry and Processing 38, Federal Requirements 16 (~40/25/25/10 distribution).
 
-A full 90-question practice exam now draws entirely unique questions in the official 36/24/19/11 blueprint distribution (verified by automated test).
+A full 90-question practice exam now draws entirely unique questions in the official January 2026 32/21/20/17 blueprint distribution.
 
 ## Stage 4 — Initial Application Implementation
 
@@ -384,7 +387,7 @@ Checklist:
 
 - [ ] Exam page fetches `data/questions.json`.
 - [ ] Exam selection uses the official domain weights.
-- [ ] Full target distribution is 36/24/19/11.
+- [ ] Full target distribution is 32/21/20/17.
 - [ ] Selection does not unintentionally duplicate questions.
 - [ ] Navigation preserves selected answers.
 - [ ] Unanswered questions are handled clearly.
@@ -462,10 +465,10 @@ For a 90-question minimum bank:
 
 | Domain | Minimum Target |
 |---|---:|
-| Medications | 36 |
-| Patient Safety and Quality Assurance | 24 |
-| Order Entry and Processing | 19 |
-| Federal Requirements | 11 |
+| Medications | 32 |
+| Patient Safety and Quality Assurance | 21 |
+| Order Entry and Processing | 20 |
+| Federal Requirements | 17 |
 | **Total** | **90** |
 
 The actual source bank may contain more than these numbers while the exam selector draws the weighted distribution.
@@ -510,7 +513,7 @@ The actual source bank may contain more than these numbers while the exam select
 - [ ] Quantity calculations
 - [ ] Dilution calculations
 - [ ] Concentration calculations
-- [ ] Alligation
+- [ ] Dilution / concentration (alligation removed from the 2026 outline)
 - [ ] Reconstitution
 - [ ] Insulin calculations
 - [ ] Ophthalmic and otic quantities
@@ -529,6 +532,8 @@ The actual source bank may contain more than these numbers while the exam select
 - [ ] Recordkeeping
 - [ ] Disposal and destruction
 - [ ] Federal versus state-law distinctions
+- [x] DSCSA (2.6): serialization, TI/TS, authorized trading partners, suspect vs illegitimate, 6-year records
+- [x] Expanded FDA recall requirements (2.5)
 
 ### Question QA Requirements
 
@@ -610,11 +615,11 @@ Complete.
 
 ### Completed
 
-- [x] Created `data/course.json` — 12 modules / 39 lessons (208 teaching bullets, 138 key points) across all four domains
+- [x] Created `data/course.json` — 12 modules / 40 lessons across all four domains (DSCSA lesson m12l4 added for the January 2026 outline)
 - [x] Medications (m1–m3): drug classes/names/pharmacology; high-alert, LASA & special-population; dosage forms, routes, storage & interactions
-- [x] Patient Safety and Quality Assurance (m4–m6): error prevention/reporting/CQI; sterile & non-sterile compounding (USP <795>/<797>/<800>); safety technology & dispensary workflow
-- [x] Order Entry and Processing (m7–m9): prescription reading & SIG codes; calculations (conversions, days supply, ratio/percent, alligation, IV flow); insurance billing & order processing
-- [x] Federal Requirements (m10–m12): controlled substances & DEA; privacy/counseling/consumer-protection laws; agencies, recalls & practice regulations
+- [x] Patient Safety and Quality Assurance (m4–m6): error prevention/reporting/CQI; USP chapter ID with nonsterile procedures de-emphasized; safety technology & dispensary workflow
+- [x] Order Entry and Processing (m7–m9): prescription reading & SIG codes; calculations (conversions, days supply, ratio/percent, dilution, IV flow; alligation tagged as removed); insurance billing & order processing
+- [x] Federal Requirements (m10–m12): controlled substances & DEA; privacy/counseling/consumer-protection laws; agencies, expanded recalls (2.5), DSCSA (2.6) lesson m12l4
 - [x] Created `js/course.js` and `course.html` — module list, lesson reader, per-module and overall progress, lesson completion, resume-from-last-lesson, prev/next navigation, and "Test Yourself" deep-links into domain-filtered quizzes
 - [x] Added course progress tracking to `js/app.js` (`Storage.course`, `markLessonComplete`, `getCourseProgress`, `setLastLesson`)
 - [x] Added quiz deep-link params (`?mode=custom&domain=…&count=…`) in `js/quiz.js` so course modules launch targeted quizzes
@@ -669,7 +674,7 @@ Review all notes, cards, and questions for exam relevance and factual accuracy.
 - [ ] Verify ratio-strength problems.
 - [ ] Verify percentage-strength problems.
 - [ ] Verify dilution problems.
-- [ ] Verify alligation problems.
+- [ ] Confirm alligation items are tagged as removed from the 2026 outline (not taught as tested skills).
 - [ ] Verify reconstitution problems.
 - [ ] Verify insulin and injectable calculations.
 - [ ] Confirm units and rounding instructions.
@@ -764,8 +769,8 @@ These enhancements were integrated after the core implementation stabilized.
 - [x] Installable PWA support (`manifest.json` linked on all six pages)
 - [x] Desktop/PC Chrome layout optimization (900px container, larger type/cards at ≥1100px)
 - [ ] GitHub Pages deployment (files are static-ready; push to `origin main` to deploy)
-- [x] Larger 150–250-question bank (currently 180)
-- [x] Larger flashcard bank (currently 163)
+- [x] Larger 150–250-question bank (currently 190, including 10 DSCSA)
+- [x] Larger flashcard bank (currently 171, including 8 DSCSA)
 
 Remaining optional work is non-blocking and can proceed after Stage 7/8 release criteria are met.
 
@@ -839,7 +844,7 @@ Follow this order to avoid adding content on top of an unverified application:
 ### Practice Exam
 
 - The target practice exam contains 90 questions.
-- The target distribution is 36/24/19/11.
+- The target distribution is 32/21/20/17 (January 6, 2026 outline).
 - Questions should be unique within an exam.
 - The app should not silently duplicate questions to reach 90.
 - The minimum bank target is 90 validated questions.
@@ -858,7 +863,7 @@ Continue working on the PTCE 2026 Study App (ptcb26).
 - Architecture: static, root-based, vanilla HTML/CSS/JS/JSON, browser localStorage (key: ptce2026_progress_v1), no backend/framework/build step.
 - Current stage: Stage 7 (pharmacist content validation) and Stage 8 (iPhone Safari + accessibility QA) are the active release blockers; Stage 10 enhancements are complete.
 - Completed Stage 10 features: home-page "Review Missed" and "Review Bookmarked" quick actions, missed/bookmarked/weak-domain/weak-subtopic quiz modes, question/flashcard bookmarking with dedicated review filters, Leitner spaced repetition, difficulty filtering, configurable exam length/timer, dashboard score trends, JSON export/import, offline service worker, PWA manifest on all pages, desktop-optimized PC Chrome layout.
-- Data sources of truth: data/notes.json, data/flashcards.json, data/questions.json (180 questions, 163 flashcards).
+- Data sources of truth: data/notes.json, data/flashcards.json, data/questions.json (190 questions including 10 DSCSA, 171 flashcards including 8 DSCSA). Official January 6, 2026 weights: 35 / 23.75 / 22.50 / 18.75; exam draw 32/21/20/17.
 - Do not duplicate study content into markdown, do not create an app/ subdirectory, and do not add a backend or framework.
 - Use the exact file-naming convention: README.md and ROADMAP.md (lowercase .md extension).
 - Before finishing any change, run: node --check on all JS files, JSON parse validation, and a localhost:8000 smoke test for all pages/assets.

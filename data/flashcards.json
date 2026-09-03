@@ -279,8 +279,8 @@
     {
       "id": 47,
       "domain": "Order Entry and Processing",
-      "front": "Alligation: how much of 10% and 2% to make 5% cream?",
-      "back": "Set up alligation grid: 5-2=3 parts of 10%; 10-5=5 parts of 2%. Ratio 3:5 (10% : 2%)."
+      "front": "Alligation: how much of 10% and 2% to make 5% cream? (removed from 2026 outline)",
+      "back": "Not a January 2026 PTCE tested skill. Historical: 5−2=3 parts of 10%; 10−5=5 parts of 2% → 3:5. Use C1V1 = C2V2 for dilution instead."
     },
     {
       "id": 48,
@@ -651,8 +651,8 @@
     {
       "id": "109",
       "domain": "Order Entry and Processing",
-      "front": "Alligation",
-      "back": "Mix strengths to a target. Parts of HIGH = target − low; parts of LOW = high − target. e.g., 70%+20%→50%: 30 parts 70%, 20 parts 20% = 3:2."
+      "front": "Alligation (removed from 2026 outline)",
+      "back": "Not a January 2026 PTCE tested calculation. Historical: parts of HIGH = target − low; parts of LOW = high − target. Prefer C1V1 = C2V2."
     },
     {
       "id": "110",
@@ -910,7 +910,7 @@
       "id": "152",
       "domain": "Patient Safety and Quality Assurance",
       "front": "USP <795>",
-      "back": "Standards for non-sterile compounding."
+      "back": "Non-sterile compounding chapter. Dedicated nonsterile compounding procedures were removed from the January 2026 PTCE outline — recognize the chapter, do not drill compounding technique."
     },
     {
       "id": "153",
@@ -977,6 +977,54 @@
       "domain": "Order Entry and Processing",
       "front": "Sig code \"bid\"",
       "back": "Bis in die — twice daily."
+    },
+    {
+      "id": "164",
+      "domain": "Federal Requirements",
+      "front": "DSCSA product identifier — what data are encoded?",
+      "back": "NDC + unique serial number + lot number + expiration date, usually in a 2D data matrix on each package."
+    },
+    {
+      "id": "165",
+      "domain": "Federal Requirements",
+      "front": "DSCSA TI vs TS (current electronic exchange)",
+      "back": "TI = Transaction Information (product, NDC, lot, quantity, dates, seller/buyer). TS = Transaction Statement (seller attests it is authorized and did not knowingly ship suspect/illegitimate product). Package-level tracing uses electronic TI + TS."
+    },
+    {
+      "id": "166",
+      "domain": "Federal Requirements",
+      "front": "Who are DSCSA authorized trading partners?",
+      "back": "Licensed/registered manufacturers, wholesale distributors, dispensers (pharmacies), and repackagers. Dispensers may accept product only from authorized partners."
+    },
+    {
+      "id": "167",
+      "domain": "Federal Requirements",
+      "front": "DSCSA suspect vs illegitimate product",
+      "back": "Suspect = reason to believe the product may be counterfeit, diverted, stolen, intentionally adulterated, or unfit. Illegitimate = credible evidence that it is. Quarantine starts at suspect."
+    },
+    {
+      "id": "168",
+      "domain": "Federal Requirements",
+      "front": "First technician action if a package looks suspect under DSCSA",
+      "back": "Do not dispense. Quarantine/segregate the product and notify the pharmacist so it can be investigated. If confirmed illegitimate, FDA (Form 3911) and trading partners are notified."
+    },
+    {
+      "id": "169",
+      "domain": "Federal Requirements",
+      "front": "DSCSA transaction-record retention",
+      "back": "6 years. Do not confuse with the federal 2-year controlled-substance recordkeeping period."
+    },
+    {
+      "id": "170",
+      "domain": "Federal Requirements",
+      "front": "What is the purpose of DSCSA serialization?",
+      "back": "Each package can be uniquely identified and traced through the supply chain to support verification, recalls, and suspect/illegitimate-product investigations."
+    },
+    {
+      "id": "171",
+      "domain": "Federal Requirements",
+      "front": "Form used to notify FDA of illegitimate product (DSCSA)",
+      "back": "Form FDA 3911. Also notify immediate trading partners. FDA used phased implementation milestones for electronic tracing — learn the duty, not a single exemption end-date."
     }
   ]
 }
