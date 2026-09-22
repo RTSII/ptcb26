@@ -200,8 +200,8 @@ else ok('index.html body.home present');
 
 console.log('\nService worker');
 const sw = read('sw.js');
-if (!/ptce-2026-v7/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v7');
-else ok('sw.js cache is ptce-2026-v7');
+if (!/ptce-2026-v8/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v8');
+else ok('sw.js cache is ptce-2026-v8');
 
 console.log('\nFlashcards viewport layout');
 const fcHtml = read('flashcards.html');
@@ -212,6 +212,18 @@ if (/\.flashcard\s*\{[^}]*min-height:\s*3[26]0px/.test(css)) fail('flashcard sti
 else ok('flashcard min-height is no longer 320px or 360px');
 if (!/clamp\(180px,\s*32dvh,\s*280px\)/.test(css)) fail('flashcard height should be capped with clamp(180px, 32dvh, 280px)');
 else ok('flashcard height is viewport-capped');
+
+console.log('\nQuiz density layout');
+const quizHtml = read('quiz.html');
+const examHtml = read('exam.html');
+if (!/class="quiz"/.test(quizHtml)) fail('quiz.html body should have class="quiz"');
+else ok('quiz.html body.quiz present');
+if (!/class="exam"/.test(examHtml)) fail('exam.html body should have class="exam"');
+else ok('exam.html body.exam present');
+if (!/repeat\(2,\s*minmax\(0,\s*max-content\)\)/.test(css)) fail('answer choices should use a 2-column grid on wide screens');
+else ok('answer choices use a 2-column grid');
+if (!/choices\.layout-stack/.test(css)) fail('long choices should be able to stack in one column');
+else ok('long choices can stack in one column');
 
 console.log('\nDefault-path filters');
 const examSrc = read('js/exam.js');
