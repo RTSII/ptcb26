@@ -200,8 +200,18 @@ else ok('index.html body.home present');
 
 console.log('\nService worker');
 const sw = read('sw.js');
-if (!/ptce-2026-v6/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v6');
-else ok('sw.js cache is ptce-2026-v6');
+if (!/ptce-2026-v7/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v7');
+else ok('sw.js cache is ptce-2026-v7');
+
+console.log('\nFlashcards viewport layout');
+const fcHtml = read('flashcards.html');
+const css = read('css/style.css');
+if (!/class="flashcards"/.test(fcHtml)) fail('flashcards.html body should have class="flashcards"');
+else ok('flashcards.html body.flashcards present');
+if (/\.flashcard\s*\{[^}]*min-height:\s*3[26]0px/.test(css)) fail('flashcard still forced to a 320/360px min-height');
+else ok('flashcard min-height is no longer 320px or 360px');
+if (!/clamp\(180px,\s*32dvh,\s*280px\)/.test(css)) fail('flashcard height should be capped with clamp(180px, 32dvh, 280px)');
+else ok('flashcard height is viewport-capped');
 
 console.log('\nDefault-path filters');
 const examSrc = read('js/exam.js');
