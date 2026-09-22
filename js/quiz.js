@@ -245,10 +245,12 @@
     updateBookmarkBtn();
 
     choicesEl.innerHTML = '';
+    const longestChoice = q.options.reduce((max, opt) => Math.max(max, opt.length), 0);
+    choicesEl.classList.toggle('layout-stack', longestChoice > 140);
     q.options.forEach((opt, i) => {
       const btn = document.createElement('button');
       btn.className = 'choice' + (answers[idx] === i ? ' selected' : '');
-      btn.innerHTML = `<strong>${String.fromCharCode(65 + i)}.</strong> ${Util.escapeHtml(opt)}`;
+      btn.innerHTML = `<strong>${String.fromCharCode(65 + i)}.</strong><span class="choice-label">${Util.escapeHtml(opt)}</span>`;
       btn.onclick = () => {
         answers[idx] = i;
         Util.els('.choice', choicesEl).forEach(c => c.classList.remove('selected'));

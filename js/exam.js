@@ -167,6 +167,7 @@
     el.examProgress.textContent = (current + 1) + ' / ' + exam.length;
     el.examProgressFill.style.width = ((current + 1) / exam.length * 100) + '%';
 
+    const longestChoice = q.options.reduce(function (max, opt) { return Math.max(max, opt.length); }, 0);
     const opts = q.options.map(function (opt, i) {
       const letter = String.fromCharCode(65 + i);
       return '<button class="option' + (item.choice === i ? ' selected' : '') + '" data-i="' + i +
@@ -176,7 +177,7 @@
     el.examQuestionCard.innerHTML =
       '<div class="q-domain">' + Util.escapeHtml(q.domain) + (q.subtopic ? ' • ' + Util.escapeHtml(q.subtopic) : '') + '</div>' +
       '<div class="q-text">' + Util.escapeHtml(q.question) + '</div>' +
-      '<div class="options">' + opts + '</div>';
+      '<div class="options' + (longestChoice > 140 ? ' layout-stack' : '') + '">' + opts + '</div>';
 
     el.examQuestionCard.querySelectorAll('.option').forEach(function (b) {
       if (item.choice === parseInt(b.dataset.i, 10)) {
