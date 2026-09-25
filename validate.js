@@ -200,8 +200,8 @@ else ok('index.html body.home present');
 
 console.log('\nService worker');
 const sw = read('sw.js');
-if (!/ptce-2026-v8/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v8');
-else ok('sw.js cache is ptce-2026-v8');
+if (!/ptce-2026-v9/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v9');
+else ok('sw.js cache is ptce-2026-v9');
 
 console.log('\nFlashcards viewport layout');
 const fcHtml = read('flashcards.html');
@@ -210,8 +210,14 @@ if (!/class="flashcards"/.test(fcHtml)) fail('flashcards.html body should have c
 else ok('flashcards.html body.flashcards present');
 if (/\.flashcard\s*\{[^}]*min-height:\s*3[26]0px/.test(css)) fail('flashcard still forced to a 320/360px min-height');
 else ok('flashcard min-height is no longer 320px or 360px');
-if (!/clamp\(180px,\s*32dvh,\s*280px\)/.test(css)) fail('flashcard height should be capped with clamp(180px, 32dvh, 280px)');
-else ok('flashcard height is viewport-capped');
+if (/clamp\(180px,\s*32dvh,\s*280px\)/.test(css)) fail('flashcard should size to its content, not a tall viewport clamp');
+else ok('flashcard height follows its content');
+if (/body\.flashcards \.container\s*\{[^}]*overflow-y:\s*auto/.test(css)) fail('flashcards container must not be an inset scroller');
+else ok('flashcards container does not scroll internally');
+if (!/body\.flashcards \.container\s*\{[^}]*max-width:\s*1240px/.test(css)) fail('flashcards shell should use a wide centered max-width');
+else ok('flashcards shell uses a wide centered max-width');
+if (!/body\.flashcards \.container\s*\{[^}]*overflow:\s*visible/.test(css)) fail('flashcards container overflow should stay visible');
+else ok('flashcards overflow stays on the document');
 
 console.log('\nQuiz density layout');
 const quizHtml = read('quiz.html');
