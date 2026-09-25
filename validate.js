@@ -201,8 +201,8 @@ else ok('index.html body.home present');
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v12/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v12');
-else ok('sw.js cache is ptce-2026-v12');
+if (!/ptce-2026-v13/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v13');
+else ok('sw.js cache is ptce-2026-v13');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
