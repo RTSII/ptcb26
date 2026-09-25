@@ -90,7 +90,11 @@
       updateBookmark();
       return;
     }
-    el.flashcard.classList.remove('flipped');
+    const wasFlipped = el.flashcard.classList.contains('flipped');
+    if (wasFlipped) {
+      el.flashcard.style.transition = 'none';
+      el.flashcard.classList.remove('flipped');
+    }
     const c = cards[idx];
     el.frontDomain.textContent = c.domain;
     el.backDomain.textContent = c.domain;
@@ -98,6 +102,10 @@
     el.backText.textContent = c.back;
     el.counter.textContent = 'Card ' + (idx + 1) + ' of ' + cards.length;
     updateBookmark();
+    if (wasFlipped) {
+      void el.flashcard.offsetWidth;
+      el.flashcard.style.transition = '';
+    }
 
     if (!sessionReviewed.has(c.id)) {
       sessionReviewed.add(c.id);
