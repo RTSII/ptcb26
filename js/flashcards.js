@@ -26,13 +26,23 @@
 
   const FILTERS = ['All', 'Due / New', 'Bookmarked'].concat(DOMAINS);
 
+  function filterLabel(name) {
+    return name.replace(/\band\b/gi, '&').replace(/Quality Assurance/g, 'Q.A.');
+  }
+
   function buildFilters() {
     el.filterRow.innerHTML = '';
     FILTERS.forEach(function (d, i) {
       const b = document.createElement('button');
+      const label = filterLabel(d);
       b.className = 'pill' + (i === 0 ? ' active' : '');
-      b.textContent = d;
+      b.type = 'button';
+      b.textContent = label;
       b.dataset.filter = d;
+      if (label !== d) {
+        b.title = d;
+        b.setAttribute('aria-label', d);
+      }
       b.addEventListener('click', function () {
         el.filterRow.querySelectorAll('.pill').forEach(function (p) { p.classList.remove('active'); });
         b.classList.add('active');
@@ -80,7 +90,11 @@
       updateBookmark();
       return;
     }
-    el.flashcard.classList.remove('flipped');
+    const wasFlipped = el.flashcard.classList.contains('flipped');
+    if (wasFlipped) {
+      el.flashcard.style.transition = 'none';
+      el.flashcard.classList.remove('flipped');
+    }
     const c = cards[idx];
     el.frontDomain.textContent = c.domain;
     el.backDomain.textContent = c.domain;
@@ -88,6 +102,10 @@
     el.backText.textContent = c.back;
     el.counter.textContent = 'Card ' + (idx + 1) + ' of ' + cards.length;
     updateBookmark();
+    if (wasFlipped) {
+      void el.flashcard.offsetWidth;
+      el.flashcard.style.transition = '';
+    }
 
     if (!sessionReviewed.has(c.id)) {
       sessionReviewed.add(c.id);
@@ -115,8 +133,8 @@
 
   el.flashcard.addEventListener('click', flip);
   el.flipBtn.addEventListener('click', function (e) { e.stopPropagation(); flip(); });
-  el.nextBtn.addEventListener('click', next);
-  el.prevBtn.addEventListener('click', prev);
+  el.nextBtn.addEventListener('click', function (e) { e.stopPropagation(); next(); });
+  el.prevBtn.addEventListener('click', function (e) { e.stopPropagation(); prev(); });
   el.knewBtn.addEventListener('click', function () { grade(true); });
   el.didntKnowBtn.addEventListener('click', function () { grade(false); });
   el.bookmarkBtn.addEventListener('click', function () {
@@ -126,9 +144,15 @@
   });
 
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowRight') next();
-    else if (e.key === 'ArrowLeft') prev();
-    else if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); flip(); }
+    const tag = e.target && e.target.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+    if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    else if (e.key === ' ' || e.key === 'Enter') {
+      if (tag === 'BUTTON' || tag === 'A') return;
+      e.preventDefault();
+      flip();
+    }
   });
 
   let startX = 0, startY = 0, touching = false;
