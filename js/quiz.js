@@ -25,6 +25,8 @@
   const nextBtn = Util.el('#nextBtn');
   const progBar = Util.el('#progBar');
   const bookmarkBtn = Util.el('#bookmarkBtn');
+  const headerExitBtn = Util.el('#headerExitBtn');
+  const exitQuizBtn = Util.el('#exitQuizBtn');
 
   const scoreLine = Util.el('#scoreLine');
   const scoreBar = Util.el('#scoreBar');
@@ -36,6 +38,12 @@
   let idx = 0;
   let answers = [];
   let startTime = 0;
+  let pendingLeave = null;
+
+  const exitDialog = Util.el('#exitDialog');
+  const exitDialogText = Util.el('#exitDialogText');
+  const exitCancelBtn = Util.el('#exitCancelBtn');
+  const exitConfirmBtn = Util.el('#exitConfirmBtn');
 
   // Initialize
   const validModes = ['quick10', 'chapter', 'custom', 'missed', 'bookmarked', 'weak', 'weaksub'];
@@ -69,19 +77,42 @@
   nextBtn.addEventListener('click', () => nav(1));
   retryBtn.addEventListener('click', () => location.reload());
   bookmarkBtn.addEventListener('click', toggleCurrentBookmark);
+  headerExitBtn.addEventListener('click', () => offerExit('setup'));
+  exitQuizBtn.addEventListener('click', () => offerExit('setup'));
+  exitCancelBtn.addEventListener('click', () => exitDialog.close());
+  exitConfirmBtn.addEventListener('click', () => {
+    const kind = pendingLeave;
+    pendingLeave = null;
+    exitDialog.close();
+    completeLeave(kind);
+  });
+  exitDialog.addEventListener('cancel', () => { pendingLeave = null; });
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape' || exitDialog.open || quizEl.style.display === 'none') return;
+    e.preventDefault();
+    offerExit('setup');
+  });
+  Util.el('.app-header').addEventListener('click', (e) => {
+    const link = e.target.closest('a[href="index.html"]');
+    if (!link || quizEl.style.display === 'none' || !hasAnswers()) return;
+    e.preventDefault();
+    offerExit('home');
+  });
 
   function toggleModeFields() {
     const mode = modeSel.value;
     const domainRow = Util.el('#domainRow');
     const subtopicRow = Util.el('#subtopicRow');
     const diffRow = Util.el('#diffRow');
-    const countRow = Util.el('#countRow');
+    const extras = Util.el('#setupExtras');
 
     const showDomain = ['chapter', 'custom', 'weak', 'weaksub'].includes(mode);
     const showSub = mode === 'chapter' || mode === 'weaksub';
-    domainRow.style.display = showDomain ? 'block' : 'none';
-    subtopicRow.style.display = showSub ? 'block' : 'none';
-    diffRow.style.display = (mode === 'custom' || mode === 'weak' || mode === 'weaksub') ? 'block' : 'none';
+    const showDiff = mode === 'custom' || mode === 'weak' || mode === 'weaksub';
+    domainRow.hidden = !showDomain;
+    subtopicRow.hidden = !showSub;
+    diffRow.hidden = !showDiff;
+    if (extras) extras.hidden = !(showDomain || showSub || showDiff);
 
     if (mode === 'quick10') {
       countInput.value = 10;
@@ -234,7 +265,49 @@
     setupEl.style.display = 'none';
     quizEl.style.display = 'block';
     resultsEl.style.display = 'none';
+    headerExitBtn.hidden = false;
     render();
+  }
+
+  function hasAnswers() {
+    return answers.some((a) => a !== null);
+  }
+
+  // Exit / Esc returns to setup. Home and the logo go to index.html.
+  // Either path confirms only after at least one answer has been chosen.
+  function offerExit(kind) {
+    if (quizEl.style.display === 'none') return;
+    if (!hasAnswers()) {
+      completeLeave(kind);
+      return;
+    }
+    pendingLeave = kind;
+    const goingHome = kind === 'home';
+    exitDialogText.textContent = goingHome
+      ? 'Leave this quiz and go home? Your progress will be discarded.'
+      : 'Exit this quiz and return to setup? Your progress will be discarded.';
+    exitConfirmBtn.textContent = goingHome ? 'Go home' : 'Exit';
+    if (!exitDialog.open) exitDialog.showModal();
+    exitCancelBtn.focus();
+  }
+
+  function completeLeave(kind) {
+    if (kind === 'home') {
+      location.href = 'index.html';
+      return;
+    }
+    returnToSetup();
+  }
+
+  function returnToSetup() {
+    quizEl.style.display = 'none';
+    resultsEl.style.display = 'none';
+    setupEl.style.display = '';
+    headerExitBtn.hidden = true;
+    session = [];
+    answers = [];
+    idx = 0;
+    modeSel.focus();
   }
 
   function render() {
@@ -298,6 +371,7 @@
     const score = Util.pct(correct, session.length);
     quizEl.style.display = 'none';
     resultsEl.style.display = 'block';
+    headerExitBtn.hidden = true;
     scoreLine.textContent = `Score: ${correct}/${session.length} (${score}%) • ${Util.formatDuration(duration)}`;
     scoreBar.style.width = `${score}%`;
 

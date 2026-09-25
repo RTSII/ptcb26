@@ -14,55 +14,63 @@
 <body class="quiz">
   <header class="app-header">
     <a href="index.html" class="logo">💊 PTCE <span>2026</span></a>
-    <span class="crumb">Quiz</span>
+    <h1 class="header-title"><span class="header-glyph" aria-hidden="true">📝</span> Quiz</h1>
+    <div class="header-actions">
+      <button type="button" id="headerExitBtn" class="exit-btn" hidden>Exit</button>
+      <a href="index.html" class="header-home">Home</a>
+    </div>
   </header>
 
   <main class="container">
     <section id="setup" class="card-block">
       <h2>Build Your Quiz</h2>
-      <div class="row">
-        <label for="mode">Mode</label>
-        <select id="mode">
-          <option value="quick10">Quick 10</option>
-          <option value="chapter">Chapter Test (by Subtopic)</option>
-          <option value="custom">Custom</option>
-          <option value="missed">Missed Questions Review</option>
-          <option value="bookmarked">Bookmarked Questions</option>
-          <option value="weak">Weakest Domain</option>
-          <option value="weaksub">Weakest Subtopic</option>
-        </select>
+      <div class="setup-primary">
+        <div class="field" id="modeField">
+          <label for="mode">Mode</label>
+          <select id="mode">
+            <option value="quick10">Quick 10</option>
+            <option value="chapter">Chapter Test (by Subtopic)</option>
+            <option value="custom">Custom</option>
+            <option value="missed">Missed Questions Review</option>
+            <option value="bookmarked">Bookmarked Questions</option>
+            <option value="weak">Weakest Domain</option>
+            <option value="weaksub">Weakest Subtopic</option>
+          </select>
+        </div>
+        <div class="field" id="countRow">
+          <label for="count">Number of Questions</label>
+          <input id="count" type="number" min="5" max="50" step="5" value="10">
+        </div>
       </div>
-      <div class="row" id="domainRow" style="display:none;">
-        <label for="domain">Domain</label>
-        <select id="domain">
-          <option>All</option>
-          <option>Medications</option>
-          <option>Patient Safety and Quality Assurance</option>
-          <option>Order Entry and Processing</option>
-          <option>Federal Requirements</option>
-        </select>
+      <div class="setup-extras" id="setupExtras" hidden>
+        <div class="field" id="domainRow" hidden>
+          <label for="domain">Domain</label>
+          <select id="domain">
+            <option>All</option>
+            <option>Medications</option>
+            <option>Patient Safety and Quality Assurance</option>
+            <option>Order Entry and Processing</option>
+            <option>Federal Requirements</option>
+          </select>
+        </div>
+        <div class="field" id="subtopicRow" hidden>
+          <label for="subtopic">Subtopic</label>
+          <select id="subtopic">
+            <option value="">All</option>
+          </select>
+        </div>
+        <div class="field" id="diffRow" hidden>
+          <label for="difficulty">Difficulty</label>
+          <select id="difficulty">
+            <option value="">All</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
       </div>
-      <div class="row" id="subtopicRow" style="display:none;">
-        <label for="subtopic">Subtopic</label>
-        <select id="subtopic">
-          <option value="">All</option>
-        </select>
-      </div>
-      <div class="row" id="diffRow" style="display:none;">
-        <label for="difficulty">Difficulty</label>
-        <select id="difficulty">
-          <option value="">All</option>
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
-        </select>
-      </div>
-      <div class="row" id="countRow">
-        <label for="count">Number of Questions</label>
-        <input id="count" type="number" min="5" max="50" step="5" value="10">
-      </div>
-      <div class="row">
-        <button id="startBtn" class="cta">Start Quiz</button>
+      <div class="setup-actions">
+        <button type="button" id="startBtn" class="cta">Start Quiz</button>
         <a class="button ghost" href="index.html">Back</a>
       </div>
     </section>
@@ -71,6 +79,7 @@
       <div class="quiz-header">
         <div id="qnum" class="chip">Question 1/10</div>
         <div id="qdomain" class="chip">Domain</div>
+        <button type="button" id="exitQuizBtn" class="exit-btn">Exit</button>
       </div>
       <div class="progress"><div id="progBar" class="progress-bar" style="width:0%"></div></div>
       <div class="q-toolbar">
@@ -101,6 +110,14 @@
       <p>Ensure you are serving the folder over localhost (e.g., <code>python -m http.server</code>) so fetch of <code>data/questions.json</code> is allowed.</p>
     </section>
   </main>
+
+  <dialog id="exitDialog" class="exit-dialog" aria-labelledby="exitDialogText">
+    <p id="exitDialogText"></p>
+    <div class="exit-dialog-actions">
+      <button type="button" id="exitCancelBtn" class="button ghost">Keep going</button>
+      <button type="button" id="exitConfirmBtn" class="exit-btn">Exit</button>
+    </div>
+  </dialog>
 
   <script src="js/app.js"></script>
   <script src="js/quiz.js"></script>
