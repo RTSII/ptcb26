@@ -230,6 +230,17 @@ if (!/body\.flashcards \.container\s*\{[^}]*max-width:\s*1240px/.test(css)) fail
 else ok('flashcards shell uses a wide centered max-width');
 if (!/body\.flashcards \.container\s*\{[^}]*overflow:\s*visible/.test(css)) fail('flashcards container overflow should stay visible');
 else ok('flashcards overflow stays on the document');
+if (!/body\.flashcards\s*\{[^}]*height:\s*100dvh/.test(css)) fail('flashcards page should lock to the viewport height');
+else ok('flashcards page locks to the viewport height');
+if (!/body\.flashcards\s*\{[^}]*overflow:\s*hidden/.test(css)) fail('flashcards page should not scroll the document');
+else ok('flashcards page clips document scroll');
+if (/id="frontDomain"|id="backDomain"|class="domain-tag"/.test(fcHtml)) fail('domain tag should not be rendered on the card face');
+else ok('domain tag is not rendered on the card face');
+if (!/class="flashcard-wrap"[\s\S]*id="counter"[\s\S]*class="btn-row card-actions"/.test(fcHtml)) {
+  fail('card counter should sit inside the flashcard wrap');
+} else ok('card counter sits inside the flashcard chrome');
+if (!/body\.flashcards \.card-counter\s*\{[^}]*position:\s*absolute/.test(css)) fail('card counter should be positioned inside the card');
+else ok('card counter is positioned on the card');
 
 console.log('\nQuiz density layout');
 const quizHtml = read('quiz.html');
