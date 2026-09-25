@@ -200,8 +200,8 @@ else ok('index.html body.home present');
 
 console.log('\nService worker');
 const sw = read('sw.js');
-if (!/ptce-2026-v10/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v10');
-else ok('sw.js cache is ptce-2026-v10');
+if (!/ptce-2026-v11/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v11');
+else ok('sw.js cache is ptce-2026-v11');
 
 console.log('\nFlashcards viewport layout');
 const fcHtml = read('flashcards.html');
@@ -230,6 +230,17 @@ if (!/repeat\(2,\s*minmax\(0,\s*max-content\)\)/.test(css)) fail('answer choices
 else ok('answer choices use a 2-column grid');
 if (!/choices\.layout-stack/.test(css)) fail('long choices should be able to stack in one column');
 else ok('long choices can stack in one column');
+if (!/class="header-title"/.test(quizHtml) || !/class="header-home"/.test(quizHtml)) {
+  fail('quiz header should center a Quiz title and link Home');
+} else ok('quiz header has centered title and Home link');
+if (/class="crumb">Quiz</.test(quizHtml)) fail('quiz header still has a non-functional Quiz crumb');
+else ok('non-functional Quiz crumb removed');
+if (!/setup-primary/.test(quizHtml) || !/id="countRow"/.test(quizHtml)) {
+  fail('quiz setup should place mode and count together');
+} else ok('quiz setup keeps mode and count on one row');
+if (!/id="exitQuizBtn"/.test(quizHtml) || !/id="headerExitBtn"/.test(quizHtml)) {
+  fail('quiz should expose Exit controls');
+} else ok('quiz Exit controls present');
 
 console.log('\nDefault-path filters');
 const examSrc = read('js/exam.js');
@@ -239,6 +250,9 @@ else ok('exam.js excludes featured:false from the default draw');
 if (!/q\.featured !== false/.test(quizSrcFull) && !/featured !== false/.test(quizSrcFull)) {
   fail('quiz.js must skip featured:false in Quick 10 / weak modes');
 } else ok('quiz.js excludes featured:false from Quick 10 / weak modes');
+if (!/Escape/.test(quizSrcFull) || !/returnToSetup/.test(quizSrcFull)) {
+  fail('quiz.js should exit on Esc and return to setup');
+} else ok('quiz.js Esc exit returns to setup');
 
 const courseSrc = read('js/course.js');
 if (!/optional/.test(courseSrc) || !/archive-badge/.test(courseSrc)) {
