@@ -200,8 +200,20 @@ else ok('index.html body.home present');
 
 console.log('\nService worker');
 const sw = read('sw.js');
-if (!/ptce-2026-v11/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v11');
-else ok('sw.js cache is ptce-2026-v11');
+const appJs = read('js/app.js');
+if (!/ptce-2026-v12/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v12');
+else ok('sw.js cache is ptce-2026-v12');
+if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
+  fail('sw.js should serve the HTML/CSS/JS app shell network-first');
+} else ok('sw.js app shell is network-first');
+if (!/function cacheFirst/.test(sw) || !/isJsonData/.test(sw)) {
+  fail('sw.js should keep cache-first for large JSON data');
+} else ok('sw.js JSON data stays cache-first');
+if (!/localhost/.test(appJs) || !/127\.0\.0\.1/.test(appJs) || !/::1/.test(appJs)) {
+  fail('app.js should skip service worker registration on localhost, 127.0.0.1, and ::1');
+} else if (!/unregister/.test(appJs)) {
+  fail('app.js should unregister an existing service worker on local hosts');
+} else ok('app.js skips SW registration and unregisters on local hosts');
 
 console.log('\nFlashcards viewport layout');
 const fcHtml = read('flashcards.html');
