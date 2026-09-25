@@ -11,9 +11,7 @@
   const el = {
     filterRow: Util.el('#filterRow'),
     flashcard: Util.el('#flashcard'),
-    frontDomain: Util.el('#frontDomain'),
     frontText: Util.el('#frontText'),
-    backDomain: Util.el('#backDomain'),
     backText: Util.el('#backText'),
     counter: Util.el('#counter'),
     prevBtn: Util.el('#prevBtn'),
@@ -74,10 +72,90 @@
     render();
   }
 
+  // Short prompts use a large ceiling; paragraphs start smaller and shrink until
+  // they fit the face. Measured in px so a long answer cannot overflow the card.
+  function maxFontPx(text) {
+    var t = (text || '').trim();
+    var words = t ? t.split(/\s+/).length : 0;
+    var n = t.length;
+    if (!n) return 40;
+    if (n <= 18 && words <= 3) return 108;
+    if (n <= 48) return 80;
+    if (n <= 100) return 64;
+    if (n <= 180) return 50;
+    return 42;
+  }
+
+  function fitCardText(textEl) {
+    if (!textEl) return;
+    var face = textEl.closest('.face');
+    if (!face) return;
+    var sample = textEl.textContent || '';
+    var cs = window.getComputedStyle(face);
+    var padY = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+    var maxH = face.clientHeight - padY - 4;
+    if (maxH < 28 || face.clientWidth < 80) return;
+
+    var trimmed = sample.trim();
+    var words = trimmed ? trimmed.split(/\s+/).length : 0;
+    var singleLine = words > 0 && words <= 2 && trimmed.length <= 18;
+    var hi = maxFontPx(sample);
+    var lo = 16;
+
+    function apply(px) {
+      textEl.style.fontSize = px + 'px';
+      textEl.style.lineHeight = px >= 64 ? '1.08' : px >= 42 ? '1.16' : '1.34';
+      textEl.style.fontWeight = px >= 48 ? '700' : '600';
+      textEl.style.letterSpacing = px >= 64 ? '-0.02em' : '0';
+      textEl.style.textWrap = trimmed.length < 110 ? 'balance' : 'pretty';
+    }
+
+    function fits(px) {
+      apply(px);
+      if (singleLine) {
+        textEl.style.whiteSpace = 'nowrap';
+        var wide = textEl.scrollWidth > textEl.clientWidth + 1;
+        textEl.style.whiteSpace = '';
+        if (wide) return false;
+      }
+      return textEl.scrollHeight <= maxH + 1;
+    }
+
+    if (fits(hi)) return;
+    var best = lo;
+    var low = lo;
+    var high = hi - 1;
+    while (low <= high) {
+      var mid = (low + high) >> 1;
+      if (fits(mid)) {
+        best = mid;
+        low = mid + 1;
+      } else {
+        high = mid - 1;
+      }
+    }
+    apply(best);
+    textEl.style.whiteSpace = '';
+  }
+
+  var fitFrame = 0;
+  var lastFitSig = '';
+  function fitBoth() {
+    if (fitFrame) cancelAnimationFrame(fitFrame);
+    fitFrame = requestAnimationFrame(function () {
+      fitFrame = 0;
+      var sig = el.flashcard.clientWidth + 'x' + el.flashcard.clientHeight
+        + '|' + (el.frontText.textContent || '')
+        + '|' + (el.backText.textContent || '');
+      if (sig === lastFitSig) return;
+      lastFitSig = sig;
+      fitCardText(el.frontText);
+      fitCardText(el.backText);
+    });
+  }
+
   function render() {
     if (!cards.length) {
-      el.frontDomain.textContent = '';
-      el.backDomain.textContent = '';
       if (mode === 'due') {
         el.frontText.textContent = 'Nothing due right now. New cards and anything you missed will appear here.';
       } else if (mode === 'bookmarked') {
@@ -88,6 +166,7 @@
       el.backText.textContent = '';
       el.counter.textContent = '';
       updateBookmark();
+      fitBoth();
       return;
     }
     const wasFlipped = el.flashcard.classList.contains('flipped');
@@ -96,8 +175,6 @@
       el.flashcard.classList.remove('flipped');
     }
     const c = cards[idx];
-    el.frontDomain.textContent = c.domain;
-    el.backDomain.textContent = c.domain;
     el.frontText.textContent = c.front;
     el.backText.textContent = c.back;
     el.counter.textContent = 'Card ' + (idx + 1) + ' of ' + cards.length;
@@ -106,6 +183,7 @@
       void el.flashcard.offsetWidth;
       el.flashcard.style.transition = '';
     }
+    fitBoth();
 
     if (!sessionReviewed.has(c.id)) {
       sessionReviewed.add(c.id);
@@ -168,6 +246,19 @@
       if (dx < 0) next(); else prev();
     }
   });
+
+  if (window.ResizeObserver) {
+    var cardObserver = new ResizeObserver(function () { fitBoth(); });
+    cardObserver.observe(el.flashcard.parentElement || el.flashcard);
+  } else {
+    window.addEventListener('resize', fitBoth);
+  }
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () {
+      lastFitSig = '';
+      fitBoth();
+    });
+  }
 
   Util.fetchJSON('data/flashcards.json')
     .then(function (data) {
