@@ -297,9 +297,27 @@ if (document.readyState === 'loading') {
   FX.start();
 }
 
-// Register service worker for offline/PWA support
-if ('serviceWorker' in navigator) {
+// Offline/PWA support. Skip registration on local dev hosts so python -m http.server
+// picks up HTML/CSS/JS on a normal refresh. One visit also drops a SW left over
+// from an earlier session.
+(function () {
+  if (!('serviceWorker' in navigator)) return;
+
+  const host = location.hostname;
+  const isLocal = host === 'localhost' || host === '127.0.0.1' || host === '::1' || host === '[::1]';
+  if (isLocal) {
+    navigator.serviceWorker.getRegistrations()
+      .then((regs) => Promise.all(regs.map((reg) => reg.unregister())))
+      .catch(() => {});
+    if (window.caches && typeof caches.keys === 'function') {
+      caches.keys()
+        .then((keys) => Promise.all(keys.map((key) => caches.delete(key))))
+        .catch(() => {});
+    }
+    return;
+  }
+
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('sw.js').catch(() => {});
   });
-}
+})();
