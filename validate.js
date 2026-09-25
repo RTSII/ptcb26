@@ -200,8 +200,8 @@ else ok('index.html body.home present');
 
 console.log('\nService worker');
 const sw = read('sw.js');
-if (!/ptce-2026-v9/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v9');
-else ok('sw.js cache is ptce-2026-v9');
+if (!/ptce-2026-v10/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v10');
+else ok('sw.js cache is ptce-2026-v10');
 
 console.log('\nFlashcards viewport layout');
 const fcHtml = read('flashcards.html');
