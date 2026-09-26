@@ -29,16 +29,16 @@
           <label for="mode">Mode</label>
           <select id="mode">
             <option value="quick10">Quick 10</option>
-            <option value="chapter">Chapter Test (by Subtopic)</option>
+            <option value="chapter">Chapter Test</option>
             <option value="custom">Custom</option>
-            <option value="missed">Missed Questions Review</option>
-            <option value="bookmarked">Bookmarked Questions</option>
+            <option value="missed">Missed Q.A.</option>
+            <option value="bookmarked">Bookmarked</option>
             <option value="weak">Weakest Domain</option>
             <option value="weaksub">Weakest Subtopic</option>
           </select>
         </div>
-        <div class="field" id="countRow">
-          <label for="count">Number of Questions</label>
+        <div class="field" id="countRow" hidden>
+          <label for="count">Questions</label>
           <input id="count" type="number" min="5" max="50" step="5" value="10">
         </div>
       </div>
@@ -46,11 +46,11 @@
         <div class="field" id="domainRow" hidden>
           <label for="domain">Domain</label>
           <select id="domain">
-            <option>All</option>
-            <option>Medications</option>
-            <option>Patient Safety and Quality Assurance</option>
-            <option>Order Entry and Processing</option>
-            <option>Federal Requirements</option>
+            <option value="All">All</option>
+            <option value="Medications">Medications</option>
+            <option value="Patient Safety and Quality Assurance">Patient Safety &amp; Q.A.</option>
+            <option value="Order Entry and Processing">Order Entry &amp; Processing</option>
+            <option value="Federal Requirements">Federal Requirements</option>
           </select>
         </div>
         <div class="field" id="subtopicRow" hidden>
