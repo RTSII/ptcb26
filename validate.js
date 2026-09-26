@@ -197,8 +197,8 @@ else ok('index.html body.home present');
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v17/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v17');
-else ok('sw.js cache is ptce-2026-v17');
+if (!/ptce-2026-v18/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v18');
+else ok('sw.js cache is ptce-2026-v18');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
@@ -278,12 +278,15 @@ if (/Number of Questions/.test(quizHtml)) fail('count label should be shortened'
 else ok('count label is shortened');
 if (/<option value="custom">/.test(quizHtml)) fail('custom mode option should be removed');
 else ok('custom mode option removed');
-if (!/body\.quiz #setup\.card-block\s*\{[^}]*width:\s*fit-content/.test(css)) {
-  fail('setup card should hug its content width');
-} else ok('setup card hugs its content width');
-if (/body\.quiz #setup\.card-block\s*\{[^}]*width:\s*100%/.test(css)) {
-  fail('setup card should not stretch to the full container width');
-} else ok('setup card is not a full-width strip');
+if (/body\.quiz #setup\.card-block\s*\{[^}]*width:\s*fit-content/.test(css)) {
+  fail('setup card should not hug its content width');
+} else ok('setup card is not content-sized');
+if (!/body\.quiz #setup\.card-block\s*\{[^}]*width:\s*100%/.test(css)) {
+  fail('setup card should fill the quiz container width');
+} else ok('setup card fills the container width');
+if (/body\.quiz #setup\.card-block\s*\{[^}]*max-width:\s*min\(36rem/.test(css)) {
+  fail('setup card should not use the narrow 36rem hug cap');
+} else ok('setup card is not capped to the narrow hug width');
 if (!/body\.quiz\s*\{[^}]*height:\s*100dvh/.test(css)) fail('quiz page should lock to the viewport height');
 else ok('quiz page locks to the viewport height');
 if (!/body\.quiz #setup\.card-block\s*\{[^}]*flex:\s*1/.test(css)) {
