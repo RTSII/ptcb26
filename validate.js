@@ -166,9 +166,11 @@ if (notesData) {
 
 console.log('\nChapter Test filter (quiz.js)');
 const quizSrc = read('js/quiz.js');
-const chapterBlock = /mode === 'chapter'[\s\S]*?q\.subtopic === subtopic[\s\S]*?else \{ \/\/ custom/;
+const chapterBlock = /mode === 'chapter'[\s\S]*?q\.subtopic === subtopic/;
 if (!chapterBlock.test(quizSrc)) fail('startQuiz() chapter branch must filter by selected subtopic');
 else ok('startQuiz() has a chapter branch that filters q.subtopic');
+if (/mode === 'custom'|option value="custom"|'custom'/.test(quizSrc)) fail('quiz.js should not keep a custom mode');
+else ok('quiz.js has no custom mode');
 
 function filterChapter(pool, domain, subtopic) {
   let out = pool;
@@ -201,8 +203,8 @@ else ok('index.html body.home present');
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v14/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v14');
-else ok('sw.js cache is ptce-2026-v14');
+if (!/ptce-2026-v15/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v15');
+else ok('sw.js cache is ptce-2026-v15');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
@@ -275,11 +277,19 @@ if (!/value="Order Entry and Processing">Order Entry &amp; Processing</.test(qui
 } else ok('Order Entry display uses &; value unchanged');
 if (/Number of Questions/.test(quizHtml)) fail('count label should be shortened');
 else ok('count label is shortened');
-if (/body\.quiz #setup\.card-block\s*\{[^}]*width:\s*fit-content/.test(css)) {
-  fail('setup card should not hug its content width');
-} else ok('setup card uses a fluid width');
-if (/body\.quiz #setup\s*\{[^}]*max-width:\s*640px/.test(css)) fail('setup card should not be capped at 640px');
-else ok('setup card is not capped at 640px');
+if (/<option value="custom">/.test(quizHtml)) fail('custom mode option should be removed');
+else ok('custom mode option removed');
+if (!/body\.quiz #setup\.card-block\s*\{[^}]*width:\s*fit-content/.test(css)) {
+  fail('setup card should hug its content width');
+} else ok('setup card hugs its content width');
+if (/body\.quiz #setup\.card-block\s*\{[^}]*width:\s*100%/.test(css)) {
+  fail('setup card should not stretch to the full container width');
+} else ok('setup card is not a full-width strip');
+if (!/body\.quiz\s*\{[^}]*height:\s*100dvh/.test(css)) fail('quiz page should lock to the viewport height');
+else ok('quiz page locks to the viewport height');
+if (!/body\.quiz #setup\.card-block\s*\{[^}]*flex:\s*1/.test(css)) {
+  fail('setup card should grow to fill the viewport height');
+} else ok('setup card grows to fill the viewport height');
 if (!/body\.quiz #setup select,\s*\nbody\.quiz #setup input\[type="number"\]\s*\{[^}]*width:\s*100%/.test(css)) {
   fail('setup selects should be width 100% of their field');
 } else ok('setup selects are width 100%');
@@ -300,10 +310,17 @@ if (!/q\.featured !== false/.test(quizSrcFull) && !/featured !== false/.test(qui
 if (!/Escape/.test(quizSrcFull) || !/returnToSetup/.test(quizSrcFull)) {
   fail('quiz.js should exit on Esc and return to setup');
 } else ok('quiz.js Esc exit returns to setup');
-if (!/const showCount = mode === 'chapter' \|\| mode === 'custom' \|\| mode === 'weak' \|\| mode === 'weaksub'/.test(quizSrcFull) ||
+if (!/const showCount = mode === 'chapter' \|\| mode === 'weak' \|\| mode === 'weaksub'/.test(quizSrcFull) ||
     !/countRow\.hidden = !showCount/.test(quizSrcFull)) {
   fail('quiz setup should hide the count field for quick10, missed, and bookmarked');
 } else ok('count field hides for quick10, missed, and bookmarked');
+if (!/const showDomain = mode === 'chapter' \|\| mode === 'weak' \|\| mode === 'weaksub'/.test(quizSrcFull) ||
+    !/const showSub = mode === 'chapter' \|\| mode === 'weaksub'/.test(quizSrcFull)) {
+  fail('chapter mode should show domain and subtopic');
+} else ok('chapter mode shows domain and subtopic');
+if (!/addEventListener\('change', toggleModeFields\)[\s\S]*await loadData\(/.test(quizSrcFull)) {
+  fail('mode change listener must be attached before the question fetch');
+} else ok('mode change listener is attached before questions load');
 if (!/Storage\.getMissed\(\)/.test(quizSrcFull) || !/Storage\.getBookmarks\('question'\)/.test(quizSrcFull)) {
   fail('missed and bookmarked quizzes should still draw from stored pools');
 } else ok('missed and bookmarked quizzes use stored pools');
