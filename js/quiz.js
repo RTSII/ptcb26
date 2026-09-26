@@ -109,20 +109,18 @@
     const showDomain = ['chapter', 'custom', 'weak', 'weaksub'].includes(mode);
     const showSub = mode === 'chapter' || mode === 'weaksub';
     const showDiff = mode === 'custom' || mode === 'weak' || mode === 'weaksub';
+    // quick10 is fixed at 10; missed and bookmarked use the full stored pools.
+    const showCount = mode === 'chapter' || mode === 'custom' || mode === 'weak' || mode === 'weaksub';
+    const countRow = Util.el('#countRow');
     domainRow.hidden = !showDomain;
     subtopicRow.hidden = !showSub;
     diffRow.hidden = !showDiff;
+    countRow.hidden = !showCount;
     if (extras) extras.hidden = !(showDomain || showSub || showDiff);
 
-    if (mode === 'quick10') {
-      countInput.value = 10;
+    if (!showCount) {
       countInput.disabled = true;
-    } else if (mode === 'missed') {
-      countInput.disabled = true;
-      countInput.value = Storage.getMissed().length || 0;
-    } else if (mode === 'bookmarked') {
-      countInput.disabled = true;
-      countInput.value = Storage.getBookmarks('question').length || 0;
+      if (mode === 'quick10') countInput.value = 10;
     } else {
       countInput.disabled = false;
       if (mode === 'chapter') countInput.value = 10;
@@ -143,13 +141,18 @@
     }
   }
 
+  const DOMAIN_LABELS = {
+    'Patient Safety and Quality Assurance': 'Patient Safety & Q.A.',
+    'Order Entry and Processing': 'Order Entry & Processing'
+  };
+
   function populateDomains() {
     const available = new Set(allQuestions.map(q => q.domain));
     DOMAINS.forEach(d => {
       if (available.has(d) && !Array.from(domainSel.options).some(o => o.value === d)) {
         const opt = document.createElement('option');
         opt.value = d;
-        opt.textContent = d;
+        opt.textContent = DOMAIN_LABELS[d] || d;
         domainSel.appendChild(opt);
       }
     });

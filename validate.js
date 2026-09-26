@@ -201,8 +201,8 @@ else ok('index.html body.home present');
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v13/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v13');
-else ok('sw.js cache is ptce-2026-v13');
+if (!/ptce-2026-v14/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v14');
+else ok('sw.js cache is ptce-2026-v14');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
@@ -261,6 +261,30 @@ else ok('non-functional Quiz crumb removed');
 if (!/setup-primary/.test(quizHtml) || !/id="countRow"/.test(quizHtml)) {
   fail('quiz setup should place mode and count together');
 } else ok('quiz setup keeps mode and count on one row');
+if (/Chapter Test \(by Subtopic\)/.test(quizHtml)) fail('chapter mode label should be "Chapter Test"');
+else ok('chapter mode label is Chapter Test');
+if (!/value="missed">Missed Q\.A\.</.test(quizHtml)) fail('missed mode label should be Missed Q.A.');
+else ok('missed mode label is Missed Q.A.');
+if (!/value="bookmarked">Bookmarked</.test(quizHtml)) fail('bookmarked mode label should be Bookmarked');
+else ok('bookmarked mode label is Bookmarked');
+if (!/value="Patient Safety and Quality Assurance">Patient Safety &amp; Q\.A\.</.test(quizHtml)) {
+  fail('Patient Safety option should display Patient Safety & Q.A. and keep the bank value');
+} else ok('Patient Safety display is shortened; value unchanged');
+if (!/value="Order Entry and Processing">Order Entry &amp; Processing</.test(quizHtml)) {
+  fail('Order Entry option should display Order Entry & Processing and keep the bank value');
+} else ok('Order Entry display uses &; value unchanged');
+if (/Number of Questions/.test(quizHtml)) fail('count label should be shortened');
+else ok('count label is shortened');
+if (/body\.quiz #setup\.card-block\s*\{[^}]*width:\s*fit-content/.test(css)) {
+  fail('setup card should not hug its content width');
+} else ok('setup card uses a fluid width');
+if (/body\.quiz #setup\s*\{[^}]*max-width:\s*640px/.test(css)) fail('setup card should not be capped at 640px');
+else ok('setup card is not capped at 640px');
+if (!/body\.quiz #setup select,\s*\nbody\.quiz #setup input\[type="number"\]\s*\{[^}]*width:\s*100%/.test(css)) {
+  fail('setup selects should be width 100% of their field');
+} else ok('setup selects are width 100%');
+if (/field-sizing:\s*content/.test(css)) fail('setup controls should not use field-sizing: content');
+else ok('setup controls do not use field-sizing: content');
 if (!/id="exitQuizBtn"/.test(quizHtml) || !/id="headerExitBtn"/.test(quizHtml)) {
   fail('quiz should expose Exit controls');
 } else ok('quiz Exit controls present');
@@ -276,6 +300,13 @@ if (!/q\.featured !== false/.test(quizSrcFull) && !/featured !== false/.test(qui
 if (!/Escape/.test(quizSrcFull) || !/returnToSetup/.test(quizSrcFull)) {
   fail('quiz.js should exit on Esc and return to setup');
 } else ok('quiz.js Esc exit returns to setup');
+if (!/const showCount = mode === 'chapter' \|\| mode === 'custom' \|\| mode === 'weak' \|\| mode === 'weaksub'/.test(quizSrcFull) ||
+    !/countRow\.hidden = !showCount/.test(quizSrcFull)) {
+  fail('quiz setup should hide the count field for quick10, missed, and bookmarked');
+} else ok('count field hides for quick10, missed, and bookmarked');
+if (!/Storage\.getMissed\(\)/.test(quizSrcFull) || !/Storage\.getBookmarks\('question'\)/.test(quizSrcFull)) {
+  fail('missed and bookmarked quizzes should still draw from stored pools');
+} else ok('missed and bookmarked quizzes use stored pools');
 
 const courseSrc = read('js/course.js');
 if (!/optional/.test(courseSrc) || !/archive-badge/.test(courseSrc)) {
