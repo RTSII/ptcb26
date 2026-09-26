@@ -203,8 +203,8 @@ else ok('index.html body.home present');
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v15/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v15');
-else ok('sw.js cache is ptce-2026-v15');
+if (!/ptce-2026-v16/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v16');
+else ok('sw.js cache is ptce-2026-v16');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
@@ -260,9 +260,14 @@ if (!/class="header-title"/.test(quizHtml) || !/class="header-home"/.test(quizHt
 } else ok('quiz header has centered title and Home link');
 if (/class="crumb">Quiz</.test(quizHtml)) fail('quiz header still has a non-functional Quiz crumb');
 else ok('non-functional Quiz crumb removed');
-if (!/setup-primary/.test(quizHtml) || !/id="countRow"/.test(quizHtml)) {
-  fail('quiz setup should place mode and count together');
-} else ok('quiz setup keeps mode and count on one row');
+if (/Build Your Quiz/.test(quizHtml)) fail('setup heading Build Your Quiz should be removed');
+else ok('Build Your Quiz heading removed');
+if (!/setup-primary/.test(quizHtml) || !/id="countRow"/.test(quizHtml) || !/id="modeField"/.test(quizHtml)) {
+  fail('quiz setup should keep mode and an optional count field');
+} else ok('quiz setup keeps mode above an optional count field');
+if (!/body\.quiz #setup #modeField label\s*\{[^}]*text-align:\s*center/.test(css)) {
+  fail('mode label should be centered above the mode select');
+} else ok('mode label is centered above the mode select');
 if (/Chapter Test \(by Subtopic\)/.test(quizHtml)) fail('chapter mode label should be "Chapter Test"');
 else ok('chapter mode label is Chapter Test');
 if (!/value="missed">Missed Q\.A\.</.test(quizHtml)) fail('missed mode label should be Missed Q.A.');
@@ -305,8 +310,8 @@ const quizSrcFull = read('js/quiz.js');
 if (!/featured !== false/.test(examSrc)) fail('exam.js must skip featured:false items');
 else ok('exam.js excludes featured:false from the default draw');
 if (!/q\.featured !== false/.test(quizSrcFull) && !/featured !== false/.test(quizSrcFull)) {
-  fail('quiz.js must skip featured:false in Quick 10 / weak modes');
-} else ok('quiz.js excludes featured:false from Quick 10 / weak modes');
+  fail('quiz.js must skip featured:false in Quick 10');
+} else ok('quiz.js excludes featured:false from Quick 10');
 if (!/Escape/.test(quizSrcFull) || !/returnToSetup/.test(quizSrcFull)) {
   fail('quiz.js should exit on Esc and return to setup');
 } else ok('quiz.js Esc exit returns to setup');
@@ -314,10 +319,16 @@ if (!/const showCount = mode === 'chapter' \|\| mode === 'weak' \|\| mode === 'w
     !/countRow\.hidden = !showCount/.test(quizSrcFull)) {
   fail('quiz setup should hide the count field for quick10, missed, and bookmarked');
 } else ok('count field hides for quick10, missed, and bookmarked');
-if (!/const showDomain = mode === 'chapter' \|\| mode === 'weak' \|\| mode === 'weaksub'/.test(quizSrcFull) ||
-    !/const showSub = mode === 'chapter' \|\| mode === 'weaksub'/.test(quizSrcFull)) {
-  fail('chapter mode should show domain and subtopic');
-} else ok('chapter mode shows domain and subtopic');
+if (!/const showDomain = mode === 'chapter';/.test(quizSrcFull) ||
+    !/const showSub = mode === 'chapter';/.test(quizSrcFull) ||
+    !/const showDiff = false;/.test(quizSrcFull)) {
+  fail('only chapter mode should show domain and subtopic; weak modes hide domain, subtopic, and difficulty');
+} else ok('chapter mode shows domain and subtopic; weak modes hide those filters');
+const weakBranchAt = quizSrcFull.indexOf("} else if (mode === 'weak' || mode === 'weaksub')");
+const weakBranch = weakBranchAt === -1 ? '' : quizSrcFull.slice(weakBranchAt, weakBranchAt + 900);
+if (weakBranchAt === -1 || !/reviewPool\(/.test(weakBranch) || /isFeatured/.test(weakBranch)) {
+  fail('weak modes must sample the missed ∪ bookmarked pool, not the featured bank');
+} else ok('weak modes sample the missed ∪ bookmarked pool');
 if (!/addEventListener\('change', toggleModeFields\)[\s\S]*await loadData\(/.test(quizSrcFull)) {
   fail('mode change listener must be attached before the question fetch');
 } else ok('mode change listener is attached before questions load');

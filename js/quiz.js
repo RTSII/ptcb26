@@ -13,7 +13,6 @@
   const modeSel = Util.el('#mode');
   const domainSel = Util.el('#domain');
   const subtopicSel = Util.el('#subtopic');
-  const diffSel = Util.el('#difficulty');
   const countInput = Util.el('#count');
   const startBtn = Util.el('#startBtn');
 
@@ -35,6 +34,7 @@
 
   let allQuestions = [];
   let session = [];
+  let sessionFilter = { domain: 'All', subtopic: null };
   let idx = 0;
   let answers = [];
   let startTime = 0;
@@ -56,9 +56,10 @@
   toggleModeFields();
   await loadData();
 
-  // Deep-link support: e.g. course modules link to quiz.html?mode=chapter&domain=Medications&count=15
+  // Deep-link support: course modules use quiz.html?mode=chapter&domain=Medications&count=15.
+  // Weak modes ignore domain/subtopic params and choose the area from the review pool.
   const urlDomain = params.get('domain');
-  if (urlDomain && ['chapter', 'weak', 'weaksub'].includes(startMode)) {
+  if (urlDomain && startMode === 'chapter') {
     if (Array.from(domainSel.options).some(o => o.value === urlDomain)) {
       domainSel.value = urlDomain;
     }
@@ -108,9 +109,11 @@
     const diffRow = Util.el('#diffRow');
     const extras = Util.el('#setupExtras');
 
-    const showDomain = mode === 'chapter' || mode === 'weak' || mode === 'weaksub';
-    const showSub = mode === 'chapter' || mode === 'weaksub';
-    const showDiff = mode === 'weak' || mode === 'weaksub';
+    // Chapter is the only mode that asks for Domain / Subtopic.
+    // Weakest Domain and Weakest Subtopic pick the area from missed ∪ bookmarked.
+    const showDomain = mode === 'chapter';
+    const showSub = mode === 'chapter';
+    const showDiff = false;
     // quick10 is fixed at 10; missed and bookmarked use the full stored pools.
     const showCount = mode === 'chapter' || mode === 'weak' || mode === 'weaksub';
     const countRow = Util.el('#countRow');
@@ -124,10 +127,11 @@
       countInput.disabled = true;
       if (mode === 'quick10') countInput.value = 10;
     } else {
+      const wasDisabled = countInput.disabled;
       countInput.disabled = false;
-      if (mode === 'chapter') countInput.value = 10;
+      if (mode === 'chapter' || wasDisabled || !countInput.value) countInput.value = 10;
     }
-    if (mode === 'chapter' || mode === 'weak' || mode === 'weaksub') updateSubtopics();
+    if (mode === 'chapter') updateSubtopics();
   }
 
   async function loadData() {
@@ -176,32 +180,60 @@
     });
   }
 
-  // accuracy map from all recorded attempts
-  function accuracyBy(fn) {
-    const acc = {};
-    Storage.read().quizzes.concat(Storage.read().exams).forEach(a => {
-      (a.questions || []).forEach(r => {
-        const q = allQuestions.find(x => x.id === r.id);
-        if (!q) return;
-        const k = fn(q);
-        if (!k) return;
-        if (!acc[k]) acc[k] = { c: 0, t: 0 };
-        acc[k].t++;
-        if (r.correct) acc[k].c++;
-      });
-    });
-    return acc;
+  // Missed Q.A. and Bookmarked already read these two stores. Weak modes
+  // quiz their union, including archive items (featured:false) the learner flagged.
+  function reviewPool() {
+    const ids = new Set([
+      ...Storage.getMissed(),
+      ...Storage.getBookmarks('question')
+    ].map(String));
+    return allQuestions.filter(q => ids.has(String(q.id)));
   }
 
-  function weakestKey(acc) {
-    let key = null, worst = 101;
-    Object.keys(acc).forEach(k => {
-      if (acc[k].t >= 3) {
-        const p = (acc[k].c / acc[k].t) * 100;
-        if (p < worst) { worst = p; key = k; }
-      }
+  // Pick the weakest domain or subtopic inside the review pool.
+  // Accuracy counts only attempts whose question is in that pool, so a domain
+  // the learner is missing elsewhere cannot pull questions from the full bank.
+  // A group with no attempts ranks as 50%: a failing group still wins, and an
+  // untested bookmarked group beats one the learner is already passing.
+  // Ties break toward more currently-missed questions, then a larger pool.
+  function weakestInPool(pool, keyFn) {
+    const byId = new Map(pool.map(q => [String(q.id), q]));
+    const missed = new Set(Storage.getMissed().map(String));
+    const stats = new Map();
+    pool.forEach(q => {
+      const key = keyFn(q);
+      if (!key) return;
+      if (!stats.has(key)) stats.set(key, { correct: 0, attempts: 0, missed: 0, count: 0 });
+      const row = stats.get(key);
+      row.count++;
+      if (missed.has(String(q.id))) row.missed++;
     });
-    return key;
+    Storage.read().quizzes.concat(Storage.read().exams).forEach(attempt => {
+      (attempt.questions || []).forEach(r => {
+        const q = byId.get(String(r.id));
+        if (!q) return;
+        const row = stats.get(keyFn(q));
+        if (!row) return;
+        row.attempts++;
+        if (r.correct) row.correct++;
+      });
+    });
+    let best = null;
+    stats.forEach((row, key) => {
+      const accuracy = row.attempts > 0 ? row.correct / row.attempts : 0.5;
+      const weaker = !best
+        || accuracy < best.accuracy
+        || (accuracy === best.accuracy && row.missed > best.row.missed)
+        || (accuracy === best.accuracy && row.missed === best.row.missed && row.count > best.row.count)
+        || (accuracy === best.accuracy && row.missed === best.row.missed && row.count === best.row.count && key.localeCompare(best.key) < 0);
+      if (weaker) best = { key, accuracy, row };
+    });
+    return best ? best.key : null;
+  }
+
+  function sharedDomain(list) {
+    const domains = [...new Set(list.map(q => q.domain).filter(Boolean))];
+    return domains.length === 1 ? domains[0] : 'All';
   }
 
   function isFeatured(q) { return q.featured !== false; }
@@ -210,8 +242,8 @@
     const mode = modeSel.value;
     const domain = domainSel.value;
     const subtopic = subtopicSel.value;
-    const difficulty = diffSel.value;
     let pool = allQuestions;
+    sessionFilter = { domain: domain, subtopic: subtopic || null };
 
     if (mode === 'quick10') {
       pool = Util.sample(allQuestions.filter(isFeatured), 10);
@@ -231,21 +263,24 @@
         alert('No bookmarked questions yet. Tap the star while taking a quiz or exam.');
         return;
       }
-    } else if (mode === 'weak') {
-      const acc = accuracyBy(q => q.domain);
-      const weakDomain = domain !== 'All' ? domain : (weakestKey(acc) || null);
-      pool = pool.filter(isFeatured);
-      pool = weakDomain ? pool.filter(q => q.domain === weakDomain) : pool;
-      if (difficulty) pool = pool.filter(q => q.difficulty === difficulty);
-      pool = Util.sample(pool, Math.min(parseInt(countInput.value) || 10, pool.length));
-    } else if (mode === 'weaksub') {
-      const acc = accuracyBy(q => q.subtopic);
-      const weakSub = subtopic || weakestKey(acc);
-      pool = pool.filter(isFeatured);
-      if (weakSub) pool = pool.filter(q => q.subtopic === weakSub);
-      if (domain !== 'All') pool = pool.filter(q => q.domain === domain);
-      if (difficulty) pool = pool.filter(q => q.difficulty === difficulty);
-      pool = Util.sample(pool, Math.min(parseInt(countInput.value) || 10, pool.length));
+    } else if (mode === 'weak' || mode === 'weaksub') {
+      const review = reviewPool();
+      if (!review.length) {
+        alert('No missed or bookmarked questions yet. Complete a quiz or exam, or tap the star to bookmark a question.');
+        return;
+      }
+      const keyFn = mode === 'weak' ? (q => q.domain) : (q => q.subtopic);
+      const weakKey = weakestInPool(review, keyFn);
+      const slice = weakKey ? review.filter(q => keyFn(q) === weakKey) : [];
+      if (!slice.length) {
+        alert('No questions available for this selection.');
+        return;
+      }
+      const n = Math.min(parseInt(countInput.value, 10) || 10, slice.length);
+      pool = Util.sample(slice, n);
+      sessionFilter = mode === 'weak'
+        ? { domain: weakKey, subtopic: null }
+        : { domain: sharedDomain(slice), subtopic: weakKey };
     } else if (mode === 'chapter') {
       // Chapter Test: domain + selected subtopic (empty subtopic = all in domain)
       if (domain !== 'All') pool = pool.filter(q => q.domain === domain);
@@ -381,8 +416,8 @@
     Storage.recordQuiz({
       date: new Date().toISOString(),
       mode: modeSel.value,
-      domain: domainSel.value,
-      subtopic: subtopicSel.value || null,
+      domain: sessionFilter.domain,
+      subtopic: sessionFilter.subtopic,
       total: session.length,
       correct: correct,
       score: score,
