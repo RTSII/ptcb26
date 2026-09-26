@@ -12,7 +12,6 @@
 
   const modeSel = Util.el('#mode');
   const domainSel = Util.el('#domain');
-  const subtopicSel = Util.el('#subtopic');
   const countInput = Util.el('#count');
   const startBtn = Util.el('#startBtn');
 
@@ -46,32 +45,27 @@
   const exitConfirmBtn = Util.el('#exitConfirmBtn');
 
   // Initialize. Bind mode changes before the question fetch: the form is already
-  // visible, and a Chapter selection during that gap used to stick while
-  // Domain / Subtopic stayed hidden (listener used to be registered after await).
+  // visible, and a Chapter selection during that gap used to stick while the
+  // chapter dropdown stayed hidden (listener used to be registered after await).
   const validModes = ['quick10', 'chapter', 'missed', 'bookmarked', 'weak', 'weaksub'];
   const startMode = validModes.includes(initialMode) ? initialMode : (initialMode === 'quick' ? 'quick10' : 'quick10');
   modeSel.addEventListener('change', toggleModeFields);
-  domainSel.addEventListener('change', updateSubtopics);
   modeSel.value = startMode;
   toggleModeFields();
   await loadData();
 
   // Deep-link support: course modules use quiz.html?mode=chapter&domain=Medications&count=15.
-  // Weak modes ignore domain/subtopic params and choose the area from the review pool.
+  // That domain value is the single Chapter dropdown. A subtopic query param is ignored.
+  // Weak modes ignore domain params and choose the area from the review pool.
   const urlDomain = params.get('domain');
   if (urlDomain && startMode === 'chapter') {
     if (Array.from(domainSel.options).some(o => o.value === urlDomain)) {
       domainSel.value = urlDomain;
     }
   }
-  updateSubtopics();
   const urlCount = parseInt(params.get('count'), 10);
   if (urlCount && !countInput.disabled) {
     countInput.value = Math.min(50, Math.max(5, urlCount));
-  }
-  const urlSubtopic = params.get('subtopic');
-  if (urlSubtopic && Array.from(subtopicSel.options).some(o => o.value === urlSubtopic)) {
-    subtopicSel.value = urlSubtopic;
   }
 
   // Events
@@ -109,10 +103,10 @@
     const diffRow = Util.el('#diffRow');
     const extras = Util.el('#setupExtras');
 
-    // Chapter is the only mode that asks for Domain / Subtopic.
+    // Chapter Test asks for one chapter (the domain list). No subtopic filter.
     // Weakest Domain and Weakest Subtopic pick the area from missed ∪ bookmarked.
     const showDomain = mode === 'chapter';
-    const showSub = mode === 'chapter';
+    const showSub = false;
     const showDiff = false;
     // quick10 is fixed at 10; missed and bookmarked use the full stored pools.
     const showCount = mode === 'chapter' || mode === 'weak' || mode === 'weaksub';
@@ -131,7 +125,6 @@
       countInput.disabled = false;
       if (mode === 'chapter' || wasDisabled || !countInput.value) countInput.value = 10;
     }
-    if (mode === 'chapter') updateSubtopics();
   }
 
   async function loadData() {
@@ -161,22 +154,6 @@
         opt.textContent = DOMAIN_LABELS[d] || d;
         domainSel.appendChild(opt);
       }
-    });
-  }
-
-  function updateSubtopics() {
-    const domain = domainSel.value;
-    subtopicSel.innerHTML = '<option value="">All</option>';
-    if (domain === 'All') return;
-    const subs = [...new Set(allQuestions
-      .filter(q => q.domain === domain)
-      .map(q => q.subtopic)
-      .filter(Boolean))].sort();
-    subs.forEach(s => {
-      const opt = document.createElement('option');
-      opt.value = s;
-      opt.textContent = s;
-      subtopicSel.appendChild(opt);
     });
   }
 
@@ -241,9 +218,8 @@
   function startQuiz() {
     const mode = modeSel.value;
     const domain = domainSel.value;
-    const subtopic = subtopicSel.value;
     let pool = allQuestions;
-    sessionFilter = { domain: domain, subtopic: subtopic || null };
+    sessionFilter = { domain: domain, subtopic: null };
 
     if (mode === 'quick10') {
       pool = Util.sample(allQuestions.filter(isFeatured), 10);
@@ -282,9 +258,8 @@
         ? { domain: weakKey, subtopic: null }
         : { domain: sharedDomain(slice), subtopic: weakKey };
     } else if (mode === 'chapter') {
-      // Chapter Test: domain + selected subtopic (empty subtopic = all in domain)
+      // Chapter Test: the selected chapter is a domain. All keeps the full bank.
       if (domain !== 'All') pool = pool.filter(q => q.domain === domain);
-      if (subtopic) pool = pool.filter(q => q.subtopic === subtopic);
       pool = Util.sample(pool, Math.min(parseInt(countInput.value) || 10, pool.length));
     } else {
       return;

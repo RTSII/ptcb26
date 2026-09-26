@@ -166,29 +166,23 @@ if (notesData) {
 
 console.log('\nChapter Test filter (quiz.js)');
 const quizSrc = read('js/quiz.js');
-const chapterBlock = /mode === 'chapter'[\s\S]*?q\.subtopic === subtopic/;
-if (!chapterBlock.test(quizSrc)) fail('startQuiz() chapter branch must filter by selected subtopic');
-else ok('startQuiz() has a chapter branch that filters q.subtopic');
+const chapterAt = quizSrc.indexOf("} else if (mode === 'chapter')");
+const chapterEnd = chapterAt === -1 ? -1 : quizSrc.indexOf('} else {', chapterAt);
+const chapterBranch = chapterAt === -1 ? '' : quizSrc.slice(chapterAt, chapterEnd === -1 ? chapterAt + 400 : chapterEnd);
+if (chapterAt === -1 || !/q\.domain === domain/.test(chapterBranch) || /q\.subtopic/.test(chapterBranch)) {
+  fail('chapter quiz must filter by the selected chapter only');
+} else ok('chapter quiz filters by the selected chapter only');
 if (/mode === 'custom'|option value="custom"|'custom'/.test(quizSrc)) fail('quiz.js should not keep a custom mode');
 else ok('quiz.js has no custom mode');
-
-function filterChapter(pool, domain, subtopic) {
-  let out = pool;
-  if (domain && domain !== 'All') out = out.filter(q => q.domain === domain);
-  if (subtopic) out = out.filter(q => q.subtopic === subtopic);
-  return out;
-}
+if (/params\.get\('subtopic'\)/.test(quizSrc)) fail('chapter setup should ignore a subtopic query param');
+else ok('subtopic query param is not applied on setup');
 
 if (questions.length) {
-  const dea = filterChapter(questions, 'Federal Requirements', 'DEA Forms');
-  if (!dea.length) fail('no DEA Forms questions to assert chapter filter');
-  else if (!dea.every(q => q.domain === 'Federal Requirements' && q.subtopic === 'DEA Forms')) {
-    fail('chapter filter leaked non-DEA Forms items');
-  } else {
-    const domainOnly = filterChapter(questions, 'Federal Requirements', '');
-    if (domainOnly.length <= dea.length) fail('chapter domain-only pool should be larger than a single subtopic');
-    else ok('chapter filter: Federal Requirements + DEA Forms → ' + dea.length + ' (domain-only ' + domainOnly.length + ')');
-  }
+  const federal = questions.filter(q => q.domain === 'Federal Requirements');
+  const dea = federal.filter(q => q.subtopic === 'DEA Forms');
+  if (!federal.length || !dea.length) fail('Federal Requirements chapter should include DEA Forms questions');
+  else if (federal.length <= dea.length) fail('a chapter pool should cover the whole domain, not one subtopic');
+  else ok('chapter pool is the whole domain: Federal Requirements ' + federal.length + ' (DEA Forms alone ' + dea.length + ')');
 }
 
 console.log('\nHome copy');
@@ -203,8 +197,8 @@ else ok('index.html body.home present');
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v16/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v16');
-else ok('sw.js cache is ptce-2026-v16');
+if (!/ptce-2026-v17/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v17');
+else ok('sw.js cache is ptce-2026-v17');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
@@ -320,10 +314,12 @@ if (!/const showCount = mode === 'chapter' \|\| mode === 'weak' \|\| mode === 'w
   fail('quiz setup should hide the count field for quick10, missed, and bookmarked');
 } else ok('count field hides for quick10, missed, and bookmarked');
 if (!/const showDomain = mode === 'chapter';/.test(quizSrcFull) ||
-    !/const showSub = mode === 'chapter';/.test(quizSrcFull) ||
+    !/const showSub = false;/.test(quizSrcFull) ||
     !/const showDiff = false;/.test(quizSrcFull)) {
-  fail('only chapter mode should show domain and subtopic; weak modes hide domain, subtopic, and difficulty');
-} else ok('chapter mode shows domain and subtopic; weak modes hide those filters');
+  fail('chapter mode should show one chapter dropdown and hide subtopic and difficulty');
+} else ok('chapter mode shows one chapter dropdown; subtopic and difficulty stay hidden');
+if (!/<label for="domain">Chapter<\/label>/.test(quizHtml)) fail('chapter dropdown label should be Chapter');
+else ok('chapter dropdown label is Chapter');
 const weakBranchAt = quizSrcFull.indexOf("} else if (mode === 'weak' || mode === 'weaksub')");
 const weakBranch = weakBranchAt === -1 ? '' : quizSrcFull.slice(weakBranchAt, weakBranchAt + 900);
 if (weakBranchAt === -1 || !/reviewPool\(/.test(weakBranch) || /isFeatured/.test(weakBranch)) {

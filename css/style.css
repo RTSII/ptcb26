@@ -1561,7 +1561,7 @@ body.quiz #setup .field label {
   white-space: nowrap;
 }
 /* Mode is the hero control: label centered above a full-width select.
-   Questions, Domain, and Subtopic stack under it so long names stay readable. */
+   Questions and the single Chapter dropdown stack under it so long names stay readable. */
 body.quiz #setup #modeField label {
   text-align: center;
   width: 100%;
