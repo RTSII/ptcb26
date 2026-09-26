@@ -197,8 +197,8 @@ else ok('index.html body.home present');
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v18/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v18');
-else ok('sw.js cache is ptce-2026-v18');
+if (!/ptce-2026-v19/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v19');
+else ok('sw.js cache is ptce-2026-v19');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
@@ -278,20 +278,23 @@ if (/Number of Questions/.test(quizHtml)) fail('count label should be shortened'
 else ok('count label is shortened');
 if (/<option value="custom">/.test(quizHtml)) fail('custom mode option should be removed');
 else ok('custom mode option removed');
-if (/body\.quiz #setup\.card-block\s*\{[^}]*width:\s*fit-content/.test(css)) {
-  fail('setup card should not hug its content width');
-} else ok('setup card is not content-sized');
-if (!/body\.quiz #setup\.card-block\s*\{[^}]*width:\s*100%/.test(css)) {
-  fail('setup card should fill the quiz container width');
-} else ok('setup card fills the container width');
-if (/body\.quiz #setup\.card-block\s*\{[^}]*max-width:\s*min\(36rem/.test(css)) {
-  fail('setup card should not use the narrow 36rem hug cap');
-} else ok('setup card is not capped to the narrow hug width');
+if (!/body\.quiz #setup\.card-block\s*\{[^}]*width:\s*fit-content/.test(css)) {
+  fail('setup card should hug its content width');
+} else ok('setup card hugs its content width');
+if (/body\.quiz #setup\.card-block\s*\{[^}]*width:\s*100%/.test(css)) {
+  fail('setup card should not stretch to the full container width');
+} else ok('setup card is not a full-bleed frame');
+if (!/body\.quiz #setup\.card-block\s*\{[^}]*min-width:\s*min\(34rem/.test(css)) {
+  fail('setup card should keep a mid-width floor so controls stay readable');
+} else ok('setup card has a mid-width floor');
+if (/body\.quiz #setup\.card-block\s*\{[^}]*flex:\s*1/.test(css)) {
+  fail('setup card should not grow to fill the viewport height');
+} else ok('setup card height follows its content');
+if (/body\.quiz \.setup-actions\s*\{[^}]*margin-top:\s*auto/.test(css)) {
+  fail('setup actions should sit under the fields');
+} else ok('setup actions sit under the fields');
 if (!/body\.quiz\s*\{[^}]*height:\s*100dvh/.test(css)) fail('quiz page should lock to the viewport height');
 else ok('quiz page locks to the viewport height');
-if (!/body\.quiz #setup\.card-block\s*\{[^}]*flex:\s*1/.test(css)) {
-  fail('setup card should grow to fill the viewport height');
-} else ok('setup card grows to fill the viewport height');
 if (!/body\.quiz #setup select,\s*\nbody\.quiz #setup input\[type="number"\]\s*\{[^}]*width:\s*100%/.test(css)) {
   fail('setup selects should be width 100% of their field');
 } else ok('setup selects are width 100%');

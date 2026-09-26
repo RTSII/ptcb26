@@ -1397,7 +1397,7 @@ body.exam #examScreen .btn-row {
   }
 }
 
-/* ============ Quiz: tall setup card, centered header, exit ============ */
+/* ============ Quiz: content-sized setup card, centered header, exit ============ */
 body.quiz {
   height: 100dvh;
   max-height: 100dvh;
@@ -1494,8 +1494,8 @@ body.quiz #exitQuizBtn {
 body.quiz #qnum { flex: 0 0 auto; }
 body.quiz #qdomain { min-width: 0; }
 
-/* Setup card uses one viewport-sized frame (the Quick 10 card).
-   Extra mode fields stack inside it. In-progress quiz/results keep their readable width. */
+/* Setup card hugs the controls that are on screen and sits in the middle.
+   Adding Questions or Chapter grows the card. Quiz/results keep their readable width. */
 body.quiz .container {
   flex: 1 1 auto;
   min-height: 0;
@@ -1517,18 +1517,17 @@ body.quiz #loadError.card-block {
   margin-right: auto;
 }
 body.quiz #setup.card-block {
-  flex: 1 1 auto;
-  align-self: stretch;
-  width: 100%;
-  min-width: 0;
-  max-width: none;
-  min-height: 0;
-  margin: 0;
-  padding: 12px 16px;
+  flex: 0 0 auto;
+  align-self: center;
+  width: fit-content;
+  min-width: min(34rem, 100%);
+  max-width: min(45rem, 100%);
+  margin: auto;
+  padding: 14px 16px 12px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  overflow: auto;
+  overflow: visible;
 }
 body.quiz .setup-primary,
 body.quiz .setup-extras {
@@ -1584,8 +1583,8 @@ body.quiz .setup-actions {
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
-  margin-top: auto;
-  padding-top: 16px;
+  margin-top: 12px;
+  padding-top: 0;
 }
 body.quiz .setup-actions .cta,
 body.quiz .setup-actions .button {
