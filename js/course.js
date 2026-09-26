@@ -57,7 +57,7 @@
 
   function quizUrl(mod) {
     const q = mod.quiz || { domain: mod.domain, count: 10 };
-    return 'quiz.html?mode=custom&domain=' + encodeURIComponent(q.domain) + '&count=' + (q.count || 10);
+    return 'quiz.html?mode=chapter&domain=' + encodeURIComponent(q.domain) + '&count=' + (q.count || 10);
   }
 
   function renderList() {

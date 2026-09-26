@@ -1,4 +1,4 @@
-// Quiz module: Quick 10, Chapter Test, Custom, Missed Review, Weak-area modes
+// Quiz module: Quick 10, Chapter Test, Missed Q.A., Bookmarked, Weak-area modes
 (async function () {
   const { Storage, Util, DOMAINS } = window.App;
 
@@ -45,21 +45,25 @@
   const exitCancelBtn = Util.el('#exitCancelBtn');
   const exitConfirmBtn = Util.el('#exitConfirmBtn');
 
-  // Initialize
-  const validModes = ['quick10', 'chapter', 'custom', 'missed', 'bookmarked', 'weak', 'weaksub'];
+  // Initialize. Bind mode changes before the question fetch: the form is already
+  // visible, and a Chapter selection during that gap used to stick while
+  // Domain / Subtopic stayed hidden (listener used to be registered after await).
+  const validModes = ['quick10', 'chapter', 'missed', 'bookmarked', 'weak', 'weaksub'];
   const startMode = validModes.includes(initialMode) ? initialMode : (initialMode === 'quick' ? 'quick10' : 'quick10');
+  modeSel.addEventListener('change', toggleModeFields);
+  domainSel.addEventListener('change', updateSubtopics);
   modeSel.value = startMode;
   toggleModeFields();
   await loadData();
 
-  // Deep-link support: e.g. course lessons link to quiz.html?mode=custom&domain=Medications&count=15
+  // Deep-link support: e.g. course modules link to quiz.html?mode=chapter&domain=Medications&count=15
   const urlDomain = params.get('domain');
-  if (urlDomain && ['chapter', 'custom', 'weak', 'weaksub'].includes(startMode)) {
+  if (urlDomain && ['chapter', 'weak', 'weaksub'].includes(startMode)) {
     if (Array.from(domainSel.options).some(o => o.value === urlDomain)) {
       domainSel.value = urlDomain;
-      updateSubtopics();
     }
   }
+  updateSubtopics();
   const urlCount = parseInt(params.get('count'), 10);
   if (urlCount && !countInput.disabled) {
     countInput.value = Math.min(50, Math.max(5, urlCount));
@@ -70,8 +74,6 @@
   }
 
   // Events
-  modeSel.addEventListener('change', toggleModeFields);
-  domainSel.addEventListener('change', updateSubtopics);
   startBtn.addEventListener('click', startQuiz);
   prevBtn.addEventListener('click', () => nav(-1));
   nextBtn.addEventListener('click', () => nav(1));
@@ -106,11 +108,11 @@
     const diffRow = Util.el('#diffRow');
     const extras = Util.el('#setupExtras');
 
-    const showDomain = ['chapter', 'custom', 'weak', 'weaksub'].includes(mode);
+    const showDomain = mode === 'chapter' || mode === 'weak' || mode === 'weaksub';
     const showSub = mode === 'chapter' || mode === 'weaksub';
-    const showDiff = mode === 'custom' || mode === 'weak' || mode === 'weaksub';
+    const showDiff = mode === 'weak' || mode === 'weaksub';
     // quick10 is fixed at 10; missed and bookmarked use the full stored pools.
-    const showCount = mode === 'chapter' || mode === 'custom' || mode === 'weak' || mode === 'weaksub';
+    const showCount = mode === 'chapter' || mode === 'weak' || mode === 'weaksub';
     const countRow = Util.el('#countRow');
     domainRow.hidden = !showDomain;
     subtopicRow.hidden = !showSub;
@@ -249,10 +251,8 @@
       if (domain !== 'All') pool = pool.filter(q => q.domain === domain);
       if (subtopic) pool = pool.filter(q => q.subtopic === subtopic);
       pool = Util.sample(pool, Math.min(parseInt(countInput.value) || 10, pool.length));
-    } else { // custom
-      if (domain !== 'All') pool = pool.filter(q => q.domain === domain);
-      if (difficulty) pool = pool.filter(q => q.difficulty === difficulty);
-      pool = Util.sample(pool, Math.min(parseInt(countInput.value) || 10, pool.length));
+    } else {
+      return;
     }
 
     if (!pool.length) {
