@@ -166,29 +166,23 @@ if (notesData) {
 
 console.log('\nChapter Test filter (quiz.js)');
 const quizSrc = read('js/quiz.js');
-const chapterBlock = /mode === 'chapter'[\s\S]*?q\.subtopic === subtopic/;
-if (!chapterBlock.test(quizSrc)) fail('startQuiz() chapter branch must filter by selected subtopic');
-else ok('startQuiz() has a chapter branch that filters q.subtopic');
+const chapterAt = quizSrc.indexOf("} else if (mode === 'chapter')");
+const chapterEnd = chapterAt === -1 ? -1 : quizSrc.indexOf('} else {', chapterAt);
+const chapterBranch = chapterAt === -1 ? '' : quizSrc.slice(chapterAt, chapterEnd === -1 ? chapterAt + 400 : chapterEnd);
+if (chapterAt === -1 || !/q\.domain === domain/.test(chapterBranch) || /q\.subtopic/.test(chapterBranch)) {
+  fail('chapter quiz must filter by the selected chapter only');
+} else ok('chapter quiz filters by the selected chapter only');
 if (/mode === 'custom'|option value="custom"|'custom'/.test(quizSrc)) fail('quiz.js should not keep a custom mode');
 else ok('quiz.js has no custom mode');
-
-function filterChapter(pool, domain, subtopic) {
-  let out = pool;
-  if (domain && domain !== 'All') out = out.filter(q => q.domain === domain);
-  if (subtopic) out = out.filter(q => q.subtopic === subtopic);
-  return out;
-}
+if (/params\.get\('subtopic'\)/.test(quizSrc)) fail('chapter setup should ignore a subtopic query param');
+else ok('subtopic query param is not applied on setup');
 
 if (questions.length) {
-  const dea = filterChapter(questions, 'Federal Requirements', 'DEA Forms');
-  if (!dea.length) fail('no DEA Forms questions to assert chapter filter');
-  else if (!dea.every(q => q.domain === 'Federal Requirements' && q.subtopic === 'DEA Forms')) {
-    fail('chapter filter leaked non-DEA Forms items');
-  } else {
-    const domainOnly = filterChapter(questions, 'Federal Requirements', '');
-    if (domainOnly.length <= dea.length) fail('chapter domain-only pool should be larger than a single subtopic');
-    else ok('chapter filter: Federal Requirements + DEA Forms → ' + dea.length + ' (domain-only ' + domainOnly.length + ')');
-  }
+  const federal = questions.filter(q => q.domain === 'Federal Requirements');
+  const dea = federal.filter(q => q.subtopic === 'DEA Forms');
+  if (!federal.length || !dea.length) fail('Federal Requirements chapter should include DEA Forms questions');
+  else if (federal.length <= dea.length) fail('a chapter pool should cover the whole domain, not one subtopic');
+  else ok('chapter pool is the whole domain: Federal Requirements ' + federal.length + ' (DEA Forms alone ' + dea.length + ')');
 }
 
 console.log('\nHome copy');
@@ -203,8 +197,8 @@ else ok('index.html body.home present');
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v15/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v15');
-else ok('sw.js cache is ptce-2026-v15');
+if (!/ptce-2026-v19/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v19');
+else ok('sw.js cache is ptce-2026-v19');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
@@ -260,9 +254,14 @@ if (!/class="header-title"/.test(quizHtml) || !/class="header-home"/.test(quizHt
 } else ok('quiz header has centered title and Home link');
 if (/class="crumb">Quiz</.test(quizHtml)) fail('quiz header still has a non-functional Quiz crumb');
 else ok('non-functional Quiz crumb removed');
-if (!/setup-primary/.test(quizHtml) || !/id="countRow"/.test(quizHtml)) {
-  fail('quiz setup should place mode and count together');
-} else ok('quiz setup keeps mode and count on one row');
+if (/Build Your Quiz/.test(quizHtml)) fail('setup heading Build Your Quiz should be removed');
+else ok('Build Your Quiz heading removed');
+if (!/setup-primary/.test(quizHtml) || !/id="countRow"/.test(quizHtml) || !/id="modeField"/.test(quizHtml)) {
+  fail('quiz setup should keep mode and an optional count field');
+} else ok('quiz setup keeps mode above an optional count field');
+if (!/body\.quiz #setup #modeField label\s*\{[^}]*text-align:\s*center/.test(css)) {
+  fail('mode label should be centered above the mode select');
+} else ok('mode label is centered above the mode select');
 if (/Chapter Test \(by Subtopic\)/.test(quizHtml)) fail('chapter mode label should be "Chapter Test"');
 else ok('chapter mode label is Chapter Test');
 if (!/value="missed">Missed Q\.A\.</.test(quizHtml)) fail('missed mode label should be Missed Q.A.');
@@ -284,12 +283,18 @@ if (!/body\.quiz #setup\.card-block\s*\{[^}]*width:\s*fit-content/.test(css)) {
 } else ok('setup card hugs its content width');
 if (/body\.quiz #setup\.card-block\s*\{[^}]*width:\s*100%/.test(css)) {
   fail('setup card should not stretch to the full container width');
-} else ok('setup card is not a full-width strip');
+} else ok('setup card is not a full-bleed frame');
+if (!/body\.quiz #setup\.card-block\s*\{[^}]*min-width:\s*min\(34rem/.test(css)) {
+  fail('setup card should keep a mid-width floor so controls stay readable');
+} else ok('setup card has a mid-width floor');
+if (/body\.quiz #setup\.card-block\s*\{[^}]*flex:\s*1/.test(css)) {
+  fail('setup card should not grow to fill the viewport height');
+} else ok('setup card height follows its content');
+if (/body\.quiz \.setup-actions\s*\{[^}]*margin-top:\s*auto/.test(css)) {
+  fail('setup actions should sit under the fields');
+} else ok('setup actions sit under the fields');
 if (!/body\.quiz\s*\{[^}]*height:\s*100dvh/.test(css)) fail('quiz page should lock to the viewport height');
 else ok('quiz page locks to the viewport height');
-if (!/body\.quiz #setup\.card-block\s*\{[^}]*flex:\s*1/.test(css)) {
-  fail('setup card should grow to fill the viewport height');
-} else ok('setup card grows to fill the viewport height');
 if (!/body\.quiz #setup select,\s*\nbody\.quiz #setup input\[type="number"\]\s*\{[^}]*width:\s*100%/.test(css)) {
   fail('setup selects should be width 100% of their field');
 } else ok('setup selects are width 100%');
@@ -305,8 +310,8 @@ const quizSrcFull = read('js/quiz.js');
 if (!/featured !== false/.test(examSrc)) fail('exam.js must skip featured:false items');
 else ok('exam.js excludes featured:false from the default draw');
 if (!/q\.featured !== false/.test(quizSrcFull) && !/featured !== false/.test(quizSrcFull)) {
-  fail('quiz.js must skip featured:false in Quick 10 / weak modes');
-} else ok('quiz.js excludes featured:false from Quick 10 / weak modes');
+  fail('quiz.js must skip featured:false in Quick 10');
+} else ok('quiz.js excludes featured:false from Quick 10');
 if (!/Escape/.test(quizSrcFull) || !/returnToSetup/.test(quizSrcFull)) {
   fail('quiz.js should exit on Esc and return to setup');
 } else ok('quiz.js Esc exit returns to setup');
@@ -314,10 +319,18 @@ if (!/const showCount = mode === 'chapter' \|\| mode === 'weak' \|\| mode === 'w
     !/countRow\.hidden = !showCount/.test(quizSrcFull)) {
   fail('quiz setup should hide the count field for quick10, missed, and bookmarked');
 } else ok('count field hides for quick10, missed, and bookmarked');
-if (!/const showDomain = mode === 'chapter' \|\| mode === 'weak' \|\| mode === 'weaksub'/.test(quizSrcFull) ||
-    !/const showSub = mode === 'chapter' \|\| mode === 'weaksub'/.test(quizSrcFull)) {
-  fail('chapter mode should show domain and subtopic');
-} else ok('chapter mode shows domain and subtopic');
+if (!/const showDomain = mode === 'chapter';/.test(quizSrcFull) ||
+    !/const showSub = false;/.test(quizSrcFull) ||
+    !/const showDiff = false;/.test(quizSrcFull)) {
+  fail('chapter mode should show one chapter dropdown and hide subtopic and difficulty');
+} else ok('chapter mode shows one chapter dropdown; subtopic and difficulty stay hidden');
+if (!/<label for="domain">Chapter<\/label>/.test(quizHtml)) fail('chapter dropdown label should be Chapter');
+else ok('chapter dropdown label is Chapter');
+const weakBranchAt = quizSrcFull.indexOf("} else if (mode === 'weak' || mode === 'weaksub')");
+const weakBranch = weakBranchAt === -1 ? '' : quizSrcFull.slice(weakBranchAt, weakBranchAt + 900);
+if (weakBranchAt === -1 || !/reviewPool\(/.test(weakBranch) || /isFeatured/.test(weakBranch)) {
+  fail('weak modes must sample the missed ∪ bookmarked pool, not the featured bank');
+} else ok('weak modes sample the missed ∪ bookmarked pool');
 if (!/addEventListener\('change', toggleModeFields\)[\s\S]*await loadData\(/.test(quizSrcFull)) {
   fail('mode change listener must be attached before the question fetch');
 } else ok('mode change listener is attached before questions load');
