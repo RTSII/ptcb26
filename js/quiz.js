@@ -119,8 +119,9 @@
     countRow.hidden = !showCount;
     if (extras) extras.hidden = !(showDomain || showSub || showDiff);
 
-    // Quick 10 stays a single menu. Larger type and buttons give it the Chapter footprint.
-    setupEl.classList.toggle('scale-chapter', mode === 'quick10');
+    // Quick 10, Missed ?s, and Bookmarked share the larger Chapter footprint.
+    // Chapter Test and Weakest keep the compact select layout.
+    setupEl.classList.toggle('scale-chapter', mode === 'quick10' || mode === 'missed' || mode === 'bookmarked');
     refreshCountOptions();
     updateClearControls();
   }
@@ -162,15 +163,26 @@
   function refreshCountOptions(preferred) {
     const mode = modeSel.value;
     const showCount = mode === 'chapter' || mode === 'missed' || mode === 'bookmarked' || mode === 'weak' || mode === 'weaksub';
+    const countRow = Util.el('#countRow');
     if (!showCount) {
       countInput.disabled = true;
       if (mode === 'quick10') countInput.value = '10';
       return;
     }
+    const reviewMode = mode === 'missed' || mode === 'bookmarked';
     const prev = parseInt(countInput.value, 10);
     const n = poolForSetup(mode).length;
+    // An empty Missed or Bookmarked pool has no count menu. A disabled "None"
+    // select is the greyed number control — hide it instead of leaving it on screen.
+    if (reviewMode && !n) {
+      countRow.hidden = true;
+      countInput.disabled = false;
+      countInput.innerHTML = '';
+      return;
+    }
+    if (reviewMode) countRow.hidden = false;
     const options = countOptions(n);
-    countInput.disabled = n === 0;
+    countInput.disabled = reviewMode ? false : n === 0;
     countInput.innerHTML = options.map(function (o) {
       return '<option value="' + o.value + '">' + Util.escapeHtml(o.label) + '</option>';
     }).join('');
