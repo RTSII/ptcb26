@@ -236,8 +236,8 @@ if (!/quiz\.html\?mode=missed/.test(dash) || !/quiz\.html\?mode=bookmarked/.test
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v24/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v24');
-else ok('sw.js cache is ptce-2026-v24');
+if (!/ptce-2026-v25/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v25');
+else ok('sw.js cache is ptce-2026-v25');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
@@ -384,9 +384,13 @@ if (weakBranchAt === -1 || !/reviewPool\(/.test(weakBranch) || /isFeatured/.test
 if (!/addEventListener\('change', toggleModeFields\)[\s\S]*await loadData\(/.test(quizSrcFull)) {
   fail('mode change listener must be attached before the question fetch');
 } else ok('mode change listener is attached before questions load');
-if (!/scale-chapter/.test(quizSrcFull) || !/mode === 'quick10'/.test(quizSrcFull)) {
-  fail('Quick 10 setup should use the larger Chapter-scale layout without extra menus');
-} else ok('Quick 10 setup uses Chapter-scale');
+if (!/scale-chapter',\s*mode === 'quick10' \|\| mode === 'missed' \|\| mode === 'bookmarked'/.test(quizSrcFull)) {
+  fail('Quick 10, Missed, and Bookmarked setup should use the larger Chapter-scale layout');
+} else ok('Quick 10, Missed, and Bookmarked use Chapter-scale');
+if (!/reviewMode && !n/.test(quizSrcFull) || !/countRow\.hidden = true/.test(quizSrcFull) ||
+    !/countInput\.disabled = reviewMode \? false : n === 0/.test(quizSrcFull)) {
+  fail('empty Missed and Bookmarked pools should hide the count control instead of leaving a disabled field');
+} else ok('empty Missed and Bookmarked pools hide the count control');
 const fcSrc = read('js/flashcards.js');
 if (!/data-filter="Bookmarked"|filter === 'Bookmarked'|Bookmarked/.test(fcSrc) || !/getBookmarks\('card'\)/.test(fcSrc)) {
   fail('flashcards should keep a discoverable bookmarked-card review path');

@@ -1738,8 +1738,9 @@ body.quiz .setup-actions {
   margin-top: 12px;
   padding-top: 0;
 }
-/* Quick 10 has no extra menus. Its type, menu, and buttons use the larger
-   Chapter footprint so the default setup fills the screen the way Chapter does. */
+/* Quick 10, Missed ?s, and Bookmarked use the larger Chapter footprint
+   so those setups fill the screen. Quick 10 has no count control. Missed
+   and Bookmarked show only the live Questions select, plus clear / Start / Back. */
 body.quiz #setup.scale-chapter {
   padding: 26px 24px 22px;
 }
