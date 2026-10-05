@@ -795,7 +795,7 @@ select option { background: var(--bg2); }
   text-shadow: 0 0 8px rgba(5, 217, 232, 0.55);
   flex: 0 0 auto;
 }
-.dash-weights .bar-track { height: 8px; }
+.dash-weights .bar-track { height: 11px; }
 @media (max-width: 560px) {
   .weight-grid { grid-template-columns: 1fr; }
 }
@@ -901,24 +901,11 @@ select option { background: var(--bg2); }
 @media (min-width: 768px) {
   .menu-grid { grid-template-columns: repeat(3, 1fr); }
 
-  /* Home: one viewport, course hero, five content-hug cards. No mid-page scroll. */
-  body.home {
-    height: 100dvh;
-    max-height: 100dvh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-  body.home .app-header { flex: 0 0 auto; }
+  /* Home: course hero plus five content-hug cards, packed under the header. */
   body.home .container {
-    flex: 1 1 auto;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     width: 100%;
     max-width: 1120px;
-    padding: 10px 18px 12px;
+    padding: 16px 18px 20px;
   }
   body.home .menu-grid {
     grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -926,12 +913,13 @@ select option { background: var(--bg2); }
   }
   body.home .menu-card.featured {
     grid-column: 1 / -1;
-    padding: 18px 20px;
-    gap: 16px;
+    padding: 22px 22px;
+    gap: 18px;
     min-height: 0;
   }
-  body.home .menu-card.featured .icon { font-size: 2.7rem; }
-  body.home .menu-card.featured .title { font-size: 1.4rem; }
+  body.home .menu-card.featured .icon { font-size: 3.15rem; }
+  body.home .menu-card.featured .title { font-size: 1.65rem; }
+  body.home .hero-kicker { font-size: 0.78rem; }
   body.home .menu-card:not(.featured) {
     grid-column: span 2;
     padding: 14px 12px 12px;
@@ -957,13 +945,14 @@ select option { background: var(--bg2); }
     gap: 10px;
   }
   body.home .menu-card.featured {
-    padding: 22px 24px;
-    gap: 18px;
+    padding: 26px 28px;
+    gap: 22px;
   }
-  body.home .menu-card.featured .icon { font-size: 3rem; }
-  body.home .menu-card.featured .title { font-size: 1.55rem; }
-  body.home .menu-card.featured .desc { font-size: 1.05rem; }
-  body.home .hero-go { font-size: 0.74rem; padding: 8px 14px; }
+  body.home .menu-card.featured .icon { font-size: 3.6rem; }
+  body.home .menu-card.featured .title { font-size: 1.9rem; }
+  body.home .menu-card.featured .desc { font-size: 1.15rem; }
+  body.home .hero-kicker { font-size: 0.82rem; }
+  body.home .hero-go { font-size: 0.78rem; padding: 10px 16px; }
   body.home .menu-card:not(.featured) {
     grid-column: auto;
     padding: 16px 12px 14px;
@@ -1793,16 +1782,16 @@ body.quiz .setup-actions {
 /* Quick 10 has no extra menus. Its type, menu, and buttons use the larger
    Chapter footprint so the default setup fills the screen the way Chapter does. */
 body.quiz #setup.scale-chapter {
-  padding: 22px 22px 18px;
+  padding: 26px 24px 22px;
 }
 body.quiz #setup.scale-chapter .field label {
-  font-size: 0.95rem;
+  font-size: 1rem;
   letter-spacing: 1.5px;
 }
 body.quiz #setup.scale-chapter select,
 body.quiz #setup.scale-chapter input[type="number"] {
-  padding: 16px 14px;
-  font-size: 1.45rem;
+  padding: 20px 16px;
+  font-size: 1.6rem;
   line-height: 1.35;
 }
 body.quiz #setup.scale-chapter .review-chips { margin-top: 4px; }
