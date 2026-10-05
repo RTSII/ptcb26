@@ -218,12 +218,26 @@ if (/class="hero"/.test(home)) fail('index.html still has the redundant hero blo
 else ok('index.html hero block removed');
 if (!/class="home"/.test(home)) fail('index.html body should have class="home" for desktop densify');
 else ok('index.html body.home present');
+if (/Quick 10|reviewMissedCard|reviewBookmarkedCard|home-weights|id="weightBars"/.test(home)) {
+  fail('home should not show Quick 10, Review Missed, Review Bookmarked, or domain weights');
+} else ok('home drops Quick 10, review cards, and domain weights');
+if (!/Study Course/.test(home) || !/menu-card wide featured/.test(home)) {
+  fail('Study Course should remain the featured home hero');
+} else ok('Study Course remains the featured home hero');
+
+const dash = read('dashboard.html');
+if (!/id="weightBars"/.test(dash) || !/PTCE 2026 Domain Weights/.test(dash)) {
+  fail('dashboard should show PTCE 2026 domain weights');
+} else ok('dashboard shows PTCE 2026 domain weights');
+if (!/quiz\.html\?mode=missed/.test(dash) || !/quiz\.html\?mode=bookmarked/.test(dash)) {
+  fail('dashboard should keep Review Missed and Review Bookmarked links');
+} else ok('dashboard keeps missed and bookmarked entry points');
 
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v22/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v22');
-else ok('sw.js cache is ptce-2026-v22');
+if (!/ptce-2026-v24/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v24');
+else ok('sw.js cache is ptce-2026-v24');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
@@ -289,10 +303,18 @@ if (!/body\.quiz #setup #modeField label\s*\{[^}]*text-align:\s*center/.test(css
 } else ok('mode label is centered above the mode select');
 if (/Chapter Test \(by Subtopic\)/.test(quizHtml)) fail('chapter mode label should be "Chapter Test"');
 else ok('chapter mode label is Chapter Test');
-if (!/value="missed">Missed Q\.A\.</.test(quizHtml)) fail('missed mode label should be Missed Q.A.');
-else ok('missed mode label is Missed Q.A.');
+if (!/value="missed">Missed \?s</.test(quizHtml)) fail('missed mode label should be Missed ?s');
+else ok('missed mode label is Missed ?s');
 if (!/value="bookmarked">Bookmarked</.test(quizHtml)) fail('bookmarked mode label should be Bookmarked');
 else ok('bookmarked mode label is Bookmarked');
+if (/review-chip/.test(quizHtml)) fail('quiz setup should not show Missed or Bookmarked chips under Mode');
+else ok('Missed and Bookmarked stay in the Mode dropdown only');
+if (!/<select id="count">/.test(quizHtml) || /id="count" type="number"/.test(quizHtml)) {
+  fail('Questions count should be a select, not a free number field');
+} else ok('Questions count is a select');
+if (!/id="clearMissedBtn"/.test(quizHtml) || !/id="clearBookmarksBtn"/.test(quizHtml)) {
+  fail('quiz setup should show clear controls for missed and bookmarked');
+} else ok('quiz setup shows clear missed and clear bookmarks');
 if (!/value="Patient Safety and Quality Assurance">Patient Safety &amp; Q\.A\.</.test(quizHtml)) {
   fail('Patient Safety option should display Patient Safety & Q.A. and keep the bank value');
 } else ok('Patient Safety display is shortened; value unchanged');
@@ -320,7 +342,7 @@ if (/body\.quiz \.setup-actions\s*\{[^}]*margin-top:\s*auto/.test(css)) {
 } else ok('setup actions sit under the fields');
 if (!/body\.quiz\s*\{[^}]*height:\s*100dvh/.test(css)) fail('quiz page should lock to the viewport height');
 else ok('quiz page locks to the viewport height');
-if (!/body\.quiz #setup select,\s*\nbody\.quiz #setup input\[type="number"\]\s*\{[^}]*width:\s*100%/.test(css)) {
+if (!/body\.quiz #setup select\s*\{[^}]*width:\s*100%/.test(css)) {
   fail('setup selects should be width 100% of their field');
 } else ok('setup selects are width 100%');
 if (/field-sizing:\s*content/.test(css)) fail('setup controls should not use field-sizing: content');
@@ -362,9 +384,28 @@ if (weakBranchAt === -1 || !/reviewPool\(/.test(weakBranch) || /isFeatured/.test
 if (!/addEventListener\('change', toggleModeFields\)[\s\S]*await loadData\(/.test(quizSrcFull)) {
   fail('mode change listener must be attached before the question fetch');
 } else ok('mode change listener is attached before questions load');
+if (!/scale-chapter/.test(quizSrcFull) || !/mode === 'quick10'/.test(quizSrcFull)) {
+  fail('Quick 10 setup should use the larger Chapter-scale layout without extra menus');
+} else ok('Quick 10 setup uses Chapter-scale');
+const fcSrc = read('js/flashcards.js');
+if (!/data-filter="Bookmarked"|filter === 'Bookmarked'|Bookmarked/.test(fcSrc) || !/getBookmarks\('card'\)/.test(fcSrc)) {
+  fail('flashcards should keep a discoverable bookmarked-card review path');
+} else ok('flashcards keep a bookmarked-card review path');
 if (!/Storage\.getMissed\(\)/.test(quizSrcFull) || !/Storage\.getBookmarks\('question'\)/.test(quizSrcFull)) {
   fail('missed and bookmarked quizzes should still draw from stored pools');
 } else ok('missed and bookmarked quizzes use stored pools');
+if (!/function countOptions/.test(quizSrcFull) || !/All ' \+ n/.test(quizSrcFull)) {
+  fail('question counts should be select options from the live pool, including All N');
+} else ok('question counts are pool-derived select options');
+const appSrc = read('js/app.js');
+const dashSrc = read('js/dashboard.js');
+const dashHtml = read('dashboard.html');
+if (!/clearMissed/.test(appSrc) || !/clearBookmarks/.test(appSrc)) {
+  fail('storage should be able to clear missed questions and bookmarks');
+} else ok('storage can clear missed questions and bookmarks');
+if (!/id="clearMissedBtn"/.test(dashHtml) || !/id="clearBookmarksBtn"/.test(dashHtml) || !/confirm\(/.test(dashSrc)) {
+  fail('dashboard Focus Area should expose confirmed clear controls');
+} else ok('dashboard Focus Area exposes confirmed clear controls');
 function modeBranch(src, marker) {
   const at = src.indexOf(marker);
   if (at === -1) return '';

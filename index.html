@@ -17,104 +17,46 @@
   </header>
 
   <main class="container">
-    <nav class="menu-grid">
+    <nav class="menu-grid" aria-label="Study">
       <a class="menu-card wide featured" href="course.html">
-        <div class="icon">📖</div>
-        <div class="title">Study Course</div>
-        <div class="desc">Complete lessons across all four domains — start here</div>
+        <div class="icon" aria-hidden="true">📖</div>
+        <div class="hero-copy">
+          <div class="hero-kicker">Start here</div>
+          <div class="title">Study Course</div>
+          <div class="desc">Complete lessons across all four domains</div>
+        </div>
+        <span class="hero-go">Open course</span>
       </a>
       <a class="menu-card" href="flashcards.html">
-        <div class="icon">🗂️</div>
+        <div class="icon" aria-hidden="true">🗂️</div>
         <div class="title">Flashcards</div>
         <div class="desc">Domain-tagged cards with flip &amp; swipe</div>
       </a>
       <a class="menu-card" href="quiz.html">
-        <div class="icon">📝</div>
+        <div class="icon" aria-hidden="true">📝</div>
         <div class="title">Quiz Mode</div>
         <div class="desc">Untimed quizzes; rationales after you finish</div>
       </a>
       <a class="menu-card" href="exam.html">
-        <div class="icon">🎯</div>
+        <div class="icon" aria-hidden="true">🎯</div>
         <div class="title">Practice Exam</div>
         <div class="desc">90-question simulated PTCE</div>
       </a>
       <a class="menu-card" href="dashboard.html">
-        <div class="icon">📊</div>
+        <div class="icon" aria-hidden="true">📊</div>
         <div class="title">Dashboard</div>
-        <div class="desc">Track scores &amp; weak domains</div>
+        <div class="desc">Scores, weights &amp; weak domains</div>
       </a>
       <a class="menu-card" href="notes.html">
-        <div class="icon">📚</div>
+        <div class="icon" aria-hidden="true">📚</div>
         <div class="title">Study Notes</div>
         <div class="desc">Quick reference by domain</div>
       </a>
-      <a class="menu-card" href="quiz.html?mode=quick">
-        <div class="icon">⚡</div>
-        <div class="title">Quick 10</div>
-        <div class="desc">Fast 10-question warm-up</div>
-      </a>
-      <a class="menu-card wide" href="quiz.html?mode=missed" id="reviewMissedCard">
-        <div class="icon">🔁</div>
-        <div class="title">Review Missed</div>
-        <div class="desc" id="reviewMissedDesc">Re-quiz questions you answered incorrectly</div>
-      </a>
-      <a class="menu-card wide" href="quiz.html?mode=bookmarked" id="reviewBookmarkedCard">
-        <div class="icon">⭐</div>
-        <div class="title">Review Bookmarked</div>
-        <div class="desc" id="reviewBookmarkedDesc">Re-study questions and cards you have starred</div>
-      </a>
     </nav>
-
-    <div class="card-block home-weights">
-      <h3>PTCE 2026 Domain Weights</h3>
-      <div id="weightBars"></div>
-    </div>
 
     <p class="footer-note">Built for personal CPhT exam prep · Data stored locally in your browser</p>
   </main>
 
   <script src="js/app.js"></script>
-  <script>
-    (function () {
-      var weights = [
-        { name: "Medications", pct: 35 },
-        { name: "Patient Safety and Quality Assurance", pct: 23.75 },
-        { name: "Order Entry and Processing", pct: 22.5 },
-        { name: "Federal Requirements", pct: 18.75 }
-      ];
-      var html = weights.map(function (w) {
-        return '<div class="domain-row"><div class="dr-head"><span>' + w.name +
-          '</span><span>' + w.pct + '%</span></div><div class="bar-track"><div class="bar-fill" style="width:' +
-          w.pct + '%"></div></div></div>';
-      }).join('');
-      document.getElementById('weightBars').innerHTML = html;
-
-      var missedCount = (window.App && window.App.Storage) ? window.App.Storage.getMissed().length : 0;
-      var missedCard = document.getElementById('reviewMissedCard');
-      var missedDesc = document.getElementById('reviewMissedDesc');
-      if (missedCard && missedDesc) {
-        if (missedCount > 0) {
-          missedDesc.textContent = missedCount + ' question' + (missedCount === 1 ? '' : 's') + ' waiting for review';
-        } else {
-          missedCard.classList.add('dimmed');
-          missedDesc.textContent = 'No missed questions yet — take a quiz or exam first';
-        }
-      }
-
-      var bmCount = (window.App && window.App.Storage) ? window.App.Storage.getBookmarks('question').length : 0;
-      var bmCard = document.getElementById('reviewBookmarkedCard');
-      var bmDesc = document.getElementById('reviewBookmarkedDesc');
-      if (bmCard && bmDesc) {
-        if (bmCount > 0) {
-          bmDesc.textContent = bmCount + ' question' + (bmCount === 1 ? '' : 's') + ' and ' +
-            ((window.App && window.App.Storage) ? window.App.Storage.getBookmarks('card').length : 0) + ' card' +
-            (((window.App && window.App.Storage) ? window.App.Storage.getBookmarks('card').length : 0) === 1 ? '' : 's') + ' bookmarked';
-        } else {
-          bmCard.classList.add('dimmed');
-          bmDesc.textContent = 'No bookmarks yet — star questions or cards while studying';
-        }
-      }
-    })();
-  </script>
 </body>
 </html>

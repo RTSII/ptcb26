@@ -29,7 +29,7 @@
           <select id="mode">
             <option value="quick10">Quick 10</option>
             <option value="chapter">Chapter Test</option>
-            <option value="missed">Missed Q.A.</option>
+            <option value="missed">Missed ?s</option>
             <option value="bookmarked">Bookmarked</option>
             <option value="weak">Weakest Domain</option>
             <option value="weaksub">Weakest Subtopic</option>
@@ -37,7 +37,7 @@
         </div>
         <div class="field" id="countRow" hidden>
           <label for="count">Questions</label>
-          <input id="count" type="number" min="5" max="50" step="5" value="10">
+          <select id="count"></select>
         </div>
       </div>
       <div class="setup-extras" id="setupExtras" hidden>
@@ -70,6 +70,8 @@
       <div class="setup-actions">
         <button type="button" id="startBtn" class="cta">Start Quiz</button>
         <a class="button ghost" href="index.html">Back</a>
+        <button type="button" id="clearMissedBtn" class="button clear-btn" hidden>✕ Clear missed</button>
+        <button type="button" id="clearBookmarksBtn" class="button clear-btn" hidden>✕ Clear bookmarks</button>
       </div>
     </section>
 

@@ -15,7 +15,25 @@
     return 'Quiz';
   }
 
+  const DOMAIN_WEIGHTS = [
+    { name: 'Medications', pct: 35 },
+    { name: 'Patient Safety & Q.A.', pct: 23.75 },
+    { name: 'Order Entry & Processing', pct: 22.5 },
+    { name: 'Federal Requirements', pct: 18.75 }
+  ];
+
+  function renderWeights() {
+    const el = Util.el('#weightBars');
+    if (!el) return;
+    el.innerHTML = DOMAIN_WEIGHTS.map(function (w) {
+      return '<div class="weight-tile"><div class="weight-head"><span>' + esc(w.name) +
+        '</span><span class="weight-pct">' + w.pct + '%</span></div>' +
+        '<div class="bar-track"><div class="bar-fill" style="width:' + w.pct + '%"></div></div></div>';
+    }).join('');
+  }
+
   function render(p, byDomain) {
+    renderWeights();
     Util.el('#statQuizzes').textContent = p.quizzes.length;
     const avg = p.quizzes.length
       ? Math.round(p.quizzes.reduce(function (s, x) { return s + scoreOf(x); }, 0) / p.quizzes.length)
@@ -42,6 +60,21 @@
       }
     });
     renderTrend(p);
+
+    const missedN = Storage.getMissed().length;
+    const questionN = Storage.getBookmarks('question').length;
+    const cardN = Storage.getBookmarks('card').length;
+    const clearMissedBtn = Util.el('#clearMissedBtn');
+    const clearBookBtn = Util.el('#clearBookmarksBtn');
+    if (clearMissedBtn) {
+      clearMissedBtn.textContent = missedN ? '✕ Clear missed (' + missedN + ')' : '✕ Clear missed';
+    }
+    if (clearBookBtn) {
+      const total = questionN + cardN;
+      clearBookBtn.textContent = total
+        ? '✕ Clear bookmarks (' + questionN + ' questions, ' + cardN + ' cards)'
+        : '✕ Clear bookmarks';
+    }
 
     const weakEl = Util.el('#weakDomain');
     if (weak) {
@@ -110,6 +143,29 @@
     });
     return byDomain;
   }
+
+  Util.el('#clearMissedBtn').addEventListener('click', function () {
+    const n = Storage.getMissed().length;
+    if (!n) {
+      alert('No missed questions to clear.');
+      return;
+    }
+    if (!confirm('Clear all ' + n + ' missed questions? This cannot be undone.')) return;
+    Storage.clearMissed();
+    location.reload();
+  });
+
+  Util.el('#clearBookmarksBtn').addEventListener('click', function () {
+    const questionN = Storage.getBookmarks('question').length;
+    const cardN = Storage.getBookmarks('card').length;
+    if (!questionN && !cardN) {
+      alert('No bookmarks to clear.');
+      return;
+    }
+    if (!confirm('Clear all bookmarked questions (' + questionN + ') and flashcards (' + cardN + ')? This cannot be undone.')) return;
+    Storage.clearBookmarks();
+    location.reload();
+  });
 
   Util.el('#resetBtn').addEventListener('click', function () {
     if (confirm('Reset all saved progress? This cannot be undone.')) {
