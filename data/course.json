@@ -307,17 +307,21 @@
         {
           "id": "m4l2",
           "title": "Error Types, Near Misses & NCC MERP Categories",
-          "intro": "Understanding error severity categories drives a culture of safety and reporting.",
+          "intro": "Know error severity, the prescription error types on outline 3.5, and the ISMP abbreviations that cause them.",
           "bullets": [
             "A near miss (close call) is an error INTERCEPTED before reaching the patient — report it to fix system weaknesses.",
             "NCC MERP categories: A = circumstances with error potential; B = error did NOT reach patient; C = reached patient, NO harm; D = reached patient, required monitoring.",
             "Categories E–I = increasing harm: E = temporary harm requiring intervention; F = hospitalization; G = permanent harm; H = life-sustaining intervention; I = death.",
-            "Error-prone abbreviations to avoid (ISMP): \"U\" for units (spell out), trailing zeros (write 1 mg not 1.0 mg), \"QD\"/\"QOD\" (use daily/every other day)."
+            "Outline 3.5 prescription error types: wrong drug, wrong dose, wrong quantity, wrong patient, wrong route, wrong time, and omission (a required element left off the prescription or the fill).",
+            "ISMP Do Not Use: spell out units (never U); spell out international units (never IU); write morphine sulfate or magnesium sulfate (never MS, MSO4, or MgSO4); write mL (never cc); write mcg (never µg).",
+            "Decimal rules: use a leading zero (0.5 mg, not .5 mg). Do not use a trailing zero (1 mg, not 1.0 mg). Also avoid QD/QOD — write daily or every other day."
           ],
           "keyPoints": [
             "Near miss = caught before patient",
             "Category C = reached patient, no harm",
-            "Avoid \"U\", trailing zeros, QD/QOD"
+            "3.5: wrong drug/dose/qty/patient/route/time, omission",
+            "Leading zero 0.5; no trailing zero",
+            "Never U, IU, MS/MSO4, cc, or µg"
           ]
         },
         {
@@ -360,7 +364,7 @@
       "id": "m5",
       "domain": "Patient Safety and Quality Assurance",
       "title": "USP Chapter IDs, Hazardous Drugs & Infection Control",
-      "desc": "Recognize which USP chapter applies, handle hazardous drugs, and meet 3.6 hygiene/cleaning standards. Dedicated USP <795> nonsterile technique is optional/archive — not emphasized on the 2026 PTCE.",
+      "desc": "Recognize which USP chapter applies, handle hazardous drugs, and meet 3.6 hygiene and counting-tray cleaning standards. Sterile cleanroom depth and dedicated USP <795> technique are optional/archive — not core 2026 PTCE.",
       "quiz": {
         "domain": "Patient Safety and Quality Assurance",
         "count": 12
@@ -372,7 +376,7 @@
           "intro": "Know which USP chapter applies. Dedicated nonsterile compounding procedures (old 1.9 / 4.1) were removed from the January 2026 outline — do not treat <795> technique or BUD tables as core tested skills.",
           "bullets": [
             "USP <795>: NON-STERILE compounding chapter (oral suspensions, topicals, capsules). Removed as a dedicated 2026 procedure skill — chapter ID only.",
-            "USP <797>: STERILE compounding standards — IV admixtures, injections, ophthalmics; covers cleanroom design, garbing, and beyond-use dates (BUDs).",
+            "USP <797>: STERILE compounding chapter (IV admixtures, injections, ophthalmics). Cleanroom procedure and garbing depth are optional archive, not core PTCE.",
             "USP <800>: safe HANDLING of HAZARDOUS DRUGS across both sterile and non-sterile settings — PPE, containment (C-PEC/C-SEC), and personnel protection.",
             "Beyond-use date (BUD): the date after which a COMPOUNDED preparation must NOT be used — assigned per USP limits and stability data, NOT the manufacturer expiration date."
           ],
@@ -385,19 +389,21 @@
         },
         {
           "id": "m5l2",
-          "title": "Sterile Compounding: Cleanroom & Garbing",
-          "intro": "Sterile compounding requires a controlled environment and strict aseptic technique.",
+          "optional": true,
+          "badge": "Not emphasized on 2026 PTCE",
+          "title": "Sterile Compounding: Cleanroom & Garbing (optional archive)",
+          "intro": "OPTIONAL / NOT EMPHASIZED ON THE 2026 PTCE. Sterile cleanroom design and garbing are CSPT-level skills, not core PTCE content. Do not treat cleanroom categories or risk levels as required exam material.",
           "bullets": [
-            "Air quality (ISO classes): ISO 5 = compounding area (PEC/hood), ISO 7 = buffer room, ISO 8 = ante-room.",
+            "Optional enrichment only: ISO 5 = compounding area (PEC/hood), ISO 7 = buffer room, ISO 8 = ante-room. These classes are not a required PTCE category list.",
             "Laminar airflow workbenches provide ISO 5 HEPA-filtered air; work at least 6 inches inside the hood and avoid blocking first air.",
-            "Garbing proceeds from DIRTIEST to CLEANEST: shoe covers → hair/beard cover → face mask → gown → then proper hand hygiene → sterile gloves LAST.",
-            "Hand hygiene: scrub hands and forearms; don sterile powder-free gloves after entering the buffer area; sanitize gloves with sterile 70% IPA.",
+            "If you review garbing, the order is DIRTIEST to CLEANEST: shoe covers → hair/beard cover → face mask → hand hygiene → gown → sterile gloves LAST.",
+            "Hand hygiene: scrub hands and forearms before the gown; don sterile powder-free gloves last; sanitize gloves with sterile 70% IPA.",
             "Clean the PEC with sterile 70% isopropyl alcohol; buffer/ante rooms are cleaned per a defined schedule."
           ],
           "keyPoints": [
-            "ISO 5 hood / ISO 7 buffer / ISO 8 ante",
-            "Garb dirtiest→cleanest; gloves last",
-            "Sterile 70% IPA for cleaning"
+            "Optional archive — not core PTCE",
+            "Garb: shoes → hair → mask → hands → gown → gloves",
+            "Do not memorize cleanroom categories for the PTCE"
           ]
         },
         {
@@ -409,6 +415,7 @@
             "Hazardous-drug compounding PPE: TWO pairs of chemotherapy-tested gloves + an impermeable gown; add eye/face and respiratory protection per risk.",
             "Use a containment primary engineering control (C-PEC, e.g., BSC or CACI) inside a containment secondary engineering control (C-SEC) with negative pressure for HDs.",
             "Hand hygiene: soap and water for at least 20 seconds; alcohol-based rub when hands are not visibly soiled.",
+            "Counting trays and countertops (outline 3.6): wipe with 70% isopropyl alcohol between fills. Clean again after penicillin, sulfa, or a hazardous drug before the next prescription. Use a dedicated tray for hazardous drugs.",
             "Sharps (needles/syringes): rigid, puncture-resistant, closable sharps containers — never regular trash or recycling; never recap by hand.",
             "Vaccine storage: most refrigerated at 2–8°C (36–46°F), do NOT freeze; monitor with calibrated thermometers and document temperatures."
           ],
@@ -416,6 +423,7 @@
             "NIOSH = HD list",
             "Double chemo gloves + gown",
             "Sharps → puncture-resistant container",
+            "70% IPA between fills; dedicated HD tray",
             "Hand hygiene ≥ 20 seconds"
           ]
         },
@@ -458,7 +466,7 @@
             "Automated dispensing cabinets (ADCs): requiring pharmacist PROFILE REVIEW before a drug can be removed closes the dangerous \"override\" gap.",
             "Drug utilization review (DUR): prospective screening at order entry; technicians flag interaction/duplication alerts to the pharmacist for the clinical decision.",
             "Auxiliary (warning) labels communicate cautions: \"May cause drowsiness,\" \"Take with food,\" \"Avoid alcohol,\" \"Refrigerate.\"",
-            "REMS (Risk Evaluation and Mitigation Strategy): FDA-required programs to manage known serious risks (e.g., iPLEDGE for isotretinoin, clozapine REMS).",
+            "REMS (Risk Evaluation and Mitigation Strategy): FDA-required programs for known serious risks. Current examples include iPLEDGE (isotretinoin) and TIRF or THALOMID/REVLIMID. The Clozapine REMS was removed effective June 13, 2025 — do not treat clozapine as a pharmacy REMS.",
             "Tall Man lettering, look-alike bin segregation, and limiting available concentrations/strengths are additional error-reduction strategies.",
             "Issues that require pharmacist intervention (outline 3.3): DUR alerts, adverse drug events, OTC recommendations, therapeutic substitution, misuse/adherence concerns, allergies, and drug interactions.",
             "A technician’s job at those alerts is to stop, gather the facts, and notify the pharmacist — not to override a clinical alert or recommend a product."
@@ -466,7 +474,7 @@
           "keyPoints": [
             "Barcode scan = right product",
             "ADC overrides = error risk",
-            "REMS manages serious risks (iPLEDGE)",
+            "REMS examples: iPLEDGE, TIRF — not clozapine",
             "DUR / OTC / substitution → pharmacist",
             "Do not override clinical alerts"
           ]
@@ -690,7 +698,7 @@
       "id": "m10",
       "domain": "Federal Requirements",
       "title": "Controlled Substances & DEA Regulations",
-      "desc": "CSA schedules, DEA forms, refill rules, recordkeeping, and the Combat Methamphetamine Epidemic Act.",
+      "desc": "CSA schedules, DEA forms, refill and transfer rules, recordkeeping, and the Combat Methamphetamine Epidemic Act.",
       "quiz": {
         "domain": "Federal Requirements",
         "count": 12
@@ -701,7 +709,8 @@
           "title": "Controlled Substance Schedules",
           "intro": "The Controlled Substances Act (1970) created five schedules based on abuse potential and accepted medical use.",
           "bullets": [
-            "Schedule I: HIGH abuse potential, NO accepted medical use — heroin, LSD, marijuana (federal). No prescriptions.",
+            "Schedule I: HIGH abuse potential, NO accepted medical use — heroin, LSD, and marijuana that is neither an FDA-approved product nor covered by a state medical-marijuana license. No prescriptions.",
+            "Marijuana split (current as of April 28, 2026): FDA-approved marijuana products and marijuana under a qualifying state medical-marijuana license are Schedule III. Other marijuana stays Schedule I while broader rescheduling is still pending. Older materials that list all marijuana as C-I are out of date.",
             "Schedule II: high abuse potential WITH accepted medical use — oxycodone, hydrocodone/APAP (Norco), morphine, fentanyl, amphetamine (Adderall), methylphenidate (Ritalin).",
             "Schedule III: moderate abuse potential — Tylenol #3 (codeine/APAP), buprenorphine products, anabolic steroids.",
             "Schedule IV: lower abuse potential — benzodiazepines (alprazolam, lorazepam), zolpidem (Ambien), tramadol.",
@@ -709,7 +718,8 @@
             "Buprenorphine is Schedule III. The DATA 2000 X-waiver was eliminated in December 2022 (MAT Act) — a separate X number is no longer required to prescribe buprenorphine for OUD."
           ],
           "keyPoints": [
-            "C-I = no medical use",
+            "FDA-approved and state-licensed medical marijuana = C-III",
+            "Other marijuana remains C-I",
             "C-II = opioids + stimulants",
             "Benzos/tramadol = C-IV",
             "Lower number = higher abuse potential",
@@ -719,7 +729,7 @@
         {
           "id": "m10l2",
           "title": "Schedule II–V Prescription & Refill Rules",
-          "intro": "Refill and transmission rules differ sharply by schedule.",
+          "intro": "Refill, transfer, and transmission rules differ by schedule.",
           "bullets": [
             "C-II: NO refills — a new prescription is required each time; written or electronic (EPCS); no telephone call-ins except a true emergency.",
             "C-II fax exception: prescribers may fax C-II prescriptions for hospice, long-term care facility, and home-infusion patients.",
@@ -728,7 +738,10 @@
             "C-II partial fills — learn the modern rule: if the patient or prescriber requests a partial (CARA 2016), remaining portions must be filled within 30 days of the written date.",
             "If the pharmacy cannot supply the full C-II quantity, the older rule still applies: remainder within 72 hours, then a new prescription is required.",
             "LTCF or terminally ill patients: remaining portions of C-II partial fills may be dispensed for up to 60 days from the written date.",
-            "After the applicable window, leftover quantity cannot be filled. Total dispensed cannot exceed the written amount. Document each partial."
+            "After the applicable window, leftover quantity cannot be filled. Total dispensed cannot exceed the written amount. Document each partial.",
+            "C-III–V transfers: one time to another pharmacy for a refill, unless the pharmacies share a real-time online database — then transfers may continue until the refills are used up.",
+            "Electronic controlled prescriptions (2023): an unfilled electronic prescription for C-II through C-V may be transferred once, for the first fill only, pharmacist to pharmacist, at the patient’s request. It must stay electronic. A paper C-II cannot be transferred.",
+            "Non-controlled prescriptions: remaining refills may be transferred as state law allows. Federal law does not impose a one-time cap."
           ],
           "keyPoints": [
             "C-II = no refills",
@@ -736,7 +749,9 @@
             "Hospice/LTCF/home-infusion C-II fax exception",
             "CARA request = 30 days from written date",
             "Cannot supply = 72 hours",
-            "LTCF/terminal = 60 days"
+            "LTCF/terminal = 60 days",
+            "C-III–V transfer once, unless shared real-time database",
+            "E-Rx C-II–V: one first-fill transfer, pharmacist to pharmacist"
           ]
         },
         {
@@ -745,10 +760,13 @@
           "intro": "Specific DEA forms document ordering, theft/loss, destruction, and registration of controlled substances.",
           "bullets": [
             "DEA Form 222 (single-sheet paper — not the old triplicate — or electronic CSOS): used to ORDER or TRANSFER Schedule I–II. Destruction/disposal is Form 41, never 222.",
-            "DEA Form 106: report THEFT or significant LOSS of controlled substances (notify DEA within 1 business day).",
+            "DEA Form 106: theft or significant loss. Two steps — written notice to the local DEA field office within 1 business day of discovery, then electronic Form 106 within 45 calendar days. Paper Form 106 is not accepted.",
             "DEA Form 41: document DESTRUCTION/disposal of pharmacy-owned controlled substances.",
             "DEA Form 224: pharmacy DEA registration; renew every 3 YEARS.",
-            "Controlled-substance inventory: required every 2 YEARS (biennial); C-II drugs need an EXACT count, C-III–V may be estimated (unless a container holds >1000).",
+            "C-II–IV dispensing labels must state: “Caution: Federal law prohibits the transfer of this drug to any person other than the patient for whom it was prescribed.” Schedule V does not require that federal statement.",
+            "Keep controlled-substance records (prescriptions, inventories, Form 222s, and invoices) for at least 2 years. Biennial inventory is every 2 years; C-II drugs need an EXACT count, C-III–V may be estimated unless a container holds more than 1,000 units.",
+            "On receipt of a C-II order, record the date and the quantity received on the pharmacy’s copy of Form 222 (or the CSOS record).",
+            "Returns of pharmacy stock to a reverse distributor: C-II on DEA Form 222 (or CSOS); C-III–V on an invoice. Patient-owned leftovers use take-back, not that invoice.",
             "DEA number: 2 letters + 7 digits; the 2nd letter usually matches the registrant's last-name initial. Check-digit verification: add digits 1+3+5; add digits 2+4+6 and multiply by 2; the sum's last digit = the 7th digit.",
             "Take-back (2.3): unused patient-owned CS go to a DEA-authorized collector, mail-back, or National Take Back Day — they are never restocked into dispensable inventory.",
             "C-II storage: locked substantially constructed cabinet, or dispersed among non-controls so they are not obvious theft targets."
@@ -756,10 +774,12 @@
           "keyPoints": [
             "222 = order/transfer C-I/II (single-sheet or CSOS)",
             "41 = destruction (not 222)",
-            "106 = theft/loss",
+            "106 = written notice in 1 business day, then electronic form in 45 days",
             "224 = registration (3 yr)",
-            "Take-back ≠ restock",
-            "Biennial inventory; C-II exact count"
+            "C-II–IV label: federal transfer caution",
+            "CS records kept 2 years; biennial inventory; C-II exact count",
+            "Reverse distributor: C-II on 222, C-III–V on invoice",
+            "Take-back ≠ restock"
           ]
         },
         {
@@ -781,19 +801,23 @@
         },
         {
           "id": "m10l5",
-          "title": "Restricted Programs: REMS, iPLEDGE & Clozapine (2.4)",
-          "intro": "Knowledge area 2.4 is federal restricted-drug processing: CMEA (pseudoephedrine) plus REMS. Go beyond a one-line isotretinoin mention — know clozapine ANC rules and the technician’s “do not override” role.",
+          "title": "Restricted Programs: REMS, iPLEDGE & CMEA (2.4)",
+          "intro": "Knowledge area 2.4 is federal restricted-drug processing: pseudoephedrine (CMEA) and the REMS programs that are still in effect. A technician stops on a REMS reject and notifies the pharmacist.",
           "bullets": [
-            "REMS (Risk Evaluation and Mitigation Strategy): extra FDA-required steps for drugs with known serious risks — certification, enrollment, labs, or Medication Guides.",
-            "Clozapine REMS: agranulocytosis/severe neutropenia. Pharmacy must be certified. Check that a current acceptable ANC (absolute neutrophil count) / REMS authorization exists before dispensing.",
-            "iPLEDGE (isotretinoin): teratogen. Prescriber, certified pharmacy, and all patients (including males) enroll. Typical fill = 30-day supply, no refills, authorization each time. Females of reproductive potential: monthly pregnancy test and a short pickup window.",
-            "TIRF REMS: transmucosal immediate-release fentanyl for opioid-tolerant patients (usually cancer breakthrough pain) — fatal respiratory depression risk if used in opioid-naïve patients.",
-            "Tech action on any REMS reject: stop, do not override, notify the pharmacist. A paper “waiver” does not replace REMS.",
+            "REMS (Risk Evaluation and Mitigation Strategy): extra FDA-required steps for drugs with known serious risks — certification, enrollment, labs, or a Medication Guide given with each fill.",
+            "Clozapine is not a current pharmacy REMS. FDA removed the Clozapine REMS effective June 13, 2025. Pharmacies do not enroll or confirm an ANC through a REMS before dispensing. Severe neutropenia risk, the boxed warning, and a Medication Guide remain. ANC monitoring stays with the prescriber, per the labeling.",
+            "iPLEDGE (isotretinoin): teratogen. Prescriber, certified pharmacy, and patients enroll — both patients who can get pregnant and patients who cannot get pregnant. Maximum 30-day supply, no refills, authorization before each dispense.",
+            "iPLEDGE pickup rule that is current: patients who can get pregnant have a 7-day window counted from pregnancy-test specimen collection. The old 19-day lockout is not current — if that window is missed, a repeat pregnancy test may be done immediately, with no extra waiting period.",
+            "TIRF REMS: transmucosal immediate-release fentanyl for opioid-tolerant patients (usually cancer breakthrough pain). Fatal respiratory depression if used in opioid-naïve patients.",
+            "THALOMID (thalidomide) and REVLIMID (lenalidomide): pregnancy-prevention REMS. Treat them as current restricted programs, not clozapine.",
+            "Tech action on any REMS reject: stop, do not override, notify the pharmacist. A paper waiver does not replace REMS.",
             "CMEA sits in the same 2.4 bucket: 3.6 g/day, 9 g/30 days, photo ID + logbook, behind the counter."
           ],
           "keyPoints": [
-            "Clozapine = ANC + certified pharmacy",
-            "iPLEDGE = 30-day / no refill / all sexes enrolled",
+            "Clozapine REMS removed June 13, 2025",
+            "ANC monitoring = prescriber, per labeling",
+            "iPLEDGE: patients who can get pregnant; no 19-day lockout",
+            "Current REMS examples: iPLEDGE, TIRF, THALOMID/REVLIMID",
             "Never override a REMS block",
             "CMEA = 3.6 g/day, 9 g/30 days"
           ]
@@ -853,14 +877,19 @@
             "Food, Drug, and Cosmetic Act (FDCA) 1938: required drugs be proven SAFE (after the sulfanilamide elixir disaster); created the FDA's modern authority.",
             "Durham-Humphrey Amendment (1951): established the prescription (legend) vs OTC distinction.",
             "Kefauver-Harris Amendment (1962): required drugs be proven safe AND EFFECTIVE, and established Good Manufacturing Practices (GMP).",
-            "Poison Prevention Packaging Act (1970): requires CHILD-RESISTANT containers for most prescription and many OTC drugs (patients may request easy-open caps).",
+            "Poison Prevention Packaging Act (1970): child-resistant containers for most prescriptions and many OTC drugs. The CPSC enforces it, not the FDA. Sublingual nitroglycerin is exempt.",
+            "Non-child-resistant request: a prescriber may request it for one prescription only. The patient may request it, and only the patient may make a blanket request covering all of that patient’s prescriptions. Document the request.",
+            "ADA packaging accommodations: easy-off caps, large-print labels, talking labels, and Braille labels.",
+            "Medication Guides: when FDA requires one for a drug, give that guide with every fill, including refills — not only the first fill. Some REMS programs include this step.",
             "Drug Listing Act / NDC: every drug has a National Drug Code identifying labeler, product, and package size."
           ],
           "keyPoints": [
             "FDCA 1938 = safety",
             "Durham-Humphrey 1951 = Rx vs OTC",
             "Kefauver-Harris 1962 = safety + efficacy + GMP",
-            "PPPA 1970 = child-resistant"
+            "PPPA = CPSC; SL nitroglycerin exempt",
+            "Only the patient may blanket-request non-CRC",
+            "Medication Guide with each required fill"
           ]
         }
       ]
@@ -869,7 +898,7 @@
       "id": "m12",
       "domain": "Federal Requirements",
       "title": "Agencies, Recalls & Practice Regulations",
-      "desc": "Regulatory agencies, expanded FDA recall requirements (2.5), DSCSA product tracing (2.6), and workplace practice rules.",
+      "desc": "Regulatory agencies, FDA medication recalls (2.5), hazardous and non-hazardous pharmaceutical waste (2.1), DSCSA product tracing (2.6), and workplace practice rules.",
       "quiz": {
         "domain": "Federal Requirements",
         "count": 10
@@ -897,9 +926,10 @@
         {
           "id": "m12l2",
           "title": "Recalls, Expiration & Stock Management",
-          "intro": "Handling recalls (expanded 2.5) and expired/damaged stock correctly protects patients. Take-back is a separate 2.3 workflow for patient-owned leftovers.",
+          "intro": "Outline 2.5 is FDA requirements for medication recalls. Handling recalled and expired stock protects patients. Take-back is a separate 2.3 workflow for patient-owned leftovers.",
           "bullets": [
             "Recall classes: Class I = serious harm/death likely; Class II = temporary/reversible harm; Class III = unlikely harm.",
+            "Recall depth is how far the notice goes: wholesale, retail, or consumer (patient) level. A Class I medication recall usually reaches the consumer level, and patients who received the affected lot are notified.",
             "On a recall: identify affected lot numbers, quarantine the stock, and follow manufacturer/wholesaler return instructions.",
             "Rotate stock using FEFO (First-Expired, First-Out) to minimize expired product.",
             "Never dispense expired medication; remove expired/damaged units from active stock promptly.",
@@ -909,7 +939,8 @@
             "Do not confuse a lot-specific recall with a patient take-back of leftover pills from home."
           ],
           "keyPoints": [
-            "Class I = most serious",
+            "Class I = most serious; usually consumer level + patient notice",
+            "Depth = wholesale, retail, or consumer",
             "FEFO = first-expired, first-out",
             "Never dispense expired drugs",
             "Match NDC + lot + expiry, then quarantine",
@@ -924,12 +955,14 @@
             "Technicians may: enter orders, fill/count medications, manage inventory, process insurance, and compound under supervision.",
             "Technicians may NOT: provide clinical counseling, perform the final DUR/clinical verification, or take new verbal prescriptions (varies by state).",
             "The pharmacist is responsible for the final check and all clinical decisions.",
+            "When a federal rule and a state rule differ, follow the stricter requirement.",
             "Safety Data Sheets (SDS) describe chemical hazards; OSHA requires they be accessible to staff.",
             "State laws and Boards of Pharmacy set technician registration/licensure and ratio requirements."
           ],
           "keyPoints": [
             "Tech ≠ counseling/final DUR",
             "Pharmacist = final check",
+            "Stricter of federal or state law applies",
             "OSHA/SDS = workplace chemical safety"
           ]
         },
@@ -939,17 +972,39 @@
           "intro": "DSCSA (knowledge area 2.6, added on the January 6, 2026 outline) is the federal track-and-trace law for prescription drugs. Learn durable duties — serialization, authorized partners, suspect vs illegitimate handling, and 6-year records — not rapidly changing exemption end-dates.",
           "bullets": [
             "Product identifier: each package carries a unique serialized ID (usually a 2D data matrix) with NDC, serial number, lot number, and expiration date.",
-            "Electronic exchange: trading partners send Transaction Information (TI: who/what/when/lot) and a Transaction Statement (TS: seller attests it is authorized and did not knowingly ship suspect/illegitimate product). Transaction History (TH) was the earlier lot-level pedigree; package-level tracing uses TI + TS.",
+            "Current electronic exchange is Transaction Information (TI: product, lot, dates, and the parties) plus a Transaction Statement (TS: the seller attests it is authorized and did not knowingly ship suspect or illegitimate product). Transaction History (TH) was retired in November 2023. Do not memorize a mandatory TI + TH + TS set as current law.",
             "Authorized trading partners: licensed/registered manufacturers, wholesale distributors, dispensers (pharmacies), and repackagers. Accept product only from authorized partners.",
-            "Suspect = reason to believe the product may be counterfeit, diverted, stolen, intentionally adulterated, or unfit. Illegitimate = credible evidence that it is. First action: do not dispense; quarantine and notify the pharmacist.",
-            "If confirmed illegitimate: notify FDA (Form FDA 3911) and immediate trading partners. Keep DSCSA transaction records for 6 years (not the 2-year CSA clock).",
+            "Suspect product: reason to believe it may be counterfeit, diverted, stolen, intentionally adulterated, or unfit. Do not dispense. Quarantine it, notify the pharmacist, and verify the product identifier (NDC, serial number, lot, and expiration).",
+            "Illegitimate product: credible evidence that it is counterfeit, diverted, stolen, intentionally adulterated, or unfit. Within 24 hours of that determination, notify FDA (Form FDA 3911) and immediate trading partners. Keep DSCSA transaction records for 6 years (not the 2-year CSA clock).",
             "FDA used phased implementation milestones for electronic package-level tracing. Exam focus is the technician duties above, not a specific exemption sunset date."
           ],
           "keyPoints": [
             "Identifier = NDC + serial + lot + expiry",
-            "Electronic TI + TS (not a paper TH)",
+            "TI + TS current; TH retired Nov 2023",
             "Buy only from authorized partners",
-            "Quarantine suspect; 6-year records"
+            "Suspect: quarantine and verify the identifier",
+            "Illegitimate: FDA 3911 + partners within 24 hours",
+            "DSCSA records kept 6 years"
+          ]
+        },
+        {
+          "id": "m12l5",
+          "title": "Hazardous & Non-Hazardous Pharmaceutical Waste (2.1)",
+          "intro": "Knowledge area 2.1 is federal storage, handling, and disposal of non-hazardous and hazardous pharmaceutical waste, including EPA P-list waste, plus the OSHA exposure steps tested with it.",
+          "bullets": [
+            "EPA RCRA listed waste: P-list drugs are acutely hazardous when the listed chemical is the sole active ingredient. Examples: warfarin above 0.3% (P001); nicotine (P075), except FDA-approved OTC nicotine replacement products, which were removed from that listing. U-list drugs are toxic but not acute. Examples: cyclophosphamide (U058); lindane (U129).",
+            "A discarded drug can still be hazardous by characteristic (ignitable, corrosive, reactive, or toxic) when it is not on the P- or U-list. Non-hazardous pharmaceutical waste is the remaining drug waste. “Not on the P-list” does not mean trash or the drain.",
+            "The 2019 EPA hazardous-waste pharmaceuticals rule banned sewering hazardous-waste drugs nationwide. Do not flush them.",
+            "Segregate waste before it leaves the pharmacy. The color map commonly used on the PTCE: black = RCRA hazardous pharmaceutical waste; yellow = trace chemotherapy; red = biohazard, including sharps; blue or white = non-hazardous pharmaceutical waste. Follow the pharmacy’s waste-vendor labels when they differ — the federal duty is segregation, not one national color statute.",
+            "OSHA bloodborne pathogens: never recap a used needle by hand. Discard sharps at once in a rigid, puncture-resistant, closable container. After a needle-stick, wash the site, report it immediately, and follow post-exposure evaluation and prophylaxis (PEP).",
+            "OSHA exposure controls: know where the eyewash and the spill kit are. Flush eyes at the eyewash — 15 minutes is the usual tested minimum — and follow the Safety Data Sheet. Right-to-know (Hazard Communication): staff must be able to reach the SDS for hazardous chemicals they handle."
+          ],
+          "keyPoints": [
+            "P-list = acute (warfarin >0.3%); U-list = toxic",
+            "Do not flush hazardous-waste drugs (EPA, 2019)",
+            "Black = RCRA hazardous; yellow = trace chemo",
+            "Needle-stick → wash, report, PEP",
+            "Eyewash, spill kit, and SDS access"
           ]
         }
       ]

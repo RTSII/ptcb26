@@ -197,8 +197,8 @@ else ok('index.html body.home present');
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v19/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v19');
-else ok('sw.js cache is ptce-2026-v19');
+if (!/ptce-2026-v20/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v20');
+else ok('sw.js cache is ptce-2026-v20');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
