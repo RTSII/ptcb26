@@ -50,6 +50,12 @@
   const validModes = ['quick10', 'chapter', 'missed', 'bookmarked', 'weak', 'weaksub'];
   const startMode = validModes.includes(initialMode) ? initialMode : (initialMode === 'quick' ? 'quick10' : 'quick10');
   modeSel.addEventListener('change', toggleModeFields);
+  document.querySelectorAll('.review-chip').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      modeSel.value = btn.dataset.mode;
+      toggleModeFields();
+    });
+  });
   modeSel.value = startMode;
   toggleModeFields();
   await loadData();
@@ -117,6 +123,24 @@
     diffRow.hidden = !showDiff;
     countRow.hidden = !showCount;
     if (extras) extras.hidden = !(showDomain || showSub || showDiff);
+
+    // Quick 10 stays a single menu. Larger type and buttons give it the Chapter footprint.
+    setupEl.classList.toggle('scale-chapter', mode === 'quick10');
+    document.querySelectorAll('.review-chip').forEach(function (btn) {
+      const on = btn.dataset.mode === mode;
+      btn.classList.toggle('active', on);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    const missedBtn = Util.el('#chipMissed .review-chip-label');
+    const bookBtn = Util.el('#chipBookmarked .review-chip-label');
+    if (missedBtn) {
+      const n = Storage.getMissed().length;
+      missedBtn.textContent = n ? 'Missed (' + n + ')' : 'Missed';
+    }
+    if (bookBtn) {
+      const n = Storage.getBookmarks('question').length;
+      bookBtn.textContent = n ? 'Bookmarked (' + n + ')' : 'Bookmarked';
+    }
 
     if (!showCount) {
       countInput.disabled = true;

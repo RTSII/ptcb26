@@ -218,12 +218,26 @@ if (/class="hero"/.test(home)) fail('index.html still has the redundant hero blo
 else ok('index.html hero block removed');
 if (!/class="home"/.test(home)) fail('index.html body should have class="home" for desktop densify');
 else ok('index.html body.home present');
+if (/Quick 10|reviewMissedCard|reviewBookmarkedCard|home-weights|id="weightBars"/.test(home)) {
+  fail('home should not show Quick 10, Review Missed, Review Bookmarked, or domain weights');
+} else ok('home drops Quick 10, review cards, and domain weights');
+if (!/Study Course/.test(home) || !/menu-card wide featured/.test(home)) {
+  fail('Study Course should remain the featured home hero');
+} else ok('Study Course remains the featured home hero');
+
+const dash = read('dashboard.html');
+if (!/id="weightBars"/.test(dash) || !/PTCE 2026 Domain Weights/.test(dash)) {
+  fail('dashboard should show PTCE 2026 domain weights');
+} else ok('dashboard shows PTCE 2026 domain weights');
+if (!/quiz\.html\?mode=missed/.test(dash) || !/quiz\.html\?mode=bookmarked/.test(dash)) {
+  fail('dashboard should keep Review Missed and Review Bookmarked links');
+} else ok('dashboard keeps missed and bookmarked entry points');
 
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v22/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v22');
-else ok('sw.js cache is ptce-2026-v22');
+if (!/ptce-2026-v23/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v23');
+else ok('sw.js cache is ptce-2026-v23');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
@@ -293,6 +307,10 @@ if (!/value="missed">Missed Q\.A\.</.test(quizHtml)) fail('missed mode label sho
 else ok('missed mode label is Missed Q.A.');
 if (!/value="bookmarked">Bookmarked</.test(quizHtml)) fail('bookmarked mode label should be Bookmarked');
 else ok('bookmarked mode label is Bookmarked');
+if (!/class="review-chip"[^>]*data-mode="missed"/.test(quizHtml) ||
+    !/class="review-chip"[^>]*data-mode="bookmarked"/.test(quizHtml)) {
+  fail('quiz setup should show Missed and Bookmarked chips outside the mode menu');
+} else ok('quiz setup shows Missed and Bookmarked chips');
 if (!/value="Patient Safety and Quality Assurance">Patient Safety &amp; Q\.A\.</.test(quizHtml)) {
   fail('Patient Safety option should display Patient Safety & Q.A. and keep the bank value');
 } else ok('Patient Safety display is shortened; value unchanged');
@@ -362,6 +380,13 @@ if (weakBranchAt === -1 || !/reviewPool\(/.test(weakBranch) || /isFeatured/.test
 if (!/addEventListener\('change', toggleModeFields\)[\s\S]*await loadData\(/.test(quizSrcFull)) {
   fail('mode change listener must be attached before the question fetch');
 } else ok('mode change listener is attached before questions load');
+if (!/scale-chapter/.test(quizSrcFull) || !/mode === 'quick10'/.test(quizSrcFull)) {
+  fail('Quick 10 setup should use the larger Chapter-scale layout without extra menus');
+} else ok('Quick 10 setup uses Chapter-scale');
+const fcSrc = read('js/flashcards.js');
+if (!/data-filter="Bookmarked"|filter === 'Bookmarked'|Bookmarked/.test(fcSrc) || !/getBookmarks\('card'\)/.test(fcSrc)) {
+  fail('flashcards should keep a discoverable bookmarked-card review path');
+} else ok('flashcards keep a bookmarked-card review path');
 if (!/Storage\.getMissed\(\)/.test(quizSrcFull) || !/Storage\.getBookmarks\('question'\)/.test(quizSrcFull)) {
   fail('missed and bookmarked quizzes should still draw from stored pools');
 } else ok('missed and bookmarked quizzes use stored pools');

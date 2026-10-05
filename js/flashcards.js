@@ -28,16 +28,42 @@
     return name.replace(/\band\b/gi, '&').replace(/Quality Assurance/g, 'Q.A.');
   }
 
+  function bookmarkCount() {
+    return Storage.getBookmarks('card').length;
+  }
+
+  function refreshBookmarkPill() {
+    const pill = el.filterRow.querySelector('[data-filter="Bookmarked"]');
+    if (!pill) return;
+    const n = bookmarkCount();
+    pill.textContent = n ? '★ Bookmarked (' + n + ')' : '★ Bookmarked';
+    pill.title = n
+      ? n + ' starred card' + (n === 1 ? '' : 's') + '. Review only the cards you bookmarked.'
+      : 'Review cards you star while studying.';
+    pill.setAttribute('aria-label', pill.title);
+  }
+
+  function activateFilter(name) {
+    const pill = el.filterRow.querySelector('[data-filter="' + name + '"]');
+    if (!pill) return;
+    el.filterRow.querySelectorAll('.pill').forEach(function (p) { p.classList.remove('active'); });
+    pill.classList.add('active');
+    applyFilter(name);
+  }
+
   function buildFilters() {
     el.filterRow.innerHTML = '';
     FILTERS.forEach(function (d, i) {
       const b = document.createElement('button');
-      const label = filterLabel(d);
+      const label = d === 'Bookmarked' ? '★ Bookmarked' : filterLabel(d);
       b.className = 'pill' + (i === 0 ? ' active' : '');
       b.type = 'button';
       b.textContent = label;
       b.dataset.filter = d;
-      if (label !== d) {
+      if (d === 'Bookmarked') {
+        b.title = 'Review cards you star while studying.';
+        b.setAttribute('aria-label', b.title);
+      } else if (label !== d) {
         b.title = d;
         b.setAttribute('aria-label', d);
       }
@@ -48,6 +74,7 @@
       });
       el.filterRow.appendChild(b);
     });
+    refreshBookmarkPill();
   }
 
   function applyFilter(f) {
@@ -219,6 +246,8 @@
     if (!cards.length) return;
     Storage.toggleBookmark('card', cards[idx].id);
     updateBookmark();
+    refreshBookmarkPill();
+    if (mode === 'bookmarked') applyFilter('Bookmarked');
   });
 
   document.addEventListener('keydown', function (e) {
@@ -268,7 +297,9 @@
         return copy;
       });
       buildFilters();
-      applyFilter('All');
+      const startFilter = new URLSearchParams(location.search).get('filter');
+      if (startFilter && /^bookmarked$/i.test(startFilter)) activateFilter('Bookmarked');
+      else applyFilter('All');
     })
     .catch(function () {
       el.frontText.textContent = 'Could not load flashcards. If opening the file directly, run a local server (see README).';

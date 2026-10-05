@@ -15,7 +15,25 @@
     return 'Quiz';
   }
 
+  const DOMAIN_WEIGHTS = [
+    { name: 'Medications', pct: 35 },
+    { name: 'Patient Safety & Q.A.', pct: 23.75 },
+    { name: 'Order Entry & Processing', pct: 22.5 },
+    { name: 'Federal Requirements', pct: 18.75 }
+  ];
+
+  function renderWeights() {
+    const el = Util.el('#weightBars');
+    if (!el) return;
+    el.innerHTML = DOMAIN_WEIGHTS.map(function (w) {
+      return '<div class="weight-tile"><div class="weight-head"><span>' + esc(w.name) +
+        '</span><span class="weight-pct">' + w.pct + '%</span></div>' +
+        '<div class="bar-track"><div class="bar-fill" style="width:' + w.pct + '%"></div></div></div>';
+    }).join('');
+  }
+
   function render(p, byDomain) {
+    renderWeights();
     Util.el('#statQuizzes').textContent = p.quizzes.length;
     const avg = p.quizzes.length
       ? Math.round(p.quizzes.reduce(function (s, x) { return s + scoreOf(x); }, 0) / p.quizzes.length)

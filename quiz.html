@@ -35,6 +35,16 @@
             <option value="weaksub">Weakest Subtopic</option>
           </select>
         </div>
+        <div class="review-chips" role="group" aria-label="Review modes">
+          <button type="button" class="review-chip" id="chipMissed" data-mode="missed" aria-pressed="false">
+            <span class="review-chip-icon" aria-hidden="true">🔁</span>
+            <span class="review-chip-label">Missed</span>
+          </button>
+          <button type="button" class="review-chip" id="chipBookmarked" data-mode="bookmarked" aria-pressed="false">
+            <span class="review-chip-icon" aria-hidden="true">⭐</span>
+            <span class="review-chip-label">Bookmarked</span>
+          </button>
+        </div>
         <div class="field" id="countRow" hidden>
           <label for="count">Questions</label>
           <input id="count" type="number" min="5" max="50" step="5" value="10">
