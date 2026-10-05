@@ -537,7 +537,7 @@
         "Track prescriber sales"
       ],
       "answer": 1,
-      "rationale": "A Risk Evaluation and Mitigation Strategy (REMS) manages known serious risks (e.g., iPLEDGE for isotretinoin).",
+      "rationale": "A Risk Evaluation and Mitigation Strategy (REMS) manages known serious risks. Current examples include iPLEDGE (isotretinoin) and TIRF. The Clozapine REMS was removed effective June 13, 2025 — do not treat clozapine as a pharmacy REMS.",
       "difficulty": "medium"
     },
     {
@@ -844,7 +844,7 @@
       "id": "q057",
       "domain": "Federal Requirements",
       "subtopic": "Controlled Substances",
-      "question": "Which DEA schedule has no accepted medical use in the U.S.?",
+      "question": "Which DEA schedule has no accepted medical use and includes heroin, LSD, and marijuana that is neither an FDA-approved product nor covered by a state medical-marijuana license?",
       "options": [
         "Schedule I",
         "Schedule II",
@@ -852,7 +852,7 @@
         "Schedule IV"
       ],
       "answer": 0,
-      "rationale": "Schedule I drugs (e.g., heroin, LSD) have high abuse potential and no accepted medical use.",
+      "rationale": "Schedule I has high abuse potential and no accepted medical use. As of April 28, 2026, FDA-approved marijuana products and marijuana under a qualifying state medical-marijuana license are Schedule III. Other marijuana remains Schedule I. Do not treat all marijuana as Schedule I.",
       "difficulty": "easy"
     },
     {
@@ -912,7 +912,7 @@
         "DEA Form 363"
       ],
       "answer": 1,
-      "rationale": "DEA Form 106 documents theft or significant loss of controlled substances.",
+      "rationale": "DEA Form 106 reports theft or significant loss. It is two steps: written notice to the local DEA field office within 1 business day of discovery, then electronic Form 106 within 45 calendar days. Paper Form 106 is not accepted. A single “file within 1 business day” step is not the current rule.",
       "difficulty": "medium"
     },
     {
@@ -972,7 +972,7 @@
         "Amber vials"
       ],
       "answer": 1,
-      "rationale": "The Poison Prevention Packaging Act (PPPA, 1970) requires child-resistant packaging for most prescription and many OTC drugs. Patients may request non-child-resistant containers. This is a federal packaging law, not a USP compounding or container chapter.",
+      "rationale": "The Poison Prevention Packaging Act (1970) requires child-resistant packaging for most prescriptions and many OTC drugs. The CPSC enforces it, not the FDA. Sublingual nitroglycerin is exempt. A prescriber may request a non-child-resistant container for one prescription only. Only the patient may make a blanket request for all of that patient’s prescriptions. Document the request.",
       "difficulty": "medium"
     },
     {
@@ -1527,7 +1527,7 @@
         "The manufacturer changes packaging"
       ],
       "answer": 2,
-      "rationale": "Class I is the most serious recall level — use could cause serious adverse health consequences or death; Class II is temporary/reversible harm, Class III is unlikely harm.",
+      "rationale": "Class I is the most serious recall level — use could cause serious adverse health consequences or death. A Class I medication recall usually reaches the consumer (patient) level, and patients who received the affected lot are notified. Recall depth may be wholesale, retail, or consumer. Class II is temporary or reversible harm; Class III is unlikely harm.",
       "difficulty": "medium"
     },
     {
@@ -1557,7 +1557,7 @@
         "Drug disposal"
       ],
       "answer": 1,
-      "rationale": "USP <797> sets requirements for compounded sterile preparations (CSPs), including cleanroom design, garbing, and beyond-use dating.",
+      "rationale": "USP <797> is the sterile compounding chapter for compounded sterile preparations. Recognizing the chapter ID is the 2026 PTCE task. Cleanroom design and garbing depth are not core exam content.",
       "difficulty": "easy"
     },
     {
@@ -1782,7 +1782,7 @@
         "Disposal of sharps"
       ],
       "answer": 2,
-      "rationale": "USP <800> protects workers by setting requirements for receipt, storage, compounding, and administration of hazardous drugs.",
+      "rationale": "USP <800> sets standards for handling hazardous drugs (receipt, storage, compounding, and administration) to protect workers. It has been official since December 1, 2019 — not December 1, 2023.",
       "difficulty": "easy"
     },
     {
@@ -1827,8 +1827,9 @@
         "Sterile gloves"
       ],
       "answer": 3,
-      "rationale": "Garbing proceeds from dirtiest to cleanest: shoe covers, hair/beard covers, mask, gown, then sterile gloves last, after proper hand hygiene.",
-      "difficulty": "medium"
+      "rationale": "Optional and not core 2026 PTCE content (CSPT-level). If reviewed, garbing is dirtiest to cleanest: shoe covers → hair/beard cover → face mask → hand hygiene → gown → sterile gloves last. Hand hygiene comes before the gown, not after it.",
+      "difficulty": "medium",
+      "featured": false
     },
     {
       "id": "q123",
@@ -2398,22 +2399,22 @@
         "It is the pharmacy's DEA registration application"
       ],
       "answer": 1,
-      "rationale": "Paper DEA Form 222 has been a single-sheet format since the triplicate form was discontinued around 2021; CSOS is the electronic equivalent. Form 222 is for ordering or transferring Schedule I and II substances, not disposal — destruction is recorded on DEA Form 41. Form 106 reports theft/loss; Form 224 is registration.",
+      "rationale": "Paper DEA Form 222 has been a single-sheet format since the triplicate form was discontinued around 2021; CSOS is the electronic equivalent. Form 222 is for ordering or transferring Schedule I and II substances, not disposal — destruction is recorded on DEA Form 41. Form 106 is the theft/loss report: written notice within 1 business day, then electronic Form 106 within 45 calendar days (paper Form 106 is not accepted). Form 224 is registration.",
       "difficulty": "medium"
     },
     {
       "id": "q161",
       "domain": "Federal Requirements",
       "subtopic": "DEA Forms",
-      "question": "A pharmacy discovers a significant theft of controlled substances. Which DEA form must be filed?",
+      "question": "A pharmacy discovers a significant theft of controlled substances. Which reporting sequence matches current DEA rules?",
       "options": [
-        "DEA Form 41",
-        "DEA Form 106",
-        "DEA Form 222",
-        "DEA Form 224"
+        "File a paper Form 106 with DEA within 1 business day and stop there",
+        "Send written notice to the local DEA field office within 1 business day of discovery, then submit electronic Form 106 within 45 calendar days",
+        "Document the loss on Form 41 within 72 hours and destroy the remaining stock",
+        "Send Form 222 to the wholesaler within 30 days"
       ],
       "answer": 1,
-      "rationale": "DEA Form 106 is used to report theft or loss of controlled substances to the DEA.",
+      "rationale": "Form 106 is a two-step report, not a single 1-business-day filing. Written notice goes to the local DEA field office within 1 business day of discovery. Electronic Form 106 follows within 45 calendar days. DEA does not accept paper Form 106. Form 41 is destruction; Form 222 is ordering.",
       "difficulty": "medium"
     },
     {
@@ -2450,15 +2451,15 @@
       "id": "q164",
       "domain": "Federal Requirements",
       "subtopic": "Controlled Substances",
-      "question": "Under federal law, a Schedule III prescription may be transferred between pharmacies how many times?",
+      "question": "Under federal law, a Schedule III–V prescription that still has refills may be transferred to another pharmacy:",
       "options": [
-        "Zero",
-        "One time only",
-        "Two times",
-        "Unlimited times on one refill"
+        "Never",
+        "One time, unless the pharmacies share a real-time online database — then until the refills are used up",
+        "Only twice, and only by fax",
+        "Unlimited times even when the pharmacies do not share a database"
       ],
       "answer": 1,
-      "rationale": "Federal law permits one-time transfer of a Schedule III-V prescription, provided refills remain.",
+      "rationale": "The default federal transfer of a C-III–V refill is one time. If both pharmacies share a real-time online database, transfers may continue until the refills are exhausted. Separately, an unfilled electronic prescription for C-II through C-V may be transferred once, for the first fill only, pharmacist to pharmacist (2023). A paper C-II cannot be transferred. Non-controlled refills follow state law and have no federal one-time cap.",
       "difficulty": "medium"
     },
     {
@@ -2533,7 +2534,7 @@
         "Patient counseling"
       ],
       "answer": 1,
-      "rationale": "USP <800> establishes standards for handling hazardous drugs to minimize exposure to healthcare workers and patients.",
+      "rationale": "USP <800> establishes standards for handling hazardous drugs to minimize exposure to healthcare workers and patients. It has been official since December 1, 2019 — not December 1, 2023.",
       "difficulty": "medium"
     },
     {
@@ -2722,13 +2723,13 @@
       "subtopic": "DSCSA",
       "question": "At the package-level interoperable tracing stage of DSCSA, authorized trading partners exchange which records electronically?",
       "options": [
-        "Only a paper pedigree listing every prior owner",
+        "Transaction Information, Transaction History, and a Transaction Statement (TI + TH + TS), all still mandatory",
         "Transaction Information (TI) and a Transaction Statement (TS)",
         "DEA Form 222 and Form 106",
         "A Medication Guide and PPI"
       ],
       "answer": 1,
-      "rationale": "Current FDA DSCSA framing uses electronic exchange of Transaction Information (who/what/when/lot) plus a Transaction Statement (the seller attests it is authorized and did not knowingly ship suspect or illegitimate product). A separate Transaction History (TH) document was the earlier lot-level model.",
+      "rationale": "Current DSCSA exchange is electronic Transaction Information (TI) plus a Transaction Statement (TS). Transaction History (TH) was retired in November 2023. Do not memorize a mandatory TI + TH + TS set as current law.",
       "difficulty": "medium"
     },
     {
@@ -2788,7 +2789,7 @@
         "Destroy it immediately in the regular trash"
       ],
       "answer": 2,
-      "rationale": "Identifier mismatches are a classic suspect-product trigger. Do not dispense. Quarantine the package, notify the pharmacist, and investigate. Destruction or FDA notification comes after the investigation, not as the first step.",
+      "rationale": "Identifier mismatches are a classic suspect-product trigger. Do not dispense. Quarantine the package, notify the pharmacist, and verify the product identifier (NDC, serial number, lot, and expiration). FDA notification is for product confirmed illegitimate, not the first step.",
       "difficulty": "easy"
     },
     {
@@ -2813,12 +2814,12 @@
       "question": "After a pharmacy confirms that a quarantined bottle is illegitimate, which notification is required under DSCSA?",
       "options": [
         "Notify only the state board, using DEA Form 222",
-        "Notify FDA (Form FDA 3911) and immediate trading partners",
+        "Notify FDA (Form FDA 3911) and immediate trading partners within 24 hours",
         "Notify CMS using a DUR reject code",
         "No notification is required if the bottle was never dispensed"
       ],
       "answer": 1,
-      "rationale": "Confirmed illegitimate product must be reported to FDA (Form FDA 3911) and to immediate trading partners so the supply chain can be traced. Not dispensing the bottle does not remove the notification duty.",
+      "rationale": "Once a product is determined illegitimate, notify FDA (Form FDA 3911) and immediate trading partners within 24 hours. Not dispensing the bottle does not remove that duty. Suspect product is quarantined and investigated first; the 24-hour notice starts at the illegitimate determination.",
       "difficulty": "hard"
     },
     {
@@ -2900,30 +2901,30 @@
       "id": "q194",
       "domain": "Federal Requirements",
       "subtopic": "REMS",
-      "question": "The clozapine REMS program exists primarily to manage which serious risk?",
+      "question": "Which statement about clozapine is correct for the 2026 PTCE?",
       "options": [
-        "Severe neutropenia (agranulocytosis) tracked with absolute neutrophil count (ANC)",
-        "QT prolongation that requires a baseline ECG at every fill",
-        "Teratogenicity managed only with iPLEDGE pregnancy tests",
-        "Serotonin syndrome from MAOI combinations"
+        "The Clozapine REMS is still required: the pharmacy must be certified and must confirm a current ANC before dispensing",
+        "FDA removed the Clozapine REMS effective June 13, 2025. The boxed warning and Medication Guide remain, and ANC monitoring stays with the prescriber per the labeling",
+        "Clozapine no longer has a neutropenia risk, so no Medication Guide is required",
+        "Clozapine was moved into iPLEDGE and now requires a pregnancy test at each fill"
       ],
-      "answer": 0,
-      "rationale": "Clozapine can cause severe neutropenia. The clozapine REMS requires certified pharmacies and current ANC documentation before dispensing. iPLEDGE is the isotretinoin pregnancy-prevention REMS — do not mix the two programs.",
+      "answer": 1,
+      "rationale": "FDA removed the Clozapine REMS effective June 13, 2025. Pharmacies do not enroll and do not confirm an ANC through a REMS before dispensing. Severe neutropenia risk, the boxed warning, and a Medication Guide remain. ANC monitoring stays with the prescriber per the labeling. Do not confuse this with iPLEDGE.",
       "difficulty": "medium"
     },
     {
       "id": "q195",
       "domain": "Federal Requirements",
       "subtopic": "REMS",
-      "question": "Before a clozapine prescription can be dispensed, a technician-level REMS checkpoint is that:",
+      "question": "A technician is ready to dispense clozapine. Which action matches current federal requirements?",
       "options": [
-        "The patient signed a HIPAA waiver at drop-off",
-        "The pharmacy is certified in the clozapine REMS and a current acceptable ANC (or REMS authorization) is on file",
-        "The prescriber has a DATA 2000 X-waiver",
-        "The drug is billed as a Schedule II controlled substance"
+        "Confirm pharmacy Clozapine REMS certification and a current acceptable ANC before the fill",
+        "Dispense with the required Medication Guide. Do not apply a pharmacy REMS enrollment or ANC gate; ANC monitoring stays with the prescriber per the labeling",
+        "Reject the prescription unless the prescriber has a DATA 2000 X-waiver",
+        "Process it as a Schedule II drug and file DEA Form 222"
       ],
       "answer": 1,
-      "rationale": "Clozapine REMS requires pharmacy certification and confirmation of a current acceptable ANC / REMS authorization before dispense. Clozapine is not a C-II, and the X-waiver no longer exists. Techs flag a missing ANC or failed REMS check to the pharmacist — they do not override it.",
+      "rationale": "The Clozapine REMS was removed effective June 13, 2025. There is no pharmacy certification step and no ANC authorization to clear before dispensing. The boxed warning and Medication Guide remain. Neutrophil monitoring is the prescriber’s responsibility under the labeling, not a pharmacy REMS checkpoint. Clozapine is not a C-II. The DATA 2000 X-waiver was eliminated in December 2022 and is not a dispense requirement.",
       "difficulty": "medium"
     },
     {
@@ -2938,7 +2939,7 @@
         "A one-year supply mailed from the wholesaler"
       ],
       "answer": 1,
-      "rationale": "iPLEDGE limits isotretinoin to a 30-day supply with no refills. Each fill needs current program authorization. Males are enrolled too — they are not exempt from iPLEDGE. Females of reproductive potential also have a short pickup window after a negative pregnancy test.",
+      "rationale": "iPLEDGE limits isotretinoin to a maximum 30-day supply with no refills. Each fill needs current program authorization. Patients who can get pregnant and patients who cannot get pregnant are both enrolled. Patients who can get pregnant have a 7-day pickup window counted from pregnancy-test specimen collection. The old 19-day lockout is not current: if that window is missed, a repeat pregnancy test may be done immediately, with no extra waiting period.",
       "difficulty": "medium"
     },
     {
@@ -2948,12 +2949,12 @@
       "question": "Which statement about iPLEDGE is accurate?",
       "options": [
         "Only female patients of reproductive potential must be enrolled; male patients are exempt",
-        "Prescribers, pharmacies, and patients (including males) must be enrolled, and the pharmacy must obtain authorization before dispensing",
+        "Prescribers, certified pharmacies, and patients who can and cannot get pregnant must be enrolled, and the pharmacy must obtain authorization before dispensing",
         "Any community pharmacy may dispense isotretinoin without program certification",
         "iPLEDGE authorization can be overridden at the register if the patient is picking up for a spouse"
       ],
       "answer": 1,
-      "rationale": "iPLEDGE enrolls prescribers, certified pharmacies, and all patients — including males — because the drug is teratogenic and sharing/donation is prohibited. Authorization is required before each dispense; techs must not override a REMS block.",
+      "rationale": "iPLEDGE enrolls the prescriber, a certified pharmacy, and patients — both patients who can get pregnant and patients who cannot (including males). Authorization is required before each dispense. Patients who can get pregnant have a 7-day window from specimen collection; the old 19-day lockout is not current. Techs must not override a REMS block.",
       "difficulty": "medium"
     },
     {
@@ -2979,11 +2980,11 @@
       "options": [
         "Are OTC cough suppressants that must stay behind the counter",
         "Are indicated only for opioid-tolerant patients (typically breakthrough cancer pain) and have a high risk of fatal respiratory depression in opioid-naïve patients",
-        "Require monthly ANC checks like clozapine",
+        "Require a pharmacy ANC authorization before each fill, the same gate the Clozapine REMS used to require",
         "Are interchangeable with any extended-release oxycodone tablet"
       ],
       "answer": 1,
-      "rationale": "TIRF REMS exists because these high-potency fentanyl products can be fatal in opioid-naïve patients. They are reserved for opioid-tolerant patients, usually with cancer breakthrough pain. This is not an ANC program and not an OTC CMEA rule.",
+      "rationale": "TIRF REMS exists because these high-potency fentanyl products can be fatal in opioid-naïve patients. They are reserved for opioid-tolerant patients, usually with cancer breakthrough pain. This is not an ANC program. The Clozapine REMS, including any pharmacy ANC gate, was removed effective June 13, 2025. ANC monitoring for clozapine stays with the prescriber per the labeling.",
       "difficulty": "hard"
     },
     {
@@ -3110,15 +3111,15 @@
       "id": "q208",
       "domain": "Federal Requirements",
       "subtopic": "Pharmacy Law",
-      "question": "Discarded warfarin tablets and nicotine patches are often handled as which type of waste, distinct from DEA Form 41 controlled-substance destruction?",
+      "question": "Which discarded product is a classic EPA P-listed (acutely hazardous) pharmaceutical waste, distinct from DEA Form 41 destruction?",
       "options": [
-        "P-listed (acutely hazardous) pharmaceutical waste under EPA/RCRA rules",
-        "Schedule I inventory that requires a Form 222 transfer",
-        "Ordinary paper recycling if blister packs are empty",
-        "USP <795> nonsterile compounding waste only"
+        "Warfarin when it is the sole active ingredient at a concentration above 0.3%",
+        "An FDA-approved OTC nicotine replacement patch, which EPA removed from the nicotine P-list",
+        "Empty blister-pack cardboard placed in paper recycling",
+        "Nonsterile compounding residue covered only by USP <795>"
       ],
       "answer": 0,
-      "rationale": "Knowledge area 2.1 includes hazardous (e.g., P-list) pharmaceutical waste. Warfarin and nicotine are classic P-listed examples. Form 41 is for destroying controlled substances; Form 222 is for ordering/transferring C-I/II — neither is the P-list waste stream.",
+      "rationale": "P-list waste is acutely hazardous when the listed chemical is the sole active ingredient. Warfarin above 0.3% is P001. Nicotine is P075, except FDA-approved OTC nicotine replacement products, which were removed from that listing. Do not call every nicotine patch P-listed. Form 41 is controlled-substance destruction, not the P-list waste stream.",
       "difficulty": "hard"
     },
     {

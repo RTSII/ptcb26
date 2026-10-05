@@ -238,7 +238,7 @@
       "id": "40",
       "domain": "Patient Safety and Quality Assurance",
       "front": "What does REMS stand for?",
-      "back": "Risk Evaluation and Mitigation Strategy — an FDA safety program for high-risk drugs (e.g., isotretinoin/iPLEDGE, clozapine)."
+      "back": "Risk Evaluation and Mitigation Strategy — an FDA safety program for certain high-risk drugs (e.g., isotretinoin/iPLEDGE, TIRF). The Clozapine REMS was removed effective June 13, 2025."
     },
     {
       "id": "41",
@@ -329,7 +329,7 @@
       "id": "55",
       "domain": "Federal Requirements",
       "front": "Which DEA schedule has NO accepted medical use?",
-      "back": "Schedule I (e.g., heroin, LSD). High abuse potential, not prescribable."
+      "back": "Schedule I (heroin, LSD, and marijuana that is not an FDA-approved product and not under a state medical-marijuana license). FDA-approved marijuana products and state-licensed medical marijuana are Schedule III (as of April 28, 2026). Other marijuana remains Schedule I."
     },
     {
       "id": "56",
@@ -353,7 +353,7 @@
       "id": "59",
       "domain": "Federal Requirements",
       "front": "What DEA form is used to report theft or significant loss of controlled substances?",
-      "back": "DEA Form 106."
+      "back": "DEA Form 106. Two steps: written notice to the local DEA field office within 1 business day of discovery, then electronic Form 106 within 45 calendar days. Paper Form 106 is not accepted."
     },
     {
       "id": "60",
@@ -383,7 +383,7 @@
       "id": "64",
       "domain": "Federal Requirements",
       "front": "What did the Poison Prevention Packaging Act (1970) require?",
-      "back": "Child-resistant containers for most prescription and many OTC drugs."
+      "back": "Child-resistant containers for most prescriptions and many OTC drugs. Enforced by the CPSC. A prescriber may request non-child-resistant packaging for one prescription; only the patient may make a blanket request. Sublingual nitroglycerin is exempt."
     },
     {
       "id": "65",
@@ -533,13 +533,13 @@
       "id": "89",
       "domain": "Patient Safety and Quality Assurance",
       "front": "USP <797>",
-      "back": "STERILE compounding standards (IVs, injections, eye drops) — cleanroom, garbing, BUDs."
+      "back": "STERILE compounding chapter (IVs, injections, eye drops). Recognize the chapter. Cleanroom design and garbing depth are not core 2026 PTCE content."
     },
     {
       "id": "90",
       "domain": "Patient Safety and Quality Assurance",
       "front": "USP <800>",
-      "back": "Hazardous drug HANDLING standards — PPE, containment (C-PEC/C-SEC), for both sterile & non-sterile HDs."
+      "back": "Hazardous-drug HANDLING standards — PPE and containment (C-PEC/C-SEC), for sterile and non-sterile HDs. Official since December 1, 2019 — not December 1, 2023."
     },
     {
       "id": "91",
@@ -586,8 +586,8 @@
     {
       "id": "98",
       "domain": "Patient Safety and Quality Assurance",
-      "front": "Garbing order (sterile)",
-      "back": "Dirtiest to cleanest: shoe covers → hair/beard cover → mask → gown → sterile gloves LAST (after hand hygiene)."
+      "front": "Garbing order (sterile, optional — not core 2026 PTCE)",
+      "back": "Dirtiest to cleanest: shoe covers → hair/beard cover → face mask → hand hygiene → gown → sterile gloves LAST. Hand hygiene comes before the gown, not after it."
     },
     {
       "id": "99",
@@ -738,7 +738,7 @@
       "id": "123",
       "domain": "Federal Requirements",
       "front": "DEA Form 106",
-      "back": "Report theft or significant loss of controlled substances."
+      "back": "Theft or significant loss of controlled substances. Written notice to the local DEA field office within 1 business day, then electronic Form 106 within 45 calendar days. Paper Form 106 is not accepted."
     },
     {
       "id": "124",
@@ -774,7 +774,7 @@
       "id": "129",
       "domain": "Federal Requirements",
       "front": "CSA schedules",
-      "back": "C-I no accepted medical use (heroin); C-II high abuse (oxycodone, amphetamine); C-III–V decreasing abuse potential."
+      "back": "C-I: no accepted medical use (heroin, LSD; other marijuana that is not FDA-approved and not state-licensed medical marijuana). FDA-approved and state-licensed medical marijuana are C-III. C-II: high abuse (oxycodone, amphetamine). C-III–V: decreasing abuse potential."
     },
     {
       "id": "130",
@@ -798,7 +798,7 @@
       "id": "133",
       "domain": "Federal Requirements",
       "front": "Poison Prevention Packaging Act",
-      "back": "Requires child-resistant containers for most Rx/OTC (patient may request easy-open)."
+      "back": "Child-resistant containers for most Rx and many OTC drugs (CPSC). Prescriber may request easy-open for one prescription only; only the patient may blanket-request it. Sublingual nitroglycerin is exempt."
     },
     {
       "id": "134",
@@ -852,7 +852,7 @@
       "id": "142",
       "domain": "Federal Requirements",
       "front": "DEA Form 106",
-      "back": "Report theft or significant loss of controlled substances to the DEA."
+      "back": "Report theft or significant loss to the DEA: written notice within 1 business day of discovery, then electronic Form 106 within 45 calendar days. Not a one-step paper filing."
     },
     {
       "id": "143",
@@ -876,7 +876,7 @@
       "id": "146",
       "domain": "Federal Requirements",
       "front": "C-III transfer rule",
-      "back": "One-time transfer allowed between pharmacies if refills remain."
+      "back": "One-time transfer of a refill if refills remain, unless the pharmacies share a real-time online database — then until refills are used up. An unfilled electronic C-II–V prescription may be transferred once for the first fill only, pharmacist to pharmacist."
     },
     {
       "id": "147",
@@ -906,7 +906,7 @@
       "id": "151",
       "domain": "Patient Safety and Quality Assurance",
       "front": "USP <800>",
-      "back": "Standards for handling hazardous drugs to minimize exposure."
+      "back": "Standards for handling hazardous drugs to minimize exposure. Official since December 1, 2019 — not December 1, 2023."
     },
     {
       "id": "152",
@@ -990,7 +990,7 @@
       "id": "165",
       "domain": "Federal Requirements",
       "front": "DSCSA TI vs TS (current electronic exchange)",
-      "back": "TI = Transaction Information (product, NDC, lot, quantity, dates, seller/buyer). TS = Transaction Statement (seller attests it is authorized and did not knowingly ship suspect/illegitimate product). Package-level tracing uses electronic TI + TS."
+      "back": "TI = Transaction Information (product, lot, dates, parties). TS = Transaction Statement (seller attests it is authorized and did not knowingly ship suspect or illegitimate product). Transaction History (TH) was retired in November 2023. Current law is electronic TI + TS, not a mandatory TI + TH + TS set."
     },
     {
       "id": "166",
@@ -1008,7 +1008,7 @@
       "id": "168",
       "domain": "Federal Requirements",
       "front": "First technician action if a package looks suspect under DSCSA",
-      "back": "Do not dispense. Quarantine/segregate the product and notify the pharmacist so it can be investigated. If confirmed illegitimate, FDA (Form 3911) and trading partners are notified."
+      "back": "Do not dispense. Quarantine, notify the pharmacist, and verify the product identifier (NDC, serial, lot, expiration). Once confirmed illegitimate, notify FDA (Form 3911) and immediate trading partners within 24 hours."
     },
     {
       "id": "169",
@@ -1043,20 +1043,20 @@
     {
       "id": "174",
       "domain": "Federal Requirements",
-      "front": "Clozapine REMS — what is monitored?",
-      "back": "Absolute neutrophil count (ANC). Clozapine can cause severe neutropenia/agranulocytosis. A current acceptable ANC / REMS authorization is required before dispensing."
+      "front": "Clozapine REMS status (2026)",
+      "back": "FDA removed the Clozapine REMS effective June 13, 2025. Pharmacies do not enroll and do not confirm an ANC before dispensing. Severe neutropenia risk, the boxed warning, and a Medication Guide remain. ANC monitoring stays with the prescriber per the labeling."
     },
     {
       "id": "175",
       "domain": "Federal Requirements",
-      "front": "Clozapine REMS — pharmacy requirement",
-      "back": "The pharmacy must be certified in the clozapine REMS. Techs do not override a failed ANC/REMS check; they notify the pharmacist."
+      "front": "Who monitors the ANC for clozapine?",
+      "back": "The prescriber, per the labeling. There is no pharmacy REMS enrollment and no ANC gate before dispensing. Do not hold the fill for a Clozapine REMS authorization."
     },
     {
       "id": "176",
       "domain": "Federal Requirements",
       "front": "iPLEDGE (isotretinoin) — key dispense limits",
-      "back": "Certified pharmacy; patient, prescriber, and pharmacy enrolled (including males); typically a 30-day supply with no refills; authorization required before each dispense. Females of reproductive potential need monthly pregnancy tests and a short pickup window."
+      "back": "Certified pharmacy; prescriber and patients enroll (patients who can get pregnant and patients who cannot). Maximum 30-day supply, no refills, authorization before each dispense. Patients who can get pregnant: 7-day pickup window from specimen collection. The old 19-day lockout is not current — a missed window gets a repeat pregnancy test immediately."
     },
     {
       "id": "177",
@@ -1134,13 +1134,13 @@
       "id": "189",
       "domain": "Federal Requirements",
       "front": "P-listed pharmaceutical waste vs Form 41",
-      "back": "P-list (EPA/RCRA) covers acutely hazardous discarded drugs such as warfarin and nicotine. Form 41 is only for controlled-substance destruction — not the P-list waste stream."
+      "back": "P-list (EPA/RCRA) is acutely hazardous when the listed chemical is the sole active ingredient. Warfarin above 0.3% is P001. Nicotine is P075 except FDA-approved OTC nicotine replacement products. Form 41 is only for controlled-substance destruction."
     },
     {
       "id": "190",
       "domain": "Federal Requirements",
       "front": "REMS knowledge area on the 2026 outline",
-      "back": "Federal 2.4 — restricted drug programs (pseudoephedrine/CMEA and REMS). Examples: iPLEDGE (isotretinoin), clozapine REMS (ANC), TIRF (fentanyl), lenalidomide/thalidomide pregnancy programs."
+      "back": "Federal 2.4 — restricted drug programs (pseudoephedrine/CMEA and REMS). Current examples: iPLEDGE (isotretinoin), TIRF (fentanyl), THALOMID/REVLIMID. The Clozapine REMS was removed effective June 13, 2025."
     }
   ]
 }
