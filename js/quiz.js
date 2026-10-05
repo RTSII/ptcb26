@@ -109,9 +109,9 @@
     const showDomain = mode === 'chapter';
     const showSub = false;
     const showDiff = false;
-    // Quick 10 stays fixed at 10. Chapter, Missed, Bookmarked, and Weakest
-    // share a Questions select built from the live pool.
-    const showCount = mode === 'chapter' || mode === 'missed' || mode === 'bookmarked' || mode === 'weak' || mode === 'weaksub';
+    // Questions select is chapter and weakest only. Quick 10 is fixed at 10.
+    // Missed and Bookmarked have no count UI; start uses the full live pool.
+    const showCount = mode === 'chapter' || mode === 'weak' || mode === 'weaksub';
     const countRow = Util.el('#countRow');
     domainRow.hidden = !showDomain;
     subtopicRow.hidden = !showSub;
@@ -162,27 +162,26 @@
 
   function refreshCountOptions(preferred) {
     const mode = modeSel.value;
-    const showCount = mode === 'chapter' || mode === 'missed' || mode === 'bookmarked' || mode === 'weak' || mode === 'weaksub';
+    const showCount = mode === 'chapter' || mode === 'weak' || mode === 'weaksub';
     const countRow = Util.el('#countRow');
     if (!showCount) {
-      countInput.disabled = true;
-      if (mode === 'quick10') countInput.value = '10';
+      countRow.hidden = true;
+      // Missed and Bookmarked never render a Questions control, populated or empty.
+      // Leave the select enabled and empty so a hidden disabled remnant cannot linger.
+      if (mode === 'missed' || mode === 'bookmarked') {
+        countInput.disabled = false;
+        countInput.innerHTML = '';
+      } else {
+        countInput.disabled = true;
+        if (mode === 'quick10') countInput.value = '10';
+      }
       return;
     }
-    const reviewMode = mode === 'missed' || mode === 'bookmarked';
+    countRow.hidden = false;
     const prev = parseInt(countInput.value, 10);
     const n = poolForSetup(mode).length;
-    // An empty Missed or Bookmarked pool has no count menu. A disabled "None"
-    // select is the greyed number control — hide it instead of leaving it on screen.
-    if (reviewMode && !n) {
-      countRow.hidden = true;
-      countInput.disabled = false;
-      countInput.innerHTML = '';
-      return;
-    }
-    if (reviewMode) countRow.hidden = false;
     const options = countOptions(n);
-    countInput.disabled = reviewMode ? false : n === 0;
+    countInput.disabled = n === 0;
     countInput.innerHTML = options.map(function (o) {
       return '<option value="' + o.value + '">' + Util.escapeHtml(o.label) + '</option>';
     }).join('');
@@ -340,16 +339,14 @@
         alert('No missed questions yet. Complete a quiz or exam first.');
         return;
       }
-      const n = Math.min(parseInt(countInput.value, 10) || pool.length, pool.length);
-      pool = Util.sample(pool, n);
+      pool = Util.sample(pool, pool.length);
     } else if (mode === 'bookmarked') {
       pool = poolForSetup('bookmarked');
       if (!pool.length) {
         alert('No bookmarked questions yet. Tap the star while taking a quiz or exam.');
         return;
       }
-      const n = Math.min(parseInt(countInput.value, 10) || pool.length, pool.length);
-      pool = Util.sample(pool, n);
+      pool = Util.sample(pool, pool.length);
     } else if (mode === 'weak' || mode === 'weaksub') {
       // Weakest modes quiz the reviewPool() slice (missed ∪ bookmarked), not the featured bank.
       const slice = poolForSetup(mode);

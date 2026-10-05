@@ -1739,8 +1739,8 @@ body.quiz .setup-actions {
   padding-top: 0;
 }
 /* Quick 10, Missed ?s, and Bookmarked use the larger Chapter footprint
-   so those setups fill the screen. Quick 10 has no count control. Missed
-   and Bookmarked show only the live Questions select, plus clear / Start / Back. */
+   so those setups fill the screen. None of them show a Questions control.
+   Missed and Bookmarked add a mode-aware clear action beside Start / Back. */
 body.quiz #setup.scale-chapter {
   padding: 26px 24px 22px;
 }
