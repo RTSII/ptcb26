@@ -123,6 +123,31 @@ if (questions.length) {
   if (remss.length < 5) fail('need ≥5 Federal REMS questions, got ' + remss.length);
   else ok(remss.length + ' Federal REMS questions');
 
+  const studyBlob = JSON.stringify(questions) + JSON.stringify(cards);
+  const gateItems = [...questions, ...cards].filter(item => {
+    const text = JSON.stringify(item);
+    return /pharmacy must be certified in the clozapine REMS|certified in the clozapine REMS and a current acceptable ANC|current acceptable ANC \/ REMS authorization is required before dispensing|clozapine REMS requires certified pharmacies|ANC \/ REMS authorization is required before dispensing/i.test(text);
+  });
+  if (gateItems.length) fail('items still teach a current Clozapine REMS pharmacy or ANC gate: ' + gateItems.map(item => item.id).join(', '));
+  else ok('no item teaches a current Clozapine REMS pharmacy or ANC gate');
+  if (!/June 13, 2025/.test(studyBlob)) fail('bank should record Clozapine REMS removal on June 13, 2025');
+  else ok('bank records Clozapine REMS removal (June 13, 2025)');
+  if (!/45 calendar days/.test(studyBlob)) fail('Form 106 two-step timing (45 calendar days) missing from the bank');
+  else if (/file within 1 business day/.test(studyBlob) && !/not the current rule|not a single/i.test(studyBlob)) {
+    fail('Form 106 is still taught as a one-step 1-business-day filing');
+  } else ok('Form 106 is the two-step notice plus electronic filing');
+  if (!/retired in November 2023/.test(studyBlob)) fail('DSCSA Transaction History retirement (November 2023) missing');
+  else ok('DSCSA retires Transaction History (November 2023)');
+  if (!/FDA-approved marijuana/.test(studyBlob)) fail('marijuana C-III split missing from the bank');
+  else ok('bank teaches the marijuana Schedule III split');
+  if (/19-day lockout/.test(studyBlob) && !/not current/.test(studyBlob)) fail('iPLEDGE 19-day lockout is still taught as current law');
+  else ok('iPLEDGE 19-day lockout is not taught as current law');
+  if (/December 1, 2023/.test(studyBlob) && !/not December 1, 2023/.test(studyBlob)) fail('USP <800> still uses a December 1, 2023 effective date');
+  else ok('USP <800> is not taught as effective December 1, 2023');
+  if (/mask, gown, then sterile gloves last, after proper hand hygiene/.test(studyBlob)) fail('garbing order still places hand hygiene after the gown');
+  else if (!/face mask → hand hygiene → gown → sterile gloves/.test(studyBlob)) fail('corrected garbing order missing from the bank');
+  else ok('garbing order places hand hygiene before the gown');
+
   const q136 = questions.find(q => q.id === 'q136');
   if (!q136) fail('q136 missing');
   else if (q136.featured !== false) fail('q136 (alligation) should be featured:false');
@@ -197,8 +222,8 @@ else ok('index.html body.home present');
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v20/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v20');
-else ok('sw.js cache is ptce-2026-v20');
+if (!/ptce-2026-v21/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v21');
+else ok('sw.js cache is ptce-2026-v21');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
