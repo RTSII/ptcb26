@@ -236,8 +236,8 @@ if (!/quiz\.html\?mode=missed/.test(dash) || !/quiz\.html\?mode=bookmarked/.test
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v23/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v23');
-else ok('sw.js cache is ptce-2026-v23');
+if (!/ptce-2026-v24/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v24');
+else ok('sw.js cache is ptce-2026-v24');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
@@ -303,14 +303,18 @@ if (!/body\.quiz #setup #modeField label\s*\{[^}]*text-align:\s*center/.test(css
 } else ok('mode label is centered above the mode select');
 if (/Chapter Test \(by Subtopic\)/.test(quizHtml)) fail('chapter mode label should be "Chapter Test"');
 else ok('chapter mode label is Chapter Test');
-if (!/value="missed">Missed Q\.A\.</.test(quizHtml)) fail('missed mode label should be Missed Q.A.');
-else ok('missed mode label is Missed Q.A.');
+if (!/value="missed">Missed \?s</.test(quizHtml)) fail('missed mode label should be Missed ?s');
+else ok('missed mode label is Missed ?s');
 if (!/value="bookmarked">Bookmarked</.test(quizHtml)) fail('bookmarked mode label should be Bookmarked');
 else ok('bookmarked mode label is Bookmarked');
-if (!/class="review-chip"[^>]*data-mode="missed"/.test(quizHtml) ||
-    !/class="review-chip"[^>]*data-mode="bookmarked"/.test(quizHtml)) {
-  fail('quiz setup should show Missed and Bookmarked chips outside the mode menu');
-} else ok('quiz setup shows Missed and Bookmarked chips');
+if (/review-chip/.test(quizHtml)) fail('quiz setup should not show Missed or Bookmarked chips under Mode');
+else ok('Missed and Bookmarked stay in the Mode dropdown only');
+if (!/<select id="count">/.test(quizHtml) || /id="count" type="number"/.test(quizHtml)) {
+  fail('Questions count should be a select, not a free number field');
+} else ok('Questions count is a select');
+if (!/id="clearMissedBtn"/.test(quizHtml) || !/id="clearBookmarksBtn"/.test(quizHtml)) {
+  fail('quiz setup should show clear controls for missed and bookmarked');
+} else ok('quiz setup shows clear missed and clear bookmarks');
 if (!/value="Patient Safety and Quality Assurance">Patient Safety &amp; Q\.A\.</.test(quizHtml)) {
   fail('Patient Safety option should display Patient Safety & Q.A. and keep the bank value');
 } else ok('Patient Safety display is shortened; value unchanged');
@@ -338,7 +342,7 @@ if (/body\.quiz \.setup-actions\s*\{[^}]*margin-top:\s*auto/.test(css)) {
 } else ok('setup actions sit under the fields');
 if (!/body\.quiz\s*\{[^}]*height:\s*100dvh/.test(css)) fail('quiz page should lock to the viewport height');
 else ok('quiz page locks to the viewport height');
-if (!/body\.quiz #setup select,\s*\nbody\.quiz #setup input\[type="number"\]\s*\{[^}]*width:\s*100%/.test(css)) {
+if (!/body\.quiz #setup select\s*\{[^}]*width:\s*100%/.test(css)) {
   fail('setup selects should be width 100% of their field');
 } else ok('setup selects are width 100%');
 if (/field-sizing:\s*content/.test(css)) fail('setup controls should not use field-sizing: content');
@@ -390,6 +394,18 @@ if (!/data-filter="Bookmarked"|filter === 'Bookmarked'|Bookmarked/.test(fcSrc) |
 if (!/Storage\.getMissed\(\)/.test(quizSrcFull) || !/Storage\.getBookmarks\('question'\)/.test(quizSrcFull)) {
   fail('missed and bookmarked quizzes should still draw from stored pools');
 } else ok('missed and bookmarked quizzes use stored pools');
+if (!/function countOptions/.test(quizSrcFull) || !/All ' \+ n/.test(quizSrcFull)) {
+  fail('question counts should be select options from the live pool, including All N');
+} else ok('question counts are pool-derived select options');
+const appSrc = read('js/app.js');
+const dashSrc = read('js/dashboard.js');
+const dashHtml = read('dashboard.html');
+if (!/clearMissed/.test(appSrc) || !/clearBookmarks/.test(appSrc)) {
+  fail('storage should be able to clear missed questions and bookmarks');
+} else ok('storage can clear missed questions and bookmarks');
+if (!/id="clearMissedBtn"/.test(dashHtml) || !/id="clearBookmarksBtn"/.test(dashHtml) || !/confirm\(/.test(dashSrc)) {
+  fail('dashboard Focus Area should expose confirmed clear controls');
+} else ok('dashboard Focus Area exposes confirmed clear controls');
 function modeBranch(src, marker) {
   const at = src.indexOf(marker);
   if (at === -1) return '';

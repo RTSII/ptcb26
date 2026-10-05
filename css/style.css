@@ -418,7 +418,19 @@ select:focus, input:focus {
   border-color: var(--cyan);
   box-shadow: var(--glow-cyan);
 }
-input:disabled { opacity: 0.45; }
+input:disabled, select:disabled { opacity: 0.45; }
+.btn.danger, .clear-btn {
+  color: var(--pink);
+  border-color: rgba(255, 42, 109, 0.75);
+  background: rgba(255, 42, 109, 0.08);
+  text-shadow: 0 0 8px rgba(255, 42, 109, 0.55);
+}
+.btn.danger:hover, .clear-btn:hover {
+  color: #fff;
+  background: rgba(255, 42, 109, 0.18);
+  box-shadow: var(--glow-pink);
+}
+.focus-clear { margin-top: 8px; }
 select option { background: var(--bg2); }
 
 /* ============ Filter pills ============ */
@@ -1702,8 +1714,7 @@ body.quiz #setup #modeField label {
 /* Definite 100% width so the native option list matches the field and stays
    inside the card. Do not size these controls to their text. Closed and
    expanded text is centered; horizontal padding hugs the label. */
-body.quiz #setup select,
-body.quiz #setup input[type="number"] {
+body.quiz #setup select {
   width: 100%;
   max-width: 100%;
   min-width: 0;
@@ -1717,59 +1728,7 @@ body.quiz #setup input[type="number"] {
 body.quiz #setup select option {
   text-align: center;
 }
-body.quiz .review-chips {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-}
-body.quiz .review-chip {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  width: fit-content;
-  min-height: 36px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.6px;
-  line-height: 1.2;
-  cursor: pointer;
-  color: var(--ink);
-  background: rgba(5, 217, 232, 0.06);
-  border: 1px solid rgba(5, 217, 232, 0.5);
-}
-body.quiz .review-chip[data-mode="bookmarked"] {
-  color: var(--amber);
-  border-color: rgba(255, 211, 25, 0.7);
-  background: rgba(255, 211, 25, 0.06);
-}
-body.quiz .review-chip[data-mode="missed"] {
-  color: var(--cyan);
-}
-body.quiz .review-chip:hover {
-  color: #fff;
-  box-shadow: var(--glow-cyan);
-}
-body.quiz .review-chip[data-mode="bookmarked"]:hover,
-body.quiz .review-chip[data-mode="bookmarked"].active {
-  box-shadow: 0 0 10px rgba(255, 211, 25, 0.45);
-}
-body.quiz .review-chip.active {
-  color: #fff;
-  background: linear-gradient(90deg, rgba(5, 217, 232, 0.28), rgba(185, 103, 255, 0.22));
-  border-color: var(--cyan);
-}
-body.quiz .review-chip[data-mode="bookmarked"].active {
-  background: linear-gradient(90deg, rgba(255, 211, 25, 0.28), rgba(255, 42, 109, 0.18));
-  border-color: var(--amber);
-  color: #fff;
-}
-body.quiz .review-chip-icon { font-size: 1rem; line-height: 1; }
+body.quiz .clear-btn[hidden] { display: none !important; }
 body.quiz .setup-actions {
   display: flex;
   flex-wrap: wrap;
@@ -1788,17 +1747,10 @@ body.quiz #setup.scale-chapter .field label {
   font-size: 1rem;
   letter-spacing: 1.5px;
 }
-body.quiz #setup.scale-chapter select,
-body.quiz #setup.scale-chapter input[type="number"] {
+body.quiz #setup.scale-chapter select {
   padding: 20px 16px;
   font-size: 1.6rem;
   line-height: 1.35;
-}
-body.quiz #setup.scale-chapter .review-chips { margin-top: 4px; }
-body.quiz #setup.scale-chapter .review-chip {
-  min-height: 48px;
-  padding: 10px 18px;
-  font-size: 0.95rem;
 }
 body.quiz #setup.scale-chapter .setup-actions { margin-top: 16px; }
 body.quiz #setup.scale-chapter .setup-actions .cta,

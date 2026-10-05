@@ -1,4 +1,4 @@
-// Quiz module: Quick 10, Chapter Test, Missed Q.A., Bookmarked, Weak-area modes
+// Quiz module: Quick 10, Chapter Test, Missed ?s, Bookmarked, Weak-area modes
 (async function () {
   const { Storage, Util, DOMAINS } = window.App;
 
@@ -50,12 +50,9 @@
   const validModes = ['quick10', 'chapter', 'missed', 'bookmarked', 'weak', 'weaksub'];
   const startMode = validModes.includes(initialMode) ? initialMode : (initialMode === 'quick' ? 'quick10' : 'quick10');
   modeSel.addEventListener('change', toggleModeFields);
-  document.querySelectorAll('.review-chip').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      modeSel.value = btn.dataset.mode;
-      toggleModeFields();
-    });
-  });
+  domainSel.addEventListener('change', function () { refreshCountOptions('keep'); });
+  Util.el('#clearMissedBtn').addEventListener('click', clearMissedList);
+  Util.el('#clearBookmarksBtn').addEventListener('click', clearQuestionBookmarks);
   modeSel.value = startMode;
   toggleModeFields();
   await loadData();
@@ -70,9 +67,7 @@
     }
   }
   const urlCount = parseInt(params.get('count'), 10);
-  if (urlCount && !countInput.disabled) {
-    countInput.value = Math.min(50, Math.max(5, urlCount));
-  }
+  refreshCountOptions(urlCount > 0 ? urlCount : undefined);
 
   // Events
   startBtn.addEventListener('click', startQuiz);
@@ -115,7 +110,7 @@
     const showSub = false;
     const showDiff = false;
     // Quick 10 stays fixed at 10. Chapter, Missed, Bookmarked, and Weakest
-    // share the Questions count and sample that many from their pool.
+    // share a Questions select built from the live pool.
     const showCount = mode === 'chapter' || mode === 'missed' || mode === 'bookmarked' || mode === 'weak' || mode === 'weaksub';
     const countRow = Util.el('#countRow');
     domainRow.hidden = !showDomain;
@@ -126,30 +121,109 @@
 
     // Quick 10 stays a single menu. Larger type and buttons give it the Chapter footprint.
     setupEl.classList.toggle('scale-chapter', mode === 'quick10');
-    document.querySelectorAll('.review-chip').forEach(function (btn) {
-      const on = btn.dataset.mode === mode;
-      btn.classList.toggle('active', on);
-      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-    });
-    const missedBtn = Util.el('#chipMissed .review-chip-label');
-    const bookBtn = Util.el('#chipBookmarked .review-chip-label');
-    if (missedBtn) {
-      const n = Storage.getMissed().length;
-      missedBtn.textContent = n ? 'Missed (' + n + ')' : 'Missed';
-    }
-    if (bookBtn) {
-      const n = Storage.getBookmarks('question').length;
-      bookBtn.textContent = n ? 'Bookmarked (' + n + ')' : 'Bookmarked';
-    }
+    refreshCountOptions();
+    updateClearControls();
+  }
 
+  // Steps of 5 up to the live pool, plus the full pool as "All N".
+  function countOptions(n) {
+    if (!n) return [{ value: '0', label: 'None' }];
+    const opts = [];
+    for (let i = 5; i < n; i += 5) opts.push({ value: String(i), label: String(i) });
+    opts.push({ value: String(n), label: 'All ' + n });
+    return opts;
+  }
+
+  function poolForSetup(mode) {
+    if (mode === 'missed') {
+      const ids = new Set(Storage.getMissed().map(String));
+      return allQuestions.filter(q => ids.has(String(q.id)));
+    }
+    if (mode === 'bookmarked') {
+      const ids = new Set(Storage.getBookmarks('question').map(String));
+      return allQuestions.filter(q => ids.has(String(q.id)));
+    }
+    if (mode === 'weak' || mode === 'weaksub') {
+      const review = reviewPool();
+      if (!review.length) return [];
+      const keyFn = mode === 'weak' ? (q => q.domain) : (q => q.subtopic);
+      const weakKey = weakestInPool(review, keyFn);
+      if (!weakKey) return [];
+      return review.filter(q => keyFn(q) === weakKey);
+    }
+    if (mode === 'chapter') {
+      const domain = domainSel.value;
+      if (!domain || domain === 'All') return allQuestions.slice();
+      return allQuestions.filter(q => q.domain === domain);
+    }
+    return [];
+  }
+
+  function refreshCountOptions(preferred) {
+    const mode = modeSel.value;
+    const showCount = mode === 'chapter' || mode === 'missed' || mode === 'bookmarked' || mode === 'weak' || mode === 'weaksub';
     if (!showCount) {
       countInput.disabled = true;
-      if (mode === 'quick10') countInput.value = 10;
-    } else {
-      const wasDisabled = countInput.disabled;
-      countInput.disabled = false;
-      if (mode === 'chapter' || wasDisabled || !countInput.value) countInput.value = 10;
+      if (mode === 'quick10') countInput.value = '10';
+      return;
     }
+    const prev = parseInt(countInput.value, 10);
+    const n = poolForSetup(mode).length;
+    const options = countOptions(n);
+    countInput.disabled = n === 0;
+    countInput.innerHTML = options.map(function (o) {
+      return '<option value="' + o.value + '">' + Util.escapeHtml(o.label) + '</option>';
+    }).join('');
+    const values = options.map(function (o) { return Number(o.value); });
+    let want = null;
+    if (preferred === 'keep') want = prev;
+    else if (typeof preferred === 'number' && preferred > 0) want = preferred;
+    let pick = values.indexOf(10) !== -1 ? 10 : values[values.length - 1];
+    if (want) {
+      if (values.indexOf(want) !== -1) pick = want;
+      else {
+        const lower = values.filter(function (v) { return v > 0 && v <= want; });
+        if (lower.length) pick = lower[lower.length - 1];
+        else if (values.length) pick = values[values.length - 1];
+      }
+    }
+    if (pick) countInput.value = String(pick);
+  }
+
+  function updateClearControls() {
+    const mode = modeSel.value;
+    const missedBtn = Util.el('#clearMissedBtn');
+    const bookBtn = Util.el('#clearBookmarksBtn');
+    const missedN = Storage.getMissed().length;
+    const bookN = Storage.getBookmarks('question').length;
+    missedBtn.hidden = mode !== 'missed';
+    bookBtn.hidden = mode !== 'bookmarked';
+    missedBtn.textContent = missedN ? '✕ Clear missed (' + missedN + ')' : '✕ Clear missed';
+    bookBtn.textContent = bookN ? '✕ Clear bookmarks (' + bookN + ')' : '✕ Clear bookmarks';
+  }
+
+  function clearMissedList() {
+    const n = Storage.getMissed().length;
+    if (!n) {
+      alert('No missed questions to clear.');
+      return;
+    }
+    if (!confirm('Clear all ' + n + ' missed questions? This cannot be undone.')) return;
+    Storage.clearMissed();
+    refreshCountOptions();
+    updateClearControls();
+  }
+
+  function clearQuestionBookmarks() {
+    const n = Storage.getBookmarks('question').length;
+    if (!n) {
+      alert('No bookmarked questions to clear.');
+      return;
+    }
+    if (!confirm('Clear all ' + n + ' bookmarked questions? Starred flashcards are kept. This cannot be undone.')) return;
+    Storage.clearBookmarks('question');
+    refreshCountOptions();
+    updateClearControls();
   }
 
   async function loadData() {
@@ -249,45 +323,43 @@
     if (mode === 'quick10') {
       pool = Util.sample(allQuestions.filter(isFeatured), 10);
     } else if (mode === 'missed') {
-      const missedIds = new Set(Storage.getMissed());
-      pool = allQuestions.filter(q => missedIds.has(q.id));
+      pool = poolForSetup('missed');
       if (!pool.length) {
         alert('No missed questions yet. Complete a quiz or exam first.');
         return;
       }
-      const n = Math.min(parseInt(countInput.value, 10) || 10, pool.length);
+      const n = Math.min(parseInt(countInput.value, 10) || pool.length, pool.length);
       pool = Util.sample(pool, n);
     } else if (mode === 'bookmarked') {
-      const bmIds = new Set(Storage.getBookmarks('question'));
-      pool = allQuestions.filter(q => bmIds.has(q.id));
+      pool = poolForSetup('bookmarked');
       if (!pool.length) {
         alert('No bookmarked questions yet. Tap the star while taking a quiz or exam.');
         return;
       }
-      const n = Math.min(parseInt(countInput.value, 10) || 10, pool.length);
+      const n = Math.min(parseInt(countInput.value, 10) || pool.length, pool.length);
       pool = Util.sample(pool, n);
     } else if (mode === 'weak' || mode === 'weaksub') {
-      const review = reviewPool();
-      if (!review.length) {
+      // Weakest modes quiz the reviewPool() slice (missed ∪ bookmarked), not the featured bank.
+      const slice = poolForSetup(mode);
+      if (!slice.length) {
         alert('No missed or bookmarked questions yet. Complete a quiz or exam, or tap the star to bookmark a question.');
         return;
       }
-      const keyFn = mode === 'weak' ? (q => q.domain) : (q => q.subtopic);
-      const weakKey = weakestInPool(review, keyFn);
-      const slice = weakKey ? review.filter(q => keyFn(q) === weakKey) : [];
-      if (!slice.length) {
+      const n = Math.min(parseInt(countInput.value, 10) || slice.length, slice.length);
+      pool = Util.sample(slice, n);
+      sessionFilter = mode === 'weak'
+        ? { domain: slice[0].domain, subtopic: null }
+        : { domain: sharedDomain(slice), subtopic: slice[0].subtopic };
+    } else if (mode === 'chapter') {
+      // Chapter Test: the selected chapter is a domain. All keeps the full bank.
+      pool = poolForSetup('chapter');
+      if (domain !== 'All') pool = pool.filter(q => q.domain === domain);
+      if (!pool.length) {
         alert('No questions available for this selection.');
         return;
       }
-      const n = Math.min(parseInt(countInput.value, 10) || 10, slice.length);
-      pool = Util.sample(slice, n);
-      sessionFilter = mode === 'weak'
-        ? { domain: weakKey, subtopic: null }
-        : { domain: sharedDomain(slice), subtopic: weakKey };
-    } else if (mode === 'chapter') {
-      // Chapter Test: the selected chapter is a domain. All keeps the full bank.
-      if (domain !== 'All') pool = pool.filter(q => q.domain === domain);
-      pool = Util.sample(pool, Math.min(parseInt(countInput.value) || 10, pool.length));
+      const n = Math.min(parseInt(countInput.value, 10) || pool.length, pool.length);
+      pool = Util.sample(pool, n);
     } else {
       return;
     }

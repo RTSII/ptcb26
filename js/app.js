@@ -128,6 +128,21 @@ const Storage = (() => {
     write(d);
   };
   const getMissed = () => Object.keys(read().missed);
+  const clearMissed = () => {
+    const d = read();
+    d.missed = {};
+    write(d);
+  };
+  const clearBookmarks = (kind) => {
+    const d = read();
+    if (kind === 'card') d.bookmarkedCards = [];
+    else if (kind === 'question') d.bookmarkedQuestions = [];
+    else {
+      d.bookmarkedQuestions = [];
+      d.bookmarkedCards = [];
+    }
+    write(d);
+  };
   // ---- Spaced repetition (Leitner) ----
   const BOX_INTERVALS = [0, 1, 2, 4, 7, 15]; // days per box index 1..5
   const gradeCard = (id, knew) => {
@@ -189,6 +204,7 @@ const Storage = (() => {
   return {
     read, write, touch, recordQuiz, recordExam, setFlashStatus, markReviewed, clear,
     toggleBookmark, isBookmarked, getBookmarks, recordQuestionOutcome, getMissed,
+    clearMissed, clearBookmarks,
     gradeCard, dueCards, exportJSON, importJSON,
     markLessonComplete, setLastLesson, getCourseProgress
   };
