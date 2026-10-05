@@ -222,8 +222,8 @@ else ok('index.html body.home present');
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v21/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v21');
-else ok('sw.js cache is ptce-2026-v21');
+if (!/ptce-2026-v22/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v22');
+else ok('sw.js cache is ptce-2026-v22');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
@@ -340,10 +340,13 @@ if (!/q\.featured !== false/.test(quizSrcFull) && !/featured !== false/.test(qui
 if (!/Escape/.test(quizSrcFull) || !/returnToSetup/.test(quizSrcFull)) {
   fail('quiz.js should exit on Esc and return to setup');
 } else ok('quiz.js Esc exit returns to setup');
-if (!/const showCount = mode === 'chapter' \|\| mode === 'weak' \|\| mode === 'weaksub'/.test(quizSrcFull) ||
+const showCountLine = (quizSrcFull.match(/const showCount = [^;]+;/) || [''])[0];
+if (!/mode === 'chapter'/.test(showCountLine) || !/mode === 'missed'/.test(showCountLine) ||
+    !/mode === 'bookmarked'/.test(showCountLine) || !/mode === 'weak'/.test(showCountLine) ||
+    !/mode === 'weaksub'/.test(showCountLine) || /mode === 'quick10'/.test(showCountLine) ||
     !/countRow\.hidden = !showCount/.test(quizSrcFull)) {
-  fail('quiz setup should hide the count field for quick10, missed, and bookmarked');
-} else ok('count field hides for quick10, missed, and bookmarked');
+  fail('count field should show for chapter, missed, bookmarked, and weakest, and stay hidden for quick10');
+} else ok('count field shows for chapter, missed, bookmarked, and weakest; quick10 stays hidden');
 if (!/const showDomain = mode === 'chapter';/.test(quizSrcFull) ||
     !/const showSub = false;/.test(quizSrcFull) ||
     !/const showDiff = false;/.test(quizSrcFull)) {
@@ -362,6 +365,21 @@ if (!/addEventListener\('change', toggleModeFields\)[\s\S]*await loadData\(/.tes
 if (!/Storage\.getMissed\(\)/.test(quizSrcFull) || !/Storage\.getBookmarks\('question'\)/.test(quizSrcFull)) {
   fail('missed and bookmarked quizzes should still draw from stored pools');
 } else ok('missed and bookmarked quizzes use stored pools');
+function modeBranch(src, marker) {
+  const at = src.indexOf(marker);
+  if (at === -1) return '';
+  const next = src.indexOf('} else if', at + marker.length);
+  return src.slice(at, next === -1 ? at + 700 : next);
+}
+function honorsCount(branch, label) {
+  if (!/parseInt\(countInput\.value,\s*10\)/.test(branch) || !/Util\.sample\(/.test(branch) ||
+      !/Math\.min\(/.test(branch)) {
+    fail(label + ' should sample the selected question count, capped at the pool size');
+  } else ok(label + ' honors the selected question count');
+}
+honorsCount(modeBranch(quizSrcFull, "} else if (mode === 'missed')"), 'missed mode');
+honorsCount(modeBranch(quizSrcFull, "} else if (mode === 'bookmarked')"), 'bookmarked mode');
+honorsCount(modeBranch(quizSrcFull, "} else if (mode === 'weak' || mode === 'weaksub')"), 'weakest modes');
 
 const courseSrc = read('js/course.js');
 if (!/optional/.test(courseSrc) || !/archive-badge/.test(courseSrc)) {

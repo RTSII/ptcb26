@@ -108,8 +108,9 @@
     const showDomain = mode === 'chapter';
     const showSub = false;
     const showDiff = false;
-    // quick10 is fixed at 10; missed and bookmarked use the full stored pools.
-    const showCount = mode === 'chapter' || mode === 'weak' || mode === 'weaksub';
+    // Quick 10 stays fixed at 10. Chapter, Missed, Bookmarked, and Weakest
+    // share the Questions count and sample that many from their pool.
+    const showCount = mode === 'chapter' || mode === 'missed' || mode === 'bookmarked' || mode === 'weak' || mode === 'weaksub';
     const countRow = Util.el('#countRow');
     domainRow.hidden = !showDomain;
     subtopicRow.hidden = !showSub;
@@ -226,19 +227,21 @@
     } else if (mode === 'missed') {
       const missedIds = new Set(Storage.getMissed());
       pool = allQuestions.filter(q => missedIds.has(q.id));
-      pool = Util.shuffle(pool);
       if (!pool.length) {
         alert('No missed questions yet. Complete a quiz or exam first.');
         return;
       }
+      const n = Math.min(parseInt(countInput.value, 10) || 10, pool.length);
+      pool = Util.sample(pool, n);
     } else if (mode === 'bookmarked') {
       const bmIds = new Set(Storage.getBookmarks('question'));
       pool = allQuestions.filter(q => bmIds.has(q.id));
-      pool = Util.shuffle(pool);
       if (!pool.length) {
         alert('No bookmarked questions yet. Tap the star while taking a quiz or exam.');
         return;
       }
+      const n = Math.min(parseInt(countInput.value, 10) || 10, pool.length);
+      pool = Util.sample(pool, n);
     } else if (mode === 'weak' || mode === 'weaksub') {
       const review = reviewPool();
       if (!review.length) {
