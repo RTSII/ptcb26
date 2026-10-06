@@ -265,18 +265,54 @@ const FX = (() => {
     return !!(b && (b.classList.contains('home') || b.classList.contains('dashboard')));
   }
 
+  function homeStage() {
+    return !!(document.body && document.body.classList.contains('home'));
+  }
+
+  // Home keeps the top of the viewport clear so the nav cluster stays readable.
+  // Glyphs fade in only across the lower, brighter band.
+  const HOME_BAND = 0.42;
+
+  function paintHomeColumn(x, head, colsIndex) {
+    const fadeStart = canvas.height * 0.40;
+    const fadeEnd = canvas.height * 0.56;
+    for (let k = 0; k < 32; k++) {
+      const row = head - k;
+      const py = row * font;
+      if (py < fadeStart || py > canvas.height + font) continue;
+      let alpha = k === 0 ? 1 : Math.max(0.55, 0.92 - k * 0.012);
+      if (py < fadeEnd) alpha *= (py - fadeStart) / (fadeEnd - fadeStart);
+      ctx.globalAlpha = alpha;
+      ctx.fillStyle = k === 0 ? '#f4fff8' : '#03160c';
+      const ch = MATRIX[(colsIndex * 13 + row * 7) % MATRIX.length];
+      ctx.fillText(ch, x, py);
+    }
+    ctx.globalAlpha = 1;
+  }
+
   function resize() {
     const matrix = matrixStage();
+    const home = homeStage();
     font = matrix ? 16 : 15;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     const cols = Math.ceil(canvas.width / font);
     const rows = Math.ceil(canvas.height / font);
-    drops = Array.from({ length: cols }, () => Math.floor(Math.random() * rows));
+    const bandRow = Math.floor(rows * HOME_BAND);
+    drops = Array.from({ length: cols }, () => (
+      home
+        ? bandRow + Math.floor(Math.random() * Math.max(1, rows - bandRow))
+        : Math.floor(Math.random() * rows)
+    ));
+    ctx.font = font + 'px "Share Tech Mono", monospace';
+    if (home) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < cols; i++) paintHomeColumn(i * font, drops[i], i);
+      return;
+    }
     if (!matrix) return;
     ctx.fillStyle = '#010a06';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.font = font + 'px "Share Tech Mono", monospace';
     for (let i = 0; i < cols; i++) {
       const head = drops[i];
       for (let row = 0; row < rows; row++) {
@@ -296,9 +332,20 @@ const FX = (() => {
     if (t - lastT < INTERVAL) return;
     lastT = t;
     const matrix = matrixStage();
+    const home = homeStage();
+    ctx.font = font + 'px "Share Tech Mono", monospace';
+    if (home) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const bandRow = Math.floor((canvas.height * HOME_BAND) / font);
+      drops.forEach((y, i) => {
+        paintHomeColumn(i * font, y, i);
+        if (y * font > canvas.height && Math.random() > 0.975) drops[i] = bandRow;
+        else drops[i] = y + 1;
+      });
+      return;
+    }
     ctx.fillStyle = matrix ? 'rgba(0, 14, 5, 0.07)' : 'rgba(3, 0, 20, 0.14)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.font = font + 'px "Share Tech Mono", monospace';
     const chars = matrix ? MATRIX : AMBIENT;
     drops.forEach((y, i) => {
       const ch = chars[Math.floor(Math.random() * chars.length)];
