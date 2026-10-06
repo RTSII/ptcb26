@@ -1729,18 +1729,44 @@ body.quiz #setup select option {
   text-align: center;
 }
 body.quiz .clear-btn[hidden] { display: none !important; }
+/* Back is the far-left item, Start is the true center, and the end slot
+   (Next, when present) is the far right. Clear stays a compact control in
+   that end slot so it does not take a nav-sized button. */
 body.quiz .setup-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
+  column-gap: 8px;
+  width: 100%;
   margin-top: 12px;
   padding-top: 0;
 }
+body.quiz .setup-actions .setup-back { grid-column: 1; justify-self: start; }
+body.quiz .setup-actions .setup-start { grid-column: 2; justify-self: center; }
+body.quiz .setup-actions .setup-end {
+  grid-column: 3;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+body.quiz .setup-actions .setup-end .setup-next { order: 1; }
+/* Back + Next with no Start: center that pair, still left to right. */
+body.quiz .setup-actions:not(:has(.setup-start:not([hidden]))) {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+body.quiz .setup-actions .nav-icon {
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  display: block;
+}
 /* Quick 10, Missed ?s, and Bookmarked use the larger Chapter footprint
    so those setups fill the screen. None of them show a Questions control.
-   Missed and Bookmarked add a mode-aware clear action beside Start / Back. */
+   Missed and Bookmarked keep a compact clear control on the right. */
 body.quiz #setup.scale-chapter {
   padding: 26px 24px 22px;
 }
@@ -1755,19 +1781,46 @@ body.quiz #setup.scale-chapter select {
 }
 body.quiz #setup.scale-chapter .setup-actions { margin-top: 16px; }
 body.quiz #setup.scale-chapter .setup-actions .cta,
-body.quiz #setup.scale-chapter .setup-actions .button {
+body.quiz #setup.scale-chapter .setup-actions .button:not(.clear-btn) {
   min-height: 52px;
   padding: 12px 22px;
   font-size: 0.98rem;
 }
 body.quiz .setup-actions .cta,
-body.quiz .setup-actions .button {
+body.quiz .setup-actions .button:not(.clear-btn) {
   width: fit-content;
   flex: 0 0 auto;
   min-height: 36px;
   padding: 7px 14px;
   font-size: 0.75rem;
 }
+body.quiz #setup .setup-actions .clear-btn {
+  width: auto;
+  min-width: 0;
+  min-height: 32px;
+  height: 32px;
+  padding: 4px 7px;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: none;
+}
+body.quiz #setup.scale-chapter .setup-actions .clear-btn {
+  min-height: 34px;
+  height: 34px;
+  padding: 4px 7px;
+  font-size: 0.72rem;
+}
+body.quiz #setup .setup-actions .clear-icon {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  display: block;
+}
+body.quiz #setup .setup-actions .clear-count[hidden] { display: none !important; }
 
 body.quiz .exit-dialog {
   width: min(420px, calc(100vw - 32px));

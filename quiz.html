@@ -68,10 +68,32 @@
         </div>
       </div>
       <div class="setup-actions">
-        <button type="button" id="startBtn" class="cta">Start Quiz</button>
-        <a class="button ghost" href="index.html">Back</a>
-        <button type="button" id="clearMissedBtn" class="button clear-btn" hidden>✕ Clear missed</button>
-        <button type="button" id="clearBookmarksBtn" class="button clear-btn" hidden>✕ Clear bookmarks</button>
+        <a class="button ghost setup-back" href="index.html">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M14.5 6.5 9 12l5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Back</span>
+        </a>
+        <button type="button" id="startBtn" class="cta setup-start">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M9.2 7.2v9.6L17.4 12 9.2 7.2z" fill="currentColor"/>
+          </svg>
+          <span>Start</span>
+        </button>
+        <div class="setup-end">
+          <button type="button" id="clearMissedBtn" class="button clear-btn" hidden aria-label="Clear missed" title="Clear missed">
+            <svg class="clear-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M9 4.75h6M5.75 7.25h12.5M8.25 7.25l.55 11.1a1 1 0 0 0 1 .9h4.4a1 1 0 0 0 1-.9l.55-11.1M10.25 11v5.25M13.75 11v5.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="clear-count" hidden></span>
+          </button>
+          <button type="button" id="clearBookmarksBtn" class="button clear-btn" hidden aria-label="Clear bookmarks" title="Clear bookmarks">
+            <svg class="clear-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M9 4.75h6M5.75 7.25h12.5M8.25 7.25l.55 11.1a1 1 0 0 0 1 .9h4.4a1 1 0 0 0 1-.9l.55-11.1M10.25 11v5.25M13.75 11v5.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="clear-count" hidden></span>
+          </button>
+        </div>
       </div>
     </section>
 

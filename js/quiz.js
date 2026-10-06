@@ -201,6 +201,17 @@
     if (pick) countInput.value = String(pick);
   }
 
+  function paintClearBtn(btn, n, noun) {
+    const count = btn.querySelector('.clear-count');
+    if (count) {
+      count.hidden = !n;
+      count.textContent = n ? String(n) : '';
+    }
+    const label = n ? ('Clear ' + n + ' ' + noun) : ('Clear ' + noun);
+    btn.setAttribute('aria-label', label);
+    btn.title = label;
+  }
+
   function updateClearControls() {
     const mode = modeSel.value;
     const missedBtn = Util.el('#clearMissedBtn');
@@ -209,8 +220,8 @@
     const bookN = Storage.getBookmarks('question').length;
     missedBtn.hidden = mode !== 'missed';
     bookBtn.hidden = mode !== 'bookmarked';
-    missedBtn.textContent = missedN ? '✕ Clear missed (' + missedN + ')' : '✕ Clear missed';
-    bookBtn.textContent = bookN ? '✕ Clear bookmarks (' + bookN + ')' : '✕ Clear bookmarks';
+    paintClearBtn(missedBtn, missedN, 'missed questions');
+    paintClearBtn(bookBtn, bookN, 'bookmarks');
   }
 
   function clearMissedList() {
