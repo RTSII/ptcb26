@@ -260,23 +260,128 @@ const FX = (() => {
   let font = 15;
   const INTERVAL = 66;
 
+  let homeCols = null;
+
   function matrixStage() {
     const b = document.body;
     return !!(b && (b.classList.contains('home') || b.classList.contains('dashboard')));
   }
 
+  function homeStage() {
+    return !!(document.body && document.body.classList.contains('home'));
+  }
+
+  // Home rain is composed, not a denser field: a quiet header band, two depths
+  // of vertical code through the panel gaps, and a perspective floor that
+  // opens under the HUD. Glyph count stays in the same range as the #24 rain.
+  function homeFade(py) {
+    const p = py / canvas.height;
+    if (p < 0.10) return 0;
+    if (p < 0.28) return (p - 0.10) / 0.18;
+    if (p < 0.62) return 1;
+    return Math.max(0.28, 1 - (p - 0.62) / 0.55);
+  }
+
+  function paintHomeColumns(seed) {
+    homeCols.forEach((col, i) => {
+      const x = i * font;
+      const head = Math.floor(col.y);
+      const steps = seed ? col.trail : 3;
+      const depth = col.layer === 0 ? 0.38 : 1;
+      for (let k = 0; k < steps; k++) {
+        const row = head - k;
+        const py = row * font;
+        if (py < -font || py > canvas.height + font) continue;
+        const fade = homeFade(py);
+        if (fade <= 0) continue;
+        const lead = k === 0;
+        let alpha = (lead ? 1 : Math.max(0.12, 0.72 - k * 0.055)) * depth * fade;
+        if (lead) alpha = Math.min(1, alpha * (0.7 + (py / canvas.height) * 0.45));
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle = lead ? '#f4fff6' : (col.layer === 0 ? '#0c7a30' : '#2ee85a');
+        const ch = MATRIX[(i * 13 + row * 7) % MATRIX.length];
+        ctx.fillText(ch, x, py);
+      }
+      if (!seed) {
+        col.y += col.speed;
+        if (col.y * font > canvas.height + col.trail * font && Math.random() > 0.965) col.y = 0;
+      }
+    });
+  }
+
+  // Rays leave a vanishing point under the hero and widen toward the camera.
+  function paintHomeFloor() {
+    const w = canvas.width;
+    const h = canvas.height;
+    const vanishX = w * 0.5;
+    const vanishY = h * 0.60;
+    const rays = 16;
+    const rows = 7;
+    const tick = Math.floor((lastT || 0) / 140);
+    for (let r = 0; r < rays; r++) {
+      const side = (r / (rays - 1)) * 2 - 1;
+      for (let row = 0; row < rows; row++) {
+        const depth = (row + 1) / rows;
+        const y = vanishY + depth * depth * (h - vanishY - 10);
+        const x = vanishX + side * depth * w * 0.46;
+        const size = 10 + depth * 13;
+        ctx.globalAlpha = 0.12 + depth * 0.72;
+        ctx.font = size + 'px "Share Tech Mono", monospace';
+        ctx.fillStyle = depth > 0.86 ? '#f4fff6' : '#1ad44a';
+        const ch = MATRIX[(r * 5 + row * 3 + tick) % MATRIX.length];
+        ctx.fillText(ch, x, y);
+      }
+    }
+    ctx.font = font + 'px "Share Tech Mono", monospace';
+  }
+
+  function paintHome(seed) {
+    if (seed) {
+      ctx.fillStyle = '#010a06';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    } else {
+      ctx.fillStyle = 'rgba(1, 10, 6, 0.09)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+    ctx.font = font + 'px "Share Tech Mono", monospace';
+    paintHomeColumns(seed);
+    paintHomeFloor();
+    ctx.globalAlpha = 1;
+  }
+
+  function seedHomeColumns() {
+    const cols = Math.ceil(canvas.width / font);
+    const rows = Math.ceil(canvas.height / font);
+    homeCols = Array.from({ length: cols }, (_, i) => {
+      const far = i % 2 === 0;
+      return {
+        y: Math.random() * rows,
+        speed: far ? 0.55 : 1,
+        trail: far ? 16 : 12,
+        layer: far ? 0 : 1
+      };
+    });
+  }
+
   function resize() {
     const matrix = matrixStage();
+    const home = homeStage();
     font = matrix ? 16 : 15;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     const cols = Math.ceil(canvas.width / font);
     const rows = Math.ceil(canvas.height / font);
+    ctx.font = font + 'px "Share Tech Mono", monospace';
+    if (home) {
+      seedHomeColumns();
+      paintHome(true);
+      return;
+    }
+    homeCols = null;
     drops = Array.from({ length: cols }, () => Math.floor(Math.random() * rows));
     if (!matrix) return;
     ctx.fillStyle = '#010a06';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.font = font + 'px "Share Tech Mono", monospace';
     for (let i = 0; i < cols; i++) {
       const head = drops[i];
       for (let row = 0; row < rows; row++) {
@@ -296,6 +401,10 @@ const FX = (() => {
     if (t - lastT < INTERVAL) return;
     lastT = t;
     const matrix = matrixStage();
+    if (homeStage()) {
+      paintHome(false);
+      return;
+    }
     ctx.fillStyle = matrix ? 'rgba(0, 14, 5, 0.07)' : 'rgba(3, 0, 20, 0.14)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.font = font + 'px "Share Tech Mono", monospace';

@@ -228,13 +228,20 @@ if (!/href="flashcards\.html"/.test(home) || !/href="quiz\.html"/.test(home) || 
   fail('home should keep Flashcards, Quiz, and Practice Exam entry points');
 } else ok('home keeps Flashcards, Quiz, and Practice Exam');
 if (!/id="homeProgress"/.test(home) || !/href="dashboard\.html"/.test(home)) {
-  fail('home progress should be an expander that still opens the dashboard');
-} else ok('home progress expander still opens the dashboard');
+  fail('home progress icon should link to the dashboard');
+} else if (/<details[\s\S]*class="home-progress"/.test(home)) {
+  fail('home progress should be a compact header icon, not a disclosure block');
+} else if (!/class="home-progress"[\s\S]*aria-label="Progress Dashboard"/.test(home)) {
+  fail('progress entry should be a labeled header icon');
+} else ok('home progress is a header icon to the dashboard');
 if (/class="menu-card[^"]*"\s+href="dashboard\.html"/.test(home)) {
   fail('dashboard should not be an equal-weight home tile');
 } else ok('dashboard is not an equal-weight home tile');
-if (!/href="notes\.html"/.test(home)) fail('home should keep a Study Notes entry point');
-else ok('home keeps Study Notes');
+if (!/class="menu-card peer peer-notes"\s+href="notes\.html"/.test(home)) fail('Study Notes should be a home peer panel');
+else ok('Study Notes is a home peer panel');
+if (!/peer-flash/.test(home) || !/peer-quiz/.test(home) || !/peer-exam/.test(home) || !/class="hud"/.test(home)) {
+  fail('Flash, Quiz, Practice, and Notes should be separate HUD panels');
+} else ok('peer modes are separate HUD panels');
 
 const dash = read('dashboard.html');
 if (!/id="weightBars"/.test(dash) || !/PTCE 2026 Domain Weights/.test(dash)) {
@@ -247,8 +254,8 @@ if (!/quiz\.html\?mode=missed/.test(dash) || !/quiz\.html\?mode=bookmarked/.test
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v32/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v32');
-else ok('sw.js cache is ptce-2026-v32');
+if (!/ptce-2026-v34/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v34');
+else ok('sw.js cache is ptce-2026-v34');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
