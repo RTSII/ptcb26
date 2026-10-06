@@ -1271,7 +1271,9 @@ body.course.lesson-open .lesson-nav {
   column-gap: 8px;
   width: 100%;
   margin-top: 10px;
+  margin-bottom: 0;
   padding-top: 10px;
+  padding-bottom: 0;
   border-top: 1px solid rgba(5, 217, 232, 0.15);
 }
 body.course.lesson-open .lesson-nav .lesson-back { grid-column: 1; justify-self: start; }
@@ -1295,49 +1297,59 @@ body.course.lesson-open .lesson-nav .nav-icon {
   display: block;
 }
 
-/* Individual lesson pages hug the Chrome viewport. The module list does not.
-   Short lessons grow the reading block so the card meets the bottom edge.
-   The page scrolls only when the lesson content is actually taller. */
+/* Individual lesson pages lock to the dynamic viewport at every laptop width.
+   The module list does not. min-height: 100dvh replaces the global 100vh so
+   the two cannot stack. Short lessons fill the card with no document
+   scrollbar; taller lessons scroll inside .lesson-layout. */
 body.course.lesson-open {
-  overflow-x: clip;
+  min-height: 100dvh;
+  height: 100dvh;
+  max-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+body.course.lesson-open .app-header {
+  flex: 0 0 auto;
+  position: static;
 }
 body.course.lesson-open .container {
   width: 100%;
   max-width: none;
   margin: 0;
   padding: 8px 12px 0;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 body.course.lesson-open #lessonView.card-block {
   width: 100%;
   max-width: 100%;
   margin-bottom: 0;
-  padding: 14px 18px 4px;
-  overflow-x: clip;
+  padding: 14px 18px 0;
+  overflow: hidden;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+body.course.lesson-open .lesson-header,
+body.course.lesson-open .archive-banner,
+body.course.lesson-open .lesson-title-main,
+body.course.lesson-open .lesson-intro,
+body.course.lesson-open .lesson-actions,
+body.course.lesson-open .lesson-nav {
+  flex: 0 0 auto;
+}
+body.course.lesson-open .lesson-layout {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 @media (min-width: 1100px) {
-  /* Definite viewport height so flex fills the window instead of
-     rounding a few px past it. Taller lessons still scroll the page. */
-  body.course.lesson-open {
-    min-height: 100dvh;
-    height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    overflow-x: clip;
-    overflow-y: auto;
-  }
-  body.course.lesson-open .app-header { flex: 0 0 auto; }
-  body.course.lesson-open .container {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-  }
-  body.course.lesson-open #lessonView.card-block {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-  }
   body.course.lesson-open .lesson-layout {
-    flex: 1 1 auto;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(300px, 32%);
     gap: 14px 28px;
