@@ -236,8 +236,8 @@ if (!/quiz\.html\?mode=missed/.test(dash) || !/quiz\.html\?mode=bookmarked/.test
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v28/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v28');
-else ok('sw.js cache is ptce-2026-v28');
+if (!/ptce-2026-v29/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v29');
+else ok('sw.js cache is ptce-2026-v29');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
@@ -482,9 +482,18 @@ if (!/lessonNavControl\(prev, 'lesson-back', 'Back'/.test(courseSrc) ||
     !/lesson-modules/.test(courseSrc) || !/<span>All Modules<\/span>/.test(courseSrc)) {
   fail('lesson nav should be Back, All Modules, and Next');
 } else ok('lesson nav is Back, All Modules, and Next');
-if (!/body\.course\.lesson-open \.container\s*\{[^}]*max-width:\s*1480px/.test(css)) {
-  fail('lesson view should widen the card to 1480px');
-} else ok('lesson view card widens to 1480px');
+if (!/body\.course\.lesson-open \.container\s*\{[^}]*max-width:\s*none/.test(css)) {
+  fail('lesson view should use the full Chrome viewport width');
+} else ok('lesson view uses the full viewport width');
+if (!/body\.course\.lesson-open \.lesson-actions\s*\{[^}]*justify-content:\s*center/.test(css)) {
+  fail('Mark Complete and Test This Module should be centered');
+} else ok('lesson actions are centered');
+if (!/body\.course\.lesson-open \.lesson-body li\s*\{[^}]*font-size:\s*1\.35rem/.test(css)) {
+  fail('lesson bullets should be a laptop reading size');
+} else ok('lesson bullets are a laptop reading size');
+if (!/min-height:\s*100dvh/.test(css) || !/justify-content:\s*space-between/.test(css)) {
+  fail('short lessons should fill the viewport down to the footer');
+} else ok('short lessons fill the viewport down to the footer');
 if (!/body\.course\.lesson-open \.lesson-nav\s*\{[^}]*grid-template-columns:\s*1fr auto 1fr/.test(css)) {
   fail('lesson nav should place Back left, modules center, Next right');
 } else ok('lesson nav uses left / center / right');
