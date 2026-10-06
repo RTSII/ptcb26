@@ -307,10 +307,43 @@ const FX = (() => {
 
 window.App = { Storage, Util, DOMAINS, FX };
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', FX.start);
-} else {
+function renderHomeProgress() {
+  const root = document.getElementById('homeProgress');
+  if (!root) return;
+  const p = Storage.read();
+  const scoreOf = (a) => (typeof a.score === 'number' ? a.score : Util.pct(a.correct || 0, a.total || 0));
+  const quizzes = p.quizzes.length;
+  const avg = quizzes
+    ? Math.round(p.quizzes.reduce((sum, attempt) => sum + scoreOf(attempt), 0) / quizzes)
+    : null;
+  const cards = p.flashcards.reviewed.length;
+  const exams = p.exams.length;
+  const lessons = p.course && Array.isArray(p.course.completed) ? p.course.completed.length : 0;
+  const set = (id, value) => {
+    const node = document.getElementById(id);
+    if (node) node.textContent = value;
+  };
+  set('homeQuizzes', String(quizzes));
+  set('homeAvg', avg == null ? '—' : avg + '%');
+  set('homeCards', String(cards));
+  set('homeExams', String(exams));
+  set('homeLessons', String(lessons));
+  const snap = document.getElementById('homeProgressSnap');
+  if (snap) {
+    snap.textContent = quizzes + ' quizzes · ' + (avg == null ? '— avg' : avg + '% avg') +
+      ' · ' + cards + ' cards · ' + exams + ' exams';
+  }
+}
+
+function bootShell() {
   FX.start();
+  renderHomeProgress();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootShell);
+} else {
+  bootShell();
 }
 
 // Offline/PWA support. Skip registration on local dev hosts so python -m http.server
