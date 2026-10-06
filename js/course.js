@@ -179,7 +179,7 @@
   function showLesson(lessonId) {
     document.body.classList.add('lesson-open');
     if (listWrap) listWrap.style.display = 'none';
-    lessonView.style.display = 'block';
+    lessonView.style.display = '';
     renderLesson(lessonId);
     document.title = 'Lesson · PTCE 2026';
     window.scrollTo(0, 0);
