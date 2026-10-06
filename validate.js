@@ -236,8 +236,8 @@ if (!/quiz\.html\?mode=missed/.test(dash) || !/quiz\.html\?mode=bookmarked/.test
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v30/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v30');
-else ok('sw.js cache is ptce-2026-v30');
+if (!/ptce-2026-v31/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v31');
+else ok('sw.js cache is ptce-2026-v31');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
@@ -502,6 +502,13 @@ if (/body\.course\.lesson-open \.lesson-nav \.btn\s*\{[^}]*flex:\s*1/.test(css))
 } else if (!/body\.course\.lesson-open \.lesson-nav \.btn\s*\{[^}]*padding:\s*4px 10px/.test(css)) {
   fail('lesson nav buttons should stay compact');
 } else ok('lesson nav buttons stay compact');
+const lessonShell = (css.split('Individual lesson pages lock')[1] || '').split('@media')[0];
+if (!/height:\s*100dvh/.test(lessonShell) || !/max-height:\s*100dvh/.test(lessonShell) ||
+    !/overflow:\s*hidden/.test(lessonShell)) {
+  fail('lesson viewport lock must apply at every width, not only inside a min-width media query');
+} else if (!/\.lesson-layout\s*\{[^}]*overflow-y:\s*auto/.test(lessonShell)) {
+  fail('taller lessons should scroll inside the reading region');
+} else ok('lesson shell locks to the viewport and scrolls inside the reading region');
 
 console.log(failed ? '\nFAILED ' + failed + ' check(s)' : '\nAll checks passed.');
 process.exit(failed ? 1 : 0);
