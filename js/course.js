@@ -2,9 +2,14 @@
 (function () {
   const { Storage, Util } = window.App;
 
+  const listWrap = Util.el('#courseListWrap');
   const listView = Util.el('#courseList');
   const lessonView = Util.el('#lessonView');
   const loadErrorEl = Util.el('#loadError');
+
+  const NAV_BACK = '<svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.5 6.5 9 12l5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const NAV_NEXT = '<svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.5 6.5 15 12l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const NAV_MODULES = '<svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 7h14M5 12h14M5 17h14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>';
 
   let course = null;
   let moduleIndex = new Map(); // moduleId -> module
@@ -123,6 +128,7 @@
       optBanner +
       '<h2 class="lesson-title-main">' + esc(l.title) + '</h2>' +
       '<p class="lesson-intro">' + esc(l.intro) + '</p>' +
+      '<div class="lesson-layout">' +
       '<div class="lesson-body"><ul>' +
       l.bullets.map(b => '<li>' + esc(b) + '</li>').join('') +
       '</ul></div>' +
@@ -130,15 +136,16 @@
         '<div class="key-points"><h3>⭐ Key Points to Remember</h3><ul>' +
         l.keyPoints.map(k => '<li>' + esc(k) + '</li>').join('') +
         '</ul></div>' : '') +
+      '</div>' +
       '<div class="lesson-actions">' +
         '<button class="btn ' + (done ? 'outline' : 'gold') + '" id="completeBtn">' + (done ? '✓ Completed' : 'Mark Complete') + '</button>' +
         '<a class="btn" href="' + quizUrl(m) + '">Test This Module</a>' +
       '</div>' +
-      '<div class="lesson-nav">' +
-        (prev ? '<a class="btn ghost" href="course.html?lesson=' + encodeURIComponent(prev.lesson.id) + '">‹ ' + esc(prev.lesson.title) + '</a>' : '<span></span>') +
-        '<a class="btn ghost" href="course.html">All Modules</a>' +
-        (next ? '<a class="btn ghost" href="course.html?lesson=' + encodeURIComponent(next.lesson.id) + '">' + esc(next.lesson.title) + ' ›</a>' : '<span></span>') +
-      '</div>';
+      '<nav class="lesson-nav" aria-label="Lesson">' +
+        lessonNavControl(prev, 'lesson-back', 'Back', NAV_BACK, false) +
+        '<a class="btn ghost lesson-modules" href="course.html">' + NAV_MODULES + '<span>All Modules</span></a>' +
+        lessonNavControl(next, 'lesson-next', 'Next', NAV_NEXT, true) +
+      '</nav>';
 
     lessonView.innerHTML = html;
 
@@ -150,15 +157,28 @@
     });
   }
 
+  function lessonNavControl(entry, slot, label, icon, iconEnd) {
+    if (!entry) return '<span class="lesson-nav-slot ' + slot + '"></span>';
+    const title = entry.lesson.title;
+    const href = 'course.html?lesson=' + encodeURIComponent(entry.lesson.id);
+    const inner = iconEnd
+      ? '<span>' + label + '</span>' + icon
+      : icon + '<span>' + label + '</span>';
+    return '<a class="btn ghost ' + slot + '" href="' + href + '" title="' + esc(title) + '" aria-label="' + esc(label + ': ' + title) + '">' + inner + '</a>';
+  }
+
   function showList() {
+    document.body.classList.remove('lesson-open');
     lessonView.style.display = 'none';
+    if (listWrap) listWrap.style.display = '';
     listView.style.display = 'block';
     renderList();
     document.title = 'Study Course · PTCE 2026';
   }
 
   function showLesson(lessonId) {
-    listView.style.display = 'none';
+    document.body.classList.add('lesson-open');
+    if (listWrap) listWrap.style.display = 'none';
     lessonView.style.display = 'block';
     renderLesson(lessonId);
     document.title = 'Lesson · PTCE 2026';
