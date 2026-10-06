@@ -236,8 +236,8 @@ if (!/quiz\.html\?mode=missed/.test(dash) || !/quiz\.html\?mode=bookmarked/.test
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v27/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v27');
-else ok('sw.js cache is ptce-2026-v27');
+if (!/ptce-2026-v28/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v28');
+else ok('sw.js cache is ptce-2026-v28');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
@@ -469,6 +469,30 @@ const courseSrc = read('js/course.js');
 if (!/optional/.test(courseSrc) || !/archive-badge/.test(courseSrc)) {
   fail('course.js should render optional/archive lessons off the featured path');
 } else ok('course.js labels optional 2026-archive lessons');
+
+console.log('\nLesson page layout');
+const courseHtml = read('course.html');
+if (!/class="course"/.test(courseHtml)) fail('course.html body should have class="course"');
+else ok('course.html body.course present');
+if (!/lesson-open/.test(courseSrc) || !/courseListWrap/.test(courseSrc)) {
+  fail('course.js should open a lesson-only view and hide the course list chrome');
+} else ok('lesson view hides the course list chrome');
+if (!/lessonNavControl\(prev, 'lesson-back', 'Back'/.test(courseSrc) ||
+    !/lessonNavControl\(next, 'lesson-next', 'Next'/.test(courseSrc) ||
+    !/lesson-modules/.test(courseSrc) || !/<span>All Modules<\/span>/.test(courseSrc)) {
+  fail('lesson nav should be Back, All Modules, and Next');
+} else ok('lesson nav is Back, All Modules, and Next');
+if (!/body\.course\.lesson-open \.container\s*\{[^}]*max-width:\s*1480px/.test(css)) {
+  fail('lesson view should widen the card to 1480px');
+} else ok('lesson view card widens to 1480px');
+if (!/body\.course\.lesson-open \.lesson-nav\s*\{[^}]*grid-template-columns:\s*1fr auto 1fr/.test(css)) {
+  fail('lesson nav should place Back left, modules center, Next right');
+} else ok('lesson nav uses left / center / right');
+if (/body\.course\.lesson-open \.lesson-nav \.btn\s*\{[^}]*flex:\s*1/.test(css)) {
+  fail('lesson nav buttons should not stretch across the card');
+} else if (!/body\.course\.lesson-open \.lesson-nav \.btn\s*\{[^}]*padding:\s*4px 10px/.test(css)) {
+  fail('lesson nav buttons should stay compact');
+} else ok('lesson nav buttons stay compact');
 
 console.log(failed ? '\nFAILED ' + failed + ' check(s)' : '\nAll checks passed.');
 process.exit(failed ? 1 : 0);
