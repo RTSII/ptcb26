@@ -1821,6 +1821,19 @@ body.quiz #setup .setup-actions .clear-icon {
   display: block;
 }
 body.quiz #setup .setup-actions .clear-count[hidden] { display: none !important; }
+@media (max-width: 640px) {
+  body.quiz #setup.scale-chapter {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  body.quiz #setup.scale-chapter .setup-actions .cta,
+  body.quiz #setup.scale-chapter .setup-actions .button:not(.clear-btn) {
+    min-height: 44px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    letter-spacing: 0.8px;
+  }
+}
 
 body.quiz .exit-dialog {
   width: min(420px, calc(100vw - 32px));
