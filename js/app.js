@@ -251,36 +251,73 @@ const Util = (() => {
 
 const DOMAINS = ['Medications', 'Patient Safety and Quality Assurance', 'Order Entry and Processing', 'Federal Requirements'];
 
-// Matrix rain background FX (subtle, respects reduced-motion)
+// Matrix rain. Home and the progress dashboard use a brighter code field.
+// Other pages keep the lighter ambient rain. Reduced motion skips the canvas.
 const FX = (() => {
-  const CHARS = 'アカサタナハマヤラワ0123456789ABCDEFXYZ$#%&';
+  const AMBIENT = 'アカサタナハマヤラワ0123456789ABCDEFXYZ$#%&';
+  const MATRIX = 'アカサタナハマヤラワアイウエオカキクケコ0101$#%&{}[]<>';
   let canvas, ctx, drops, rafId, lastT = 0;
-  const FONT = 15;
+  let font = 15;
   const INTERVAL = 66;
 
+  function matrixStage() {
+    const b = document.body;
+    return !!(b && (b.classList.contains('home') || b.classList.contains('dashboard')));
+  }
+
   function resize() {
+    const matrix = matrixStage();
+    font = matrix ? 16 : 15;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    const cols = Math.ceil(canvas.width / FONT);
-    drops = Array.from({ length: cols }, () => Math.floor(Math.random() * canvas.height / FONT));
+    const cols = Math.ceil(canvas.width / font);
+    const rows = Math.ceil(canvas.height / font);
+    drops = Array.from({ length: cols }, () => Math.floor(Math.random() * rows));
+    if (!matrix) return;
+    ctx.fillStyle = '#010a06';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = font + 'px "Share Tech Mono", monospace';
+    for (let i = 0; i < cols; i++) {
+      const head = drops[i];
+      for (let row = 0; row < rows; row++) {
+        const dist = (head - row + rows) % rows;
+        if (dist > 16) continue;
+        const ch = MATRIX[(i * 13 + row * 7) % MATRIX.length];
+        ctx.fillStyle = dist === 0 ? '#f4fff6' : '#22ff57';
+        ctx.globalAlpha = dist === 0 ? 1 : Math.max(0.22, 0.78 - dist * 0.04);
+        ctx.fillText(ch, i * font, row * font);
+      }
+    }
+    ctx.globalAlpha = 1;
   }
 
   function draw(t) {
     rafId = requestAnimationFrame(draw);
     if (t - lastT < INTERVAL) return;
     lastT = t;
-    ctx.fillStyle = 'rgba(3, 0, 20, 0.14)';
+    const matrix = matrixStage();
+    ctx.fillStyle = matrix ? 'rgba(0, 14, 5, 0.07)' : 'rgba(3, 0, 20, 0.14)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.font = FONT + 'px "Share Tech Mono", monospace';
+    ctx.font = font + 'px "Share Tech Mono", monospace';
+    const chars = matrix ? MATRIX : AMBIENT;
     drops.forEach((y, i) => {
-      const ch = CHARS[Math.floor(Math.random() * CHARS.length)];
-      const x = i * FONT;
-      const bright = Math.random() < 0.06;
-      ctx.fillStyle = bright ? '#b4ffb9' : '#00ff41';
-      ctx.globalAlpha = bright ? 0.9 : 0.55;
-      ctx.fillText(ch, x, y * FONT);
+      const ch = chars[Math.floor(Math.random() * chars.length)];
+      const x = i * font;
+      const head = matrix || Math.random() < 0.06;
+      if (matrix) {
+        ctx.fillStyle = '#f4fff6';
+        ctx.globalAlpha = 1;
+        ctx.fillText(ch, x, y * font);
+        ctx.fillStyle = '#1ee852';
+        ctx.globalAlpha = 0.55;
+        ctx.fillText(chars[(i + y) % chars.length], x, (y - 1) * font);
+      } else {
+        ctx.fillStyle = head ? '#b4ffb9' : '#00ff41';
+        ctx.globalAlpha = head ? 0.9 : 0.55;
+        ctx.fillText(ch, x, y * font);
+      }
       ctx.globalAlpha = 1;
-      if (y * FONT > canvas.height && Math.random() > 0.976) drops[i] = 0;
+      if (y * font > canvas.height && Math.random() > 0.975) drops[i] = 0;
       else drops[i] = y + 1;
     });
   }
@@ -307,10 +344,43 @@ const FX = (() => {
 
 window.App = { Storage, Util, DOMAINS, FX };
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', FX.start);
-} else {
+function renderHomeProgress() {
+  const root = document.getElementById('homeProgress');
+  if (!root) return;
+  const p = Storage.read();
+  const scoreOf = (a) => (typeof a.score === 'number' ? a.score : Util.pct(a.correct || 0, a.total || 0));
+  const quizzes = p.quizzes.length;
+  const avg = quizzes
+    ? Math.round(p.quizzes.reduce((sum, attempt) => sum + scoreOf(attempt), 0) / quizzes)
+    : null;
+  const cards = p.flashcards.reviewed.length;
+  const exams = p.exams.length;
+  const lessons = p.course && Array.isArray(p.course.completed) ? p.course.completed.length : 0;
+  const set = (id, value) => {
+    const node = document.getElementById(id);
+    if (node) node.textContent = value;
+  };
+  set('homeQuizzes', String(quizzes));
+  set('homeAvg', avg == null ? '—' : avg + '%');
+  set('homeCards', String(cards));
+  set('homeExams', String(exams));
+  set('homeLessons', String(lessons));
+  const snap = document.getElementById('homeProgressSnap');
+  if (snap) {
+    snap.textContent = quizzes + ' quizzes · ' + (avg == null ? '— avg' : avg + '% avg') +
+      ' · ' + cards + ' cards · ' + exams + ' exams';
+  }
+}
+
+function bootShell() {
   FX.start();
+  renderHomeProgress();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootShell);
+} else {
+  bootShell();
 }
 
 // Offline/PWA support. Skip registration on local dev hosts so python -m http.server
