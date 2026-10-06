@@ -1296,42 +1296,45 @@ body.course.lesson-open .lesson-nav .nav-icon {
 }
 
 /* Individual lesson pages hug the Chrome viewport. The module list does not.
-   Short lessons grow the reading block so the card meets the bottom of the
-   window; the page scrolls only when the lesson is actually taller. */
+   Short lessons grow the reading block so the card meets the bottom edge.
+   The page scrolls only when the lesson content is actually taller. */
 body.course.lesson-open {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 body.course.lesson-open .container {
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 8px 12px 10px;
+  padding: 8px 12px 0;
 }
 body.course.lesson-open #lessonView.card-block {
   width: 100%;
   max-width: 100%;
   margin-bottom: 0;
-  padding: 14px 18px 12px;
+  padding: 14px 18px 4px;
   overflow-x: clip;
 }
 @media (min-width: 1100px) {
+  /* Definite viewport height so flex fills the window instead of
+     rounding a few px past it. Taller lessons still scroll the page. */
   body.course.lesson-open {
     min-height: 100dvh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
+    overflow-x: clip;
+    overflow-y: auto;
   }
   body.course.lesson-open .app-header { flex: 0 0 auto; }
   body.course.lesson-open .container {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
-    min-height: 0;
   }
   body.course.lesson-open #lessonView.card-block {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
-    min-height: 0;
   }
   body.course.lesson-open .lesson-layout {
     flex: 1 1 auto;
@@ -1339,7 +1342,6 @@ body.course.lesson-open #lessonView.card-block {
     grid-template-columns: minmax(0, 1fr) minmax(300px, 32%);
     gap: 14px 28px;
     align-items: stretch;
-    min-height: 0;
   }
   body.course.lesson-open .lesson-body,
   body.course.lesson-open .lesson-layout .key-points {
