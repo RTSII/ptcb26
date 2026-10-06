@@ -1,5 +1,7 @@
 # PTCE 2026 Study App - Integration Testing Report
 
+> Historical test log. It is not the live status. Current project docs are [README.md](README.md). What's left is [TODO.md](TODO.md).
+
 > **Addendum (September 3, 2026) — Stage 7 content pack:**
 > - Post-2020 / January 2026 teaching pack: CARA 30-day C-II partials (q165 rewritten;
 >   q191–q193 added), REMS depth including clozapine ANC (q194–q199), VIS immunization
