@@ -271,94 +271,135 @@ const FX = (() => {
     return !!(document.body && document.body.classList.contains('home'));
   }
 
-  // Home rain is composed, not a denser field: a quiet header band, two depths
-  // of vertical code through the panel gaps, and a perspective floor that
-  // opens under the HUD. Glyph count stays in the same range as the #24 rain.
+  // Home rain: top-to-bottom fade, 3D depth layers, and perspective horizon.
+  // The top 20% is clear for header/titles. Rain intensifies down into the negative spaces.
   function homeFade(py) {
-    const p = py / canvas.height;
-    if (p < 0.10) return 0;
-    if (p < 0.28) return (p - 0.10) / 0.18;
-    if (p < 0.62) return 1;
-    return Math.max(0.28, 1 - (p - 0.62) / 0.55);
+    const p = py / (canvas.height / (window.devicePixelRatio || 1));
+    if (p < 0.18) return 0;
+    if (p < 0.38) return (p - 0.18) / 0.20;
+    if (p < 0.75) return 1;
+    return Math.max(0.35, 1 - (p - 0.75) * 0.8);
   }
 
   function paintHomeColumns(seed) {
+    const dpr = window.devicePixelRatio || 1;
+    const viewHeight = canvas.height / dpr;
+
     homeCols.forEach((col, i) => {
       const x = i * font;
       const head = Math.floor(col.y);
-      const steps = seed ? col.trail : 3;
-      const depth = col.layer === 0 ? 0.38 : 1;
+      const steps = seed ? col.trail : (col.layer === 2 ? 6 : 4);
+      
+      // Layer aesthetics: 0 = far/dim, 1 = mid, 2 = near/bright
+      let baseColor = '#0b6628';
+      let depthAlpha = 0.35;
+      if (col.layer === 1) {
+        baseColor = '#00ff41';
+        depthAlpha = 0.75;
+      } else if (col.layer === 2) {
+        baseColor = '#38ff6c';
+        depthAlpha = 1.0;
+      }
+
       for (let k = 0; k < steps; k++) {
         const row = head - k;
         const py = row * font;
-        if (py < -font || py > canvas.height + font) continue;
+        if (py < -font || py > viewHeight + font) continue;
         const fade = homeFade(py);
         if (fade <= 0) continue;
-        const lead = k === 0;
-        let alpha = (lead ? 1 : Math.max(0.12, 0.72 - k * 0.055)) * depth * fade;
-        if (lead) alpha = Math.min(1, alpha * (0.7 + (py / canvas.height) * 0.45));
-        ctx.globalAlpha = alpha;
-        ctx.fillStyle = lead ? '#f4fff6' : (col.layer === 0 ? '#0c7a30' : '#2ee85a');
-        const ch = MATRIX[(i * 13 + row * 7) % MATRIX.length];
+
+        const isLead = (k === 0);
+        let alpha = (isLead ? 1 : Math.max(0.12, 0.85 - k * 0.08)) * depthAlpha * fade;
+        ctx.globalAlpha = Math.min(1, alpha);
+
+        if (isLead && col.layer >= 1) {
+          ctx.fillStyle = '#f4fff6';
+          ctx.shadowColor = '#00ff41';
+          ctx.shadowBlur = col.layer === 2 ? 8 : 4;
+        } else {
+          ctx.fillStyle = baseColor;
+          ctx.shadowBlur = 0;
+        }
+
+        const ch = MATRIX[(i * 17 + row * 11) % MATRIX.length];
         ctx.fillText(ch, x, py);
       }
+      ctx.shadowBlur = 0;
+
       if (!seed) {
         col.y += col.speed;
-        if (col.y * font > canvas.height + col.trail * font && Math.random() > 0.965) col.y = 0;
+        if (col.y * font > viewHeight + col.trail * font && Math.random() > 0.96) {
+          col.y = 0;
+        }
       }
     });
   }
 
-  // Rays leave a vanishing point under the hero and widen toward the camera.
+  // 3D perspective floor in negative space at bottom
   function paintHomeFloor() {
-    const w = canvas.width;
-    const h = canvas.height;
+    const dpr = window.devicePixelRatio || 1;
+    const w = canvas.width / dpr;
+    const h = canvas.height / dpr;
     const vanishX = w * 0.5;
-    const vanishY = h * 0.60;
-    const rays = 16;
-    const rows = 7;
-    const tick = Math.floor((lastT || 0) / 140);
+    const vanishY = h * 0.58;
+    const rays = 18;
+    const rows = 9;
+    const tick = Math.floor((lastT || 0) / 120);
+
+    ctx.save();
     for (let r = 0; r < rays; r++) {
       const side = (r / (rays - 1)) * 2 - 1;
       for (let row = 0; row < rows; row++) {
         const depth = (row + 1) / rows;
-        const y = vanishY + depth * depth * (h - vanishY - 10);
-        const x = vanishX + side * depth * w * 0.46;
-        const size = 10 + depth * 13;
-        ctx.globalAlpha = 0.12 + depth * 0.72;
-        ctx.font = size + 'px "Share Tech Mono", monospace';
-        ctx.fillStyle = depth > 0.86 ? '#f4fff6' : '#1ad44a';
-        const ch = MATRIX[(r * 5 + row * 3 + tick) % MATRIX.length];
+        const y = vanishY + depth * depth * (h - vanishY);
+        const x = vanishX + side * depth * w * 0.48;
+        const size = Math.round(9 + depth * 14);
+
+        ctx.globalAlpha = (0.08 + depth * 0.65) * Math.min(1, depth * 1.2);
+        ctx.font = `${size}px "JetBrains Mono", "Share Tech Mono", monospace`;
+        ctx.fillStyle = depth > 0.88 ? '#eaffef' : (depth > 0.65 ? '#00ff41' : '#085e23');
+        const ch = MATRIX[(r * 7 + row * 5 + tick) % MATRIX.length];
         ctx.fillText(ch, x, y);
       }
     }
-    ctx.font = font + 'px "Share Tech Mono", monospace';
+    ctx.restore();
+    ctx.font = `${font}px "JetBrains Mono", "Share Tech Mono", monospace`;
   }
 
   function paintHome(seed) {
+    const dpr = window.devicePixelRatio || 1;
+    const w = canvas.width / dpr;
+    const h = canvas.height / dpr;
+
     if (seed) {
       ctx.fillStyle = '#010a06';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillRect(0, 0, w, h);
     } else {
-      ctx.fillStyle = 'rgba(1, 10, 6, 0.09)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'rgba(1, 10, 6, 0.11)';
+      ctx.fillRect(0, 0, w, h);
     }
-    ctx.font = font + 'px "Share Tech Mono", monospace';
+
+    ctx.font = `${font}px "JetBrains Mono", "Share Tech Mono", monospace`;
     paintHomeColumns(seed);
     paintHomeFloor();
     ctx.globalAlpha = 1;
   }
 
   function seedHomeColumns() {
-    const cols = Math.ceil(canvas.width / font);
-    const rows = Math.ceil(canvas.height / font);
+    const dpr = window.devicePixelRatio || 1;
+    const cols = Math.ceil((canvas.width / dpr) / font);
+    const rows = Math.ceil((canvas.height / dpr) / font);
     homeCols = Array.from({ length: cols }, (_, i) => {
-      const far = i % 2 === 0;
+      // 3 distinct layers: 0=dim background, 1=standard midground, 2=sharp fast foreground
+      const r = Math.random();
+      const layer = r < 0.45 ? 0 : (r < 0.82 ? 1 : 2);
+      const speed = layer === 0 ? 0.45 : (layer === 1 ? 0.85 : 1.45);
+      const trail = layer === 0 ? 18 : (layer === 1 ? 14 : 10);
       return {
         y: Math.random() * rows,
-        speed: far ? 0.55 : 1,
-        trail: far ? 16 : 12,
-        layer: far ? 0 : 1
+        speed,
+        trail,
+        layer
       };
     });
   }
@@ -366,12 +407,21 @@ const FX = (() => {
   function resize() {
     const matrix = matrixStage();
     const home = homeStage();
+    const dpr = window.devicePixelRatio || 1;
     font = matrix ? 16 : 15;
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const cols = Math.ceil(canvas.width / font);
-    const rows = Math.ceil(canvas.height / font);
-    ctx.font = font + 'px "Share Tech Mono", monospace';
+
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    canvas.style.width = `${window.innerWidth}px`;
+    canvas.style.height = `${window.innerHeight}px`;
+
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(dpr, dpr);
+
+    const cols = Math.ceil(window.innerWidth / font);
+    const rows = Math.ceil(window.innerHeight / font);
+    ctx.font = `${font}px "JetBrains Mono", "Share Tech Mono", monospace`;
+
     if (home) {
       seedHomeColumns();
       paintHome(true);

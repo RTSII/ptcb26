@@ -8,64 +8,177 @@
   <title>PTCE 2026 Study App</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
 </head>
 <body class="home">
-  <header class="app-header">
-    <a href="index.html" class="logo">💊 PTCE <span>2026</span></a>
-    <a href="dashboard.html" class="home-progress" id="homeProgress" aria-label="Progress Dashboard" title="Progress Dashboard">
+  <!-- Shared SVG defs: dual-tone gradient used by HUD icons -->
+  <svg width="0" height="0" class="svg-defs" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="hudGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#b6ffc9"/>
+        <stop offset="1" stop-color="#00ff41"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <header class="app-header hx-header">
+    <a href="index.html" class="logo hx-logo" aria-label="PTCE 2026 home">
+      <svg class="hx-pill" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <g transform="rotate(-45 16 16)">
+          <rect x="4" y="11" width="24" height="10" rx="5" fill="none" stroke="#00ff41" stroke-width="1.6"/>
+          <path d="M16 11h7a5 5 0 0 1 0 10h-7z" fill="#ff2a6d" opacity=".9"/>
+        </g>
+      </svg>
+      <span class="hx-logo-text">PTCE<span>2026</span></span>
+    </a>
+
+    <a href="dashboard.html" class="home-progress hx-dash" id="homeProgress" aria-label="Progress Dashboard" title="Progress Dashboard">
       <svg class="header-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 19h16M7 16v-4M12 16V8M17 16v-7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+      <span class="hx-dash-label">Dashboard</span>
     </a>
   </header>
 
-  <main class="container">
-    <nav class="hud" aria-label="Study">
-      <a class="menu-card wide featured" href="course.html">
-        <span class="hero-sys">SYS // COURSE</span>
-        <span class="icon" aria-hidden="true">
-          <svg class="menu-icon" viewBox="0 0 24 24" focusable="false"><path d="M4 6.5c2-1.3 4.2-1.3 6.2 0 2 1.3 4.2 1.3 6.2 0 2-1.3 4.2-1.3 6.2 0V17.5c-2-1.3-4.2-1.3-6.2 0-2 1.3-4.2 1.3-6.2 0-2-1.3-4.2-1.3-6.2 0V6.5Z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/><path d="M12 6.5v11" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
-        </span>
-        <div class="hero-copy">
-          <div class="hero-kicker">Start here</div>
-          <div class="title">Study Course</div>
-          <div class="desc">Complete lessons across all four domains</div>
+  <main class="container hx-main">
+    <nav class="hud hx-grid" aria-label="Study modes">
+
+      <!-- ===== HERO: Study Course (largest, primary path) ===== -->
+      <a class="hx-card hx-course menu-card wide featured" href="course.html" id="hxCourseLink">
+        <div class="hx-tagline">
+          <span class="hx-tag">CONSTRUCT <b>// 01</b></span>
+          <span class="hx-meta" id="hxCourseMeta">4 DOMAINS · 12 MODULES · 45 LESSONS</span>
         </div>
-        <span class="hero-go">&gt; Open course</span>
+
+        <div class="hx-course-body">
+          <div class="hx-course-copy">
+            <span class="hx-kicker" id="hxCourseKicker">Start here</span>
+            <h1 class="hx-title hx-title-xl">Study Course</h1>
+            <p class="hx-desc">Guided lessons across all four PTCE domains, in blueprint order.</p>
+            <p class="hx-next" id="hxCourseNext"><span>NEXT</span> Loading course map…</p>
+            <span class="hx-cta" id="hxCourseCta">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span id="hxCourseCtaText">Open course</span>
+            </span>
+          </div>
+
+          <!-- Concentric HUD rings: the progress arc is course completion -->
+          <div class="hx-reactor" aria-hidden="true">
+            <svg viewBox="0 0 200 200" focusable="false">
+              <circle class="r-track" cx="100" cy="100" r="84"/>
+              <circle class="r-prog" id="hxRingProg" cx="100" cy="100" r="84" pathLength="100"/>
+              <circle class="r-dash r-spin-a" cx="100" cy="100" r="95"/>
+              <circle class="r-tick r-spin-b" cx="100" cy="100" r="70"/>
+              <circle class="r-arc r-spin-c" cx="100" cy="100" r="60" pathLength="100"/>
+            </svg>
+            <div class="hx-reactor-core">
+              <span class="hx-reactor-num" id="hxCoursePct">0<small>%</small></span>
+              <span class="hx-reactor-lbl"><b id="homeLessons">0</b>/<span id="hxLessonTotal">45</span> lessons</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hx-domains" id="hxDomains" aria-label="Lesson completion by domain">
+          <div class="hx-dom"><span class="hx-dom-name">Medications</span><span class="hx-dom-bar"><i style="--p:0"></i></span></div>
+          <div class="hx-dom"><span class="hx-dom-name">Patient Safety</span><span class="hx-dom-bar"><i style="--p:0"></i></span></div>
+          <div class="hx-dom"><span class="hx-dom-name">Order Entry</span><span class="hx-dom-bar"><i style="--p:0"></i></span></div>
+          <div class="hx-dom"><span class="hx-dom-name">Federal</span><span class="hx-dom-bar"><i style="--p:0"></i></span></div>
+        </div>
       </a>
-      <a class="menu-card peer peer-flash" href="flashcards.html">
-        <span class="icon" aria-hidden="true">
-          <svg class="menu-icon" viewBox="0 0 24 24" focusable="false"><path d="M4.5 4.5h11M6.5 7h11" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><rect x="8" y="9" width="12" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.75"/></svg>
-        </span>
-        <div class="title">Flashcards</div>
-        <div class="desc">Flip and swipe by domain</div>
+
+      <!-- ===== Telemetry (live, read-only) ===== -->
+      <section class="hx-card hx-tele" aria-label="Study telemetry">
+        <div class="hx-tagline">
+          <span class="hx-tag">OPERATOR <b>// TELEMETRY</b></span>
+          <a class="hx-link" href="dashboard.html">Full report
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <div class="hx-stats">
+          <div class="hx-stat"><span class="hx-stat-num" id="homeAvg">—</span><span class="hx-stat-lbl">Quiz accuracy</span></div>
+          <div class="hx-stat"><span class="hx-stat-num" id="homeQuizzes">0</span><span class="hx-stat-lbl">Quizzes</span></div>
+          <div class="hx-stat"><span class="hx-stat-num" id="homeCards">0</span><span class="hx-stat-lbl">Cards reviewed</span></div>
+          <div class="hx-stat"><span class="hx-stat-num" id="homeExams">0</span><span class="hx-stat-lbl">Exams</span></div>
+        </div>
+        <div class="hx-blueprint" aria-label="PTCE 2026 domain weights">
+          <div class="hx-bp-bar">
+            <i style="--w:35"></i><i style="--w:23.75"></i><i style="--w:22.5"></i><i style="--w:18.75"></i>
+          </div>
+          <div class="hx-bp-legend">
+            <span>MED 35%</span><span>SAFETY 23.75%</span><span>ORDER 22.5%</span><span>FED 18.75%</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Quiz ===== -->
+      <a class="hx-card hx-mode hx-quiz menu-card peer peer-quiz" href="quiz.html">
+        <div class="hx-tagline"><span class="hx-tag">DIAGNOSTIC <b>// 02</b></span></div>
+        <svg class="hx-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="24" r="17" fill="none" stroke="url(#hudGrad)" stroke-width="1.6"/>
+          <circle cx="24" cy="24" r="10" fill="none" stroke="url(#hudGrad)" stroke-width="1.6" stroke-dasharray="3 3"/>
+          <path d="M24 3v8M24 37v8M3 24h8M37 24h8" stroke="#00ff41" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="24" cy="24" r="2.6" fill="#ff2a6d"/>
+        </svg>
+        <h2 class="hx-title">Quiz Mode</h2>
+        <p class="hx-desc">Untimed drills with answer rationales.</p>
+        <p class="hx-data" id="hxQuizData">Pick a domain to begin</p>
+        <span class="hx-go" aria-hidden="true">Run drill <i>→</i></span>
       </a>
-      <a class="menu-card peer peer-quiz" href="quiz.html">
-        <span class="icon" aria-hidden="true">
-          <svg class="menu-icon" viewBox="0 0 24 24" focusable="false"><rect x="4" y="3.5" width="16" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M8 12.2 10.4 14.6 16 9" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-        <div class="title">Quiz Mode</div>
-        <div class="desc">Untimed quizzes with rationales</div>
+
+      <!-- ===== Practice Exam (tall) ===== -->
+      <a class="hx-card hx-mode hx-exam menu-card peer peer-exam" href="exam.html">
+        <div class="hx-tagline"><span class="hx-tag">SIMULATION <b>// 03</b></span></div>
+        <svg class="hx-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="26" r="16" fill="none" stroke="url(#hudGrad)" stroke-width="1.6"/>
+          <path d="M24 26V16" stroke="#b6ffc9" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M24 26l7 4" stroke="#ff2a6d" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M19 4h10M24 4v6" stroke="#00ff41" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M24 12.5a13.5 13.5 0 0 1 13.5 13.5" fill="none" stroke="#05d9e8" stroke-width="1.6" stroke-linecap="round" opacity=".8"/>
+        </svg>
+        <h2 class="hx-title">Practice Exam</h2>
+        <p class="hx-desc">Full simulated PTCE on the official blueprint.</p>
+        <dl class="hx-specs">
+          <div><dt>Questions</dt><dd>90</dd></div>
+          <div><dt>Time</dt><dd>110 min</dd></div>
+          <div><dt>Best</dt><dd id="hxExamBest">—</dd></div>
+        </dl>
+        <span class="hx-go" aria-hidden="true">Begin exam <i>→</i></span>
       </a>
-      <a class="menu-card peer peer-exam" href="exam.html">
-        <span class="icon" aria-hidden="true">
-          <svg class="menu-icon" viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="7.5" fill="none" stroke="currentColor" stroke-width="1.75"/><circle cx="12" cy="12" r="3.25" fill="none" stroke="currentColor" stroke-width="1.75"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg>
-        </span>
-        <div class="title">Practice Exam</div>
-        <div class="desc">90-question simulated PTCE</div>
+
+      <!-- ===== Flashcards ===== -->
+      <a class="hx-card hx-mode hx-flash menu-card peer peer-flash" href="flashcards.html">
+        <div class="hx-tagline"><span class="hx-tag">ENGRAM <b>// 04</b></span></div>
+        <svg class="hx-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <rect x="12" y="13" width="28" height="22" rx="2" fill="none" stroke="url(#hudGrad)" stroke-width="1.6"/>
+          <path d="M8 31V11a2 2 0 0 1 2-2h24" fill="none" stroke="#00ff41" stroke-width="1.6" stroke-linecap="round" opacity=".55"/>
+          <path d="M19 24h14" stroke="#05d9e8" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M19 29h8" stroke="#b6ffc9" stroke-width="1.6" stroke-linecap="round" opacity=".7"/>
+        </svg>
+        <h2 class="hx-title">Flashcards</h2>
+        <p class="hx-desc">Spaced-repetition recall by domain.</p>
+        <p class="hx-data" id="hxFlashData">No cards due</p>
+        <span class="hx-go" aria-hidden="true">Review <i>→</i></span>
       </a>
-      <a class="menu-card peer peer-notes" href="notes.html">
-        <span class="icon" aria-hidden="true">
-          <svg class="menu-icon" viewBox="0 0 24 24" focusable="false"><path d="M7 3.5h8l4 4V20a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 20V5A1.5 1.5 0 0 1 7 3.5Z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/><path d="M15 3.5V8h4.5M8.5 12.5h7M8.5 16h5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-        <div class="title">Study Notes</div>
-        <div class="desc">Quick reference by domain</div>
+
+      <!-- ===== Study Notes ===== -->
+      <a class="hx-card hx-mode hx-notes menu-card peer peer-notes" href="notes.html">
+        <div class="hx-tagline"><span class="hx-tag">ARCHIVE <b>// 05</b></span></div>
+        <svg class="hx-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <path d="M13 6h16l8 8v26a2 2 0 0 1-2 2H13a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" fill="none" stroke="url(#hudGrad)" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M29 6v8h8" fill="none" stroke="#00ff41" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M17 23h14M17 29h14" stroke="#b6ffc9" stroke-width="1.6" stroke-linecap="round" opacity=".75"/>
+          <path d="M17 35h8" stroke="#ff2a6d" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <h2 class="hx-title">Study Notes</h2>
+        <p class="hx-desc">Quick reference by domain.</p>
+        <span class="hx-go" aria-hidden="true">Open <i>→</i></span>
       </a>
     </nav>
 
-    <p class="footer-note">Built for personal CPhT exam prep · Data stored locally in your browser</p>
+    <p class="footer-note hx-foot">Built for personal CPhT exam prep · Data stored locally in your browser</p>
   </main>
 
   <script src="js/app.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>
