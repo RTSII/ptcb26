@@ -266,11 +266,29 @@ const FX = (() => {
   }
 
   function resize() {
-    font = matrixStage() ? 18 : 15;
+    const matrix = matrixStage();
+    font = matrix ? 16 : 15;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     const cols = Math.ceil(canvas.width / font);
-    drops = Array.from({ length: cols }, () => Math.floor(Math.random() * canvas.height / font));
+    const rows = Math.ceil(canvas.height / font);
+    drops = Array.from({ length: cols }, () => Math.floor(Math.random() * rows));
+    if (!matrix) return;
+    ctx.fillStyle = '#010a06';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = font + 'px "Share Tech Mono", monospace';
+    for (let i = 0; i < cols; i++) {
+      const head = drops[i];
+      for (let row = 0; row < rows; row++) {
+        const dist = (head - row + rows) % rows;
+        if (dist > 16) continue;
+        const ch = MATRIX[(i * 13 + row * 7) % MATRIX.length];
+        ctx.fillStyle = dist === 0 ? '#f4fff6' : '#22ff57';
+        ctx.globalAlpha = dist === 0 ? 1 : Math.max(0.22, 0.78 - dist * 0.04);
+        ctx.fillText(ch, i * font, row * font);
+      }
+    }
+    ctx.globalAlpha = 1;
   }
 
   function draw(t) {
@@ -278,22 +296,26 @@ const FX = (() => {
     if (t - lastT < INTERVAL) return;
     lastT = t;
     const matrix = matrixStage();
-    ctx.fillStyle = matrix ? 'rgba(0, 12, 4, 0.16)' : 'rgba(3, 0, 20, 0.14)';
+    ctx.fillStyle = matrix ? 'rgba(0, 14, 5, 0.07)' : 'rgba(3, 0, 20, 0.14)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.font = font + 'px "Share Tech Mono", monospace';
     const chars = matrix ? MATRIX : AMBIENT;
     drops.forEach((y, i) => {
       const ch = chars[Math.floor(Math.random() * chars.length)];
       const x = i * font;
-      const head = Math.random() < (matrix ? 0.1 : 0.06);
+      const head = matrix || Math.random() < 0.06;
       if (matrix) {
-        ctx.fillStyle = head ? '#f4fff6' : '#4dff78';
-        ctx.globalAlpha = head ? 1 : 0.9;
+        ctx.fillStyle = '#f4fff6';
+        ctx.globalAlpha = 1;
+        ctx.fillText(ch, x, y * font);
+        ctx.fillStyle = '#1ee852';
+        ctx.globalAlpha = 0.55;
+        ctx.fillText(chars[(i + y) % chars.length], x, (y - 1) * font);
       } else {
         ctx.fillStyle = head ? '#b4ffb9' : '#00ff41';
         ctx.globalAlpha = head ? 0.9 : 0.55;
+        ctx.fillText(ch, x, y * font);
       }
-      ctx.fillText(ch, x, y * font);
       ctx.globalAlpha = 1;
       if (y * font > canvas.height && Math.random() > 0.975) drops[i] = 0;
       else drops[i] = y + 1;
