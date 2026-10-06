@@ -236,8 +236,8 @@ if (!/quiz\.html\?mode=missed/.test(dash) || !/quiz\.html\?mode=bookmarked/.test
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v25/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v25');
-else ok('sw.js cache is ptce-2026-v25');
+if (!/ptce-2026-v27/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v27');
+else ok('sw.js cache is ptce-2026-v27');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
@@ -340,6 +340,27 @@ if (/body\.quiz #setup\.card-block\s*\{[^}]*flex:\s*1/.test(css)) {
 if (/body\.quiz \.setup-actions\s*\{[^}]*margin-top:\s*auto/.test(css)) {
   fail('setup actions should sit under the fields');
 } else ok('setup actions sit under the fields');
+if (!/grid-template-columns:\s*1fr auto 1fr/.test(css) ||
+    !/\.setup-back \{ grid-column: 1; justify-self: start; \}/.test(css) ||
+    !/\.setup-start \{ grid-column: 2; justify-self: center; \}/.test(css) ||
+    !/\.setup-end \{/.test(css)) {
+  fail('quiz setup actions should pin Back left, Start center, and the end slot right');
+} else ok('quiz setup actions use a left/center/right grid');
+if (!/setup-actions:not\(:has\(\.setup-start:not\(\[hidden\]\)\)\)/.test(css)) {
+  fail('a Back + Next setup row with no Start should center that pair');
+} else ok('Back + Next without Start stays centered');
+const setupActionsAt = quizHtml.indexOf('class="setup-actions"');
+const setupActionsHtml = setupActionsAt === -1 ? '' : quizHtml.slice(setupActionsAt, setupActionsAt + 2200);
+if (setupActionsAt === -1 ||
+    setupActionsHtml.indexOf('setup-back') === -1 ||
+    setupActionsHtml.indexOf('setup-back') > setupActionsHtml.indexOf('setup-start') ||
+    setupActionsHtml.indexOf('setup-start') > setupActionsHtml.indexOf('setup-end')) {
+  fail('quiz setup action order should be Back, then Start, then the end slot');
+} else ok('quiz setup action order is Back, Start, end slot');
+if (!/body\.quiz #setup \.setup-actions \.clear-btn\s*\{[^}]*padding:\s*4px 7px/.test(css) ||
+    !/\.button:not\(\.clear-btn\)/.test(css)) {
+  fail('quiz clear control should stay compact and out of the large nav sizing');
+} else ok('quiz clear control stays compact');
 if (!/body\.quiz\s*\{[^}]*height:\s*100dvh/.test(css)) fail('quiz page should lock to the viewport height');
 else ok('quiz page locks to the viewport height');
 if (!/body\.quiz #setup select\s*\{[^}]*width:\s*100%/.test(css)) {
@@ -362,13 +383,15 @@ if (!/q\.featured !== false/.test(quizSrcFull) && !/featured !== false/.test(qui
 if (!/Escape/.test(quizSrcFull) || !/returnToSetup/.test(quizSrcFull)) {
   fail('quiz.js should exit on Esc and return to setup');
 } else ok('quiz.js Esc exit returns to setup');
-const showCountLine = (quizSrcFull.match(/const showCount = [^;]+;/) || [''])[0];
-if (!/mode === 'chapter'/.test(showCountLine) || !/mode === 'missed'/.test(showCountLine) ||
-    !/mode === 'bookmarked'/.test(showCountLine) || !/mode === 'weak'/.test(showCountLine) ||
-    !/mode === 'weaksub'/.test(showCountLine) || /mode === 'quick10'/.test(showCountLine) ||
-    !/countRow\.hidden = !showCount/.test(quizSrcFull)) {
-  fail('count field should show for chapter, missed, bookmarked, and weakest, and stay hidden for quick10');
-} else ok('count field shows for chapter, missed, bookmarked, and weakest; quick10 stays hidden');
+const showCountLines = quizSrcFull.match(/const showCount = [^;]+;/g) || [];
+const showCountOk = showCountLines.length > 0 && showCountLines.every(function (line) {
+  return /mode === 'chapter'/.test(line) && /mode === 'weak'/.test(line) &&
+    /mode === 'weaksub'/.test(line) && !/mode === 'missed'/.test(line) &&
+    !/mode === 'bookmarked'/.test(line) && !/mode === 'quick10'/.test(line);
+});
+if (!showCountOk || !/countRow\.hidden = !showCount/.test(quizSrcFull)) {
+  fail('Questions select should show only for chapter, weak, and weaksub');
+} else ok('Questions select shows only for chapter and weakest modes');
 if (!/const showDomain = mode === 'chapter';/.test(quizSrcFull) ||
     !/const showSub = false;/.test(quizSrcFull) ||
     !/const showDiff = false;/.test(quizSrcFull)) {
@@ -387,10 +410,18 @@ if (!/addEventListener\('change', toggleModeFields\)[\s\S]*await loadData\(/.tes
 if (!/scale-chapter',\s*mode === 'quick10' \|\| mode === 'missed' \|\| mode === 'bookmarked'/.test(quizSrcFull)) {
   fail('Quick 10, Missed, and Bookmarked setup should use the larger Chapter-scale layout');
 } else ok('Quick 10, Missed, and Bookmarked use Chapter-scale');
-if (!/reviewMode && !n/.test(quizSrcFull) || !/countRow\.hidden = true/.test(quizSrcFull) ||
-    !/countInput\.disabled = reviewMode \? false : n === 0/.test(quizSrcFull)) {
-  fail('empty Missed and Bookmarked pools should hide the count control instead of leaving a disabled field');
-} else ok('empty Missed and Bookmarked pools hide the count control');
+if (/reviewMode/.test(quizSrcFull)) {
+  fail('Missed and Bookmarked must not keep a Questions-count special case');
+} else ok('Missed and Bookmarked have no Questions-count special case');
+if (!/mode === 'missed' \|\| mode === 'bookmarked'/.test(quizSrcFull) ||
+    !/countRow\.hidden = true/.test(quizSrcFull) ||
+    !/countInput\.disabled = false/.test(quizSrcFull)) {
+  fail('Missed and Bookmarked must hide Questions and leave no disabled count control');
+} else ok('Missed and Bookmarked hide Questions with no disabled remnant');
+if (!/missedBtn\.hidden = mode !== 'missed'/.test(quizSrcFull) ||
+    !/bookBtn\.hidden = mode !== 'bookmarked'/.test(quizSrcFull)) {
+  fail('Clear missed and Clear bookmarks should stay mode-aware');
+} else ok('Clear missed and Clear bookmarks stay mode-aware');
 const fcSrc = read('js/flashcards.js');
 if (!/data-filter="Bookmarked"|filter === 'Bookmarked'|Bookmarked/.test(fcSrc) || !/getBookmarks\('card'\)/.test(fcSrc)) {
   fail('flashcards should keep a discoverable bookmarked-card review path');
@@ -422,9 +453,17 @@ function honorsCount(branch, label) {
     fail(label + ' should sample the selected question count, capped at the pool size');
   } else ok(label + ' honors the selected question count');
 }
-honorsCount(modeBranch(quizSrcFull, "} else if (mode === 'missed')"), 'missed mode');
-honorsCount(modeBranch(quizSrcFull, "} else if (mode === 'bookmarked')"), 'bookmarked mode');
+function usesFullPool(branch, label) {
+  if (/countInput|parseInt\(/.test(branch)) {
+    fail(label + ' must not sample from the Questions control');
+  } else if (!/Util\.sample\(\s*pool,\s*pool\.length\s*\)/.test(branch)) {
+    fail(label + ' should use the full live pool');
+  } else ok(label + ' uses the full live pool');
+}
+usesFullPool(modeBranch(quizSrcFull, "} else if (mode === 'missed')"), 'missed mode');
+usesFullPool(modeBranch(quizSrcFull, "} else if (mode === 'bookmarked')"), 'bookmarked mode');
 honorsCount(modeBranch(quizSrcFull, "} else if (mode === 'weak' || mode === 'weaksub')"), 'weakest modes');
+honorsCount(modeBranch(quizSrcFull, "} else if (mode === 'chapter')"), 'chapter mode');
 
 const courseSrc = read('js/course.js');
 if (!/optional/.test(courseSrc) || !/archive-badge/.test(courseSrc)) {
