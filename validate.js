@@ -224,6 +224,17 @@ if (/Quick 10|reviewMissedCard|reviewBookmarkedCard|home-weights|id="weightBars"
 if (!/Study Course/.test(home) || !/menu-card wide featured/.test(home)) {
   fail('Study Course should remain the featured home hero');
 } else ok('Study Course remains the featured home hero');
+if (!/href="flashcards\.html"/.test(home) || !/href="quiz\.html"/.test(home) || !/href="exam\.html"/.test(home)) {
+  fail('home should keep Flashcards, Quiz, and Practice Exam entry points');
+} else ok('home keeps Flashcards, Quiz, and Practice Exam');
+if (!/id="homeProgress"/.test(home) || !/href="dashboard\.html"/.test(home)) {
+  fail('home progress should be an expander that still opens the dashboard');
+} else ok('home progress expander still opens the dashboard');
+if (/class="menu-card[^"]*"\s+href="dashboard\.html"/.test(home)) {
+  fail('dashboard should not be an equal-weight home tile');
+} else ok('dashboard is not an equal-weight home tile');
+if (!/href="notes\.html"/.test(home)) fail('home should keep a Study Notes entry point');
+else ok('home keeps Study Notes');
 
 const dash = read('dashboard.html');
 if (!/id="weightBars"/.test(dash) || !/PTCE 2026 Domain Weights/.test(dash)) {
