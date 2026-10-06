@@ -237,11 +237,11 @@ if (!/id="homeProgress"/.test(home) || !/href="dashboard\.html"/.test(home)) {
 if (/class="menu-card[^"]*"\s+href="dashboard\.html"/.test(home)) {
   fail('dashboard should not be an equal-weight home tile');
 } else ok('dashboard is not an equal-weight home tile');
-if (!/class="menu-card"\s+href="notes\.html"/.test(home)) fail('Study Notes should be the fourth equal nav-cluster card');
-else ok('Study Notes is a peer card in the nav cluster');
-if (!/class="nav-cluster"/.test(home) || !/class="cluster-grid"/.test(home)) {
-  fail('Flash, Quiz, Practice, and Notes should sit in a nav cluster');
-} else ok('peer modes sit in a nav cluster');
+if (!/class="menu-card peer peer-notes"\s+href="notes\.html"/.test(home)) fail('Study Notes should be a home peer panel');
+else ok('Study Notes is a home peer panel');
+if (!/peer-flash/.test(home) || !/peer-quiz/.test(home) || !/peer-exam/.test(home) || !/class="hud"/.test(home)) {
+  fail('Flash, Quiz, Practice, and Notes should be separate HUD panels');
+} else ok('peer modes are separate HUD panels');
 
 const dash = read('dashboard.html');
 if (!/id="weightBars"/.test(dash) || !/PTCE 2026 Domain Weights/.test(dash)) {
@@ -254,8 +254,8 @@ if (!/quiz\.html\?mode=missed/.test(dash) || !/quiz\.html\?mode=bookmarked/.test
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v33/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v33');
-else ok('sw.js cache is ptce-2026-v33');
+if (!/ptce-2026-v34/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v34');
+else ok('sw.js cache is ptce-2026-v34');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');

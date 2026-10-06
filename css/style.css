@@ -271,33 +271,28 @@ code {
 .menu-card.dimmed { opacity: 0.55; cursor: default; }
 .menu-card.dimmed:hover { transform: none; border-color: var(--line); box-shadow: none; }
 
-/* Home launcher. Study Course is the dominant card, offset beside a tight
-   four-mode nav cluster. The cluster does not stretch to fill the window. */
+/* Home HUD. Study Course is the large center panel. The four peers share
+   visual weight but not a grid: different aspect ratios and offsets, with
+   open pockets left for the rain. Titles, icons, and the course CTA are centered. */
 body.home .container {
   width: 100%;
   max-width: none;
   padding: 12px 16px 14px;
 }
-body.home .menu-grid.launch {
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "hero"
-    "cluster";
-  gap: 16px;
-  width: min(640px, 100%);
+body.home .hud {
+  position: relative;
+  width: min(1280px, calc(100% - 28px));
+  height: auto;
   margin: 8px auto 0;
-  align-items: start;
 }
 body.home .menu-card.wide { grid-column: auto; }
-body.home .menu-card.featured { grid-area: hero; }
-body.home .nav-cluster { grid-area: cluster; }
 body.home .menu-card {
   position: relative;
-  align-items: flex-start;
-  justify-content: flex-end;
-  text-align: left;
-  gap: 4px;
-  padding: 22px 12px 12px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+  padding: 16px 14px;
   min-height: 0;
   border-radius: 2px;
 }
@@ -305,10 +300,11 @@ body.home .menu-card .icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.45rem;
+  font-size: 1.55rem;
   line-height: 1;
   color: #b6ffc9;
   filter: none;
+  margin-inline: auto;
 }
 body.home .menu-icon {
   width: 1.15em;
@@ -320,103 +316,26 @@ body.home .header-icon {
   height: 1.35rem;
   display: block;
 }
-body.home .mode-code {
-  position: absolute;
-  top: 7px;
-  left: 8px;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 1px;
-  color: rgba(5, 217, 232, 0.9);
-}
 body.home .menu-card .title {
-  font-size: 1.12rem;
+  font-size: 1.28rem;
   letter-spacing: 0.4px;
   line-height: 1.15;
+  text-align: center;
+  width: 100%;
 }
 body.home .menu-card .desc {
-  font-size: 0.95rem;
-  line-height: 1.25;
+  font-size: 1.02rem;
+  line-height: 1.3;
   color: var(--ink);
-  max-width: 22ch;
-}
-body.home .cluster-tag {
-  position: absolute;
-  top: -0.62em;
-  left: 12px;
-  margin: 0;
-  padding: 0 8px;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 1.8px;
-  color: #c8ffd4;
-  background: #04140c;
-}
-body.home .nav-cluster {
-  position: relative;
-  border: 1px solid rgba(0, 255, 65, 0.38);
-  padding: 16px 10px 10px;
-  background: transparent;
-}
-body.home .nav-cluster::before,
-body.home .nav-cluster::after {
-  content: "";
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  pointer-events: none;
-}
-body.home .nav-cluster::before {
-  top: -1px;
-  left: -1px;
-  border-top: 2px solid #8dffaa;
-  border-left: 2px solid #8dffaa;
-}
-body.home .nav-cluster::after {
-  right: -1px;
-  bottom: -1px;
-  border-right: 2px solid rgba(5, 217, 232, 0.85);
-  border-bottom: 2px solid rgba(5, 217, 232, 0.85);
-}
-body.home .cluster-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, 1fr);
-  gap: 8px;
-  height: 280px;
-}
-body.home .cluster-grid .menu-card {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  grid-template-rows: auto auto;
-  align-items: center;
-  column-gap: 12px;
-  row-gap: 0;
-  height: 100%;
-  min-height: 0;
-  padding: 6px 14px 6px 42px;
-}
-body.home .cluster-grid .menu-card .icon {
-  grid-column: 1;
-  grid-row: 1 / span 2;
-  font-size: 1.45rem;
-}
-body.home .cluster-grid .menu-card .title {
-  grid-column: 2;
-  grid-row: 1;
-  font-size: 1.22rem;
-}
-body.home .cluster-grid .menu-card .desc {
-  grid-column: 2;
-  grid-row: 2;
-  font-size: 0.98rem;
-  max-width: none;
+  text-align: center;
+  max-width: 28ch;
 }
 body.home .menu-card.featured {
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  gap: 12px;
+  text-align: center;
+  gap: 10px;
   min-height: 240px;
   padding: 22px 22px 20px;
 }
@@ -424,7 +343,8 @@ body.home .hero-sys {
   font-family: var(--font-mono);
   font-size: 0.82rem;
   letter-spacing: 1.8px;
-  color: rgba(5, 217, 232, 0.95);
+  color: #8dffaa;
+  text-align: center;
 }
 body.home .menu-card.featured .icon {
   font-size: clamp(2.4rem, 4vw, 3.1rem);
@@ -433,9 +353,11 @@ body.home .menu-card.featured .icon {
 body.home .hero-copy {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
   gap: 6px;
   min-width: 0;
+  width: 100%;
 }
 body.home .hero-kicker {
   font-family: var(--font-mono);
@@ -443,21 +365,25 @@ body.home .hero-kicker {
   letter-spacing: 1.8px;
   text-transform: uppercase;
   color: #9dffb4;
+  text-align: center;
 }
 body.home .menu-card.featured .title {
   font-size: clamp(1.9rem, 3vw, 2.7rem);
   letter-spacing: 0.6px;
   line-height: 1.05;
+  text-align: center;
 }
 body.home .menu-card.featured .desc {
   font-size: clamp(1.08rem, 1.5vw, 1.28rem);
   line-height: 1.35;
-  max-width: 28ch;
+  max-width: 32ch;
+  text-align: center;
 }
 body.home .hero-go {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  align-self: center;
   min-height: 40px;
   margin-top: 6px;
   font-family: var(--font-mono);
@@ -478,26 +404,26 @@ body.home .menu-card::before,
 body.home .menu-card::after {
   content: "";
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   pointer-events: none;
 }
 body.home .menu-card::before {
-  top: 3px;
-  right: 3px;
-  border-top: 2px solid rgba(0, 255, 65, 0.85);
-  border-right: 2px solid rgba(0, 255, 65, 0.85);
+  top: 4px;
+  left: 4px;
+  border-top: 2px solid #3dff6a;
+  border-left: 2px solid #3dff6a;
 }
 body.home .menu-card::after {
-  left: 3px;
-  bottom: 3px;
-  border-left: 2px solid rgba(5, 217, 232, 0.7);
-  border-bottom: 2px solid rgba(5, 217, 232, 0.7);
+  right: 4px;
+  bottom: 4px;
+  border-right: 2px solid rgba(0, 255, 65, 0.7);
+  border-bottom: 2px solid rgba(0, 255, 65, 0.7);
 }
 body.home .menu-card.featured::before,
 body.home .menu-card.featured::after {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
 }
 
 /* ============ Buttons ============ */
@@ -2175,8 +2101,8 @@ body.home .home-progress::before {
 body.home .home-progress::after {
   right: -1px;
   bottom: -1px;
-  border-right: 2px solid rgba(5, 217, 232, 0.9);
-  border-bottom: 2px solid rgba(5, 217, 232, 0.9);
+  border-right: 2px solid #3dff6a;
+  border-bottom: 2px solid #3dff6a;
 }
 body.home .home-progress:hover {
   color: #fff;
@@ -2192,34 +2118,8 @@ body.home .footer-note {
   color: #e7ffee;
 }
 
-@media (min-width: 1100px) {
-  body.home .menu-grid.launch {
-    grid-template-columns: minmax(360px, 400px) minmax(0, 1fr);
-    grid-template-areas: "cluster hero";
-    column-gap: clamp(36px, 5vw, 72px);
-    row-gap: 0;
-    width: min(1080px, calc(100% - 80px));
-    margin-top: clamp(12px, 2vh, 28px);
-  }
-  body.home .menu-card.featured {
-    margin-top: clamp(56px, 8vh, 96px);
-    min-height: clamp(340px, 46vh, 480px);
-  }
-  body.home .cluster-grid { height: 312px; }
-}
-
-@media (min-width: 760px) and (max-width: 1099px) and (min-height: 640px) {
-  body.home .menu-card.featured {
-    min-height: 168px;
-    padding: 16px 18px;
-    gap: 8px;
-  }
-  body.home .menu-card.featured .title { font-size: 1.7rem; }
-  body.home .cluster-grid { height: 248px; }
-  body.home .menu-grid.launch { gap: 12px; margin-top: 4px; }
-}
-
-/* Laptop: lock the document. The cluster stays content-sized; unused space is intentional. */
+/* Laptop HUD. Panels are absolutely placed inside a stage that uses most of
+   the window without stretching every card into a grid. */
 @media (min-width: 760px) and (min-height: 640px) {
   html:has(body.home) {
     height: 100dvh;
@@ -2239,22 +2139,67 @@ body.home .footer-note {
     display: flex;
     flex-direction: column;
     min-height: 0;
-    padding: 10px 16px 12px;
+    padding: 8px 14px 10px;
     overflow: hidden;
   }
-  body.home .menu-grid.launch {
-    flex: 0 0 auto;
+  body.home .hud {
+    flex: 1 1 auto;
+    width: min(1320px, 100%);
+    height: auto;
+    min-height: 0;
+    margin: 4px auto 0;
+  }
+  body.home .hud .menu-card {
+    position: absolute;
+    margin: 0;
+  }
+  body.home .hud .menu-card.featured {
+    left: 25%;
+    top: 16%;
+    width: 50%;
+    height: 54%;
+    min-height: 0;
+  }
+  body.home .peer-flash {
+    left: 1.2%;
+    top: 3%;
+    width: 21.5%;
+    height: 32%;
+  }
+  body.home .peer-quiz {
+    left: 77.2%;
+    top: 1.5%;
+    width: 20.5%;
+    height: 38%;
+  }
+  body.home .peer-notes {
+    left: 2.5%;
+    top: 74%;
+    width: 34%;
+    height: 22%;
+  }
+  body.home .peer-exam {
+    left: 58%;
+    top: 76%;
+    width: 38%;
+    height: 20%;
   }
   body.home .footer-note {
-    margin-top: auto;
+    margin-top: 8px;
     margin-bottom: 0;
+    flex: 0 0 auto;
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 759px) {
   body.home .app-header { padding: 8px 10px; }
-  body.home .cluster-grid { height: 220px; }
-  body.home .menu-card.featured { min-height: 210px; }
+  body.home .hud {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  body.home .menu-card.featured { min-height: 220px; order: -1; }
+  body.home .peer { min-height: 112px; }
 }
 
 /* ============ Dashboard header + tighter progress page ============ */
@@ -2373,20 +2318,10 @@ body.dashboard {
   background-attachment: fixed;
   background-size: auto, 120px 240px;
 }
-/* Home fades dark at the top to a brighter phosphor band at the bottom.
-   Matrix glyphs are painted by the canvas in that lower band only. */
+/* Near-black field. The canvas composes the fade, the angle, and the depth. */
 body.home {
-  background-color: #010403;
-  background-image: linear-gradient(
-    180deg,
-    #010403 0%,
-    #020806 16%,
-    #04140c 34%,
-    #072818 52%,
-    #0b4a24 70%,
-    #12803a 86%,
-    #16a34a 100%
-  );
+  background-color: #010804;
+  background-image: linear-gradient(180deg, #010403 0%, #010804 42%, #02140c 100%);
   background-attachment: fixed;
 }
 body.home::before,
@@ -2418,6 +2353,9 @@ body.home .app-header .logo span,
 body.dashboard .app-header .logo span {
   color: var(--cyan);
   text-shadow: none;
+}
+body.home .app-header .logo span {
+  color: #7dff9a;
 }
 body.home .menu-card {
   background: rgba(6, 32, 18, 0.94);
