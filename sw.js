@@ -1,5 +1,5 @@
 // Service worker: offline caching for the PTCE 2026 Study App
-const CACHE = 'ptce-2026-v49';
+const CACHE = 'ptce-2026-v50';
 const ASSETS = [
   './',
   'index.html',
@@ -82,11 +82,37 @@ function cacheFirst(request) {
   });
 }
 
+function isFontRequest(url) {
+  return url.hostname === 'fonts.googleapis.com' || url.hostname === 'fonts.gstatic.com';
+}
+
+// Google Fonts are cross-origin. Cache a successful response for offline reuse.
+// A miss (first launch offline, or a failed fetch) rejects so the browser uses
+// the next family in the stack — the app still renders.
+function fontRuntime(request) {
+  return fetch(request).then((response) => {
+    const cacheable = response && (response.type === 'opaque' || response.type === 'cors' || response.type === 'basic') &&
+      (response.type === 'opaque' || response.status === 200);
+    if (cacheable) {
+      const copy = response.clone();
+      caches.open(CACHE).then((cache) => cache.put(request, copy)).catch(() => {});
+    }
+    return response;
+  }).catch(() => caches.match(request).then((cached) => {
+    if (cached) return cached;
+    return Promise.reject(new Error('font unavailable'));
+  }));
+}
+
 self.addEventListener('fetch', (e) => {
   const { request } = e;
   if (request.method !== 'GET') return;
   const url = new URL(request.url);
-  if (url.origin !== self.location.origin) return; // let CDN (fonts) go to network
+  if (isFontRequest(url)) {
+    e.respondWith(fontRuntime(request));
+    return;
+  }
+  if (url.origin !== self.location.origin) return; // other CDNs stay on the network
   // App shell is network-first. Large JSON stays cache-first.
   e.respondWith(isAppShell(url, request) ? networkFirst(request) : cacheFirst(request));
 });

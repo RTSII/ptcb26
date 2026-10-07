@@ -254,8 +254,8 @@ if (!/quiz\.html\?mode=missed/.test(dash) || !/quiz\.html\?mode=bookmarked/.test
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v49/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v49');
-else ok('sw.js cache is ptce-2026-v49');
+if (!/ptce-2026-v50/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v50');
+else ok('sw.js cache is ptce-2026-v50');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
@@ -306,7 +306,7 @@ if (!/repeat\(2,\s*minmax\(0,\s*max-content\)\)/.test(css)) fail('answer choices
 else ok('answer choices use a 2-column grid');
 if (!/choices\.layout-stack/.test(css)) fail('long choices should be able to stack in one column');
 else ok('long choices can stack in one column');
-if (!/class="header-title"/.test(quizHtml) || !/class="header-home"/.test(quizHtml)) {
+if (!/class="header-title[\s"]/.test(quizHtml) || !/class="header-home"/.test(quizHtml)) {
   fail('quiz header should center a Quiz title and link Home');
 } else ok('quiz header has centered title and Home link');
 if (/class="crumb">Quiz</.test(quizHtml)) fail('quiz header still has a non-functional Quiz crumb');

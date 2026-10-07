@@ -110,17 +110,9 @@ body.notes .nx-header-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--nx-matrix-cyan);
-  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));
 }
 body.notes .nx-header-title {
-  font-family: var(--nx-font-display);
-  font-size: clamp(1.15rem, 1.4vw, 1.4rem);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #ffffff;
   margin: 0;
-  text-shadow: 0 0 14px rgba(56, 189, 248, 0.3);
 }
 
 /* Right Zone: Return Home Button */
@@ -900,9 +892,6 @@ mark.note-highlight {
   }
   body.notes .nx-logo-text {
     display: none;
-  }
-  body.notes .nx-header-title {
-    font-size: 1.1rem;
   }
   .nx-bottom-filter {
     width: 95%;
