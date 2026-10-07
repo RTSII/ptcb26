@@ -62,30 +62,21 @@
         ringProg.style.setProperty('--pct', String(pct));
       }
 
-      // Next / Resume lesson button & banner
+      // Next-lesson info line. The hero always opens the course home.
       const target = lastLessonObj || firstUnfinishedLesson;
       const nextEl = document.getElementById('hxCourseNext');
       const ctaEl = document.getElementById('hxCourseCtaText');
       const courseLink = document.getElementById('hxCourseLink');
       const kickerEl = document.getElementById('hxCourseKicker');
 
+      if (courseLink) courseLink.href = 'course.html';
+
       if (target && target.lesson) {
-        if (completedLessons > 0) {
-          if (kickerEl) kickerEl.textContent = 'Continue Training';
-          if (nextEl) {
-            nextEl.innerHTML = `<span>NEXT</span> ${esc(target.module.title)}: ${esc(target.lesson.title)}`;
-          }
-          if (ctaEl) ctaEl.textContent = 'Resume Lesson';
-        } else {
-          if (kickerEl) kickerEl.textContent = 'Start Here';
-          if (nextEl) {
-            nextEl.innerHTML = `<span>NEXT</span> ${esc(target.module.title)}: ${esc(target.lesson.title)}`;
-          }
-          if (ctaEl) ctaEl.textContent = 'Open Course';
+        if (kickerEl) kickerEl.textContent = completedLessons > 0 ? 'Continue Training' : 'Start Here';
+        if (nextEl) {
+          nextEl.innerHTML = `<span>NEXT</span> ${esc(target.module.title)}: ${esc(target.lesson.title)}`;
         }
-        if (courseLink && target.lesson.id) {
-          courseLink.href = `course.html?lesson=${encodeURIComponent(target.lesson.id)}`;
-        }
+        if (ctaEl) ctaEl.textContent = 'Open Course';
       }
 
       // Per-domain progress indicators
