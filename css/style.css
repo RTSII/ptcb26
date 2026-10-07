@@ -21,6 +21,16 @@
   --font-display: "Orbitron", "Segoe UI", system-ui, sans-serif;
   --font-body: "Rajdhani", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: "Share Tech Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  /* Centered page-header title. One set of tokens for every header bar.
+     ~26px at 1366px wide (1.9vw). Offline, the stack falls back if Orbitron
+     has not been cached yet. */
+  --hdr-title-font: "Orbitron", "Segoe UI", system-ui, sans-serif;
+  --hdr-title-size: clamp(22px, 1.9vw, 28px);
+  --hdr-title-tracking: 0.06em;
+  --hdr-title-color: #00ff41;
+  --hdr-title-glow: 0 0 6px rgba(0, 255, 65, 0.55), 0 0 14px rgba(0, 255, 65, 0.25);
+  --hdr-title-icon-size: clamp(22px, 1.9vw, 26px);
+  --hdr-title-icon-glow: drop-shadow(0 0 6px rgba(0, 255, 65, 0.55)) drop-shadow(0 0 14px rgba(0, 255, 65, 0.25));
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1019,7 +1029,7 @@ select option { background: var(--bg2); }
 @media (min-width: 1100px) {
   .container { max-width: 900px; padding: 28px 28px 90px; }
   .menu-grid { grid-template-columns: repeat(4, 1fr); }
-  .page-title { font-size: 1.65rem; }
+  .page-title:not(.hdr-title) { font-size: 1.65rem; }
   .btn, .button, .cta { font-size: 0.84rem; padding: 14px 22px; }
   .q-text, .qtext { font-size: 1.2rem; }
   .stats-grid { grid-template-columns: repeat(4, 1fr); }
@@ -1253,34 +1263,23 @@ select option { background: var(--bg2); }
 .note-section h4 .archive-badge { margin-left: 8px; vertical-align: middle; }
 .module-quiz { width: 100%; }
 
-/* Course home list. Lesson pages stay on body.course.lesson-open. */
-body.course:not(.lesson-open) .app-header {
+/* Course home and lesson pages share the 3-zone header. */
+body.course .app-header {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   column-gap: 12px;
 }
-body.course:not(.lesson-open) .app-header .logo { justify-self: start; }
-body.course:not(.lesson-open) .app-header .back-link { justify-self: end; }
-body.course:not(.lesson-open) .course-header-title {
+body.course .app-header .logo { justify-self: start; }
+body.course .app-header .back-link { justify-self: end; }
+body.course .course-header-title {
   justify-self: center;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   margin: 0;
-  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
-  letter-spacing: 0.6px;
-  line-height: 1.2;
   white-space: nowrap;
 }
-body.course .header-icon {
-  width: 1.35rem;
-  height: 1.35rem;
-  flex: 0 0 auto;
-  color: var(--cyan);
-  filter: drop-shadow(0 0 6px rgba(5, 217, 232, 0.55));
-}
-body.course.lesson-open .course-header-title { display: none; }
 
 /* Small gap under the header. Not 10vh — twelve cards already scroll. */
 body.course:not(.lesson-open) .container {
@@ -1507,8 +1506,6 @@ body.flashcards .app-header .page-title {
   justify-self: center;
   margin: 0;
   text-align: center;
-  font-size: 1.2rem;
-  line-height: 1.2;
   white-space: nowrap;
 }
 body.flashcards .container {
@@ -1660,7 +1657,6 @@ body.flashcards .btn {
 @media (max-width: 640px) {
   body.flashcards .app-header { gap: 8px; padding: 8px 12px; }
   body.flashcards .app-header .logo { font-size: 0.85rem; letter-spacing: 1px; }
-  body.flashcards .app-header .page-title { font-size: 0.92rem; }
   body.flashcards .container { padding: 8px 12px 12px; }
   body.flashcards .pill { font-size: 0.76rem; padding: 6px 10px; }
   body.flashcards .flashcard .face {
@@ -1682,6 +1678,15 @@ body.quiz .app-header,
 body.exam .app-header {
   padding: 10px 16px;
 }
+body.exam .app-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  column-gap: 12px;
+}
+body.exam .app-header .logo { justify-self: start; }
+body.exam .app-header .back-link { justify-self: end; }
+body.exam .app-header .hdr-title { justify-self: center; }
 body.quiz .container,
 body.exam .container {
   padding-bottom: 20px;
@@ -1807,22 +1812,10 @@ body.quiz .header-title {
   transform: translate(-50%, -50%);
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   margin: 0;
   pointer-events: none;
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  line-height: 1.2;
-  color: #fff;
-  text-shadow: 0 0 12px rgba(5, 217, 232, 0.75);
   white-space: nowrap;
-}
-body.quiz .header-glyph {
-  font-size: 1.15rem;
-  line-height: 1;
-  filter: drop-shadow(0 0 6px rgba(185, 103, 255, 0.85));
 }
 body.quiz .header-actions {
   display: flex;
@@ -2113,7 +2106,7 @@ body.quiz .exit-dialog .exit-btn {
 @media (max-width: 640px) {
   body.quiz .app-header { padding: 8px 10px; gap: 8px; }
   body.quiz .app-header .logo { font-size: 0.82rem; letter-spacing: 1px; }
-  body.quiz .header-title { font-size: 0.92rem; letter-spacing: 1px; gap: 6px; }
+  body.quiz .header-title { gap: 6px; }
   body.quiz .header-home,
   body.quiz .exit-btn { padding: 5px 8px; font-size: 0.68rem; }
   body.quiz #quiz .quiz-header { flex-wrap: wrap; }
@@ -2281,11 +2274,8 @@ body.dashboard .app-header .page-title {
   justify-self: center;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   margin: 0;
-  font-size: clamp(1.25rem, 2vw, 1.7rem);
-  letter-spacing: 0.8px;
-  line-height: 1.2;
   white-space: nowrap;
 }
 body.dashboard .app-header .back-link {
@@ -2298,12 +2288,6 @@ body.dashboard .app-header .back-link {
   border-radius: 999px;
   font-size: clamp(1rem, 1.2vw, 1.125rem);
   white-space: nowrap;
-}
-body.dashboard .header-icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  flex: 0 0 auto;
-  color: var(--cyan);
 }
 body.dashboard .btn,
 body.dashboard .button {
@@ -2458,13 +2442,6 @@ body.home #matrixRain {
   background: transparent;
 }
 
-body.dashboard .page-title {
-  color: #f4fff6;
-  text-shadow: none;
-}
-body.dashboard .header-icon {
-  color: #7dff9a;
-}
 body.dashboard .back-link {
   color: var(--cyan);
   text-shadow: none;
@@ -2559,4 +2536,37 @@ body.dashboard .score-big { color: #f4fff6; text-shadow: none; }
 body.dashboard .container { padding: 8px 8px 16px; }
 @media (min-width: 900px) {
   body.dashboard .weight-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Page header title. Visuals live here only — pages keep their own placement. */
+body .app-header h1.hdr-title,
+body .nx-header h1.hdr-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-family: var(--hdr-title-font);
+  font-size: var(--hdr-title-size);
+  font-weight: 700;
+  letter-spacing: var(--hdr-title-tracking);
+  line-height: 1;
+  color: var(--hdr-title-color);
+  text-shadow: var(--hdr-title-glow);
+}
+body .app-header h1.hdr-title .header-icon,
+body .nx-header .hdr-title-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--hdr-title-icon-size);
+  height: var(--hdr-title-icon-size);
+  flex: 0 0 auto;
+  color: var(--hdr-title-color);
+  filter: var(--hdr-title-icon-glow);
+}
+body .app-header h1.hdr-title .header-icon,
+body .nx-header .hdr-title-icon svg {
+  width: var(--hdr-title-icon-size);
+  height: var(--hdr-title-icon-size);
+  display: block;
 }
