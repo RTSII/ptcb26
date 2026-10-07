@@ -7,13 +7,14 @@ Live backlog. Older unchecked boxes in `ROADMAP.md` are not this list.
 - [x] Codex v2 baseline on main (#28, SW v43) — legacy `items` renderer
 - [x] `study_notes_v3_plan.md` (history) + `study_notes_v4_plan.md` (handoff + **2026-10-07 content audit**)
 - [x] Content audit: main 44→v2 41 merge map, dup clusters, 5 review flags documented
-- [ ] **Do not start** Notes overhaul until Rob says start
-- [ ] **Do not commit** local v2 `data/notes.json` until `js/notes.js` reads `blocks` (ship together)
-- [ ] When started: `matrix.css` → blocks runtime → then v2 JSON; draft PR
+- [ ] **Next chat: review + plan overhaul only** — read `study_notes_v4_plan.md`, refine plan/docs (incl. space-saving visual aids: conversions etc.), draft PR for docs; **STOP — do not start overhaul / do not commit v2 notes.json** until Rob signs off the plan.
+- [ ] **Do not start** Notes overhaul until Rob signs off the reviewed plan
+- [ ] **Do not commit** local v2 `data/notes.json` until `js/notes.js` reads `blocks` (ship together, after that sign-off)
+- [ ] When started (only after sign-off): `matrix.css` → blocks runtime → then v2 JSON; draft PR
 - [ ] Rob OK on five fact flags before changing clinical wording
-- [ ] Clarify visual-aid strategy (space-saving graphics/charts/lists vs decorative Google AI art) — conversions etc.; Rob input
-- [ ] Google AI prompt pack / `assets/notes` emblems + dosage-form specimens = future TODO (deferred). Not a when-started step. Desktop Word prompt doc is reference-only until clarify.
 - [ ] Course / Exam Matrix tokens later
+- [ ] Future: Google AI prompt pack / `assets/notes` emblems + dosage-form specimens (deferred; Word doc reference-only)
+- [ ] Future: clarify/revive decorative art only after space-saving visual-aid strategy is locked
 
 
 ## UI & Design System Rubric

@@ -1,9 +1,9 @@
 # Study Notes v4: Terminal Codex Plan (ready handoff)
 
-**Status:** Plan + content audit only. Do **not** start the overhaul / do **not** commit the local v2 `notes.json` until Rob says go and the Notes runtime can read `blocks`.  
+**Status:** Once this is on `main`, these docs are the baseline for a **plan-review chat**. That chat edits plan/TODO only (including space-saving visual aids), opens a docs PR, and **stops**. Rob signs off that plan. The overhaul starts only after that explicit sign-off. Do **not** commit the local v2 `notes.json` until the runtime can read `blocks`. Google AI art stays future (end of the Notes backlog).  
 **Repo:** `Desktop\PTCB26` · tip on `main` after #28  
 **Supersedes:** `study_notes_v3_plan.md` (keep for architecture detail)  
-**Out of scope for now:** Course and Exam Matrix adoption (later).  
+**Out of scope for now:** Course and Exam Matrix adoption (later). Google AI emblems / dosage-form art (future).  
 
 ---
 
@@ -15,7 +15,7 @@
 | 2 | Search / nav | **Trim redundant** search / filter / nav. |
 | 3 | Content shape | **Merge duplicate and misfiled notes** at content time (map below). |
 | 4 | Fact flags | Document candidates for **future review/test**. No silent fact changes. |
-| 5 | Workflow | New chat uses handoff below. Refine/document until Rob says start. Cloud agents + PRs; Rob OK to merge. |
+| 5 | Workflow | Docs on `main` are the plan-review baseline. Next chat edits plan/TODO only, then **stops**. Overhaul starts only after Rob signs off that reviewed plan. Cloud agents + PRs; Rob OK to merge. |
 | 6 | Scope | **Notes only.** Course / Exam later. |
 
 ---
@@ -28,7 +28,7 @@ Rob lost faith in the Claude/Devin visual-aid analysis. That plan leaned on deco
 |---|---|
 | Google AI image briefs | **Deferred** → clarify / future TODO. Emblem, waste-bin, and dosage-form specimen prompts (v3 §4) are **not** required to start the overhaul. The desktop Word doc that holds those prompts is **reference-only** until this clarify is resolved. Do not generate or wire `assets/notes` art as a start step. |
 | Prior optional art (v3 §4) | **Not trusted** as the visual-aid strategy. Do not treat those briefs as the plan for breaking up repeated prose. |
-| Fresh visual-aid pass | **Clarify before the overhaul, or early in it.** Look for aids that actually break up repeated prose and save viewport space. Prefer in-code charts, lists, tables, and compact layouts over decorative PNGs. Example Rob named: the **Conversions** topic → a dense conversion chart / list (or SVG), not more text rows. Rob will point at more sections when he can; Claude started editing, so he could not screenshot the intended sections. |
+| Fresh visual-aid pass | **Plan-review chat** (docs only, then stop): look for aids that actually break up repeated prose and save viewport space. Prefer in-code charts, lists, tables, and compact layouts over decorative PNGs. Example Rob named: the **Conversions** topic → a dense conversion chart / list (or SVG), not more text rows. Rob will point at more sections when he can; Claude started editing, so he could not screenshot the intended sections. Decorative Google AI art stays **future** — revive only after this strategy is locked. |
 
 ---
 
@@ -133,32 +133,41 @@ Inline `flags` already in the local v2 JSON (4). Fifth is structural (insulin cu
 
 Unchanged intent from v3 §2 (rail + stage, fit paginator, shared `matrix.css`, schema-driven layouts). Palette: Matrix-cohesive; non-green accents OK for dense prose. Trim redundant search/nav.
 
-Execution sequence still v3 §3 (shared `matrix.css` → content schema → shell → runtime → in-code figures → styles → verify → docs) — **do not run until Rob starts the overhaul.** Skip v3 §3 step 7 (optional Google AI art / `assets/notes`). That step is **deferred / clarify**, not “do when starting.”
+Execution sequence still v3 §3 (shared `matrix.css` → content schema → shell → runtime → in-code figures → styles → verify → docs) — **do not run until Rob signs off the plan-review chat.** Skip v3 §3 step 7 (optional Google AI art / `assets/notes`). That step stays **future**, not part of planning or the start gate.
 
-Visual-aid strategy = **clarify / future** (2026-10-07 section above). v3 §4 Google AI image briefs are reference history only. Do not burn cycles on emblems, waste bins, or dosage-form specimen prompts until Rob clarifies.
+Space-saving visual aids (charts/lists/tables; Conversions first) are refined in the **plan-review chat**, in docs only. Google AI image briefs (v3 §4) stay at the end / future. Do not burn cycles on emblems, waste bins, or dosage-form specimen prompts. Revive decorative art only after the space-saving strategy is locked.
 
 ---
 
-## Handoff prompt (paste into a new chat when Rob is ready)
+## Handoff prompt (paste into the plan-review chat)
 
 ```text
-PTCB26 Study Notes — Terminal Codex (v4 plan).
+PTCB26 Study Notes — Terminal Codex (v4 plan). PLAN REVIEW ONLY.
 
-Read study_notes_v4_plan.md end-to-end (includes 2026-10-07 content audit and visual-aid clarify). History: study_notes_v3_plan.md.
+Docs on main are the baseline. You are the plan-review chat, not the overhaul.
+
+Read study_notes_v4_plan.md end-to-end (content audit, flags, runtime gate, 2026-10-07 visual-aid clarify). History: study_notes_v3_plan.md. Live backlog: TODO.md Study Notes section.
+
+THIS CHAT:
+- Edit plan docs and TODO only.
+- Refine the overhaul plan, including space-saving visual aids (Conversions → dense chart/list or SVG; Rob will point at more sections).
+- Commit, push, and open a draft docs PR.
+- STOP. Do not start the overhaul. Do not commit v2 notes.json. Do not touch js, css, html, or the service worker.
 
 LOCKED:
 - Matrix-cohesive Notes UI (retire slate-as-end-state). Non-green accents OK for dense reading.
 - Trim redundant search/filter/nav.
 - Notes-only. Course/Exam later.
-- Live main notes.json = legacy items[]. Local uncommitted notes.json = version 2 blocks schema (deduped draft). Do NOT commit v2 JSON until runtime supports blocks — ship together.
+- Live main notes.json = legacy items[]. Local uncommitted notes.json = version 2 blocks schema (deduped draft). Do NOT commit v2 JSON until runtime supports blocks — and only after Rob signs off the reviewed plan.
 - Five candidate fact flags in v4 plan: review/test later; no silent clinical edits.
 - Code via Cursor cloud agents + draft PRs. No merge without Rob OK.
 - UI seed: Back L / center CTA / Next R; content-hug Chrome; center titles/icons; Matrix primary.
-- Visual-aid strategy = clarify / future. Do not burn cycles on Google AI emblems, waste-bin art, or dosage-form specimen prompts until Rob clarifies. v3 §4 optional art is not trusted as the strategy. Desktop Word prompt doc is reference-only. Prefer in-code charts/lists/tables/compact layouts that break up repeated prose and save space (example: Conversions → dense chart/list or SVG).
+- Google AI art stays future (end of TODO). Do not burn cycles on emblems, waste-bin art, or dosage-form specimen prompts. v3 §4 optional art is not trusted. Desktop Word prompt doc is reference-only. Revive decorative art only after the space-saving visual-aid strategy is locked.
 
-STOP for planning chats: docs only. Do not begin overhaul until Rob says start.
-
-When Rob says start: implement matrix.css → runtime blocks renderers → then commit v2 notes.json (after flag decisions). Do not generate or wire assets/notes Google AI art as part of start. Draft PR; North Chrome verify.
+WORKFLOW:
+1. This chat plans and updates docs only, then stops.
+2. Rob signs off the reviewed plan.
+3. Overhaul starts only after that explicit sign-off: matrix.css → runtime blocks renderers → then commit v2 notes.json (after flag decisions). Draft PR; North Chrome verify. Still no Google AI art.
 ```
 
 ---
@@ -168,5 +177,10 @@ When Rob says start: implement matrix.css → runtime blocks renderers → then 
 - [x] Rob decisions locked
 - [x] v4 plan + content audit (merge map, dups, flags)
 - [x] #28 on main (Codex v2 baseline + plans)
-- [ ] Overhaul start (Rob explicit)
+- [x] Google AI art demoted to future; space-saving visual-aid clarify recorded (2026-10-07)
+- [ ] These docs on `main` — baseline for the plan-review chat
+- [ ] Plan-review chat: edit plan/TODO only (incl. space-saving visual aids), docs PR, then STOP
+- [ ] Rob signs off that reviewed plan
+- [ ] Overhaul starts only after that explicit sign-off
 - [ ] v2 `notes.json` committed only with runtime that reads `blocks`
+- [ ] Google AI art remains future (not a plan-review or start step)
