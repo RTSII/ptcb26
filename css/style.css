@@ -1269,7 +1269,6 @@ body.course .app-header {
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   column-gap: 12px;
-  padding-block: 6px;
 }
 body.course .app-header .logo { justify-self: start; }
 body.course .app-header .back-link { justify-self: end; }
@@ -1677,7 +1676,7 @@ body.flashcards .btn {
 /* ============ Quiz / Exam: fit a desktop viewport ============ */
 body.quiz .app-header,
 body.exam .app-header {
-  padding: 6px 16px;
+  padding: 10px 16px;
 }
 body.exam .app-header {
   display: grid;
@@ -2550,7 +2549,7 @@ body .nx-header h1.hdr-title {
   font-size: var(--hdr-title-size);
   font-weight: 700;
   letter-spacing: var(--hdr-title-tracking);
-  line-height: 1.15;
+  line-height: 1;
   color: var(--hdr-title-color);
   text-shadow: var(--hdr-title-glow);
 }
