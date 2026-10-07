@@ -4,15 +4,15 @@ Live backlog. Older unchecked boxes in `ROADMAP.md` are not this list.
 
 ## Study Notes — Terminal Codex (v4)
 
-- [x] Codex v2 baseline on branch (shell, layouts, SW v43) — merge with plans; **not** the v4 build
-- [x] `study_notes_v3_plan.md` captured (history)
-- [x] `study_notes_v4_plan.md` ready handoff (Rob decisions 2026-10-06)
-- [ ] **Do not start** Notes overhaul until Rob explicitly says start (new chat uses v4 handoff block)
-- [ ] When started: shared `matrix.css`, schema `notes.json`, rail+stage, fit paginator — draft PR only
-- [ ] Merge duplicate / misfiled notes at content time (Rob OK on the list)
-- [ ] Future review/test: five candidate factual flags listed in `study_notes_v4_plan.md` (no silent fixes)
-- [ ] Leave local uncommitted `data/notes.json` WIP alone unless Rob asks
-- [ ] Course / Exam adopt Matrix tokens later (out of Notes v4 scope)
+- [x] Codex v2 baseline on main (#28, SW v43) — legacy `items` renderer
+- [x] `study_notes_v3_plan.md` (history) + `study_notes_v4_plan.md` (handoff + **2026-10-07 content audit**)
+- [x] Content audit: main 44→v2 41 merge map, dup clusters, 5 review flags documented
+- [ ] **Do not start** Notes overhaul until Rob says start
+- [ ] **Do not commit** local v2 `data/notes.json` until `js/notes.js` reads `blocks` (ship together)
+- [ ] When started: `matrix.css` → blocks runtime → then v2 JSON; draft PR
+- [ ] Rob OK on five fact flags before changing clinical wording
+- [ ] Course / Exam Matrix tokens later
+
 
 ## UI & Design System Rubric
 - [x] Matrix Red Pill / Blue Pill unified branding across all pages (global 38px × 32px standard)
