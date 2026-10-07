@@ -254,8 +254,8 @@ if (!/quiz\.html\?mode=missed/.test(dash) || !/quiz\.html\?mode=bookmarked/.test
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v52/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v52');
-else ok('sw.js cache is ptce-2026-v52');
+if (!/ptce-2026-v53/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v53');
+else ok('sw.js cache is ptce-2026-v53');
 if (!/css\/blueprint-hud\.css/.test(sw) || !/js\/blueprint-hud\.js/.test(sw)) {
   fail('sw.js should cache css/blueprint-hud.css and js/blueprint-hud.js');
 } else ok('sw.js caches the Blueprint HUD assets');
