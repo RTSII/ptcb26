@@ -534,6 +534,14 @@
     // 2. NORMAL ACCORDION MODE: Mutually exclusive domain accordion.
     // An open domain is rendered first so its header sits under the page header
     // and the other closed headers follow its card.
+    const chipRow = `
+      <div class="nx-domain-switch" role="group" aria-label="Switch domain">
+        ${domains.map((d, di) => {
+          const active = di === openDomainIndex;
+          return `<button type="button" class="nx-domain-chip${active ? ' is-active' : ''}" data-domain-switch="${di}" ${active ? 'disabled aria-current="true"' : ''} aria-label="${esc(d.domain)}, ${esc(d.weight || '')}">D${di + 1} ${esc(d.weight || '')}</button>`;
+        }).join('')}
+      </div>`;
+
     const cards = domains.map((d, di) => {
       const isOpen = di === openDomainIndex;
       const sections = d.sections || [];
@@ -578,8 +586,7 @@
       `;
     });
     if (openDomainIndex >= 0 && openDomainIndex < cards.length) {
-      const rest = cards.filter((_, i) => i !== openDomainIndex);
-      area.innerHTML = cards[openDomainIndex] + rest.join('');
+      area.innerHTML = chipRow + cards[openDomainIndex];
     } else {
       area.innerHTML = cards.join('');
     }
@@ -587,7 +594,18 @@
 
   // Event Delegation for Accordion Toggles and Topic Pagers
   area.addEventListener('click', function (e) {
-    // 1. Accordion Toggle
+    // 1. Slim domain switcher (open state only). Does not close the active domain.
+    const switchBtn = e.target.closest('[data-domain-switch]');
+    if (switchBtn && !switchBtn.disabled) {
+      const idx = parseInt(switchBtn.getAttribute('data-domain-switch'), 10);
+      if (!isNaN(idx) && idx !== openDomainIndex) {
+        openDomainIndex = idx;
+        render(loadedDomains, searchInput ? searchInput.value : '');
+      }
+      return;
+    }
+
+    // 2. Accordion Toggle
     const toggleBtn = e.target.closest('[data-domain-toggle]');
     if (toggleBtn) {
       const idx = parseInt(toggleBtn.getAttribute('data-domain-toggle'), 10);

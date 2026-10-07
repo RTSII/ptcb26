@@ -921,8 +921,55 @@ mark.note-highlight {
   }
 }
 
-/* Open domain: pin the active header under the page header, list the other
-   closed headers below the topic card, and scroll only the topic content. */
+/* Open domain: slim domain chips under the page header, then the active
+   header and a topic card that fills the rest of the viewport. */
+.nx-domain-switch {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 34px;
+  margin: 0;
+}
+.nx-domain-chip {
+  height: 28px;
+  margin: 0;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--nx-font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--nx-text-secondary);
+  background: rgba(14, 22, 34, 0.85);
+  border: 1px solid var(--nx-border-silver);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.nx-domain-chip:hover:not(:disabled) {
+  color: #fff;
+  border-color: var(--nx-matrix-cyan);
+  background: rgba(20, 31, 47, 0.95);
+}
+.nx-domain-chip:focus-visible {
+  outline: 2px solid var(--nx-matrix-cyan);
+  outline-offset: 2px;
+}
+.nx-domain-chip.is-active,
+.nx-domain-chip.is-active:disabled {
+  opacity: 1;
+  cursor: default;
+  color: #fff;
+  border-color: var(--nx-matrix-cyan);
+  background: rgba(56, 189, 248, 0.18);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+}
+
 body.notes.nx-reading {
   height: 100dvh;
   max-height: 100dvh;
@@ -939,13 +986,13 @@ body.notes.nx-reading .nx-container {
   min-height: 0;
   display: flex;
   flex-direction: column;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 body.notes.nx-reading .nx-notes-area {
   flex: 1 1 auto;
   min-height: 0;
-  gap: 8px;
+  gap: 6px;
   overflow: hidden;
 }
 body.notes.nx-reading .nx-domain-card.nx-domain-open {
@@ -955,9 +1002,6 @@ body.notes.nx-reading .nx-domain-card.nx-domain-open {
   flex-direction: column;
   overflow: hidden;
 }
-body.notes.nx-reading .nx-domain-card:not(.nx-domain-open) {
-  flex: 0 0 auto;
-}
 body.notes.nx-reading .nx-domain-open > .nx-domain-header {
   flex: 0 0 auto;
 }
@@ -965,7 +1009,7 @@ body.notes.nx-reading .nx-domain-body {
   flex: 1 1 auto;
   min-height: 0;
   overflow: hidden;
-  padding: 8px;
+  padding: 6px;
 }
 body.notes.nx-reading .nx-topic-card {
   flex: 1 1 auto;
@@ -986,8 +1030,7 @@ body.notes.nx-reading .nx-topic-content {
   overscroll-behavior: contain;
 }
 body.notes.nx-reading .nx-bottom-filter-wrap {
-  flex: 0 0 auto;
-  margin-top: 8px;
+  display: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
