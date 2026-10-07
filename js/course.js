@@ -110,7 +110,6 @@
     const body = isOpen
       ? '<div class="module-body">' +
           '<div class="module-scroll">' +
-            '<p class="module-desc">' + esc(m.desc) + '</p>' +
             '<div class="bar-track module-bar"><div class="bar-fill" style="width:' + mpct + '%"></div></div>' +
             '<div class="lesson-list">' + lessons + archive + '</div>' +
           '</div>' +

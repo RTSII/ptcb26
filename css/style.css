@@ -1211,7 +1211,6 @@ button.module-header:focus-visible {
   border-bottom-right-radius: var(--radius);
   padding: 16px;
 }
-.module-desc { font-size: 0.92rem; color: var(--ink-dim); margin-bottom: 12px; font-style: italic; }
 .module-bar { margin-bottom: 14px; }
 .lesson-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
 .lesson-link {
@@ -1302,20 +1301,26 @@ body.course .header-icon {
 }
 body.course.lesson-open .course-header-title { display: none; }
 
-body.course:not(.lesson-open) .container {
-  width: min(1400px, calc(100% - 32px));
-  max-width: 1400px;
+/* Idle list keeps the original 720px column. The open chapter widens below. */
+body.course:not(.lesson-open):not(.course-reading) .container {
+  width: 100%;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 10vh 0 16px;
+  padding: 8px 16px 12px;
   transition: padding-top 0.4s ease;
 }
-body.course:not(.lesson-open) #courseList {
+body.course:not(.lesson-open):not(.course-reading) #courseList {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  transition: gap 0.4s ease;
+  gap: 6px;
 }
-body.course:not(.lesson-open) .course-overall { margin-bottom: 0; }
+body.course:not(.course-reading) .course-overall {
+  margin-bottom: 0;
+  padding: 10px 14px;
+}
+body.course:not(.course-reading) button.module-header {
+  padding: 8px 12px;
+}
 
 .course-switch {
   flex: 0 0 auto;
@@ -1382,6 +1387,9 @@ body.course.course-reading .app-header {
   position: static;
 }
 body.course.course-reading .container {
+  width: min(1400px, calc(100% - 32px));
+  max-width: 1400px;
+  margin: 0 auto;
   flex: 1 1 auto;
   min-height: 0;
   display: flex;
@@ -1427,8 +1435,7 @@ body.course.course-reading .module-quiz {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body.course:not(.lesson-open) .container,
-  body.course:not(.lesson-open) #courseList {
+  body.course:not(.lesson-open):not(.course-reading) .container {
     transition: none;
   }
 }

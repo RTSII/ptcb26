@@ -35,8 +35,8 @@ Superseded by the block above (do not follow these):
 - [x] Flashcards trigger: tabbed physical Rolodex index card with stepped deck depth and spindle notch icon
 - [x] Study Notes Codex v2 baseline (3-zone header, layouts, parenthesis-safe parsing)
 - [x] Cascading Katakana Matrix rain FX (depth layers, white lead tips, no static grid floor overlays)
-- [x] Service worker & cache-busting query system (`?v=48`, `ptce-2026-v48`)
-- [x] Study Course home layout: accordions closed on load, title in the centered header, idle breathing room, open card pinned to the top (`ptce-2026-v48`)
+- [x] Service worker & cache-busting query system (`?v=49`, `ptce-2026-v49`)
+- [x] Study Course home layout: accordions closed on load, title in the centered header, narrow idle list, open card full viewport (`ptce-2026-v49`)
 - [ ] Notes palette: Matrix-cohesive (retire slate-as-end-state) per `study_notes_v4_plan.md`
 - [ ] Trim redundant Notes search/filter/nav chrome
 - [ ] Shared `matrix.css` tokens — `UI_STANDARDS.md` documents the UI templates; extraction stays open
