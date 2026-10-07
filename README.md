@@ -119,7 +119,7 @@ On `localhost`, `127.0.0.1`, and `::1`, `js/app.js` unregisters any service work
 
 ## Service worker
 
-`sw.js` cache name on this main: `ptce-2026-v43`.
+`sw.js` cache name on this main: `ptce-2026-v44`.
 
 - Install precaches the HTML, CSS, JS, JSON, manifest, and icon, then `skipWaiting()`.
 - Activate deletes every cache whose name is not the current one, then `clients.claim()`.
@@ -127,7 +127,7 @@ On `localhost`, `127.0.0.1`, and `::1`, `js/app.js` unregisters any service work
 - App shell (navigations, HTML, CSS, JS) is network-first, cache fallback if offline.
 - JSON and the other same-origin assets are cache-first.
 
-After a cache-name bump, unregister the service worker and clear site data. A hard refresh (`Ctrl + Shift + R`) bypasses disk cache using query-string cache busters (`?v=43`).
+After a cache-name bump, unregister the service worker and clear site data. A hard refresh (`Ctrl + Shift + R`) bypasses disk cache using query-string cache busters (`?v=44`).
 
 ## Layout
 
@@ -144,7 +144,7 @@ There is no `app/` directory. Shared helpers are `window.App` (`Storage`, `Util`
 
 ## Current state
 
-Service worker cache on this tip: `ptce-2026-v43`.
+Service worker cache on this tip: `ptce-2026-v44`.
 
 **Study Notes next step:** Terminal Codex is **planned only** — see `study_notes_v4_plan.md` (includes content audit: merge map, dups, 5 review flags). Live Notes still uses legacy `items` JSON; local uncommitted v2 `blocks` JSON stays WIP until runtime can read it. Do not start implementation until Rob says go. Course / Exam Matrix later.
 
