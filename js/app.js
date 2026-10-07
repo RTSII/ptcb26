@@ -254,8 +254,7 @@ const DOMAINS = ['Medications', 'Patient Safety and Quality Assurance', 'Order E
 // Matrix rain. Home and the progress dashboard use a brighter code field.
 // Other pages keep the lighter ambient rain. Reduced motion skips the canvas.
 const FX = (() => {
-  const AMBIENT = 'アカサタナハマヤラワ0123456789ABCDEFXYZ$#%&';
-  const MATRIX = 'アカサタナハマヤラワアイウエオカキクケコ0101$#%&{}[]<>';
+  const MATRIX_GLYPHS = 'アカサタナハマヤラワアイウエオカキクケコ0101$#%&{}[]<>0123456789ABCDEF';
   let canvas, ctx, drops, rafId, lastT = 0;
   let font = 15;
   const INTERVAL = 66;
@@ -271,15 +270,14 @@ const FX = (() => {
     return !!(document.body && document.body.classList.contains('home'));
   }
 
-  // Home rain is composed, not a denser field: a quiet header band, two depths
-  // of vertical code through the panel gaps, and a perspective floor that
-  // opens under the HUD. Glyph count stays in the same range as the #24 rain.
+  // Home rain is composed: a quiet header band, two depths of vertical code
+  // through the panel gaps, smoothly fading out toward the bottom without a static grid.
   function homeFade(py) {
     const p = py / canvas.height;
     if (p < 0.10) return 0;
     if (p < 0.28) return (p - 0.10) / 0.18;
     if (p < 0.62) return 1;
-    return Math.max(0.28, 1 - (p - 0.62) / 0.55);
+    return Math.max(0.25, 1 - (p - 0.62) / 0.55);
   }
 
   function paintHomeColumns(seed) {
@@ -299,7 +297,7 @@ const FX = (() => {
         if (lead) alpha = Math.min(1, alpha * (0.7 + (py / canvas.height) * 0.45));
         ctx.globalAlpha = alpha;
         ctx.fillStyle = lead ? '#f4fff6' : (col.layer === 0 ? '#0c7a30' : '#2ee85a');
-        const ch = MATRIX[(i * 13 + row * 7) % MATRIX.length];
+        const ch = MATRIX_GLYPHS[(i * 13 + row * 7) % MATRIX_GLYPHS.length];
         ctx.fillText(ch, x, py);
       }
       if (!seed) {
@@ -307,32 +305,6 @@ const FX = (() => {
         if (col.y * font > canvas.height + col.trail * font && Math.random() > 0.965) col.y = 0;
       }
     });
-  }
-
-  // Rays leave a vanishing point under the hero and widen toward the camera.
-  function paintHomeFloor() {
-    const w = canvas.width;
-    const h = canvas.height;
-    const vanishX = w * 0.5;
-    const vanishY = h * 0.60;
-    const rays = 16;
-    const rows = 7;
-    const tick = Math.floor((lastT || 0) / 140);
-    for (let r = 0; r < rays; r++) {
-      const side = (r / (rays - 1)) * 2 - 1;
-      for (let row = 0; row < rows; row++) {
-        const depth = (row + 1) / rows;
-        const y = vanishY + depth * depth * (h - vanishY - 10);
-        const x = vanishX + side * depth * w * 0.46;
-        const size = 10 + depth * 13;
-        ctx.globalAlpha = 0.12 + depth * 0.72;
-        ctx.font = size + 'px "Share Tech Mono", monospace';
-        ctx.fillStyle = depth > 0.86 ? '#f4fff6' : '#1ad44a';
-        const ch = MATRIX[(r * 5 + row * 3 + tick) % MATRIX.length];
-        ctx.fillText(ch, x, y);
-      }
-    }
-    ctx.font = font + 'px "Share Tech Mono", monospace';
   }
 
   function paintHome(seed) {
@@ -345,7 +317,6 @@ const FX = (() => {
     }
     ctx.font = font + 'px "Share Tech Mono", monospace';
     paintHomeColumns(seed);
-    paintHomeFloor();
     ctx.globalAlpha = 1;
   }
 
@@ -387,7 +358,7 @@ const FX = (() => {
       for (let row = 0; row < rows; row++) {
         const dist = (head - row + rows) % rows;
         if (dist > 16) continue;
-        const ch = MATRIX[(i * 13 + row * 7) % MATRIX.length];
+        const ch = MATRIX_GLYPHS[(i * 13 + row * 7) % MATRIX_GLYPHS.length];
         ctx.fillStyle = dist === 0 ? '#f4fff6' : '#22ff57';
         ctx.globalAlpha = dist === 0 ? 1 : Math.max(0.22, 0.78 - dist * 0.04);
         ctx.fillText(ch, i * font, row * font);
@@ -408,7 +379,7 @@ const FX = (() => {
     ctx.fillStyle = matrix ? 'rgba(0, 14, 5, 0.07)' : 'rgba(3, 0, 20, 0.14)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.font = font + 'px "Share Tech Mono", monospace';
-    const chars = matrix ? MATRIX : AMBIENT;
+    const chars = MATRIX_GLYPHS;
     drops.forEach((y, i) => {
       const ch = chars[Math.floor(Math.random() * chars.length)];
       const x = i * font;
@@ -474,6 +445,9 @@ function renderHomeProgress() {
   set('homeCards', String(cards));
   set('homeExams', String(exams));
   set('homeLessons', String(lessons));
+  set('homeQuizzesCore', String(quizzes));
+  set('homeAvgCore', avg == null ? '—' : avg + '%');
+  set('homeCardsCore', String(cards));
   const snap = document.getElementById('homeProgressSnap');
   if (snap) {
     snap.textContent = quizzes + ' quizzes · ' + (avg == null ? '— avg' : avg + '% avg') +

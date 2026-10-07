@@ -1,0 +1,917 @@
+/* ==========================================================================
+   PTCE 2026 — Study Notes Codex v2
+   Dark Slate / Obsidian & Brushed Silver Clinical Reference System
+   High Legibility, Zero Text Cutoff, Contextual Tables, Centered Bottom Filter
+   ========================================================================== */
+
+:root {
+  --nx-bg: #03070b;
+  --nx-surface-1: #090f17;
+  --nx-surface-2: #0e1622;
+  --nx-surface-3: #141f2f;
+  --nx-surface-hover: #19273c;
+  
+  --nx-border-hairline: rgba(148, 163, 184, 0.18);
+  --nx-border-silver: rgba(148, 163, 184, 0.32);
+  --nx-border-cyan: rgba(56, 189, 248, 0.45);
+  --nx-border-green: rgba(0, 255, 65, 0.35);
+
+  --nx-text-primary: #f1f5f9;
+  --nx-text-secondary: #cbd5e1;
+  --nx-text-muted: #94a3b8;
+  --nx-text-faint: #64748b;
+
+  --nx-matrix-green: #00ff41;
+  --nx-matrix-cyan: #38bdf8;
+  --nx-matrix-amber: #f59e0b;
+  --nx-matrix-rose: #f43f5e;
+  --nx-matrix-purple: #c084fc;
+
+  --nx-font-display: "Chakra Petch", "Rajdhani", -apple-system, sans-serif;
+  --nx-font-mono: "JetBrains Mono", "Share Tech Mono", monospace;
+  --nx-font-reading: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body.notes {
+  background-color: var(--nx-bg);
+  background-image: 
+    radial-gradient(ellipse at 50% 0%, rgba(14, 30, 48, 0.45) 0%, transparent 70%),
+    radial-gradient(ellipse at 50% 100%, rgba(2, 20, 10, 0.3) 0%, transparent 60%);
+  background-attachment: fixed;
+  color: var(--nx-text-primary);
+  font-family: var(--nx-font-reading);
+  line-height: 1.55;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   1. APP HEADER: 3-Zone Balanced Grid (Pill Logo | Centered Title | Home Link)
+   ========================================================================== */
+body.notes .nx-header {
+  display: grid !important;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: clamp(6px, 1vh, 12px) clamp(14px, 2vw, 28px) !important;
+  background: linear-gradient(180deg, rgba(5, 10, 16, 0.98), rgba(8, 14, 22, 0.95)) !important;
+  border-bottom: 1px solid var(--nx-border-hairline) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(148, 163, 184, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+}
+
+/* Left Zone: Pill Icon & PTCE 2026 Logo */
+body.notes .nx-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  justify-self: start;
+}
+body.notes .nx-logo .matrix-pill-icon {
+  width: 38px;
+  height: 32px;
+  flex: none;
+  filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.4));
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+body.notes .nx-logo:hover .matrix-pill-icon {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.6));
+}
+body.notes .nx-logo-text {
+  font-family: var(--nx-font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #fff;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+}
+body.notes .nx-logo-text span {
+  color: var(--nx-matrix-green);
+  margin-left: 0.35em;
+  text-shadow: 0 0 12px rgba(0, 255, 65, 0.45);
+}
+
+/* Center Zone: Centered Study Notes Title & Document Icon */
+body.notes .nx-header-center {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  justify-self: center;
+}
+body.notes .nx-header-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--nx-matrix-cyan);
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));
+}
+body.notes .nx-header-title {
+  font-family: var(--nx-font-display);
+  font-size: clamp(1.15rem, 1.4vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 0 14px rgba(56, 189, 248, 0.3);
+}
+
+/* Right Zone: Return Home Button */
+body.notes .nx-home-btn {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  font-family: var(--nx-font-mono);
+  font-size: 0.84rem;
+  letter-spacing: 0.06em;
+  color: var(--nx-text-secondary);
+  background: rgba(14, 22, 34, 0.7);
+  border: 1px solid var(--nx-border-silver);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+body.notes .nx-home-arrow {
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--nx-matrix-cyan);
+  transition: transform 0.2s ease;
+}
+body.notes .nx-home-btn:hover {
+  background: rgba(20, 31, 47, 0.95);
+  border-color: var(--nx-matrix-cyan);
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+}
+body.notes .nx-home-btn:hover .nx-home-arrow {
+  transform: translateX(-3px);
+}
+
+/* ==========================================================================
+   2. MAIN CONTAINER & ACCORDIONS
+   ========================================================================== */
+body.notes .nx-container {
+  width: min(1400px, calc(100% - 32px));
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 0 120px;
+}
+
+.nx-notes-area {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Domain Accordion Card */
+.nx-domain-card {
+  background: var(--nx-surface-1);
+  border: 1px solid var(--nx-border-hairline);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.nx-domain-card.nx-domain-open {
+  border-color: var(--nx-border-silver);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(148, 163, 184, 0.15);
+}
+
+/* Domain Header Button */
+button.nx-domain-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  background: linear-gradient(90deg, rgba(14, 22, 34, 0.95), rgba(9, 15, 23, 0.95));
+  border: none;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.nx-domain-open > .nx-domain-header {
+  border-bottom: 1px solid var(--nx-border-silver);
+  background: linear-gradient(90deg, rgba(20, 31, 47, 0.95), rgba(12, 19, 29, 0.95));
+}
+button.nx-domain-header:hover {
+  background: linear-gradient(90deg, rgba(22, 35, 54, 1), rgba(15, 24, 38, 1));
+}
+
+.nx-domain-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.nx-domain-pill {
+  font-family: var(--nx-font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 3px 8px;
+  background: rgba(0, 255, 65, 0.12);
+  color: var(--nx-matrix-green);
+  border: 1px solid rgba(0, 255, 65, 0.35);
+  border-radius: 4px;
+}
+.nx-weight-badge {
+  font-family: var(--nx-font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  background: rgba(56, 189, 248, 0.12);
+  color: var(--nx-matrix-cyan);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 4px;
+}
+.nx-domain-name {
+  font-family: var(--nx-font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.nx-domain-header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+.nx-topic-count-badge {
+  font-family: var(--nx-font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--nx-text-secondary);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 10px;
+  border-radius: 12px;
+  border: 1px solid var(--nx-border-hairline);
+}
+.nx-matched-pill {
+  font-family: var(--nx-font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--nx-matrix-cyan);
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  padding: 3px 9px;
+  border-radius: 4px;
+}
+.nx-chevron-icon {
+  font-size: 0.75rem;
+  color: var(--nx-text-muted);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.nx-domain-open .nx-chevron-icon {
+  color: var(--nx-matrix-cyan);
+}
+
+/* Domain Body Area */
+.nx-domain-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: rgba(7, 12, 19, 0.7);
+}
+.nx-domain-summary-card {
+  padding: 12px 16px;
+  background: rgba(14, 22, 34, 0.65);
+  border-left: 3px solid var(--nx-matrix-cyan);
+  border-radius: 0 6px 6px 0;
+}
+.nx-domain-summary-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--nx-text-secondary);
+}
+
+/* ==========================================================================
+   3. TOPIC NAVIGATION (Pagers & Dropdown Selector)
+   ========================================================================== */
+.nx-topic-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--nx-surface-2);
+  border: 1px solid var(--nx-border-silver);
+  border-radius: 8px;
+}
+.nx-nav-btn {
+  padding: 8px 16px;
+  font-family: var(--nx-font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--nx-text-primary);
+  background: rgba(20, 31, 47, 0.9);
+  border: 1px solid var(--nx-border-silver);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.nx-nav-btn:hover:not(:disabled) {
+  background: rgba(28, 44, 66, 1);
+  border-color: var(--nx-matrix-cyan);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+.nx-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  border-color: transparent;
+  background: rgba(14, 22, 34, 0.4);
+}
+
+.nx-nav-center {
+  flex: 1;
+  max-width: 520px;
+}
+.nx-select-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+.nx-topic-counter {
+  font-family: var(--nx-font-mono);
+  font-size: 0.78rem;
+  color: var(--nx-text-muted);
+  white-space: nowrap;
+}
+.nx-topic-counter strong {
+  color: var(--nx-matrix-cyan);
+}
+.nx-topic-select {
+  flex: 1;
+  padding: 7px 12px;
+  font-family: var(--nx-font-display);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: #090f17;
+  border: 1px solid var(--nx-border-silver);
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+.nx-topic-select:focus {
+  border-color: var(--nx-matrix-cyan);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+}
+
+/* ==========================================================================
+   4. ACTIVE TOPIC CARD & CONTENT
+   ========================================================================== */
+.nx-topic-card {
+  background: var(--nx-surface-2);
+  border: 1px solid var(--nx-border-silver);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+.nx-topic-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  background: linear-gradient(90deg, rgba(20, 31, 47, 0.95), rgba(15, 24, 38, 0.95));
+  border-bottom: 1px solid var(--nx-border-silver);
+}
+.nx-topic-lead {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.nx-topic-tag {
+  font-family: var(--nx-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  color: var(--nx-matrix-cyan);
+  text-transform: uppercase;
+}
+.nx-topic-title {
+  font-family: var(--nx-font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  margin: 0;
+}
+.nx-item-count-chip {
+  font-family: var(--nx-font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  padding: 3px 9px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--nx-border-hairline);
+  border-radius: 12px;
+  color: var(--nx-text-secondary);
+}
+.nx-topic-content {
+  padding: 20px;
+}
+
+/* ==========================================================================
+   5. DATA TABLES & MULTI-LAYOUTS (Zero Cutoff, Explicit Column Headers)
+   ========================================================================== */
+.nx-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 6px;
+  border: 1px solid var(--nx-border-silver);
+  background: #090f17;
+}
+.nx-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+}
+.nx-data-table thead {
+  background: #141f2f;
+  border-bottom: 1px solid var(--nx-border-silver);
+}
+.nx-data-table th {
+  padding: 11px 16px;
+  font-family: var(--nx-font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--nx-text-secondary);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.nx-data-table td {
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--nx-border-hairline);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.nx-row-even {
+  background: #090f17;
+}
+.nx-row-odd {
+  background: #0c1420;
+}
+.nx-data-table tr:hover {
+  background: #131e2e;
+}
+
+/* Layout 1: Brand / Generic Dual Tables */
+.nx-brand-grid-container {
+  width: 100%;
+}
+.nx-table-dual-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 900px) {
+  .nx-table-dual-col {
+    grid-template-columns: 1fr;
+  }
+}
+.nx-cell-brand {
+  width: 45%;
+}
+.nx-cell-generic {
+  width: 55%;
+}
+.nx-brand-badge {
+  font-family: var(--nx-font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+}
+.nx-generic-name {
+  font-family: var(--nx-font-reading);
+  font-size: 0.92rem;
+  color: #bbf7d0;
+  font-weight: 500;
+}
+
+/* Layout 2: OTC Tables */
+.nx-cell-otc-brand {
+  vertical-align: top;
+}
+.nx-otc-badge {
+  font-family: var(--nx-font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+.nx-active-ing {
+  font-family: var(--nx-font-reading);
+  font-weight: 600;
+  color: var(--nx-matrix-cyan);
+}
+.nx-notes-body {
+  font-family: var(--nx-font-reading);
+  color: var(--nx-text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Layout 3: Token Grid (Sig Codes & Conversions) */
+.nx-token-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.nx-token-legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: rgba(14, 22, 34, 0.7);
+  border: 1px solid var(--nx-border-hairline);
+  border-radius: 6px;
+  font-family: var(--nx-font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--nx-text-muted);
+}
+.nx-legend-lead {
+  color: var(--nx-matrix-cyan);
+  font-weight: 700;
+}
+.nx-legend-arrow {
+  color: var(--nx-text-faint);
+}
+.nx-legend-meaning {
+  color: var(--nx-text-secondary);
+  font-weight: 600;
+}
+
+.nx-token-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 10px;
+}
+.nx-token-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: #090f17;
+  border: 1px solid var(--nx-border-hairline);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+.nx-token-card:hover {
+  background: #0f1826;
+  border-color: var(--nx-border-cyan);
+  transform: translateY(-1px);
+}
+.nx-token-code {
+  font-family: var(--nx-font-mono);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--nx-matrix-green);
+  white-space: nowrap;
+}
+.nx-token-arrow {
+  font-family: var(--nx-font-mono);
+  color: var(--nx-text-faint);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.nx-token-meaning {
+  font-family: var(--nx-font-reading);
+  font-size: 0.88rem;
+  color: var(--nx-text-secondary);
+  line-height: 1.4;
+}
+.nx-token-single {
+  grid-column: 1 / -1;
+  background: #0c1420;
+}
+
+/* Layout 4: Clinical Tables (Classes, Stems, Mechanisms) */
+.nx-cell-term {
+  vertical-align: top;
+}
+.nx-term-badge {
+  display: inline-block;
+  font-family: var(--nx-font-display);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: #ffffff;
+  padding: 2px 8px;
+  background: rgba(56, 189, 248, 0.08);
+  border-left: 2px solid var(--nx-matrix-cyan);
+}
+.nx-details-body {
+  font-family: var(--nx-font-reading);
+  color: var(--nx-text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+/* Layout 5: Briefing Grid (Procedures, Laws, Standards) */
+.nx-briefing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 14px;
+}
+@media (max-width: 640px) {
+  .nx-briefing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.nx-briefing-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px;
+  background: #090f17;
+  border: 1px solid var(--nx-border-hairline);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+.nx-briefing-card:hover {
+  background: #0f1826;
+  border-color: var(--nx-border-silver);
+}
+.nx-card-header-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nx-card-index {
+  font-family: var(--nx-font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--nx-text-faint);
+}
+.nx-card-tag {
+  font-family: var(--nx-font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--nx-matrix-cyan);
+}
+.nx-card-narrative {
+  font-family: var(--nx-font-reading);
+  font-size: 0.9rem;
+  color: var(--nx-text-secondary);
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   6. SEARCH FILTER BAR CENTERED AT BOTTOM
+   ========================================================================== */
+.nx-bottom-filter-wrap {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px 0 10px;
+}
+
+.nx-bottom-filter {
+  width: min(580px, 92%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  background: linear-gradient(180deg, rgba(14, 22, 34, 0.96), rgba(9, 15, 23, 0.96));
+  border: 1px solid var(--nx-border-silver);
+  border-radius: 999px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(148, 163, 184, 0.15);
+  transition: all 0.25s ease;
+}
+.nx-bottom-filter:focus-within {
+  border-color: var(--nx-matrix-cyan);
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.7), 0 0 20px rgba(56, 189, 248, 0.35);
+  background: linear-gradient(180deg, rgba(20, 31, 47, 0.98), rgba(12, 19, 29, 0.98));
+}
+
+.nx-search-glyph {
+  width: 20px;
+  height: 20px;
+  color: var(--nx-matrix-cyan);
+  flex-shrink: 0;
+}
+
+#notesSearch {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--nx-font-mono);
+  font-size: 0.88rem;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+}
+#notesSearch::placeholder {
+  color: var(--nx-text-faint);
+  font-size: 0.84rem;
+}
+
+.nx-search-clear {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: var(--nx-text-secondary);
+  font-size: 0.82rem;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.nx-search-clear:hover {
+  background: rgba(244, 63, 94, 0.3);
+  color: #fff;
+}
+
+.nx-filter-hint {
+  font-family: var(--nx-font-mono);
+  font-size: 0.75rem;
+  color: var(--nx-text-faint);
+  letter-spacing: 0.06em;
+}
+
+/* Search Results Presentation */
+.nx-search-summary-bar {
+  padding: 12px 18px;
+  margin-bottom: 16px;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 8px;
+  font-family: var(--nx-font-mono);
+  font-size: 0.85rem;
+  color: var(--nx-text-secondary);
+  display: flex;
+  align-items: center;
+}
+.nx-search-summary-bar strong {
+  color: var(--nx-matrix-cyan);
+}
+.nx-search-section-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: var(--nx-surface-2);
+  border: 1px solid var(--nx-border-hairline);
+  border-radius: 8px;
+  margin-bottom: 14px;
+}
+.nx-search-section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.nx-topic-chip {
+  font-family: var(--nx-font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 2px 7px;
+  background: rgba(56, 189, 248, 0.12);
+  color: var(--nx-matrix-cyan);
+  border-radius: 4px;
+}
+.nx-search-section-title {
+  font-family: var(--nx-font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+.nx-match-count {
+  font-family: var(--nx-font-mono);
+  font-size: 0.72rem;
+  color: var(--nx-text-faint);
+}
+
+mark.note-highlight {
+  background: rgba(255, 211, 25, 0.25);
+  color: #fff3bf;
+  padding: 1px 3px;
+  border-radius: 2px;
+  border-bottom: 2px solid #ffd319;
+}
+
+/* Empty Search Card */
+.nx-empty-search-card {
+  padding: 40px 24px;
+  text-align: center;
+  background: var(--nx-surface-1);
+  border: 1px dashed var(--nx-border-silver);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.nx-empty-icon {
+  font-size: 2.2rem;
+}
+.nx-empty-search-card h3 {
+  font-family: var(--nx-font-display);
+  font-size: 1.25rem;
+  color: #fff;
+  margin: 0;
+}
+.nx-empty-search-card p {
+  color: var(--nx-text-muted);
+  max-width: 480px;
+  margin: 0;
+  font-size: 0.9rem;
+}
+.nx-btn-reset-search {
+  margin-top: 8px;
+  padding: 8px 18px;
+  font-family: var(--nx-font-mono);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(56, 189, 248, 0.2);
+  border: 1px solid var(--nx-matrix-cyan);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.nx-btn-reset-search:hover {
+  background: rgba(56, 189, 248, 0.35);
+}
+
+/* Loading State */
+.nx-loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 60px 20px;
+  font-family: var(--nx-font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: var(--nx-matrix-cyan);
+}
+.nx-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid rgba(56, 189, 248, 0.2);
+  border-top-color: var(--nx-matrix-cyan);
+  border-radius: 50%;
+  animation: nxSpin 0.8s linear infinite;
+}
+@keyframes nxSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  body.notes .nx-header {
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    padding: 10px 14px !important;
+  }
+  body.notes .nx-logo-text {
+    display: none;
+  }
+  body.notes .nx-header-title {
+    font-size: 1.1rem;
+  }
+  .nx-topic-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .nx-select-label {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .nx-bottom-filter {
+    width: 95%;
+  }
+}

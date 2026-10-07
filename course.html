@@ -13,7 +13,37 @@
 </head>
 <body class="course">
   <header class="app-header">
-    <a href="index.html" class="logo">💊 PTCE <span>2026</span></a>
+    <a href="index.html" class="logo" aria-label="PTCE 2026 home" title="PTCE 2026 · Red Pill or Blue Pill?">
+      <svg class="matrix-pill-icon" viewBox="0 0 38 32" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="bluePillGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#38bdf8"/>
+            <stop offset="50%" stop-color="#0284c7"/>
+            <stop offset="100%" stop-color="#075985"/>
+          </linearGradient>
+          <linearGradient id="redPillGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff4b72"/>
+            <stop offset="50%" stop-color="#e11d48"/>
+            <stop offset="100%" stop-color="#881337"/>
+          </linearGradient>
+          <linearGradient id="pillGloss" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0.1"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(11, 16) rotate(-22)">
+          <rect x="-5" y="-11" width="10" height="22" rx="5" fill="url(#bluePillGrad)" stroke="#38bdf8" stroke-width="0.8"/>
+          <line x1="-5" y1="0" x2="5" y2="0" stroke="rgba(255,255,255,0.4)" stroke-width="0.75"/>
+          <rect x="-3" y="-9" width="2.5" height="18" rx="1.25" fill="url(#pillGloss)"/>
+        </g>
+        <g transform="translate(27, 16) rotate(22)">
+          <rect x="-5" y="-11" width="10" height="22" rx="5" fill="url(#redPillGrad)" stroke="#ff4b72" stroke-width="0.8"/>
+          <line x1="-5" y1="0" x2="5" y2="0" stroke="rgba(255,255,255,0.4)" stroke-width="0.75"/>
+          <rect x="-3" y="-9" width="2.5" height="18" rx="1.25" fill="url(#pillGloss)"/>
+        </g>
+      </svg>
+      PTCE <span>2026</span>
+    </a>
     <a href="index.html" class="back-link">‹ Home</a>
   </header>
 

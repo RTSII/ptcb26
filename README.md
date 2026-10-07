@@ -46,28 +46,57 @@ Items that are off the 2026 core are optional course lessons or `featured: false
 - Code changes go through Cursor cloud agents. Review happens on GitHub pull requests.
 - `node validate.js` checks schema, IDs, domain names, and a few copy assertions. It is not a content sign-off.
 
-## Locked UI standards
+## Locked UI standards & Design Rubric
 
-These are locked. Test them. Do not add a reusable template system, extra chrome, or new page patterns until they stay locked under test.
+These are locked design standards across the app. Follow this rubric for future project edits and new UI components:
 
-- Back on the left, Start or the center action in the middle, Next on the right. Lesson nav and quiz setup already use a `1fr auto 1fr` row.
-- Primary CTAs sit centered in the card.
-- Cards fill at least three quarters of the Chrome viewport, and most or all of it when the screen is the content. Kill side gaps and bottom dead space.
-- Body type stays readable on a laptop. Vertical scroll only when the content actually overflows. No phantom overflow on short pages.
-- Icon nav stays compact, and icons stay on-theme with each other.
-- Card titles and icons are generally center-aligned.
-- The look is dense Chrome viewport: the window is the frame, not a narrow column floating in empty space.
-- Sequence is fixed: lock these standards, test them, then extras and templates.
+1. **Viewport as Frame (Zero-Scroll on Desktop)**:
+   - On desktop Chrome, the viewport is the frame (`100dvh`, `overflow: hidden`). Cards fill available space without phantom scrollbars.
+   - Kill excessive side gutters and dead whitespace; expand layouts tastefully (e.g. 1400px codex manual for Study Notes, full 12-column tactical HUD for Home).
+2. **Organic Shapes & Translucent Elements (Beyond Bento Rectangles)**:
+   - Cards and action triggers are **not** restricted to standard rounded rectangles or rigid bento blocks.
+   - Unique shapes (circular reactor consoles, chamfered obsidian pods, concentric targeting reticles) provide organic visual hierarchy.
+   - **Center-point dimensioning & organic padding**: Component boundaries are measured from the center point with even, generous negative space around them so the surrounding cards and background breathe.
+   - **Selective translucency**: Not all cards need opaque solid fills. Interactive telemetry cores utilize translucent radial glass (`background: radial-gradient(...)` with `backdrop-filter: blur(...)`) to let animated Matrix code cascade visibly behind rotating rings.
+3. **Physical / Skeuomorphic Matrix Metaphors (e.g. Rolodex Index Cards)**:
+   - Cards with physical counterparts (e.g. Flashcards) draw inspiration from tangible tools (the iconic rotating desktop Rolodex or the matrix operator contact directory).
+   - Features include tabbed index tops, subtle stepped deck drop-shadows (creating the illusion of stacked cards beneath), custom spindle notch icons, and minimal text fluff. Keep only functional status badges and clear action triggers.
+4. **Header Architecture Standard (3-Zone Balanced Grid)**:
+   - All subpage headers follow a strict 3-zone CSS grid (`1fr auto 1fr`):
+     - **Far Left**: The Matrix Red Pill / Blue Pill dual-capsule icon (`38px × 32px`, tilted capsules with 3D gradients and gloss highlights) + `PTCE 2026` logo.
+     - **Center**: Page Title + Contextual Icon, strictly centered horizontally and tightly padded to body margins.
+     - **Far Right**: Contextual navigation trigger (`‹ Home`, `‹ Course`, or utility button).
+5. **Legibility First (Matrix-cohesive, contrast where dense)**:
+   - Monolithic bright green across whole pages causes eye fatigue during dense clinical reading — avoid wall-of-green body text.
+   - **Primary direction is a cohesive Matrix theme** shared with Home (obsidian-green fills, chamfered panels, mint/cyan accents). Slate-as-Notes-end-state is retired; it was only a non-green contrast option, not the product goal.
+   - Dense Notes / Course / Exam surfaces may use cooler or neutral accents for long prose when that improves contrast, without breaking Matrix identity.
+   - Body text stays high-contrast and readable (proportional sans for paragraphs; `JetBrains Mono` for stems, codes, doses, ratios, formulas).
+   - Phosphor green / mint / cyan are for keys, stems, active state, and telemetry — not full-page body wash.
+   - Working plan: `study_notes_v4_plan.md` (v3 kept as history).
+6. **Zero-Cutoff & Parenthesis-Safe Parsing**:
+   - Medical and clinical text contains nested semicolons and parentheses (e.g. `Tylenol = acetaminophen (max 4,000 mg/day; hepatotoxic in overdose).`).
+   - Semicolon delimiters must be parsed using parenthesis-safe algorithms (`splitOutsideParens`) so that parenthetical notes, dosage caps, and warnings are never truncated or broken into orphaned chips.
+7. **Contextual Multi-Layout Presentation**:
+   - Avoid forcing all study data into generic bullet points. Match the content structure to purpose-built layouts:
+     - **Brand / Generic**: 2-up dual-column responsive data table with explicit column headers (`BRAND NAME` | `GENERIC NAME`).
+     - **OTC Active Ingredients**: 3-column table (`OTC BRAND NAME` | `ACTIVE INGREDIENT` | `CLINICAL CLASS & KEY PEARLS`).
+     - **Abbreviations & Conversions**: Token grid cards with header legend (`ABBREVIATION` ➔ `CLINICAL TRANSLATION`).
+     - **Clinical Specs & Schedules**: 2-column specifications table (`CLASSIFICATION / SCHEDULE` | `CLINICAL MECHANISMS & PEARLS`).
+     - **Procedures & Laws**: Clean dark slate briefing cards with `#01` index chips and bolded tags.
+8. **Search / filter without redundant chrome**:
+   - Remove instructional copy from page headers. Keep search reachable (rail footer and/or one bottom control). Trim duplicate search/filter/nav bars — one clear path.
+   - v4 Notes target: domain rail + topic stage; see `study_notes_v4_plan.md`.
 
-## Theme
+## Theme & Visual System
 
-Primary theme is The Matrix: green rain and terminal code, on the home HUD and the progress dashboard.
+- **Primary Theme: The Matrix**: Deep obsidian surfaces (`#010804`), emerald terminal greens (`#00ff41`), mint highlights (`#b6ffc9`), and flowing Japanese Katakana / hex character rain.
+- **Accents**: Vaporwave / Cyberpunk neon cyan (`#05d9e8` / `#38bdf8`) and vivid pink (`#ff2a6d`) used as subtle telemetry and indicator accents.
+- **Matrix Rain FX (`js/app.js`)**:
+  - Smooth vertical cascading columns of Japanese Katakana and code glyphs.
+  - Multi-depth layering: foreground bright green leads with white tips, background darker depth green.
+  - Smooth fade out towards the bottom; no static grid character overlays.
+  - Skips gracefully when `prefers-reduced-motion` is enabled.
 
-Vaporwave (pink, cyan, violet, the synthwave grid) is a light accent on the shared stylesheet. It is not a second, equal theme. Home and dashboard turn the grid floor off and run the rain canvas at full opacity. Other pages still inherit more of the older accent palette.
-
-Functional first. Cards have to be opaque enough to read. Home cards are about `rgba(6, 32, 18, 0.94)`; the featured course card is denser.
-
-Rain is composed, not piled on. Home rain (`js/app.js`) uses a quiet header fade, two column depths, and a perspective floor under the HUD. Glyph count stays in the same range as the earlier home rain. Do not make it denser just to make it denser. `prefers-reduced-motion` skips the canvas.
 
 ## Run it
 
@@ -90,7 +119,7 @@ On `localhost`, `127.0.0.1`, and `::1`, `js/app.js` unregisters any service work
 
 ## Service worker
 
-`sw.js` cache name on this main: `ptce-2026-v34`.
+`sw.js` cache name on this main: `ptce-2026-v43`.
 
 - Install precaches the HTML, CSS, JS, JSON, manifest, and icon, then `skipWaiting()`.
 - Activate deletes every cache whose name is not the current one, then `clients.claim()`.
@@ -98,26 +127,40 @@ On `localhost`, `127.0.0.1`, and `::1`, `js/app.js` unregisters any service work
 - App shell (navigations, HTML, CSS, JS) is network-first, cache fallback if offline.
 - JSON and the other same-origin assets are cache-first.
 
-After a cache-name bump, unregister the service worker and clear site data. A hard refresh by itself often leaves the old cache in control.
+After a cache-name bump, unregister the service worker and clear site data. A hard refresh (`Ctrl + Shift + R`) bypasses disk cache using query-string cache busters (`?v=43`).
 
 ## Layout
 
 ```text
 index.html  course.html  notes.html  flashcards.html  quiz.html  exam.html  dashboard.html
 manifest.json  sw.js  icon.svg  validate.js
-css/style.css
-js/app.js  course.js  notes.js  flashcards.js  quiz.js  exam.js  dashboard.js
+css/style.css  css/home.css  css/notes.css
+js/app.js  home.js  course.js  notes.js  flashcards.js  quiz.js  exam.js  dashboard.js
 data/course.json  notes.json  flashcards.json  questions.json
-README.md  TODO.md
+README.md  TODO.md  study_notes_v4_plan.md  study_notes_v3_plan.md
 ```
 
-There is no `app/` directory. Shared helpers are `window.App` (`Storage`, `Util`, `DOMAINS`) in `js/app.js`.
+There is no `app/` directory. Shared helpers are `window.App` (`Storage`, `Util`, `DOMAINS`, `FX`) in `js/app.js`.
 
 ## Current state
 
-`main` at `b22c35e5b1b947406cf6c820fb9bfea07cbb18fb` — merge of PR [#26](https://github.com/RTSII/ptcb26/pull/26).
+Service worker cache on this tip: `ptce-2026-v43`.
 
-That merge is the home HUD: Study Course as the large center panel, four offset peers (not a uniform grid), centered titles, icons, and the course action, and a composed Matrix rain (header fade, two depths, perspective floor). Service worker cache `ptce-2026-v34`.
+**Study Notes next step:** Terminal Codex overhaul is **planned only** — see `study_notes_v4_plan.md`. Do not start implementation until Rob says go. Course / Exam Matrix token adoption is later. Leave any local uncommitted `data/notes.json` WIP alone unless Rob asks.
+
+Key recent architecture and UI upgrades:
+- **Study Notes Codex v2 (baseline on main after notes-v3 merge)**:
+  - Interim dense-reading palette and five purpose-built clinical layouts; 3-zone notes header; bottom filter; `splitOutsideParens`; SW `?v=43` / `ptce-2026-v43`.
+  - v4 plan replaces slate-as-end-state with Matrix-cohesive Notes UI and trimmed search/nav chrome.
+- **Flashcard Tabbed Rolodex Index Card**:
+  - Physical index-card trigger with top file tab, stepped deck depth, spindle notch icon.
+- **Organic Circular Matrix Reactor Core**:
+  - Dashboard trigger as translucent circular reactor with center-point dimensioning.
+- **Matrix Red Pill / Blue Pill Brand Identity**:
+  - Dual-capsule icon (`38px × 32px`) across headers.
+- **Matrix Rain FX Refinement**:
+  - Cascading Katakana columns with lead highlights and depth fading.
+
 
 Bank on this commit:
 
@@ -127,6 +170,7 @@ Bank on this commit:
 
 Recent merges that got the UI here, newest first:
 
+- #28 Study Notes Codex v2 baseline + v3/v4 Terminal Codex plans (`v43`; Notes overhaul not started)
 - #26 home HUD asymmetry and Matrix rain craft (`v34`)
 - #24 Matrix home and progress dashboard
 - #25 / #23 lesson pages hug the viewport; short lessons no longer phantom-scroll
