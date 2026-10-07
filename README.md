@@ -48,15 +48,17 @@ Items that are off the 2026 core are optional course lessons or `featured: false
 
 ## Locked UI standards & Design Rubric
 
-These are locked design standards across the app. Follow this rubric for future project edits and new UI components:
+These are locked design standards across the app. Follow this rubric for future project edits and new UI components and templates.
 
-1. **Viewport as Frame (Zero-Scroll on Desktop)**:
-   - On desktop Chrome, the viewport is the frame (`100dvh`, `overflow: hidden`). Cards fill available space without phantom scrollbars.
-   - Kill excessive side gutters and dead whitespace; expand layouts tastefully (e.g. 1400px codex manual for Study Notes, full 12-column tactical HUD for Home).
+1. **Viewport fit (Chrome laptop)**:
+   - Content-hug cards. Dense only as needed. A card fills most or all of the Chrome viewport (at least ¾). Kill side and bottom dead space.
+   - Tight padding, including the card bottom and the buttons, out to the screen edge. Body type stays laptop-readable (no squint).
+   - Kill phantom overflow (a few pixels of scroll when content barely exceeds the viewport). Short pages never scroll.
+   - Real vertical scroll is OK only when dense content genuinely overflows.
 2. **Organic Shapes & Translucent Elements (Beyond Bento Rectangles)**:
    - Cards and action triggers are **not** restricted to standard rounded rectangles or rigid bento blocks.
    - Unique shapes (circular reactor consoles, chamfered obsidian pods, concentric targeting reticles) provide organic visual hierarchy.
-   - **Center-point dimensioning & organic padding**: Component boundaries are measured from the center point with even, generous negative space around them so the surrounding cards and background breathe.
+   - **Center-point dimensioning**: measure boundaries from the center, with even padding. Tightness follows viewport fit (#1).
    - **Selective translucency**: Not all cards need opaque solid fills. Interactive telemetry cores utilize translucent radial glass (`background: radial-gradient(...)` with `backdrop-filter: blur(...)`) to let animated Matrix code cascade visibly behind rotating rings.
 3. **Physical / Skeuomorphic Matrix Metaphors (e.g. Rolodex Index Cards)**:
    - Cards with physical counterparts (e.g. Flashcards) draw inspiration from tangible tools (the iconic rotating desktop Rolodex or the matrix operator contact directory).
@@ -80,22 +82,42 @@ These are locked design standards across the app. Follow this rubric for future 
    - Avoid forcing all study data into generic bullet points. Match the content structure to purpose-built layouts:
      - **Brand / Generic**: 2-up dual-column responsive data table with explicit column headers (`BRAND NAME` | `GENERIC NAME`).
      - **OTC Active Ingredients**: 3-column table (`OTC BRAND NAME` | `ACTIVE INGREDIENT` | `CLINICAL CLASS & KEY PEARLS`).
-     - **Abbreviations & Conversions**: Token grid cards with header legend (`ABBREVIATION` ➔ `CLINICAL TRANSLATION`).
+     - **Abbreviations & Conversions**: compact chart, list, or token grid with header legend (`ABBREVIATION` ➔ `CLINICAL TRANSLATION`).
      - **Clinical Specs & Schedules**: 2-column specifications table (`CLASSIFICATION / SCHEDULE` | `CLINICAL MECHANISMS & PEARLS`).
-     - **Procedures & Laws**: Clean dark slate briefing cards with `#01` index chips and bolded tags.
-8. **Search / filter without redundant chrome**:
-   - Remove instructional copy from page headers. Keep search reachable (rail footer and/or one bottom control). Trim duplicate search/filter/nav bars — one clear path.
+     - **Procedures & Laws**: Briefing cards with `#01` index chips and bolded tags, Matrix-cohesive with the page.
+8. **One control per job**:
+   - Remove instructional or descriptive filler above the content.
+   - Merge a duplicate nav or filter bar into the card it controls. Do not show "x of y" when a dropdown or indicator already shows position. No second prev/next set doing the same job in the same area.
+   - Combine and edit to cut redundancy and format tighter. This does not force everything into one card.
    - v4 Notes target: domain rail + topic stage; see `study_notes_v4_plan.md`.
+9. **Action row / button template**:
+   - One row: Back or Prev far left, primary (Start, center control, or dropdown) center, Next far right.
+   - Primary CTAs are centered in the card.
+   - Prefer icon-only prev/next where the meaning is obvious. Compact, consistent, on-theme. Same glyph style and size for the same action on every page.
+10. **Centering**:
+    - Card titles and card icons are center-aligned by default, not only the page-header center zone.
+11. **Accordions**:
+    - Default closed on page load. No auto-open, and do not restore an open state on load, unless Rob asks otherwise.
+12. **Visual aids**:
+    - Prefer in-code charts, tables, compact lists, and SVG that replace repeated prose and save space (conversions as a chart or list).
+    - Decorative AI art is deferred and is never a substitute.
+13. **UI work sequence**:
+    - Lock these standards, test on the Chrome laptop viewport, then extras.
+    - After any service-worker cache bump, unregister the service worker and clear site data before judging UI.
 
 ## Theme & Visual System
 
-- **Primary Theme: The Matrix**: Deep obsidian surfaces (`#010804`), emerald terminal greens (`#00ff41`), mint highlights (`#b6ffc9`), and flowing Japanese Katakana / hex character rain.
-- **Accents**: Vaporwave / Cyberpunk neon cyan (`#05d9e8` / `#38bdf8`) and vivid pink (`#ff2a6d`) used as subtle telemetry and indicator accents.
-- **Matrix Rain FX (`js/app.js`)**:
-  - Smooth vertical cascading columns of Japanese Katakana and code glyphs.
-  - Multi-depth layering: foreground bright green leads with white tips, background darker depth green.
-  - Smooth fade out towards the bottom; no static grid character overlays.
-  - Skips gracefully when `prefers-reduced-motion` is enabled.
+Matrix is primary on every surface. Home is the reference look.
+
+- **Blend by surface**: classic green rain, Neo-Zion industrial green, and Resurrections cleaner neon.
+- **Vaporwave is a light accent only** (icons, small glows). Never co-equal. Not glowy-everything. Flashy is OK only when the control is functional first.
+- **Surfaces**: obsidian (`#010804`), emerald (`#00ff41`), mint (`#b6ffc9`). Cyan (`#05d9e8` / `#38bdf8`) and pink (`#ff2a6d`) stay small accents.
+- **Cards over rain** may be less opaque so the background shows. Never at the cost of legibility.
+- **Shared tokens**: `css/matrix.css` is planned so Notes, Course, and Exam inherit Home. Not extracted yet.
+- **Matrix rain** (`js/app.js`): quality over density — fade, placement, angle, perspective, and depth, not more glyphs.
+  - Cascading Katakana and hex columns. Bright green leads with white tips; darker green behind.
+  - Smooth fade toward the bottom. No static grid overlays.
+  - Skip when `prefers-reduced-motion` is set.
 
 
 ## Run it
@@ -119,7 +141,7 @@ On `localhost`, `127.0.0.1`, and `::1`, `js/app.js` unregisters any service work
 
 ## Service worker
 
-`sw.js` cache name on this main: `ptce-2026-v43`.
+Cache name: see `sw.js`.
 
 - Install precaches the HTML, CSS, JS, JSON, manifest, and icon, then `skipWaiting()`.
 - Activate deletes every cache whose name is not the current one, then `clients.claim()`.
@@ -127,7 +149,7 @@ On `localhost`, `127.0.0.1`, and `::1`, `js/app.js` unregisters any service work
 - App shell (navigations, HTML, CSS, JS) is network-first, cache fallback if offline.
 - JSON and the other same-origin assets are cache-first.
 
-After a cache-name bump, unregister the service worker and clear site data. A hard refresh (`Ctrl + Shift + R`) bypasses disk cache using query-string cache busters (`?v=43`).
+After a cache-name bump, unregister the service worker and clear site data before judging UI. A hard refresh (`Ctrl + Shift + R`) bypasses disk cache. Asset URLs carry a query-string cache buster.
 
 ## Layout
 
@@ -144,13 +166,11 @@ There is no `app/` directory. Shared helpers are `window.App` (`Storage`, `Util`
 
 ## Current state
 
-Service worker cache on this tip: `ptce-2026-v43`.
-
-**Study Notes next step:** Terminal Codex is **planned only** — see `study_notes_v4_plan.md` (includes content audit: merge map, dups, 5 review flags). Live Notes still uses legacy `items` JSON; local uncommitted v2 `blocks` JSON stays WIP until runtime can read it. Do not start implementation until Rob says go. Course / Exam Matrix later.
+**Study Notes next step:** Terminal Codex is **planned only** — see `study_notes_v4_plan.md` (content audit: merge map, dups, 5 review flags). Live Notes still renders the committed legacy `items` JSON in `data/notes.json`. The local-only v2 `blocks` file must never be served in that path — the old runtime renders it empty. Keep it outside `data/` until the blocks runtime ships. Do not start implementation until Rob says go. Course / Exam Matrix later.
 
 Key recent architecture and UI upgrades:
 - **Study Notes Codex v2 (baseline on main after notes-v3 merge)**:
-  - Interim dense-reading palette and five purpose-built clinical layouts; 3-zone notes header; bottom filter; `splitOutsideParens`; SW `?v=43` / `ptce-2026-v43`.
+  - Interim dense-reading palette and five purpose-built clinical layouts; 3-zone notes header; bottom filter; `splitOutsideParens`.
   - v4 plan replaces slate-as-end-state with Matrix-cohesive Notes UI and trimmed search/nav chrome.
 - **Flashcard Tabbed Rolodex Index Card**:
   - Physical index-card trigger with top file tab, stepped deck depth, spindle notch icon.
@@ -170,7 +190,9 @@ Bank on this commit:
 
 Recent merges that got the UI here, newest first:
 
-- #28 Study Notes Codex v2 baseline + v3/v4 Terminal Codex plans (`v43`; Notes overhaul not started)
+- #30 plan-review gate; Google AI art deferred
+- #29 Notes v4 content audit docs
+- #28 Study Notes Codex v2 baseline + v3/v4 Terminal Codex plans (Notes overhaul not started)
 - #26 home HUD asymmetry and Matrix rain craft (`v34`)
 - #24 Matrix home and progress dashboard
 - #25 / #23 lesson pages hug the viewport; short lessons no longer phantom-scroll
