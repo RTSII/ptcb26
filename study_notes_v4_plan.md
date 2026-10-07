@@ -1,6 +1,6 @@
 # Study Notes v4: Terminal Codex Plan (ready handoff)
 
-**Status:** Once this is on `main`, these docs are the baseline for a **plan-review chat**. That chat edits plan/TODO only (including space-saving visual aids), opens a docs PR, and **stops**. Rob signs off that plan. The overhaul starts only after that explicit sign-off. Do **not** commit the local v2 `notes.json` until the runtime can read `blocks`. Google AI art stays future (end of the Notes backlog).  
+**Status:** Next work is content review, not the theme overhaul. Order is `TODO.md` → **Next up**: (1) Study Course content review, (2) Study Notes content review (includes the five fact flags), (3) Study Notes theme overhaul only after Rob signs off 1 and 2. The plan-review-chat-then-stop gate is superseded. Do **not** commit the local v2 `notes.json` until the blocks runtime ships with it in that overhaul PR. Google AI art stays future (end of the Notes backlog).  
 **Repo:** `Desktop\PTCB26` · tip on `main` after #28  
 **Supersedes:** `study_notes_v3_plan.md` (keep for architecture detail)  
 **Out of scope for now:** Course and Exam Matrix adoption (later). Google AI emblems / dosage-form art (future).  
@@ -15,8 +15,8 @@
 | 2 | Search / nav | **Trim redundant** search / filter / nav. |
 | 3 | Content shape | **Merge duplicate and misfiled notes** at content time (map below). |
 | 4 | Fact flags | Document candidates for **future review/test**. No silent fact changes. |
-| 5 | Workflow | Docs on `main` are the plan-review baseline. Next chat edits plan/TODO only, then **stops**. Overhaul starts only after Rob signs off that reviewed plan. Cloud agents + PRs; Rob OK to merge. |
-| 6 | Scope | **Notes only.** Course / Exam later. |
+| 5 | Workflow | **Next step:** `TODO.md` **Next up** — Course content review, then Notes content review, then the Notes theme overhaul only after Rob signs off both. The plan-review-chat-then-stop gate is superseded. Cloud agents + PRs; no merge without Rob's explicit approval. |
+| 6 | Scope | Notes theme overhaul stays **Notes-only**. Course **content** review is first (no UI). Course / Exam Matrix tokens stay later. |
 
 ---
 
@@ -28,7 +28,7 @@ Rob lost faith in the Claude/Devin visual-aid analysis. That plan leaned on deco
 |---|---|
 | Google AI image briefs | **Deferred** → clarify / future TODO. Emblem, waste-bin, and dosage-form specimen prompts (v3 §4) are **not** required to start the overhaul. The desktop Word doc that holds those prompts is **reference-only** until this clarify is resolved. Do not generate or wire `assets/notes` art as a start step. |
 | Prior optional art (v3 §4) | **Not trusted** as the visual-aid strategy. Do not treat those briefs as the plan for breaking up repeated prose. |
-| Fresh visual-aid pass | **Plan-review chat** (docs only, then stop): look for aids that actually break up repeated prose and save viewport space. Prefer in-code charts, lists, tables, and compact layouts over decorative PNGs. Example Rob named: the **Conversions** topic → a dense conversion chart / list (or SVG), not more text rows. Rob will point at more sections when he can; Claude started editing, so he could not screenshot the intended sections. Decorative Google AI art stays **future** — revive only after this strategy is locked. |
+| Fresh visual-aid pass | Part of the Notes theme overhaul (`TODO.md` **Next up** #3), after Course and Notes content sign-off — not a docs-only plan-review chat before that. Look for aids that actually break up repeated prose and save viewport space. Prefer in-code charts, lists, tables, and compact layouts over decorative PNGs. Example Rob named: the **Conversions** topic → a dense conversion chart / list (or SVG), not more text rows. Rob will point at more sections when he can; Claude started editing, so he could not screenshot the intended sections. Decorative Google AI art stays **future** — revive only after this strategy is locked. |
 
 ---
 
@@ -43,7 +43,7 @@ Rob lost faith in the Claude/Devin visual-aid analysis. That plan leaned on deco
 
 **Recommendation (docs-only now):** keep the v2 JSON as **local WIP only**. Do **not** merge it onto main yet — current `notes.js` counts `.items` and has **zero** `.blocks` support; swapping files would break Study Notes until the runtime rewrite ships.
 
-When implementation starts: ship runtime + v2 JSON together (or feature-flag), after Rob OK on flags/dedupe.
+When implementation starts (**Next up** #3 only): ship the blocks runtime and v2 JSON together in one PR, after Rob signs off Course and Notes content (steps 1 and 2).
 
 ### Section merge map (main 44 → v2 41)
 
@@ -133,41 +133,22 @@ Inline `flags` already in the local v2 JSON (4). Fifth is structural (insulin cu
 
 Unchanged intent from v3 §2 (rail + stage, fit paginator, shared `matrix.css`, schema-driven layouts). Palette: Matrix-cohesive; non-green accents OK for dense prose. Trim redundant search/nav.
 
-Execution sequence still v3 §3 (shared `matrix.css` → content schema → shell → runtime → in-code figures → styles → verify → docs) — **do not run until Rob signs off the plan-review chat.** Skip v3 §3 step 7 (optional Google AI art / `assets/notes`). That step stays **future**, not part of planning or the start gate.
+Execution sequence still v3 §3 (shared `matrix.css` → content schema → shell → runtime → in-code figures → styles → verify → docs) — **do not run until Rob signs off Study Course and Study Notes content reviews** (`TODO.md` **Next up** #1–#2). Skip v3 §3 step 7 (optional Google AI art / `assets/notes`). That step stays **future**, not part of planning or the start gate.
 
-Space-saving visual aids (charts/lists/tables; Conversions first) are refined in the **plan-review chat**, in docs only. Google AI image briefs (v3 §4) stay at the end / future. Do not burn cycles on emblems, waste bins, or dosage-form specimen prompts. Revive decorative art only after the space-saving strategy is locked.
+Space-saving visual aids (charts/lists/tables; Conversions first) are part of the theme overhaul (**Next up** #3), after those content sign-offs. Google AI image briefs (v3 §4) stay at the end / future. Do not burn cycles on emblems, waste bins, or dosage-form specimen prompts. Revive decorative art only after the space-saving strategy is locked.
 
 ---
 
-## Handoff prompt (paste into the plan-review chat)
+## Handoff
 
 ```text
-PTCB26 Study Notes — Terminal Codex (v4 plan). PLAN REVIEW ONLY.
+PTCB26 — next work follows TODO.md "Next up (in order)". The plan-review-chat-then-STOP gate is superseded.
 
-Docs on main are the baseline. You are the plan-review chat, not the overhaul.
+1. Study Course content review — content only. Audit against the Jan 2026 PTCE outline (Medications 35%, Patient Safety 23.75%, Order Entry 22.50%, Federal 18.75%). Facts correct and current; nothing on-exam missing, incomplete, duplicated, or outdated/off-exam. Audit list with sources. Rob signs off (factual + complete) before any edits. No UI/theme changes.
+2. Study Notes content review — same audit (duplicate, incomplete, missing, incorrect; gaps covered/fixed). Includes the five fact flags in study_notes_v4_plan.md plus whether Levemir (detemir) is still US-marketed. Known dup: Insulin Types repeats rapid-acting, long-acting, and storage lines. Rob signs off before edits.
+3. Study Notes theme overhaul (Terminal Codex / Matrix per UI_STANDARDS.md and study_notes_v4_plan.md) only after 1 and 2 are signed off. One PR: blocks runtime + v2 notes.json together. Keep v2 notes.json outside data/ until that PR.
 
-Read study_notes_v4_plan.md end-to-end (content audit, flags, runtime gate, 2026-10-07 visual-aid clarify). History: study_notes_v3_plan.md. Live backlog: TODO.md Study Notes section.
-
-THIS CHAT:
-- Edit plan docs and TODO only.
-- Refine the overhaul plan, including space-saving visual aids (Conversions → dense chart/list or SVG; Rob will point at more sections).
-- Commit, push, and open a draft docs PR.
-- STOP. Do not start the overhaul. Do not commit v2 notes.json. Do not touch js, css, html, or the service worker.
-
-LOCKED:
-- Matrix-cohesive Notes UI (retire slate-as-end-state). Non-green accents OK for dense reading.
-- Trim redundant search/filter/nav.
-- Notes-only. Course/Exam later.
-- Live main notes.json = legacy items[]. Local uncommitted notes.json = version 2 blocks schema (deduped draft). Do NOT commit v2 JSON until runtime supports blocks — and only after Rob signs off the reviewed plan.
-- Five candidate fact flags in v4 plan: review/test later; no silent clinical edits.
-- Code via Cursor cloud agents + draft PRs. No merge without Rob OK.
-- UI seed: Back L / center CTA / Next R; content-hug Chrome; center titles/icons; Matrix primary.
-- Google AI art stays future (end of TODO). Do not burn cycles on emblems, waste-bin art, or dosage-form specimen prompts. v3 §4 optional art is not trusted. Desktop Word prompt doc is reference-only. Revive decorative art only after the space-saving visual-aid strategy is locked.
-
-WORKFLOW:
-1. This chat plans and updates docs only, then stops.
-2. Rob signs off the reviewed plan.
-3. Overhaul starts only after that explicit sign-off: matrix.css → runtime blocks renderers → then commit v2 notes.json (after flag decisions). Draft PR; North Chrome verify. Still no Google AI art.
+Rules: review, then sign-off, then edits. One domain per PR where practical. No silent clinical fact edits. No merge without Rob's explicit approval.
 ```
 
 ---
@@ -178,9 +159,8 @@ WORKFLOW:
 - [x] v4 plan + content audit (merge map, dups, flags)
 - [x] #28 on main (Codex v2 baseline + plans)
 - [x] Google AI art demoted to future; space-saving visual-aid clarify recorded (2026-10-07)
-- [ ] These docs on `main` — baseline for the plan-review chat
-- [ ] Plan-review chat: edit plan/TODO only (incl. space-saving visual aids), docs PR, then STOP
-- [ ] Rob signs off that reviewed plan
-- [ ] Overhaul starts only after that explicit sign-off
-- [ ] v2 `notes.json` committed only with runtime that reads `blocks`
-- [ ] Google AI art remains future (not a plan-review or start step)
+- [ ] Study Course content review + Rob sign-off before edits (`TODO.md` **Next up** #1)
+- [ ] Study Notes content review + Rob sign-off before edits, including the five flags (`TODO.md` **Next up** #2)
+- [ ] Theme overhaul only after those content sign-offs (`TODO.md` **Next up** #3)
+- [ ] v2 `notes.json` committed only with the blocks runtime, in that overhaul PR
+- [ ] Google AI art remains future (not a start step)
