@@ -146,7 +146,7 @@ There is no `app/` directory. Shared helpers are `window.App` (`Storage`, `Util`
 
 Service worker cache on this tip: `ptce-2026-v43`.
 
-**Study Notes next step:** Terminal Codex overhaul is **planned only** — see `study_notes_v4_plan.md`. Do not start implementation until Rob says go. Course / Exam Matrix token adoption is later. Leave any local uncommitted `data/notes.json` WIP alone unless Rob asks.
+**Study Notes next step:** Terminal Codex is **planned only** — see `study_notes_v4_plan.md` (includes content audit: merge map, dups, 5 review flags). Live Notes still uses legacy `items` JSON; local uncommitted v2 `blocks` JSON stays WIP until runtime can read it. Do not start implementation until Rob says go. Course / Exam Matrix later.
 
 Key recent architecture and UI upgrades:
 - **Study Notes Codex v2 (baseline on main after notes-v3 merge)**:
