@@ -163,13 +163,15 @@ body.notes .nx-container {
   width: min(1400px, calc(100% - 32px));
   max-width: 1400px;
   margin: 0 auto;
-  padding: 24px 0 120px;
+  padding: 10vh 0 16px;
+  transition: padding-top 0.4s ease;
 }
 
 .nx-notes-area {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
+  transition: gap 0.4s ease;
 }
 
 /* Domain Accordion Card */
@@ -187,18 +189,20 @@ body.notes .nx-container {
 }
 
 /* Domain Header Button */
-button.nx-domain-header {
+.nx-domain-header {
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(13.5rem, 1fr) minmax(0, max-content) minmax(13.5rem, 1fr);
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 16px 20px;
+  column-gap: 10px;
+  padding: 12px 16px;
   background: linear-gradient(90deg, rgba(14, 22, 34, 0.95), rgba(9, 15, 23, 0.95));
   border: none;
   border-bottom: 1px solid transparent;
-  cursor: pointer;
   text-align: left;
+}
+button.nx-domain-header {
+  cursor: pointer;
   transition: background 0.2s ease, border-color 0.2s ease;
 }
 .nx-domain-open > .nx-domain-header {
@@ -210,10 +214,11 @@ button.nx-domain-header:hover {
 }
 
 .nx-domain-header-left {
+  justify-self: start;
   display: flex;
   align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 0;
 }
 .nx-domain-pill {
   font-family: var(--nx-font-mono);
@@ -237,19 +242,28 @@ button.nx-domain-header:hover {
   border-radius: 4px;
 }
 .nx-domain-name {
+  justify-self: center;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
   font-family: var(--nx-font-display);
-  font-size: 1.15rem;
+  font-size: clamp(1.02rem, 1.45vw, 1.2rem);
   font-weight: 700;
   letter-spacing: 0.04em;
+  line-height: 1.2;
   color: #ffffff;
-  margin: 0;
 }
 
 .nx-domain-header-right {
+  justify-self: end;
   display: flex;
   align-items: center;
-  gap: 14px;
-  flex-shrink: 0;
+  gap: 10px;
+  min-width: 0;
 }
 .nx-topic-count-badge {
   font-family: var(--nx-font-mono);
@@ -282,10 +296,10 @@ button.nx-domain-header:hover {
 
 /* Domain Body Area */
 .nx-domain-body {
-  padding: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 10px;
   background: rgba(7, 12, 19, 0.7);
 }
 .nx-domain-summary-card {
@@ -304,29 +318,46 @@ button.nx-domain-header:hover {
 /* ==========================================================================
    3. TOPIC NAVIGATION (Pagers & Dropdown Selector)
    ========================================================================== */
+.nx-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Prev far left, center control, next far right. Lives inside the topic card. */
 .nx-topic-nav {
-  display: flex;
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 36px;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 10px 14px;
-  background: var(--nx-surface-2);
-  border: 1px solid var(--nx-border-silver);
-  border-radius: 8px;
+  column-gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border: none;
 }
 .nx-nav-btn {
-  padding: 8px 16px;
-  font-family: var(--nx-font-mono);
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: var(--nx-text-primary);
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  color: var(--nx-matrix-cyan);
   background: rgba(20, 31, 47, 0.9);
   border: 1px solid var(--nx-border-silver);
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+.nx-nav-btn svg {
+  width: 20px;
+  height: 20px;
+  display: block;
 }
 .nx-nav-btn:hover:not(:disabled) {
   background: rgba(28, 44, 66, 1);
@@ -334,39 +365,35 @@ button.nx-domain-header:hover {
   color: #fff;
   box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
 }
+.nx-nav-btn:focus-visible {
+  outline: 2px solid var(--nx-matrix-cyan);
+  outline-offset: 2px;
+}
 .nx-nav-btn:disabled {
   opacity: 0.35;
   cursor: not-allowed;
   border-color: transparent;
   background: rgba(14, 22, 34, 0.4);
+  box-shadow: none;
 }
 
 .nx-nav-center {
-  flex: 1;
-  max-width: 520px;
-}
-.nx-select-label {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  min-width: 0;
   width: 100%;
 }
-.nx-topic-counter {
-  font-family: var(--nx-font-mono);
-  font-size: 0.78rem;
-  color: var(--nx-text-muted);
-  white-space: nowrap;
-}
-.nx-topic-counter strong {
-  color: var(--nx-matrix-cyan);
-}
 .nx-topic-select {
-  flex: 1;
+  width: min(40rem, 100%);
   padding: 7px 12px;
   font-family: var(--nx-font-display);
-  font-size: 0.88rem;
+  font-size: 1rem;
   font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+  text-align-last: center;
   color: #ffffff;
   background: #090f17;
   border: 1px solid var(--nx-border-silver);
@@ -390,34 +417,15 @@ button.nx-domain-header:hover {
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
-.nx-topic-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 16px 20px;
-  background: linear-gradient(90deg, rgba(20, 31, 47, 0.95), rgba(15, 24, 38, 0.95));
+.nx-topic-card-top {
+  padding: 10px 12px;
+  background: linear-gradient(180deg, rgba(20, 31, 47, 0.95), rgba(15, 24, 38, 0.72));
   border-bottom: 1px solid var(--nx-border-silver);
 }
-.nx-topic-lead {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.nx-topic-tag {
-  font-family: var(--nx-font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
-  color: var(--nx-matrix-cyan);
-  text-transform: uppercase;
-}
-.nx-topic-title {
-  font-family: var(--nx-font-display);
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: #ffffff;
-  margin: 0;
+.nx-topic-nav-bottom {
+  padding: 8px 12px;
+  border-top: 1px solid var(--nx-border-hairline);
+  background: rgba(8, 14, 22, 0.55);
 }
 .nx-item-count-chip {
   font-family: var(--nx-font-mono);
@@ -430,7 +438,7 @@ button.nx-domain-header:hover {
   color: var(--nx-text-secondary);
 }
 .nx-topic-content {
-  padding: 20px;
+  padding: 14px 16px;
 }
 
 /* ==========================================================================
@@ -684,13 +692,13 @@ button.nx-domain-header:hover {
    6. SEARCH FILTER BAR CENTERED AT BOTTOM
    ========================================================================== */
 .nx-bottom-filter-wrap {
-  margin-top: 32px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 20px 0 10px;
+  gap: 0;
+  padding: 0;
 }
 
 .nx-bottom-filter {
@@ -750,13 +758,6 @@ button.nx-domain-header:hover {
 .nx-search-clear:hover {
   background: rgba(244, 63, 94, 0.3);
   color: #fff;
-}
-
-.nx-filter-hint {
-  font-family: var(--nx-font-mono);
-  font-size: 0.75rem;
-  color: var(--nx-text-faint);
-  letter-spacing: 0.06em;
 }
 
 /* Search Results Presentation */
@@ -903,15 +904,138 @@ mark.note-highlight {
   body.notes .nx-header-title {
     font-size: 1.1rem;
   }
-  .nx-topic-nav {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .nx-select-label {
-    flex-direction: column;
-    align-items: stretch;
-  }
   .nx-bottom-filter {
     width: 95%;
+  }
+  .nx-domain-header {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1fr);
+    column-gap: 8px;
+    padding: 10px 12px;
+  }
+  .nx-domain-name,
+  .nx-topic-count-badge,
+  .nx-matched-pill {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+/* Open domain: slim domain chips under the page header, then the active
+   header and a topic card that fills the rest of the viewport. */
+.nx-domain-switch {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 34px;
+  margin: 0;
+}
+.nx-domain-chip {
+  height: 28px;
+  margin: 0;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--nx-font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--nx-text-secondary);
+  background: rgba(14, 22, 34, 0.85);
+  border: 1px solid var(--nx-border-silver);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.nx-domain-chip:hover:not(:disabled) {
+  color: #fff;
+  border-color: var(--nx-matrix-cyan);
+  background: rgba(20, 31, 47, 0.95);
+}
+.nx-domain-chip:focus-visible {
+  outline: 2px solid var(--nx-matrix-cyan);
+  outline-offset: 2px;
+}
+.nx-domain-chip.is-active,
+.nx-domain-chip.is-active:disabled {
+  opacity: 1;
+  cursor: default;
+  color: #fff;
+  border-color: var(--nx-matrix-cyan);
+  background: rgba(56, 189, 248, 0.18);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+}
+
+body.notes.nx-reading {
+  height: 100dvh;
+  max-height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+body.notes.nx-reading .nx-header {
+  flex: 0 0 auto;
+}
+body.notes.nx-reading .nx-container {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+body.notes.nx-reading .nx-notes-area {
+  flex: 1 1 auto;
+  min-height: 0;
+  gap: 6px;
+  overflow: hidden;
+}
+body.notes.nx-reading .nx-domain-card.nx-domain-open {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+body.notes.nx-reading .nx-domain-open > .nx-domain-header {
+  flex: 0 0 auto;
+}
+body.notes.nx-reading .nx-domain-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  padding: 6px;
+}
+body.notes.nx-reading .nx-topic-card {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+body.notes.nx-reading .nx-topic-card-top,
+body.notes.nx-reading .nx-topic-nav-bottom {
+  flex: 0 0 auto;
+}
+body.notes.nx-reading .nx-topic-content {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+body.notes.nx-reading .nx-bottom-filter-wrap {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.notes .nx-container,
+  .nx-notes-area {
+    transition: none;
   }
 }

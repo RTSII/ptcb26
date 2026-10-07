@@ -6,7 +6,6 @@
   const area = Util.el('#notesArea');
   const searchInput = Util.el('#notesSearch');
   const searchClearBtn = Util.el('#notesSearchClear');
-  const searchHint = Util.el('#notesFilterHint');
 
   let loadedDomains = [];
   // Active topic index per domain (0-indexed)
@@ -385,42 +384,58 @@
     }
   }
 
-  // Build Pagination & Quick Jump Bar
-  function renderTopicNavigation(domainIdx, currentIdx, totalTopics, sections) {
+  const ICON_PREV = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.5 5.25 8 12l6.5 6.75" fill="none" stroke="currentColor" stroke-width="2.35" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const ICON_NEXT = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.5 5.25 16 12l-6.5 6.75" fill="none" stroke="currentColor" stroke-width="2.35" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  function renderNavButton(action, domainIdx, enabled) {
+    const isPrev = action === 'prev';
+    return `<button type="button" class="nx-nav-btn nx-btn-${isPrev ? 'prev' : 'next'}" data-action="${action}" data-domain="${domainIdx}" ${enabled ? '' : 'disabled'} aria-label="${isPrev ? 'Previous topic' : 'Next topic'}">${isPrev ? ICON_PREV : ICON_NEXT}</button>`;
+  }
+
+  // Top row: icon prev, centered topic menu, icon next.
+  // Bottom row: the same icons with the point count in the center (no "x of y", no second menu).
+  function renderTopicNavigation(domainIdx, currentIdx, totalTopics, sections, placement, pointCount) {
     const hasPrev = currentIdx > 0;
     const hasNext = currentIdx < totalTopics - 1;
+    const prev = renderNavButton('prev', domainIdx, hasPrev);
+    const next = renderNavButton('next', domainIdx, hasNext);
 
-    const options = sections.map((sec, idx) => {
-      const isSelected = idx === currentIdx ? 'selected' : '';
-      return `<option value="${idx}" ${isSelected}>Topic ${idx + 1} of ${totalTopics}: ${esc(sec.title)}</option>`;
-    }).join('');
+    let center;
+    if (placement === 'bottom') {
+      const n = pointCount || 0;
+      const label = n === 1 ? '1 Point' : `${n} Points`;
+      center = `<div class="nx-nav-center"><span class="nx-item-count-chip">${label}</span></div>`;
+    } else {
+      const options = sections.map((sec, idx) => {
+        const isSelected = idx === currentIdx ? 'selected' : '';
+        return `<option value="${idx}" ${isSelected}>${esc(sec.title)}</option>`;
+      }).join('');
+      center = `
+        <div class="nx-nav-center">
+          <label class="nx-sr" for="nxTopicSelect_${domainIdx}">Topic</label>
+          <select id="nxTopicSelect_${domainIdx}" class="nx-topic-select" data-action="jump" data-domain="${domainIdx}">
+            ${options}
+          </select>
+        </div>`;
+    }
 
     return `
-      <div class="nx-topic-nav" data-domain-nav="${domainIdx}">
-        <div class="nx-nav-left">
-          <button type="button" class="nx-nav-btn nx-btn-prev" data-action="prev" data-domain="${domainIdx}" ${hasPrev ? '' : 'disabled'} aria-label="Previous Topic">
-            ‹ Prev Topic
-          </button>
-        </div>
-        <div class="nx-nav-center">
-          <label class="nx-select-label" for="nxTopicSelect_${domainIdx}">
-            <span class="nx-topic-counter">Topic <strong>${currentIdx + 1}</strong> of ${totalTopics}</span>
-            <select id="nxTopicSelect_${domainIdx}" class="nx-topic-select" data-action="jump" data-domain="${domainIdx}">
-              ${options}
-            </select>
-          </label>
-        </div>
-        <div class="nx-nav-right">
-          <button type="button" class="nx-nav-btn nx-btn-next" data-action="next" data-domain="${domainIdx}" ${hasNext ? '' : 'disabled'} aria-label="Next Topic">
-            Next Topic ›
-          </button>
-        </div>
+      <div class="nx-topic-nav nx-topic-nav-${placement}" data-domain-nav="${domainIdx}">
+        ${prev}
+        ${center}
+        ${next}
       </div>
     `;
   }
 
+  function syncStage(filterText) {
+    const reading = !String(filterText || '').trim() && openDomainIndex !== -1;
+    document.body.classList.toggle('nx-reading', reading);
+  }
+
   // Master Render Function
   function render(domains, filterText = '') {
+    syncStage(filterText);
     if (!domains || !domains.length) {
       area.innerHTML = '<p class="nx-empty-notice">No clinical notes archives found.</p>';
       return;
@@ -473,8 +488,8 @@
               <div class="nx-domain-header-left">
                 <span class="nx-domain-pill">DOMAIN ${di + 1}</span>
                 <span class="nx-weight-badge">${esc(d.weight || '')}</span>
-                <h2 class="nx-domain-name">${highlightTerm(esc(d.domain), term)}</h2>
               </div>
+              <h2 class="nx-domain-name">${highlightTerm(esc(d.domain), term)}</h2>
               <div class="nx-domain-header-right">
                 <span class="nx-matched-pill">${matchingSections.length} MATCHING TOPICS</span>
               </div>
@@ -516,8 +531,18 @@
       return;
     }
 
-    // 2. NORMAL ACCORDION MODE: Mutually exclusive domain accordion
-    area.innerHTML = domains.map((d, di) => {
+    // 2. NORMAL ACCORDION MODE: Mutually exclusive domain accordion.
+    // An open domain is rendered first so its header sits under the page header
+    // and the other closed headers follow its card.
+    const chipRow = `
+      <div class="nx-domain-switch" role="group" aria-label="Switch domain">
+        ${domains.map((d, di) => {
+          const active = di === openDomainIndex;
+          return `<button type="button" class="nx-domain-chip${active ? ' is-active' : ''}" data-domain-switch="${di}" ${active ? 'disabled aria-current="true"' : ''} aria-label="${esc(d.domain)}, ${esc(d.weight || '')}">D${di + 1} ${esc(d.weight || '')}</button>`;
+        }).join('')}
+      </div>`;
+
+    const cards = domains.map((d, di) => {
       const isOpen = di === openDomainIndex;
       const sections = d.sections || [];
       const totalSections = sections.length;
@@ -531,53 +556,56 @@
       return `
         <div class="nx-domain-card ${isOpen ? 'nx-domain-open' : 'nx-domain-closed'}" data-domain-card="${di}">
           <button type="button" class="nx-domain-header" data-domain-toggle="${di}" aria-expanded="${isOpen}">
-            <div class="nx-domain-header-left">
+            <span class="nx-domain-header-left">
               <span class="nx-domain-pill">DOMAIN ${di + 1}</span>
               <span class="nx-weight-badge">${esc(d.weight || '')}</span>
-              <h2 class="nx-domain-name">${esc(d.domain)}</h2>
-            </div>
-            <div class="nx-domain-header-right">
+            </span>
+            <h2 class="nx-domain-name">${esc(d.domain)}</h2>
+            <span class="nx-domain-header-right">
               <span class="nx-topic-count-badge">${totalSections} Clinical Topics</span>
               <span class="nx-chevron-icon" aria-hidden="true">${isOpen ? '▲' : '▼'}</span>
-            </div>
+            </span>
           </button>
 
           ${isOpen ? `
             <div class="nx-domain-body">
-              ${d.summary ? `<div class="nx-domain-summary-card"><p>${esc(d.summary)}</p></div>` : ''}
-
-              <!-- Top Navigation Controls -->
-              ${renderTopicNavigation(di, currentTopicIdx, totalSections, sections)}
-
-              <!-- Main Topic Display -->
-              <section class="nx-topic-card" aria-label="Topic ${currentTopicIdx + 1}: ${esc(activeSection.title)}">
-                <div class="nx-topic-header">
-                  <div class="nx-topic-lead">
-                    <span class="nx-topic-tag">TOPIC ${currentTopicIdx + 1} OF ${totalSections}</span>
-                    <h3 class="nx-topic-title">${esc(activeSection.title)}</h3>
-                  </div>
-                  <div class="nx-topic-meta">
-                    <span class="nx-item-count-chip">${(activeSection.items || []).length} Points</span>
-                  </div>
+              <section class="nx-topic-card" aria-label="${esc(d.domain)}: ${esc(activeSection.title)}">
+                <div class="nx-topic-card-top">
+                  ${renderTopicNavigation(di, currentTopicIdx, totalSections, sections, 'top')}
                 </div>
 
                 <div class="nx-topic-content">
                   ${renderSectionContent(activeSection, '')}
                 </div>
-              </section>
 
-              <!-- Bottom Navigation Controls -->
-              ${renderTopicNavigation(di, currentTopicIdx, totalSections, sections)}
+                ${renderTopicNavigation(di, currentTopicIdx, totalSections, sections, 'bottom', (activeSection.items || []).length)}
+              </section>
             </div>
           ` : ''}
         </div>
       `;
-    }).join('');
+    });
+    if (openDomainIndex >= 0 && openDomainIndex < cards.length) {
+      area.innerHTML = chipRow + cards[openDomainIndex];
+    } else {
+      area.innerHTML = cards.join('');
+    }
   }
 
   // Event Delegation for Accordion Toggles and Topic Pagers
   area.addEventListener('click', function (e) {
-    // 1. Accordion Toggle
+    // 1. Slim domain switcher (open state only). Does not close the active domain.
+    const switchBtn = e.target.closest('[data-domain-switch]');
+    if (switchBtn && !switchBtn.disabled) {
+      const idx = parseInt(switchBtn.getAttribute('data-domain-switch'), 10);
+      if (!isNaN(idx) && idx !== openDomainIndex) {
+        openDomainIndex = idx;
+        render(loadedDomains, searchInput ? searchInput.value : '');
+      }
+      return;
+    }
+
+    // 2. Accordion Toggle
     const toggleBtn = e.target.closest('[data-domain-toggle]');
     if (toggleBtn) {
       const idx = parseInt(toggleBtn.getAttribute('data-domain-toggle'), 10);
@@ -585,13 +613,6 @@
         // Mutually exclusive: if clicking the currently open domain, close it; else open clicked domain
         openDomainIndex = (openDomainIndex === idx) ? -1 : idx;
         render(loadedDomains, searchInput ? searchInput.value : '');
-        // Smoothly bring the active domain header into view if opened
-        if (openDomainIndex !== -1) {
-          const cardEl = Util.el(`[data-domain-card="${openDomainIndex}"]`);
-          if (cardEl) {
-            cardEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }
-        }
       }
       return;
     }
@@ -614,10 +635,8 @@
       }
 
       render(loadedDomains, searchInput ? searchInput.value : '');
-      const topicCard = Util.el(`[data-domain-card="${domainIdx}"] .nx-topic-card`);
-      if (topicCard) {
-        topicCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      const topicContent = Util.el(`[data-domain-card="${domainIdx}"] .nx-topic-content`);
+      if (topicContent) topicContent.scrollTop = 0;
     }
   });
 
@@ -630,10 +649,8 @@
       if (!isNaN(domainIdx) && !isNaN(targetIdx)) {
         activeTopic[domainIdx] = targetIdx;
         render(loadedDomains, searchInput ? searchInput.value : '');
-        const topicCard = Util.el(`[data-domain-card="${domainIdx}"] .nx-topic-card`);
-        if (topicCard) {
-          topicCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        const topicContent = Util.el(`[data-domain-card="${domainIdx}"] .nx-topic-content`);
+        if (topicContent) topicContent.scrollTop = 0;
       }
     }
   });
@@ -675,8 +692,8 @@
       loadedDomains.forEach((_, idx) => {
         activeTopic[idx] = 0;
       });
-      // Start with Domain 1 open by default so the user immediately sees content
-      openDomainIndex = 0;
+      // Every accordion starts closed. Do not restore a previous open domain.
+      openDomainIndex = -1;
       render(loadedDomains, '');
     })
     .catch(err => {
