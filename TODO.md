@@ -36,7 +36,7 @@ Superseded by the block above (do not follow these):
 - [x] Study Notes Codex v2 baseline (3-zone header, layouts, parenthesis-safe parsing)
 - [x] Cascading Katakana Matrix rain FX (depth layers, white lead tips, no static grid floor overlays)
 - [x] Service worker & cache-busting query system (`?v=49`, `ptce-2026-v49`)
-- [x] Study Course home layout: accordions closed on load, title in the centered header, narrow idle list, open card full viewport (`ptce-2026-v49`)
+- [x] Study Course home: chapters closed on load, title in the centered header, chapter titles centered (`ptce-2026-v49`)
 - [ ] Notes palette: Matrix-cohesive (retire slate-as-end-state) per `study_notes_v4_plan.md`
 - [ ] Trim redundant Notes search/filter/nav chrome
 - [ ] Shared `matrix.css` tokens — `UI_STANDARDS.md` documents the UI templates; extraction stays open

@@ -1130,44 +1130,28 @@ select option { background: var(--bg2); }
   margin-bottom: 8px;
 }
 
-.module { margin-bottom: 0; }
-button.module-header {
-  width: 100%;
-  display: grid;
-  grid-template-columns: minmax(5.5rem, 1fr) minmax(0, 2.6fr) minmax(5.5rem, 1fr);
-  align-items: center;
-  column-gap: 10px;
+.module { margin-bottom: 14px; }
+.module summary {
   cursor: pointer;
-  appearance: none;
+  list-style: none;
   background: linear-gradient(135deg, rgba(24, 5, 56, 0.95), rgba(10, 2, 33, 0.95));
   color: var(--ink);
-  padding: 14px 16px;
+  padding: 16px;
   border: 1px solid rgba(5, 217, 232, 0.35);
   border-radius: var(--radius);
-  font: inherit;
-  text-align: left;
+  display: grid;
+  grid-template-columns: minmax(4.25rem, 1fr) minmax(0, 2.4fr) minmax(4.25rem, 1fr);
+  align-items: center;
+  column-gap: 10px;
   transition: box-shadow 0.15s ease;
 }
-button.module-header:hover { box-shadow: var(--glow-cyan); }
-button.module-header:focus-visible {
-  outline: 2px solid var(--cyan);
-  outline-offset: 2px;
-}
-.module-open > .module-header {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  border-bottom-color: transparent;
-}
-.module.module-complete > .module-header { border-color: rgba(0, 255, 65, 0.55); box-shadow: var(--glow-green); }
-.module-header-left { justify-self: start; min-width: 0; }
-.module-header-right {
-  justify-self: end;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-width: 0;
-}
+.module summary:hover { box-shadow: var(--glow-cyan); }
+.module summary::-webkit-details-marker { display: none; }
+.module summary::marker { content: ""; }
+.module[open] summary { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom-color: transparent; }
+.module.module-complete summary { border-color: rgba(0, 255, 65, 0.55); box-shadow: var(--glow-green); }
 .module-pill {
+  justify-self: start;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.06em;
@@ -1189,12 +1173,8 @@ button.module-header:focus-visible {
   line-height: 1.25;
   color: var(--ink);
 }
-.module-chevron {
-  font-size: 0.72rem;
-  color: var(--cyan);
-  line-height: 1;
-}
 .module-meta {
+  justify-self: end;
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: var(--green);
@@ -1211,6 +1191,7 @@ button.module-header:focus-visible {
   border-bottom-right-radius: var(--radius);
   padding: 16px;
 }
+.module-desc { font-size: 0.92rem; color: var(--ink-dim); margin-bottom: 12px; font-style: italic; }
 .module-bar { margin-bottom: 14px; }
 .lesson-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
 .lesson-link {
@@ -1301,143 +1282,10 @@ body.course .header-icon {
 }
 body.course.lesson-open .course-header-title { display: none; }
 
-/* Idle list keeps the original 720px column. The open chapter widens below. */
-body.course:not(.lesson-open):not(.course-reading) .container {
-  width: 100%;
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 8px 16px 12px;
-  transition: padding-top 0.4s ease;
-}
-body.course:not(.lesson-open):not(.course-reading) #courseList {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-body.course:not(.course-reading) .course-overall {
-  margin-bottom: 0;
-  padding: 10px 14px;
-}
-body.course:not(.course-reading) button.module-header {
-  padding: 8px 12px;
-}
-
-.course-switch {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  height: 34px;
-  margin: 0;
-  max-width: 100%;
-}
-.course-chip {
-  height: 28px;
-  margin: 0;
-  padding: 0 10px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
-  line-height: 1;
-  white-space: nowrap;
-  color: var(--ink);
-  background: rgba(10, 2, 33, 0.85);
-  border: 1px solid rgba(5, 217, 232, 0.4);
-  border-radius: 999px;
-  cursor: pointer;
-}
-.course-chip-gap { margin-left: 12px; }
-.course-chip:hover:not(:disabled) {
-  color: #fff;
-  border-color: var(--cyan);
-  box-shadow: var(--glow-cyan);
-}
-.course-chip:focus-visible {
-  outline: 2px solid var(--cyan);
-  outline-offset: 2px;
-}
-.course-chip.is-active,
-.course-chip.is-active:disabled {
-  opacity: 1;
-  cursor: default;
-  color: #fff;
-  border-color: var(--cyan);
-  background: rgba(5, 217, 232, 0.16);
-  box-shadow: var(--glow-cyan);
-}
-
-body.course.course-reading {
-  height: 100dvh;
-  max-height: 100dvh;
-  min-height: 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-html:has(body.course.course-reading) {
-  height: 100%;
-  overflow: hidden;
-}
-body.course.course-reading .app-header {
-  flex: 0 0 auto;
-  position: static;
-}
-body.course.course-reading .container {
-  width: min(1400px, calc(100% - 32px));
-  max-width: 1400px;
-  margin: 0 auto;
-  flex: 1 1 auto;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  overflow: hidden;
-}
-body.course.course-reading #courseListWrap,
-body.course.course-reading #courseList {
-  flex: 1 1 auto;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-body.course.course-reading #courseList { gap: 6px; }
-body.course.course-reading .module.module-open {
-  flex: 1 1 auto;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-body.course.course-reading .module-open > .module-header { flex: 0 0 auto; }
-body.course.course-reading .module-body {
-  flex: 1 1 auto;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-body.course.course-reading .module-scroll {
-  flex: 1 1 auto;
-  min-height: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-}
-body.course.course-reading .module-quiz {
-  flex: 0 0 auto;
-  margin-top: 12px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  body.course:not(.lesson-open):not(.course-reading) .container {
-    transition: none;
-  }
+/* Small gap under the header. Not 10vh — twelve cards already scroll. */
+body.course:not(.lesson-open) .container {
+  padding-top: 20px;
+  padding-bottom: 16px;
 }
 
 /* Lesson reader. Width and nav live on the individual lesson view only

@@ -16,8 +16,6 @@
   let lessonIndex = new Map(); // lessonId -> { module, lesson, flatIndex }
   let flatLessons = [];        // [{module, lesson}] in course order
   let currentFlat = 0;
-  // Chapter accordions always start closed. Do not restore a previous open card.
-  let openModuleIndex = -1;
 
   function esc(s) { return Util.escapeHtml(String(s)); }
 
@@ -67,7 +65,6 @@
     return 'quiz.html?mode=chapter&domain=' + encodeURIComponent(q.domain) + '&count=' + (q.count || 10);
   }
 
-  // D1·1 … D4·3 in course order. Domain numbers follow first appearance.
   function moduleLabels(modules) {
     const seen = [];
     const counts = {};
@@ -78,96 +75,51 @@
     });
   }
 
-  function chipText(label) {
-    return 'D' + label.domainNum + '·' + label.chapter;
-  }
-
-  function syncStage() {
-    const reading = openModuleIndex !== -1 && !document.body.classList.contains('lesson-open');
-    document.body.classList.toggle('course-reading', reading);
-  }
-
-  function pinTop() {
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-  }
-
-  function moduleCardHtml(m, mi, label, isOpen, done) {
-    const featured = featuredOf(m.lessons);
-    const optional = m.lessons.filter(isOptional);
-    const completed = featured.filter(function (l) { return done.has(l.id); }).length;
-    const mpct = featured.length ? Math.round((completed / featured.length) * 100) : 0;
-    const lessons = featured.map(function (l) {
-      return lessonLinkHtml(l, done.has(l.id));
-    }).join('');
-    const archive = optional.length
-      ? '<div class="archive-block"><div class="archive-label">Optional / not emphasized on 2026 PTCE</div>' +
-        optional.map(function (l) { return lessonLinkHtml(l, done.has(l.id)); }).join('') + '</div>'
-      : '';
-    const openClass = isOpen ? ' module-open' : ' module-closed';
-    const doneClass = mpct === 100 ? ' module-complete' : '';
-    const body = isOpen
-      ? '<div class="module-body">' +
-          '<div class="module-scroll">' +
-            '<div class="bar-track module-bar"><div class="bar-fill" style="width:' + mpct + '%"></div></div>' +
-            '<div class="lesson-list">' + lessons + archive + '</div>' +
-          '</div>' +
-          '<a class="btn gold module-quiz" href="' + quizUrl(m) + '">Test Yourself: ' + esc(m.domain) + ' Quiz</a>' +
-        '</div>'
-      : '';
-    return '<section class="module' + openClass + doneClass + '" data-module-card="' + mi + '">' +
-      '<button type="button" class="module-header" data-module-toggle="' + mi + '" aria-expanded="' + (isOpen ? 'true' : 'false') + '">' +
-        '<span class="module-header-left"><span class="module-pill">' + chipText(label) + '</span></span>' +
-        '<span class="module-title">' + esc(m.title) + '</span>' +
-        '<span class="module-header-right">' +
-          '<span class="module-meta">' + completed + '/' + featured.length + '</span>' +
-          '<span class="module-chevron" aria-hidden="true">' + (isOpen ? '▲' : '▼') + '</span>' +
-        '</span>' +
-      '</button>' +
-      body +
-      '</section>';
-  }
-
   function renderList() {
-    syncStage();
     const p = progress();
     const done = new Set(p.completed);
     const pct = overallPct();
     const featuredTotal = flatLessons.filter(function (x) { return !isOptional(x.lesson); }).length;
     const featuredDone = flatLessons.filter(function (x) { return !isOptional(x.lesson) && done.has(x.lesson.id); }).length;
     const labels = moduleLabels(course.modules);
-    const reading = openModuleIndex !== -1;
 
-    // Twelve chapter cards. Stacking the other eleven under an open chapter
-    // squeezes the lesson list, so the open state hides progress chrome and
-    // keeps only a fixed-order chip row plus the active card.
-    let html = '';
-    if (!reading) {
-      html += '<div class="course-overall">' +
-        '<div class="course-overall-head"><span>Course Progress</span><span>' + featuredDone + ' / ' + featuredTotal + ' featured lessons (' + pct + '%)</span></div>' +
-        '<div class="bar-track"><div class="bar-fill" style="width:' + pct + '%"></div></div>' +
-        (p.lastLesson && lessonIndex.get(p.lastLesson) ? '<a class="btn gold" style="margin-top:12px;" href="course.html?lesson=' + encodeURIComponent(p.lastLesson) + '">Resume: ' + esc(lessonIndex.get(p.lastLesson).lesson.title) + '</a>' : '') +
-        '</div>';
-    } else {
-      html += '<div class="course-switch" role="group" aria-label="Switch chapter">' +
-        course.modules.map(function (m, mi) {
-          const active = mi === openModuleIndex;
-          const gap = mi > 0 && labels[mi].domainNum !== labels[mi - 1].domainNum ? ' course-chip-gap' : '';
-          return '<button type="button" class="course-chip' + (active ? ' is-active' : '') + gap + '" data-module-switch="' + mi + '"' +
-            (active ? ' disabled aria-current="true"' : '') +
-            ' aria-label="' + esc(m.title) + '">' + chipText(labels[mi]) + '</button>';
-        }).join('') +
-        '</div>';
-    }
+    let html = '<div class="course-overall">' +
+      '<div class="course-overall-head"><span>Course Progress</span><span>' + featuredDone + ' / ' + featuredTotal + ' featured lessons (' + pct + '%)</span></div>' +
+      '<div class="bar-track"><div class="bar-fill" style="width:' + pct + '%"></div></div>' +
+      (p.lastLesson && lessonIndex.get(p.lastLesson) ? '<a class="btn gold" style="margin-top:12px;" href="course.html?lesson=' + encodeURIComponent(p.lastLesson) + '">Resume: ' + esc(lessonIndex.get(p.lastLesson).lesson.title) + '</a>' : '') +
+      '</div>';
 
-    const cards = course.modules.map(function (m, mi) {
-      return moduleCardHtml(m, mi, labels[mi], mi === openModuleIndex, done);
-    });
-    html += reading ? cards[openModuleIndex] : cards.join('');
+    // Native details, never the open attribute. Reload and returning to the
+    // list both start with every chapter closed.
+    html += course.modules.map(function (m, mi) {
+      const featured = featuredOf(m.lessons);
+      const optional = m.lessons.filter(isOptional);
+      const completed = featured.filter(function (l) { return done.has(l.id); }).length;
+      const mpct = featured.length ? Math.round((completed / featured.length) * 100) : 0;
+      const lessons = featured.map(function (l) {
+        return lessonLinkHtml(l, done.has(l.id));
+      }).join('');
+      const archive = optional.length
+        ? '<div class="archive-block"><div class="archive-label">Optional / not emphasized on 2026 PTCE</div>' +
+          optional.map(function (l) { return lessonLinkHtml(l, done.has(l.id)); }).join('') + '</div>'
+        : '';
+      const label = labels[mi];
+      return '<details class="module' + (mpct === 100 ? ' module-complete' : '') + '">' +
+        '<summary>' +
+          '<span class="module-pill">D' + label.domainNum + '·' + label.chapter + '</span>' +
+          '<span class="module-title">' + esc(m.title) + '</span>' +
+          '<span class="module-meta">' + completed + '/' + featured.length + '</span>' +
+        '</summary>' +
+        '<div class="module-body">' +
+          '<p class="module-desc">' + esc(m.desc) + '</p>' +
+          '<div class="bar-track module-bar"><div class="bar-fill" style="width:' + mpct + '%"></div></div>' +
+          '<div class="lesson-list">' + lessons + archive + '</div>' +
+          '<a class="btn gold module-quiz" href="' + quizUrl(m) + '">Test Yourself: ' + esc(m.domain) + ' Quiz</a>' +
+        '</div>' +
+        '</details>';
+    }).join('');
 
     listView.innerHTML = html;
-    pinTop();
   }
 
   function renderLesson(lessonId) {
@@ -230,38 +182,16 @@
     return '<a class="btn ghost ' + slot + '" href="' + href + '" title="' + esc(title) + '" aria-label="' + esc(label + ': ' + title) + '">' + inner + '</a>';
   }
 
-  listView.addEventListener('click', function (e) {
-    const switchBtn = e.target.closest('[data-module-switch]');
-    if (switchBtn && !switchBtn.disabled) {
-      const idx = parseInt(switchBtn.getAttribute('data-module-switch'), 10);
-      if (!isNaN(idx) && idx !== openModuleIndex) {
-        openModuleIndex = idx;
-        renderList();
-      }
-      return;
-    }
-    const toggle = e.target.closest('[data-module-toggle]');
-    if (!toggle) return;
-    const idx = parseInt(toggle.getAttribute('data-module-toggle'), 10);
-    if (isNaN(idx)) return;
-    openModuleIndex = (openModuleIndex === idx) ? -1 : idx;
-    renderList();
-  });
-
   function showList() {
-    openModuleIndex = -1;
     document.body.classList.remove('lesson-open');
-    document.body.classList.remove('course-reading');
     lessonView.style.display = 'none';
     if (listWrap) listWrap.style.display = '';
-    listView.style.display = '';
+    listView.style.display = 'block';
     renderList();
     document.title = 'Study Course · PTCE 2026';
   }
 
   function showLesson(lessonId) {
-    openModuleIndex = -1;
-    document.body.classList.remove('course-reading');
     document.body.classList.add('lesson-open');
     if (listWrap) listWrap.style.display = 'none';
     lessonView.style.display = '';
