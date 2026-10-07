@@ -27,7 +27,6 @@
     intro: Util.el('#introScreen'),
     exam: Util.el('#examScreen'),
     result: Util.el('#examResultScreen'),
-    blueprintBars: Util.el('#blueprintBars'),
     lengthPick: Util.el('#lengthPick'),
     examTimerPick: Util.el('#examTimerPick'),
     startExamBtn: Util.el('#startExamBtn'),
@@ -90,12 +89,7 @@
   }
 
   function renderBlueprint() {
-    el.blueprintBars.innerHTML = DOMAINS.map(function (d) {
-      const w = EXAM_WEIGHTS[d];
-      return '<div class="domain-row"><div class="dr-head"><span>' + d +
-        '</span><span>' + w + '%</span></div><div class="bar-track"><div class="bar-fill" style="width:' +
-        w + '%"></div></div></div>';
-    }).join('');
+    if (window.BlueprintHud) window.BlueprintHud.mount(EXAM_WEIGHTS);
   }
 
   function pills(container, options, initial, onPick) {
@@ -270,6 +264,8 @@
     if (unanswered > 0 && !confirm(unanswered + ' question(s) unanswered. Submit anyway?')) return;
     finish();
   });
+
+  renderBlueprint();
 
   async function init() {
     try {

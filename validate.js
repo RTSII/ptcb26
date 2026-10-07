@@ -37,7 +37,7 @@ function parseJSON(rel) {
 
 console.log('Syntax (node --check)');
 const jsFiles = [
-  'js/app.js', 'js/quiz.js', 'js/exam.js', 'js/flashcards.js',
+  'js/app.js', 'js/blueprint-hud.js', 'js/quiz.js', 'js/exam.js', 'js/flashcards.js',
   'js/dashboard.js', 'js/notes.js', 'js/course.js', 'sw.js', 'validate.js'
 ];
 for (const f of jsFiles) {
@@ -254,8 +254,11 @@ if (!/quiz\.html\?mode=missed/.test(dash) || !/quiz\.html\?mode=bookmarked/.test
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v51/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v51');
-else ok('sw.js cache is ptce-2026-v51');
+if (!/ptce-2026-v52/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v52');
+else ok('sw.js cache is ptce-2026-v52');
+if (!/css\/blueprint-hud\.css/.test(sw) || !/js\/blueprint-hud\.js/.test(sw)) {
+  fail('sw.js should cache css/blueprint-hud.css and js/blueprint-hud.js');
+} else ok('sw.js caches the Blueprint HUD assets');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
@@ -302,6 +305,12 @@ if (!/class="quiz"/.test(quizHtml)) fail('quiz.html body should have class="quiz
 else ok('quiz.html body.quiz present');
 if (!/class="exam"/.test(examHtml)) fail('exam.html body should have class="exam"');
 else ok('exam.html body.exam present');
+if (/id="blueprintBars"|<h3>Exam Blueprint<\/h3>/.test(examHtml)) {
+  fail('exam.html should not keep the plain Exam Blueprint bar card');
+} else ok('exam.html drops the plain Exam Blueprint bar card');
+if (!/id="matrix-exam-card"/.test(examHtml) || !/blueprint-hud\.css/.test(examHtml) || !/blueprint-hud\.js/.test(examHtml)) {
+  fail('exam.html should include the Blueprint HUD');
+} else ok('exam.html includes the Blueprint HUD');
 if (!/repeat\(2,\s*minmax\(0,\s*max-content\)\)/.test(css)) fail('answer choices should use a 2-column grid on wide screens');
 else ok('answer choices use a 2-column grid');
 if (!/choices\.layout-stack/.test(css)) fail('long choices should be able to stack in one column');
