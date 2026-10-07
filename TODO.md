@@ -27,7 +27,7 @@ Live backlog. Older unchecked boxes in `ROADMAP.md` are not this list.
 - [x] Service worker & cache-busting query system (`?v=43`, `ptce-2026-v43`)
 - [ ] Notes palette: Matrix-cohesive (retire slate-as-end-state) per `study_notes_v4_plan.md`
 - [ ] Trim redundant Notes search/filter/nav chrome
-- [ ] Shared `matrix.css` tokens — README rubric now documents the UI templates; extraction stays open
+- [ ] Shared `matrix.css` tokens — `UI_STANDARDS.md` documents the UI templates; extraction stays open
 
 ## Study sign-off
 
