@@ -6,7 +6,6 @@
   const area = Util.el('#notesArea');
   const searchInput = Util.el('#notesSearch');
   const searchClearBtn = Util.el('#notesSearchClear');
-  const searchHint = Util.el('#notesFilterHint');
 
   let loadedDomains = [];
   // Active topic index per domain (0-indexed)
@@ -429,8 +428,14 @@
     `;
   }
 
+  function syncStage(filterText) {
+    const reading = !String(filterText || '').trim() && openDomainIndex !== -1;
+    document.body.classList.toggle('nx-reading', reading);
+  }
+
   // Master Render Function
   function render(domains, filterText = '') {
+    syncStage(filterText);
     if (!domains || !domains.length) {
       area.innerHTML = '<p class="nx-empty-notice">No clinical notes archives found.</p>';
       return;
@@ -526,8 +531,10 @@
       return;
     }
 
-    // 2. NORMAL ACCORDION MODE: Mutually exclusive domain accordion
-    area.innerHTML = domains.map((d, di) => {
+    // 2. NORMAL ACCORDION MODE: Mutually exclusive domain accordion.
+    // An open domain is rendered first so its header sits under the page header
+    // and the other closed headers follow its card.
+    const cards = domains.map((d, di) => {
       const isOpen = di === openDomainIndex;
       const sections = d.sections || [];
       const totalSections = sections.length;
@@ -569,7 +576,13 @@
           ` : ''}
         </div>
       `;
-    }).join('');
+    });
+    if (openDomainIndex >= 0 && openDomainIndex < cards.length) {
+      const rest = cards.filter((_, i) => i !== openDomainIndex);
+      area.innerHTML = cards[openDomainIndex] + rest.join('');
+    } else {
+      area.innerHTML = cards.join('');
+    }
   }
 
   // Event Delegation for Accordion Toggles and Topic Pagers
@@ -582,13 +595,6 @@
         // Mutually exclusive: if clicking the currently open domain, close it; else open clicked domain
         openDomainIndex = (openDomainIndex === idx) ? -1 : idx;
         render(loadedDomains, searchInput ? searchInput.value : '');
-        // Smoothly bring the active domain header into view if opened
-        if (openDomainIndex !== -1) {
-          const cardEl = Util.el(`[data-domain-card="${openDomainIndex}"]`);
-          if (cardEl) {
-            cardEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }
-        }
       }
       return;
     }
@@ -611,10 +617,8 @@
       }
 
       render(loadedDomains, searchInput ? searchInput.value : '');
-      const topicCard = Util.el(`[data-domain-card="${domainIdx}"] .nx-topic-card`);
-      if (topicCard) {
-        topicCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      const topicContent = Util.el(`[data-domain-card="${domainIdx}"] .nx-topic-content`);
+      if (topicContent) topicContent.scrollTop = 0;
     }
   });
 
@@ -627,10 +631,8 @@
       if (!isNaN(domainIdx) && !isNaN(targetIdx)) {
         activeTopic[domainIdx] = targetIdx;
         render(loadedDomains, searchInput ? searchInput.value : '');
-        const topicCard = Util.el(`[data-domain-card="${domainIdx}"] .nx-topic-card`);
-        if (topicCard) {
-          topicCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        const topicContent = Util.el(`[data-domain-card="${domainIdx}"] .nx-topic-content`);
+        if (topicContent) topicContent.scrollTop = 0;
       }
     }
   });

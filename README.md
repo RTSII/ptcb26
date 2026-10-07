@@ -97,7 +97,7 @@ There is no `app/` directory. Shared helpers are `window.App` (`Storage`, `Util`
 
 ## Current state
 
-Notes layout on this branch: accordions closed on load; topic pager is inside the topic card; domain title is centered in the accordion header. Cache `ptce-2026-v45`.
+Notes layout on this branch: accordions closed on load; topic pager is inside the topic card; domain title is centered in the accordion header. Cache `ptce-2026-v46`.
 
 **Study Notes next step:** Terminal Codex is **planned only** — see `study_notes_v4_plan.md` (content audit: merge map, dups, 5 review flags). Live Notes still renders the committed legacy `items` JSON in `data/notes.json`. The local-only v2 `blocks` file must never be served in that path — the old runtime renders it empty. Keep it outside `data/` until the blocks runtime ships. Do not start implementation until Rob says go. Course / Exam Matrix later.
 

@@ -163,13 +163,15 @@ body.notes .nx-container {
   width: min(1400px, calc(100% - 32px));
   max-width: 1400px;
   margin: 0 auto;
-  padding: 10px 0 2px;
+  padding: 10vh 0 16px;
+  transition: padding-top 0.4s ease;
 }
 
 .nx-notes-area {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
+  transition: gap 0.4s ease;
 }
 
 /* Domain Accordion Card */
@@ -690,13 +692,13 @@ button.nx-domain-header:hover {
    6. SEARCH FILTER BAR CENTERED AT BOTTOM
    ========================================================================== */
 .nx-bottom-filter-wrap {
-  margin-top: 14px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 8px 0 0;
+  gap: 0;
+  padding: 0;
 }
 
 .nx-bottom-filter {
@@ -756,13 +758,6 @@ button.nx-domain-header:hover {
 .nx-search-clear:hover {
   background: rgba(244, 63, 94, 0.3);
   color: #fff;
-}
-
-.nx-filter-hint {
-  font-family: var(--nx-font-mono);
-  font-size: 0.75rem;
-  color: var(--nx-text-faint);
-  letter-spacing: 0.06em;
 }
 
 /* Search Results Presentation */
@@ -923,5 +918,81 @@ mark.note-highlight {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+}
+
+/* Open domain: pin the active header under the page header, list the other
+   closed headers below the topic card, and scroll only the topic content. */
+body.notes.nx-reading {
+  height: 100dvh;
+  max-height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+body.notes.nx-reading .nx-header {
+  flex: 0 0 auto;
+}
+body.notes.nx-reading .nx-container {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+body.notes.nx-reading .nx-notes-area {
+  flex: 1 1 auto;
+  min-height: 0;
+  gap: 8px;
+  overflow: hidden;
+}
+body.notes.nx-reading .nx-domain-card.nx-domain-open {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+body.notes.nx-reading .nx-domain-card:not(.nx-domain-open) {
+  flex: 0 0 auto;
+}
+body.notes.nx-reading .nx-domain-open > .nx-domain-header {
+  flex: 0 0 auto;
+}
+body.notes.nx-reading .nx-domain-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  padding: 8px;
+}
+body.notes.nx-reading .nx-topic-card {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+body.notes.nx-reading .nx-topic-card-top,
+body.notes.nx-reading .nx-topic-nav-bottom {
+  flex: 0 0 auto;
+}
+body.notes.nx-reading .nx-topic-content {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+body.notes.nx-reading .nx-bottom-filter-wrap {
+  flex: 0 0 auto;
+  margin-top: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.notes .nx-container,
+  .nx-notes-area {
+    transition: none;
   }
 }
