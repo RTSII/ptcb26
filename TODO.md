@@ -24,7 +24,7 @@ Live backlog. Older unchecked boxes in `ROADMAP.md` are not this list.
 - [x] Flashcards trigger: tabbed physical Rolodex index card with stepped deck depth and spindle notch icon
 - [x] Study Notes Codex v2 baseline (3-zone header, layouts, parenthesis-safe parsing)
 - [x] Cascading Katakana Matrix rain FX (depth layers, white lead tips, no static grid floor overlays)
-- [x] Service worker & cache-busting query system (`?v=44`, `ptce-2026-v44`)
+- [x] Service worker & cache-busting query system (`?v=45`, `ptce-2026-v45`)
 - [ ] Notes palette: Matrix-cohesive (retire slate-as-end-state) per `study_notes_v4_plan.md`
 - [ ] Trim redundant Notes search/filter/nav chrome
 - [ ] Reusable UI component template library / shared `matrix.css` tokens

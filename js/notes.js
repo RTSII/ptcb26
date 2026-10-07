@@ -483,8 +483,8 @@
               <div class="nx-domain-header-left">
                 <span class="nx-domain-pill">DOMAIN ${di + 1}</span>
                 <span class="nx-weight-badge">${esc(d.weight || '')}</span>
-                <h2 class="nx-domain-name">${highlightTerm(esc(d.domain), term)}</h2>
               </div>
+              <h2 class="nx-domain-name">${highlightTerm(esc(d.domain), term)}</h2>
               <div class="nx-domain-header-right">
                 <span class="nx-matched-pill">${matchingSections.length} MATCHING TOPICS</span>
               </div>
@@ -541,22 +541,21 @@
       return `
         <div class="nx-domain-card ${isOpen ? 'nx-domain-open' : 'nx-domain-closed'}" data-domain-card="${di}">
           <button type="button" class="nx-domain-header" data-domain-toggle="${di}" aria-expanded="${isOpen}">
-            <div class="nx-domain-header-left">
+            <span class="nx-domain-header-left">
               <span class="nx-domain-pill">DOMAIN ${di + 1}</span>
               <span class="nx-weight-badge">${esc(d.weight || '')}</span>
-              <h2 class="nx-domain-name">${esc(d.domain)}</h2>
-            </div>
-            <div class="nx-domain-header-right">
+            </span>
+            <h2 class="nx-domain-name">${esc(d.domain)}</h2>
+            <span class="nx-domain-header-right">
               <span class="nx-topic-count-badge">${totalSections} Clinical Topics</span>
               <span class="nx-chevron-icon" aria-hidden="true">${isOpen ? '▲' : '▼'}</span>
-            </div>
+            </span>
           </button>
 
           ${isOpen ? `
             <div class="nx-domain-body">
               <section class="nx-topic-card" aria-label="${esc(d.domain)}: ${esc(activeSection.title)}">
                 <div class="nx-topic-card-top">
-                  <h3 class="nx-card-domain-title">${esc(d.domain)}</h3>
                   ${renderTopicNavigation(di, currentTopicIdx, totalSections, sections, 'top')}
                 </div>
 

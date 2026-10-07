@@ -187,18 +187,20 @@ body.notes .nx-container {
 }
 
 /* Domain Header Button */
-button.nx-domain-header {
+.nx-domain-header {
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(13.5rem, 1fr) minmax(0, max-content) minmax(13.5rem, 1fr);
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 16px 20px;
+  column-gap: 10px;
+  padding: 12px 16px;
   background: linear-gradient(90deg, rgba(14, 22, 34, 0.95), rgba(9, 15, 23, 0.95));
   border: none;
   border-bottom: 1px solid transparent;
-  cursor: pointer;
   text-align: left;
+}
+button.nx-domain-header {
+  cursor: pointer;
   transition: background 0.2s ease, border-color 0.2s ease;
 }
 .nx-domain-open > .nx-domain-header {
@@ -210,10 +212,11 @@ button.nx-domain-header:hover {
 }
 
 .nx-domain-header-left {
+  justify-self: start;
   display: flex;
   align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 0;
 }
 .nx-domain-pill {
   font-family: var(--nx-font-mono);
@@ -237,19 +240,28 @@ button.nx-domain-header:hover {
   border-radius: 4px;
 }
 .nx-domain-name {
+  justify-self: center;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
   font-family: var(--nx-font-display);
-  font-size: 1.15rem;
+  font-size: clamp(1.02rem, 1.45vw, 1.2rem);
   font-weight: 700;
   letter-spacing: 0.04em;
+  line-height: 1.2;
   color: #ffffff;
-  margin: 0;
 }
 
 .nx-domain-header-right {
+  justify-self: end;
   display: flex;
   align-items: center;
-  gap: 14px;
-  flex-shrink: 0;
+  gap: 10px;
+  min-width: 0;
 }
 .nx-topic-count-badge {
   font-family: var(--nx-font-mono);
@@ -404,25 +416,9 @@ button.nx-domain-header:hover {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
 .nx-topic-card-top {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 12px 10px;
+  padding: 10px 12px;
   background: linear-gradient(180deg, rgba(20, 31, 47, 0.95), rgba(15, 24, 38, 0.72));
   border-bottom: 1px solid var(--nx-border-silver);
-}
-.nx-card-domain-title {
-  width: 100%;
-  margin: 0;
-  text-align: center;
-  text-wrap: balance;
-  font-family: var(--nx-font-display);
-  font-size: clamp(1.2rem, 1.5vw, 1.45rem);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  line-height: 1.25;
-  color: #ffffff;
 }
 .nx-topic-nav-bottom {
   padding: 8px 12px;
@@ -915,5 +911,17 @@ mark.note-highlight {
   }
   .nx-bottom-filter {
     width: 95%;
+  }
+  .nx-domain-header {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1fr);
+    column-gap: 8px;
+    padding: 10px 12px;
+  }
+  .nx-domain-name,
+  .nx-topic-count-badge,
+  .nx-matched-pill {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }

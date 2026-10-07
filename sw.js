@@ -1,5 +1,5 @@
 // Service worker: offline caching for the PTCE 2026 Study App
-const CACHE = 'ptce-2026-v44';
+const CACHE = 'ptce-2026-v45';
 const ASSETS = [
   './',
   'index.html',
