@@ -3,11 +3,14 @@
   'use strict';
 
   function esc(s) {
-    return App.Util.escapeHtml(String(s || ''));
+    return (window.App && App.Util && App.Util.escapeHtml)
+      ? App.Util.escapeHtml(String(s || ''))
+      : String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
   async function loadCourseMeta() {
     try {
+      if (!window.App || !App.Util || !App.Storage) return;
       const course = await App.Util.fetchJSON('data/course.json');
       const progress = App.Storage.getCourseProgress();
       const doneSet = new Set(progress.completed || []);
@@ -15,7 +18,6 @@
       let totalLessons = 0;
       let completedLessons = 0;
       const domainStats = {};
-      const lessonIndex = new Map();
       let firstUnfinishedLesson = null;
       let lastLessonObj = null;
 
@@ -34,7 +36,6 @@
           } else if (!firstUnfinishedLesson) {
             firstUnfinishedLesson = { lesson: l, module: m };
           }
-          lessonIndex.set(l.id, { lesson: l, module: m });
           if (progress.lastLesson === l.id) {
             lastLessonObj = { lesson: l, module: m };
           }
@@ -114,6 +115,7 @@
   }
 
   function loadAuxTelemetry() {
+    if (!window.App || !App.Storage) return;
     const p = App.Storage.read();
 
     // 1. Quizzes stats
@@ -131,7 +133,7 @@
       } else if (quizzes > 0) {
         quizData.innerHTML = `<b>${quizzes}</b> attempts logged · <b>${avg}%</b> avg`;
       } else {
-        quizData.textContent = 'Select a domain to begin drill';
+        quizData.textContent = 'Pick a domain to begin';
       }
     }
 
@@ -143,7 +145,7 @@
       if (reviewedCount > 0) {
         flashData.innerHTML = `<b>${knownCount}</b> mastered / <b>${reviewedCount}</b> seen`;
       } else {
-        flashData.textContent = 'Leitner memory cache active';
+        flashData.textContent = 'No cards due';
       }
     }
 

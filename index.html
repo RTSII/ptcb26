@@ -24,27 +24,44 @@
   </svg>
 
   <header class="app-header hx-header">
-    <a href="index.html" class="logo hx-logo" aria-label="PTCE 2026 home">
-      <svg class="hx-pill" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-        <g transform="rotate(-45 16 16)">
-          <rect x="4" y="11" width="24" height="10" rx="5" fill="none" stroke="#00ff41" stroke-width="1.6"/>
-          <path d="M16 11h7a5 5 0 0 1 0 10h-7z" fill="#ff2a6d" opacity=".9"/>
+    <a href="index.html" class="logo hx-logo" aria-label="PTCE 2026 home" title="PTCE 2026 · Red Pill or Blue Pill?">
+      <svg class="matrix-pill-icon" viewBox="0 0 38 32" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="bluePillGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#38bdf8"/>
+            <stop offset="50%" stop-color="#0284c7"/>
+            <stop offset="100%" stop-color="#075985"/>
+          </linearGradient>
+          <linearGradient id="redPillGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff4b72"/>
+            <stop offset="50%" stop-color="#e11d48"/>
+            <stop offset="100%" stop-color="#881337"/>
+          </linearGradient>
+          <linearGradient id="pillGloss" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0.1"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(11, 16) rotate(-22)">
+          <rect x="-5" y="-11" width="10" height="22" rx="5" fill="url(#bluePillGrad)" stroke="#38bdf8" stroke-width="0.8"/>
+          <line x1="-5" y1="0" x2="5" y2="0" stroke="rgba(255,255,255,0.4)" stroke-width="0.75"/>
+          <rect x="-3" y="-9" width="2.5" height="18" rx="1.25" fill="url(#pillGloss)"/>
+        </g>
+        <g transform="translate(27, 16) rotate(22)">
+          <rect x="-5" y="-11" width="10" height="22" rx="5" fill="url(#redPillGrad)" stroke="#ff4b72" stroke-width="0.8"/>
+          <line x1="-5" y1="0" x2="5" y2="0" stroke="rgba(255,255,255,0.4)" stroke-width="0.75"/>
+          <rect x="-3" y="-9" width="2.5" height="18" rx="1.25" fill="url(#pillGloss)"/>
         </g>
       </svg>
       <span class="hx-logo-text">PTCE<span>2026</span></span>
     </a>
-
-    <a href="dashboard.html" class="home-progress hx-dash" id="homeProgress" aria-label="Progress Dashboard" title="Progress Dashboard">
-      <svg class="header-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 19h16M7 16v-4M12 16V8M17 16v-7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
-      <span class="hx-dash-label">Dashboard</span>
-    </a>
   </header>
 
   <main class="container hx-main">
-    <nav class="hud hx-grid" aria-label="Study modes">
+    <nav class="hx-grid" aria-label="Study modes">
 
       <!-- ===== HERO: Study Course (largest, primary path) ===== -->
-      <a class="hx-card hx-course menu-card wide featured" href="course.html" id="hxCourseLink">
+      <a class="hx-card hx-course" href="course.html" id="hxCourseLink">
         <div class="hx-tagline">
           <span class="hx-tag">CONSTRUCT <b>// 01</b></span>
           <span class="hx-meta" id="hxCourseMeta">4 DOMAINS · 12 MODULES · 45 LESSONS</span>
@@ -111,7 +128,7 @@
       </section>
 
       <!-- ===== Quiz ===== -->
-      <a class="hx-card hx-mode hx-quiz menu-card peer peer-quiz" href="quiz.html">
+      <a class="hx-card hx-mode hx-quiz" href="quiz.html">
         <div class="hx-tagline"><span class="hx-tag">DIAGNOSTIC <b>// 02</b></span></div>
         <svg class="hx-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
           <circle cx="24" cy="24" r="17" fill="none" stroke="url(#hudGrad)" stroke-width="1.6"/>
@@ -126,7 +143,7 @@
       </a>
 
       <!-- ===== Practice Exam (tall) ===== -->
-      <a class="hx-card hx-mode hx-exam menu-card peer peer-exam" href="exam.html">
+      <a class="hx-card hx-mode hx-exam" href="exam.html">
         <div class="hx-tagline"><span class="hx-tag">SIMULATION <b>// 03</b></span></div>
         <svg class="hx-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
           <circle cx="24" cy="26" r="16" fill="none" stroke="url(#hudGrad)" stroke-width="1.6"/>
@@ -146,7 +163,7 @@
       </a>
 
       <!-- ===== Flashcards ===== -->
-      <a class="hx-card hx-mode hx-flash menu-card peer peer-flash" href="flashcards.html">
+      <a class="hx-card hx-mode hx-flash" href="flashcards.html">
         <div class="hx-tagline"><span class="hx-tag">ENGRAM <b>// 04</b></span></div>
         <svg class="hx-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
           <rect x="12" y="13" width="28" height="22" rx="2" fill="none" stroke="url(#hudGrad)" stroke-width="1.6"/>
@@ -161,7 +178,7 @@
       </a>
 
       <!-- ===== Study Notes ===== -->
-      <a class="hx-card hx-mode hx-notes menu-card peer peer-notes" href="notes.html">
+      <a class="hx-card hx-mode hx-notes" href="notes.html">
         <div class="hx-tagline"><span class="hx-tag">ARCHIVE <b>// 05</b></span></div>
         <svg class="hx-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
           <path d="M13 6h16l8 8v26a2 2 0 0 1-2 2H13a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" fill="none" stroke="url(#hudGrad)" stroke-width="1.6" stroke-linejoin="round"/>
@@ -172,6 +189,41 @@
         <h2 class="hx-title">Study Notes</h2>
         <p class="hx-desc">Quick reference by domain.</p>
         <span class="hx-go" aria-hidden="true">Open <i>→</i></span>
+      </a>
+
+      <!-- ===== System Dashboard (Circular Matrix Reactor Telemetry Core) ===== -->
+      <a class="hx-card hx-dash-core" href="dashboard.html" id="homeProgress" aria-label="Progress Dashboard & Telemetry" title="Access Matrix Dashboard">
+        <div class="dash-reactor" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false">
+            <!-- Outer radar compass & tick rings -->
+            <circle class="dash-r-ring dash-spin-slow" cx="100" cy="100" r="94"/>
+            <circle class="dash-r-dash dash-spin-rev" cx="100" cy="100" r="86"/>
+            <circle class="dash-r-track" cx="100" cy="100" r="74"/>
+            <!-- Pulsing targeting crosshair & telemetry nodes -->
+            <line x1="100" y1="12" x2="100" y2="30" stroke="#00ff41" stroke-width="1.5" opacity="0.8"/>
+            <line x1="100" y1="170" x2="100" y2="188" stroke="#00ff41" stroke-width="1.5" opacity="0.8"/>
+            <line x1="12" y1="100" x2="30" y2="100" stroke="#00ff41" stroke-width="1.5" opacity="0.8"/>
+            <line x1="170" y1="100" x2="188" y2="100" stroke="#00ff41" stroke-width="1.5" opacity="0.8"/>
+            <!-- Animated neon arc segments -->
+            <circle class="dash-r-cyan dash-spin-fast" cx="100" cy="100" r="62"/>
+            <circle class="dash-r-pink dash-spin-mid" cx="100" cy="100" r="50"/>
+            <circle class="dash-r-core" cx="100" cy="100" r="38"/>
+          </svg>
+
+          <!-- Core content -->
+          <div class="dash-core-content">
+            <span class="dash-core-tag">MAINFRAME // 06</span>
+            <div class="dash-core-title">DASHBOARD</div>
+            <div class="dash-core-stats">
+              <span class="dash-pill-stat"><b id="homeQuizzesCore">0</b> QZ</span>
+              <span class="dash-stat-div">·</span>
+              <span class="dash-pill-stat"><b id="homeAvgCore">—</b></span>
+              <span class="dash-stat-div">·</span>
+              <span class="dash-pill-stat"><b id="homeCardsCore">0</b> CRD</span>
+            </div>
+            <span class="dash-core-cta">ENTER <i>→</i></span>
+          </div>
+        </div>
       </a>
     </nav>
 

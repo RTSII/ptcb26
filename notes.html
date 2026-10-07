@@ -3,27 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#030014">
+  <meta name="theme-color" content="#03070b">
   <link rel="manifest" href="manifest.json">
   <title>Study Notes · PTCE 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/notes.css?v=43">
 </head>
-<body>
-  <header class="app-header">
-    <a href="index.html" class="logo">💊 PTCE <span>2026</span></a>
-    <a href="index.html" class="back-link">‹ Home</a>
+<body class="notes">
+  <!-- Matrix Header: Left = Pill + Logo, Center = Title + Icon, Right = Home Button -->
+  <header class="app-header nx-header">
+    <a href="index.html" class="nx-logo" aria-label="PTCE 2026 home" title="PTCE 2026 · Red Pill or Blue Pill?">
+      <svg class="matrix-pill-icon" viewBox="0 0 38 32" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="bluePillGradNotes" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#38bdf8"/>
+            <stop offset="50%" stop-color="#0284c7"/>
+            <stop offset="100%" stop-color="#075985"/>
+          </linearGradient>
+          <linearGradient id="redPillGradNotes" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff4b72"/>
+            <stop offset="50%" stop-color="#e11d48"/>
+            <stop offset="100%" stop-color="#881337"/>
+          </linearGradient>
+          <linearGradient id="pillGlossNotes" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0.1"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(11, 16) rotate(-22)">
+          <rect x="-5" y="-11" width="10" height="22" rx="5" fill="url(#bluePillGradNotes)" stroke="#38bdf8" stroke-width="0.8"/>
+          <line x1="-5" y1="0" x2="5" y2="0" stroke="rgba(255,255,255,0.4)" stroke-width="0.75"/>
+          <rect x="-3" y="-9" width="2.5" height="18" rx="1.25" fill="url(#pillGlossNotes)"/>
+        </g>
+        <g transform="translate(27, 16) rotate(22)">
+          <rect x="-5" y="-11" width="10" height="22" rx="5" fill="url(#redPillGradNotes)" stroke="#ff4b72" stroke-width="0.8"/>
+          <line x1="-5" y1="0" x2="5" y2="0" stroke="rgba(255,255,255,0.4)" stroke-width="0.75"/>
+          <rect x="-3" y="-9" width="2.5" height="18" rx="1.25" fill="url(#pillGlossNotes)"/>
+        </g>
+      </svg>
+      <span class="nx-logo-text">PTCE <span>2026</span></span>
+    </a>
+
+    <div class="nx-header-center" aria-label="Page Title">
+      <span class="nx-header-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+      </span>
+      <h1 class="nx-header-title">Study Notes</h1>
+    </div>
+
+    <a href="index.html" class="nx-home-btn" aria-label="Return to home dashboard">
+      <span class="nx-home-arrow" aria-hidden="true">‹</span>
+      <span class="nx-home-text">Home</span>
+    </a>
   </header>
 
-  <main class="container">
-    <h1 class="page-title">📚 Study Notes</h1>
-    <p class="page-sub">Quick reference by domain. Tap a heading to expand.</p>
-    <div id="notesArea"><p class="muted">Loading notes…</p></div>
+  <main class="container nx-container">
+    <!-- Domain Accordion Area (Rendered dynamically by notes.js) -->
+    <div id="notesArea" class="nx-notes-area">
+      <div class="nx-loading-state">
+        <div class="nx-spinner" aria-hidden="true"></div>
+        <span>INITIALIZING CODEX ARCHIVES…</span>
+      </div>
+    </div>
+
+    <!-- Centered Search Filter Bar Below Accordion -->
+    <section class="nx-bottom-filter-wrap" aria-label="Filter Study Notes">
+      <div class="nx-bottom-filter">
+        <svg class="nx-search-glyph" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input type="search" id="notesSearch" placeholder="SEARCH CODEX // filter drugs, stems, conversions, regulations..." autocomplete="off" spellcheck="false" aria-label="Filter study notes across all domains">
+        <button type="button" id="notesSearchClear" class="nx-search-clear" aria-label="Clear filter query" hidden>✕</button>
+      </div>
+      <div class="nx-filter-hint" id="notesFilterHint">Live filter across all 4 PTCE domains &amp; clinical topics</div>
+    </section>
   </main>
 
   <script src="js/app.js"></script>
-  <script src="js/notes.js"></script>
+  <script src="js/notes.js?v=43"></script>
 </body>
 </html>
