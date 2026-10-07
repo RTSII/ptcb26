@@ -9,7 +9,7 @@ Live backlog. Older unchecked boxes in `ROADMAP.md` are not this list.
 - [x] Content audit: main 44→v2 41 merge map, dup clusters, 5 review flags documented
 - [ ] **Next chat: review + plan overhaul only** — read `study_notes_v4_plan.md`, refine plan/docs (incl. space-saving visual aids: conversions etc.), draft PR for docs; **STOP — do not start overhaul / do not commit v2 notes.json** until Rob signs off the plan.
 - [ ] **Do not start** Notes overhaul until Rob signs off the reviewed plan
-- [ ] **Do not commit** local v2 `data/notes.json` until `js/notes.js` reads `blocks` (ship together, after that sign-off)
+- [ ] **Do not commit** the local v2 notes file, and keep it outside `data/` until `js/notes.js` reads `blocks` (old runtime renders it empty). Ship together, after sign-off.
 - [ ] When started (only after sign-off): `matrix.css` → blocks runtime → then v2 JSON; draft PR
 - [ ] Rob OK on five fact flags before changing clinical wording
 - [ ] Course / Exam Matrix tokens later
@@ -27,7 +27,7 @@ Live backlog. Older unchecked boxes in `ROADMAP.md` are not this list.
 - [x] Service worker & cache-busting query system (`?v=43`, `ptce-2026-v43`)
 - [ ] Notes palette: Matrix-cohesive (retire slate-as-end-state) per `study_notes_v4_plan.md`
 - [ ] Trim redundant Notes search/filter/nav chrome
-- [ ] Reusable UI component template library / shared `matrix.css` tokens
+- [ ] Shared `matrix.css` tokens — `UI_STANDARDS.md` documents the UI templates; extraction stays open
 
 ## Study sign-off
 
