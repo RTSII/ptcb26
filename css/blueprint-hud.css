@@ -1,0 +1,398 @@
+/* Practice Exam Blueprint HUD. All rules stay under .matrix-exam-card.
+   Domain fill widths are set from js/exam.js (EXAM_WEIGHTS) as
+   --meds-fill, --order-fill, and --fed-fill. Share Tech Mono is loaded
+   from exam.html; the stack falls back to monospace if that request fails. */
+.matrix-exam-card {
+  --primary: #00ff41;
+  --primary-dim: #008f11;
+  --bg-color: #030503;
+  --glow: 0 0 8px var(--primary), 0 0 15px var(--primary);
+  --meds-fill: 0%;
+  --order-fill: 0%;
+  --fed-fill: 0%;
+
+  position: relative;
+  width: 100%;
+  background: var(--bg-color);
+  border: 1px solid var(--primary-dim);
+  border-radius: 6px;
+  box-shadow: inset 0 0 30px rgba(0, 255, 65, 0.05);
+  overflow: hidden;
+  font-family: "Share Tech Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  color: var(--primary);
+  container-type: inline-size;
+}
+
+.matrix-exam-card * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.matrix-exam-card .matrix-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.matrix-exam-card .crt-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 3px, 3px 100%;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.matrix-exam-card .scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary);
+  opacity: 0.15;
+  box-shadow: 0 0 15px 3px var(--primary);
+  animation: matrixScan 4s linear infinite;
+  z-index: 99;
+  pointer-events: none;
+}
+
+@keyframes matrixScan {
+  0% { top: -5%; }
+  100% { top: 105%; }
+}
+
+.matrix-exam-card .content-wrapper {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr) 130px;
+  gap: 15px;
+  padding: 15px;
+}
+
+.matrix-exam-card .side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  min-height: 0;
+  font-size: 0.65rem;
+  opacity: 0.8;
+  overflow: hidden;
+}
+
+.matrix-exam-card .radar-box {
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--primary-dim);
+  border-radius: 50%;
+  position: relative;
+  margin: 0 auto;
+  flex: none;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+}
+
+.matrix-exam-card .radar-box.radar-bottom {
+  margin-top: auto;
+}
+
+.matrix-exam-card .radar-box::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px dashed var(--primary);
+  transform: translate(-50%, -50%);
+  animation: matrixRotate 10s linear infinite;
+}
+
+.matrix-exam-card .radar-box::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 1px;
+  background: var(--primary);
+  transform-origin: left center;
+  animation: matrixSweep 3s linear infinite;
+}
+
+@keyframes matrixRotate {
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes matrixSweep {
+  100% { transform: rotate(360deg); }
+}
+
+.matrix-exam-card .telemetry-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.matrix-exam-card .left-telemetry {
+  margin-top: 10px;
+}
+
+.matrix-exam-card .sys-line,
+.matrix-exam-card .dyn-hex {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.matrix-exam-card .dyn-hex {
+  font-size: 0.6rem;
+}
+
+.matrix-exam-card .tracking-box {
+  margin-bottom: 10px;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.matrix-exam-card .tracking-box strong {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.matrix-exam-card .center-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-width: 0;
+}
+
+.matrix-exam-card .header {
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.matrix-exam-card .title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: var(--glow);
+}
+
+.matrix-exam-card .data-row {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr) max-content;
+  align-items: center;
+  gap: 12px;
+}
+
+.matrix-exam-card .row-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  text-shadow: 0 0 3px var(--primary-dim);
+  white-space: nowrap;
+}
+
+.matrix-exam-card .row-percent {
+  font-size: 1.1rem;
+  text-align: right;
+  text-shadow: var(--glow);
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.matrix-exam-card .bracket-box {
+  border-left: 1px solid var(--primary);
+  border-right: 1px solid var(--primary);
+  padding: 2px 6px;
+  position: relative;
+}
+
+.matrix-exam-card .bracket-box::before,
+.matrix-exam-card .bracket-box::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 1px;
+  background: var(--primary);
+}
+
+.matrix-exam-card .bracket-box::before { top: 0; left: 0; }
+.matrix-exam-card .bracket-box::after { bottom: 0; right: 0; }
+
+.matrix-exam-card .vis-meds {
+  height: 15px;
+  background: repeating-linear-gradient(90deg, transparent, transparent 1px, var(--primary-dim) 2px, var(--primary-dim) 4px);
+  position: relative;
+  width: 100%;
+  opacity: 0.7;
+}
+
+.matrix-exam-card .vis-meds-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--meds-fill);
+  background: repeating-linear-gradient(90deg, transparent, transparent 1px, var(--primary) 2px, var(--primary) 4px);
+  box-shadow: 0 0 10px var(--primary);
+}
+
+.matrix-exam-card .vis-meds-scanner {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  height: 19px;
+  width: 6px;
+  background: #fff;
+  box-shadow: 0 0 10px 5px var(--primary);
+  animation: matrixScanBar 3s ease-in-out infinite alternate;
+}
+
+@keyframes matrixScanBar {
+  0% { left: 0%; }
+  100% { left: var(--meds-fill); }
+}
+
+.matrix-exam-card .vis-safety {
+  height: 20px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.matrix-exam-card .sine-wave {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 3px var(--primary));
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: matrixDrawWave 5s linear infinite;
+}
+
+@keyframes matrixDrawWave {
+  to { stroke-dashoffset: 0; }
+}
+
+.matrix-exam-card .vis-order {
+  height: 15px;
+  width: 100%;
+  display: flex;
+  gap: 2px;
+  align-items: flex-end;
+}
+
+.matrix-exam-card .eq-bar {
+  flex: 1;
+  background: var(--primary-dim);
+  height: 10%;
+  transition: height 0.1s ease;
+}
+
+.matrix-exam-card .eq-bar.active {
+  background: var(--primary);
+  box-shadow: 0 0 5px var(--primary);
+}
+
+.matrix-exam-card .vis-federal {
+  height: 1px;
+  width: 100%;
+  background: var(--primary-dim);
+  position: relative;
+}
+
+.matrix-exam-card .fed-orb {
+  position: absolute;
+  top: 50%;
+  left: var(--fed-fill);
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 5px var(--primary);
+  animation: matrixPulseOrb 2s infinite alternate;
+}
+
+.matrix-exam-card .fed-trail {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  height: 3px;
+  width: var(--fed-fill);
+  background: var(--primary);
+  box-shadow: 0 0 5px var(--primary);
+}
+
+@keyframes matrixPulseOrb {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+}
+
+.matrix-exam-card.is-paused .scanline,
+.matrix-exam-card.is-paused .radar-box::before,
+.matrix-exam-card.is-paused .radar-box::after,
+.matrix-exam-card.is-paused .vis-meds-scanner,
+.matrix-exam-card.is-paused .sine-wave,
+.matrix-exam-card.is-paused .fed-orb {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .matrix-exam-card .scanline,
+  .matrix-exam-card .radar-box::before,
+  .matrix-exam-card .radar-box::after,
+  .matrix-exam-card .vis-meds-scanner,
+  .matrix-exam-card .sine-wave,
+  .matrix-exam-card .fed-orb,
+  .matrix-exam-card .eq-bar {
+    animation: none;
+    transition: none;
+  }
+
+  .matrix-exam-card .vis-meds-scanner {
+    left: var(--meds-fill);
+  }
+
+  .matrix-exam-card .sine-wave {
+    stroke-dashoffset: 0;
+  }
+}
+
+@container (max-width: 650px) {
+  .matrix-exam-card .side-panel { display: none; }
+  .matrix-exam-card .content-wrapper { grid-template-columns: 1fr; }
+  .matrix-exam-card .data-row { grid-template-columns: max-content minmax(0, 1fr) max-content; }
+}
+
+@container (max-width: 450px) {
+  .matrix-exam-card .data-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+  .matrix-exam-card .row-percent {
+    text-align: left;
+    margin-bottom: 5px;
+  }
+  .matrix-exam-card .row-label { white-space: normal; }
+}

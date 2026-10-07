@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=51">
+  <link rel="stylesheet" href="css/style.css?v=52">
+  <link rel="stylesheet" href="css/blueprint-hud.css?v=52">
 </head>
 <body class="exam">
   <header class="app-header">
@@ -51,13 +52,6 @@
   <main class="container">
     <!-- Intro / setup -->
     <div id="introScreen">
-      <p class="page-sub">Simulated PTCE with official 2026 domain weights</p>
-
-      <div class="card-block">
-        <h3>Exam Blueprint</h3>
-        <div id="blueprintBars"></div>
-      </div>
-
       <div class="card-block">
         <h3>Exam Length</h3>
         <div id="lengthPick" class="filter-row"></div>
@@ -71,6 +65,59 @@
           21 Patient Safety, 20 Order Entry, 17 Federal Requirements.
         </p>
       </div>
+
+      <section id="matrix-exam-card" class="matrix-exam-card">
+        <canvas class="matrix-canvas" aria-hidden="true"></canvas>
+        <div class="crt-overlay" aria-hidden="true"></div>
+        <div class="scanline" aria-hidden="true"></div>
+        <div class="content-wrapper">
+          <aside class="side-panel" aria-hidden="true">
+            <div class="radar-box"></div>
+            <div class="telemetry-stream left-telemetry"></div>
+          </aside>
+          <div class="center-panel">
+            <header class="header">
+              <div class="title">EXAM BLUEPRINT</div>
+            </header>
+            <div class="data-row" data-slot="meds">
+              <div class="row-label">Medications</div>
+              <div class="vis-meds" aria-hidden="true">
+                <div class="vis-meds-fill"></div>
+                <div class="vis-meds-scanner"></div>
+              </div>
+              <div class="row-percent bracket-box"></div>
+            </div>
+            <div class="data-row" data-slot="safety">
+              <div class="row-label">Patient Safety &amp; Quality</div>
+              <div class="vis-safety" aria-hidden="true">
+                <svg class="sine-wave" viewBox="0 0 300 20" preserveAspectRatio="none" focusable="false" aria-hidden="true">
+                  <path d="M0,10 Q15,0 30,10 T60,10 T90,10 T120,10 T150,10 T180,10 T210,10 T240,10 T270,10 T300,10" class="wave-path"></path>
+                </svg>
+              </div>
+              <div class="row-percent"></div>
+            </div>
+            <div class="data-row" data-slot="order">
+              <div class="row-label">Order Entry &amp; Processing</div>
+              <div class="vis-order eq-container" aria-hidden="true"></div>
+              <div class="row-percent bracket-box"></div>
+            </div>
+            <div class="data-row" data-slot="federal">
+              <div class="row-label">Federal Requirements</div>
+              <div class="vis-federal" aria-hidden="true">
+                <div class="fed-trail"></div>
+                <div class="fed-orb"></div>
+              </div>
+              <div class="row-percent"></div>
+            </div>
+          </div>
+          <aside class="side-panel" aria-hidden="true">
+            <div class="telemetry-stream right-telemetry">
+              <div class="bracket-box tracking-box">TRACKING<strong>ON</strong></div>
+            </div>
+            <div class="radar-box radar-bottom"></div>
+          </aside>
+        </div>
+      </section>
     </div>
 
     <!-- Exam -->
@@ -100,6 +147,7 @@
   </main>
 
   <script src="js/app.js"></script>
-  <script src="js/exam.js"></script>
+  <script src="js/blueprint-hud.js?v=52"></script>
+  <script src="js/exam.js?v=52"></script>
 </body>
 </html>
