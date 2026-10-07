@@ -11,6 +11,8 @@ Live backlog. Older unchecked boxes in `ROADMAP.md` are not this list.
 - [ ] **Do not commit** local v2 `data/notes.json` until `js/notes.js` reads `blocks` (ship together)
 - [ ] When started: `matrix.css` → blocks runtime → then v2 JSON; draft PR
 - [ ] Rob OK on five fact flags before changing clinical wording
+- [ ] Clarify visual-aid strategy (space-saving graphics/charts/lists vs decorative Google AI art) — conversions etc.; Rob input
+- [ ] Google AI prompt pack / `assets/notes` emblems + dosage-form specimens = future TODO (deferred). Not a when-started step. Desktop Word prompt doc is reference-only until clarify.
 - [ ] Course / Exam Matrix tokens later
 
 

@@ -20,6 +20,18 @@
 
 ---
 
+## Clarify / locked (Rob, 2026-10-07) — visual aids, not decorative art
+
+Rob lost faith in the Claude/Devin visual-aid analysis. That plan leaned on decorative Google AI emblems and dosage-form specimens and never chose real aids that break up repeated text formatting and save viewport space.
+
+| Topic | Decision |
+|---|---|
+| Google AI image briefs | **Deferred** → clarify / future TODO. Emblem, waste-bin, and dosage-form specimen prompts (v3 §4) are **not** required to start the overhaul. The desktop Word doc that holds those prompts is **reference-only** until this clarify is resolved. Do not generate or wire `assets/notes` art as a start step. |
+| Prior optional art (v3 §4) | **Not trusted** as the visual-aid strategy. Do not treat those briefs as the plan for breaking up repeated prose. |
+| Fresh visual-aid pass | **Clarify before the overhaul, or early in it.** Look for aids that actually break up repeated prose and save viewport space. Prefer in-code charts, lists, tables, and compact layouts over decorative PNGs. Example Rob named: the **Conversions** topic → a dense conversion chart / list (or SVG), not more text rows. Rob will point at more sections when he can; Claude started editing, so he could not screenshot the intended sections. |
+
+---
+
 ## Content audit (2026-10-07) — paste vs live
 
 ### What each file is
@@ -121,9 +133,9 @@ Inline `flags` already in the local v2 JSON (4). Fifth is structural (insulin cu
 
 Unchanged intent from v3 §2 (rail + stage, fit paginator, shared `matrix.css`, schema-driven layouts). Palette: Matrix-cohesive; non-green accents OK for dense prose. Trim redundant search/nav.
 
-Execution sequence still v3 §3 — **do not run until Rob starts the overhaul.**
+Execution sequence still v3 §3 (shared `matrix.css` → content schema → shell → runtime → in-code figures → styles → verify → docs) — **do not run until Rob starts the overhaul.** Skip v3 §3 step 7 (optional Google AI art / `assets/notes`). That step is **deferred / clarify**, not “do when starting.”
 
-Optional art briefs: v3 §4.
+Visual-aid strategy = **clarify / future** (2026-10-07 section above). v3 §4 Google AI image briefs are reference history only. Do not burn cycles on emblems, waste bins, or dosage-form specimen prompts until Rob clarifies.
 
 ---
 
@@ -132,7 +144,7 @@ Optional art briefs: v3 §4.
 ```text
 PTCB26 Study Notes — Terminal Codex (v4 plan).
 
-Read study_notes_v4_plan.md end-to-end (includes 2026-10-07 content audit). History: study_notes_v3_plan.md.
+Read study_notes_v4_plan.md end-to-end (includes 2026-10-07 content audit and visual-aid clarify). History: study_notes_v3_plan.md.
 
 LOCKED:
 - Matrix-cohesive Notes UI (retire slate-as-end-state). Non-green accents OK for dense reading.
@@ -142,10 +154,11 @@ LOCKED:
 - Five candidate fact flags in v4 plan: review/test later; no silent clinical edits.
 - Code via Cursor cloud agents + draft PRs. No merge without Rob OK.
 - UI seed: Back L / center CTA / Next R; content-hug Chrome; center titles/icons; Matrix primary.
+- Visual-aid strategy = clarify / future. Do not burn cycles on Google AI emblems, waste-bin art, or dosage-form specimen prompts until Rob clarifies. v3 §4 optional art is not trusted as the strategy. Desktop Word prompt doc is reference-only. Prefer in-code charts/lists/tables/compact layouts that break up repeated prose and save space (example: Conversions → dense chart/list or SVG).
 
 STOP for planning chats: docs only. Do not begin overhaul until Rob says start.
 
-When Rob says start: implement matrix.css → runtime blocks renderers → then commit v2 notes.json (after flag decisions); draft PR; North Chrome verify.
+When Rob says start: implement matrix.css → runtime blocks renderers → then commit v2 notes.json (after flag decisions). Do not generate or wire assets/notes Google AI art as part of start. Draft PR; North Chrome verify.
 ```
 
 ---
