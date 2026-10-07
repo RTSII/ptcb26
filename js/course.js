@@ -65,23 +65,36 @@
     return 'quiz.html?mode=chapter&domain=' + encodeURIComponent(q.domain) + '&count=' + (q.count || 10);
   }
 
+  function moduleLabels(modules) {
+    const seen = [];
+    const counts = {};
+    return modules.map(function (m) {
+      if (seen.indexOf(m.domain) < 0) seen.push(m.domain);
+      counts[m.domain] = (counts[m.domain] || 0) + 1;
+      return { domainNum: seen.indexOf(m.domain) + 1, chapter: counts[m.domain] };
+    });
+  }
+
   function renderList() {
     const p = progress();
     const done = new Set(p.completed);
     const pct = overallPct();
     const featuredTotal = flatLessons.filter(function (x) { return !isOptional(x.lesson); }).length;
     const featuredDone = flatLessons.filter(function (x) { return !isOptional(x.lesson) && done.has(x.lesson.id); }).length;
+    const labels = moduleLabels(course.modules);
 
     let html = '<div class="course-overall">' +
       '<div class="course-overall-head"><span>Course Progress</span><span>' + featuredDone + ' / ' + featuredTotal + ' featured lessons (' + pct + '%)</span></div>' +
       '<div class="bar-track"><div class="bar-fill" style="width:' + pct + '%"></div></div>' +
-      (p.lastLesson ? '<a class="btn gold" style="margin-top:12px;" href="course.html?lesson=' + encodeURIComponent(p.lastLesson) + '">Resume: ' + esc(lessonIndex.get(p.lastLesson).lesson.title) + '</a>' : '') +
+      (p.lastLesson && lessonIndex.get(p.lastLesson) ? '<a class="btn gold" style="margin-top:12px;" href="course.html?lesson=' + encodeURIComponent(p.lastLesson) + '">Resume: ' + esc(lessonIndex.get(p.lastLesson).lesson.title) + '</a>' : '') +
       '</div>';
 
-    html += course.modules.map(function (m) {
+    // Native details, never the open attribute. Reload and returning to the
+    // list both start with every chapter closed.
+    html += course.modules.map(function (m, mi) {
       const featured = featuredOf(m.lessons);
       const optional = m.lessons.filter(isOptional);
-      const completed = featured.filter(l => done.has(l.id)).length;
+      const completed = featured.filter(function (l) { return done.has(l.id); }).length;
       const mpct = featured.length ? Math.round((completed / featured.length) * 100) : 0;
       const lessons = featured.map(function (l) {
         return lessonLinkHtml(l, done.has(l.id));
@@ -90,8 +103,10 @@
         ? '<div class="archive-block"><div class="archive-label">Optional / not emphasized on 2026 PTCE</div>' +
           optional.map(function (l) { return lessonLinkHtml(l, done.has(l.id)); }).join('') + '</div>'
         : '';
+      const label = labels[mi];
       return '<details class="module' + (mpct === 100 ? ' module-complete' : '') + '">' +
         '<summary>' +
+          '<span class="module-pill">D' + label.domainNum + '·' + label.chapter + '</span>' +
           '<span class="module-title">' + esc(m.title) + '</span>' +
           '<span class="module-meta">' + completed + '/' + featured.length + '</span>' +
         '</summary>' +

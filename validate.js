@@ -254,8 +254,8 @@ if (!/quiz\.html\?mode=missed/.test(dash) || !/quiz\.html\?mode=bookmarked/.test
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v47/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v47');
-else ok('sw.js cache is ptce-2026-v47');
+if (!/ptce-2026-v49/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v49');
+else ok('sw.js cache is ptce-2026-v49');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
