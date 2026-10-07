@@ -66,14 +66,13 @@ These are locked design standards across the app. Follow this rubric for future 
      - **Far Left**: The Matrix Red Pill / Blue Pill dual-capsule icon (`38px × 32px`, tilted capsules with 3D gradients and gloss highlights) + `PTCE 2026` logo.
      - **Center**: Page Title + Contextual Icon, strictly centered horizontally and tightly padded to body margins.
      - **Far Right**: Contextual navigation trigger (`‹ Home`, `‹ Course`, or utility button).
-5. **Legibility First & Eye-Strain Reduction Palette**:
-   - Monolithic bright green across whole pages causes severe eye fatigue during dense clinical reading.
-   - For high-density study pages (Study Notes, Course, Exam), adopt a **Dark Slate / Obsidian & Brushed Silver palette**:
-     - Base surfaces: `#03070b` (deep background), `#090f17` (surface base), `#0e1622` (elevated cards), `#141f2f` (table headers).
-     - Borders: Brushed silver hairlines (`rgba(148, 163, 184, 0.22)` to `0.35`).
-     - Body text: High-contrast off-white (`#e2e8f0` and `#f8fafc`) set in proportional, clean sans-serif typography (`system-ui`, `-apple-system`, `sans-serif`) to ensure effortless reading.
-     - Monospace (`JetBrains Mono`): Reserved for drug stems, abbreviations, dosages, ratios, and formulas.
-     - Matrix Accents: Matrix Cyan (`#38bdf8`) and Phosphor Green (`#00ff41`) are used strategically as highlights, active badges, stems, and key clinical terms—never as blinding wall-of-text backgrounds.
+5. **Legibility First (Matrix-cohesive, contrast where dense)**:
+   - Monolithic bright green across whole pages causes eye fatigue during dense clinical reading — avoid wall-of-green body text.
+   - **Primary direction is a cohesive Matrix theme** shared with Home (obsidian-green fills, chamfered panels, mint/cyan accents). Slate-as-Notes-end-state is retired; it was only a non-green contrast option, not the product goal.
+   - Dense Notes / Course / Exam surfaces may use cooler or neutral accents for long prose when that improves contrast, without breaking Matrix identity.
+   - Body text stays high-contrast and readable (proportional sans for paragraphs; `JetBrains Mono` for stems, codes, doses, ratios, formulas).
+   - Phosphor green / mint / cyan are for keys, stems, active state, and telemetry — not full-page body wash.
+   - Working plan: `study_notes_v4_plan.md` (v3 kept as history).
 6. **Zero-Cutoff & Parenthesis-Safe Parsing**:
    - Medical and clinical text contains nested semicolons and parentheses (e.g. `Tylenol = acetaminophen (max 4,000 mg/day; hepatotoxic in overdose).`).
    - Semicolon delimiters must be parsed using parenthesis-safe algorithms (`splitOutsideParens`) so that parenthetical notes, dosage caps, and warnings are never truncated or broken into orphaned chips.
@@ -84,8 +83,9 @@ These are locked design standards across the app. Follow this rubric for future 
      - **Abbreviations & Conversions**: Token grid cards with header legend (`ABBREVIATION` ➔ `CLINICAL TRANSLATION`).
      - **Clinical Specs & Schedules**: 2-column specifications table (`CLASSIFICATION / SCHEDULE` | `CLINICAL MECHANISMS & PEARLS`).
      - **Procedures & Laws**: Clean dark slate briefing cards with `#01` index chips and bolded tags.
-8. **Relocated Bottom-Centered Filters**:
-   - Remove instructional copy from page headers. Place live search/filter inputs centered at the bottom beneath the accordion content to keep the top of the workspace completely focused on study material.
+8. **Search / filter without redundant chrome**:
+   - Remove instructional copy from page headers. Keep search reachable (rail footer and/or one bottom control). Trim duplicate search/filter/nav bars — one clear path.
+   - v4 Notes target: domain rail + topic stage; see `study_notes_v4_plan.md`.
 
 ## Theme & Visual System
 
@@ -137,31 +137,29 @@ manifest.json  sw.js  icon.svg  validate.js
 css/style.css  css/home.css  css/notes.css
 js/app.js  home.js  course.js  notes.js  flashcards.js  quiz.js  exam.js  dashboard.js
 data/course.json  notes.json  flashcards.json  questions.json
-README.md  TODO.md
+README.md  TODO.md  study_notes_v4_plan.md  study_notes_v3_plan.md
 ```
 
 There is no `app/` directory. Shared helpers are `window.App` (`Storage`, `Util`, `DOMAINS`, `FX`) in `js/app.js`.
 
 ## Current state
 
-Branch: `feature/home-hud-overhaul` (Service worker cache `ptce-2026-v43`).
+Service worker cache on this tip: `ptce-2026-v43`.
+
+**Study Notes next step:** Terminal Codex overhaul is **planned only** — see `study_notes_v4_plan.md`. Do not start implementation until Rob says go. Course / Exam Matrix token adoption is later. Leave any local uncommitted `data/notes.json` WIP alone unless Rob asks.
 
 Key recent architecture and UI upgrades:
-- **Study Notes Codex v2 Overhaul**:
-  - Replaced all-green wall of text with a high-contrast **Dark Slate / Obsidian & Brushed Silver palette** (`#03070b` / `#090f17` / `#0e1622` / `#141f2f`) and `#e2e8f0` proportional sans-serif reading text to eliminate eye fatigue.
-  - Implemented 5 purpose-built clinical layouts: 2-up Brand/Generic table with explicit headers, 3-column OTC active ingredients table, token abbreviation & conversion grids with legend headers, 2-column clinical specifications table, and dark slate briefing cards.
-  - Re-architected header into a 3-zone balanced grid: Red/Blue Pill icon + `PTCE 2026` logo on left, centered `Study Notes` title + document icon, and `‹ Home` link on right.
-  - Eliminated top instructional text clutter; moved search/filter to a centered pill bar below the accordions.
-  - Fixed parenthesis-clipping bugs via `splitOutsideParens` so that dosages, warnings, and pearls remain 100% complete without truncation.
-  - Resolved Chrome cache serving stale assets via `?v=43` cache-busting queries and `sw.js` cache bumping.
+- **Study Notes Codex v2 (baseline on main after notes-v3 merge)**:
+  - Interim dense-reading palette and five purpose-built clinical layouts; 3-zone notes header; bottom filter; `splitOutsideParens`; SW `?v=43` / `ptce-2026-v43`.
+  - v4 plan replaces slate-as-end-state with Matrix-cohesive Notes UI and trimmed search/nav chrome.
 - **Flashcard Tabbed Rolodex Index Card**:
-  - Reimagined flashcard trigger into an authentic physical index card with top file tab, stepped deck drop-shadow depth, custom spindle notch icon, and zero text fluff.
+  - Physical index-card trigger with top file tab, stepped deck depth, spindle notch icon.
 - **Organic Circular Matrix Reactor Core**:
-  - Dashboard trigger redesigned as a translucent circular reactor core positioned organically in the open space below Quiz Mode and between Study Notes and Practice Exam with center-point dimensioning.
+  - Dashboard trigger as translucent circular reactor with center-point dimensioning.
 - **Matrix Red Pill / Blue Pill Brand Identity**:
-  - Distinctive dual-capsule icon (`38px × 32px`, `#38bdf8` blue pill / `#ff4b72` red pill) integrated uniformly across headers on all pages.
+  - Dual-capsule icon (`38px × 32px`) across headers.
 - **Matrix Rain FX Refinement**:
-  - Pure cascading Japanese Katakana glyph columns with lead highlights and depth fading, eliminating static grid character overlays.
+  - Cascading Katakana columns with lead highlights and depth fading.
 
 
 Bank on this commit:
@@ -172,6 +170,7 @@ Bank on this commit:
 
 Recent merges that got the UI here, newest first:
 
+- #28 Study Notes Codex v2 baseline + v3/v4 Terminal Codex plans (`v43`; Notes overhaul not started)
 - #26 home HUD asymmetry and Matrix rain craft (`v34`)
 - #24 Matrix home and progress dashboard
 - #25 / #23 lesson pages hug the viewport; short lessons no longer phantom-scroll

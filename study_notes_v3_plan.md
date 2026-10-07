@@ -4,6 +4,9 @@ Repo: `Desktop\PTCB26` · branch `feature/home-hud-overhaul` · last commit `ec3
 
 ---
 
+> **Superseded for working decisions by [`study_notes_v4_plan.md`](study_notes_v4_plan.md).** Keep this file for architecture detail and history.
+
+
 ## 1. Why v2 missed
 
 ![Current Study Notes at 1440×900](C:/Users/rtsii/.gemini/antigravity/brain/4633dec6-db14-4bfc-bc81-00870eeda5a5/notes_current.png)
