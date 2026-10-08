@@ -10,12 +10,7 @@
     'Federal Requirements': 18.75
   };
 
-  const BLUEPRINT_90 = [
-    { domain: 'Medications', count: 32 },
-    { domain: 'Patient Safety and Quality Assurance', count: 21 },
-    { domain: 'Order Entry and Processing', count: 20 },
-    { domain: 'Federal Requirements', count: 17 }
-  ];
+  if (window.ExamSetup) window.ExamSetup.setWeights(EXAM_WEIGHTS);
 
   let bank = [];
   let exam = [];        // { q, choice }
@@ -27,9 +22,6 @@
     intro: Util.el('#introScreen'),
     exam: Util.el('#examScreen'),
     result: Util.el('#examResultScreen'),
-    lengthPick: Util.el('#lengthPick'),
-    examTimerPick: Util.el('#examTimerPick'),
-    startExamBtn: Util.el('#startExamBtn'),
     examProgress: Util.el('#examProgress'),
     examTimer: Util.el('#examTimer'),
     examProgressFill: Util.el('#examProgressFill'),
@@ -44,9 +36,17 @@
     return questions.filter(function (q) { return q.featured !== false; });
   }
 
-  function generateExamQuestions(questions) {
+  // Same largest-remainder split the setup console displays.
+  function distributionFor(total) {
+    const counts = ExamSetup.scaleDraw(EXAM_WEIGHTS, total);
+    return Object.keys(EXAM_WEIGHTS).map(function (domain) {
+      return { domain: domain, count: counts[domain] };
+    });
+  }
+
+  function generateExamQuestions(questions, total) {
     const byDomain = Util.groupBy(featuredOnly(questions), 'domain');
-    const distribution = BLUEPRINT_90;
+    const distribution = distributionFor(total);
 
     let examQuestions = [];
     let warnings = [];
@@ -67,63 +67,8 @@
     return { questions: examQuestions, warnings };
   }
 
-  // Scale the 90-question blueprint distribution to a shorter exam length
-  function generateScaledExam(questions, total) {
-    const byDomain = Util.groupBy(featuredOnly(questions), 'domain');
-    const blueprint = BLUEPRINT_90;
-
-    let running = 0;
-    const distribution = blueprint.map(({ domain, count }) => {
-      const scaled = Math.round(count * total / 90);
-      running += scaled;
-      return { domain, count: scaled };
-    });
-    distribution[0].count += total - running; // absorb rounding drift on Medications
-
-    let examQuestions = [];
-    distribution.forEach(({ domain, count }) => {
-      const pool = byDomain[domain] || [];
-      examQuestions.push(...Util.sample(pool, Math.min(count, pool.length)));
-    });
-    return examQuestions;
-  }
-
-  function renderBlueprint() {
-    if (window.BlueprintHud) window.BlueprintHud.mount(EXAM_WEIGHTS);
-  }
-
-  function pills(container, options, initial, onPick) {
-    container.innerHTML = '';
-    options.forEach(function (opt) {
-      const b = document.createElement('button');
-      b.className = 'pill' + (opt.value === initial ? ' active' : '');
-      b.textContent = opt.label;
-      b.addEventListener('click', function () {
-        container.querySelectorAll('.pill').forEach(function (p) { p.classList.remove('active'); });
-        b.classList.add('active');
-        onPick(opt.value);
-      });
-      container.appendChild(b);
-    });
-  }
-
-  function buildSetup() {
-    pills(el.lengthPick, [
-      { label: '30 (short)', value: 30 },
-      { label: '60 (mid)', value: 60 },
-      { label: '90 (full)', value: 90 }
-    ], 90, function (v) { settings.length = v; });
-    pills(el.examTimerPick, [
-      { label: 'No timer', value: 0 },
-      { label: '60 min', value: 3600 },
-      { label: '110 min (real)', value: 6600 }
-    ], 6600, function (v) { settings.timer = v; });
-  }
-
   function startExam() {
-    const picked = settings.length === 90
-      ? generateExamQuestions(bank).questions
-      : generateScaledExam(bank, settings.length);
+    const picked = generateExamQuestions(bank, settings.length).questions;
     exam = Util.shuffle(picked).map(function (q) { return { q: q, choice: null }; });
     if (!exam.length) return;
     current = 0;
@@ -256,7 +201,18 @@
     });
   }
 
-  el.startExamBtn.addEventListener('click', startExam);
+  const setupRoot = document.getElementById('examSetup');
+  if (setupRoot) {
+    setupRoot.addEventListener('examsetup:start', function (e) {
+      const detail = (e && e.detail) || {};
+      settings.length = detail.length;
+      settings.timer = (Number(detail.timerMinutes) || 0) * 60;
+      startExam();
+    });
+    setupRoot.addEventListener('examsetup:back', function () {
+      window.location.href = 'index.html';
+    });
+  }
   el.examNextBtn.addEventListener('click', function () { if (current < exam.length - 1) { current++; renderQuestion(); } });
   el.examPrevBtn.addEventListener('click', function () { if (current > 0) { current--; renderQuestion(); } });
   el.submitExamBtn.addEventListener('click', function () {
@@ -265,13 +221,11 @@
     finish();
   });
 
-  renderBlueprint();
-
   async function init() {
     try {
       const data = await Util.fetchJSON('data/questions.json');
       const allQuestions = data.questions || data || [];
-      const { questions: examQuestions, warnings } = generateExamQuestions(allQuestions);
+      const { questions: examQuestions, warnings } = generateExamQuestions(allQuestions, 90);
 
       if (warnings.length) {
         console.warn('Exam generation warnings:', warnings);
@@ -282,11 +236,9 @@
       }
 
       bank = allQuestions;
-      renderBlueprint();
-      buildSetup();
     } catch (err) {
       console.error(err);
-      el.intro.style.display = 'none';
+      el.intro.classList.add('hidden');
       Util.el('#loadError').style.display = 'block';
     }
   }

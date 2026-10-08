@@ -1687,21 +1687,6 @@ body.exam .app-header {
 body.exam .app-header .logo { justify-self: start; }
 body.exam .app-header .back-link { justify-self: end; }
 body.exam .app-header .hdr-title { justify-self: center; }
-body.exam #introScreen .card-block h3 {
-  text-align: center;
-}
-body.exam #introScreen .filter-row {
-  justify-content: center;
-}
-body.exam #introScreen .btn-row {
-  justify-content: center;
-}
-body.exam #introScreen .muted {
-  text-align: center;
-}
-body.exam #introScreen > .card-block {
-  margin-bottom: 12px;
-}
 body.quiz .container,
 body.exam .container {
   padding-bottom: 20px;

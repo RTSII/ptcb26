@@ -34,7 +34,7 @@ Progress lives in `localStorage` under `ptce2026_progress_v1`. Study text lives 
 | Order Entry and Processing | 22.50% | 20 |
 | Federal Requirements | 18.75% | 17 |
 
-The 90-question counts are the rounded whole-question split in `js/exam.js` (`BLUEPRINT_90`). Shorter exams scale that split.
+Draw counts are the largest-remainder split of those weights times the chosen length, from `ExamSetup.scaleDraw` (`js/exam-setup.js`), which `js/exam.js` uses to build the exam. A 90-question exam is 32 / 21 / 20 / 17.
 
 Use those four domain strings in JSON. Do not invent short aliases in the data files.
 

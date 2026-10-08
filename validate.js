@@ -37,7 +37,7 @@ function parseJSON(rel) {
 
 console.log('Syntax (node --check)');
 const jsFiles = [
-  'js/app.js', 'js/blueprint-hud.js', 'js/quiz.js', 'js/exam.js', 'js/flashcards.js',
+  'js/app.js', 'js/exam-setup.js', 'js/quiz.js', 'js/exam.js', 'js/flashcards.js',
   'js/dashboard.js', 'js/notes.js', 'js/course.js', 'sw.js', 'validate.js'
 ];
 for (const f of jsFiles) {
@@ -254,11 +254,13 @@ if (!/quiz\.html\?mode=missed/.test(dash) || !/quiz\.html\?mode=bookmarked/.test
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v53/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v53');
-else ok('sw.js cache is ptce-2026-v53');
-if (!/css\/blueprint-hud\.css/.test(sw) || !/js\/blueprint-hud\.js/.test(sw)) {
-  fail('sw.js should cache css/blueprint-hud.css and js/blueprint-hud.js');
-} else ok('sw.js caches the Blueprint HUD assets');
+if (!/ptce-2026-v54/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v54');
+else ok('sw.js cache is ptce-2026-v54');
+if (/blueprint-hud/.test(sw)) fail('sw.js should not precache the removed Blueprint HUD');
+else ok('sw.js does not precache the Blueprint HUD');
+if (!/css\/exam-setup\.css/.test(sw) || !/js\/exam-setup\.js/.test(sw)) {
+  fail('sw.js should cache css/exam-setup.css and js/exam-setup.js');
+} else ok('sw.js caches the Exam Setup assets');
 if (!/function networkFirst/.test(sw) || !/function isAppShell/.test(sw)) {
   fail('sw.js should serve the HTML/CSS/JS app shell network-first');
 } else ok('sw.js app shell is network-first');
@@ -308,9 +310,14 @@ else ok('exam.html body.exam present');
 if (/id="blueprintBars"|<h3>Exam Blueprint<\/h3>/.test(examHtml)) {
   fail('exam.html should not keep the plain Exam Blueprint bar card');
 } else ok('exam.html drops the plain Exam Blueprint bar card');
-if (!/id="matrix-exam-card"/.test(examHtml) || !/blueprint-hud\.css/.test(examHtml) || !/blueprint-hud\.js/.test(examHtml)) {
-  fail('exam.html should include the Blueprint HUD');
-} else ok('exam.html includes the Blueprint HUD');
+if (/blueprint-hud|id="matrix-exam-card"|id="lengthPick"|id="startExamBtn"|id="examTimerPick"/.test(examHtml)) {
+  fail('exam.html should not keep the Blueprint HUD or the old length/timer card');
+} else ok('exam.html drops the Blueprint HUD and the old length/timer card');
+if (!/css\/exam-setup\.css/.test(examHtml) || !/js\/exam-setup\.js/.test(examHtml) || !/id="examSetup"/.test(examHtml)) {
+  fail('exam.html should include the Exam Setup component');
+} else ok('exam.html includes the Exam Setup component');
+if (!/Exam Setup/.test(examHtml)) fail('exam setup title should read Exam Setup');
+else ok('exam setup title reads Exam Setup');
 if (!/repeat\(2,\s*minmax\(0,\s*max-content\)\)/.test(css)) fail('answer choices should use a 2-column grid on wide screens');
 else ok('answer choices use a 2-column grid');
 if (!/choices\.layout-stack/.test(css)) fail('long choices should be able to stack in one column');
