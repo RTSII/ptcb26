@@ -16,6 +16,7 @@
   let lessonIndex = new Map(); // lessonId -> { module, lesson, flatIndex }
   let flatLessons = [];        // [{module, lesson}] in course order
   let currentFlat = 0;
+  let openModuleId = null;     // one accordion at a time; null = all closed
 
   function esc(s) { return Util.escapeHtml(String(s)); }
 
@@ -26,8 +27,9 @@
     course.modules.forEach(function (m) {
       moduleIndex.set(m.id, m);
       m.lessons.forEach(function (l) {
-        lessonIndex.set(l.id, { module: m, lesson: l, flatIndex: flatLessons.length });
-        flatLessons.push({ module: m, lesson: l });
+        const entry = { module: m, lesson: l, flatIndex: flatLessons.length };
+        lessonIndex.set(l.id, entry);
+        flatLessons.push(entry);
       });
     });
   }
@@ -37,11 +39,43 @@
   function isOptional(lesson) { return !!(lesson && lesson.optional); }
   function featuredOf(lessons) { return lessons.filter(function (l) { return !isOptional(l); }); }
 
-  function overallPct() {
+  // Resume target, from the saved course record only (completed ids + lastLesson).
+  // Featured lessons are the default path; optional archive lessons stay off it
+  // unless the learner is currently inside one.
+  // 1. Partway: lastLesson is set and not complete → that lesson.
+  // 2. Otherwise the first featured lesson after the most recently marked
+  //    complete lesson (completed[] order). Already-finished lessons are skipped.
+  // 3. Nothing saved → the first featured lesson (Start).
+  // 4. Every featured lesson is complete → the last featured lesson.
+  function resumeTarget() {
     const featured = flatLessons.filter(function (x) { return !isOptional(x.lesson); });
-    const doneIds = new Set(progress().completed);
-    const done = featured.filter(function (x) { return doneIds.has(x.lesson.id); }).length;
-    return featured.length ? Math.round((done / featured.length) * 100) : 0;
+    if (!featured.length) return null;
+    const p = progress();
+    const done = new Set(p.completed);
+
+    if (p.lastLesson && lessonIndex.has(p.lastLesson) && !done.has(p.lastLesson)) {
+      return { verb: 'Resume', entry: lessonIndex.get(p.lastLesson) };
+    }
+
+    let lastMarked = null;
+    for (let i = p.completed.length - 1; i >= 0; i--) {
+      const entry = lessonIndex.get(p.completed[i]);
+      if (entry) { lastMarked = entry; break; }
+    }
+
+    if (!lastMarked) return { verb: 'Start', entry: featured[0] };
+
+    const next = featured.find(function (x) {
+      return x.flatIndex > lastMarked.flatIndex && !done.has(x.lesson.id);
+    });
+    if (next) return { verb: 'Resume', entry: next };
+
+    if (featured.every(function (x) { return done.has(x.lesson.id); })) {
+      return { verb: 'Resume', entry: featured[featured.length - 1] };
+    }
+
+    const gap = featured.find(function (x) { return !done.has(x.lesson.id); });
+    return { verb: 'Resume', entry: gap || featured[featured.length - 1] };
   }
 
   function navNeighbor(flatIndex, dir) {
@@ -76,22 +110,30 @@
   }
 
   function renderList() {
-    const p = progress();
-    const done = new Set(p.completed);
-    const pct = overallPct();
-    const featuredTotal = flatLessons.filter(function (x) { return !isOptional(x.lesson); }).length;
-    const featuredDone = flatLessons.filter(function (x) { return !isOptional(x.lesson) && done.has(x.lesson.id); }).length;
+    const done = new Set(progress().completed);
     const labels = moduleLabels(course.modules);
+    const target = resumeTarget();
+    document.body.classList.toggle('course-reading', !!openModuleId);
 
-    let html = '<div class="course-overall">' +
-      '<div class="course-overall-head"><span>Course Progress</span><span>' + featuredDone + ' / ' + featuredTotal + ' featured lessons (' + pct + '%)</span></div>' +
-      '<div class="bar-track"><div class="bar-fill" style="width:' + pct + '%"></div></div>' +
-      (p.lastLesson && lessonIndex.get(p.lastLesson) ? '<a class="btn gold" style="margin-top:12px;" href="course.html?lesson=' + encodeURIComponent(p.lastLesson) + '">Resume: ' + esc(lessonIndex.get(p.lastLesson).lesson.title) + '</a>' : '') +
-      '</div>';
+    let html = '';
+    if (target) {
+      html += '<div class="course-resume">' +
+        '<a class="btn gold course-resume-btn" href="course.html?lesson=' + encodeURIComponent(target.entry.lesson.id) + '">' +
+        esc(target.verb) + ' "' + esc(target.entry.lesson.title) + '"</a></div>';
+    }
 
-    // Native details, never the open attribute. Reload and returning to the
-    // list both start with every chapter closed.
-    html += course.modules.map(function (m, mi) {
+    // One module open at a time. The open card is rendered first so it sits
+    // under the header once the idle spacer eases shut. Reload and returning
+    // to the list both start closed (openModuleId is cleared in showList).
+    const ordered = course.modules.map(function (m, mi) { return { m: m, mi: mi }; });
+    if (openModuleId) {
+      const at = ordered.findIndex(function (x) { return x.m.id === openModuleId; });
+      if (at > 0) ordered.unshift(ordered.splice(at, 1)[0]);
+    }
+
+    html += ordered.map(function (item) {
+      const m = item.m;
+      const mi = item.mi;
       const featured = featuredOf(m.lessons);
       const optional = m.lessons.filter(isOptional);
       const completed = featured.filter(function (l) { return done.has(l.id); }).length;
@@ -104,11 +146,11 @@
           optional.map(function (l) { return lessonLinkHtml(l, done.has(l.id)); }).join('') + '</div>'
         : '';
       const label = labels[mi];
-      return '<details class="module' + (mpct === 100 ? ' module-complete' : '') + '">' +
+      const isOpen = openModuleId === m.id;
+      return '<details class="module' + (mpct === 100 ? ' module-complete' : '') + '" data-module-id="' + esc(m.id) + '"' + (isOpen ? ' open' : '') + '>' +
         '<summary>' +
           '<span class="module-pill">D' + label.domainNum + '·' + label.chapter + '</span>' +
           '<span class="module-title">' + esc(m.title) + '</span>' +
-          '<span class="module-meta">' + completed + '/' + featured.length + '</span>' +
         '</summary>' +
         '<div class="module-body">' +
           '<p class="module-desc">' + esc(m.desc) + '</p>' +
@@ -183,7 +225,8 @@
   }
 
   function showList() {
-    document.body.classList.remove('lesson-open');
+    openModuleId = null;
+    document.body.classList.remove('lesson-open', 'course-reading');
     lessonView.style.display = 'none';
     if (listWrap) listWrap.style.display = '';
     listView.style.display = 'block';
@@ -193,6 +236,7 @@
 
   function showLesson(lessonId) {
     document.body.classList.add('lesson-open');
+    document.body.classList.remove('course-reading');
     if (listWrap) listWrap.style.display = 'none';
     lessonView.style.display = '';
     renderLesson(lessonId);
@@ -210,6 +254,24 @@
   }
 
   window.addEventListener('popstate', route);
+
+  // One open accordion. preventDefault keeps the native details toggle from
+  // opening a second card; renderList applies the single open attribute.
+  listView.addEventListener('click', function (e) {
+    const summary = e.target.closest('.module > summary');
+    if (!summary || !listView.contains(summary)) return;
+    const details = summary.parentElement;
+    if (!details) return;
+    e.preventDefault();
+    const id = details.getAttribute('data-module-id');
+    openModuleId = (openModuleId === id) ? null : id;
+    renderList();
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (openModuleId) window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    const focusSel = '.module[data-module-id="' + (window.CSS && CSS.escape ? CSS.escape(id) : id) + '"] > summary';
+    const focusEl = listView.querySelector(focusSel);
+    if (focusEl) focusEl.focus({ preventScroll: true });
+  });
 
   // Intercept in-page navigation to update without full reload
   document.addEventListener('click', function (e) {
