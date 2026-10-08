@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=52">
-  <link rel="stylesheet" href="css/blueprint-hud.css?v=52">
+  <link rel="stylesheet" href="css/style.css?v=54">
+  <link rel="stylesheet" href="css/exam-setup.css?v=54">
 </head>
 <body class="exam">
   <header class="app-header">
@@ -52,70 +52,98 @@
   <main class="container">
     <!-- Intro / setup -->
     <div id="introScreen">
-      <div class="card-block">
-        <h3>Exam Length</h3>
-        <div id="lengthPick" class="filter-row"></div>
-        <h3>Timer</h3>
-        <div id="examTimerPick" class="filter-row"></div>
-        <div class="btn-row">
-          <button id="startExamBtn" class="btn gold">Start Exam</button>
-        </div>
-        <p class="muted" style="margin-top:10px;">
-          A full exam draws 90 unique questions using the January 2026 blueprint: 32 Medications,
-          21 Patient Safety, 20 Order Entry, 17 Federal Requirements.
-        </p>
-      </div>
+      <section class="xs" id="examSetup" aria-labelledby="xsTitle">
+        <div class="xs-slab">
+          <div class="xs-rain" aria-hidden="true"></div>
 
-      <section id="matrix-exam-card" class="matrix-exam-card">
-        <canvas class="matrix-canvas" aria-hidden="true"></canvas>
-        <div class="crt-overlay" aria-hidden="true"></div>
-        <div class="scanline" aria-hidden="true"></div>
-        <div class="content-wrapper">
-          <aside class="side-panel" aria-hidden="true">
-            <div class="radar-box"></div>
-            <div class="telemetry-stream left-telemetry"></div>
-          </aside>
-          <div class="center-panel">
-            <header class="header">
-              <div class="title">EXAM BLUEPRINT</div>
-            </header>
-            <div class="data-row" data-slot="meds">
-              <div class="row-label">Medications</div>
-              <div class="vis-meds" aria-hidden="true">
-                <div class="vis-meds-fill"></div>
-                <div class="vis-meds-scanner"></div>
-              </div>
-              <div class="row-percent bracket-box"></div>
+          <header class="xs-head">
+            <p class="xs-tag">Simulation <b>// 03</b></p>
+            <h2 class="xs-title" id="xsTitle">Exam Setup<span class="xs-cursor" aria-hidden="true"></span></h2>
+            <p class="xs-tag xs-tag--r">PTCE 2026 Blueprint</p>
+          </header>
+
+          <div class="xs-core">
+            <div class="xs-panel xs-panel--l">
+              <p class="xs-plabel" id="lenLabel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/></svg>
+                Exam length
+              </p>
+              <div class="xs-opts" role="radiogroup" aria-labelledby="lenLabel" id="lenGroup"></div>
+              <p class="xs-help" id="lenHelp" aria-live="polite"></p>
+              <span class="xs-wire" aria-hidden="true"></span>
             </div>
-            <div class="data-row" data-slot="safety">
-              <div class="row-label">Patient Safety &amp; Quality</div>
-              <div class="vis-safety" aria-hidden="true">
-                <svg class="sine-wave" viewBox="0 0 300 20" preserveAspectRatio="none" focusable="false" aria-hidden="true">
-                  <path d="M0,10 Q15,0 30,10 T60,10 T90,10 T120,10 T150,10 T180,10 T210,10 T240,10 T270,10 T300,10" class="wave-path"></path>
-                </svg>
+
+            <div class="xs-reactor" id="reactor">
+              <svg viewBox="0 0 320 320" aria-hidden="true" focusable="false">
+                <defs>
+                  <radialGradient id="xsCore" cx="50%" cy="50%" r="50%">
+                    <stop offset="0" stop-color="#00ff41" stop-opacity=".14"/>
+                    <stop offset=".7" stop-color="#00ff41" stop-opacity=".03"/>
+                    <stop offset="1" stop-color="#00ff41" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+                <circle cx="160" cy="160" r="100" fill="url(#xsCore)"/>
+                <circle class="spin"    cx="160" cy="160" r="154" fill="none" stroke="#00ff41" stroke-opacity=".45" stroke-width="1" stroke-dasharray="3 7"/>
+                <circle class="spin s2" cx="160" cy="160" r="146" fill="none" stroke="#00ff41" stroke-opacity=".6" stroke-width="1.6" stroke-linecap="round" stroke-dasharray=".1 6"/>
+                <circle cx="160" cy="160" r="128" fill="none" stroke="#00ff41" stroke-opacity=".07" stroke-width="13"/>
+                <g transform="rotate(-90 160 160)">
+                  <g class="xs-ticks" id="tickRing"></g>
+                  <g id="weightRing"></g>
+                </g>
+                <circle class="spin s3" cx="160" cy="160" r="105" fill="none" stroke="#00e5ff" stroke-width="2" stroke-linecap="round" stroke-dasharray="58 602" opacity=".85"/>
+                <circle class="spin s4" cx="160" cy="160" r="99"  fill="none" stroke="#ff2bd6" stroke-width="2" stroke-linecap="round" stroke-dasharray="22 600" opacity=".8"/>
+                <circle cx="160" cy="160" r="93" fill="none" stroke="#00ff41" stroke-opacity=".22" stroke-width="1"/>
+                <g stroke="#00ff41" stroke-width="1.5" stroke-opacity=".8">
+                  <line x1="160" y1="0"   x2="160" y2="10"/>
+                  <line x1="160" y1="310" x2="160" y2="320"/>
+                  <line x1="0"   y1="160" x2="10"  y2="160"/>
+                  <line x1="310" y1="160" x2="320" y2="160"/>
+                </g>
+              </svg>
+              <div class="xs-readout" aria-live="polite" aria-atomic="true">
+                <span class="xs-q" id="qCount">90</span>
+                <span class="xs-cap">questions</span>
+                <span class="xs-sep" aria-hidden="true"></span>
+                <span class="xs-time" id="timeVal">110:00</span>
+                <span class="xs-cap" id="paceVal"></span>
               </div>
-              <div class="row-percent"></div>
             </div>
-            <div class="data-row" data-slot="order">
-              <div class="row-label">Order Entry &amp; Processing</div>
-              <div class="vis-order eq-container" aria-hidden="true"></div>
-              <div class="row-percent bracket-box"></div>
-            </div>
-            <div class="data-row" data-slot="federal">
-              <div class="row-label">Federal Requirements</div>
-              <div class="vis-federal" aria-hidden="true">
-                <div class="fed-trail"></div>
-                <div class="fed-orb"></div>
-              </div>
-              <div class="row-percent"></div>
+
+            <div class="xs-panel xs-panel--r">
+              <p class="xs-plabel" id="timLabel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M9 2h6"/></svg>
+                Timer
+              </p>
+              <div class="xs-opts" role="radiogroup" aria-labelledby="timLabel" id="timGroup"></div>
+              <p class="xs-help" id="timHelp" aria-live="polite"></p>
+              <span class="xs-wire" aria-hidden="true"></span>
             </div>
           </div>
-          <aside class="side-panel" aria-hidden="true">
-            <div class="telemetry-stream right-telemetry">
-              <div class="bracket-box tracking-box">TRACKING<strong>ON</strong></div>
+
+          <div class="xs-draw">
+            <div class="xs-drawhead">
+              <p class="xs-plabel" id="drawLabel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M12 3v9h9"/></svg>
+                Question draw
+              </p>
+              <span>Unique questions, weighted by domain</span>
             </div>
-            <div class="radar-box radar-bottom"></div>
-          </aside>
+            <ul class="xs-doms" id="domList" aria-labelledby="drawLabel"></ul>
+          </div>
+        </div>
+
+        <div class="xs-rail">
+          <div class="xs-socket">
+            <button type="button" class="xs-pill xs-pill--blue" id="backBtn" aria-label="Steak Dinner: back to Home">
+              <span>Steak Dinner</span>
+            </button>
+          </div>
+          <div class="xs-socket">
+            <button type="button" class="xs-pill xs-pill--red" id="startBtn">
+              <span id="startLbl">Enter the Construct</span>
+            </button>
+          </div>
+          <p class="xs-status" id="xsStatus" role="status" aria-live="polite"></p>
         </div>
       </section>
     </div>
@@ -147,7 +175,7 @@
   </main>
 
   <script src="js/app.js"></script>
-  <script src="js/blueprint-hud.js?v=52"></script>
-  <script src="js/exam.js?v=52"></script>
+  <script src="js/exam-setup.js?v=54"></script>
+  <script src="js/exam.js?v=54"></script>
 </body>
 </html>
