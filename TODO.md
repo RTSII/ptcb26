@@ -37,6 +37,11 @@ Superseded by the block above (do not follow these):
 - [x] Cascading Katakana Matrix rain FX (depth layers, white lead tips, no static grid floor overlays)
 - [x] Service worker & cache-busting query system (`?v=49`, `ptce-2026-v49`)
 - [x] Study Course home: chapters closed on load, title in the centered header, chapter titles centered (`ptce-2026-v49`)
+- [x] Home course card (#37)
+- [x] Dashboard Resurrections glass cards with no rain on the Dashboard (#38)
+- [x] Exam Setup console (#39)
+- [x] Study Course Resume button with one-open accordions and the Home brand (#40)
+- [ ] Switch the Dashboard, Quiz, Practice Exam, and Flashcards headers to the Home brand
 - [ ] Notes palette: Matrix-cohesive (retire slate-as-end-state) per `study_notes_v4_plan.md`
 - [ ] Trim redundant Notes search/filter/nav chrome
 - [ ] Shared `matrix.css` tokens — `UI_STANDARDS.md` documents the UI templates; extraction stays open

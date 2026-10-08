@@ -97,7 +97,7 @@ There is no `app/` directory. Shared helpers are `window.App` (`Storage`, `Util`
 
 ## Current state
 
-Notes layout on this branch: accordions closed on load; topic pager is inside the topic card; domain title is centered in the accordion header. An open domain uses a slim D1–D4 switcher and hides search so the topic card fills the viewport. Cache `ptce-2026-v49`.
+Notes layout on main: accordions closed on load; topic pager is inside the topic card; domain title is centered in the accordion header. An open domain uses a slim D1–D4 switcher and hides search so the topic card fills the viewport. Cache `ptce-2026-v56` (`sw.js`).
 
 **Study Notes next step:** Terminal Codex is **planned only** — see `study_notes_v4_plan.md` (content audit: merge map, dups, 5 review flags). Live Notes still renders the committed legacy `items` JSON in `data/notes.json`. The local-only v2 `blocks` file must never be served in that path — the old runtime renders it empty. Keep it outside `data/` until the blocks runtime ships. Do not start implementation until Rob says go. Course / Exam Matrix later.
 
@@ -123,6 +123,10 @@ Bank on this commit:
 
 Recent merges that got the UI here, newest first:
 
+- #40 Study Course Resume button, one-open accordions, Home brand
+- #38 Dashboard Resurrections glass cards; no rain on the Dashboard
+- #39 Exam Setup console
+- #37 Home course card opens the course home
 - #30 plan-review gate; Google AI art deferred
 - #29 Notes v4 content audit docs
 - #28 Study Notes Codex v2 baseline + v3/v4 Terminal Codex plans (Notes overhaul not started)
