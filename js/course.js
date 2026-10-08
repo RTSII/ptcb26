@@ -27,8 +27,9 @@
     course.modules.forEach(function (m) {
       moduleIndex.set(m.id, m);
       m.lessons.forEach(function (l) {
-        lessonIndex.set(l.id, { module: m, lesson: l, flatIndex: flatLessons.length });
-        flatLessons.push({ module: m, lesson: l });
+        const entry = { module: m, lesson: l, flatIndex: flatLessons.length };
+        lessonIndex.set(l.id, entry);
+        flatLessons.push(entry);
       });
     });
   }
@@ -150,7 +151,6 @@
         '<summary>' +
           '<span class="module-pill">D' + label.domainNum + '·' + label.chapter + '</span>' +
           '<span class="module-title">' + esc(m.title) + '</span>' +
-          '<span class="module-meta">' + completed + '/' + featured.length + '</span>' +
         '</summary>' +
         '<div class="module-body">' +
           '<p class="module-desc">' + esc(m.desc) + '</p>' +
