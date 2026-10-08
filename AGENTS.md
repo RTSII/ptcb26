@@ -1,6 +1,14 @@
 # Agents
 
-Read [UI_STANDARDS.md](UI_STANDARDS.md) before any UI change.
+Read in this order:
+
+1. This file, for standing rules and the pre-PR loop.
+2. [TODO.md](TODO.md) **Next up**, for what to do, in that order.
+3. [UI_STANDARDS.md](UI_STANDARDS.md) before any UI change.
+4. [README.md](README.md) for how to run the app and the content rules.
+5. [study_notes_v4_plan.md](study_notes_v4_plan.md) only for Notes content or the Notes theme overhaul.
+
+Do not read `docs/archive/`. Those files are history.
 
 - Do not merge without Rob's explicit approval.
 - Do not commit v2 `notes.json` until the blocks runtime ships with it. Keep that file outside `data/` until then.
@@ -10,3 +18,15 @@ Read [UI_STANDARDS.md](UI_STANDARDS.md) before any UI change.
   - `UI_STANDARDS.md`: any new standing UI rule, one line, no duplicates. README or plan files only if this work changed them.
   - Edit only docs related to this PR. No docs-only PRs for work that has its own PR. No doc edits for unrelated or in-progress work.
   - Skip this for small tweaks (copy, color nudge, one-line fix, cache bump). Keep few doc files and don't overload them.
+
+## Verify before PR
+
+On every code change, run this loop before asking for review. In the PR description, record only failures found, what was fixed, and any open flags or known limits. No running log file.
+
+- `node validate.js`. It checks schema, IDs, domain names, and a few copy assertions. It is not a content sign-off.
+- Serve locally and load every touched page, plus Home. No console errors.
+- Exercise the touched feature end to end (start an exam, resume a lesson, flip a card).
+- Check phantom scroll at 1366×768 and 1920×1080. Real scroll only when dense content overflows. See [UI_STANDARDS.md](UI_STANDARDS.md).
+- If assets changed, bump the service worker cache to the next version, and the matching check in `validate.js`.
+- Quick regression check of pages that share the touched CSS or JS.
+- Fix and re-run until this is clean.

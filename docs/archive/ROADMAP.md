@@ -1,6 +1,6 @@
 # PTCE 2026 Study App Roadmap
 
-> Historical stage log. It is not the live status. Current project docs are [README.md](README.md). What's left is [TODO.md](TODO.md). Sections below still cite older cache names and stage lists from before the home HUD / Matrix merges.
+> Archived stage log. It is not the live status. Current project docs are [README.md](../README.md). What's left is [TODO.md](../TODO.md). Sections below still cite older cache names and stage lists from before the home HUD / Matrix merges.
 
 This file tracks project phases, completed work, active tasks, QA requirements, release criteria, future enhancements, and implementation decisions.
 

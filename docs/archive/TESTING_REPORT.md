@@ -1,6 +1,6 @@
 # PTCE 2026 Study App - Integration Testing Report
 
-> Historical test log. It is not the live status. Current project docs are [README.md](README.md). What's left is [TODO.md](TODO.md).
+> Archived test log. It is not the live status. Current project docs are [README.md](../README.md). What's left is [TODO.md](../TODO.md). The pre-PR loop is in [AGENTS.md](../AGENTS.md).
 
 > **Addendum (September 3, 2026) — Stage 7 content pack:**
 > - Post-2020 / January 2026 teaching pack: CARA 30-day C-II partials (q165 rewritten;

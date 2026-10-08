@@ -221,27 +221,27 @@ else ok('index.html body.home present');
 if (/Quick 10|reviewMissedCard|reviewBookmarkedCard|home-weights|id="weightBars"/.test(home)) {
   fail('home should not show Quick 10, Review Missed, Review Bookmarked, or domain weights');
 } else ok('home drops Quick 10, review cards, and domain weights');
-if (!/Study Course/.test(home) || !/menu-card wide featured/.test(home)) {
+if (!/Study Course/.test(home) || !/class="hx-card hx-course" href="course\.html"/.test(home)) {
   fail('Study Course should remain the featured home hero');
 } else ok('Study Course remains the featured home hero');
 if (!/href="flashcards\.html"/.test(home) || !/href="quiz\.html"/.test(home) || !/href="exam\.html"/.test(home)) {
   fail('home should keep Flashcards, Quiz, and Practice Exam entry points');
 } else ok('home keeps Flashcards, Quiz, and Practice Exam');
 if (!/id="homeProgress"/.test(home) || !/href="dashboard\.html"/.test(home)) {
-  fail('home progress icon should link to the dashboard');
+  fail('home progress control should link to the dashboard');
 } else if (/<details[\s\S]*class="home-progress"/.test(home)) {
-  fail('home progress should be a compact header icon, not a disclosure block');
-} else if (!/class="home-progress"[\s\S]*aria-label="Progress Dashboard"/.test(home)) {
-  fail('progress entry should be a labeled header icon');
-} else ok('home progress is a header icon to the dashboard');
+  fail('home progress should not be a disclosure block');
+} else if (!/id="homeProgress"[^>]*aria-label="Progress Dashboard/.test(home)) {
+  fail('progress entry should be a labeled dashboard control');
+} else ok('home progress is a labeled dashboard control');
 if (/class="menu-card[^"]*"\s+href="dashboard\.html"/.test(home)) {
   fail('dashboard should not be an equal-weight home tile');
 } else ok('dashboard is not an equal-weight home tile');
-if (!/class="menu-card peer peer-notes"\s+href="notes\.html"/.test(home)) fail('Study Notes should be a home peer panel');
+if (!/class="hx-card hx-mode hx-notes"\s+href="notes\.html"/.test(home)) fail('Study Notes should be a home peer panel');
 else ok('Study Notes is a home peer panel');
-if (!/peer-flash/.test(home) || !/peer-quiz/.test(home) || !/peer-exam/.test(home) || !/class="hud"/.test(home)) {
-  fail('Flash, Quiz, Practice, and Notes should be separate HUD panels');
-} else ok('peer modes are separate HUD panels');
+if (!/class="hx-card hx-mode hx-flash"\s+href="flashcards\.html"/.test(home) || !/class="hx-card hx-mode hx-quiz"\s+href="quiz\.html"/.test(home) || !/class="hx-card hx-mode hx-exam"\s+href="exam\.html"/.test(home) || !/class="hx-card hx-mode hx-notes"\s+href="notes\.html"/.test(home)) {
+  fail('Flash, Quiz, Practice, and Notes should be separate home panels');
+} else ok('peer modes are separate home panels');
 
 const dash = read('dashboard.html');
 if (!/id="weightBars"/.test(dash) || !/PTCE 2026 Domain Weights/.test(dash)) {
