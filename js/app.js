@@ -456,7 +456,8 @@ function renderHomeProgress() {
 }
 
 function bootShell() {
-  FX.start();
+  // Dashboard is a plain dark field. Do not start the rain canvas there.
+  if (!document.body.classList.contains('dashboard')) FX.start();
   renderHomeProgress();
 }
 
