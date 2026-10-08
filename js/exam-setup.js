@@ -273,14 +273,12 @@
     btn.classList.add('is-loading');
     btn.setAttribute('aria-busy', 'true');
     $('startLbl').textContent = 'LOADING';
-    $('startSub').textContent = 'Construct initializing…';
     pausableTimeout(() => {
       const cfg = getConfig();
       root.dispatchEvent(new CustomEvent('examsetup:start', { detail: cfg, bubbles: true }));
       btn.classList.remove('is-loading');
       btn.removeAttribute('aria-busy');
-      $('startLbl').textContent = 'START EXAM';
-      $('startSub').textContent = 'Enter the simulation';
+      $('startLbl').textContent = 'Enter the Construct';
       $('xsStatus').textContent = `Construct loaded: ${cfg.length} questions, ${cfg.timerMinutes ? cfg.timerMinutes + ' min' : 'untimed'}.`;
     }, reduceMotion ? 250 : 1300);
   }
