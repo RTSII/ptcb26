@@ -4111,6 +4111,156 @@
       "answer": 0,
       "rationale": "21 CFR 1317.15(d).",
       "difficulty": "medium"
+    },
+    {
+      "id": "q275",
+      "domain": "Federal Requirements",
+      "subtopic": "Schedule II-V Rules",
+      "question": "An emergency oral Schedule II prescription is phoned in. What follow-up does federal law require, and what does the pharmacist do if it never arrives?",
+      "options": [
+        "Paper only, and no notice if it never arrives",
+        "A paper prescription reading \"Authorization for Emergency Dispensing\" plus the oral-order date, or an electronic prescription the pharmacist annotates with the original authorization and oral-order date, and the pharmacist notifies the nearest DEA office if the written prescription is not delivered",
+        "Any patient fax within 30 days",
+        "A transferred Schedule III refill"
+      ],
+      "answer": 1,
+      "rationale": "21 CFR 1306.11(d)(2) and (d)(4): the oral order is immediately reduced to writing. Within 7 days the prescriber must cause a prescription for the emergency quantity to be delivered. Paper must have \"Authorization for Emergency Dispensing\" and the date of the oral order on its face, and if mailed must be postmarked within 7 days. For an electronic prescription the pharmacist annotates the record with the original authorization and the date of the oral order. The pharmacist must notify the nearest office of the Administration if the written prescription is not delivered.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q276",
+      "domain": "Federal Requirements",
+      "subtopic": "Schedule II-V Rules",
+      "question": "Multiple Schedule II prescriptions for one patient. What total supply may they authorize, and what must the later prescriptions show?",
+      "options": [
+        "A 30-day supply with no fill dates",
+        "Up to a 90-day supply, and each prescription other than the first (when the first is to be filled immediately) must state the earliest date a pharmacy may fill it",
+        "A 6-month supply with 5 refills",
+        "One fill only, because a second C-II prescription is a refill"
+      ],
+      "answer": 1,
+      "rationale": "21 CFR 1306.12(b)(1) and (b)(1)(ii): an individual practitioner may issue multiple prescriptions authorizing the patient to receive a total of up to a 90-day supply of a Schedule II controlled substance. Written instructions on each prescription other than the first, if the first is to be filled immediately, indicate the earliest date on which a pharmacy may fill each prescription.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q277",
+      "domain": "Federal Requirements",
+      "subtopic": "Schedule II-V Rules",
+      "question": "A pharmacy partial-fills a Schedule II prescription because it cannot supply the full quantity. The remainder is still unfilled 72 hours after that first partial. Federal law requires the pharmacist to:",
+      "options": [
+        "Extend the remainder 30 days under CARA",
+        "Notify the prescribing practitioner, and supply no further quantity without a new prescription",
+        "Transfer the remainder once",
+        "File DEA Form 106"
+      ],
+      "answer": 1,
+      "rationale": "21 CFR 1306.13(a): the remaining portion may be filled within 72 hours of the first partial filling. If the remaining portion is not or cannot be filled within the 72-hour period, the pharmacist shall notify the prescribing individual practitioner. No further quantity may be supplied beyond 72 hours without a new prescription. q191 tests only the 72-hour clock.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q278",
+      "domain": "Federal Requirements",
+      "subtopic": "DEA Forms",
+      "question": "Who may sign a Schedule II order on DEA Form 222 or an electronic order?",
+      "options": [
+        "Any technician on duty",
+        "The registrant, or a person authorized by a power of attorney signed by the person granting the power and by the attorney-in-fact, witnessed by two people, and kept with the order records",
+        "Only the local DEA field office",
+        "Only the wholesaler"
+      ],
+      "answer": 1,
+      "rationale": "21 CFR 1305.05(a) and (c): a registrant may authorize one or more individuals to issue orders for Schedule I and II controlled substances on the registrant's behalf by executing a power of attorney. The power of attorney is retained with executed Forms 222. The sample the power of attorney must be similar to is signed by the person granting the power and by the attorney-in-fact and has two witnesses. It covers orders on Form 222 or electronic orders.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q279",
+      "domain": "Federal Requirements",
+      "subtopic": "Recalls",
+      "question": "Which action is not an FDA recall?",
+      "options": [
+        "A Class II recall for temporary or medically reversible harm",
+        "A stock recovery of product still under the firm's direct control, when no portion of the lot has been released for sale or use",
+        "A consumer-level Class I recall",
+        "A recall the firm starts after FDA requests it"
+      ],
+      "answer": 1,
+      "rationale": "21 CFR 7.3(g) and (k): recall does not include a market withdrawal or a stock recovery. Stock recovery means a firm's removal or correction of a product that has not been marketed or that has not left the direct control of the firm, and no portion of the lot has been released for sale or use.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q280",
+      "domain": "Federal Requirements",
+      "subtopic": "Hazardous Waste",
+      "question": "A discarded drug is both a hazardous-waste pharmaceutical and a DEA-scheduled controlled substance. It may be managed outside the usual hazardous-waste generator rules only if:",
+      "options": [
+        "It is flushed, because the sewer ban skips controlled substances",
+        "It is not sewered, it is handled under DEA controlled-substance rules, and it is destroyed by a method DEA has publicly deemed non-retrievable or combusted at a permitted facility listed in the EPA rule",
+        "It is returned to the dispensable shelf when the lot matches",
+        "DEA Form 222 replaces both DEA destruction and EPA disposal"
+      ],
+      "answer": 1,
+      "rationale": "40 CFR 261.33(a) through (d) and the comment: the lists are discarded commercial chemical products, off-specification species, container residues, and spill residues, for the commercially pure grade, technical grades, and formulations in which the chemical is the sole active ingredient. 40 CFR 266.507(a): a stock, dispensing, or unit-dose container not over 1 liter or 10,000 pills is empty, and the residue is not regulated as hazardous waste, when the drug is removed by the usual practice. 40 CFR 266.506(a)(1) and (b): a hazardous waste pharmaceutical that is also a scheduled controlled substance is exempt from 40 CFR parts 262 through 273 only if it meets the sewer prohibition, DEA controlled-substance handling, and the non-retrievable destruction or listed combustion condition.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q281",
+      "domain": "Federal Requirements",
+      "subtopic": "Schedule II-V Rules",
+      "question": "A Schedule II prescription is written for 90 tablets. Partial fills of 30 tablets and then 20 tablets have already been dispensed. How many tablets may still be dispensed?",
+      "options": [
+        "20",
+        "40",
+        "60",
+        "90"
+      ],
+      "answer": 1,
+      "rationale": "90 minus 30 minus 20 = 40. 21 CFR 1306.13(b)(1)(iv): the total quantity dispensed in all partial fillings does not exceed the total quantity prescribed. The 90, 30, and 20 are the example quantities. The ceiling is the quoted rule. No existing question asks this remaining-quantity arithmetic.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q282",
+      "domain": "Federal Requirements",
+      "subtopic": "Schedule II-V Rules",
+      "question": "A Schedule IV prescription authorizes the federal maximum of 5 refills. Two refills have been dispensed, and the prescription is still inside 6 months of the issue date. How many refills remain?",
+      "options": [
+        "2",
+        "3",
+        "5",
+        "6"
+      ],
+      "answer": 1,
+      "rationale": "5 minus 2 = 3. 21 CFR 1306.22(a): no prescription for a Schedule III or IV controlled substance shall be filled or refilled more than six months after the date issued, and it may not be refilled more than five times. q059 tests the 5-within-6-months cap, not the remaining count.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q283",
+      "domain": "Federal Requirements",
+      "subtopic": "CMEA",
+      "question": "Each tablet is 30 mg pseudoephedrine HCl and contains 24.6 mg of pseudoephedrine base. A purchaser buys 146 tablets in one calendar day. Grams of base, and the daily limit, are:",
+      "options": [
+        "3.5916 g, under the 3.6 g daily limit",
+        "4.38 g, over the 3.6 g daily limit",
+        "7.5 g, at the mail-order cap",
+        "9.0 g, at the 30-day purchase cap"
+      ],
+      "answer": 0,
+      "rationale": "DEA Chemical Handler's Manual (2022), Appendix I: a 30 mg pseudoephedrine HCl tablet has 24.6 mg of pseudoephedrine base, and 146 tablets times 24.6 mg is 3.5916 g, less than the daily sales limit of 3.6 g. The same table lists 366 tablets of 30 mg pseudoephedrine HCl as the 9.0 g purchase limit. 21 CFR 1314.20(a) sets the seller's daily cap at 3.6 g of pseudoephedrine base. q063 tests the 3.6 g cap, not the salt-to-base count.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q284",
+      "domain": "Federal Requirements",
+      "subtopic": "Schedule II-V Rules",
+      "question": "Which set must be on a new controlled-substance prescription?",
+      "options": [
+        "Drug name and quantity only",
+        "Date and signature on the day issued, patient's full name and address, drug name, strength, dosage form, quantity, directions for use, and the practitioner's name, address, and registration number",
+        "The patient's email and the pharmacy NPI only",
+        "A Form 222 attached to every Schedule III prescription"
+      ],
+      "answer": 1,
+      "rationale": "21 CFR 1306.05(a): all prescriptions for controlled substances shall be dated as of, and signed on, the day when issued and shall bear the full name and address of the patient, the drug name, strength, dosage form, quantity prescribed, directions for use, and the name, address and registration number of the practitioner. No course, notes, question, or flashcard states this list.",
+      "difficulty": "medium"
     }
   ]
 }
