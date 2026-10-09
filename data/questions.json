@@ -732,7 +732,7 @@
         "Both ears"
       ],
       "answer": 2,
-      "rationale": "OU = both eyes; OD = right eye; OS = left eye. (AU/AD/AS refer to ears.)",
+      "rationale": "OU = both eyes; OD = right eye; OS = left eye. AU/AD/AS refer to ears. These eye and ear codes are ISMP error-prone: recognize them, and write the words instead.",
       "difficulty": "easy"
     },
     {
@@ -1978,7 +1978,7 @@
         "Refill too soon"
       ],
       "answer": 1,
-      "rationale": "DAW 1 means the prescriber requires the brand product (substitution not permitted); DAW 0 is the default allowing substitution.",
+      "rationale": "DAW 1 means substitution is not allowed by the prescriber (brand required). DAW 0 means no product selection indicated (the default), not an order to dispense a generic.",
       "difficulty": "medium"
     },
     {
@@ -2174,7 +2174,7 @@
         "Right arm, left arm, both arms"
       ],
       "answer": 1,
-      "rationale": "AU = both ears (auris uterque), AD = right ear (auris dextra), AS = left ear (auris sinistra); the eye abbreviations are OU/OD/OS.",
+      "rationale": "AU = both ears (auris uterque), AD = right ear (auris dextra), AS = left ear (auris sinistra); the eye abbreviations are OU/OD/OS. These codes are ISMP error-prone: recognize them, and write the ear or eye instead.",
       "difficulty": "easy"
     },
     {
