@@ -3916,6 +3916,201 @@
       "answer": 0,
       "rationale": "CDC: soap and water when visibly soiled and during those outbreaks. Unless visibly soiled, ABHS is preferred in most clinical situations.",
       "difficulty": "medium"
+    },
+    {
+      "id": "q262",
+      "domain": "Order Entry and Processing",
+      "subtopic": "Calculations",
+      "question": "How many mL of isopropyl alcohol are in 250 mL of 70% v/v isopropyl alcohol?",
+      "options": [
+        "70 mL",
+        "140 mL",
+        "175 mL",
+        "250 mL"
+      ],
+      "answer": 2,
+      "rationale": "70% v/v = 70 mL per 100 mL. 250 × 70/100 = 175 mL.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q263",
+      "domain": "Order Entry and Processing",
+      "subtopic": "Calculations",
+      "question": "A product is 250 mg/5 mL. How many mg are in 20 mL?",
+      "options": [
+        "500 mg",
+        "750 mg",
+        "1,000 mg",
+        "1,250 mg"
+      ],
+      "answer": 2,
+      "rationale": "250/5 = x/20, so x = (250×20)/5 = 1,000 mg.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q264",
+      "domain": "Order Entry and Processing",
+      "subtopic": "Administration Supplies",
+      "question": "An oral solution label says to measure the dose with:",
+      "options": [
+        "A household teaspoon",
+        "A graduated oral syringe or measuring cup in mL",
+        "A U-100 insulin syringe",
+        "A nebulizer cup"
+      ],
+      "answer": 1,
+      "rationale": "Dilaudid oral solution labeling says to use a graduated oral syringe or measuring cup in mL and never a household teaspoon or tablespoon.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q265",
+      "domain": "Order Entry and Processing",
+      "subtopic": "Administration Supplies",
+      "question": "Which syringe does Humulin N labeling require?",
+      "options": [
+        "A syringe marked for U-100 insulin",
+        "A tuberculin syringe marked only in mL",
+        "A U-500 syringe",
+        "An oral syringe"
+      ],
+      "answer": 0,
+      "rationale": "Patient labeling: use a syringe marked for U-100 insulin. U-100 contains 100 units/mL.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q266",
+      "domain": "Order Entry and Processing",
+      "subtopic": "Administration Supplies",
+      "question": "Which product must not be used with a spacer or volume holding chamber?",
+      "options": [
+        "PROAIR RESPICLICK",
+        "FLOVENT HFA for a young patient, which may use a valved holding chamber",
+        "A nebulized solution",
+        "An HFA inhaler dose described with a valved holding chamber"
+      ],
+      "answer": 0,
+      "rationale": "PROAIR RESPICLICK § 2.3 forbids a spacer or volume holding chamber. FLOVENT HFA labeling allows a valved holding chamber, a kind of spacer, for young patients.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q267",
+      "domain": "Order Entry and Processing",
+      "subtopic": "Administration Supplies",
+      "question": "For a subcutaneous vaccine, CDC specifies:",
+      "options": [
+        "22- to 25-gauge, 1- to 1.5-inch, 90 degrees",
+        "23- to 25-gauge, 5/8-inch, 45 degrees",
+        "18-gauge, 1.5-inch, 90 degrees",
+        "An oral syringe"
+      ],
+      "answer": 1,
+      "rationale": "CDC subcutaneous vaccine job aid: 23- to 25-gauge, 5/8 inch (16 mm), 45-degree angle.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q268",
+      "domain": "Order Entry and Processing",
+      "subtopic": "NDC and Expiration",
+      "question": "Which set is the FDA 10-digit NDC configurations?",
+      "options": [
+        "4-4-2, 5-3-2, or 5-4-1",
+        "Only 5-4-2",
+        "6-4-2 only",
+        "3-3-4"
+      ],
+      "answer": 0,
+      "rationale": "FDA lists those three 10-digit configurations. 5-4-2 is the HIPAA billing length. 6-4-2 is the March 7, 2033 FDA format.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q269",
+      "domain": "Order Entry and Processing",
+      "subtopic": "NDC and Expiration",
+      "question": "The label reads 1234-5678-90 (4-4-2). The HIPAA 11-digit billing NDC is:",
+      "options": [
+        "1234-5678-900",
+        "01234-5678-90",
+        "12340-5678-90",
+        "1234-05678-90"
+      ],
+      "answer": 1,
+      "rationale": "Add a leading zero to the short segment. The 4-digit labeler becomes 01234, and the result is 5-4-2.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q270",
+      "domain": "Order Entry and Processing",
+      "subtopic": "NDC and Expiration",
+      "question": "On March 7, 2033, FDA-assigned NDCs convert to:",
+      "options": [
+        "11-digit 5-4-2",
+        "12-digit 6-4-2",
+        "10-digit 4-4-2 only",
+        "9-digit 3-3-3"
+      ],
+      "answer": 1,
+      "rationale": "Final rule: 6-digit labeler, 4-digit product, 2-digit package. Add leading zeros to the short segments. Effective March 7, 2033.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q271",
+      "domain": "Order Entry and Processing",
+      "subtopic": "NDC and Expiration",
+      "question": "Under 21 CFR 201.18, the lot number should:",
+      "options": [
+        "Identify the patient",
+        "Yield the complete manufacturing history of the package",
+        "Replace the NDC",
+        "Set the days supply"
+      ],
+      "answer": 1,
+      "rationale": "The lot number should yield the complete manufacturing history of the package. An incorrect lot number may misbrand the article.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q272",
+      "domain": "Order Entry and Processing",
+      "subtopic": "NDC and Expiration",
+      "question": "A product reconstituted at dispensing must show:",
+      "options": [
+        "Only the dry-powder date",
+        "Expiration information for both the reconstituted and unreconstituted products",
+        "Only a pharmacy beyond-use date",
+        "No date"
+      ],
+      "answer": 1,
+      "rationale": "21 CFR 211.137(c). Paragraph (b) ties the expiration date to the labeled storage conditions.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q273",
+      "domain": "Order Entry and Processing",
+      "subtopic": "Returns",
+      "question": "A potentially creditable hazardous waste pharmaceutical must be:",
+      "options": [
+        "Any opened patient return",
+        "In original manufacturer packaging unless recalled, undispensed, and unexpired or less than one year past expiration",
+        "Any Schedule II drug",
+        "A free sample"
+      ],
+      "answer": 1,
+      "rationale": "40 CFR 266.500. A reverse distributor receives it to facilitate or verify manufacturer credit.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q274",
+      "domain": "Order Entry and Processing",
+      "subtopic": "Returns",
+      "question": "A reverse distributor must destroy a controlled substance received for destruction:",
+      "options": [
+        "Within 30 calendar days after receipt",
+        "Within 72 hours",
+        "Within 1 business day",
+        "Within 6 months"
+      ],
+      "answer": 0,
+      "rationale": "21 CFR 1317.15(d).",
+      "difficulty": "medium"
     }
   ]
 }
