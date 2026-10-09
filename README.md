@@ -143,11 +143,11 @@ Home is the reference HUD. Study Course is the large card and opens the course l
 
 Notes still render the committed legacy `items` JSON. The v2 `blocks` file stays outside `data/` until the blocks runtime ships ([AGENTS.md](AGENTS.md)). The Notes plan is [study_notes_v4_plan.md](study_notes_v4_plan.md). What to do next is [TODO.md](TODO.md) **Next up**.
 
-Cache name: `sw.js` (`ptce-2026-v65`).
+Cache name: `sw.js` (`ptce-2026-v66`).
 
 Bank on this commit:
 
-- 274 questions (Medications 97, Patient Safety 65, Order Entry 59, Federal Requirements 53), including 2 `featured: false`
+- 284 questions (Medications 97, Patient Safety 65, Order Entry 59, Federal Requirements 63), including 2 `featured: false`
 - 190 flashcards, including 2 `featured: false`
 - 12 modules, 48 lessons (38 featured + 10 optional archive)
 

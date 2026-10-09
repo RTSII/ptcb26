@@ -15,14 +15,16 @@ Live backlog. History in `docs/archive/` is not this list.
   - [x] **Order Entry gap content.** C-OE-009 (4.2 administration supplies); C-OE-010 (4.3 NDC, lot, expiration); C-OE-011 (4.4 returns); 4.1 v/v percent and proportion. Applied as GF-OE-001–025. New lessons `m7l3`, `m7l4`, and `m7l5` after `m7l2`. `m9` not used.
     - **Unsourced, deferred:** filter needles and 0.22-micron sterilizing filters; return to stock of will-call or patient-returned medication, including any day limit; lancets, glucose meters, test strips, and alcohol swabs as a required diabetic kit.
 - [x] **Federal Requirements accuracy fixes (m10–m12).** C-FED-001, C-FED-002, C-FED-003, C-FED-004, C-FED-008, C-FED-009, C-FED-011, C-FED-012, C-FED-013, C-FED-014, C-FED-015, C-FED-017, C-FED-021, and C-FED-022. Whole lessons marked optional archive: `m11l1` HIPAA, `m11l2` OBRA-90, `m12l1` agencies, `m12l3` technician scope.
-  - **Federal gap content (deferred):** C-FED-005 (emergency C-II follow-up paper or electronic, and DEA notice if not delivered); C-FED-006 (multiple C-II prescriptions, up to a 90-day supply); C-FED-007 (notify the prescriber if a cannot-supply remainder is not filled within 72 hours); C-FED-010 (Form 222/CSOS signed by the registrant or a power of attorney); C-FED-023 (stock recovery is not a recall); C-FED-026 (P/U-list scope, P-list residue, CS that is also hazardous waste); C-FED-027 (calculation items for 2.2 and 2.4).
+  - [x] **Federal gap content.** C-FED-005; C-FED-006; C-FED-007; C-FED-010; C-FED-023; C-FED-026; C-FED-027. Applied as GF-FED-001–010 in m10 and m12.
+    - **Unsourced, deferred:** same-day issuance of multiple Schedule II prescriptions. Current 21 CFR 1306.12(b) does not require them to be issued on the same day.
   - **Partial scope (lesson stays on the default path):** `m11l3` — FDCA history, PPPA, ADA, and NDC sit outside 2.1–2.6; the Medication Guide bullet supports 2.4. `m12l2` — FEFO, expired stock, and NDC returns sit outside FDA recall 2.5; recall classes and initiation stay on the default path.
+- [x] **Course gap-fill.** Medications, Patient Safety, Order Entry, and Federal Requirements. Next is item 1.
 
 1. **Match Study Course accordion UI/page to Study Notes accordion.**
    - Auxiliary labels: course Patient Safety `m6l1` vs Notes Order Entry.
    - C-II refill and partial fill: course Federal `m10l2` vs Notes Order Entry.
    - OBRA-90 DUR: course Federal `m11l2` only vs Notes also under Patient Safety.
-   - NDC format: Notes Patient Safety section; no course lesson.
+   - NDC format: course Order Entry `m7l4`; Notes still list it under Patient Safety.
    - Course-only: ADC overrides; regulatory agencies lesson; technician scope lesson.
    - Notes-only: FMEA; tech cannot verify their own work. Concurrent DUR is in course `m4l4`.
    - Garb vs PPE: course `m5l2` sterile garb order vs Notes routine PPE order.
@@ -56,7 +58,7 @@ Superseded by the block above (do not follow these):
 - [x] Flashcards trigger: tabbed physical Rolodex index card with stepped deck depth and spindle notch icon
 - [x] Study Notes Codex v2 baseline (3-zone header, layouts, parenthesis-safe parsing)
 - [x] Cascading Katakana Matrix rain FX (depth layers, white lead tips, no static grid floor overlays)
-- [x] Service worker and `?v=` cache busters. Current name: `ptce-2026-v65` in `sw.js`
+- [x] Service worker and `?v=` cache busters. Current name: `ptce-2026-v66` in `sw.js`
 - [x] Study Course home: chapters closed on load, title in the centered header, chapter titles centered (`ptce-2026-v49`)
 - [x] Home course card (#37)
 - [x] Dashboard Resurrections glass cards with no rain on the Dashboard (#38)

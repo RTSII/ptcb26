@@ -857,13 +857,19 @@
           "intro": "Refill, transfer, and transmission rules differ by schedule.",
           "bullets": [
             "C-II: NO refills — a new prescription is required each time; written or electronic (EPCS); no telephone call-ins except a true emergency.",
+            "An individual practitioner may issue multiple C-II prescriptions that together total up to a 90-day supply. On each prescription other than the first, if that first one is to be filled immediately, the practitioner writes the earliest date a pharmacy may fill it.",
+            "A controlled-substance prescription is dated and signed on the day it is issued. It must show the patient's full name and address, the drug name, strength, dosage form, quantity prescribed, directions for use, and the practitioner's name, address, and registration number.",
             "C-II fax is the original prescription only in three cases: any C-II for a long-term care facility resident; a C-II narcotic for a patient in a qualifying hospice, with hospice noted on the prescription; a C-II narcotic compounded for direct parenteral, IV, IM, subcutaneous, or intraspinal infusion.",
             "C-III and C-IV: up to 5 refills within 6 months of the issue date. Federal law does not set that cap on Schedule V; follow the stricter state rule.",
+            "Refills left on a C-III or C-IV: no more than 5 refills, and none after 6 months from the issue date. If 5 were authorized and 2 have been dispensed, 3 remain, and only while the 6-month date has not passed.",
             "Emergency C-II oral authorization: the pharmacist may fill a quantity for the emergency period; the prescriber must deliver a written follow-up prescription within 7 days.",
+            "The pharmacist writes the oral order down immediately. Within 7 days the prescriber must deliver a follow-up for that emergency quantity. On paper, the face must read \"Authorization for Emergency Dispensing\" and the date of the oral order. It may be delivered in person or by mail postmarked within those 7 days, and the pharmacist attaches it to the written oral order. For an electronic prescription, the pharmacist annotates the record with the original authorization and the date of the oral order. If the prescriber fails to deliver the written prescription, the pharmacist notifies the nearest DEA office.",
             "C-II partial fills — if the patient or prescriber requests a partial (CARA 2016), remaining portions must be filled within 30 days of the written date, except an emergency oral C-II, whose remaining portions must be filled within 72 hours after the prescription is issued.",
             "If the pharmacy cannot supply the full C-II quantity, the older rule still applies: remainder within 72 hours, then a new prescription is required.",
+            "If that remainder is not or cannot be filled within 72 hours of the first partial, the pharmacist notifies the prescriber. No further quantity may be supplied after those 72 hours without a new prescription.",
             "LTCF or terminally ill patients: remaining portions of C-II partial fills may be dispensed for up to 60 days from the written date.",
             "After the applicable window, leftover quantity cannot be filled. Total dispensed cannot exceed the written amount. Document each partial.",
+            "Quantity left on a C-II partial: add every partial and stop at the written quantity. Example: 90 tablets written, 30 then 20 dispensed, 40 left.",
             "C-III–V transfers: one time to another pharmacy for a refill, unless the pharmacies share a real-time online database — then transfers may continue until the refills are used up.",
             "Electronic controlled prescriptions: an unfilled electronic C-II–V prescription may be transferred once for initial dispensing, pharmacist to pharmacist, at the patient’s request. It stays electronic. Authorized C-III–V refills transfer with it. A paper C-II cannot be transferred.",
             "Non-controlled prescriptions: remaining refills may be transferred as state law allows. Federal law does not impose a one-time cap."
@@ -885,6 +891,7 @@
           "intro": "Specific DEA forms document ordering, theft/loss, destruction, and registration of controlled substances.",
           "bullets": [
             "DEA Form 222 (single-sheet paper — not the old triplicate — or electronic CSOS): used to ORDER or TRANSFER Schedule I–II. Destruction/disposal is Form 41, never 222.",
+            "The registrant, or a person named in a power of attorney, signs Schedule I and II orders on Form 222 or electronically. The registrant (or a partner or officer) and the attorney-in-fact both sign the power of attorney, two witnesses sign it, and it is kept with the order records.",
             "DEA Form 106: theft or significant loss. Two steps — written notice to the local DEA field office within 1 business day of discovery, then electronic Form 106 within 45 calendar days. Paper Form 106 is not accepted.",
             "DEA Form 41: document DESTRUCTION/disposal of pharmacy-owned controlled substances.",
             "DEA Form 224: pharmacy DEA registration; renew every 3 YEARS.",
@@ -914,6 +921,7 @@
           "bullets": [
             "Pseudoephedrine (Sudafed) and ephedrine are kept BEHIND THE COUNTER (not a prescription, but restricted).",
             "Daily sales limit: 3.6 grams of pseudoephedrine base, ephedrine base, or phenylpropanolamine base per purchaser per day.",
+            "Base, not the salt. A 30 mg pseudoephedrine HCl tablet contains 24.6 mg of pseudoephedrine base. 146 of those tablets are 3.5916 g of base, under the 3.6 g daily limit. 366 of those tablets equal the 9.0 g 30-day purchase limit.",
             "30-day purchase cap: 9 grams of the base per purchaser, of which not more than 7.5 grams of the base may be mail-order.",
             "Requirements: photo ID and a written or electronic logbook (purchaser name, address, and signature; date and time; product; quantity), except one sales package of not more than 60 mg pseudoephedrine.",
             "Products must be stored behind the counter or in a locked cabinet."
@@ -1067,6 +1075,7 @@
             "The NDC number (labeler-product-package) is used to identify recalled products and process returns.",
             "The firm initiates a recall. FDA may request one. Pharmacy action is the same: pull matching lots, quarantine, document, follow the notice.",
             "A market withdrawal is not a recall — the firm removes product for a minor violation that would not usually trigger legal recall action.",
+            "A stock recovery is also not a recall. The firm removes or corrects product that has not been marketed or has not left the firm's direct control, and no portion of the lot has been released for sale or use.",
             "Do not confuse a lot-specific recall with a patient take-back of leftover pills from home."
           ],
           "keyPoints": [
@@ -1126,6 +1135,7 @@
           "intro": "Knowledge area 2.1 is federal storage, handling, and disposal of non-hazardous and hazardous pharmaceutical waste, including EPA P-list waste, plus the OSHA exposure steps tested with it.",
           "bullets": [
             "EPA RCRA listed waste: P-list drugs are acutely hazardous when the listed chemical is the sole active ingredient. Examples: warfarin above 0.3% (P001); nicotine (P075), except FDA-approved OTC nicotine replacement products, which were removed from that listing. U-list drugs are toxic but not acute. Examples: cyclophosphamide (U058); lindane (U129).",
+            "P- and U-lists cover unused discarded commercial chemical products (the pure or technical grade, or a formulation in which the chemical is the sole active ingredient), off-specification product, container residue, and spill residue. That residue is hazardous waste unless the container is empty. A stock bottle, dispensing bottle, vial, or ampule (not over 1 liter or 10,000 pills), or a unit-dose container, is empty once the drug is removed the usual way. A hazardous-waste pharmaceutical that is also a scheduled controlled substance is not sewered. It is collected, stored, transported, and disposed of under DEA rules, and destroyed by a method DEA has publicly deemed non-retrievable or combusted at a permitted facility listed in the EPA rule.",
             "A discarded drug can still be hazardous by characteristic (ignitable, corrosive, reactive, or toxic) when it is not on the P- or U-list. Non-hazardous pharmaceutical waste is the remaining drug waste. “Not on the P-list” does not mean trash or the drain.",
             "The 2019 EPA hazardous-waste pharmaceuticals rule banned sewering hazardous-waste drugs nationwide. Do not flush them.",
             "Segregate waste before it leaves the pharmacy. The color map commonly used on the PTCE: black = RCRA hazardous pharmaceutical waste; yellow = trace chemotherapy; red = biohazard, including sharps; blue or white = non-hazardous pharmaceutical waste. Follow the pharmacy’s waste-vendor labels when they differ — the federal duty is segregation, not one national color statute.",
