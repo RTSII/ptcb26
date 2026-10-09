@@ -38,7 +38,8 @@
             "Beta blockers (-olol): metoprolol (Lopressor=IR tartrate, Toprol-XL=ER succinate), atenolol (Tenormin) — lower HR/BP; caution in asthma, do not stop abruptly.",
             "Calcium channel blockers: amlodipine (Norvasc, dihydropyridine → vasodilation, ankle edema); diltiazem/verapamil (non-DHP → also slow heart rate).",
             "Statins (-vastatin): atorvastatin, simvastatin, rosuvastatin — lower LDL; report unexplained muscle pain (myopathy/rhabdomyolysis); simvastatin interacts with grapefruit (CYP3A4).",
-            "Diuretics: hydrochlorothiazide/HCTZ (thiazide, hypokalemia), furosemide/Lasix (loop, \"loses potassium\"), spironolactone (potassium-sparing)."
+            "Diuretics: hydrochlorothiazide/HCTZ (thiazide, hypokalemia), furosemide/Lasix (loop, \"loses potassium\"), spironolactone (potassium-sparing).",
+            "Clopidogrel (Plavix) is a thienopyridine P2Y12 platelet inhibitor. Tablets contain 75 mg clopidogrel. It is indicated to reduce MI and stroke in acute coronary syndrome, and in recent MI, recent stroke, or established peripheral arterial disease."
           ],
           "keyPoints": [
             "ACEI dry cough",
@@ -54,12 +55,18 @@
           "intro": "Know the major antibiotic classes, their stems, spectrum, and signature safety points.",
           "bullets": [
             "Penicillins (-cillin): amoxicillin, amoxicillin/clavulanate (Augmentin) — common for ear/strep; watch for allergy/anaphylaxis.",
+            "Amoxicillin: there are reports of severe reactions to cephalosporins in people with a history of penicillin hypersensitivity. Before amoxicillin, ask about prior reactions to penicillins, cephalosporins, or other allergens.",
             "Cephalosporins (ceph-/-cef-): cephalexin (Keflex). Generations 1–5 are not steadily broader gram-negative coverage; ceftaroline covers MRSA (gram-positive) plus some gram-negatives.",
             "Macrolides (-thromycin): azithromycin (Zithromax/Z-Pak = 6 tabs, 500 mg day 1 then 250 mg ×4), clarithromycin — QT prolongation risk.",
             "Fluoroquinolones (-floxacin): ciprofloxacin (Cipro), levofloxacin — BOXED WARNING: tendinitis and tendon rupture, peripheral neuropathy, CNS effects, and myasthenia gravis exacerbation. Reserve them when there is no alternative for acute exacerbation of chronic bronchitis, uncomplicated cystitis, and acute sinusitis. Age >60 raises tendon-rupture risk. QT prolongation is a separate warning, not the box. Not first choice in children (arthropathy); approved for some pediatric uses (anthrax, plague).",
             "Tetracyclines: doxycycline, tetracycline — avoid in children <8 and pregnancy (permanent tooth discoloration); chelate with dairy/antacids.",
             "Sulfonamides: sulfamethoxazole/trimethoprim (Bactrim) — sulfa allergy, hyperkalemia, photosensitivity.",
-            "Antifungals: fluconazole (Diflucan). Antivirals: acyclovir (Zovirax), oseltamivir (Tamiflu)."
+            "Sulfamethoxazole/trimethoprim (Bactrim): fatalities and serious reactions include severe cutaneous adverse reactions, including Stevens-Johnson syndrome and toxic epidermal necrolysis.",
+            "Antifungals: fluconazole (Diflucan). Antivirals: acyclovir (Zovirax), oseltamivir (Tamiflu).",
+            "Oral acyclovir is indicated for acute herpes zoster (shingles), for initial and recurrent genital herpes, and for chickenpox (varicella).",
+            "Oseltamivir (Tamiflu) is an influenza neuraminidase inhibitor for treatment of acute, uncomplicated influenza A and B in patients 2 weeks of age and older who have been symptomatic for no more than 48 hours, and for prophylaxis of influenza A and B in patients 1 year and older.",
+            "Fluconazole (Diflucan) is indicated for vaginal candidiasis, oropharyngeal and esophageal candidiasis, and cryptococcal meningitis.",
+            "Oseltamivir (Tamiflu) treatment, adults and adolescents 13 years and older: 75 mg twice daily for 5 days."
           ],
           "keyPoints": [
             "Z-Pak = 6 tablets",
@@ -77,6 +84,9 @@
             "Sulfonylureas: glipizide, glimepiride, glyburide — stimulate insulin release; main risk is HYPOGLYCEMIA.",
             "SGLT2 inhibitors (-gliflozin): empagliflozin (Jardiance) — increase urinary glucose excretion; genital infections, DKA risk.",
             "GLP-1 agonists: semaglutide (Ozempic), liraglutide (Victoza) — injectable, weight loss, GI upset.",
+            "Semaglutide (Ozempic) BOXED WARNING: risk of thyroid C-cell tumors. In rodents, semaglutide causes thyroid C-cell tumors. It is unknown whether Ozempic causes thyroid C-cell tumors, including medullary thyroid carcinoma (MTC), in humans. Contraindicated with a personal or family history of MTC or with Multiple Endocrine Neoplasia syndrome type 2 (MEN 2).",
+            "Liraglutide (Victoza) BOXED WARNING: risk of thyroid C-cell tumors. In rats and mice, liraglutide causes thyroid C-cell tumors. It is unknown whether Victoza causes thyroid C-cell tumors, including MTC, in humans. Contraindicated with a personal or family history of MTC and in MEN 2.",
+            "Semaglutide (Ozempic) is injected subcutaneously once weekly. Start at 0.25 mg once weekly. After 4 weeks, increase to 0.5 mg once weekly. A missed dose may be given within 5 days.",
             "DPP-4 inhibitors (-gliptin): sitagliptin (Januvia). Thiazolidinediones (-glitazone): pioglitazone (Actos) — weight gain, fluid retention/HF caution.",
             "Insulin types: rapid (lispro/Humalog, aspart/NovoLog ~15 min), short (Regular), intermediate (NPH), long (glargine/Lantus — about 24 h, no pronounced peak; degludec/Tresiba — at least 42 h). Detemir (Levemir) is discontinued in the US. Refrigerate unopened; in-use time is product-specific (Lantus vial: 28 days, refrigerated or room temperature; Lantus SoloStar: 28 days at room temperature only, do not refrigerate); never freeze.",
             "Levothyroxine (Synthroid): T4 replacement — take on empty stomach 30–60 min before breakfast, separate from calcium/iron by 4 h, consistent brand."
@@ -85,7 +95,8 @@
             "Metformin contrast hold is only for higher-risk patients",
             "Sulfonylureas → hypoglycemia",
             "Insulin onset: rapid 15min, glargine no peak",
-            "Levothyroxine empty stomach"
+            "Levothyroxine empty stomach",
+            "Ozempic box: thyroid C-cell tumors; no MTC or MEN 2"
           ]
         },
         {
@@ -94,18 +105,26 @@
           "intro": "Antidepressants, anxiolytics, sedatives, and analgesics — know class, schedule, and key warnings.",
           "bullets": [
             "SSRIs (no single class suffix; examples: fluoxetine (Prozac), sertraline (Zoloft), escitalopram (Lexapro)) — take 2–4 weeks to work; risk serotonin syndrome with MAOIs/triptans. -oxetine is not SSRI-only (duloxetine is an SNRI).",
+            "Lamotrigine ER (Lamictal XR) BOXED WARNING: serious rashes, including Stevens-Johnson syndrome. Incidence of these rashes is approximately 0.8% (8 per 1,000) in pediatric patients aged 2 to 16 years on adjunctive immediate-release lamotrigine for epilepsy, and 0.3% (3 per 1,000) in adults on adjunctive therapy for epilepsy. Rare toxic epidermal necrolysis and rash-related death are reported. Lamictal XR is not approved under age 13.",
             "SNRIs: duloxetine (Cymbalta) — depression, anxiety, neuropathic pain; venlafaxine (Effexor XR) — MDD, GAD, social anxiety, and panic, not neuropathic pain.",
             "Benzodiazepines (-azepam/-azolam): alprazolam (Xanax), lorazepam (Ativan), diazepam (Valium) — C-IV, sedation/dependence; overdose reversed by flumazenil.",
             "Z-hypnotics for insomnia: zolpidem (Ambien), eszopiclone (Lunesta) — C-IV; next-day impairment.",
             "NSAIDs: ibuprofen (Advil/Motrin), naproxen (Aleve), meloxicam (Mobic), celecoxib (Celebrex) — GI bleed/CV risk, take with food.",
             "Acetaminophen (Tylenol): max 4 g/day (many recommend 3 g); hepatotoxicity in overdose; antidote N-acetylcysteine. Often combined with opioids (Norco = hydrocodone/APAP).",
-            "Opioids (C-II): oxycodone, hydrocodone/APAP (Norco), tramadol (C-IV) — sedation, constipation (no tolerance), respiratory depression; reversed by naloxone."
+            "Do not use acetaminophen with any other prescription or nonprescription drug that contains acetaminophen.",
+            "Opioids (C-II): oxycodone, hydrocodone/APAP (Norco), tramadol (C-IV) — sedation, constipation (no tolerance), respiratory depression; reversed by naloxone.",
+            "Methylphenidate ER (Concerta) is a CNS stimulant for ADHD in patients 6 to 65 years old. BOXED WARNING: high potential for abuse and misuse, which can lead to a substance use disorder, including addiction. Misuse and abuse can result in overdose and death.",
+            "Sumatriptan tablets (Imitrex) are a 5-HT1B/1D agonist (triptan) for acute migraine with or without aura in adults. Not for prevention of migraine. Tablets contain 25 mg, 50 mg, or 100 mg sumatriptan.",
+            "Aripiprazole (Abilify) is an atypical antipsychotic indicated for schizophrenia. BOXED WARNING: increased mortality in elderly patients with dementia-related psychosis. Not approved for dementia-related psychosis."
           ],
           "keyPoints": [
             "SSRI + MAOI = serotonin syndrome",
             "Benzos & Z-drugs = C-IV",
             "APAP max 4 g/day",
-            "Naloxone reverses opioids"
+            "Naloxone reverses opioids",
+            "Lamotrigine: serious rash, including SJS",
+            "Do not combine acetaminophen products",
+            "Methylphenidate = CNS stimulant for ADHD"
           ]
         },
         {
@@ -119,13 +138,20 @@
             "PPIs (-prazole; aripiprazole is not a PPI): omeprazole (Prilosec), pantoprazole (Protonix), esomeprazole (Nexium) — take 30–60 min before the first meal; long-term use → B12 deficiency, fracture risk.",
             "H2 blockers (-tidine): famotidine (Pepcid) — reduce gastric acid; weaker than PPIs.",
             "Bisphosphonates: alendronate (Fosamax) for osteoporosis — take with plain water 30+ min before food and remain upright to prevent esophagitis.",
-            "Gout: allopurinol (Zyloprim, chronic prevention), colchicine (acute flare). Antihistamines: loratadine (Claritin, non-sedating), diphenhydramine (Benadryl, sedating)."
+            "Alendronate (Fosamax) treatment of osteoporosis in postmenopausal women and in men: 10 mg daily or 70 mg once weekly. Prevention of osteoporosis in postmenopausal women: 5 mg daily or 35 mg once weekly.",
+            "Gout: allopurinol (Zyloprim, chronic prevention), colchicine (acute flare). Antihistamines: loratadine (Claritin, non-sedating), diphenhydramine (Benadryl, sedating).",
+            "Allopurinol: serious and sometimes fatal dermatologic reactions, including toxic epidermal necrolysis (TEN) and Stevens-Johnson syndrome (SJS), in approximately 5 in 10,000 (0.05%) patients. Discontinue at the first appearance of skin rash.",
+            "Tamsulosin is an alpha-1A adrenoceptor antagonist for the signs and symptoms of benign prostatic hyperplasia. It is not indicated for hypertension.",
+            "Prednisone is a glucocorticoid (systemic corticosteroid). Oral tablets contain 5 mg, 10 mg, or 20 mg. One labeled use is adjunctive short-term therapy in rheumatoid arthritis.",
+            "Tri-Sprintec (norgestimate and ethinyl estradiol) is a combination oral contraceptive indicated to prevent pregnancy in females of reproductive potential.",
+            "Tri-Sprintec BOXED WARNING: cigarette smoking increases the risk of serious cardiovascular events from combination oral contraceptives. Contraindicated in women over 35 years of age who smoke."
           ],
           "keyPoints": [
             "Albuterol = rescue; prime Ventolin HFA, not ProAir RespiClick",
             "PPIs before first meal",
             "Alendronate: plain water, stay upright",
-            "Montelukast boxed warning"
+            "Montelukast boxed warning",
+            "Alendronate treatment: 10 mg daily or 70 mg weekly"
           ]
         }
       ]
@@ -146,15 +172,20 @@
           "intro": "High-alert medications bear a heightened risk of significant harm when used in error. The ISMP list is a PTCE favorite.",
           "bullets": [
             "High-alert classes: insulin, anticoagulants (warfarin, heparin, DOACs), opioids, concentrated electrolytes (KCl), chemotherapy, and methotrexate.",
+            "Methotrexate tablets (Trexall) for rheumatoid arthritis: recommended starting dosage 7.5 mg orally once weekly. BOXED WARNING: tablets inadvertently administered once daily have resulted in death.",
             "Insulin: wrong-dose errors are common and dangerous; U-100 = 100 units/mL; use independent double checks.",
             "Anticoagulants: warfarin (monitor INR), heparin (monitor aPTT, HIT risk), DOACs (apixaban/Eliquis, rivaroxaban/Xarelto) — bleeding is the major harm.",
+            "Warfarin is a vitamin K antagonist indicated for prophylaxis and treatment of venous thrombosis and pulmonary embolism; prophylaxis and treatment of thromboembolic complications associated with atrial fibrillation and/or cardiac valve replacement; and reduction in the risk of death, recurrent MI, and thromboembolic events such as stroke after myocardial infarction.",
+            "Apixaban (Eliquis) is a factor Xa inhibitor indicated to reduce the risk of stroke and systemic embolism in nonvalvular atrial fibrillation, for DVT prophylaxis after hip or knee replacement, and for treatment of DVT and PE and reduction of recurrent DVT and PE.",
+            "Rivaroxaban (Xarelto) is a factor Xa inhibitor indicated to reduce the risk of stroke and systemic embolism in nonvalvular atrial fibrillation, for treatment of DVT, for treatment of PE, for reduction in the risk of recurrence of DVT or PE, and for DVT prophylaxis, which may lead to PE, after knee or hip replacement.",
             "Concentrated potassium chloride injection must ALWAYS be diluted before IV use — undiluted rapid IV push can cause fatal cardiac arrest.",
             "Risk-reduction strategies: independent double checks, standardized order sets, Tall Man lettering, and pharmacist profile review before ADC removal."
           ],
           "keyPoints": [
             "Insulin, anticoagulants, opioids, KCl, chemo = high-alert",
             "KCl concentrate must be diluted",
-            "Independent double checks reduce harm"
+            "Independent double checks reduce harm",
+            "Oral methotrexate for RA: once weekly"
           ]
         },
         {
@@ -249,12 +280,17 @@
             "Amoxicillin suspension: discard unused portion after 14 days. Refrigeration is preferable, not required. Azithromycin oral suspension: store at 5–30°C (41–86°F) and use within 10 days.",
             "Room temperature (68–77°F / 20–25°C) is the default for most tablets/capsules; protect from moisture and light.",
             "Nitroglycerin SL tablets: keep in the original glass container, tightly capped after each use, at room temperature, to prevent loss of potency.",
-            "Most refrigerated vaccines must be stored at 2–8°C (36–46°F) and must NOT be frozen; some require frozen or ultra-cold storage."
+            "Most refrigerated vaccines must be stored at 2–8°C (36–46°F) and must NOT be frozen; some require frozen or ultra-cold storage.",
+            "Once a multi-dose vial is opened (needle-punctured), date it and discard it within 28 days unless the manufacturer states another date for that opened vial. The beyond-use date should never exceed the manufacturer's original expiration date.",
+            "Access to areas where hazardous drugs are handled must be restricted to authorized personnel. Designated areas must include storage of hazardous drugs.",
+            "A multi-dose vial used for more than one patient is kept and accessed in a clean medication preparation area, away from immediate patient treatment areas. If it enters a treatment area, dedicate it to that one patient."
           ],
           "keyPoints": [
             "Unopened insulin 2–8°C; SoloStar in use is room temp only",
             "Amox susp: 14 days, fridge preferable not required; azithromycin susp: 5–30°C, 10 days",
-            "Nitroglycerin: original glass, tightly capped"
+            "Nitroglycerin: original glass, tightly capped",
+            "Opened multi-dose vial: 28 days unless the label says otherwise",
+            "HD storage: authorized staff only"
           ]
         },
         {
@@ -262,10 +298,15 @@
           "title": "Major Drug Interactions",
           "intro": "Technicians flag potential interactions for the pharmacist. Know the classic high-yield combinations.",
           "bullets": [
+            "Therapeutic duplication: two or more drugs from the same therapeutic class when the combined daily dose risks an adverse medical result. Flag it for the pharmacist.",
             "Warfarin + NSAIDs/aspirin → increased bleeding risk; warfarin + many antibiotics (Bactrim, metronidazole, macrolides) → increased INR.",
+            "Warfarin: eat a normal diet and keep vitamin K intake consistent. Avoid drastic changes such as large amounts of leafy green vegetables.",
             "MAOI + SSRI/serotonergic drugs → serotonin syndrome (avoid; require washout period).",
             "Sildenafil (Viagra) + nitrates (nitroglycerin) → severe hypotension (contraindicated).",
             "Grapefruit juice inhibits intestinal CYP3A4 → raises levels of simvastatin and many other 3A4 substrates.",
+            "St. John's wort, a dietary supplement, is a strong CYP3A inducer. The effect varies widely and is preparation dependent.",
+            "Products containing St. John's wort may decrease the effectiveness of combined oral contraceptives such as Tri-Sprintec. Use back-up contraception during the enzyme inducer and for 28 days after it is stopped.",
+            "Biotin, often found in dietary supplements, can significantly interfere with certain lab tests and cause incorrect results that may go undetected, including falsely low troponin.",
             "ACE inhibitor + potassium-sparing diuretic (spironolactone) or K+ supplements → hyperkalemia.",
             "Calcium/iron/antacids chelate and block absorption of tetracyclines, fluoroquinolones, and levothyroxine — separate administration by several hours."
           ],
@@ -273,7 +314,10 @@
             "Warfarin + NSAID = bleeding",
             "Sildenafil + nitrate = hypotension",
             "Grapefruit + simvastatin",
-            "Separate Ca/Fe from tetracyclines"
+            "Separate Ca/Fe from tetracyclines",
+            "Same-class pair = therapeutic duplication",
+            "St. John's wort = strong CYP3A inducer",
+            "Biotin can falsify some lab tests"
           ]
         }
       ]

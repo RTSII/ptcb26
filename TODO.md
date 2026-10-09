@@ -6,7 +6,8 @@ Live backlog. History in `docs/archive/` is not this list.
 
 - [x] **Fact flags** (#42). Six plan flags, plus course `m1l5` SSRI stems and `m1l4` / `m3l2` insulin and detemir. Insulin onset/peak/duration curve stays verify (F-011, F-012).
 - [x] **Domain 1 Course accuracy fixes** (#43). FACT and misleading claims from the Domain 1 course audit.
-  - **Domain 1 gap content (deferred):** C-D1-018; 1.1 missing classes; 1.3 supplement/lab interactions; 1.4 strengths/durations; 1.5 SJS/TEN; 1.5 GLP-1 boxed warning; 1.6 missing indications; 1.7 MDV 28-day; 1.8 restricted access.
+  - [x] **Domain 1 gap content.** C-D1-018; 1.1 missing classes; 1.3 supplement/lab interactions; 1.4 strengths/durations; 1.5 SJS/TEN; 1.5 GLP-1 boxed warning; 1.6 missing indications; 1.7 MDV 28-day; 1.8 restricted access. Applied as GF-MED-001–033 in m1–m3.
+    - **Unsourced, deferred:** Flomax brand on the tamsulosin line; penicillin–cephalosporin cross-reactivity percent; St. John's wort plus warfarin; Zovirax cream for shingles, genital herpes, or chickenpox; red yeast rice course sentence; Tamiflu prophylaxis day count; GLP-1 boxed warning for products other than Ozempic and Victoza; Coumadin brand; heparin indication.
 - [x] **Patient Safety accuracy fixes.** C-PS-001, C-PS-002, C-PS-003, and C-PS-006. C-PS-004 (hazardous-drug decontamination agent) and C-PS-005 (penicillin/sulfa tray rule) stay verify.
 - [x] **Order Entry accuracy fixes.** C-OE-002, C-OE-004, C-OE-005, C-OE-006, C-OE-007, and C-OE-008 (`m9` optional archive). C-OE-001 (subscription/refills) and C-OE-003 (insulin 50-day unit supply vs in-use dating) stay verify.
   - **Order Entry gap content (deferred):** C-OE-009 (4.2 administration supplies); C-OE-010 (4.3 NDC 10-digit vs 11-digit 5-4-2 billing, 12-digit 6-4-2 effective 2033-03-07, lot/expiration); C-OE-011 (4.4 return processing); 4.1 thin items (v/v percent, proportion method).
@@ -52,7 +53,7 @@ Superseded by the block above (do not follow these):
 - [x] Flashcards trigger: tabbed physical Rolodex index card with stepped deck depth and spindle notch icon
 - [x] Study Notes Codex v2 baseline (3-zone header, layouts, parenthesis-safe parsing)
 - [x] Cascading Katakana Matrix rain FX (depth layers, white lead tips, no static grid floor overlays)
-- [x] Service worker and `?v=` cache busters. Current name: `ptce-2026-v62` in `sw.js`
+- [x] Service worker and `?v=` cache busters. Current name: `ptce-2026-v63` in `sw.js`
 - [x] Study Course home: chapters closed on load, title in the centered header, chapter titles centered (`ptce-2026-v49`)
 - [x] Home course card (#37)
 - [x] Dashboard Resurrections glass cards with no rain on the Dashboard (#38)
