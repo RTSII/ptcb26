@@ -9,6 +9,8 @@ Live backlog. History in `docs/archive/` is not this list.
   - [x] **Domain 1 gap content.** C-D1-018; 1.1 missing classes; 1.3 supplement/lab interactions; 1.4 strengths/durations; 1.5 SJS/TEN; 1.5 GLP-1 boxed warning; 1.6 missing indications; 1.7 MDV 28-day; 1.8 restricted access. Applied as GF-MED-001–033 in m1–m3.
     - **Unsourced, deferred:** Flomax brand on the tamsulosin line; penicillin–cephalosporin cross-reactivity percent; St. John's wort plus warfarin; Zovirax cream for shingles, genital herpes, or chickenpox; red yeast rice course sentence; Tamiflu prophylaxis day count; GLP-1 boxed warning for products other than Ozempic and Victoza; Coumadin brand; heparin indication.
 - [x] **Patient Safety accuracy fixes.** C-PS-001, C-PS-002, C-PS-003, and C-PS-006. C-PS-004 (hazardous-drug decontamination agent) and C-PS-005 (penicillin/sulfa tray rule) stay verify.
+  - [x] **Patient Safety gap content.** 3.1 high-alert additions (neuromuscular blockers, oral sulfonylureas, Humulin R U-500); 3.2 error-prone abbreviations and the FDA buPROPion/busPIRone tall-man pair; 3.3 prospective DUR screens, Part D concurrent DUR, over/underutilization, and adverse-event vs medication-error definitions; 3.4 MedWatch product-quality reports and required VAERS reports; 3.5 prospective DUR daily-dosage formula; 3.6 PPE don/doff sequence and soap-and-water triggers. Applied as GF-PS-001–003 and GF-PS-005–015 in m4–m6. GF-PS-004 skipped (duplicate of GF-MED-017).
+    - **Unsourced, deferred:** technician cannot verify their own work; FMEA; hazardous-drug decontamination agent (C-PS-004); penicillin or sulfa dedicated counting tray (C-PS-005).
 - [x] **Order Entry accuracy fixes.** C-OE-002, C-OE-004, C-OE-005, C-OE-006, C-OE-007, and C-OE-008 (`m9` optional archive). C-OE-001 (subscription/refills) and C-OE-003 (insulin 50-day unit supply vs in-use dating) stay verify.
   - **Order Entry gap content (deferred):** C-OE-009 (4.2 administration supplies); C-OE-010 (4.3 NDC 10-digit vs 11-digit 5-4-2 billing, 12-digit 6-4-2 effective 2033-03-07, lot/expiration); C-OE-011 (4.4 return processing); 4.1 thin items (v/v percent, proportion method).
 - [x] **Federal Requirements accuracy fixes (m10–m12).** C-FED-001, C-FED-002, C-FED-003, C-FED-004, C-FED-008, C-FED-009, C-FED-011, C-FED-012, C-FED-013, C-FED-014, C-FED-015, C-FED-017, C-FED-021, and C-FED-022. Whole lessons marked optional archive: `m11l1` HIPAA, `m11l2` OBRA-90, `m12l1` agencies, `m12l3` technician scope.
@@ -21,7 +23,7 @@ Live backlog. History in `docs/archive/` is not this list.
    - OBRA-90 DUR: course Federal `m11l2` only vs Notes also under Patient Safety.
    - NDC format: Notes Patient Safety section; no course lesson.
    - Course-only: ADC overrides; regulatory agencies lesson; technician scope lesson.
-   - Notes-only: FMEA; concurrent DUR; tech cannot verify their own work.
+   - Notes-only: FMEA; tech cannot verify their own work. Concurrent DUR is in course `m4l4`.
    - Garb vs PPE: course `m5l2` sterile garb order vs Notes routine PPE order.
 2. **Study Notes content audit.** Same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
 3. **Notes theme overhaul.** Only after the course audit and the notes audit are signed off (`study_notes_v4_plan.md`).
@@ -53,7 +55,7 @@ Superseded by the block above (do not follow these):
 - [x] Flashcards trigger: tabbed physical Rolodex index card with stepped deck depth and spindle notch icon
 - [x] Study Notes Codex v2 baseline (3-zone header, layouts, parenthesis-safe parsing)
 - [x] Cascading Katakana Matrix rain FX (depth layers, white lead tips, no static grid floor overlays)
-- [x] Service worker and `?v=` cache busters. Current name: `ptce-2026-v63` in `sw.js`
+- [x] Service worker and `?v=` cache busters. Current name: `ptce-2026-v64` in `sw.js`
 - [x] Study Course home: chapters closed on load, title in the centered header, chapter titles centered (`ptce-2026-v49`)
 - [x] Home course card (#37)
 - [x] Dashboard Resurrections glass cards with no rain on the Dashboard (#38)

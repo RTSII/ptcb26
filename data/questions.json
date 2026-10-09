@@ -3706,6 +3706,216 @@
       "answer": 0,
       "rationale": "CDC: multi-dose vials used for more than one patient should be kept and accessed in a clean medication preparation area away from immediate patient treatment areas. If one enters a treatment area, dedicate it to a single patient.",
       "difficulty": "medium"
+    },
+    {
+      "id": "q248",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "High-Alert Medications",
+      "question": "Which oral class is on the ISMP acute-care high-alert list?",
+      "options": [
+        "oral sulfonylureas (glimepiride, glipiZIDE, glyBURIDE)",
+        "H2 blockers",
+        "nasal corticosteroids",
+        "bulk-forming laxatives"
+      ],
+      "answer": 0,
+      "rationale": "The 2024 ISMP acute-care list names oral sulfonylurea hypoglycemics, with examples glimepiride, glipiZIDE, glyBURIDE, and TOLBUTamide.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q249",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "High-Alert Medications",
+      "question": "Which product is an ISMP community/ambulatory high-alert category?",
+      "options": [
+        "pediatric liquid medications that require measurement",
+        "saline nasal spray",
+        "sugar-free cough drops",
+        "oral rehydration powder"
+      ],
+      "answer": 0,
+      "rationale": "The 2021 ISMP community/ambulatory list names pediatric liquid medications that require measurement, and immunosuppressants such as azaTHIOprine, cycloSPORINE, and tacrolimus.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q250",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "High-Alert Medications",
+      "question": "Humulin R U-500 concentration and syringe rule?",
+      "options": [
+        "500 units/mL, U-500 syringe only; a U-100 syringe can give a 5-times overdose",
+        "100 units/mL, any insulin syringe",
+        "500 units/mL, draw it with a U-100 syringe and divide by 5",
+        "300 units/mL, mix freely with U-100"
+      ],
+      "answer": 0,
+      "rationale": "Label: 500 units/mL is 5 times U-100 (100 units/mL). A U-100 syringe for a U-500 dose can give a 5-times overdose. Do not mix with other insulin or inject intravenously.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q251",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "Error Prevention",
+      "question": "HS on the ISMP error-prone list can mean:",
+      "options": [
+        "half-strength or at bedtime — write the words",
+        "at bedtime only",
+        "hour of sleep, and it is safe to abbreviate",
+        "high strength"
+      ],
+      "answer": 0,
+      "rationale": "ISMP: HS half-strength mistaken as bedtime; hs at bedtime mistaken as half-strength. Write half-strength or bedtime.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q252",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "Tall Man Lettering",
+      "question": "Which FDA tall-man pair is correct?",
+      "options": [
+        "buPROPion / busPIRone",
+        "buPROPion / BUSpirone",
+        "BUSPirone / buPROPion",
+        "busPIRone / BUSPropion"
+      ],
+      "answer": 0,
+      "rationale": "FDA-approved tall-man list: buPROPion confused with busPIRone.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q253",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "DUR",
+      "question": "Which is a required prospective DUR screen before the prescription is filled or delivered?",
+      "options": [
+        "drug-disease contraindication",
+        "insurance copay tier",
+        "pharmacy profit margin",
+        "prescriber specialty"
+      ],
+      "answer": 0,
+      "rationale": "42 CFR 456.705(b) requires those seven screen types before the prescription is filled or delivered.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q254",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "DUR",
+      "question": "Part D concurrent DUR is performed:",
+      "options": [
+        "before each prescription is dispensed, usually at the point of sale",
+        "only after a quarterly claims audit",
+        "only after the patient reports harm",
+        "only when the prescriber requests a profile review"
+      ],
+      "answer": 0,
+      "rationale": "42 CFR 423.153(c)(2): concurrent DUR is before each prescription is dispensed, typically at the point of sale or point of distribution.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q255",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "Pharmacist Intervention",
+      "question": "Underutilization means:",
+      "options": [
+        "insufficient quantity, strength, or duration to reach the therapeutic goal",
+        "any early refill",
+        "a Class I recall",
+        "a near miss caught at the counter"
+      ],
+      "answer": 0,
+      "rationale": "42 CFR 456.702 defines overutilization and underutilization with those quantity, strength, and duration terms.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q256",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "Error Reporting",
+      "question": "Which statement matches the FDA definitions?",
+      "options": [
+        "A medication error may or may not be associated with an adverse event",
+        "Every adverse event is a medication error",
+        "Misuse inconsistent with the labeling is a medication error",
+        "An adverse event must be proven to be caused by the drug"
+      ],
+      "answer": 0,
+      "rationale": "FDA guidance: an AE is any untoward medical occurrence associated with use of a drug product, whether or not considered related. A medication error may or may not be associated with an AE.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q257",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "Error Prevention",
+      "question": "Prospective DUR calculates daily dosage as:",
+      "options": [
+        "strength × quantity dispensed ÷ days' supply",
+        "quantity dispensed × days' supply",
+        "strength ÷ quantity dispensed",
+        "days' supply × strength × quantity"
+      ],
+      "answer": 0,
+      "rationale": "42 CFR 456.705(b)(4): dosage is the strength multiplied by the quantity dispensed divided by day's supply.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q258",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "Reporting Systems",
+      "question": "A suspected counterfeit or contaminated drug is reported to:",
+      "options": [
+        "MedWatch as a product-quality problem",
+        "VAERS",
+        "the DEA Form 106",
+        "the state board only"
+      ],
+      "answer": 0,
+      "rationale": "FDA: report quality, authenticity, performance, or safety concerns to MedWatch, including suspect counterfeit, contamination, defective components, poor packaging or mix-up, questionable stability, and labeling concerns.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q259",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "Reporting Systems",
+      "question": "Healthcare providers are required to report to VAERS:",
+      "options": [
+        "an event on the VAERS Table of Reportable Events Following Vaccination within the specified time, and a manufacturer-listed contraindication to further doses",
+        "only events the patient asks to file",
+        "only vaccine storage failures",
+        "every sore arm, and nothing else may be reported"
+      ],
+      "answer": 0,
+      "rationale": "CDC: providers must report table events within the specified time and manufacturer-listed contraindications to further doses. Anyone may report.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q260",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "Infection Control",
+      "question": "CDC sequence for donning gown, mask, goggles, and gloves:",
+      "options": [
+        "gown, mask or respirator, goggles or face shield, gloves",
+        "gloves, gown, mask, goggles",
+        "mask, gloves, gown, goggles",
+        "goggles, gloves, mask, gown"
+      ],
+      "answer": 0,
+      "rationale": "CDC sequence: 1 gown, 2 mask or respirator, 3 goggles or face shield, 4 gloves over the gown wrist. Removal starts with gloves.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q261",
+      "domain": "Patient Safety and Quality Assurance",
+      "subtopic": "Infection Control",
+      "question": "When does CDC say to wash with soap and water rather than prefer an alcohol-based hand sanitizer?",
+      "options": [
+        "hands visibly soiled, and care of patients with suspected or confirmed infection during C. difficile or norovirus outbreaks",
+        "before every tablet count, even when hands look clean",
+        "only after removing sterile chemo gloves",
+        "only at the start of the shift"
+      ],
+      "answer": 0,
+      "rationale": "CDC: soap and water when visibly soiled and during those outbreaks. Unless visibly soiled, ABHS is preferred in most clinical situations.",
+      "difficulty": "medium"
     }
   ]
 }
