@@ -314,14 +314,14 @@
             "Categories E–I = increasing harm: E = temporary harm requiring intervention; F = hospitalization; G = permanent harm; H = life-sustaining intervention; I = death.",
             "Outline 3.5 examples: incorrect dose, quantity, patient, drug, and route. Wrong time and omission are other error types; they are not the outline examples.",
             "ISMP Do Not Use minimum list: spell out units (never U); spell out international units (never IU); write daily or every other day (never QD or QOD); write morphine sulfate or magnesium sulfate (never MS, MSO4, or MgSO4). Use a leading zero (0.5 mg, not .5 mg). Do not use a trailing zero (1 mg, not 1.0 mg).",
-            "Also on the ISMP error-prone list, but not that minimum Do Not Use set: write mL (never cc); write mcg (never µg)."
+            "Also on the ISMP error-prone list, but not that minimum Do Not Use set: write mL (never cc); write mcg (never µg). Eye and ear abbreviations are error-prone: do not use OD, OS, OU, AD, AS, or AU; write right eye, left eye, both eyes, right ear, left ear, or both ears."
           ],
           "keyPoints": [
             "Near miss = caught before patient",
             "Category C = reached patient, no harm",
             "3.5 examples: dose, quantity, patient, drug, route",
             "Do Not Use: U, IU, QD/QOD, trailing zero, missing leading zero, MS/MSO4",
-            "cc and µg are error-prone: write mL and mcg"
+            "cc and µg: write mL and mcg; eye/ear codes: write the words"
           ]
         },
         {
@@ -533,20 +533,20 @@
         {
           "id": "m7l2",
           "title": "Common SIG Codes & Abbreviations",
-          "intro": "Memorize the high-frequency Latin abbreviations used in directions.",
+          "intro": "Recognize the high-frequency abbreviations used in directions. qd and the eye/ear codes are ISMP error-prone: know the meaning, and write the words instead.",
           "bullets": [
-            "Frequency: qd/daily, BID (twice daily), TID (three times), QID (four times), q4h/q6h (every 4/6 hours), qhs (every night at bedtime), PRN (as needed).",
+            "Frequency: qd means daily, but it is error-prone — do not use it; write daily. BID (twice daily), TID (three times), QID (four times), q4h/q6h (every 4/6 hours), qhs (every night at bedtime), PRN (as needed).",
             "Meals/timing: ac (before meals), pc (after meals), hs (at bedtime).",
             "Routes: PO (by mouth), SL (sublingual), PR (rectally), top (topically), IM/IV/SubQ (injections).",
-            "Eyes/ears: OU = both eyes, OD = right eye, OS = left eye; AU = both ears, AD = right ear, AS = left ear.",
+            "Eyes/ears — recognize, do not use: OU = both eyes, OD = right eye, OS = left eye; AU = both ears, AD = right ear, AS = left ear. Write both eyes, right eye, left eye, both ears, right ear, or left ear.",
             "Amounts: i = one, ii = two, ss = one-half; tab = tablet, cap = capsule, gtt(s) = drop(s), supp = suppository.",
             "Other: ud / ut dict = as directed, STAT = immediately, NR = no refills, DAW = dispense as written."
           ],
           "keyPoints": [
             "BID/TID/QID",
+            "qd means daily; write daily",
             "qhs = at bedtime; qh = every hour",
-            "OU/OD/OS = eyes; AU/AD/AS = ears",
-            "PRN = as needed"
+            "OU/OD/OS and AU/AD/AS: recognize; write the eye or ear"
           ]
         }
       ]
@@ -604,13 +604,13 @@
           "title": "Ratio/Percent Strength & Dilution",
           "intro": "Concentration expressions and dilution still appear on the PTCE (outline 4.1). Alligation was removed from the January 2026 calculation list — it lives in the optional archive lesson that follows.",
           "bullets": [
-            "Percent strength = grams per 100 mL. 0.9% NaCl = 0.9 g per 100 mL; in 500 mL that is 4.5 g. D5W = 5 g dextrose per 100 mL (50 g per 1,000 mL).",
+            "Percent w/v (solutions) = grams per 100 mL. 0.9% NaCl = 0.9 g per 100 mL; in 500 mL that is 4.5 g. D5W = 5 g dextrose per 100 mL (50 g per 1,000 mL).",
             "Ratio strength: 1:1000 = 1 g per 1000 mL = 1 mg/mL (epinephrine).",
-            "Percent ↔ decimal: divide by 100 (0.75% = 0.0075). mg per gram = %×10 (0.25% cream = 2.5 mg/g).",
+            "Percent ↔ decimal: divide by 100 (0.75% = 0.0075). Percent w/w (creams) = grams per 100 g. 1% hydrocortisone cream = 10 mg/g, so 0.25% cream = 2.5 mg/g (% × 10).",
             "Dilution: C1V1 = C2V2 keeps the amount of drug constant when changing concentration/volume — this remains in scope."
           ],
           "keyPoints": [
-            "Percent = g/100 mL",
+            "w/v = g/100 mL; w/w = g/100 g",
             "1:1000 = 1 mg/mL",
             "C1V1 = C2V2 (still tested)"
           ]
@@ -640,7 +640,7 @@
           "bullets": [
             "Historical method: parts of the higher strength = target − lower; parts of the lower strength = higher − target.",
             "Example (archive only): mix 70% and 20% to make 50% → 30 parts of 70% and 20 parts of 20% = 3:2.",
-            "Default 2026 skill: C1V1 = C2V2, percent strength (g/100 mL), and ratio strength (1:1000 = 1 mg/mL).",
+            "Default 2026 skill: C1V1 = C2V2, percent w/v (g/100 mL) and w/w (g/100 g), and ratio strength (1:1000 = 1 mg/mL).",
             "q136 in the bank is tagged featured:false so it does not enter default exams or weak-area weighting."
           ],
           "keyPoints": [
@@ -654,7 +654,7 @@
       "id": "m9",
       "domain": "Order Entry and Processing",
       "title": "Insurance Billing & Order Processing",
-      "desc": "Third-party billing, DAW codes, prior authorization, and coordination of benefits.",
+      "desc": "Third-party billing, DAW codes, prior authorization, and coordination of benefits. Not a 2026 PTCE knowledge area — optional archive. The corrected facts stay here for review.",
       "quiz": {
         "domain": "Order Entry and Processing",
         "count": 10
@@ -662,35 +662,41 @@
       "lessons": [
         {
           "id": "m9l1",
-          "title": "Third-Party Billing & DAW Codes",
-          "intro": "Accurate billing prevents claim rejections and ensures the correct product is dispensed.",
+          "optional": true,
+          "badge": "Not emphasized on 2026 PTCE",
+          "title": "Third-Party Billing & DAW Codes (optional archive)",
+          "intro": "OPTIONAL / NOT EMPHASIZED ON THE 2026 PTCE. DAW codes and third-party billing are recommended practice, not a PTCE knowledge area. Skip this lesson on the default path.",
           "bullets": [
-            "DAW codes: DAW 0 = substitution allowed (default); DAW 1 = prescriber requires brand (dispense as written); DAW 2 = patient requests brand.",
+            "DAW codes: DAW 0 = no product selection indicated (default); DAW 1 = substitution not allowed by prescriber; DAW 2 = substitution allowed, patient requested the brand.",
             "Common rejections: \"Refill too soon,\" \"NDC not covered,\" \"Prior authorization required,\" and incorrect days supply or patient DOB.",
             "Patient identity: full name + date of birth are required to match the correct profile; a DOB mismatch is a common rejection cause.",
             "BIN, PCN, Group, and Member ID numbers on the insurance card route the claim to the correct payer."
           ],
           "keyPoints": [
-            "DAW 0 = generic OK; DAW 1 = brand required",
+            "DAW 0 = no product selection; DAW 1 = prescriber blocks substitution",
             "Name + DOB for profile match",
             "Know BIN/PCN/Group/ID"
           ]
         },
         {
           "id": "m9l2",
-          "title": "Prior Authorization & Coordination of Benefits",
-          "intro": "Some drugs require payer approval; some patients have more than one plan.",
+          "optional": true,
+          "badge": "Not emphasized on 2026 PTCE",
+          "title": "Prior Authorization & Coordination of Benefits (optional archive)",
+          "intro": "OPTIONAL / NOT EMPHASIZED ON THE 2026 PTCE. Prior authorization and coordination of benefits are recommended practice, not a PTCE knowledge area. Skip this lesson on the default path.",
           "bullets": [
             "Prior authorization (PA): the prescriber must justify medical necessity to the insurer BEFORE the claim will pay.",
             "Coordination of benefits (COB) determines which plan is primary when a patient has multiple insurers.",
             "Birthday rule (dependent children on both parents' plans): the primary plan is the parent whose birth MONTH/DAY falls earlier in the calendar year.",
-            "Medicare is primary for patients 65+ (with exceptions); Medicaid is generally the payer of last resort.",
-            "Coupon/discount cards can lower cash price but do not combine with insurance on the same claim."
+            "For a patient 65 or older covered through current employment (the patient's or a spouse's), the group health plan is primary and Medicare is secondary when the employer has 20 or more employees. Medicare is primary if that employer has fewer than 20 employees, or if there is no current-employment group plan. Medicaid is generally the payer of last resort.",
+            "A cash discount card lowers the cash price and is not billed with insurance on that fill. A manufacturer copay coupon is used with commercial insurance to reduce the copay, and must not be used for Medicare or Medicaid."
           ],
           "keyPoints": [
             "PA = prescriber justifies to payer first",
             "Birthday rule: earlier month/day = primary",
-            "Medicaid = payer of last resort"
+            "Age 65, employer 20+: group plan primary, Medicare secondary",
+            "Medicaid = payer of last resort",
+            "Cash discount is not insurance; copay coupon is commercial only"
           ]
         }
       ]

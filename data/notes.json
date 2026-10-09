@@ -233,7 +233,8 @@
             "Trailing zero (1.0 mg) → write 1 mg.",
             "No leading zero (.5 mg) → write 0.5 mg.",
             "'MS/MSO4/MgSO4' → spell out morphine sulfate or magnesium sulfate.",
-            "'μg' → write 'mcg'; 'cc' → write 'mL'; 'D/C' spell out; 'hs' → 'at bedtime'."
+            "'μg' → write 'mcg'; 'cc' → write 'mL'; 'D/C' spell out; 'hs' → 'at bedtime'.",
+            "'OD/OS/OU' → write 'right eye'/'left eye'/'both eyes'. 'AD/AS/AU' → write 'right ear'/'left ear'/'both ears'."
           ]
         },
         {
@@ -335,7 +336,7 @@
             "PO = by mouth; PR = rectally; SL = sublingual; IV/IM/SC = injection routes.",
             "BID = twice daily; TID = 3x daily; QID = 4x daily; QHS = at bedtime; QAM = every morning.",
             "PRN = as needed; ac = before meals; pc = after meals; q6h = every 6 hours.",
-            "gtt = drop; OD = right eye; OS = left eye; OU = both eyes; AD/AS/AU = right/left/both ears.",
+            "gtt = drop. OD/OS/OU = right/left/both eyes; AD/AS/AU = right/left/both ears. Error-prone: do not use; write right eye, left eye, both eyes, right ear, left ear, or both ears.",
             "ii tab = 2 tablets; i cap = 1 capsule; qs = quantity sufficient; UD = as directed.",
             "bid — bis in die (twice daily)."
           ]
@@ -354,7 +355,7 @@
           "title": "Core Calculations",
           "items": [
             "Days supply = total quantity ÷ amount used per day.",
-            "Percent strength: X% = X grams per 100 mL (or 100 g).",
+            "Percent w/v = g per 100 mL (solutions). Percent w/w = g per 100 g (creams, ointments).",
             "Dilution: C1V1 = C2V2.",
             "IV flow rate (mL/hr) = total volume ÷ total time (hr).",
             "Drops/min = (volume × drop factor) ÷ time in minutes.",
@@ -392,7 +393,7 @@
           "title": "Insurance / Third-Party Processing",
           "items": [
             "BIN routes the claim; PCN sub-routing; Group ID and Member ID identify plan/patient.",
-            "DAW codes: 0 = no instruction, 1 = prescriber brand, 2 = patient brand.",
+            "DAW codes: 0 = no product selection indicated, 1 = substitution not allowed by prescriber, 2 = substitution allowed, patient requested the brand.",
             "COB = coordination of benefits (primary vs secondary).",
             "Reject codes: 70 = not covered, 75 = prior auth required, 76 = plan limits/refill too soon, 25 = invalid prescriber ID."
           ]
@@ -409,8 +410,8 @@
         {
           "title": "Essential Calculations Reference",
           "items": [
-            "Concentration: ratio 1:1000 = 1 g/1000 mL = 1 mg/mL. Percent = g per 100 mL (0.9% = 0.9 g/100 mL).",
-            "Percent to decimal: divide by 100 (0.75% = 0.0075). mg per g = %×10 (0.25% cream = 2.5 mg/g).",
+            "Concentration: ratio 1:1000 = 1 g/1000 mL = 1 mg/mL. Percent w/v = g per 100 mL (0.9% = 0.9 g/100 mL).",
+            "Percent to decimal: divide by 100 (0.75% = 0.0075). Percent w/w: mg per g = %×10 (1% cream = 10 mg/g; 0.25% cream = 2.5 mg/g).",
             "Weight-based dose: mg/kg/day × weight in kg. Convert lb→kg by dividing by 2.2.",
             "Alligation (removed from the January 2026 outline): parts of high = target − low; parts of low = high − target. Review only if needed for practice, not as a 2026 tested skill.",
             "IV flow rate: gtt/min = (mL ÷ minutes) × drop factor; mL/hr = total volume ÷ hours.",
@@ -426,7 +427,7 @@
           "items": [
             "Parts: inscription (drug/strength), subscription (quantity/refills), Signa/sig (patient directions).",
             "\"Disp #30\" = dispense 30; refills are authorized separately (e.g., \"Refills: 2\").",
-            "DAW codes: 0 substitution allowed, 1 prescriber requires brand, 2 patient requests brand.",
+            "DAW codes: 0 = no product selection indicated, 1 = substitution not allowed by prescriber, 2 = substitution allowed, patient requested the brand.",
             "Red flags to clarify with pharmacist: illegible handwriting, unusual dose, missing quantity/sig, or dangerous abbreviation.",
             "Verify patient identity with two identifiers (full name + date of birth) before filling to prevent wrong-patient errors."
           ]

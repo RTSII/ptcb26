@@ -202,7 +202,7 @@
       "id": "34",
       "domain": "Patient Safety and Quality Assurance",
       "front": "What are ISMP's error-prone abbreviations examples?",
-      "back": "'U' for units, 'IU', 'QD/QOD', trailing zero (1.0 mg), and no leading zero (.5 mg) — all should be avoided."
+      "back": "'U' for units, 'IU', 'QD/QOD', trailing zero (1.0 mg), and no leading zero (.5 mg) — write the words or the safe number. OD/OS/OU and AD/AS/AU are error-prone: write the eye or ear."
     },
     {
       "id": "35",
@@ -244,7 +244,7 @@
       "id": "41",
       "domain": "Order Entry and Processing",
       "front": "Decode the sig: 'ii gtts OU BID'",
-      "back": "Instill 2 drops into both eyes twice daily."
+      "back": "Instill 2 drops into both eyes twice daily. OU means both eyes and is error-prone: write both eyes."
     },
     {
       "id": "42",
@@ -635,7 +635,7 @@
       "id": "106",
       "domain": "Order Entry and Processing",
       "front": "OU / OD / OS vs AU / AD / AS",
-      "back": "OU/OD/OS = both/right/left EYE. AU/AD/AS = both/right/left EAR."
+      "back": "OU/OD/OS = both/right/left EYE. AU/AD/AS = both/right/left EAR. Error-prone: do not use; write the eye or ear."
     },
     {
       "id": "107",
@@ -672,7 +672,7 @@
       "id": "112",
       "domain": "Order Entry and Processing",
       "front": "DAW codes",
-      "back": "DAW 0 = substitution allowed (default). DAW 1 = prescriber requires brand (dispense as written). DAW 2 = patient requests brand."
+      "back": "DAW 0 = no product selection indicated (default). DAW 1 = substitution not allowed by prescriber. DAW 2 = substitution allowed, patient requested the brand."
     },
     {
       "id": "113",
