@@ -436,14 +436,14 @@
     {
       "id": "73",
       "domain": "Medications",
-      "front": "-statin suffix",
-      "back": "HMG-CoA reductase inhibitors for cholesterol: atorvastatin (Lipitor), simvastatin (Zocor), rosuvastatin (Crestor). Take in the evening (simvastatin). Watch myalgia/liver enzymes."
+      "front": "-vastatin suffix",
+      "back": "HMG-CoA reductase inhibitors for cholesterol: atorvastatin (Lipitor), simvastatin (Zocor), rosuvastatin (Crestor). Nystatin is an antifungal, not a statin. Take in the evening (simvastatin). Watch myalgia/liver enzymes."
     },
     {
       "id": "74",
       "domain": "Medications",
       "front": "-prazole suffix",
-      "back": "Proton pump inhibitors for GERD/ulcers: omeprazole (Prilosec), pantoprazole (Protonix), esomeprazole (Nexium). Take 30–60 min before first meal."
+      "back": "Proton pump inhibitors for GERD/ulcers: omeprazole (Prilosec), pantoprazole (Protonix), esomeprazole (Nexium). Aripiprazole is an antipsychotic, not a PPI. Take 30–60 min before first meal."
     },
     {
       "id": "75",
@@ -455,7 +455,7 @@
       "id": "76",
       "domain": "Medications",
       "front": "Amoxicillin",
-      "back": "Aminopenicillin antibiotic. Common for ear/strep infections. Refrigerate the reconstituted suspension; discard after 14 days."
+      "back": "Aminopenicillin antibiotic. Common for ear/strep infections. Suspension: discard after 14 days. Refrigeration is preferable, not required."
     },
     {
       "id": "77",
@@ -467,7 +467,7 @@
       "id": "78",
       "domain": "Medications",
       "front": "Albuterol (ProAir, Ventolin)",
-      "back": "Short-acting beta-agonist (SABA) rescue bronchodilator for asthma. Inhaler/nebulizer. Prime before first use."
+      "back": "Short-acting beta-agonist (SABA) rescue bronchodilator for asthma. Ventolin HFA: prime before first use. ProAir RespiClick: does not require priming."
     },
     {
       "id": "79",
@@ -503,13 +503,13 @@
       "id": "84",
       "domain": "Medications",
       "front": "Teratogenic drugs to know",
-      "back": "Isotretinoin, warfarin, methotrexate, ACE inhibitors/ARBs, statins, tetracyclines, valproate, finasteride (crushed, handling risk in pregnancy)."
+      "back": "Isotretinoin, warfarin, methotrexate, ACE inhibitors/ARBs, tetracyclines, valproate, finasteride (do not handle crushed or broken tablets in pregnancy). Statins: stop in most pregnancies; not an absolute avoid."
     },
     {
       "id": "85",
       "domain": "Medications",
       "front": "Insulin storage",
-      "back": "Unopened insulin: refrigerate 36–46°F (2–8°C). In-use time is product-specific (Lantus vial or SoloStar: 28 days; Tresiba: 56 days). Never freeze. Detemir (Levemir) is discontinued in the US."
+      "back": "Unopened insulin: refrigerate 36–46°F (2–8°C). In-use: Lantus vial 28 days (refrigerated or room temperature); Lantus SoloStar 28 days at room temperature only (do not refrigerate); Tresiba 56 days. Never freeze. Detemir (Levemir) is discontinued in the US."
     },
     {
       "id": "86",
