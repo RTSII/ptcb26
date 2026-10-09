@@ -34,7 +34,7 @@
       "id": "q003",
       "domain": "Medications",
       "subtopic": "Insulin Types",
-      "question": "Which insulin product has the fastest onset of action (10-15 minutes) and is typically administered immediately before meals?",
+      "question": "Which insulin product has the fastest onset of action and is typically administered immediately before meals?",
       "options": [
         "Insulin glargine (Lantus)",
         "Insulin lispro (Humalog)",
@@ -42,7 +42,7 @@
         "Insulin detemir (Levemir)"
       ],
       "answer": 1,
-      "rationale": "Insulin lispro is a rapid-acting insulin analog with onset of 10-15 minutes, peak at 30-90 minutes, and duration of 3-5 hours. It is designed to cover postprandial glucose excursions and should be given within 15 minutes before or immediately after meals.",
+      "rationale": "Insulin lispro (Humalog) has a more rapid onset and a shorter duration than regular human insulin. Peak serum levels were seen 30 to 90 minutes after dosing. Inject within 15 minutes before or right after a meal.",
       "difficulty": "medium"
     },
     {
@@ -409,7 +409,7 @@
       "id": "q028",
       "domain": "Medications",
       "subtopic": "Diabetes Management",
-      "question": "Which insulin is classified as 'ultra-long-acting' with a duration of action exceeding 42 hours?",
+      "question": "Which insulin is classified as ultra-long-acting with a glucose-lowering effect lasting at least 42 hours?",
       "options": [
         "Insulin degludec (Tresiba)",
         "Insulin glargine (Lantus)",
@@ -417,7 +417,7 @@
         "NPH insulin"
       ],
       "answer": 0,
-      "rationale": "Insulin degludec (Tresiba) is an ultra-long-acting basal insulin with duration exceeding 42 hours, allowing for flexible dosing times. Glargine and detemir are long-acting (18-24 hours), and NPH is intermediate-acting (10-16 hours).",
+      "rationale": "Insulin degludec (Tresiba) is an ultra-long-acting basal insulin; its glucose-lowering effect lasts at least 42 hours. Glargine (Lantus) is long-acting, about 24 hours with no pronounced peak. Detemir (Levemir) is discontinued in the US. NPH is intermediate-acting.",
       "difficulty": "medium"
     },
     {
@@ -1422,7 +1422,7 @@
         "Ibuprofen suspension"
       ],
       "answer": 1,
-      "rationale": "Unopened insulin must be refrigerated at 2°C–8°C; once in use, most insulins can be kept at room temperature for about 28 days.",
+      "rationale": "Unopened insulin must be refrigerated at 2°C–8°C. In-use room-temperature time is product-specific (Lantus vial or SoloStar: 28 days; Tresiba: 56 days).",
       "difficulty": "easy"
     },
     {
