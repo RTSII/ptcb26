@@ -334,7 +334,7 @@
       "id": "q023",
       "domain": "Medications",
       "subtopic": "Antibiotics",
-      "question": "Which antibiotic is commonly dispensed as a pink suspension that must be shaken well, and is usually refrigerated after reconstitution?",
+      "question": "Which antibiotic is commonly dispensed as a pink suspension that must be shaken well, with refrigeration preferable but not required after reconstitution?",
       "options": [
         "Amoxicillin",
         "Cephalexin",
@@ -342,7 +342,7 @@
         "Ciprofloxacin"
       ],
       "answer": 0,
-      "rationale": "Amoxicillin oral suspension is commonly a pink, bubble-gum flavored product that must be shaken well before each dose. After reconstitution it is often refrigerated; manufacturer labeling also allows room-temperature storage for up to 14 days if needed. Refrigeration is preferred storage, not an absolute requirement.",
+      "rationale": "Amoxicillin oral suspension is commonly a pink, bubble-gum flavored product that must be shaken well before each dose. Discard the unused portion after 14 days. Refrigeration is preferable, not required. Azithromycin oral suspension is stored at 5–30°C (41–86°F) and used within 10 days.",
       "difficulty": "easy"
     },
     {
@@ -379,7 +379,7 @@
       "id": "q026",
       "domain": "Medications",
       "subtopic": "Storage Requirements",
-      "question": "Which medication should be dispensed in its original container with the desiccant to protect from moisture?",
+      "question": "Which medication must be kept in its original glass container and tightly capped after each use to prevent loss of potency?",
       "options": [
         "Nitroglycerin sublingual tablets",
         "Levothyroxine",
@@ -387,7 +387,7 @@
         "Amlodipine"
       ],
       "answer": 0,
-      "rationale": "Nitroglycerin sublingual tablets are highly volatile and degrade rapidly when exposed to moisture, light, and heat. They must be kept in the original amber glass bottle with the desiccant and tightly capped. The bottle should be replaced every 6 months after opening.",
+      "rationale": "Nitroglycerin sublingual tablets must be kept in the original glass container and tightly capped after each use to prevent loss of tablet potency. Store them at room temperature.",
       "difficulty": "medium"
     },
     {
@@ -1234,7 +1234,7 @@
       "id": "q083",
       "domain": "Medications",
       "subtopic": "Dosage Forms",
-      "question": "Which dosage form must NOT be crushed, split, or chewed?",
+      "question": "Which dosage form must NOT be crushed or chewed?",
       "options": [
         "Chewable tablets",
         "Extended-release (ER/XL) tablets",
@@ -1242,7 +1242,7 @@
         "Effervescent tablets"
       ],
       "answer": 1,
-      "rationale": "Crushing extended-release products destroys the release mechanism, potentially causing dose dumping and toxicity.",
+      "rationale": "Crushing or chewing extended-release products can destroy the release mechanism and dump the dose. TOPROL-XL is scored and may be split; do not crush or chew it.",
       "difficulty": "medium"
     },
     {
@@ -1392,7 +1392,7 @@
         "Rectal suppository"
       ],
       "answer": 0,
-      "rationale": "Nasal sprays and many inhalers must be primed to ensure the pump delivers a full, accurate dose.",
+      "rationale": "Nasal sprays and many metered-dose inhalers, such as Ventolin HFA, must be primed so the pump delivers a full dose. ProAir RespiClick does not require priming.",
       "difficulty": "medium"
     },
     {
@@ -1422,7 +1422,7 @@
         "Ibuprofen suspension"
       ],
       "answer": 1,
-      "rationale": "Unopened insulin must be refrigerated at 2°C–8°C. In-use room-temperature time is product-specific (Lantus vial or SoloStar: 28 days; Tresiba: 56 days).",
+      "rationale": "Unopened insulin must be refrigerated at 2°C–8°C. In-use time is product-specific: Lantus vial 28 days (refrigerated or room temperature); Lantus SoloStar 28 days at room temperature only (do not refrigerate); Tresiba 56 days.",
       "difficulty": "easy"
     },
     {

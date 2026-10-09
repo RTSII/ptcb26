@@ -12,8 +12,8 @@
             "ARBs (-sartan): losartan, valsartan, olmesartan — alternative to ACE inhibitors; less cough.",
             "Beta blockers (-olol): metoprolol, atenolol, carvedilol — hypertension, angina, heart failure; don't stop abruptly.",
             "Calcium channel blockers: amlodipine (-dipine), diltiazem, verapamil — hypertension; non-DHP cause bradycardia/constipation.",
-            "Statins (-statin): atorvastatin, simvastatin, rosuvastatin — lower LDL; myopathy, ↑LFTs.",
-            "Proton pump inhibitors (-prazole): omeprazole, pantoprazole, esomeprazole — GERD, ulcers; take before meals.",
+            "Statins (-vastatin): atorvastatin, simvastatin, rosuvastatin — lower LDL; myopathy, ↑LFTs. Nystatin is an antifungal, not a statin.",
+            "Proton pump inhibitors (-prazole): omeprazole, pantoprazole, esomeprazole — GERD, ulcers; take before meals. Aripiprazole is not a PPI.",
             "H2 blockers (-tidine): famotidine — heartburn.",
             "SSRIs: sertraline, fluoxetine, escitalopram, paroxetine — depression, anxiety; serotonin syndrome risk.",
             "Benzodiazepines (-pam/-lam): lorazepam, alprazolam, diazepam, clonazepam — anxiety, seizures (C-IV controlled).",
@@ -90,7 +90,7 @@
             "Storage: unopened refrigerated 36–46°F; do NOT freeze; opened may be kept at room temp for a limited time per product.",
             "Rapid-acting: lispro, aspart, glulisine — onset ~15 min; mealtime.",
             "Long-acting: glargine — about 24 hours, no pronounced peak. Degludec lasts at least 42 hours.",
-            "Unopened insulin: refrigerate. In-use: may be room temp per manufacturer; never freeze."
+            "Unopened insulin: refrigerate. In-use Lantus vial: 28 days, refrigerated or room temperature. In-use Lantus SoloStar: 28 days at room temperature only (do not refrigerate). Never freeze."
           ]
         },
         {
@@ -134,7 +134,7 @@
             "MAOI + SSRI/SNRI/triptan/tramadol/linezolid/dextromethorphan → serotonin syndrome.",
             "MAOI + tyramine foods (aged cheese, wine, cured meats) → hypertensive crisis.",
             "Warfarin: antidote vitamin K; monitor INR; many CYP + dietary (vitamin K) interactions.",
-            "Metformin: hold 48h around IV iodinated contrast (lactic acidosis).",
+            "Metformin: hold at the time of or before iodinated contrast only if eGFR is 30–60, or there is a history of liver disease, alcoholism, or heart failure, or the contrast is intra-arterial; recheck eGFR at 48 hours and restart if stable (lactic acidosis).",
             "Methotrexate: WEEKLY dosing for RA — daily = fatal error.",
             "Nitroglycerin + PDE-5 inhibitors (sildenafil) → severe hypotension.",
             "St. John's Wort induces CYP3A4 → ↓ OCPs, warfarin, many drugs.",
@@ -166,7 +166,7 @@
         {
           "title": "Known Teratogens (Pregnancy Safety)",
           "items": [
-            "isotretinoin (iPLEDGE), thalidomide, warfarin, methotrexate, valproic acid, phenytoin, ACE inhibitors/ARBs, statins, tetracyclines, lithium, misoprostol.",
+            "isotretinoin (iPLEDGE), thalidomide, warfarin, methotrexate, valproic acid, phenytoin, ACE inhibitors/ARBs, tetracyclines, lithium, misoprostol. Statins are not an absolute avoid: stop them in most pregnant patients and weigh the individual need.",
             "Current REMS examples: iPLEDGE (isotretinoin), THALOMID/REVLIMID, TIRF (fentanyl). The Clozapine REMS was removed effective June 13, 2025, so clozapine is not a current pharmacy REMS."
           ]
         },
@@ -175,11 +175,11 @@
           "items": [
             "Sublingual (SL): dissolves under tongue, rapid absorption, bypasses first-pass (nitroglycerin). Buccal = between cheek and gum.",
             "Enteric-coated: resists stomach acid, dissolves in small intestine — do NOT crush (aspirin EC, omeprazole).",
-            "Extended-release (ER/XL/SR/CR/LA): releases over time — do NOT crush, split, or chew (risk of dose dumping).",
+            "Extended-release (ER/XL/SR/CR/LA): releases over time — do NOT crush or chew (risk of dose dumping). TOPROL-XL is scored and may be split; do not crush or chew it.",
             "Orally disintegrating tablets (ODT) dissolve on the tongue; effervescent tablets must be dissolved in water first.",
             "Transdermal patches: steady absorption, bypass first-pass; rotate sites, do not cut reservoir patches, fold before disposal (fentanyl).",
-            "Suppositories (rectal/vaginal) bypass first-pass partially; store some refrigerated. Inhalers often need priming.",
-            "Suspensions: \"shake well before use.\" Reconstituted antibiotic suspensions usually refrigerated, discard after 14 days.",
+            "Suppositories (rectal/vaginal) bypass first-pass partially; store some refrigerated. Many metered-dose inhalers need priming; ProAir RespiClick does not.",
+            "Suspensions: \"shake well before use.\" Reconstituted antibiotic suspensions are not all refrigerated. Amoxicillin: discard after 14 days; refrigeration is preferable, not required. Azithromycin oral suspension: 5–30°C (41–86°F), use within 10 days.",
             "Sublingual (SL): under the tongue for rapid absorption; nitroglycerin is a classic example."
           ]
         },
@@ -189,11 +189,11 @@
             "SABA rescue: albuterol (ProAir, Ventolin). ICS maintenance: fluticasone (Flovent). LABA: salmeterol (never alone in asthma).",
             "Montelukast (Singulair): leukotriene antagonist for asthma/allergic rhinitis; boxed warning for neuropsychiatric effects.",
             "SSRIs (no single class suffix; examples: fluoxetine (Prozac), sertraline (Zoloft)) — take weeks to work; risk serotonin syndrome with MAOIs/triptans. -oxetine is not SSRI-only (duloxetine is an SNRI).",
-            "SNRIs: duloxetine (Cymbalta), venlafaxine (Effexor) — depression, anxiety, neuropathic pain.",
+            "SNRIs: duloxetine (Cymbalta) — depression, anxiety, neuropathic pain; venlafaxine (Effexor XR) — MDD, GAD, social anxiety, and panic, not neuropathic pain.",
             "Benzodiazepines (-azepam/-azolam): alprazolam (Xanax), lorazepam (Ativan) — C-IV, sedation/dependence; reversed by flumazenil.",
             "Z-hypnotics: zolpidem (Ambien), eszopiclone (Lunesta) — C-IV for insomnia.",
             "SGLT2 inhibitors (-gliflozin): empagliflozin (Jardiance) — diabetes; watch genital infections, DKA. GLP-1 agonists: semaglutide (Ozempic).",
-            "Thiazolidinediones (-glitazone): pioglitazone (Actos). Biguanide: metformin (Glucophage) — first-line T2DM; hold before contrast dye.",
+            "Thiazolidinediones (-glitazone): pioglitazone (Actos). Biguanide: metformin (Glucophage) — first-line T2DM. Contrast hold is only for higher-risk patients (eGFR 30–60, liver disease, alcoholism, heart failure, or intra-arterial contrast).",
             "Alpha-1 blockers (-azosin/-ulosin): tamsulosin (Flomax) for BPH — first-dose orthostatic hypotension."
           ]
         },
@@ -403,7 +403,7 @@
             "Take with food: NSAIDs, metformin, iron. Empty stomach: levothyroxine, bisphosphonates.",
             "Avoid alcohol: metronidazole, CNS depressants. Avoid sun: doxycycline, fluoroquinolones, sulfonamides.",
             "May cause drowsiness: opioids, benzos, antihistamines. Shake well: suspensions.",
-            "Do not crush/chew: ER/XL/XR/SR, enteric-coated. Refrigerate/do not freeze: insulin, amoxicillin suspension."
+            "Do not crush/chew: ER/XL/XR/SR, enteric-coated. Do not freeze insulin. Amoxicillin suspension: refrigeration is preferable, not required."
           ]
         },
         {
