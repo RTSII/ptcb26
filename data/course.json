@@ -357,8 +357,10 @@
             "NCC MERP categories: A = circumstances with error potential; B = error did NOT reach patient; C = reached patient, NO harm; D = reached the patient and required monitoring to confirm no harm and/or intervention to preclude harm.",
             "Categories E–I = increasing harm: E = temporary harm requiring intervention; F = hospitalization; G = permanent harm; H = life-sustaining intervention; I = death.",
             "Outline 3.5 examples: incorrect dose, quantity, patient, drug, and route. Wrong time and omission are other error types; they are not the outline examples.",
+            "Incorrect drug dosage on prospective DUR: daily dosage = strength × quantity dispensed ÷ days' supply. If that daily dosage lies outside the predetermined standard, stop and notify the pharmacist.",
             "ISMP Do Not Use minimum list: spell out units (never U); spell out international units (never IU); write daily or every other day (never QD or QOD); write morphine sulfate or magnesium sulfate (never MS, MSO4, or MgSO4). Use a leading zero (0.5 mg, not .5 mg). Do not use a trailing zero (1 mg, not 1.0 mg).",
-            "Also on the ISMP error-prone list, but not that minimum Do Not Use set: write mL (never cc); write mcg (never µg). Eye and ear abbreviations are error-prone: do not use OD, OS, OU, AD, AS, or AU; write right eye, left eye, both eyes, right ear, left ear, or both ears."
+            "Also on the ISMP error-prone list, but not that minimum Do Not Use set: write mL (never cc); write mcg (never µg). Eye and ear abbreviations are error-prone: do not use OD, OS, OU, AD, AS, or AU; write right eye, left eye, both eyes, right ear, left ear, or both ears.",
+            "More ISMP error-prone abbreviations: write discharge or discontinue (D/C meant as discharge has been read as discontinued); write half-strength or bedtime (HS/hs swap those meanings); write subcut or subcutaneously (SC, SQ, sub q); write 3 times weekly (TIW has been read as 3 times a day)."
           ],
           "keyPoints": [
             "Near miss = caught before patient",
@@ -374,8 +376,10 @@
           "intro": "Know where and how medication errors and adverse events are reported, and the FDA recall classes.",
           "bullets": [
             "FDA MedWatch: voluntary reporting of adverse events, product problems, and medication errors (Form 3500 for professionals, 3500B for consumers).",
+            "Product integrity: report a product-quality concern to MedWatch when quality, authenticity, performance, or safety is in doubt. Examples: suspect counterfeit, contamination, defective components, poor packaging or product mix-up, questionable stability, labeling concerns.",
             "ISMP MERP (Medication Errors Reporting Program): voluntary, CONFIDENTIAL national error reporting to share prevention strategies.",
             "VAERS: Vaccine Adverse Event Reporting System (for vaccines).",
+            "Anyone may report to VAERS. Healthcare providers are required to report an adverse event on the VAERS Table of Reportable Events Following Vaccination that occurs within the specified time, and an adverse event the manufacturer lists as a contraindication to further doses.",
             "Recall classes: Class I = reasonable probability of serious adverse health consequences or death; Class II = temporary or medically reversible harm, or a remote probability of serious harm; Class III = adverse health consequences not likely.",
             "When a recall occurs: check lot numbers, quarantine affected stock, and follow the recall instructions for return/disposal."
           ],
@@ -393,7 +397,12 @@
             "Root cause analysis (RCA): a SYSTEMS-based review after an error to find underlying process failures — not individual blame.",
             "PDSA cycle (Plan-Do-Study-Act): the standard iterative cycle for testing and refining quality-improvement changes.",
             "Independent double checks: two qualified staff separately verify high-alert medications (insulin, anticoagulants, chemotherapy) before dispensing/administration.",
+            "Also on the ISMP acute-care high-alert list: neuromuscular blocking agents (succinylcholine, rocuronium, vecuronium) and oral sulfonylureas (glimepiride, glipiZIDE, glyBURIDE). Insulin U-500 and oral methotrexate for nononcologic use are singled out for special emphasis.",
+            "ISMP community/ambulatory high-alert categories also include oral and parenteral immunosuppressants (azaTHIOprine, cycloSPORINE, tacrolimus) and pediatric liquid medications that require measurement.",
+            "Humulin R U-500 is 500 units/mL, 5 times as much insulin in 1 mL as U-100 (100 units/mL). Use only a U-500 insulin syringe with the vial. A U-100 syringe used for a U-500 dose can give a 5-times overdose. Do not mix it with any other insulin and do not inject it intravenously.",
             "Prospective DUR screens for interactions/duplications/contraindications BEFORE dispensing (at order entry); retrospective DUR reviews patterns afterward.",
+            "Prospective DUR, before the prescription is filled or delivered, screens for therapeutic duplication, drug-disease contraindication, drug-drug interaction, incorrect drug dosage, incorrect duration of treatment, drug-allergy interaction, and clinical abuse/misuse.",
+            "Part D concurrent DUR is the review of prescribed therapy before each prescription is dispensed, typically at the point of sale or point of distribution. It includes age/gender-related contraindications, over-utilization and under-utilization, drug-drug interactions, incorrect dosage or duration, drug-allergy contraindications, and clinical abuse/misuse.",
             "Medication reconciliation compares all home medications to new orders at EVERY transition of care (admission, transfer, discharge)."
           ],
           "keyPoints": [
@@ -459,6 +468,8 @@
             "Hazardous-drug compounding PPE: TWO pairs of chemotherapy-tested gloves + an impermeable gown; add eye/face and respiratory protection per risk.",
             "Use a containment primary engineering control (C-PEC, e.g., BSC or CACI) inside a containment secondary engineering control (C-SEC) with negative pressure for HDs.",
             "Hand hygiene: soap and water for at least 20 seconds; alcohol-based rub when hands are not visibly soiled.",
+            "CDC infection-control PPE when using gown, mask or respirator, goggles or face shield, and gloves: don gown, then mask or respirator, then goggles or face shield, then gloves extended over the gown cuff. Remove gloves, then goggles or face shield, then gown, then mask or respirator.",
+            "Wash with soap and water when hands are visibly soiled, and during care of patients with suspected or confirmed infection during outbreaks of C. difficile and norovirus. Unless hands are visibly soiled, an alcohol-based hand sanitizer is preferred in most clinical situations.",
             "Counting trays and countertops (outline 3.6): wipe with 70% isopropyl alcohol between fills. Clean again after penicillin, sulfa, or a hazardous drug before the next prescription. Use a dedicated tray for hazardous drugs.",
             "Sharps (needles/syringes): rigid, puncture-resistant, closable sharps containers — never regular trash or recycling; never recap by hand.",
             "Vaccine storage: most refrigerated at 2–8°C (36–46°F), do NOT freeze; monitor with calibrated thermometers and document temperatures."
@@ -512,7 +523,10 @@
             "Auxiliary (warning) labels communicate cautions: \"May cause drowsiness,\" \"Take with food,\" \"Avoid alcohol,\" \"Refrigerate.\"",
             "REMS (Risk Evaluation and Mitigation Strategy): FDA-required programs for known serious risks. Current examples include iPLEDGE (isotretinoin) and THALOMID/lenalidomide. TIRF is not a routine current enroll-and-dispense REMS: production stopped September 30, 2024, and the REMS accepts no new enrollments. The Clozapine REMS was removed effective June 13, 2025 — do not treat clozapine as a pharmacy REMS.",
             "Tall Man lettering, look-alike bin segregation, and limiting available concentrations/strengths are additional error-reduction strategies.",
+            "FDA tall-man pair: buPROPion vs busPIRone.",
             "Issues that require pharmacist intervention (outline 3.3): DUR alerts, adverse drug events, OTC recommendations, therapeutic substitution, misuse/adherence concerns, allergies, and drug interactions.",
+            "Overutilization means quantity, strength, or duration greater than necessary to reach the therapeutic goal, or enough to risk a clinically significant undesirable effect, or both. Underutilization means insufficient quantity, strength, or duration to reach that goal, or enough to risk that effect, or both. Flag both to the pharmacist.",
+            "An adverse event is any untoward medical occurrence associated with the use of a drug product in humans, whether or not it is considered related to the drug. A medication error may or may not be associated with an adverse event. Off-label use, misuse, and abuse inconsistent with the FDA-approved labeling are not medication errors.",
             "A technician’s job at those alerts is to stop, gather the facts, and notify the pharmacist — not to override a clinical alert or recommend a product."
           ],
           "keyPoints": [
