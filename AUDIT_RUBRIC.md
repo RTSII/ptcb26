@@ -13,7 +13,7 @@ Map findings and coverage lines to these knowledge areas. `*` means some or all 
 - D3 Patient Safety and Quality Assurance 23.75%: 3.1 high-alert and LASA · 3.2 error prevention · 3.3* pharmacist intervention · 3.4 event reporting · 3.5* prescription-error types · 3.6 infection control and cleaning
 - D4 Order Entry and Processing 22.50%: 4.1* calculations, sig, abbreviations · 4.2* administration supplies · 4.3* lot, expiration, NDC · 4.4 returns and reverse distribution
 
-Keep the four domain strings in `README.md`. Do not invent short aliases in the data.
+Keep the four domain strings in `README.md`. Do not invent short aliases in the data. Course and Notes audits follow the app module order — Medications (m1–m3), Patient Safety and Quality Assurance (m4–m6), Order Entry and Processing (m7–m9), Federal Requirements (m10–m12) — while knowledge-area numbers stay the official outline numbers.
 
 ## Scope
 

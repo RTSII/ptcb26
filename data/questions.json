@@ -1812,7 +1812,7 @@
         "D"
       ],
       "answer": 2,
-      "rationale": "Category A = circumstances with error potential; B = error did not reach patient; C = reached patient, no harm; D = reached patient, required monitoring.",
+      "rationale": "Category A = circumstances with error potential; B = error did not reach the patient; C = reached the patient, no harm; D = reached the patient and required monitoring to confirm no harm and/or intervention to preclude harm.",
       "difficulty": "hard"
     },
     {
@@ -3194,7 +3194,7 @@
         "Replace the VIS with the drug’s package insert after the injection"
       ],
       "answer": 0,
-      "rationale": "Use the current VIS edition and document the VIS publication date plus the date it was provided. Package inserts and DEA forms do not replace the VIS. After immunization, observe for immediate reactions and use VAERS for vaccine adverse events.",
+      "rationale": "Use the current VIS edition and document the VIS publication date plus the date it was provided. Package inserts and DEA forms do not replace the VIS. For most vaccines, observe the patient for 15 minutes afterward (most syncope is within 15 minutes). Use VAERS for vaccine adverse events.",
       "difficulty": "medium"
     },
     {
@@ -3224,7 +3224,7 @@
         "Document the event only if the patient requests a VIS"
       ],
       "answer": 1,
-      "rationale": "Post-immunization delivery care is a 3.3 pharmacist-intervention topic. Syncope is common after vaccines — sit/recline, do not let the patient drive off untreated, and get the pharmacist. Anaphylaxis kits and VAERS are pharmacist-led next steps if needed.",
+      "rationale": "Post-immunization delivery care is a 3.3 pharmacist-intervention topic. For most vaccines, a 15-minute observation is recommended because most syncope is within 15 minutes. If the patient feels faint, seat or recline them and notify the pharmacist; do not send them to the parking lot. Anaphylaxis kits and VAERS are pharmacist-led next steps if needed.",
       "difficulty": "medium"
     },
     {

@@ -310,18 +310,18 @@
           "intro": "Know error severity, the prescription error types on outline 3.5, and the ISMP abbreviations that cause them.",
           "bullets": [
             "A near miss (close call) is an error INTERCEPTED before reaching the patient — report it to fix system weaknesses.",
-            "NCC MERP categories: A = circumstances with error potential; B = error did NOT reach patient; C = reached patient, NO harm; D = reached patient, required monitoring.",
+            "NCC MERP categories: A = circumstances with error potential; B = error did NOT reach patient; C = reached patient, NO harm; D = reached the patient and required monitoring to confirm no harm and/or intervention to preclude harm.",
             "Categories E–I = increasing harm: E = temporary harm requiring intervention; F = hospitalization; G = permanent harm; H = life-sustaining intervention; I = death.",
-            "Outline 3.5 prescription error types: wrong drug, wrong dose, wrong quantity, wrong patient, wrong route, wrong time, and omission (a required element left off the prescription or the fill).",
-            "ISMP Do Not Use: spell out units (never U); spell out international units (never IU); write morphine sulfate or magnesium sulfate (never MS, MSO4, or MgSO4); write mL (never cc); write mcg (never µg).",
-            "Decimal rules: use a leading zero (0.5 mg, not .5 mg). Do not use a trailing zero (1 mg, not 1.0 mg). Also avoid QD/QOD — write daily or every other day."
+            "Outline 3.5 examples: incorrect dose, quantity, patient, drug, and route. Wrong time and omission are other error types; they are not the outline examples.",
+            "ISMP Do Not Use minimum list: spell out units (never U); spell out international units (never IU); write daily or every other day (never QD or QOD); write morphine sulfate or magnesium sulfate (never MS, MSO4, or MgSO4). Use a leading zero (0.5 mg, not .5 mg). Do not use a trailing zero (1 mg, not 1.0 mg).",
+            "Also on the ISMP error-prone list, but not that minimum Do Not Use set: write mL (never cc); write mcg (never µg)."
           ],
           "keyPoints": [
             "Near miss = caught before patient",
             "Category C = reached patient, no harm",
-            "3.5: wrong drug/dose/qty/patient/route/time, omission",
-            "Leading zero 0.5; no trailing zero",
-            "Never U, IU, MS/MSO4, cc, or µg"
+            "3.5 examples: dose, quantity, patient, drug, route",
+            "Do Not Use: U, IU, QD/QOD, trailing zero, missing leading zero, MS/MSO4",
+            "cc and µg are error-prone: write mL and mcg"
           ]
         },
         {
@@ -486,7 +486,7 @@
           "bullets": [
             "VIS (Vaccine Information Statement): CDC sheet required by federal law before each dose of a covered vaccine. Use the current edition; document the VIS date and the date given.",
             "Give the VIS before immunization — not only afterward and not only if the patient asks.",
-            "Post-immunization care: watch for syncope and anaphylaxis; seat a faint-feeling patient; notify the pharmacist. Do not send them to the parking lot untreated.",
+            "Post-immunization care: for most vaccines, observe the patient seated or lying down for 15 minutes (most syncope is within 15 minutes). Some people are observed for 30 minutes after a COVID-19 vaccine. If the patient feels faint, seat them and notify the pharmacist. Do not send them to the parking lot untreated.",
             "VAERS = vaccine adverse events. MedWatch = general FDA drug/device/medication-error reports. Know which system matches the product.",
             "OTC recommendation and therapeutic substitution always go to the pharmacist (3.3).",
             "Purple Book (FDA licensed biologics / interchangeability) is not named on the January 2026 outline — skip it as tested content. Orange Book A/AB remains the small-molecule TE shorthand in Federal notes."
@@ -494,6 +494,7 @@
           "keyPoints": [
             "VIS before each covered dose",
             "Document VIS edition + date given",
+            "Observe 15 minutes after most vaccines",
             "VAERS for vaccines; MedWatch for drugs",
             "OTC / substitution = pharmacist"
           ]
