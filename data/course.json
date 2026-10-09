@@ -563,7 +563,7 @@
       "id": "m7",
       "domain": "Order Entry and Processing",
       "title": "Reading Prescriptions & SIG Codes",
-      "desc": "Prescription components, common abbreviations, and directions interpretation.",
+      "desc": "Prescription components, abbreviations, administration supplies, NDC and expiration, and returns.",
       "quiz": {
         "domain": "Order Entry and Processing",
         "count": 12
@@ -606,6 +606,62 @@
             "qhs = at bedtime; qh = every hour",
             "OU/OD/OS and AU/AD/AS: recognize; write the eye or ear"
           ]
+        },
+        {
+          "id": "m7l3",
+          "title": "Administration Supplies",
+          "intro": "Match the measuring device, diluent, and vaccine needle to the product label.",
+          "bullets": [
+            "Oral solutions (Dilaudid label): measure with a graduated oral syringe or measuring cup in mL, not a household teaspoon or tablespoon.",
+            "U-100 insulin syringe: Humulin N labeling says doses are measured in units, U-100 insulin contains 100 units/mL (1 mL = 1 cc), and the syringe must be marked for U-100 insulin.",
+            "Spacer: FLOVENT HFA labeling says a valved holding chamber (a kind of spacer) and face mask may be used to deliver FLOVENT HFA to young patients.",
+            "Dry-powder inhaler: do not use PROAIR RESPICLICK with a spacer or volume holding chamber.",
+            "Nebulizer: a device that sprays liquids in aerosol form into gases delivered directly to the patient for breathing. Heated, ultrasonic, gas, venturi, and refillable nebulizers are included. Class II.",
+            "Sterile Water for Injection: a diluent for parenteral drugs. Do not inject it until it is made approximately isotonic. Not for direct infusion.",
+            "Bacteriostatic Water for Injection contains 0.9% (9 mg/mL) or 1.1% (11 mg/mL) benzyl alcohol. For neonates, use only preservative-free Sterile Water for Injection.",
+            "Label-directed diluent: dilute Humalog U-100 to 0.1 unit/mL–1.0 unit/mL with 0.9% sodium chloride.",
+            "Adult IM vaccine supplies (CDC): 1 mL or 3 mL syringe, 22- to 25-gauge needle, 1- to 1.5-inch needle, inserted at 90 degrees.",
+            "Subcutaneous vaccine needle (CDC): 23- to 25-gauge, 5/8 inch (16 mm), inserted at 45 degrees."
+          ],
+          "keyPoints": [
+            "Oral liquid: mL syringe, not a household spoon",
+            "Match the device on the label: oral mL syringe, U-100 syringe, spacer only if the inhaler allows it"
+          ]
+        },
+        {
+          "id": "m7l4",
+          "title": "NDC, Lot, and Expiration",
+          "intro": "The package carries an NDC, a lot number, and an expiration date.",
+          "bullets": [
+            "FDA 10-digit NDC: labeler (assigned by FDA) – product (strength, dosage form, and formulation) – package (size and type). Configurations: 4-4-2, 5-3-2, or 5-4-1. A padded 12345-0678-09 can be 12345-678-09 or 12345-0678-9.",
+            "HIPAA billing uses an 11-digit 5-4-2 NDC. Add a leading zero to the short segment: 5-4-1 12345-6789-0 → 12345-6789-00; 5-3-2 12345-678-90 → 12345-0678-90; 4-4-2 1234-5678-90 → 01234-5678-90.",
+            "On March 7, 2033, FDA-assigned NDCs convert to 12-digit 6-4-2 (6-digit labeler, 4-digit product, 2-digit package) by adding leading zeros to the short segments.",
+            "That rule does not change the HIPAA 11-digit format used for reimbursement. FDA does not intend to object to 10-digit NDCs on labels from March 7, 2033 through March 6, 2036.",
+            "Lot number: it should yield the complete manufacturing history of the package. An incorrect lot number may misbrand the article.",
+            "Expiration date: once it has passed there is no guarantee the medicine will be safe and effective. If it has expired, do not use it.",
+            "Expiration dating follows the storage conditions on the label. If the product is reconstituted at dispensing, the label bears expiration information for both the reconstituted and unreconstituted products.",
+            "The expiration date appears on the immediate container and the outer package, unless it is easily legible through the outer package. Single-dose containers in individual cartons may show the date on the carton instead."
+          ],
+          "keyPoints": [
+            "10-digit NDC: 4-4-2, 5-3-2, or 5-4-1",
+            "2033-03-07: FDA NDC becomes 6-4-2; HIPAA 5-4-2 stays",
+            "Lot = manufacturing history; do not use after expiration"
+          ]
+        },
+        {
+          "id": "m7l5",
+          "title": "Returns",
+          "intro": "Credit returns, non-creditable hazardous waste, and reverse distribution are different paths.",
+          "bullets": [
+            "Credit return: a potentially creditable hazardous waste pharmaceutical is a prescription hazardous waste pharmaceutical expected to receive manufacturer credit, in the original manufacturer packaging (except a recall), undispensed, and unexpired or less than one year past expiration. A reverse distributor receives it to verify that credit.",
+            "Non-creditable hazardous waste pharmaceutical: no reasonable expectation of manufacturer credit. Includes investigational drugs, free samples, residues in empty containers, and spill-cleanup material.",
+            "Reverse distribute (controlled substances): a DEA-registered reverse distributor acquires them from another registrant or law enforcement to return them to the registered manufacturer, or to a registrant the manufacturer authorizes, or for destruction.",
+            "A reverse distributor destroys a controlled substance received for destruction no later than 30 calendar days after receipt.",
+            "Returned drug product is identified and held. If storage, shipping, or the container casts doubt on safety, identity, strength, quality, or purity, it is destroyed unless testing proves those standards. Records include lot number, reason, quantity, and disposition."
+          ],
+          "keyPoints": [
+            "Credit return: original pack, undispensed, unexpired or <1 year past expiration"
+          ]
         }
       ]
     },
@@ -644,6 +700,7 @@
           "intro": "The most common calculation tasks: dose size, days supply, and quantity to dispense.",
           "bullets": [
             "Dose from strength: (desired dose ÷ available strength) × quantity per unit. 250 mg needed, 125 mg tabs → 2 tabs.",
+            "Proportion: a/b = c/d, so a×d = b×c. 250 mg/5 mL = x/20 mL → x = (250×20)÷5 = 1,000 mg.",
             "Weight-based dose: mg/kg/day × weight in kg (15 mg/kg/day × 18 kg = 270 mg/day).",
             "Days supply (tablets): quantity ÷ tablets per day. 90 tabs at TID (3/day) = 30 days. Round DOWN for billing.",
             "Insulin days supply: (mL × 100 units for U-100) ÷ units per day. A 10 mL vial = 1,000 units; at 20 units/day lasts 50 days.",
@@ -652,6 +709,7 @@
           ],
           "keyPoints": [
             "Days supply round DOWN",
+            "Proportion: cross-multiply",
             "U-100 insulin = 100 units/mL",
             "Drops: 20 gtt/mL",
             "Inhaler: actuations ÷ puffs/day"
@@ -663,12 +721,14 @@
           "intro": "Concentration expressions and dilution still appear on the PTCE (outline 4.1). Alligation was removed from the January 2026 calculation list — it lives in the optional archive lesson that follows.",
           "bullets": [
             "Percent w/v (solutions) = grams per 100 mL. 0.9% NaCl = 0.9 g per 100 mL; in 500 mL that is 4.5 g. D5W = 5 g dextrose per 100 mL (50 g per 1,000 mL).",
+            "Percent v/v = mL per 100 mL. Isopropyl alcohol 70% v/v = 70 mL per 100 mL; in 250 mL that is 175 mL.",
             "Ratio strength: 1:1000 = 1 g per 1000 mL = 1 mg/mL (epinephrine).",
             "Percent ↔ decimal: divide by 100 (0.75% = 0.0075). Percent w/w (creams) = grams per 100 g. 1% hydrocortisone cream = 10 mg/g, so 0.25% cream = 2.5 mg/g (% × 10).",
             "Dilution: C1V1 = C2V2 keeps the amount of drug constant when changing concentration/volume — this remains in scope."
           ],
           "keyPoints": [
             "w/v = g/100 mL; w/w = g/100 g",
+            "v/v = mL/100 mL",
             "1:1000 = 1 mg/mL",
             "C1V1 = C2V2 (still tested)"
           ]

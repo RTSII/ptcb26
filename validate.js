@@ -254,8 +254,8 @@ if (!/quiz\.html\?mode=missed/.test(dash) || !/quiz\.html\?mode=bookmarked/.test
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v64/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v64');
-else ok('sw.js cache is ptce-2026-v64');
+if (!/ptce-2026-v65/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v65');
+else ok('sw.js cache is ptce-2026-v65');
 if (/blueprint-hud/.test(sw)) fail('sw.js should not precache the removed Blueprint HUD');
 else ok('sw.js does not precache the Blueprint HUD');
 if (!/css\/exam-setup\.css/.test(sw) || !/js\/exam-setup\.js/.test(sw)) {
@@ -498,6 +498,33 @@ usesFullPool(modeBranch(quizSrcFull, "} else if (mode === 'missed')"), 'missed m
 usesFullPool(modeBranch(quizSrcFull, "} else if (mode === 'bookmarked')"), 'bookmarked mode');
 honorsCount(modeBranch(quizSrcFull, "} else if (mode === 'weak' || mode === 'weaksub')"), 'weakest modes');
 honorsCount(modeBranch(quizSrcFull, "} else if (mode === 'chapter')"), 'chapter mode');
+
+console.log('\nLesson ids');
+const flatIds = [];
+((courseData && courseData.modules) || []).forEach(function (m) {
+  (m.lessons || []).forEach(function (l) { flatIds.push(l.id); });
+});
+const bridge = ['m7l2', 'm7l3', 'm7l4', 'm7l5', 'm8l1'];
+const bridgeAt = flatIds.indexOf('m7l2');
+const bridgeSlice = flatIds.slice(bridgeAt, bridgeAt + bridge.length);
+if (bridgeSlice.join(',') !== bridge.join(',')) {
+  fail('lesson order should run m7l2 → m7l3 → m7l4 → m7l5 → m8l1, got ' + bridgeSlice.join(', '));
+} else ok('m7l3–m7l5 sit between m7l2 and m8l1');
+const keptIds = ['m7l1', 'm7l2', 'm8l1', 'm8l2', 'm8l3', 'm9l1'];
+const missingIds = keptIds.filter(function (id) { return flatIds.indexOf(id) < 0; });
+if (missingIds.length) fail('existing lesson ids missing: ' + missingIds.join(', '));
+else ok('existing m7, m8, and m9 lesson ids were not renumbered');
+const added = [];
+((courseData && courseData.modules) || []).forEach(function (m) {
+  (m.lessons || []).forEach(function (l) {
+    if (l.id === 'm7l3' || l.id === 'm7l4' || l.id === 'm7l5') added.push(l);
+  });
+});
+const badAdded = added.filter(function (l) {
+  return l.optional || !l.title || !l.intro || !Array.isArray(l.bullets) || !l.bullets.length || !Array.isArray(l.keyPoints) || !l.keyPoints.length;
+});
+if (added.length !== 3 || badAdded.length) fail('m7l3, m7l4, and m7l5 should be featured lessons with title, intro, bullets, and keyPoints');
+else ok('m7l3, m7l4, and m7l5 use the lesson schema');
 
 const courseSrc = read('js/course.js');
 if (!/optional/.test(courseSrc) || !/archive-badge/.test(courseSrc)) {
