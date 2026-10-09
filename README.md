@@ -83,7 +83,7 @@ manifest.json  sw.js  icon.svg  validate.js
 css/style.css  css/home.css  css/notes.css  css/exam-setup.css
 js/app.js  home.js  course.js  notes.js  flashcards.js  quiz.js  exam.js  exam-setup.js  dashboard.js
 data/course.json  notes.json  flashcards.json  questions.json
-README.md  TODO.md  UI_STANDARDS.md  AGENTS.md  study_notes_v4_plan.md
+README.md  TODO.md  UI_STANDARDS.md  AGENTS.md  AUDIT_RUBRIC.md  study_notes_v4_plan.md
 docs/archive/  (history; do not read for current work)
 ```
 

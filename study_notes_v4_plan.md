@@ -26,7 +26,7 @@ Rob lost faith in the Claude/Devin visual-aid analysis. That plan leaned on deco
 | Topic | Decision |
 |---|---|
 | Google AI image briefs | Deferred, see the end of [TODO.md](TODO.md). Not a start step, and not the plan for breaking up repeated prose. |
-| Fresh visual-aid pass | Part of the Notes theme overhaul ([TODO.md](TODO.md) **Next up** #3), after the content sign-offs. Prefer in-code charts, lists, tables, and compact layouts. Example Rob named: the **Conversions** topic → a dense conversion chart / list (or SVG). Slate is retired ([UI_STANDARDS.md](UI_STANDARDS.md)). |
+| Fresh visual-aid pass | Part of the Notes theme overhaul ([TODO.md](TODO.md) **Next up**), after the content audits are signed off. Prefer in-code charts, lists, tables, and compact layouts. Example Rob named: the **Conversions** topic → a dense conversion chart / list (or SVG). Slate is retired ([UI_STANDARDS.md](UI_STANDARDS.md)). |
 
 ---
 
@@ -130,7 +130,7 @@ Inline `flags` already in the local v2 JSON (4). The insulin curve and the Levem
 
 ## Target architecture
 
-Do not build this until [TODO.md](TODO.md) **Next up** #1 and #2 are signed off. Palette is Matrix-cohesive ([UI_STANDARDS.md](UI_STANDARDS.md)); slate is retired. Non-green accents are OK for dense prose. Trim redundant search and nav. Space-saving visual aids (charts, lists, tables; Conversions first) are part of **Next up** #3. Google AI art is deferred, see the end of TODO.md.
+Do not build this until the content audits in [TODO.md](TODO.md) **Next up** are signed off. Palette is Matrix-cohesive ([UI_STANDARDS.md](UI_STANDARDS.md)); slate is retired. Non-green accents are OK for dense prose. Trim redundant search and nav. Space-saving visual aids (charts, lists, tables; Conversions first) are part of the Notes theme overhaul in **Next up**. Google AI art is deferred, see the end of TODO.md. Fact-check and audit output follow [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md). Do not restate it here.
 
 ### Page frame (desktop ≥ 900px)
 
@@ -189,7 +189,7 @@ Type: Chakra Petch for headings and keys, JetBrains Mono for codes and numbers, 
 
 ### Build steps
 
-Do not start until [TODO.md](TODO.md) **Next up** #1 and #2 are signed off. When this ships, bump the service worker cache to the next version and update the docs this work changed.
+Do not start until the content audits in [TODO.md](TODO.md) **Next up** are signed off. When this ships, bump the service worker cache to the next version and update the docs this work changed.
 
 | # | Step | Files |
 |---|---|---|
@@ -219,6 +219,6 @@ Next work is [TODO.md](TODO.md) **Next up**, in that order. Do not restate it he
 - [x] #28 on main (Codex v2 baseline + plans)
 - [x] Google AI art demoted to future; space-saving visual-aid clarify recorded (2026-10-07)
 - [x] Target architecture (rail, token table, build steps) lives in this file
-- [ ] [TODO.md](TODO.md) **Next up** #1–#3 done
+- [ ] [TODO.md](TODO.md) **Next up** is done through the Notes theme overhaul
 - [ ] v2 `notes.json` committed only with the blocks runtime, in that overhaul PR
 - [ ] Google AI art remains future (not a start step)

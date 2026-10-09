@@ -4,9 +4,10 @@ Read in this order:
 
 1. This file, for standing rules and the pre-PR loop.
 2. [TODO.md](TODO.md) **Next up**, for what to do, in that order.
-3. [UI_STANDARDS.md](UI_STANDARDS.md) before any UI change.
-4. [README.md](README.md) for how to run the app and the content rules.
-5. [study_notes_v4_plan.md](study_notes_v4_plan.md) only for Notes content or the Notes theme overhaul.
+3. [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md) before any content audit or fact-fix.
+4. [UI_STANDARDS.md](UI_STANDARDS.md) before any UI change.
+5. [README.md](README.md) for how to run the app and the content rules.
+6. [study_notes_v4_plan.md](study_notes_v4_plan.md) only for Notes content or the Notes theme overhaul.
 
 Do not read `docs/archive/`. Those files are history.
 

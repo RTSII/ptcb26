@@ -4,25 +4,26 @@ Live backlog. History in `docs/archive/` is not this list.
 
 ## Next up (in order)
 
-1. **Study Course content review — content only.** Review all Study Course material against the 2026 PTCE content outline (Jan 2026: Medications 35%, Patient Safety 23.75%, Order Entry 22.50%, Federal 18.75%). Verify every fact is correct and current, nothing on-exam is missing, nothing incomplete, no duplicates, nothing outdated/off-exam. Produce an audit list with sources. Rob signs off on contents (factual + complete) before any edits ship. No UI/theme changes in this step.
-2. **Study Notes content review — same review.** Same audit for Study Notes (duplicate, incomplete, missing, incorrect lesson info; gaps covered/fixed). Includes the 5 fact flags in `study_notes_v4_plan.md` (amiodarone/pioglitazone label, SSRI stems, MMR vs varicella storage, HIPAA penalty amounts, insulin onset/peak/duration completeness) plus whether Levemir (detemir) is still US-marketed. Known example: Insulin Types repeats rapid-acting, long-acting, and storage lines. Rob signs off on contents before edits ship.
-3. **Study Notes theme overhaul** (Terminal Codex / Matrix per `UI_STANDARDS.md` and `study_notes_v4_plan.md`) — only after steps 1 and 2 are signed off. Ships blocks runtime + v2 `notes.json` together in one PR.
+1. **Fact flags.** Verify and fix every flagged or possibly false claim per [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md): the 6 flags in `study_notes_v4_plan.md`, plus course `m1l5` SSRI stems and `m1l4` / `m3l2` insulin and detemir. Each fix needs a source and Rob's sign-off.
+2. **Study Course content audit.** 100% factual and complete against the PTCE 2026 outline ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
+3. **Study Notes content audit.** Same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
+4. **Notes theme overhaul.** Only after 2 and 3 are signed off (`study_notes_v4_plan.md`).
 
-Each step is review, then Rob's sign-off, then edits. One domain per PR where practical. Standing rules: [AGENTS.md](AGENTS.md).
+Course is the primary path; Notes summarize it. Lock course facts before Notes so the same error is not fixed twice. Items 1–3 use [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md). Standing rules: [AGENTS.md](AGENTS.md).
 
 Superseded by the block above (do not follow these):
 
 - Plan-review chat that edits plan/docs only, then **STOP**
 - Start the Notes overhaul after a reviewed-plan sign-off
 - `matrix.css` → blocks runtime → then v2 JSON as its own start sequence
-- Five fact flags as their own gate (they sit inside step 2)
+- Fold the fact flags into a later content review
 
 ## Study Notes — Terminal Codex (v4)
 
 - [x] Codex v2 baseline on main (#28, SW v43) — legacy `items` renderer
 - [x] `study_notes_v4_plan.md` (handoff, 2026-10-07 content audit, and the target architecture)
 - [x] Content audit: main 44→v2 41 merge map, dup clusters, 6 review flags documented
-- [ ] **Do not commit** the local v2 notes file, and keep it outside `data/` until `js/notes.js` reads `blocks` (old runtime renders it empty). Ship together with the blocks runtime in **Next up** #3, after steps 1 and 2 are signed off.
+- [ ] **Do not commit** the local v2 notes file, and keep it outside `data/` until `js/notes.js` reads `blocks` (old runtime renders it empty). Ship it with the blocks runtime in the Notes theme overhaul (see **Next up**).
 - [ ] Course / Exam Matrix tokens later
 - [ ] Future: Google AI prompt pack / `assets/notes` emblems + dosage-form specimens (deferred; Word doc reference-only)
 - [ ] Future: clarify/revive decorative art only after space-saving visual-aid strategy is locked
