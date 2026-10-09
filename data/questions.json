@@ -3286,6 +3286,426 @@
       "answer": 1,
       "rationale": "3.3: OTC recommendation and therapeutic substitution require pharmacist intervention. Counting, barcode scanning, and two-identifier pickup are core technician tasks under pharmacist supervision.",
       "difficulty": "easy"
+    },
+    {
+      "id": "q220",
+      "domain": "Medications",
+      "subtopic": "Therapeutic Duplication",
+      "question": "Therapeutic duplication is",
+      "options": [
+        "Two or more drugs from the same therapeutic class when the combined daily dose risks an adverse medical result",
+        "A brand and its AB-rated generic",
+        "Two drugs from different classes for the same disease",
+        "A refill that is too early"
+      ],
+      "answer": 0,
+      "rationale": "42 CFR 456.705(b)(1) defines therapeutic duplication as two or more drugs from the same therapeutic class such that the combined daily dose puts the beneficiary at risk of an adverse medical result.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q221",
+      "domain": "Medications",
+      "subtopic": "Analgesics",
+      "question": "Which label rule applies to acetaminophen",
+      "options": [
+        "Do not use it with any other prescription or nonprescription drug that contains acetaminophen",
+        "It may be stacked with a second acetaminophen product if each stays under 2 g",
+        "It is safe to combine with opioid-acetaminophen products without a total check",
+        "The liver warning applies only to prescription acetaminophen"
+      ],
+      "answer": 0,
+      "rationale": "21 CFR 201.326 requires: \"Do not use with any other drug containing acetaminophen (prescription or nonprescription).\"",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q222",
+      "domain": "Medications",
+      "subtopic": "ADHD Stimulants",
+      "question": "Concerta is best classified as",
+      "options": [
+        "A CNS stimulant for ADHD",
+        "An SSRI for depression",
+        "A triptan for migraine",
+        "An atypical antipsychotic"
+      ],
+      "answer": 0,
+      "rationale": "CONCERTA labeling: CNS stimulant indicated for ADHD in patients aged 6 to 65 years, with a boxed warning for abuse, misuse, and addiction.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q223",
+      "domain": "Medications",
+      "subtopic": "Migraine",
+      "question": "Imitrex tablets are indicated for",
+      "options": [
+        "Acute treatment of migraine with or without aura in adults",
+        "Prevention of migraine attacks",
+        "Cluster headache",
+        "Any headache without a migraine diagnosis"
+      ],
+      "answer": 0,
+      "rationale": "IMITREX tablets are a 5-HT1B/1D agonist indicated for acute migraine in adults, and are not indicated to prevent migraine.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q224",
+      "domain": "Medications",
+      "subtopic": "Antipsychotics",
+      "question": "Abilify's boxed warning includes",
+      "options": [
+        "Increased mortality in elderly patients with dementia-related psychosis",
+        "Thyroid C-cell tumors",
+        "Tendon rupture",
+        "Severe cutaneous adverse reactions as the box"
+      ],
+      "answer": 0,
+      "rationale": "ABILIFY is an atypical antipsychotic indicated for schizophrenia. The boxed warning states antipsychotics raise the risk of death in elderly patients with dementia-related psychosis, and Abilify is not approved for that use.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q225",
+      "domain": "Medications",
+      "subtopic": "Corticosteroids",
+      "question": "Prednisone is",
+      "options": [
+        "A glucocorticoid",
+        "A mineralocorticoid-only replacement",
+        "An NSAID",
+        "A bisphosphonate"
+      ],
+      "answer": 0,
+      "rationale": "Prednisone tablet labeling: \"Prednisone is a glucocorticoid,\" and each tablet contains 5, 10, or 20 mg. Rheumatic indications include adjunctive short-term use in rheumatoid arthritis.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q226",
+      "domain": "Medications",
+      "subtopic": "Contraceptives",
+      "question": "Tri-Sprintec is indicated to",
+      "options": [
+        "Prevent pregnancy",
+        "Treat hypertension",
+        "Replace thyroid hormone",
+        "Treat migraine"
+      ],
+      "answer": 0,
+      "rationale": "Tri-Sprintec is a norgestimate plus ethinyl estradiol combination oral contraceptive indicated for use by females of reproductive potential to prevent pregnancy.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q227",
+      "domain": "Medications",
+      "subtopic": "Contraceptives",
+      "question": "Combination oral contraceptives are contraindicated in",
+      "options": [
+        "Women over 35 years of age who smoke",
+        "All women over 35",
+        "Women under 35 who smoke",
+        "Anyone with migraine"
+      ],
+      "answer": 0,
+      "rationale": "Tri-Sprintec boxed warning: contraindicated in women over 35 who smoke, because smoking increases serious cardiovascular events from COC use.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q228",
+      "domain": "Medications",
+      "subtopic": "Drug Interactions",
+      "question": "FDA lists St. John's wort as",
+      "options": [
+        "A strong CYP3A inducer, with an effect that varies by preparation",
+        "A strong CYP3A inhibitor like grapefruit juice",
+        "A drug with no CYP effect",
+        "A vitamin K antagonist"
+      ],
+      "answer": 0,
+      "rationale": "FDA's CYP examples table lists St. John's wort as a dietary supplement and a strong CYP3A inducer. Footnote 18: the effect varies widely and is preparation dependent.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q229",
+      "domain": "Medications",
+      "subtopic": "Drug Interactions",
+      "question": "Back-up contraception after stopping St. John's wort with a COC should continue for",
+      "options": [
+        "28 days",
+        "7 days",
+        "48 hours",
+        "90 days"
+      ],
+      "answer": 0,
+      "rationale": "Tri-Sprintec §7.1 names products containing St. John's wort among agents that may decrease COC effectiveness, and says to continue back-up contraception for 28 days after the enzyme inducer is stopped.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q230",
+      "domain": "Medications",
+      "subtopic": "Drug-Laboratory",
+      "question": "Biotin supplements are a problem because they can",
+      "options": [
+        "Interfere with some lab tests, including falsely low troponin",
+        "Raise the INR like warfarin",
+        "Induce CYP3A4 like St. John's wort",
+        "Chelate tetracyclines"
+      ],
+      "answer": 0,
+      "rationale": "FDA: biotin in dietary supplements can significantly interfere with certain lab tests and cause incorrect results. FDA has received reports of falsely low troponin from biotin interference.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q231",
+      "domain": "Medications",
+      "subtopic": "Bisphosphonates",
+      "question": "Fosamax treatment of osteoporosis in postmenopausal women and men is",
+      "options": [
+        "10 mg daily or 70 mg once weekly",
+        "5 mg daily or 35 mg once weekly",
+        "70 mg once daily",
+        "10 mg once weekly only"
+      ],
+      "answer": 0,
+      "rationale": "FOSAMAX dosage: treatment of osteoporosis in postmenopausal women and in men is 10 mg daily or 70 mg once weekly. Prevention in postmenopausal women is 5 mg daily or 35 mg once weekly.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q232",
+      "domain": "Medications",
+      "subtopic": "Antivirals",
+      "question": "Adult Tamiflu treatment is",
+      "options": [
+        "75 mg twice daily for 5 days",
+        "75 mg once daily for 10 days",
+        "75 mg once weekly",
+        "150 mg once daily for 5 days"
+      ],
+      "answer": 0,
+      "rationale": "TAMIFLU dosage: treatment of influenza in adults and adolescents 13 years and older is 75 mg twice daily for 5 days.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q233",
+      "domain": "Medications",
+      "subtopic": "Diabetes",
+      "question": "Ozempic maintenance start after the initial 4 weeks is",
+      "options": [
+        "0.5 mg once weekly",
+        "0.25 mg once daily",
+        "1 mg twice daily",
+        "2 mg every 4 weeks from day 1"
+      ],
+      "answer": 0,
+      "rationale": "OZEMPIC is administered once weekly. Start at 0.25 mg once weekly;after 4 weeks increase to 0.5 mg once weekly. A missed dose may be administered within 5 days.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q234",
+      "domain": "Medications",
+      "subtopic": "Adverse Effects",
+      "question": "The Lamictal XR boxed warning cites serious rash, including SJS, at about",
+      "options": [
+        "0.8% (8 per 1,000) in ages 2 to 16 and 0.3% (3 per 1,000) in adults on adjunctive epilepsy therapy",
+        "5% in every age group",
+        "0.05% (5 in 10,000)",
+        "8% in adults"
+      ],
+      "answer": 0,
+      "rationale": "LAMICTAL XR boxed warning gives those two rates for immediate-release lamotrigine used as adjunctive epilepsy therapy, and states XR is not approved for patients younger than 13 years.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q235",
+      "domain": "Medications",
+      "subtopic": "Adverse Effects",
+      "question": "Allopurinol serious skin reactions, including SJS and TEN, occur in about",
+      "options": [
+        "5 in 10,000 (0.05%) patients",
+        "8 in 1,000 patients",
+        "1 in 10 patients",
+        "5 in 100 patients"
+      ],
+      "answer": 0,
+      "rationale": "Allopurinol tablets §5.1: TEN, SJS, and DRESS have been reported, occurring in approximately 5 in 10,000 (0.05%) patients. Discontinue permanently at the first skin rash.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q236",
+      "domain": "Medications",
+      "subtopic": "Adverse Effects",
+      "question": "A serious cutaneous reaction in the Bactrim warnings is",
+      "options": [
+        "Stevens-Johnson syndrome and toxic epidermal necrolysis",
+        "Tendon rupture",
+        "Thyroid C-cell tumors",
+        "Serotonin syndrome as the labeled skin warning"
+      ],
+      "answer": 0,
+      "rationale": "BACTRIM Warnings: fatalities and serious adverse reactions include SCARs, including Stevens-Johnson syndrome and toxic epidermal necrolysis.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q237",
+      "domain": "Medications",
+      "subtopic": "Diabetes",
+      "question": "Ozempic is contraindicated in",
+      "options": [
+        "A personal or family history of MTC, or MEN 2",
+        "Gout",
+        "Penicillin allergy",
+        "Nonvalvular atrial fibrillation"
+      ],
+      "answer": 0,
+      "rationale": "OZEMPIC boxed warning: rodent thyroid C-cell tumors;human relevance for MTC is not determined;contraindicated in personal or family history of MTC or in MEN 2.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q238",
+      "domain": "Medications",
+      "subtopic": "Diabetes",
+      "question": "Victoza is contraindicated with",
+      "options": [
+        "A personal or family history of medullary thyroid carcinoma, or MEN 2",
+        "Only a sulfa allergy",
+        "A statin",
+        "Asthma"
+      ],
+      "answer": 0,
+      "rationale": "VICTOZA boxed warning: rodent thyroid C-cell tumors;unknown whether it causes MTC in humans;contraindicated in personal or family history of MTC and in MEN 2.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q239",
+      "domain": "Medications",
+      "subtopic": "Antivirals",
+      "question": "Oral acyclovir is indicated for",
+      "options": [
+        "Shingles, genital herpes, and chickenpox",
+        "Only influenza",
+        "Only vaginal candidiasis",
+        "Only cold sores as the oral-tablet indications"
+      ],
+      "answer": 0,
+      "rationale": "Acyclovir oral labeling: herpes zoster, initial and recurrent genital herpes, and chickenpox (varicella).",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q240",
+      "domain": "Medications",
+      "subtopic": "Antivirals",
+      "question": "Tamiflu treatment is for influenza symptoms that started no more than",
+      "options": [
+        "48 hours ago",
+        "7 days ago",
+        "10 days ago",
+        "28 days ago"
+      ],
+      "answer": 0,
+      "rationale": "TAMIFLU is indicated for acute uncomplicated influenza A and B in patients 2 weeks and older who have been symptomatic for no more than 48 hours, and for prophylaxis in patients 1 year and older.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q241",
+      "domain": "Medications",
+      "subtopic": "Antifungals",
+      "question": "Diflucan is indicated for",
+      "options": [
+        "Vaginal candidiasis, oropharyngeal and esophageal candidiasis, and cryptococcal meningitis",
+        "Influenza only",
+        "Herpes zoster only",
+        "Hypertension"
+      ],
+      "answer": 0,
+      "rationale": "DIFLUCAN indications include vaginal candidiasis, oropharyngeal and esophageal candidiasis, and cryptococcal meningitis.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q242",
+      "domain": "Medications",
+      "subtopic": "Anticoagulants",
+      "question": "Warfarin is",
+      "options": [
+        "A vitamin K antagonist",
+        "A P2Y12 inhibitor",
+        "A factor Xa inhibitor",
+        "A direct thrombin inhibitor named in this label"
+      ],
+      "answer": 0,
+      "rationale": "Warfarin sodium tablets are a vitamin K antagonist with those three labeled indication groups.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q243",
+      "domain": "Medications",
+      "subtopic": "Anticoagulants",
+      "question": "Eliquis is",
+      "options": [
+        "A factor Xa inhibitor",
+        "A vitamin K antagonist",
+        "A P2Y12 inhibitor",
+        "An antiplatelet thienopyridine"
+      ],
+      "answer": 0,
+      "rationale": "ELIQUIS labeling: factor Xa inhibitor with those stroke, surgical-prophylaxis, and DVT/PE indications.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q244",
+      "domain": "Medications",
+      "subtopic": "Anticoagulants",
+      "question": "Xarelto is",
+      "options": [
+        "A factor Xa inhibitor",
+        "A vitamin K antagonist",
+        "An alpha-1 blocker",
+        "A glucocorticoid"
+      ],
+      "answer": 0,
+      "rationale": "XARELTO labeling identifies rivaroxaban as a factor Xa inhibitor and lists those indications in §1.1 through §1.5.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q245",
+      "domain": "Medications",
+      "subtopic": "Storage",
+      "question": "An opened multi-dose vial with no manufacturer in-use date is discarded within",
+      "options": [
+        "28 days",
+        "14 days",
+        "10 days",
+        "56 days"
+      ],
+      "answer": 0,
+      "rationale": "CDC: once a multi-dose vial is opened (needle-punctured), date it and discard within 28 days unless the manufacturer states another date. The beyond-use date should never exceed the manufacturer's expiration date.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q246",
+      "domain": "Medications",
+      "subtopic": "Storage",
+      "question": "Hazardous-drug storage areas must be",
+      "options": [
+        "Restricted to authorized personnel",
+        "Kept on the public sales floor",
+        "Stored on the floor in the breakroom",
+        "Open to visitors"
+      ],
+      "answer": 0,
+      "rationale": "USP <800> §5: access to areas where HDs are handled must be restricted to authorized personnel. Designated areas must be available for storage of HDs.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "q247",
+      "domain": "Medications",
+      "subtopic": "Storage",
+      "question": "A multi-dose vial for more than one patient is kept",
+      "options": [
+        "In a clean medication preparation area, away from immediate patient treatment areas",
+        "At the bedside between patients",
+        "In the procedure-room cart for the whole day",
+        "In a patient room between cases"
+      ],
+      "answer": 0,
+      "rationale": "CDC: multi-dose vials used for more than one patient should be kept and accessed in a clean medication preparation area away from immediate patient treatment areas. If one enters a treatment area, dedicate it to a single patient.",
+      "difficulty": "medium"
     }
   ]
 }
