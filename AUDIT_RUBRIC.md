@@ -41,7 +41,7 @@ Accept: FDA or DailyMed labels, DEA, CFR/eCFR, USP, CDC, HHS/OCR (HIPAA), ISMP, 
 
 ## Rules
 
-Standing rules are in `AGENTS.md`: no silent fact edits; Rob signs off; do not commit v2 `notes.json` until the blocks runtime ships. Do not restyle UI during content work.
+Standing rules are in `AGENTS.md`: no silent fact edits; sourced facts only; Rob signs off; do not commit v2 `notes.json` until the blocks runtime ships. Do not restyle UI during content work.
 
 `CONF` L = verify-only. Do not apply that fix without Rob.
 
