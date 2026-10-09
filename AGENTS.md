@@ -22,6 +22,7 @@ Do not read `docs/archive/`. Those files are history.
   - `UI_STANDARDS.md`: any new standing UI rule, one line, no duplicates. README or plan files only if this work changed them.
   - Edit only docs related to this PR. No docs-only PRs for work that has its own PR. No doc edits for unrelated or in-progress work.
   - Skip this for small tweaks (copy, color nudge, one-line fix, cache bump). Keep few doc files and don't overload them.
+  - Update the README Directory structure tree when files are added, removed, or renamed.
 
 ## Verify before PR
 

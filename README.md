@@ -75,16 +75,64 @@ Cache name: see `sw.js`.
 
 Asset URLs carry a query-string cache buster. After a cache-name bump, follow [UI_STANDARDS.md](UI_STANDARDS.md). A hard refresh (`Ctrl + Shift + R`) bypasses disk cache.
 
-## Layout
+## Directory structure
+
+Every tracked file. Update this tree when a file is added, removed, or renamed ([AGENTS.md](AGENTS.md)).
 
 ```text
-index.html  course.html  notes.html  flashcards.html  quiz.html  exam.html  dashboard.html
-manifest.json  sw.js  icon.svg  validate.js
-css/style.css  css/home.css  css/notes.css  css/exam-setup.css
-js/app.js  home.js  course.js  notes.js  flashcards.js  quiz.js  exam.js  exam-setup.js  dashboard.js
-data/course.json  notes.json  flashcards.json  questions.json
-README.md  TODO.md  UI_STANDARDS.md  AGENTS.md  AUDIT_RUBRIC.md  study_notes_v4_plan.md
-docs/archive/  (history; do not read for current work)
+# docs
+├── .gitignore                  # ignores .abacusai/ and node_modules/
+├── AGENTS.md                   # standing rules and the pre-PR loop
+├── AUDIT_RUBRIC.md             # sourced-fact rules for course and notes audits
+├── README.md                   # how to run the app, content rules, this tree
+├── TODO.md                     # live backlog; Next up is the work order
+├── UI_STANDARDS.md             # locked UI rules; Home is the reference look
+└── study_notes_v4_plan.md      # Notes v4 plan; theme overhaul waits on TODO
+
+# pages
+├── course.html                 # Study Course: module list and lesson reader
+├── dashboard.html              # local scores, domain accuracy, export and import
+├── exam.html                   # weighted practice exam
+├── flashcards.html             # flip deck
+├── index.html                  # Home: course panel, mode cards, dashboard reactor
+├── notes.html                  # Study Notes
+└── quiz.html                   # Quick 10, chapter, missed, bookmarked, weak areas
+
+# assets
+├── icon.svg                    # PWA icon: red pill / blue pill mark
+├── manifest.json               # install manifest; start_url is index.html
+├── sw.js                       # service worker, cache ptce-2026-vNN
+└── validate.js                 # schema, ID, domain, and copy smoke checks
+
+css/
+├── exam-setup.css              # practice-exam setup console; tokens stay on .xs
+├── home.css                    # Home operator console; body.home only
+├── notes.css                   # Study Notes page styles
+└── style.css                   # shared theme and the other page styles
+
+data/
+├── course.json                 # 12 modules and their lessons
+├── flashcards.json             # flip-card deck
+├── notes.json                  # domain notes in the committed items shape
+└── questions.json              # quiz and practice-exam bank
+
+docs/
+└── archive/                    # history; do not read for current work
+    ├── README.md               # archive index
+    ├── ROADMAP.md              # archived stage log
+    ├── study_notes_v3_plan.md  # archived Notes v3 plan; v4 plan is current
+    └── TESTING_REPORT.md       # archived integration test log
+
+js/
+├── app.js                      # window.App: Storage, Util, DOMAINS, FX
+├── course.js                   # module accordions, lesson reader, optional skip
+├── dashboard.js                # progress stats, domain accuracy, quiz history
+├── exam-setup.js               # exam length, timer, and domain draw counts
+├── exam.js                     # blueprint exam and score report
+├── flashcards.js               # flip, filters, spaced repetition, bookmarks
+├── home.js                     # Home telemetry and the course link
+├── notes.js                    # notes renderer for the committed items JSON
+└── quiz.js                     # quiz modes and chapter tests
 ```
 
 There is no `app/` directory. Shared helpers are `window.App` (`Storage`, `Util`, `DOMAINS`, `FX`) in `js/app.js`.
