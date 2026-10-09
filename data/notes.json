@@ -85,11 +85,11 @@
             "Rapid-acting: lispro (Humalog), aspart (NovoLog), glulisine (Apidra) — onset ~15 min; give with meals.",
             "Short-acting: regular (Humulin R, Novolin R) — onset ~30 min; only insulin safe IV.",
             "Intermediate: NPH (Humulin N, Novolin N) — cloudy; peak 4–10 hr; mix last.",
-            "Long-acting (basal): glargine (Lantus/Basaglar), detemir (Levemir), degludec (Tresiba) — clear; do NOT mix.",
+            "Long-acting (basal): glargine (Lantus/Basaglar), degludec (Tresiba) — clear; do NOT mix. Detemir (Levemir) is discontinued in the US.",
             "Concentrated: Toujeo (glargine U-300), U-500 regular — NOT interchangeable unit-for-unit.",
             "Storage: unopened refrigerated 36–46°F; do NOT freeze; opened may be kept at room temp for a limited time per product.",
             "Rapid-acting: lispro, aspart, glulisine — onset ~15 min; mealtime.",
-            "Long-acting: glargine, detemir — basal ~24 hours; minimal peak.",
+            "Long-acting: glargine — about 24 hours, no pronounced peak. Degludec lasts at least 42 hours.",
             "Unopened insulin: refrigerate. In-use: may be room temp per manufacturer; never freeze."
           ]
         },
@@ -123,7 +123,7 @@
             "Corticosteroids: hyperglycemia, adrenal suppression, osteoporosis, weight gain.",
             "Fluoroquinolones: tendon rupture, QTc, peripheral neuropathy.",
             "Metoclopramide: tardive dyskinesia (black box), EPS.",
-            "Amiodarone/pioglitazone: pioglitazone → HF exacerbation, bladder cancer risk.",
+            "Pioglitazone: HF exacerbation, bladder cancer risk.",
             "Bisphosphonates: esophageal irritation — stay upright 30 min, empty stomach.",
             "ACE inhibitors (e.g., lisinopril) — dry, persistent cough."
           ]
@@ -147,10 +147,10 @@
         {
           "title": "Vaccine Storage",
           "items": [
-            "Live attenuated (MMR, Varicella): FROZEN; CI in pregnancy/immunocompromised.",
+            "Varicella: frozen (-50°C to -15°C). MMR: refrigerate 2–8°C; M-M-R II may be refrigerated or frozen. Live vaccines: CI in pregnancy/immunocompromised.",
             "Inactivated influenza, Shingrix, pneumococcal, Tdap, Hep B: refrigerate 2–8°C.",
             "COVID-19 mRNA: frozen/ultra-cold per product.",
-            "Rule: most vaccines refrigerate; MMR/Varicella freeze; NEVER freeze most others."
+            "Rule: most vaccines refrigerate and must not be frozen; varicella must be frozen; M-M-R II may be refrigerated or frozen."
           ]
         },
         {
@@ -188,7 +188,7 @@
           "items": [
             "SABA rescue: albuterol (ProAir, Ventolin). ICS maintenance: fluticasone (Flovent). LABA: salmeterol (never alone in asthma).",
             "Montelukast (Singulair): leukotriene antagonist for asthma/allergic rhinitis; boxed warning for neuropsychiatric effects.",
-            "SSRIs (-oxetine/-sertraline): fluoxetine (Prozac), sertraline (Zoloft) — take weeks to work; risk serotonin syndrome with MAOIs/triptans.",
+            "SSRIs (no single class suffix; examples: fluoxetine (Prozac), sertraline (Zoloft)) — take weeks to work; risk serotonin syndrome with MAOIs/triptans. -oxetine is not SSRI-only (duloxetine is an SNRI).",
             "SNRIs: duloxetine (Cymbalta), venlafaxine (Effexor) — depression, anxiety, neuropathic pain.",
             "Benzodiazepines (-azepam/-azolam): alprazolam (Xanax), lorazepam (Ativan) — C-IV, sedation/dependence; reversed by flumazenil.",
             "Z-hypnotics: zolpidem (Ambien), eszopiclone (Lunesta) — C-IV for insomnia.",
@@ -501,7 +501,7 @@
             "PHI = any info identifying the patient (name, DOB, Rx number, diagnosis).",
             "Minimum necessary standard; Notice of Privacy Practices at first fill.",
             "Permitted disclosures: treatment, payment, operations (TPO) without extra authorization.",
-            "Breach notification within 60 days; penalties civil ($100–$50,000/violation) and criminal."
+            "Breach notification within 60 days; civil penalties are four inflation-adjusted tiers (2025): minimum $145, $1,461, $14,602, or $73,011 per violation; per-violation maximum $73,011 except $2,190,294 for uncorrected willful neglect; calendar-year cap $2,190,294; plus criminal penalties."
           ]
         },
         {

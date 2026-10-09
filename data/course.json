@@ -78,7 +78,7 @@
             "SGLT2 inhibitors (-gliflozin): empagliflozin (Jardiance) — increase urinary glucose excretion; genital infections, DKA risk.",
             "GLP-1 agonists: semaglutide (Ozempic), liraglutide (Victoza) — injectable, weight loss, GI upset.",
             "DPP-4 inhibitors (-gliptin): sitagliptin (Januvia). Thiazolidinediones (-glitazone): pioglitazone (Actos) — weight gain, fluid retention/HF caution.",
-            "Insulin types: rapid (lispro/Humalog, aspart/NovoLog ~15 min), short (Regular), intermediate (NPH), long (glargine/Lantus, detemir ~24 h, no peak). Refrigerate unopened; in-use ~28 days at room temp.",
+            "Insulin types: rapid (lispro/Humalog, aspart/NovoLog ~15 min), short (Regular), intermediate (NPH), long (glargine/Lantus — about 24 h, no pronounced peak; degludec/Tresiba — at least 42 h). Detemir (Levemir) is discontinued in the US. Refrigerate unopened; in-use time is product-specific (Lantus: 28 days); never freeze.",
             "Levothyroxine (Synthroid): T4 replacement — take on empty stomach 30–60 min before breakfast, separate from calcium/iron by 4 h, consistent brand."
           ],
           "keyPoints": [
@@ -93,7 +93,7 @@
           "title": "CNS, Psychiatric & Pain Agents",
           "intro": "Antidepressants, anxiolytics, sedatives, and analgesics — know class, schedule, and key warnings.",
           "bullets": [
-            "SSRIs (-oxetine/-sertraline/-talopram): fluoxetine (Prozac), sertraline (Zoloft), escitalopram (Lexapro) — take 2–4 weeks to work; risk serotonin syndrome with MAOIs/triptans.",
+            "SSRIs (no single class suffix; examples: fluoxetine (Prozac), sertraline (Zoloft), escitalopram (Lexapro)) — take 2–4 weeks to work; risk serotonin syndrome with MAOIs/triptans. -oxetine is not SSRI-only (duloxetine is an SNRI).",
             "SNRIs: duloxetine (Cymbalta), venlafaxine (Effexor) — depression, anxiety, neuropathic pain.",
             "Benzodiazepines (-azepam/-azolam): alprazolam (Xanax), lorazepam (Ativan), diazepam (Valium) — C-IV, sedation/dependence; overdose reversed by flumazenil.",
             "Z-hypnotics for insomnia: zolpidem (Ambien), eszopiclone (Lunesta) — C-IV; next-day impairment.",
@@ -245,7 +245,7 @@
           "intro": "Proper storage preserves potency and safety; the PTCE tests specific temperature requirements.",
           "bullets": [
             "Refrigerated (36–46°F / 2–8°C): unopened insulin, reconstituted antibiotic suspensions, many vaccines, some biologics.",
-            "Unopened insulin must be refrigerated; once in use, most vials/pens can stay at room temperature for ~28 days (glargine, detemir). Never freeze insulin.",
+            "Unopened insulin must be refrigerated; once in use, room-temperature time is product-specific (Lantus vial or SoloStar: 28 days; Tresiba: 56 days). Never freeze insulin. Detemir (Levemir) is discontinued in the US.",
             "Reconstituted antibiotic suspensions (amoxicillin) are usually refrigerated and discarded after 14 days.",
             "Room temperature (68–77°F / 20–25°C) is the default for most tablets/capsules; protect from moisture and light.",
             "Nitroglycerin SL tablets are light- and moisture-sensitive — store in the original amber glass bottle.",

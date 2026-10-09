@@ -154,7 +154,7 @@
       "id": "26",
       "domain": "Medications",
       "front": "Which insulin is long-acting (basal)?",
-      "back": "Glargine (Lantus/Basaglar), detemir (Levemir), degludec (Tresiba)."
+      "back": "Glargine (Lantus/Basaglar): about 24 hours, no pronounced peak. Degludec (Tresiba): at least 42 hours. Detemir (Levemir) is discontinued in the US."
     },
     {
       "id": "27",
@@ -509,7 +509,7 @@
       "id": "85",
       "domain": "Medications",
       "front": "Insulin storage",
-      "back": "Unopened insulin: refrigerate 36–46°F (2–8°C). In-use vial/pen: room temp, discard ~28 days (glargine/detemir). Never freeze; avoid heat/light."
+      "back": "Unopened insulin: refrigerate 36–46°F (2–8°C). In-use time is product-specific (Lantus vial or SoloStar: 28 days; Tresiba: 56 days). Never freeze. Detemir (Levemir) is discontinued in the US."
     },
     {
       "id": "86",
@@ -930,7 +930,7 @@
       "id": "155",
       "domain": "Medications",
       "front": "Long-acting insulin examples",
-      "back": "Glargine, detemir. Basal coverage ~24 hours; minimal peak."
+      "back": "Glargine: about 24 hours, no pronounced peak. Degludec lasts at least 42 hours. Detemir (Levemir) is discontinued in the US."
     },
     {
       "id": "156",
