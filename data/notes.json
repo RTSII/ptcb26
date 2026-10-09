@@ -167,7 +167,7 @@
           "title": "Known Teratogens (Pregnancy Safety)",
           "items": [
             "isotretinoin (iPLEDGE), thalidomide, warfarin, methotrexate, valproic acid, phenytoin, ACE inhibitors/ARBs, tetracyclines, lithium, misoprostol. Statins are not an absolute avoid: stop them in most pregnant patients and weigh the individual need.",
-            "Current REMS examples: iPLEDGE (isotretinoin), THALOMID/REVLIMID, TIRF (fentanyl). The Clozapine REMS was removed effective June 13, 2025, so clozapine is not a current pharmacy REMS."
+            "Current REMS examples: iPLEDGE (isotretinoin) and THALOMID/lenalidomide. TIRF is not a routine current enroll-and-dispense REMS: production stopped September 30, 2024, and the REMS accepts no new enrollments. The Clozapine REMS was removed effective June 13, 2025, so clozapine is not a current pharmacy REMS."
           ]
         },
         {
@@ -253,7 +253,7 @@
             "Adverse drug event (ADE): harm from a drug (may or may not be an error).",
             "Prospective DUR: BEFORE dispensing — interactions, allergies, duplication, dose.",
             "Concurrent DUR: during therapy; Retrospective DUR: after dispensing (audits).",
-            "OBRA-90 (effective 1993): mandates prospective DUR + offer to counsel."
+            "OBRA-90 (effective 1993): for each Medicaid beneficiary or caregiver who presents a prescription, prospective DUR and an offer to counsel. Not limited to new prescriptions."
           ]
         },
         {
@@ -268,7 +268,7 @@
         {
           "title": "Quality Assurance & Reporting",
           "items": [
-            "REMS: Risk Evaluation and Mitigation Strategy. Current examples include iPLEDGE (isotretinoin) and TIRF or THALOMID/REVLIMID. The Clozapine REMS was removed effective June 13, 2025.",
+            "REMS: Risk Evaluation and Mitigation Strategy. Current examples include iPLEDGE (isotretinoin) and THALOMID/lenalidomide. TIRF is not a routine current enroll-and-dispense REMS: production stopped September 30, 2024, and the REMS accepts no new enrollments. The Clozapine REMS was removed effective June 13, 2025.",
             "Report errors/near-misses to improve systems (non-punitive culture).",
             "MedWatch: FDA adverse event reporting; FAERS public database; ISMP MERP; VAERS for vaccines.",
             "Root Cause Analysis (RCA): investigates WHY (reactive); FMEA: proactive failure analysis.",
@@ -281,7 +281,7 @@
           "items": [
             "FDA MedWatch: voluntary reporting of adverse events, product problems, medication errors (Form 3500 professionals / 3500B consumers).",
             "ISMP MERP: voluntary, confidential national error reporting to identify and share prevention strategies.",
-            "Recall classes: Class I = serious harm/death likely; Class II = temporary/reversible harm; Class III = unlikely harm.",
+            "Recall classes: Class I = reasonable probability of serious adverse health consequences or death; Class II = temporary or medically reversible harm, or a remote probability of serious harm; Class III = adverse health consequences not likely.",
             "NCC MERP error categories: A potential → B no reach → C reach/no harm → D monitoring to confirm no harm and/or intervention to preclude harm → E–I increasing harm (I = death).",
             "Report near misses (intercepted errors) too — they reveal system weaknesses before harm occurs."
           ]
@@ -384,9 +384,9 @@
           "title": "Refill Rules",
           "items": [
             "C-II: NO refills; Rx typically valid 30 days (state may vary).",
-            "C-III–C-V: up to 5 refills within 6 months of written date.",
+            "C-III and C-IV: up to 5 refills within 6 months of the written date. Federal law does not set that cap on Schedule V; follow the stricter state rule.",
             "Non-controlled: per state law, commonly up to 1 year.",
-            "C-II partial fills: if the pharmacy cannot supply the full quantity, remainder within 72 hours. If the patient or prescriber requests a partial (CARA 2016), remaining portions within 30 days of the written date — this is the rule most often tested now. LTCF/terminally ill: 60 days. Do not treat 72 hours as the only C-II partial-fill rule."
+            "C-II partial fills: if the pharmacy cannot supply the full quantity, remainder within 72 hours. If the patient or prescriber requests a partial (CARA 2016), remaining portions within 30 days of the written date, except an emergency oral C-II, whose remaining portions must be filled within 72 hours after the prescription is issued. LTCF/terminally ill: 60 days."
           ]
         },
         {
@@ -447,7 +447,7 @@
             "C-II: high abuse, accepted use — NO refills (oxycodone, hydrocodone, morphine, Adderall, fentanyl, methadone).",
             "C-III: moderate abuse (Tylenol #3, testosterone, buprenorphine) — up to 5 refills / 6 months.",
             "C-IV: lower abuse (alprazolam, lorazepam, tramadol, zolpidem, carisoprodol) — up to 5 refills / 6 months.",
-            "C-V: lowest abuse (cough syrups with codeine, pregabalin) — up to 5 refills / 6 months.",
+            "C-V: lowest abuse (cough syrups with codeine, pregabalin). Federal law does not set a 5-refill / 6-month cap on Schedule V; follow the stricter state rule.",
             "Tramadol → C-IV (2014); hydrocodone combos → C-II (Oct 6, 2014)."
           ]
         },
@@ -483,24 +483,24 @@
             "FDCA (1938): FDA drug safety authority; Durham-Humphrey (1951): Rx vs OTC classification.",
             "Kefauver-Harris (1962): required proof of efficacy (thalidomide disaster).",
             "Controlled Substances Act (1970): created the 5-schedule system; Poison Prevention Packaging Act (1970): child-resistant containers.",
-            "OBRA-90 (effective 1993): offer to counsel + prospective DUR.",
+            "OBRA-90 (effective 1993): for each Medicaid beneficiary or caregiver who presents a prescription, an offer to counsel plus prospective DUR. Not limited to new prescriptions.",
             "HIPAA (1996; Privacy 2003, Security 2005): protects patient PHI.",
-            "CMEA (2005): pseudoephedrine limits 3.6 g/day, 9 g/30 days; logbook + photo ID.",
+            "CMEA (2005): 3.6 g of base per day (pseudoephedrine, ephedrine, or phenylpropanolamine); 9 g of base per 30 days, of which not more than 7.5 g of base may be mail-order; photo ID + logbook (name, address, signature), except one package of not more than 60 mg pseudoephedrine.",
             "The DATA 2000 X-waiver for office-based buprenorphine was eliminated in December 2022 (MAT Act). Any DEA-registered practitioner with Schedule III authority may prescribe buprenorphine for OUD; a separate X-waiver is no longer required. DSCSA (2013) is its own 2026 knowledge area (2.6) — see the DSCSA section.",
             "Biennial (every 2 years) controlled substance inventory required.",
             "CSOS — Controlled Substance Ordering System for electronic Schedule II orders.",
             "Controlled-substance prescription records must be maintained for at least 2 years.",
-            "C-III–V prescriptions may be transferred one time for a refill, unless the pharmacies share a real-time online database (then until refills are exhausted). An unfilled electronic C-II–V prescription may be transferred once for the first fill only, pharmacist to pharmacist (2023). Non-controlled refills transfer as state law allows, with no federal one-time cap.",
+            "C-III–V prescriptions may be transferred one time for a refill, unless the pharmacies share a real-time online database (then until refills are exhausted). An unfilled electronic C-II–V prescription may be transferred once for initial dispensing, pharmacist to pharmacist, at the patient’s request; it stays electronic. Authorized C-III–V refills transfer with it. A paper C-II cannot be transferred. Non-controlled refills transfer as state law allows, with no federal one-time cap.",
             "C-II–IV labels: “Caution: Federal law prohibits the transfer of this drug to any person other than the patient for whom it was prescribed.” Not required on C-V.",
             "C-II receipt: record the date and quantity received on the pharmacy’s copy of Form 222. Returns to a reverse distributor: C-II on Form 222 (or CSOS); C-III–V on an invoice.",
-            "C-II partial fills (learn both clocks): pharmacy cannot supply → remainder within 72 hours. Patient or prescriber requests a partial (CARA 2016 — the modern common scenario) → remaining portions within 30 days of the written date. LTCF/terminally ill → 60 days. After the window, leftover quantity needs a new prescription."
+            "C-II partial fills: pharmacy cannot supply → remainder within 72 hours. Patient or prescriber requests a partial (CARA 2016) → remaining portions within 30 days of the written date, except an emergency oral C-II (remaining portions within 72 hours after the prescription is issued). LTCF/terminally ill → 60 days. After the window, leftover quantity needs a new prescription."
           ]
         },
         {
           "title": "HIPAA — Tech Specifics",
           "items": [
             "PHI = any info identifying the patient (name, DOB, Rx number, diagnosis).",
-            "Minimum necessary standard; Notice of Privacy Practices at first fill.",
+            "Minimum necessary applies to most uses and disclosures. It does not apply to a disclosure to, or a request by, a health care provider for treatment. Notice of Privacy Practices at first fill.",
             "Permitted disclosures: treatment, payment, operations (TPO) without extra authorization.",
             "Breach notification within 60 days; civil penalties are four inflation-adjusted tiers (2025): minimum $145, $1,461, $14,602, or $73,011 per violation; per-violation maximum $73,011 except $2,190,294 for uncorrected willful neglect; calendar-year cap $2,190,294; plus criminal penalties."
           ]
@@ -512,7 +512,7 @@
             "Non-CRC request: a prescriber may request it for a single prescription. Only the patient may make a blanket request for all of their prescriptions. Document the request.",
             "ADA packaging accommodations: easy-off caps, large-print labels, talking labels, and Braille labels.",
             "Medication Guides: give the FDA Medication Guide with each fill of a drug that requires one, including refills.",
-            "CMEA: 3.6 g/day, 9 g/30 days pseudoephedrine; photo ID + logbook; kept behind counter."
+            "CMEA: 3.6 g of base per day (pseudoephedrine, ephedrine, or phenylpropanolamine); 9 g of base per 30 days, of which not more than 7.5 g of base may be mail-order; photo ID + logbook (name, address, signature), except one package of not more than 60 mg pseudoephedrine; behind the counter."
           ]
         },
         {
@@ -522,8 +522,8 @@
             "REMS: FDA-required extra safety steps for drugs with serious risks. Common elements: pharmacy/prescriber certification, patient enrollment, a Medication Guide with each fill, and an authorization check before dispense.",
             "Clozapine REMS was removed effective June 13, 2025. Pharmacies do not enroll and do not confirm an ANC through a REMS before dispensing. Severe neutropenia risk, the boxed warning, and a Medication Guide remain. ANC monitoring stays with the prescriber per the labeling.",
             "iPLEDGE (isotretinoin): teratogen. Prescriber, certified pharmacy, and patients enroll — patients who can get pregnant and patients who cannot get pregnant. Maximum 30-day supply, no refills, authorization before each dispense. Patients who can get pregnant have a 7-day pickup window from specimen collection. The old 19-day lockout is not current: a missed window gets a repeat pregnancy test immediately, with no extra wait.",
-            "Other current REMS: TIRF (transmucosal immediate-release fentanyl — opioid-tolerant patients only); THALOMID/REVLIMID (thalidomide/lenalidomide) pregnancy-prevention programs. Tech action on a REMS reject: stop and notify the pharmacist.",
-            "CMEA (still 2.4): pseudoephedrine/ephedrine 3.6 g/day and 9 g/30 days, photo ID + logbook, stored behind the counter or locked."
+            "THALOMID/lenalidomide remains a current pregnancy-prevention REMS. TIRF is not a routine current enroll-and-dispense REMS: production of TIRF medicines stopped September 30, 2024, and the REMS accepts no new enrollments. Tech action on a REMS reject: stop and notify the pharmacist.",
+            "CMEA (still 2.4): 3.6 g of base per day (pseudoephedrine, ephedrine, or phenylpropanolamine); 9 g of base per 30 days, of which not more than 7.5 g of base may be mail-order; photo ID + logbook; behind the counter or locked."
           ]
         },
         {
@@ -537,10 +537,10 @@
         {
           "title": "FDA Medication Recalls (2.5)",
           "items": [
-            "Outline 2.5 is medication recalls. Recall classes: Class I = reasonable probability of serious harm or death; Class II = temporary/reversible harm or remote serious harm; Class III = not likely to cause harm (often labeling/packaging).",
+            "Outline 2.5 is medication recalls. Recall classes: Class I = reasonable probability of serious adverse health consequences or death; Class II = temporary or medically reversible harm, or a remote probability of serious harm; Class III = adverse health consequences not likely (often labeling/packaging).",
             "Recall depth: wholesale, retail, or consumer (patient) level. A Class I medication recall usually reaches the consumer level, and patients who received the affected lot are notified.",
             "Identify recalled medication by NDC, lot, and expiration, then quarantine affected stock.",
-            "A manufacturer or the FDA may initiate a recall; pharmacy action is the same: pull, quarantine, document, and follow the recall notice for returns/patient notification.",
+            "The firm initiates a recall. FDA may request one. Pharmacy action is the same: pull, quarantine, document, and follow the recall notice for returns/patient notification.",
             "Market withdrawal is not a recall — the firm removes a product for a minor violation that would not be subject to legal action (e.g., a tamper-evident issue that is not a safety recall).",
             "Orange Book codes: A/AB = therapeutically equivalent (substitutable); B = not equivalent.",
             "NPI: 10-digit provider ID (effective 2007); required on claims; does NOT replace DEA number.",
@@ -564,13 +564,13 @@
         {
           "title": "Counseling & Omnibus Laws",
           "items": [
-            "OBRA-90: requires prospective DUR and a pharmacist OFFER TO COUNSEL on new prescriptions (Medicaid).",
-            "HIPAA: protects PHI; provide Notice of Privacy Practices; use/disclose only the minimum necessary.",
+            "OBRA-90: for each Medicaid beneficiary or caregiver who presents a prescription, prospective DUR and a pharmacist offer to counsel. The offer is not limited to new prescriptions. The patient may decline.",
+            "HIPAA: protects PHI; provide a Notice of Privacy Practices. Minimum necessary applies to most uses and disclosures. It does not apply to a disclosure to, or a request by, a health care provider for treatment.",
             "FDCA 1938 (safety), Durham-Humphrey 1951 (Rx vs OTC), Kefauver-Harris 1962 (safety + efficacy, GMP).",
             "Controlled Substances Act 1970: created the five DEA schedules; enforced by the DEA.",
             "Poison Prevention Packaging Act 1970: child-resistant containers, enforced by the CPSC. Sublingual nitroglycerin is exempt. A prescriber may request non-CRC for one prescription; only the patient may make a blanket request.",
             "Medication Guides are dispensed with each fill of specified drugs, including refills.",
-            "Combat Methamphetamine Epidemic Act: pseudoephedrine/ephedrine limits 3.6 g/day, 9 g/30 days, ID + logbook, behind the counter."
+            "Combat Methamphetamine Epidemic Act: 3.6 g of base per day (pseudoephedrine, ephedrine, or phenylpropanolamine); 9 g of base per 30 days, of which not more than 7.5 g of base may be mail-order; photo ID + logbook; behind the counter."
           ]
         }
       ]

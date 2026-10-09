@@ -38,7 +38,7 @@ Draw counts are the largest-remainder split of those weights times the chosen le
 
 Use those four domain strings in JSON. Do not invent short aliases in the data files.
 
-Items that are off the 2026 core are optional course lessons or `featured: false`, and they stay out of the default exam, Quick 10, and weak-area pools. Archive still in the bank: alligation (question `q136`, flashcards `47` and `109`), sterile-garbing question `q122`, and six optional lessons (NTI list, sterile cleanroom/garbing, USP `<795>` technique, alligation, third-party billing/DAW, prior authorization/coordination of benefits).
+Items that are off the 2026 core are optional course lessons or `featured: false`, and they stay out of the default exam, Quick 10, and weak-area pools. Archive still in the bank: alligation (question `q136`, flashcards `47` and `109`), sterile-garbing question `q122`, and ten optional lessons (NTI list, sterile cleanroom/garbing, USP `<795>` technique, alligation, third-party billing/DAW, prior authorization/coordination of benefits, HIPAA, OBRA-90 counseling, regulatory agencies, technician scope).
 
 ## Working rules
 
@@ -95,12 +95,12 @@ Home is the reference HUD. Study Course is the large card and opens the course l
 
 Notes still render the committed legacy `items` JSON. The v2 `blocks` file stays outside `data/` until the blocks runtime ships ([AGENTS.md](AGENTS.md)). The Notes plan is [study_notes_v4_plan.md](study_notes_v4_plan.md). What to do next is [TODO.md](TODO.md) **Next up**.
 
-Cache name: `sw.js` (`ptce-2026-v61`).
+Cache name: `sw.js` (`ptce-2026-v62`).
 
 Bank on this commit:
 
 - 219 questions (Medications 69, Patient Safety 51, Order Entry 46, Federal Requirements 53), including 2 `featured: false`
 - 190 flashcards, including 2 `featured: false`
-- 12 modules, 45 lessons (39 featured + 6 optional archive)
+- 12 modules, 45 lessons (35 featured + 10 optional archive)
 
 UI history is the git log. Older stage logs and the test report are in `docs/archive/` and are not current.

@@ -332,13 +332,13 @@
             "FDA MedWatch: voluntary reporting of adverse events, product problems, and medication errors (Form 3500 for professionals, 3500B for consumers).",
             "ISMP MERP (Medication Errors Reporting Program): voluntary, CONFIDENTIAL national error reporting to share prevention strategies.",
             "VAERS: Vaccine Adverse Event Reporting System (for vaccines).",
-            "Recall classes: Class I = reasonable probability of SERIOUS harm or death; Class II = temporary/reversible harm; Class III = UNLIKELY to cause harm.",
+            "Recall classes: Class I = reasonable probability of serious adverse health consequences or death; Class II = temporary or medically reversible harm, or a remote probability of serious harm; Class III = adverse health consequences not likely.",
             "When a recall occurs: check lot numbers, quarantine affected stock, and follow the recall instructions for return/disposal."
           ],
           "keyPoints": [
             "MedWatch = FDA adverse events",
             "ISMP MERP = confidential error reporting",
-            "Class I = serious harm/death"
+            "Class I = serious adverse health consequences or death"
           ]
         },
         {
@@ -466,7 +466,7 @@
             "Automated dispensing cabinets (ADCs): requiring pharmacist PROFILE REVIEW before a drug can be removed closes the dangerous \"override\" gap.",
             "Drug utilization review (DUR): prospective screening at order entry; technicians flag interaction/duplication alerts to the pharmacist for the clinical decision.",
             "Auxiliary (warning) labels communicate cautions: \"May cause drowsiness,\" \"Take with food,\" \"Avoid alcohol,\" \"Refrigerate.\"",
-            "REMS (Risk Evaluation and Mitigation Strategy): FDA-required programs for known serious risks. Current examples include iPLEDGE (isotretinoin) and TIRF or THALOMID/REVLIMID. The Clozapine REMS was removed effective June 13, 2025 — do not treat clozapine as a pharmacy REMS.",
+            "REMS (Risk Evaluation and Mitigation Strategy): FDA-required programs for known serious risks. Current examples include iPLEDGE (isotretinoin) and THALOMID/lenalidomide. TIRF is not a routine current enroll-and-dispense REMS: production stopped September 30, 2024, and the REMS accepts no new enrollments. The Clozapine REMS was removed effective June 13, 2025 — do not treat clozapine as a pharmacy REMS.",
             "Tall Man lettering, look-alike bin segregation, and limiting available concentrations/strengths are additional error-reduction strategies.",
             "Issues that require pharmacist intervention (outline 3.3): DUR alerts, adverse drug events, OTC recommendations, therapeutic substitution, misuse/adherence concerns, allergies, and drug interactions.",
             "A technician’s job at those alerts is to stop, gather the facts, and notify the pharmacist — not to override a clinical alert or recommend a product."
@@ -474,7 +474,7 @@
           "keyPoints": [
             "Barcode scan = right product",
             "ADC overrides = error risk",
-            "REMS examples: iPLEDGE, TIRF — not clozapine",
+            "REMS examples: iPLEDGE, THALOMID/lenalidomide — not clozapine or new TIRF enrollment",
             "DUR / OTC / substitution → pharmacist",
             "Do not override clinical alerts"
           ]
@@ -727,7 +727,7 @@
           "keyPoints": [
             "FDA-approved and state-licensed medical marijuana = C-III",
             "Other marijuana remains C-I",
-            "C-II = opioids + stimulants",
+            "C-II examples include opioids and stimulants",
             "Benzos/tramadol = C-IV",
             "Lower number = higher abuse potential",
             "X-waiver eliminated Dec 2022"
@@ -739,26 +739,26 @@
           "intro": "Refill, transfer, and transmission rules differ by schedule.",
           "bullets": [
             "C-II: NO refills — a new prescription is required each time; written or electronic (EPCS); no telephone call-ins except a true emergency.",
-            "C-II fax exception: prescribers may fax C-II prescriptions for hospice, long-term care facility, and home-infusion patients.",
-            "C-III–C-V: up to 5 refills within 6 MONTHS of the issue date.",
+            "C-II fax is the original prescription only in three cases: any C-II for a long-term care facility resident; a C-II narcotic for a patient in a qualifying hospice, with hospice noted on the prescription; a C-II narcotic compounded for direct parenteral, IV, IM, subcutaneous, or intraspinal infusion.",
+            "C-III and C-IV: up to 5 refills within 6 months of the issue date. Federal law does not set that cap on Schedule V; follow the stricter state rule.",
             "Emergency C-II oral authorization: the pharmacist may fill a quantity for the emergency period; the prescriber must deliver a written follow-up prescription within 7 days.",
-            "C-II partial fills — learn the modern rule: if the patient or prescriber requests a partial (CARA 2016), remaining portions must be filled within 30 days of the written date.",
+            "C-II partial fills — if the patient or prescriber requests a partial (CARA 2016), remaining portions must be filled within 30 days of the written date, except an emergency oral C-II, whose remaining portions must be filled within 72 hours after the prescription is issued.",
             "If the pharmacy cannot supply the full C-II quantity, the older rule still applies: remainder within 72 hours, then a new prescription is required.",
             "LTCF or terminally ill patients: remaining portions of C-II partial fills may be dispensed for up to 60 days from the written date.",
             "After the applicable window, leftover quantity cannot be filled. Total dispensed cannot exceed the written amount. Document each partial.",
             "C-III–V transfers: one time to another pharmacy for a refill, unless the pharmacies share a real-time online database — then transfers may continue until the refills are used up.",
-            "Electronic controlled prescriptions (2023): an unfilled electronic prescription for C-II through C-V may be transferred once, for the first fill only, pharmacist to pharmacist, at the patient’s request. It must stay electronic. A paper C-II cannot be transferred.",
+            "Electronic controlled prescriptions: an unfilled electronic C-II–V prescription may be transferred once for initial dispensing, pharmacist to pharmacist, at the patient’s request. It stays electronic. Authorized C-III–V refills transfer with it. A paper C-II cannot be transferred.",
             "Non-controlled prescriptions: remaining refills may be transferred as state law allows. Federal law does not impose a one-time cap."
           ],
           "keyPoints": [
             "C-II = no refills",
-            "C-III–V = 5 refills / 6 months",
-            "Hospice/LTCF/home-infusion C-II fax exception",
-            "CARA request = 30 days from written date",
+            "C-III and C-IV = 5 refills / 6 months; C-V follows state law",
+            "C-II fax original: LTCF any C-II; hospice C-II narcotic; infusion C-II narcotic",
+            "CARA request = 30 days, except emergency oral = 72 hours",
             "Cannot supply = 72 hours",
             "LTCF/terminal = 60 days",
             "C-III–V transfer once, unless shared real-time database",
-            "E-Rx C-II–V: one first-fill transfer, pharmacist to pharmacist"
+            "E-Rx C-II–V: one initial-fill transfer; C-III–V refills go with it"
           ]
         },
         {
@@ -771,7 +771,7 @@
             "DEA Form 41: document DESTRUCTION/disposal of pharmacy-owned controlled substances.",
             "DEA Form 224: pharmacy DEA registration; renew every 3 YEARS.",
             "C-II–IV dispensing labels must state: “Caution: Federal law prohibits the transfer of this drug to any person other than the patient for whom it was prescribed.” Schedule V does not require that federal statement.",
-            "Keep controlled-substance records (prescriptions, inventories, Form 222s, and invoices) for at least 2 years. Biennial inventory is every 2 years; C-II drugs need an EXACT count, C-III–V may be estimated unless a container holds more than 1,000 units.",
+            "Keep controlled-substance records (prescriptions, inventories, Form 222s, and invoices) for at least 2 years. Biennial inventory is every 2 years. An opened container of a C-II needs an exact count. An opened C-III–V container may be estimated unless it holds more than 1,000 tablets or capsules, which requires an exact count.",
             "On receipt of a C-II order, record the date and the quantity received on the pharmacy’s copy of Form 222 (or the CSOS record).",
             "Returns of pharmacy stock to a reverse distributor: C-II on DEA Form 222 (or CSOS); C-III–V on an invoice. Patient-owned leftovers use take-back, not that invoice.",
             "DEA number: 2 letters + 7 digits; the 2nd letter usually matches the registrant's last-name initial. Check-digit verification: add digits 1+3+5; add digits 2+4+6 and multiply by 2; the sum's last digit = the 7th digit.",
@@ -795,15 +795,15 @@
           "intro": "CMEA restricts OTC sales of pseudoephedrine and ephedrine to curb methamphetamine production.",
           "bullets": [
             "Pseudoephedrine (Sudafed) and ephedrine are kept BEHIND THE COUNTER (not a prescription, but restricted).",
-            "Daily sales limit: 3.6 grams per purchaser per day.",
-            "30-day limit: 9 grams per purchaser (7.5 g for mail-order).",
-            "Requirements: photo ID verification and entry into a written or electronic LOGBOOK (name, address, date/time, product, quantity).",
+            "Daily sales limit: 3.6 grams of pseudoephedrine base, ephedrine base, or phenylpropanolamine base per purchaser per day.",
+            "30-day purchase cap: 9 grams of the base per purchaser, of which not more than 7.5 grams of the base may be mail-order.",
+            "Requirements: photo ID and a written or electronic logbook (purchaser name, address, and signature; date and time; product; quantity), except one sales package of not more than 60 mg pseudoephedrine.",
             "Products must be stored behind the counter or in a locked cabinet."
           ],
           "keyPoints": [
             "PSE behind the counter",
-            "3.6 g/day, 9 g/30 days",
-            "Photo ID + logbook required"
+            "3.6 g base/day; 9 g base/30 days (≤7.5 g mail-order)",
+            "Photo ID + logbook (name, address, signature); 60 mg PSE package exception"
           ]
         },
         {
@@ -815,18 +815,18 @@
             "Clozapine is not a current pharmacy REMS. FDA removed the Clozapine REMS effective June 13, 2025. Pharmacies do not enroll or confirm an ANC through a REMS before dispensing. Severe neutropenia risk, the boxed warning, and a Medication Guide remain. ANC monitoring stays with the prescriber, per the labeling.",
             "iPLEDGE (isotretinoin): teratogen. Prescriber, certified pharmacy, and patients enroll — both patients who can get pregnant and patients who cannot get pregnant. Maximum 30-day supply, no refills, authorization before each dispense.",
             "iPLEDGE pickup rule that is current: patients who can get pregnant have a 7-day window counted from pregnancy-test specimen collection. The old 19-day lockout is not current — if that window is missed, a repeat pregnancy test may be done immediately, with no extra waiting period.",
-            "TIRF REMS: transmucosal immediate-release fentanyl for opioid-tolerant patients (usually cancer breakthrough pain). Fatal respiratory depression if used in opioid-naïve patients.",
+            "TIRF is not a routine current enroll-and-dispense REMS. Production of TIRF medicines stopped September 30, 2024, and the REMS accepts no new patient, prescriber, or pharmacy enrollments. It remains only while the applications stay approved and any remaining supply is dispensed to already enrolled patients. The products were transmucosal immediate-release fentanyl for opioid-tolerant patients.",
             "THALOMID (thalidomide) and REVLIMID (lenalidomide): pregnancy-prevention REMS. Treat them as current restricted programs, not clozapine.",
             "Tech action on any REMS reject: stop, do not override, notify the pharmacist. A paper waiver does not replace REMS.",
-            "CMEA sits in the same 2.4 bucket: 3.6 g/day, 9 g/30 days, photo ID + logbook, behind the counter."
+            "CMEA sits in the same 2.4 bucket: 3.6 g of base per day (pseudoephedrine, ephedrine, or phenylpropanolamine); 9 g of base per 30 days, of which not more than 7.5 g of base may be mail-order; photo ID + logbook; behind the counter."
           ],
           "keyPoints": [
             "Clozapine REMS removed June 13, 2025",
             "ANC monitoring = prescriber, per labeling",
             "iPLEDGE: patients who can get pregnant; no 19-day lockout",
-            "Current REMS examples: iPLEDGE, TIRF, THALOMID/REVLIMID",
+            "Current REMS examples: iPLEDGE, THALOMID/lenalidomide; TIRF is not a new-enrollment REMS",
             "Never override a REMS block",
-            "CMEA = 3.6 g/day, 9 g/30 days"
+            "CMEA = 3.6 g base/day; 9 g base/30 days (≤7.5 g mail-order)"
           ]
         }
       ]
@@ -843,12 +843,14 @@
       "lessons": [
         {
           "id": "m11l1",
-          "title": "HIPAA & Patient Privacy",
-          "intro": "HIPAA protects patients' health information and gives them specific rights.",
+          "optional": true,
+          "badge": "Not emphasized on 2026 PTCE",
+          "title": "HIPAA & Patient Privacy (optional archive)",
+          "intro": "OPTIONAL / NOT EMPHASIZED ON THE 2026 PTCE. HIPAA protects patients' health information and gives them specific rights. Skip this lesson on the default path.",
           "bullets": [
             "HIPAA safeguards Protected Health Information (PHI) — any individually identifiable health information.",
             "Pharmacies must provide a Notice of Privacy Practices (NPP) explaining how PHI is used and disclosed.",
-            "Minimum necessary rule: use or disclose only the minimum PHI needed for the task.",
+            "Minimum necessary applies to most uses and disclosures. It does not apply to a disclosure to, or a request by, a health care provider for treatment.",
             "PHI may be shared without authorization for Treatment, Payment, and healthcare Operations (TPO).",
             "Avoid discussing patient information in public areas; verify identity before releasing information; shred PHI documents."
           ],
@@ -856,21 +858,23 @@
             "HIPAA protects PHI",
             "Notice of Privacy Practices required",
             "TPO = no authorization needed",
-            "Minimum necessary rule"
+            "Minimum necessary; not for treatment"
           ]
         },
         {
           "id": "m11l2",
-          "title": "OBRA-90 & Counseling Requirements",
-          "intro": "The Omnibus Budget Reconciliation Act of 1990 established counseling and DUR requirements.",
+          "optional": true,
+          "badge": "Not emphasized on 2026 PTCE",
+          "title": "OBRA-90 & Counseling Requirements (optional archive)",
+          "intro": "OPTIONAL / NOT EMPHASIZED ON THE 2026 PTCE. The Omnibus Budget Reconciliation Act of 1990 established counseling and DUR requirements. Skip this lesson on the default path.",
           "bullets": [
             "OBRA-90 mandates a prospective drug utilization review (DUR) before dispensing Medicaid prescriptions.",
-            "Pharmacists must make an OFFER TO COUNSEL patients (or caregivers) on new prescriptions — the patient may decline.",
+            "For each Medicaid beneficiary or caregiver who presents a prescription, the pharmacist offers to counsel on matters the pharmacist judges significant. The offer is not limited to new prescriptions. The patient may decline. Where state law is broader, follow the stricter rule.",
             "Counseling content: drug name, purpose, how to take, side effects, storage, and what to do about a missed dose.",
             "Technicians facilitate counseling offers but the pharmacist provides the clinical counseling."
           ],
           "keyPoints": [
-            "OBRA-90 = prospective DUR + offer to counsel",
+            "OBRA-90 = Medicaid DUR + offer to counsel (not only new Rx)",
             "Patient may decline counseling",
             "Pharmacist counsels, tech offers"
           ]
@@ -913,8 +917,10 @@
       "lessons": [
         {
           "id": "m12l1",
-          "title": "Regulatory Agencies & Their Roles",
-          "intro": "Know which agency does what — a common exam distinction.",
+          "optional": true,
+          "badge": "Not emphasized on 2026 PTCE",
+          "title": "Regulatory Agencies & Their Roles (optional archive)",
+          "intro": "OPTIONAL / NOT EMPHASIZED ON THE 2026 PTCE. Know which agency does what — a common exam distinction. Skip this lesson on the default path.",
           "bullets": [
             "FDA: drug safety, approval, labeling, recalls, MedWatch, and REMS programs.",
             "DEA: enforces the Controlled Substances Act; registration, schedules, and diversion control.",
@@ -935,13 +941,13 @@
           "title": "Recalls, Expiration & Stock Management",
           "intro": "Outline 2.5 is FDA requirements for medication recalls. Handling recalled and expired stock protects patients. Take-back is a separate 2.3 workflow for patient-owned leftovers.",
           "bullets": [
-            "Recall classes: Class I = serious harm/death likely; Class II = temporary/reversible harm; Class III = unlikely harm.",
+            "Recall classes: Class I = reasonable probability of serious adverse health consequences or death; Class II = temporary or medically reversible harm, or a remote probability of serious harm; Class III = adverse health consequences not likely.",
             "Recall depth is how far the notice goes: wholesale, retail, or consumer (patient) level. A Class I medication recall usually reaches the consumer level, and patients who received the affected lot are notified.",
             "On a recall: identify affected lot numbers, quarantine the stock, and follow manufacturer/wholesaler return instructions.",
             "Rotate stock using FEFO (First-Expired, First-Out) to minimize expired product.",
             "Never dispense expired medication; remove expired/damaged units from active stock promptly.",
             "The NDC number (labeler-product-package) is used to identify recalled products and process returns.",
-            "A manufacturer or the FDA may initiate a recall; pharmacy action is the same: pull matching lots, quarantine, document, follow the notice.",
+            "The firm initiates a recall. FDA may request one. Pharmacy action is the same: pull matching lots, quarantine, document, follow the notice.",
             "A market withdrawal is not a recall — the firm removes product for a minor violation that would not usually trigger legal recall action.",
             "Do not confuse a lot-specific recall with a patient take-back of leftover pills from home."
           ],
@@ -956,8 +962,10 @@
         },
         {
           "id": "m12l3",
-          "title": "Technician Scope of Practice & Workplace Safety",
-          "intro": "Technicians work under pharmacist supervision within defined legal boundaries.",
+          "optional": true,
+          "badge": "Not emphasized on 2026 PTCE",
+          "title": "Technician Scope of Practice & Workplace Safety (optional archive)",
+          "intro": "OPTIONAL / NOT EMPHASIZED ON THE 2026 PTCE. Technicians work under pharmacist supervision within defined legal boundaries. Skip this lesson on the default path.",
           "bullets": [
             "Technicians may: enter orders, fill/count medications, manage inventory, process insurance, and compound under supervision.",
             "Technicians may NOT: provide clinical counseling, perform the final DUR/clinical verification, or take new verbal prescriptions (varies by state).",

@@ -238,7 +238,7 @@
       "id": "40",
       "domain": "Patient Safety and Quality Assurance",
       "front": "What does REMS stand for?",
-      "back": "Risk Evaluation and Mitigation Strategy — an FDA safety program for certain high-risk drugs (e.g., isotretinoin/iPLEDGE, TIRF). The Clozapine REMS was removed effective June 13, 2025."
+      "back": "Risk Evaluation and Mitigation Strategy — an FDA safety program for certain high-risk drugs (e.g., isotretinoin/iPLEDGE, THALOMID/lenalidomide). TIRF production stopped September 30, 2024, and that REMS accepts no new enrollments. The Clozapine REMS was removed effective June 13, 2025."
     },
     {
       "id": "41",
@@ -340,8 +340,8 @@
     {
       "id": "57",
       "domain": "Federal Requirements",
-      "front": "Refill limit for Schedule III–V controlled substances?",
-      "back": "Up to 5 refills within 6 months of the date issued."
+      "front": "Refill limit for Schedule III and IV controlled substances?",
+      "back": "Up to 5 refills within 6 months of the date issued. Federal law does not set that cap on Schedule V; follow the stricter state rule."
     },
     {
       "id": "58",
@@ -377,7 +377,7 @@
       "id": "63",
       "domain": "Federal Requirements",
       "front": "What does OBRA-90 require of pharmacists?",
-      "back": "Offer to counsel Medicaid (and now generally all) patients and perform prospective drug utilization review (DUR)."
+      "back": "For each Medicaid beneficiary or caregiver who presents a prescription, offer to counsel and perform prospective DUR. Not limited to new prescriptions. The patient may decline. Where state law is broader, follow the stricter rule."
     },
     {
       "id": "64",
@@ -389,7 +389,7 @@
       "id": "65",
       "domain": "Federal Requirements",
       "front": "What are the limits under CMEA for pseudoephedrine sales?",
-      "back": "3.6 g per day and 9 g per 30 days per purchaser; logbook and ID required (Combat Methamphetamine Epidemic Act)."
+      "back": "3.6 g of pseudoephedrine base per day (same daily cap for ephedrine base and phenylpropanolamine base). 30-day cap: 9 g of the base, of which not more than 7.5 g of the base may be mail-order. Photo ID and logbook (name, address, signature), except one package of not more than 60 mg pseudoephedrine."
     },
     {
       "id": "66",
@@ -401,7 +401,7 @@
       "id": "67",
       "domain": "Federal Requirements",
       "front": "How long is a Schedule II prescription valid / what about partial fills?",
-      "back": "No federal expiration for C-II but must be filled promptly; partial fills allowed under specific conditions (e.g., balance within 30 days)."
+      "back": "No federal expiration for a C-II, but fill promptly. Cannot supply: remainder within 72 hours. Patient or prescriber request (CARA): remaining portions within 30 days of the written date, except an emergency oral C-II (within 72 hours after issuance). LTCF or terminally ill: 60 days."
     },
     {
       "id": "68",
@@ -521,7 +521,7 @@
       "id": "87",
       "domain": "Patient Safety and Quality Assurance",
       "front": "Recall classes",
-      "back": "Class I = serious harm/death likely. Class II = temporary/reversible harm. Class III = unlikely to cause harm."
+      "back": "Class I = reasonable probability of serious adverse health consequences or death. Class II = temporary or medically reversible harm, or a remote probability of serious harm. Class III = adverse health consequences not likely."
     },
     {
       "id": "88",
@@ -720,13 +720,13 @@
       "id": "120",
       "domain": "Federal Requirements",
       "front": "HIPAA",
-      "back": "Protects PHI privacy/security. Pharmacies must give a Notice of Privacy Practices. Minimum necessary rule."
+      "back": "Protects PHI privacy/security. Pharmacies must give a Notice of Privacy Practices. Minimum necessary applies to most uses and disclosures, but not to a disclosure to, or a request by, a health care provider for treatment."
     },
     {
       "id": "121",
       "domain": "Federal Requirements",
       "front": "OBRA-90",
-      "back": "Mandates prospective DUR and pharmacist OFFER TO COUNSEL on new Medicaid Rxs."
+      "back": "For each Medicaid beneficiary or caregiver who presents a prescription: prospective DUR and a pharmacist offer to counsel. Not limited to new prescriptions. The patient may decline."
     },
     {
       "id": "122",
@@ -756,19 +756,19 @@
       "id": "126",
       "domain": "Federal Requirements",
       "front": "C-II refill rules",
-      "back": "No refills; new prescription each time. Written or EPCS. Fax allowed for hospice/LTCF/home-infusion exception."
+      "back": "No refills; new prescription each time. Written or EPCS. Fax is the original C-II only for: any C-II for an LTCF resident; a C-II narcotic for a qualifying hospice patient, with hospice noted on the prescription; a C-II narcotic compounded for direct parenteral, IV, IM, subcutaneous, or intraspinal infusion."
     },
     {
       "id": "127",
       "domain": "Federal Requirements",
-      "front": "C-III–C-V refills",
-      "back": "Up to 5 refills within 6 months of issue date."
+      "front": "C-III and C-IV refills",
+      "back": "Up to 5 refills within 6 months of the issue date. Schedule V has no federal 5-refill / 6-month cap; follow the stricter state rule."
     },
     {
       "id": "128",
       "domain": "Federal Requirements",
       "front": "CMEA (pseudoephedrine)",
-      "back": "Max 3.6 g/day and 9 g per 30 days per purchaser; ID + logbook required; behind the counter."
+      "back": "3.6 g of base per day (pseudoephedrine, ephedrine, or phenylpropanolamine). 30-day cap: 9 g of the base, of which not more than 7.5 g of the base may be mail-order. Photo ID + logbook (name, address, signature), except one package of not more than 60 mg pseudoephedrine. Behind the counter."
     },
     {
       "id": "129",
@@ -786,7 +786,7 @@
       "id": "131",
       "domain": "Federal Requirements",
       "front": "Biennial inventory",
-      "back": "Controlled-substance inventory required every 2 YEARS (biennial); C-II exact count, others may estimate."
+      "back": "Controlled-substance inventory every 2 years. Opened C-II container: exact count. Opened C-III–V: estimated count unless the container holds more than 1,000 tablets or capsules, which requires an exact count."
     },
     {
       "id": "132",
@@ -876,13 +876,13 @@
       "id": "146",
       "domain": "Federal Requirements",
       "front": "C-III transfer rule",
-      "back": "One-time transfer of a refill if refills remain, unless the pharmacies share a real-time online database — then until refills are used up. An unfilled electronic C-II–V prescription may be transferred once for the first fill only, pharmacist to pharmacist."
+      "back": "One-time transfer of a C-III–V refill if refills remain, unless the pharmacies share a real-time online database — then until refills are used up. An unfilled electronic C-II–V prescription may be transferred once for initial dispensing, pharmacist to pharmacist. Authorized C-III–V refills transfer with it. A paper C-II cannot be transferred."
     },
     {
       "id": "147",
       "domain": "Federal Requirements",
       "front": "C-II partial fill rule",
-      "back": "Cannot supply full quantity: remainder within 72 hours. Patient or prescriber requests a partial (CARA 2016): remaining portions within 30 days of the written date. LTCF/terminally ill: 60 days."
+      "back": "Cannot supply full quantity: remainder within 72 hours. Patient or prescriber requests a partial (CARA 2016): remaining portions within 30 days of the written date, except an emergency oral C-II (within 72 hours after the prescription is issued). LTCF/terminally ill: 60 days."
     },
     {
       "id": "148",
@@ -1032,13 +1032,13 @@
       "id": "172",
       "domain": "Federal Requirements",
       "front": "CARA (2016) C-II partial fill — patient or prescriber request",
-      "back": "Remaining portions must be dispensed within 30 days of the written date. This is the modern default when a partial is requested — not the 72-hour “cannot supply” clock."
+      "back": "Remaining portions must be dispensed within 30 days of the written date, except an emergency oral C-II, whose remaining portions must be filled within 72 hours after the prescription is issued. The 30-day clock is the usual requested partial — not the 72-hour-from-first-partial “cannot supply” clock."
     },
     {
       "id": "173",
       "domain": "Federal Requirements",
       "front": "Three federal C-II partial-fill clocks",
-      "back": "Pharmacy cannot supply full quantity → remainder within 72 hours. Patient/prescriber requests a partial (CARA) → remainder within 30 days of the written date. LTCF or terminally ill → 60 days."
+      "back": "Pharmacy cannot supply full quantity → remainder within 72 hours. Patient/prescriber requests a partial (CARA) → remainder within 30 days of the written date, except an emergency oral C-II (within 72 hours after issuance). LTCF or terminally ill → 60 days."
     },
     {
       "id": "174",
@@ -1067,8 +1067,8 @@
     {
       "id": "178",
       "domain": "Federal Requirements",
-      "front": "TIRF REMS covers which products and why?",
-      "back": "Transmucosal immediate-release fentanyl. Reserved for opioid-tolerant patients (typically cancer breakthrough pain) because of fatal respiratory-depression risk in opioid-naïve patients."
+      "front": "TIRF REMS: products, reason, and current status?",
+      "back": "Transmucosal immediate-release fentanyl, for opioid-tolerant patients, because of fatal respiratory depression in opioid-naïve patients. Production stopped September 30, 2024. The REMS accepts no new patient, prescriber, or pharmacy enrollments. It remains only while the applications stay approved and any remaining supply is dispensed to already enrolled patients."
     },
     {
       "id": "179",
@@ -1140,7 +1140,7 @@
       "id": "190",
       "domain": "Federal Requirements",
       "front": "REMS knowledge area on the 2026 outline",
-      "back": "Federal 2.4 — restricted drug programs (pseudoephedrine/CMEA and REMS). Current examples: iPLEDGE (isotretinoin), TIRF (fentanyl), THALOMID/REVLIMID. The Clozapine REMS was removed effective June 13, 2025."
+      "back": "Federal 2.4 — restricted drug programs (pseudoephedrine/CMEA and REMS). Current examples: iPLEDGE (isotretinoin) and THALOMID/lenalidomide. TIRF is not a new-enrollment REMS (production stopped September 30, 2024). The Clozapine REMS was removed effective June 13, 2025."
     }
   ]
 }

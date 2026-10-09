@@ -537,7 +537,7 @@
         "Track prescriber sales"
       ],
       "answer": 1,
-      "rationale": "A Risk Evaluation and Mitigation Strategy (REMS) manages known serious risks. Current examples include iPLEDGE (isotretinoin) and TIRF. The Clozapine REMS was removed effective June 13, 2025 — do not treat clozapine as a pharmacy REMS.",
+      "rationale": "A Risk Evaluation and Mitigation Strategy (REMS) manages known serious risks. Current examples include iPLEDGE (isotretinoin) and THALOMID/lenalidomide. TIRF production stopped September 30, 2024, and that REMS accepts no new enrollments. The Clozapine REMS was removed effective June 13, 2025 — do not treat clozapine as a pharmacy REMS.",
       "difficulty": "medium"
     },
     {
@@ -874,7 +874,7 @@
       "id": "q059",
       "domain": "Federal Requirements",
       "subtopic": "Schedule II-V Rules",
-      "question": "Schedule III–V prescriptions may be refilled up to:",
+      "question": "Schedule III and IV prescriptions may be refilled up to:",
       "options": [
         "5 times within 6 months",
         "3 times within 12 months",
@@ -882,7 +882,7 @@
         "Never"
       ],
       "answer": 0,
-      "rationale": "C-III to C-V may be refilled up to 5 times within 6 months of the issue date.",
+      "rationale": "C-III and C-IV may be refilled up to 5 times within 6 months of the issue date. Federal law does not set that cap on Schedule V; follow the stricter state rule.",
       "difficulty": "medium"
     },
     {
@@ -934,7 +934,7 @@
       "id": "q063",
       "domain": "Federal Requirements",
       "subtopic": "Controlled Substances",
-      "question": "The Combat Methamphetamine Epidemic Act limits daily pseudoephedrine sales to:",
+      "question": "The Combat Methamphetamine Epidemic Act limits daily sales of pseudoephedrine base to:",
       "options": [
         "1.2 g",
         "3.6 g",
@@ -942,7 +942,7 @@
         "15 g"
       ],
       "answer": 1,
-      "rationale": "CMEA limits are 3.6 g per day and 9 g per 30 days per purchaser, with logbook and ID requirements.",
+      "rationale": "The daily cap is 3.6 g of pseudoephedrine base, ephedrine base, or phenylpropanolamine base per purchaser. The 30-day purchase cap is 9 g of the base, of which not more than 7.5 g of the base may be mail-order. Photo ID and a logbook are required, except one sales package of not more than 60 mg pseudoephedrine.",
       "difficulty": "medium"
     },
     {
@@ -1527,7 +1527,7 @@
         "The manufacturer changes packaging"
       ],
       "answer": 2,
-      "rationale": "Class I is the most serious recall level — use could cause serious adverse health consequences or death. A Class I medication recall usually reaches the consumer (patient) level, and patients who received the affected lot are notified. Recall depth may be wholesale, retail, or consumer. Class II is temporary or reversible harm; Class III is unlikely harm.",
+      "rationale": "Class I is the most serious recall level — reasonable probability of serious adverse health consequences or death. A Class I medication recall usually reaches the consumer (patient) level, and patients who received the affected lot are notified. Recall depth may be wholesale, retail, or consumer. Class II is temporary or medically reversible harm, or a remote probability of serious harm. Class III means adverse health consequences are not likely.",
       "difficulty": "medium"
     },
     {
@@ -2249,7 +2249,7 @@
         "Social media message"
       ],
       "answer": 1,
-      "rationale": "Federal rules allow prescribers to fax C-II prescriptions for hospice (and long-term care/home infusion) patients as an exception; otherwise C-II requires a written or electronic (EPCS) prescription.",
+      "rationale": "Fax may serve as the original C-II for a C-II narcotic for a patient in a qualifying hospice, and the prescription must note that the patient is a hospice patient. The other fax-as-original cases are any C-II for a long-term care facility resident, and a C-II narcotic compounded for direct parenteral, IV, IM, subcutaneous, or intraspinal infusion. Otherwise a C-II requires a written or electronic (EPCS) prescription.",
       "difficulty": "hard"
     },
     {
@@ -2264,7 +2264,7 @@
         "Electronic prescribing only"
       ],
       "answer": 1,
-      "rationale": "OBRA-90 mandates prospective drug utilization review and an offer by the pharmacist to counsel patients on new prescriptions.",
+      "rationale": "For each Medicaid beneficiary or caregiver who presents a prescription, OBRA-90 requires a prospective drug utilization review and an offer by the pharmacist to counsel on matters the pharmacist judges significant. The offer is not limited to new prescriptions. The patient may decline.",
       "difficulty": "medium"
     },
     {
@@ -2459,7 +2459,7 @@
         "Unlimited times even when the pharmacies do not share a database"
       ],
       "answer": 1,
-      "rationale": "The default federal transfer of a C-III–V refill is one time. If both pharmacies share a real-time online database, transfers may continue until the refills are exhausted. Separately, an unfilled electronic prescription for C-II through C-V may be transferred once, for the first fill only, pharmacist to pharmacist (2023). A paper C-II cannot be transferred. Non-controlled refills follow state law and have no federal one-time cap.",
+      "rationale": "The default federal transfer of a C-III–V refill is one time. If both pharmacies share a real-time online database, transfers may continue until the refills are exhausted. Separately, an unfilled electronic C-II–V prescription may be transferred once for initial dispensing, pharmacist to pharmacist, at the patient’s request, and it stays electronic. Authorized C-III–V refills transfer with that prescription. A paper C-II cannot be transferred. Non-controlled refills follow state law and have no federal one-time cap.",
       "difficulty": "medium"
     },
     {
@@ -2474,7 +2474,7 @@
         "6 months of the written date"
       ],
       "answer": 2,
-      "rationale": "CARA (2016) allows C-II partial fills when the patient or prescriber requests them; remaining portions must be filled within 30 days of the written date. The older 72-hour clock applies only when the pharmacy cannot supply the full quantity — not when a partial is requested. LTCF/terminally ill patients have a 60-day remainder window.",
+      "rationale": "CARA (2016) allows C-II partial fills when the patient or prescriber requests them; remaining portions must be filled within 30 days of the written date. An emergency oral C-II is the exception: remaining portions of that requested partial must be filled within 72 hours after the prescription is issued. The older 72-hour-from-first-partial clock applies only when the pharmacy cannot supply the full quantity — not when a partial is requested. LTCF/terminally ill patients have a 60-day remainder window.",
       "difficulty": "medium"
     },
     {
@@ -2864,7 +2864,7 @@
         "60 days of the written date"
       ],
       "answer": 1,
-      "rationale": "When the pharmacy cannot supply the full C-II quantity, the remainder must be provided within 72 hours (and a new prescription is needed after that). Do not confuse this older “cannot supply” clock with the CARA 30-day window that applies when the patient or prescriber requests a partial fill.",
+      "rationale": "When the pharmacy cannot supply the full C-II quantity, the remainder must be provided within 72 hours of the first partial (and a new prescription is needed after that). Do not confuse this older “cannot supply” clock with the CARA 30-day window for a requested partial, or with the emergency-oral exception (remaining portions within 72 hours after the prescription is issued).",
       "difficulty": "medium"
     },
     {
@@ -2879,7 +2879,7 @@
         "60 days"
       ],
       "answer": 3,
-      "rationale": "Federal law allows C-II partial fills for LTCF or terminally ill patients for up to 60 days from the written date. CARA’s 30-day window covers patient- or prescriber-requested partials; the 72-hour clock is the “pharmacy cannot supply” rule.",
+      "rationale": "Federal law allows C-II partial fills for LTCF or terminally ill patients for up to 60 days from the written date. CARA’s 30-day window covers patient- or prescriber-requested partials, except an emergency oral C-II (remaining portions within 72 hours after issuance). The 72-hour-from-first-partial clock is the “pharmacy cannot supply” rule.",
       "difficulty": "medium"
     },
     {
@@ -2894,7 +2894,7 @@
         "Fill it after the pharmacist documents a verbal 72-hour extension"
       ],
       "answer": 1,
-      "rationale": "Under CARA, remaining portions of a patient- or prescriber-requested C-II partial must be dispensed within 30 days of the written date. After day 30 the leftover cannot be filled; the patient needs a new prescription. There is no verbal 72-hour extension of the CARA window.",
+      "rationale": "Under CARA, remaining portions of a patient- or prescriber-requested C-II partial must be dispensed within 30 days of the written date. After day 30 the leftover cannot be filled; the patient needs a new prescription. There is no verbal 72-hour extension of that 30-day window. A different clock applies to an emergency oral C-II: remaining portions within 72 hours after the prescription is issued.",
       "difficulty": "hard"
     },
     {
@@ -2976,7 +2976,7 @@
       "id": "q199",
       "domain": "Federal Requirements",
       "subtopic": "REMS",
-      "question": "Transmucosal immediate-release fentanyl (TIRF) products are covered by a REMS because they:",
+      "question": "Transmucosal immediate-release fentanyl (TIRF) products were placed under a REMS because they:",
       "options": [
         "Are OTC cough suppressants that must stay behind the counter",
         "Are indicated only for opioid-tolerant patients (typically breakthrough cancer pain) and have a high risk of fatal respiratory depression in opioid-naïve patients",
@@ -2984,7 +2984,7 @@
         "Are interchangeable with any extended-release oxycodone tablet"
       ],
       "answer": 1,
-      "rationale": "TIRF REMS exists because these high-potency fentanyl products can be fatal in opioid-naïve patients. They are reserved for opioid-tolerant patients, usually with cancer breakthrough pain. This is not an ANC program. The Clozapine REMS, including any pharmacy ANC gate, was removed effective June 13, 2025. ANC monitoring for clozapine stays with the prescriber per the labeling.",
+      "rationale": "TIRF products can be fatal in opioid-naïve patients and were reserved for opioid-tolerant patients, usually with cancer breakthrough pain. Production of TIRF medicines stopped September 30, 2024, and the REMS accepts no new patient, prescriber, or pharmacy enrollments. It remains only while the applications stay approved and any remaining supply is dispensed to already enrolled patients. This is not an ANC program. The Clozapine REMS, including any pharmacy ANC gate, was removed effective June 13, 2025. ANC monitoring for clozapine stays with the prescriber per the labeling.",
       "difficulty": "hard"
     },
     {
@@ -3066,15 +3066,15 @@
       "id": "q205",
       "domain": "Federal Requirements",
       "subtopic": "Recalls",
-      "question": "Who may initiate a medication recall, and what is the pharmacy’s duty either way?",
+      "question": "Who starts a medication recall, and what is the pharmacy’s duty?",
       "options": [
         "Only the DEA may initiate recalls; pharmacies only notify state boards",
-        "A manufacturer or the FDA may initiate; the pharmacy still identifies lots, quarantines stock, and follows the notice",
+        "The firm initiates a recall; FDA may request one; the pharmacy still identifies lots, quarantines stock, and follows the notice",
         "Only state boards may initiate; pharmacies wait 30 days before pulling stock",
         "Only wholesalers may initiate; pharmacies continue to dispense until a Form 41 is filed"
       ],
       "answer": 1,
-      "rationale": "Recalls may be firm-initiated or FDA-requested/ordered. Pharmacy action is the same: identify, quarantine, document, and follow return/patient-notification instructions. DEA and Form 41 are controlled-substance tools, not the recall-initiation path.",
+      "rationale": "The firm initiates a recall. FDA may request one. Pharmacy action is the same: identify lots, quarantine, document, and follow the notice. DEA and Form 41 are controlled-substance tools, not the recall-initiation path.",
       "difficulty": "medium"
     },
     {
@@ -3149,7 +3149,7 @@
         "Reported on DEA Form 224 instead of an inventory record"
       ],
       "answer": 1,
-      "rationale": "C-II inventory requires an exact count. C-III–V may be estimated unless a container holds more than 1,000 units. Form 224 is registration, not the inventory record. Inventory is at least every 2 years.",
+      "rationale": "An opened container of a C-II requires an exact count. An opened C-III–V container may be estimated unless it holds more than 1,000 tablets or capsules, which requires an exact count. Form 224 is registration, not the inventory record. Inventory is at least every 2 years.",
       "difficulty": "easy"
     },
     {
