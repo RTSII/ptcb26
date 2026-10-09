@@ -4,12 +4,13 @@ Live backlog. History in `docs/archive/` is not this list.
 
 ## Next up (in order)
 
-1. **Fact flags.** Verify and fix every flagged or possibly false claim per [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md): the 6 flags in `study_notes_v4_plan.md`, plus course `m1l5` SSRI stems and `m1l4` / `m3l2` insulin and detemir. Each fix needs a source and Rob's sign-off.
-2. **Study Course content audit.** 100% factual and complete against the PTCE 2026 outline ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
-3. **Study Notes content audit.** Same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
-4. **Notes theme overhaul.** Only after 2 and 3 are signed off (`study_notes_v4_plan.md`).
+- [x] **Fact flags** (#42). Six plan flags, plus course `m1l5` SSRI stems and `m1l4` / `m3l2` insulin and detemir. Insulin onset/peak/duration curve stays verify (F-011, F-012).
 
-Course is the primary path; Notes summarize it. Lock course facts before Notes so the same error is not fixed twice. Items 1–3 use [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md). Standing rules: [AGENTS.md](AGENTS.md).
+1. **Study Course content audit.** 100% factual and complete against the PTCE 2026 outline ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
+2. **Study Notes content audit.** Same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
+3. **Notes theme overhaul.** Only after 1 and 2 are signed off (`study_notes_v4_plan.md`).
+
+Course is the primary path; Notes summarize it. Lock course facts before Notes so the same error is not fixed twice. Items 1 and 2 use [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md). Standing rules: [AGENTS.md](AGENTS.md).
 
 Superseded by the block above (do not follow these):
 
@@ -36,7 +37,7 @@ Superseded by the block above (do not follow these):
 - [x] Flashcards trigger: tabbed physical Rolodex index card with stepped deck depth and spindle notch icon
 - [x] Study Notes Codex v2 baseline (3-zone header, layouts, parenthesis-safe parsing)
 - [x] Cascading Katakana Matrix rain FX (depth layers, white lead tips, no static grid floor overlays)
-- [x] Service worker and `?v=` cache busters. Current name: `ptce-2026-v56` in `sw.js`
+- [x] Service worker and `?v=` cache busters. Current name: `ptce-2026-v58` in `sw.js`
 - [x] Study Course home: chapters closed on load, title in the centered header, chapter titles centered (`ptce-2026-v49`)
 - [x] Home course card (#37)
 - [x] Dashboard Resurrections glass cards with no rain on the Dashboard (#38)

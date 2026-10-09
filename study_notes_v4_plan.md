@@ -103,20 +103,20 @@ Confirmed by scan of committed `notes.json` (not exhaustive clinical review):
 | Orange Book / NPI under Recalls | Federal Recalls | Moved to `laws` cards |
 | CSA 1970 ×2 | Key Laws + Counseling/Omnibus | One timeline row |
 
-### Review flags (6 candidates — unverified)
+### Review flags (signed off in #42; insulin curve still verify)
 
-Inline `flags` already in the local v2 JSON (4). The insulin curve and the Levemir question are not `flags` keys:
+Inline `flags` already in the local v2 JSON (4). The insulin curve and the Levemir question are not `flags` keys. Resolved wording is in committed course and notes. v2 JSON stays uncommitted.
 
-| # | Location (v2) | Candidate issue | Proposed direction (**not approved**) | Status |
+| # | Location (v2) | Candidate issue | Proposed direction | Status |
 |---|---|---|---|---|
-| 1 | `med` / `side-effects` row “Amiodarone / pioglitazone” | Row names amiodarone but body is only pioglitazone (HF / bladder cancer) | Split rows or drop amiodarone from the label after source check | Pending review/test |
-| 2 | `med` / `cns-classes` SSRI stem `` `-oxetine` / `-sertraline` `` | Duloxetine (SNRI) also ends in `-oxetine`; sertraline is not a class stem | Reword stems (e.g. teach examples, not fake stems) after source check | Pending — flagged in JSON |
-| 3 | `med` / `storage` “Live attenuated (MMR, Varicella) / FROZEN” | M-M-R II may be refrigerated **or** frozen; varicella must be frozen | Split MMR vs varicella storage lines after CDC/product check | Pending — flagged in JSON |
-| 4 | `fed` / `hipaa` civil penalties `$100–$50,000/violation` | Amounts are inflation-adjusted | Confirm current HHS/OCR figures before teaching numbers | Pending — flagged in JSON |
-| 5 | `med` / `insulin` | Full peak/duration curve needs complete values; v2 uses partial “Onset / profile” only | Chart only Rob-approved numbers; keep partial table or omit curve | Pending — no curve figure in WIP |
-| 6 | `med` / insulin detemir (Levemir) | Whether Levemir (detemir) is still US-marketed | Confirm before teaching it as a current product. Do not change the wording until Rob signs off | Pending review/test |
+| 1 | `med` / `side-effects` row “Amiodarone / pioglitazone” | Row names amiodarone but body is only pioglitazone (HF / bladder cancer) | Split rows or drop amiodarone from the label after source check | Resolved F-001 |
+| 2 | `med` / `cns-classes` SSRI stem `` `-oxetine` / `-sertraline` `` | Duloxetine (SNRI) also ends in `-oxetine`; sertraline is not a class stem | Reword stems (e.g. teach examples, not fake stems) after source check | Resolved F-003 (course F-002) |
+| 3 | `med` / `storage` “Live attenuated (MMR, Varicella) / FROZEN” | M-M-R II may be refrigerated **or** frozen; varicella must be frozen | Split MMR vs varicella storage lines after CDC/product check | Resolved F-004, F-005 |
+| 4 | `fed` / `hipaa` civil penalties `$100–$50,000/violation` | Amounts are inflation-adjusted | Confirm current HHS/OCR figures before teaching numbers | Resolved F-006 |
+| 5 | `med` / `insulin` | Full peak/duration curve needs complete values; v2 uses partial “Onset / profile” only | Chart only Rob-approved numbers; keep partial table or omit curve | Open — verify F-011, F-012 |
+| 6 | `med` / insulin detemir (Levemir) | Whether Levemir (detemir) is still US-marketed | Confirm before teaching it as a current product. Do not change the wording until Rob signs off | Resolved F-007 |
 
-**Rule:** leave flagged wording as-is until Rob signs off. See [AGENTS.md](AGENTS.md).
+**Rule:** insulin onset/peak/duration curve stays verify (F-011, F-012). Do not commit v2 `notes.json` until the blocks runtime ships. See [AGENTS.md](AGENTS.md).
 
 ---
 
