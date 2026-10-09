@@ -7,11 +7,20 @@ Live backlog. History in `docs/archive/` is not this list.
 - [x] **Fact flags** (#42). Six plan flags, plus course `m1l5` SSRI stems and `m1l4` / `m3l2` insulin and detemir. Insulin onset/peak/duration curve stays verify (F-011, F-012).
 - [x] **Domain 1 Course accuracy fixes** (#43). FACT and misleading claims from the Domain 1 course audit.
   - **Domain 1 gap content (deferred):** C-D1-018; 1.1 missing classes; 1.3 supplement/lab interactions; 1.4 strengths/durations; 1.5 SJS/TEN; 1.5 GLP-1 boxed warning; 1.6 missing indications; 1.7 MDV 28-day; 1.8 restricted access.
+- [x] **Patient Safety accuracy fixes.** C-PS-001, C-PS-002, C-PS-003, and C-PS-006. C-PS-004 (hazardous-drug decontamination agent) and C-PS-005 (penicillin/sulfa tray rule) stay verify.
 
-1. **Course audit Domain 2.** Federal Requirements, same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
-2. **Study Course content audit** for the remaining domains. Same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
-3. **Study Notes content audit.** Same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
-4. **Notes theme overhaul.** Only after the course audit and the notes audit are signed off (`study_notes_v4_plan.md`).
+1. **Course audit Order Entry (m7–m9).** Same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
+2. **Course audit Federal Requirements (m10–m12).** Same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
+3. **Match Study Course accordion UI/page to Study Notes accordion.**
+   - Auxiliary labels: course Patient Safety `m6l1` vs Notes Order Entry.
+   - C-II refill and partial fill: course Federal `m10l2` vs Notes Order Entry.
+   - OBRA-90 DUR: course Federal `m11l2` only vs Notes also under Patient Safety.
+   - NDC format: Notes Patient Safety section; no course lesson.
+   - Course-only: ADC overrides; regulatory agencies lesson; technician scope lesson.
+   - Notes-only: FMEA; concurrent DUR; tech cannot verify their own work.
+   - Garb vs PPE: course `m5l2` sterile garb order vs Notes routine PPE order.
+4. **Study Notes content audit.** Same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
+5. **Notes theme overhaul.** Only after the course audit and the notes audit are signed off (`study_notes_v4_plan.md`).
 
 Course is the primary path; Notes summarize it. Lock course facts before Notes so the same error is not fixed twice. Course and notes audits use [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md). Standing rules: [AGENTS.md](AGENTS.md).
 
@@ -40,7 +49,7 @@ Superseded by the block above (do not follow these):
 - [x] Flashcards trigger: tabbed physical Rolodex index card with stepped deck depth and spindle notch icon
 - [x] Study Notes Codex v2 baseline (3-zone header, layouts, parenthesis-safe parsing)
 - [x] Cascading Katakana Matrix rain FX (depth layers, white lead tips, no static grid floor overlays)
-- [x] Service worker and `?v=` cache busters. Current name: `ptce-2026-v59` in `sw.js`
+- [x] Service worker and `?v=` cache busters. Current name: `ptce-2026-v60` in `sw.js`
 - [x] Study Course home: chapters closed on load, title in the centered header, chapter titles centered (`ptce-2026-v49`)
 - [x] Home course card (#37)
 - [x] Dashboard Resurrections glass cards with no rain on the Dashboard (#38)

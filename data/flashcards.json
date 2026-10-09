@@ -557,7 +557,7 @@
       "id": "93",
       "domain": "Patient Safety and Quality Assurance",
       "front": "NCC MERP categories",
-      "back": "A=potential; B=no reach; C=reached, no harm; D=monitoring; E-I = increasing harm (I=death)."
+      "back": "A=potential; B=no reach; C=reached, no harm; D=monitoring to confirm no harm and/or intervention to preclude harm; E-I = increasing harm (I=death)."
     },
     {
       "id": "94",

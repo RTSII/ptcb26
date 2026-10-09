@@ -247,7 +247,7 @@
         {
           "title": "Medication Error Types & DUR",
           "items": [
-            "Outline 3.5 prescription error types: wrong drug, wrong dose, wrong quantity, wrong patient, wrong route, wrong time, and omission.",
+            "Outline 3.5 examples: incorrect dose, quantity, patient, drug, and route. Wrong time and omission are other error types; they are not the outline examples.",
             "Process types: prescribing, transcription/entry, dispensing, administration, monitoring errors; near-miss = caught before patient.",
             "Adverse drug event (ADE): harm from a drug (may or may not be an error).",
             "Prospective DUR: BEFORE dispensing — interactions, allergies, duplication, dose.",
@@ -281,7 +281,7 @@
             "FDA MedWatch: voluntary reporting of adverse events, product problems, medication errors (Form 3500 professionals / 3500B consumers).",
             "ISMP MERP: voluntary, confidential national error reporting to identify and share prevention strategies.",
             "Recall classes: Class I = serious harm/death likely; Class II = temporary/reversible harm; Class III = unlikely harm.",
-            "NCC MERP error categories: A potential → B no reach → C reach/no harm → D monitoring → E–I increasing harm (I = death).",
+            "NCC MERP error categories: A potential → B no reach → C reach/no harm → D monitoring to confirm no harm and/or intervention to preclude harm → E–I increasing harm (I = death).",
             "Report near misses (intercepted errors) too — they reveal system weaknesses before harm occurs."
           ]
         },
@@ -316,7 +316,7 @@
           "items": [
             "VIS (Vaccine Information Statement): CDC sheet required by the National Childhood Vaccine Injury Act before each dose of a covered vaccine.",
             "Give the current VIS edition before immunization (not only afterward). Document the VIS publication date and the date it was provided.",
-            "Post-immunization care (outline 3.3): observe for syncope/anaphylaxis; seat a faint-feeling patient; notify the pharmacist. Do not send them to drive off untreated.",
+            "Post-immunization care (outline 3.3): for most vaccines, observe seated or lying down for 15 minutes (most syncope is within 15 minutes). Some people are observed for 30 minutes after a COVID-19 vaccine. If the patient feels faint, seat them and notify the pharmacist. Do not send them to drive off untreated.",
             "VAERS reports vaccine adverse events (outline 3.4). MedWatch is the general FDA drug/device program — do not mix the two.",
             "OTC recommendation, therapeutic substitution, DUR/ADE, and allergy/interaction alerts require pharmacist intervention (3.3). Techs gather facts and escalate.",
             "Purple Book (FDA biologics interchangeability) is not a January 2026 PTCE knowledge area — not treated as tested. Orange Book A/AB codes remain the small-molecule TE reference already in Federal notes."
