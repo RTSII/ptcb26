@@ -1,8 +1,7 @@
 # Study Notes v4: Terminal Codex Plan (ready handoff)
 
-**Status:** Next work is content review, not the theme overhaul. Order is `TODO.md` → **Next up**: (1) Study Course content review, (2) Study Notes content review (includes the five fact flags), (3) Study Notes theme overhaul only after Rob signs off 1 and 2. The plan-review-chat-then-stop gate is superseded. Do **not** commit the local v2 `notes.json` until the blocks runtime ships with it in that overhaul PR. Google AI art stays future (end of the Notes backlog).  
-**Repo:** `Desktop\PTCB26` · tip on `main` after #28  
-**Supersedes:** `study_notes_v3_plan.md` (keep for architecture detail)  
+**Status:** Next work is content review, not the theme overhaul. Order is [TODO.md](TODO.md) **Next up**. The plan-review-chat-then-stop gate is superseded. Do **not** commit the local v2 `notes.json` until the blocks runtime ships with it in that overhaul PR. Google AI art stays future (end of the Notes backlog in TODO.md).  
+**Repo:** `Desktop\PTCB26` · `main` at `6dd6c07` (#40)  
 **Out of scope for now:** Course and Exam Matrix adoption (later). Google AI emblems / dosage-form art (future).  
 
 ---
@@ -11,11 +10,11 @@
 
 | # | Topic | Decision |
 |---|---|---|
-| 1 | Palette / theme | **Replace locked slate** as the Notes end-state. Priority: cohesive Matrix theme/UI. Non-green accents OK for dense reading contrast. |
+| 1 | Palette / theme | **Retire slate** as the Notes end-state ([UI_STANDARDS.md](UI_STANDARDS.md)). Priority: cohesive Matrix theme/UI. Non-green accents OK for dense reading contrast. |
 | 2 | Search / nav | **Trim redundant** search / filter / nav. |
 | 3 | Content shape | **Merge duplicate and misfiled notes** at content time (map below). |
-| 4 | Fact flags | Document candidates for **future review/test**. No silent fact changes. |
-| 5 | Workflow | **Next step:** `TODO.md` **Next up** — Course content review, then Notes content review, then the Notes theme overhaul only after Rob signs off both. The plan-review-chat-then-stop gate is superseded. Cloud agents + PRs; no merge without Rob's explicit approval. |
+| 4 | Fact flags | Document candidates for **future review/test**. Standing rule: [AGENTS.md](AGENTS.md). |
+| 5 | Workflow | **Next step:** [TODO.md](TODO.md) **Next up**. The plan-review-chat-then-stop gate is superseded. Cloud agents + PRs. Standing rules are in [AGENTS.md](AGENTS.md). |
 | 6 | Scope | Notes theme overhaul stays **Notes-only**. Course **content** review is first (no UI). Course / Exam Matrix tokens stay later. |
 
 ---
@@ -26,9 +25,8 @@ Rob lost faith in the Claude/Devin visual-aid analysis. That plan leaned on deco
 
 | Topic | Decision |
 |---|---|
-| Google AI image briefs | **Deferred** → clarify / future TODO. Emblem, waste-bin, and dosage-form specimen prompts (v3 §4) are **not** required to start the overhaul. The desktop Word doc that holds those prompts is **reference-only** until this clarify is resolved. Do not generate or wire `assets/notes` art as a start step. |
-| Prior optional art (v3 §4) | **Not trusted** as the visual-aid strategy. Do not treat those briefs as the plan for breaking up repeated prose. |
-| Fresh visual-aid pass | Part of the Notes theme overhaul (`TODO.md` **Next up** #3), after Course and Notes content sign-off — not a docs-only plan-review chat before that. Look for aids that actually break up repeated prose and save viewport space. Prefer in-code charts, lists, tables, and compact layouts over decorative PNGs. Example Rob named: the **Conversions** topic → a dense conversion chart / list (or SVG), not more text rows. Rob will point at more sections when he can; Claude started editing, so he could not screenshot the intended sections. Decorative Google AI art stays **future** — revive only after this strategy is locked. |
+| Google AI image briefs | Deferred, see the end of [TODO.md](TODO.md). Not a start step, and not the plan for breaking up repeated prose. |
+| Fresh visual-aid pass | Part of the Notes theme overhaul ([TODO.md](TODO.md) **Next up**), after the content audits are signed off. Prefer in-code charts, lists, tables, and compact layouts. Example Rob named: the **Conversions** topic → a dense conversion chart / list (or SVG). Slate is retired ([UI_STANDARDS.md](UI_STANDARDS.md)). |
 
 ---
 
@@ -105,9 +103,9 @@ Confirmed by scan of committed `notes.json` (not exhaustive clinical review):
 | Orange Book / NPI under Recalls | Federal Recalls | Moved to `laws` cards |
 | CSA 1970 ×2 | Key Laws + Counseling/Omnibus | One timeline row |
 
-### Review flags (5 candidates — unverified)
+### Review flags (6 candidates — unverified)
 
-Inline `flags` already in the local v2 JSON (4). Fifth is structural (insulin curve), not a `flags` key:
+Inline `flags` already in the local v2 JSON (4). The insulin curve and the Levemir question are not `flags` keys:
 
 | # | Location (v2) | Candidate issue | Proposed direction (**not approved**) | Status |
 |---|---|---|---|---|
@@ -116,40 +114,101 @@ Inline `flags` already in the local v2 JSON (4). Fifth is structural (insulin cu
 | 3 | `med` / `storage` “Live attenuated (MMR, Varicella) / FROZEN” | M-M-R II may be refrigerated **or** frozen; varicella must be frozen | Split MMR vs varicella storage lines after CDC/product check | Pending — flagged in JSON |
 | 4 | `fed` / `hipaa` civil penalties `$100–$50,000/violation` | Amounts are inflation-adjusted | Confirm current HHS/OCR figures before teaching numbers | Pending — flagged in JSON |
 | 5 | `med` / `insulin` | Full peak/duration curve needs complete values; v2 uses partial “Onset / profile” only | Chart only Rob-approved numbers; keep partial table or omit curve | Pending — no curve figure in WIP |
+| 6 | `med` / insulin detemir (Levemir) | Whether Levemir (detemir) is still US-marketed | Confirm before teaching it as a current product. Do not change the wording until Rob signs off | Pending review/test |
 
-**Rule:** leave flagged wording as-is until Rob OK. Implementation must not “fix” facts quietly.
+**Rule:** leave flagged wording as-is until Rob signs off. See [AGENTS.md](AGENTS.md).
 
 ---
 
 ## Runtime gate (why JSON stays local)
 
 - Codex v2 `js/notes.js` still: `sec.items`, `detectLayoutType()` from **titles**, no `blocks` renderer.
-- v2 JSON needs: hash router + layout renderers + mark parser (`!!` / `^^` / `` `code` ``) per earlier architecture.
+- v2 JSON needs: hash router + layout renderers + mark parser (`!!` / `^^` / `` `code` ``), as in Target architecture below.
 - Therefore: **docs + local WIP ready; commit of v2 JSON waits for the build PR.**
 
 ---
 
-## Target UI / architecture
+## Target architecture
 
-Unchanged intent from v3 §2 (rail + stage, fit paginator, shared `matrix.css`, schema-driven layouts). Palette: Matrix-cohesive; non-green accents OK for dense prose. Trim redundant search/nav.
+Do not build this until the content audits in [TODO.md](TODO.md) **Next up** are signed off. Palette is Matrix-cohesive ([UI_STANDARDS.md](UI_STANDARDS.md)); slate is retired. Non-green accents are OK for dense prose. Trim redundant search and nav. Space-saving visual aids (charts, lists, tables; Conversions first) are part of the Notes theme overhaul in **Next up**. Google AI art is deferred, see the end of TODO.md. Fact-check and audit output follow [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md). Do not restate it here.
 
-Execution sequence still v3 §3 (shared `matrix.css` → content schema → shell → runtime → in-code figures → styles → verify → docs) — **do not run until Rob signs off Study Course and Study Notes content reviews** (`TODO.md` **Next up** #1–#2). Skip v3 §3 step 7 (optional Google AI art / `assets/notes`). That step stays **future**, not part of planning or the start gate.
+### Page frame (desktop ≥ 900px)
 
-Space-saving visual aids (charts/lists/tables; Conversions first) are part of the theme overhaul (**Next up** #3), after those content sign-offs. Google AI image briefs (v3 §4) stay at the end / future. Do not burn cycles on emblems, waste bins, or dosage-form specimen prompts. Revive decorative art only after the space-saving strategy is locked.
+```
+┌──────────────── existing 3-zone header (unchanged) ─────────────────┐
+├─ RAIL (≈280px) ─┬──────────────── STAGE ───────────────────────────┤
+│ [MED  35% ▮▮▮▮] │ TOPIC STRIP: ‹  Insulin Types · 3/10 · pg 1/2  › │
+│ [SAFE 23.75%  ] │ ┌──────────────────────────────────────────────┐ │
+│ [ORDER 22.5%  ] │ │ content: tables, pair grids, cards, charts    │ │
+│ [FED  18.75%  ] │ │ fit to stage height; extra goes to page 2      │ │
+│ ── topics ──    │ └──────────────────────────────────────────────┘ │
+│ ⌕ search (rail footer)                                             │
+└─────────────────┴──────────────────────────────────────────────────┘
+```
+
+- **Rail:** four domain chips as chamfered pods with weight bars, then the active domain's topic list. Search sits in the rail footer.
+- **Domain landing:** `#med` with no topic shows topic tiles (title, item count, layout glyph). This replaces the summary paragraph and the accordions.
+- **Topic page:** one topic strip (prev/next, page dots, counter) replaces both nav bars and the old "x of y" header.
+- **Hash routing** (`notes.html#fed/dea-forms/2`): deep links and the browser Back button work. One HTML file, no build step.
+- **Mobile (< 900px):** the rail becomes a sticky domain tab row plus a topic `<select>`. Normal scrolling is allowed there.
+- **Fit paginator:** pack rows into pages no taller than the stage. Re-pack on `ResizeObserver`. Never split a row. Most topics fit one screen at 1440×900; paging is the fallback at 1366×768 or on a very long topic.
+
+### Schema-driven layouts
+
+Each section declares its layout and stores structured rows. The renderer does not guess from the title. Parenthesis-safe parsing stays ([UI_STANDARDS.md](UI_STANDARDS.md) rule 6).
+
+| Layout | Use | Look |
+|---|---|---|
+| `pairs` | Brand↔Generic, Sig codes, Conversions, ISMP Avoid→Use, Aux labels | Dense 3–4 column `key → value` grid. Keys in mono green, values in ice. |
+| `matrix` | Classes and stems, Insulin, Schedules, DEA Forms, Recall classes, USP chapters | Real multi-column tables. |
+| `cards` | Laws, REMS, DSCSA, Immunization, Dosage forms | 2–3 column chamfered pods. |
+| `formula` | Calculations | Formula in mono, a one-line meaning, a worked example. |
+| `timeline` | Federal laws, C-II partial-fill clocks, DUR | Horizontal SVG or CSS track. |
+| `figure` | NDC, DEA check-digit, MERP ladder, storage temps, PPE sequence | Inline SVG built in code. Decorative images are deferred. |
+
+Inline marks: `!!do NOT crush!!` → amber warning, `^^CI^^` → pink contraindication, `` `-pril` `` → green stem chip.
+
+### Token table
+
+Shared `css/matrix.css`, built from Home's `--hx-*` tokens. Slate is not the end state.
+
+| Role | Token | Value | Use |
+|---|---|---|---|
+| Background | `--mx-void` | `#010804` | Page (same as Home) |
+| Surface 1/2/3 | `--mx-fill-1..3` | `#04130a` / `#072014` / `#0b2c1b` | Stage, panels, table header |
+| Edge | `--mx-edge` | Home's green→cyan gradient | Chamfered panel borders |
+| Body text | `--mx-ice` | `#e6fff0` | Reading text |
+| Secondary text | `--mx-dim` | `#9cc9a9` | Meta, column heads |
+| Keys / stems | `--mx-green` | `#00ff41` | Terms, stems, active state |
+| Headings | `--mx-mint` | `#b6ffc9` | Topic titles |
+| Values / numbers | `--mx-cyan` | `#05d9e8` | Doses, codes, ratios |
+| Warning | `--mx-amber` | `#ffb000` | "do NOT", black box, deadlines |
+| Danger | `--mx-pink` | `#ff2a6d` | Contraindications, fatal errors |
+
+Type: Chakra Petch for headings and keys, JetBrains Mono for codes and numbers, proportional sans at 15–16px for body. Rain stays on and dims behind the stage.
+
+### Build steps
+
+Do not start until the content audits in [TODO.md](TODO.md) **Next up** are signed off. When this ships, bump the service worker cache to the next version and update the docs this work changed.
+
+| # | Step | Files |
+|---|---|---|
+| 0 | Branch from `main`. Baseline screenshots at 1440×900, 1366×768, 1920×1080, and 390×844. | — |
+| 1 | Extract `--hx-*`, chamfer, and edge primitives into `css/matrix.css`. Point `home.css` at it with no visual change. | `css/matrix.css`, `css/home.css`, `index.html` |
+| 2 | Migrate `notes.json` to the schema. Dedupe and re-home per the merge map above. Apply only flags Rob has signed off. Extend `validate.js` with layout enum, column/row arity, unique ids, and a duplicate-text check. | `data/notes.json`, `validate.js` |
+| 3 | Rewrite the `notes.html` main area as a rail + stage grid. Header unchanged. Search moves to the rail footer. | `notes.html` |
+| 4 | Hash router and state, layout renderers, fit paginator, keyboard nav, search overlay, inline-mark parser. | `js/notes.js` |
+| 5 | In-code SVG for NDC, DEA check digit, MERP ladder, storage temps, PPE sequence, partial-fill clocks, DUR, and the laws timeline. Text stays real text. | `js/notes.js` (or `js/notes-figures.js`) |
+| 6 | Rewrite `notes.css` on `matrix.css` tokens. Breakpoint at 900px. Slate tokens go away. | `css/notes.css` |
+| 8 | Verify: no phantom scroll at 1366×768 and 1920×1080; every topic reachable by rail, keys, and deep link; search hits jump; Back works; `node validate.js`. | — |
+
+Google AI art (emblems, waste bins, dosage-form specimens) is not a step. Deferred, see the end of TODO.md.
 
 ---
 
 ## Handoff
 
-```text
-PTCB26 — next work follows TODO.md "Next up (in order)". The plan-review-chat-then-STOP gate is superseded.
-
-1. Study Course content review — content only. Audit against the Jan 2026 PTCE outline (Medications 35%, Patient Safety 23.75%, Order Entry 22.50%, Federal 18.75%). Facts correct and current; nothing on-exam missing, incomplete, duplicated, or outdated/off-exam. Audit list with sources. Rob signs off (factual + complete) before any edits. No UI/theme changes.
-2. Study Notes content review — same audit (duplicate, incomplete, missing, incorrect; gaps covered/fixed). Includes the five fact flags in study_notes_v4_plan.md plus whether Levemir (detemir) is still US-marketed. Known dup: Insulin Types repeats rapid-acting, long-acting, and storage lines. Rob signs off before edits.
-3. Study Notes theme overhaul (Terminal Codex / Matrix per UI_STANDARDS.md and study_notes_v4_plan.md) only after 1 and 2 are signed off. One PR: blocks runtime + v2 notes.json together. Keep v2 notes.json outside data/ until that PR.
-
-Rules: review, then sign-off, then edits. One domain per PR where practical. No silent clinical fact edits. No merge without Rob's explicit approval.
-```
+Next work is [TODO.md](TODO.md) **Next up**, in that order. Do not restate it here. Standing rules are in [AGENTS.md](AGENTS.md).
 
 ---
 
@@ -159,8 +218,7 @@ Rules: review, then sign-off, then edits. One domain per PR where practical. No 
 - [x] v4 plan + content audit (merge map, dups, flags)
 - [x] #28 on main (Codex v2 baseline + plans)
 - [x] Google AI art demoted to future; space-saving visual-aid clarify recorded (2026-10-07)
-- [ ] Study Course content review + Rob sign-off before edits (`TODO.md` **Next up** #1)
-- [ ] Study Notes content review + Rob sign-off before edits, including the five flags (`TODO.md` **Next up** #2)
-- [ ] Theme overhaul only after those content sign-offs (`TODO.md` **Next up** #3)
+- [x] Target architecture (rail, token table, build steps) lives in this file
+- [ ] [TODO.md](TODO.md) **Next up** is done through the Notes theme overhaul
 - [ ] v2 `notes.json` committed only with the blocks runtime, in that overhaul PR
 - [ ] Google AI art remains future (not a start step)

@@ -12,7 +12,7 @@ Seven static pages, served from the repo root:
 
 | Page | Role |
 |---|---|
-| `index.html` | Home. Study Course is the large center panel; Flashcards, Quiz, Practice Exam, and Notes sit around it. Progress is a header icon. |
+| `index.html` | Home. Study Course is the large center panel; Flashcards, Quiz, Practice Exam, and Notes sit around it. Dashboard is the reactor card. |
 | `course.html` | 12 modules. Work a lesson, then jump into a domain quiz. |
 | `notes.html` | Compressed notes by domain. |
 | `flashcards.html` | Flip / filter deck. |
@@ -42,13 +42,7 @@ Items that are off the 2026 core are optional course lessons or `featured: false
 
 ## Working rules
 
-- Do not merge without Rob's explicit OK. A North verify by itself is not a merge.
-- Code changes go through Cursor cloud agents. Review happens on GitHub pull requests.
-- `node validate.js` checks schema, IDs, domain names, and a few copy assertions. It is not a content sign-off.
-
-## UI standards
-
-Component, template, and theme rules are in [UI_STANDARDS.md](UI_STANDARDS.md). Follow that file for any UI change.
+Standing rules, the reading order, and the pre-PR loop are in [AGENTS.md](AGENTS.md). UI rules are in [UI_STANDARDS.md](UI_STANDARDS.md). What's left is [TODO.md](TODO.md).
 
 ## Run it
 
@@ -79,41 +73,29 @@ Cache name: see `sw.js`.
 - App shell (navigations, HTML, CSS, JS) is network-first, cache fallback if offline.
 - JSON and the other same-origin assets are cache-first.
 
-After a cache-name bump, unregister the service worker and clear site data before judging UI. A hard refresh (`Ctrl + Shift + R`) bypasses disk cache. Asset URLs carry a query-string cache buster.
+Asset URLs carry a query-string cache buster. After a cache-name bump, follow [UI_STANDARDS.md](UI_STANDARDS.md). A hard refresh (`Ctrl + Shift + R`) bypasses disk cache.
 
 ## Layout
 
 ```text
 index.html  course.html  notes.html  flashcards.html  quiz.html  exam.html  dashboard.html
 manifest.json  sw.js  icon.svg  validate.js
-css/style.css  css/home.css  css/notes.css
-js/app.js  home.js  course.js  notes.js  flashcards.js  quiz.js  exam.js  dashboard.js
+css/style.css  css/home.css  css/notes.css  css/exam-setup.css
+js/app.js  home.js  course.js  notes.js  flashcards.js  quiz.js  exam.js  exam-setup.js  dashboard.js
 data/course.json  notes.json  flashcards.json  questions.json
-README.md  TODO.md  UI_STANDARDS.md  AGENTS.md
-study_notes_v4_plan.md  study_notes_v3_plan.md
+README.md  TODO.md  UI_STANDARDS.md  AGENTS.md  AUDIT_RUBRIC.md  study_notes_v4_plan.md
+docs/archive/  (history; do not read for current work)
 ```
 
 There is no `app/` directory. Shared helpers are `window.App` (`Storage`, `Util`, `DOMAINS`, `FX`) in `js/app.js`.
 
 ## Current state
 
-Notes layout on this branch: accordions closed on load; topic pager is inside the topic card; domain title is centered in the accordion header. An open domain uses a slim D1–D4 switcher and hides search so the topic card fills the viewport. Cache `ptce-2026-v49`.
+Home is the reference HUD. Study Course is the large card and opens the course list. That list has one Resume button and one-open accordions. Practice Exam setup is the Exam Setup console. Dashboard cards are Resurrections glass, and that page does not run the rain. Notes accordions start closed. Header titles share one style ([UI_STANDARDS.md](UI_STANDARDS.md)). The Home wordmark is on Home and Course; Dashboard, Quiz, Practice Exam, and Flashcards still use the older wordmark ([TODO.md](TODO.md)).
 
-**Study Notes next step:** Terminal Codex is **planned only** — see `study_notes_v4_plan.md` (content audit: merge map, dups, 5 review flags). Live Notes still renders the committed legacy `items` JSON in `data/notes.json`. The local-only v2 `blocks` file must never be served in that path — the old runtime renders it empty. Keep it outside `data/` until the blocks runtime ships. Do not start implementation until Rob says go. Course / Exam Matrix later.
+Notes still render the committed legacy `items` JSON. The v2 `blocks` file stays outside `data/` until the blocks runtime ships ([AGENTS.md](AGENTS.md)). The Notes plan is [study_notes_v4_plan.md](study_notes_v4_plan.md). What to do next is [TODO.md](TODO.md) **Next up**.
 
-Key recent architecture and UI upgrades:
-- **Study Notes Codex v2 (baseline on main after notes-v3 merge)**:
-  - Interim dense-reading palette and five purpose-built clinical layouts; 3-zone notes header; bottom filter; `splitOutsideParens`.
-  - v4 plan replaces slate-as-end-state with Matrix-cohesive Notes UI and trimmed search/nav chrome.
-- **Flashcard Tabbed Rolodex Index Card**:
-  - Physical index-card trigger with top file tab, stepped deck depth, spindle notch icon.
-- **Organic Circular Matrix Reactor Core**:
-  - Dashboard trigger as translucent circular reactor with center-point dimensioning.
-- **Matrix Red Pill / Blue Pill Brand Identity**:
-  - Dual-capsule icon (`38px × 32px`) across headers.
-- **Matrix Rain FX Refinement**:
-  - Cascading Katakana columns with lead highlights and depth fading.
-
+Cache name: `sw.js` (`ptce-2026-v56`).
 
 Bank on this commit:
 
@@ -121,20 +103,4 @@ Bank on this commit:
 - 190 flashcards, including 2 `featured: false`
 - 12 modules, 45 lessons (41 featured + 4 optional archive)
 
-Recent merges that got the UI here, newest first:
-
-- #30 plan-review gate; Google AI art deferred
-- #29 Notes v4 content audit docs
-- #28 Study Notes Codex v2 baseline + v3/v4 Terminal Codex plans (Notes overhaul not started)
-- #26 home HUD asymmetry and Matrix rain craft (`v34`)
-- #24 Matrix home and progress dashboard
-- #25 / #23 lesson pages hug the viewport; short lessons no longer phantom-scroll
-- #21 lesson fill and larger reading type
-- #20–#16, #13–#11 quiz setup density, left/center/right actions, Quick 10 at chapter scale
-- #9–#4 flashcard and quiz/exam viewport fit
-- #15 / #14 2026 fact scrub (Federal and Patient Safety, then the wider bank)
-- #10 localhost skips the service worker; app shell is network-first
-- #3 Stage 7 post-2020 pack (CARA partials, clozapine / iPLEDGE REMS, VIS, take-back, recalls)
-- #1 align to the January 6, 2026 outline
-
-`ROADMAP.md` and `TESTING_REPORT.md` are older logs. They still describe cache names and stage lists from before these merges. Live status is this file. What's left is [TODO.md](TODO.md).
+UI history is the git log. Older stage logs and the test report are in `docs/archive/` and are not current.

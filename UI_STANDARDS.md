@@ -26,5 +26,5 @@ Locked rules for UI edits and new components or templates. Home is the reference
     - Cards over rain may be less opaque so the background shows, never at the cost of legibility.
     - `css/matrix.css` is planned so Notes, Course, and Exam inherit Home. Not extracted yet.
     - Rain (`js/app.js`): quality over density — fade, placement, angle, perspective, and depth, not more glyphs. Katakana and hex columns, bright leads with white tips, darker green behind, fade toward the bottom, no static grid. Skip when `prefers-reduced-motion` is set.
-14. **UI work sequence**. Lock these rules, test on the Chrome laptop viewport, then extras. After any service-worker cache bump, unregister the service worker and clear site data before judging UI.
+14. **UI work sequence**. Lock these rules, test on the Chrome laptop viewport, then extras. After any service-worker cache bump, unregister the service worker and clear site data before judging UI. The code-change loop is **Verify before PR** in [AGENTS.md](AGENTS.md).
 15. **Dashboard surface**. Dashboard cards are Resurrections glass: solid `#051318`, a faint `#00e5ff` top edge, white body text; titles, numbers, and bars are `#00ff41`, and average score and exams stay gold. The Dashboard page does not run the code rain.
