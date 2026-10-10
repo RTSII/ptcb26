@@ -16,7 +16,14 @@
   let lessonIndex = new Map(); // lessonId -> { module, lesson, flatIndex }
   let flatLessons = [];        // [{module, lesson}] in course order
   let currentFlat = 0;
-  let openModuleId = null;     // one accordion at a time; null = all closed
+  // Notes domain badges (data/notes.json weights). Names come from App.DOMAINS.
+  const DOMAIN_WEIGHTS = {
+    'Medications': '35%',
+    'Patient Safety and Quality Assurance': '23.75%',
+    'Order Entry and Processing': '22.50%',
+    'Federal Requirements': '18.75%'
+  };
+  let openDomainIndex = -1;   // one domain accordion; -1 = all closed
 
   function esc(s) { return Util.escapeHtml(String(s)); }
 
@@ -198,11 +205,75 @@
     applyHead(1, false);
   }
 
+  function domainGroups() {
+    const names = (window.App.DOMAINS || []).slice();
+    return names.map(function (name) {
+      return {
+        name: name,
+        weight: DOMAIN_WEIGHTS[name] || '',
+        modules: course.modules.filter(function (m) { return m.domain === name; })
+      };
+    });
+  }
+
+  function moduleBlock(m, done) {
+    const featured = featuredOf(m.lessons);
+    const optional = m.lessons.filter(isOptional);
+    const completed = featured.filter(function (l) { return done.has(l.id); }).length;
+    const mpct = featured.length ? Math.round((completed / featured.length) * 100) : 0;
+    const lessons = featured.map(function (l) {
+      return lessonLinkHtml(l, done.has(l.id));
+    }).join('');
+    const archive = optional.length
+      ? '<div class="archive-block"><div class="archive-label">Optional / not emphasized on 2026 PTCE</div>' +
+        optional.map(function (l) { return lessonLinkHtml(l, done.has(l.id)); }).join('') + '</div>'
+      : '';
+    return '<section class="course-module' + (mpct === 100 ? ' course-module-complete' : '') + '" data-module-id="' + esc(m.id) + '">' +
+      '<h3 class="course-module-title">' + esc(m.title) + '</h3>' +
+      '<p class="module-desc">' + esc(m.desc) + '</p>' +
+      '<div class="bar-track module-bar"><div class="bar-fill" style="width:' + mpct + '%"></div></div>' +
+      '<div class="lesson-list">' + lessons + archive + '</div>' +
+      '<a class="btn gold module-quiz" href="' + quizUrl(m) + '">Test Yourself: ' + esc(m.domain) + ' Quiz</a>' +
+      '</section>';
+  }
+
+  function domainCard(group, di, isOpen) {
+    const moduleCount = group.modules.length;
+    const countLabel = moduleCount === 1 ? '1 Module' : moduleCount + ' Modules';
+    const header = '<button type="button" class="nx-domain-header" data-domain-toggle="' + di + '" aria-expanded="' + (isOpen ? 'true' : 'false') + '">' +
+      '<span class="nx-domain-header-left">' +
+        '<span class="nx-domain-pill">DOMAIN ' + (di + 1) + '</span>' +
+        '<span class="nx-weight-badge">' + esc(group.weight) + '</span>' +
+      '</span>' +
+      '<h2 class="nx-domain-name">' + esc(group.name) + '</h2>' +
+      '<span class="nx-domain-header-right">' +
+        '<span class="nx-topic-count-badge">' + countLabel + '</span>' +
+        '<span class="nx-chevron-icon" aria-hidden="true">' + (isOpen ? '▲' : '▼') + '</span>' +
+      '</span>' +
+      '</button>';
+    const body = isOpen
+      ? '<div class="nx-domain-body">' + group.modules.map(function (m) {
+          return moduleBlock(m, new Set(progress().completed));
+        }).join('') + '</div>'
+      : '';
+    return '<div class="nx-domain-card ' + (isOpen ? 'nx-domain-open' : 'nx-domain-closed') + '" data-domain-card="' + di + '">' +
+      header + body + '</div>';
+  }
+
+  function domainChips(groups) {
+    return '<div class="nx-domain-switch" role="group" aria-label="Switch domain">' +
+      groups.map(function (g, di) {
+        const active = di === openDomainIndex;
+        return '<button type="button" class="nx-domain-chip' + (active ? ' is-active' : '') + '" data-domain-switch="' + di + '"' +
+          (active ? ' disabled aria-current="true"' : '') +
+          ' aria-label="' + esc(g.name) + ', ' + esc(g.weight) + '">D' + (di + 1) + ' ' + esc(g.weight) + '</button>';
+      }).join('') +
+      '</div>';
+  }
+
   function renderList() {
-    const done = new Set(progress().completed);
-    const labels = moduleLabels(course.modules);
+    const groups = domainGroups();
     const target = resumeTarget();
-    document.body.classList.toggle('course-reading', !!openModuleId);
 
     let html = '';
     if (target) {
@@ -211,46 +282,22 @@
         esc(target.verb) + ' "' + esc(target.entry.lesson.title) + '"</a></div>';
     }
 
-    // One module open at a time. The open card is rendered first so it sits
-    // under the header once the idle spacer eases shut. Reload and returning
-    // to the list both start closed (openModuleId is cleared in showList).
-    const ordered = course.modules.map(function (m, mi) { return { m: m, mi: mi }; });
-    if (openModuleId) {
-      const at = ordered.findIndex(function (x) { return x.m.id === openModuleId; });
-      if (at > 0) ordered.unshift(ordered.splice(at, 1)[0]);
+    // Closed list is the four domain cards. An open domain is rendered first,
+    // under the Notes domain-pill row, so it sits at the top. The other
+    // domains stay collapsed cards below it, in domain order. Modules and
+    // lessons stay in course order inside the open card. Reload starts closed.
+    const order = groups.map(function (g, di) { return di; });
+    if (openDomainIndex >= 0 && openDomainIndex < groups.length) {
+      html += domainChips(groups);
+      order.splice(openDomainIndex, 1);
+      order.unshift(openDomainIndex);
     }
-
-    html += ordered.map(function (item) {
-      const m = item.m;
-      const mi = item.mi;
-      const featured = featuredOf(m.lessons);
-      const optional = m.lessons.filter(isOptional);
-      const completed = featured.filter(function (l) { return done.has(l.id); }).length;
-      const mpct = featured.length ? Math.round((completed / featured.length) * 100) : 0;
-      const lessons = featured.map(function (l) {
-        return lessonLinkHtml(l, done.has(l.id));
-      }).join('');
-      const archive = optional.length
-        ? '<div class="archive-block"><div class="archive-label">Optional / not emphasized on 2026 PTCE</div>' +
-          optional.map(function (l) { return lessonLinkHtml(l, done.has(l.id)); }).join('') + '</div>'
-        : '';
-      const label = labels[mi];
-      const isOpen = openModuleId === m.id;
-      return '<details class="module' + (mpct === 100 ? ' module-complete' : '') + '" data-module-id="' + esc(m.id) + '"' + (isOpen ? ' open' : '') + '>' +
-        '<summary>' +
-          '<span class="module-pill">D' + label.domainNum + '·' + label.chapter + '</span>' +
-          '<span class="module-title">' + esc(m.title) + '</span>' +
-        '</summary>' +
-        '<div class="module-body">' +
-          '<p class="module-desc">' + esc(m.desc) + '</p>' +
-          '<div class="bar-track module-bar"><div class="bar-fill" style="width:' + mpct + '%"></div></div>' +
-          '<div class="lesson-list">' + lessons + archive + '</div>' +
-          '<a class="btn gold module-quiz" href="' + quizUrl(m) + '">Test Yourself: ' + esc(m.domain) + ' Quiz</a>' +
-        '</div>' +
-        '</details>';
+    html += order.map(function (di) {
+      return domainCard(groups[di], di, di === openDomainIndex);
     }).join('');
 
     listView.innerHTML = html;
+    requestAnimationFrame(function () { window.dispatchEvent(new Event('resize')); });
   }
 
   function renderLesson(lessonId) {
@@ -316,18 +363,17 @@
   }
 
   function showList() {
-    openModuleId = null;
-    document.body.classList.remove('lesson-open', 'course-reading');
+    openDomainIndex = -1;
+    document.body.classList.remove('lesson-open');
     lessonView.style.display = 'none';
     if (listWrap) listWrap.style.display = '';
-    listView.style.display = 'block';
+    listView.style.display = '';
     renderList();
     document.title = 'Study Course · PTCE 2026';
   }
 
   function showLesson(lessonId) {
     document.body.classList.add('lesson-open');
-    document.body.classList.remove('course-reading');
     if (listWrap) listWrap.style.display = 'none';
     lessonView.style.display = '';
     renderLesson(lessonId);
@@ -353,21 +399,29 @@
     fitTimer = setTimeout(fitLessonBody, 60);
   });
 
-  // One open accordion. preventDefault keeps the native details toggle from
-  // opening a second card; renderList applies the single open attribute.
+  // One open domain. The pill row switches domains without closing.
+  // The header toggles that card to the top. Lesson links are left to the
+  // router so a lesson still opens the full lesson page.
   listView.addEventListener('click', function (e) {
-    const summary = e.target.closest('.module > summary');
-    if (!summary || !listView.contains(summary)) return;
-    const details = summary.parentElement;
-    if (!details) return;
-    e.preventDefault();
-    const id = details.getAttribute('data-module-id');
-    openModuleId = (openModuleId === id) ? null : id;
-    renderList();
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (openModuleId) window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
-    const focusSel = '.module[data-module-id="' + (window.CSS && CSS.escape ? CSS.escape(id) : id) + '"] > summary';
-    const focusEl = listView.querySelector(focusSel);
+    const switchBtn = e.target.closest('[data-domain-switch]');
+    if (switchBtn && !switchBtn.disabled && listView.contains(switchBtn)) {
+      const idx = parseInt(switchBtn.getAttribute('data-domain-switch'), 10);
+      if (!isNaN(idx) && idx !== openDomainIndex) {
+        openDomainIndex = idx;
+        renderList();
+        window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      }
+      return;
+    }
+    const toggleBtn = e.target.closest('[data-domain-toggle]');
+    if (!toggleBtn || !listView.contains(toggleBtn)) return;
+    const idx = parseInt(toggleBtn.getAttribute('data-domain-toggle'), 10);
+    if (isNaN(idx)) return;
+    openDomainIndex = (openDomainIndex === idx) ? -1 : idx;
+    renderList();
+    if (openDomainIndex >= 0) window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    const focusEl = listView.querySelector('[data-domain-card="' + idx + '"] .nx-domain-header');
     if (focusEl) focusEl.focus({ preventScroll: true });
   });
 
