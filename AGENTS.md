@@ -11,6 +11,14 @@ Read in this order:
 
 Do not read `docs/archive/`. Those files are history.
 
+## Frontend edits
+
+1. Docs first: before any edit to existing frontend code or page content, read this file, [UI_STANDARDS.md](UI_STANDARDS.md), [README.md](README.md), and that page's HTML, CSS, and JS once. Reuse existing classes and patterns. No new layout unless Rob asked for one.
+2. Every agent, including subagents and parallel agents: research and gather, then plan, then execute only the requested task, then stop and report. No free rein. No extra scope.
+3. Content PRs are UI PRs. Screenshot every touched page at 1366×768. Confirm each is contained, padded, and free of clipping, spill, and wasted width. Put the screenshots in the report.
+4. When Rob names a specific approach, follow it literally and ask before deviating. When he does not name a route or area, use best judgment within the requested scope, after the docs-first read, with no destructive actions, and state the chosen approach in the report.
+5. Grok Bot reviews screenshots before any merge, including standing-approval merges. Passing numbers alone do not count.
+
 - Do not merge without Rob's explicit approval.
 - Do not commit v2 `notes.json` until the blocks runtime ships with it. Keep that file outside `data/` until then.
 - No silent clinical fact edits.
@@ -28,7 +36,7 @@ Do not read `docs/archive/`. Those files are history.
 
 On every code change, run this loop before asking for review. In the PR description, record only failures found, what was fixed, and any open flags or known limits. No running log file.
 
-- `node validate.js`. It checks schema, IDs, domain names, and a few copy assertions. It is not a content sign-off.
+- `node validate.js`. It checks schema, IDs, domain names, and a few copy assertions, then runs `check-containment.js`. That loads every lesson at 1366×768 and fails if a key-points panel or a lesson-card child clips or overflows its container border. It is not a content sign-off.
 - Serve locally and load every touched page, plus Home. No console errors.
 - Exercise the touched feature end to end (start an exam, resume a lesson, flip a card).
 - Check phantom scroll at 1366×768 and 1920×1080. Real scroll only when dense content overflows. See [UI_STANDARDS.md](UI_STANDARDS.md).

@@ -102,7 +102,8 @@ Every tracked file. Update this tree when a file is added, removed, or renamed (
 ├── icon.svg                    # PWA icon: red pill / blue pill mark
 ├── manifest.json               # install manifest; start_url is index.html
 ├── sw.js                       # service worker, cache ptce-2026-vNN
-└── validate.js                 # schema, ID, domain, and copy smoke checks
+├── validate.js                 # schema, ID, domain, copy, and containment checks
+└── check-containment.js        # headless lesson containment; invoked by validate.js
 
 css/
 ├── exam-setup.css              # practice-exam setup console; tokens stay on .xs

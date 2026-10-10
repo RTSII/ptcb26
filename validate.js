@@ -571,5 +571,16 @@ if (!/height:\s*100dvh/.test(lessonShell) || !/max-height:\s*100dvh/.test(lesson
   fail('taller lessons should scroll inside the reading region');
 } else ok('lesson shell locks to the viewport and scrolls inside the reading region');
 
+console.log('\nLesson containment');
+try {
+  execFileSync(process.execPath, [path.join(ROOT, 'check-containment.js')], {
+    stdio: 'inherit',
+    timeout: 120000
+  });
+  ok('every lesson at 1366x768: key-points and card children stay inside their borders');
+} catch (err) {
+  fail('lesson containment check failed');
+}
+
 console.log(failed ? '\nFAILED ' + failed + ' check(s)' : '\nAll checks passed.');
 process.exit(failed ? 1 : 0);
