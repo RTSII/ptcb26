@@ -20,7 +20,8 @@ Live backlog. History in `docs/archive/` is not this list.
   - **Partial scope (lesson stays on the default path):** `m11l3` — FDCA history, PPPA, ADA, and NDC sit outside 2.1–2.6; the Medication Guide bullet supports 2.4. `m12l2` — FEFO, expired stock, and NDC returns sit outside FDA recall 2.5; recall classes and initiation stay on the default path.
 - [x] **Course gap-fill.** Medications, Patient Safety, Order Entry, and Federal Requirements. Next is item 1.
 
-1. **Match Study Course accordion UI/page to Study Notes accordion.**
+1. **Recheck longest lessons** after the key-points layout fix. Reading-region overflow at 1366×768, most first: `m10l2` 1229, `m1l5` 866, `m10l3` 842, `m1l6` 809, `m1l3` 677, `m6l1` 674, `m1l4` 653, `m12l5` 623, `m3l3` 595, `m10l5` 557, `m4l2` 517, `m4l4` 512, `m12l2` 505, `m2l1` 499, `m12l4` 485, `m5l3` 475, `m3l2` 475, `m11l3` 451, `m10l1` 378, `m1l2` 370, `m7l3` 348, `m7l4` 345, `m6l2` 289, `m9l2` 286, `m4l3` 230, `m3l1` 217, `m7l2` 187, `m8l2` 183, `m12l3` 174, `m12l1` 174, `m11l1` 153, `m5l2` 146, `m5l1` 145, `m8l3` 135, `m1l1` 127, `m10l4` 115, `m2l4` 94, `m8l1` 91, `m7l1` 91, `m7l5` 79, `m9l1` 62, `m5l4` 62, `m11l2` 62, `m2l3` 31, `m2l2` 11. Re-check these. Key points no longer clip; leftover scroll is the lesson body. `m4l1`, `m8l4`, and `m8l5` fit with no reading-region overflow.
+2. **Match Study Course accordion UI/page to Study Notes accordion.**
    - Auxiliary labels: course Patient Safety `m6l1` vs Notes Order Entry.
    - C-II refill and partial fill: course Federal `m10l2` vs Notes Order Entry.
    - OBRA-90 DUR: course Federal `m11l2` only vs Notes also under Patient Safety.
@@ -28,8 +29,8 @@ Live backlog. History in `docs/archive/` is not this list.
    - Course-only: ADC overrides; regulatory agencies lesson; technician scope lesson.
    - Notes-only: FMEA; tech cannot verify their own work. Concurrent DUR is in course `m4l4`.
    - Garb vs PPE: course `m5l2` sterile garb order vs Notes routine PPE order.
-2. **Study Notes content audit.** Same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
-3. **Notes theme overhaul.** Only after the course audit and the notes audit are signed off (`study_notes_v4_plan.md`).
+3. **Study Notes content audit.** Same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
+4. **Notes theme overhaul.** Only after the course audit and the notes audit are signed off (`study_notes_v4_plan.md`).
 
 Course is the primary path; Notes summarize it. Lock course facts before Notes so the same error is not fixed twice. Course and notes audits use [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md). Standing rules: [AGENTS.md](AGENTS.md).
 
@@ -58,7 +59,7 @@ Superseded by the block above (do not follow these):
 - [x] Flashcards trigger: tabbed physical Rolodex index card with stepped deck depth and spindle notch icon
 - [x] Study Notes Codex v2 baseline (3-zone header, layouts, parenthesis-safe parsing)
 - [x] Cascading Katakana Matrix rain FX (depth layers, white lead tips, no static grid floor overlays)
-- [x] Service worker and `?v=` cache busters. Current name: `ptce-2026-v66` in `sw.js`
+- [x] Service worker and `?v=` cache busters. Current name: `ptce-2026-v67` in `sw.js`
 - [x] Study Course home: chapters closed on load, title in the centered header, chapter titles centered (`ptce-2026-v49`)
 - [x] Home course card (#37)
 - [x] Dashboard Resurrections glass cards with no rain on the Dashboard (#38)

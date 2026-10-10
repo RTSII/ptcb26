@@ -1513,37 +1513,23 @@ body.course.lesson-open .lesson-layout {
   overflow-x: hidden;
   overflow-y: auto;
 }
-@media (min-width: 1100px) {
-  body.course.lesson-open .lesson-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 32%);
-    gap: 14px 28px;
-    align-items: stretch;
-  }
-  body.course.lesson-open .lesson-body,
-  body.course.lesson-open .lesson-layout .key-points {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    margin-top: 0;
-  }
-  body.course.lesson-open .lesson-body ul,
-  body.course.lesson-open .lesson-layout .key-points ul {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 8px;
-  }
+/* Key points are a full-width block that grows with its items. Bullets then
+   use the whole card. A side column kept every bullet narrow and stretched
+   the panel until items sat outside its border. */
+body.course.lesson-open .lesson-layout .key-points {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: none;
+  min-height: 0;
+  margin: 0 0 14px;
+  overflow: visible;
 }
-@media (min-width: 980px) and (max-width: 1099px) {
-  body.course.lesson-open .lesson-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
-    gap: 12px 22px;
-    align-items: start;
-  }
-  body.course.lesson-open .lesson-layout .key-points { margin-top: 0; }
+body.course.lesson-open .lesson-layout .key-points h3,
+body.course.lesson-open .lesson-layout .key-points ul,
+body.course.lesson-open .lesson-layout .key-points li {
+  margin-top: 0;
+  max-height: none;
 }
 
 /* ============ Flashcards: fill the laptop viewport, no document scroll ============ */

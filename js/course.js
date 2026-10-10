@@ -186,13 +186,13 @@
       '<h2 class="lesson-title-main">' + esc(l.title) + '</h2>' +
       '<p class="lesson-intro">' + esc(l.intro) + '</p>' +
       '<div class="lesson-layout">' +
-      '<div class="lesson-body"><ul>' +
-      l.bullets.map(b => '<li>' + esc(b) + '</li>').join('') +
-      '</ul></div>' +
       (l.keyPoints && l.keyPoints.length ?
         '<div class="key-points"><h3>⭐ Key Points to Remember</h3><ul>' +
         l.keyPoints.map(k => '<li>' + esc(k) + '</li>').join('') +
         '</ul></div>' : '') +
+      '<div class="lesson-body"><ul>' +
+      l.bullets.map(b => '<li>' + esc(b) + '</li>').join('') +
+      '</ul></div>' +
       '</div>' +
       '<div class="lesson-actions">' +
         '<button class="btn ' + (done ? 'outline' : 'gold') + '" id="completeBtn">' + (done ? '✓ Completed' : 'Mark Complete') + '</button>' +
