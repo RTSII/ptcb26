@@ -19,7 +19,7 @@
             "Benzodiazepines (-pam/-lam): lorazepam, alprazolam, diazepam, clonazepam — anxiety, seizures (C-IV controlled).",
             "Fluoroquinolones (-floxacin): ciprofloxacin, levofloxacin — tendon rupture black box, avoid dairy/antacids.",
             "Macrolides (-thromycin): azithromycin, clarithromycin — QTc prolongation.",
-            "Tetracyclines (-cycline): doxycycline — photosensitivity. Absorption of doxycycline is not markedly influenced by simultaneous ingestion of food or milk.",
+            "Tetracyclines (-cycline): doxycycline — photosensitivity; food/milk don't markedly affect absorption.",
             "DPP-4 -gliptin, SGLT-2 -gliflozin, GLP-1 -glutide: diabetes agents.",
             "Triptans (-triptan): sumatriptan — migraine; CI in CAD."
           ]
@@ -80,8 +80,8 @@
         {
           "title": "Insulin Types",
           "items": [
-            "Rapid-acting: lispro (Humalog), aspart (NovoLog), glulisine (Apidra) — onset ~15 min; give with meals.",
-            "Short-acting: regular (Humulin R, Novolin R) — onset ~30 min. U-100 insulin aspart (NovoLog) is labeled for intravenous use under medical supervision. NovoLog Mix 70/30 must not be given IV.",
+            "Rapid-acting: lispro (Humalog), aspart (NovoLog), glulisine (Apidra) — onset ~15 min; give with meals. U-100 NovoLog may be given IV under supervision; not NovoLog Mix 70/30.",
+            "Short-acting: regular (Humulin R, Novolin R) — onset ~30 min; can be given IV.",
             "Intermediate: NPH (Humulin N, Novolin N) — cloudy; Humulin N median maximum effect 6.5 hr (range 2.8–13 hr); mix last.",
             "Long-acting (basal): glargine (Lantus/Basaglar), degludec (Tresiba) — clear; do NOT mix. Glargine — about 24 hours, no pronounced peak. Degludec lasts at least 42 hours. Detemir (Levemir) is discontinued in the US.",
             "Concentrated: Toujeo (glargine U-300), U-500 regular — NOT interchangeable unit-for-unit.",
