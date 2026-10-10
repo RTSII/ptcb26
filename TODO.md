@@ -38,6 +38,11 @@ Live backlog. History in `docs/archive/` is not this list.
 5. **Notes theme overhaul.** Only after the course audit and the notes audit are signed off (`study_notes_v4_plan.md`).
    - Step 1, before layout: diff current `data/notes.json` against `a0e7321` (before `a7542b5`) and list lost or garbled content and broken titles/numbering to restore.
    - Headers, titles, and numbering render correctly. Card layout and dimensions follow content and priority, not one repeated size. Group short cards (several short items as smaller sub-cards on one row) to remove marginal scrolls. Example: Federal FDA Recalls after #58 scrolls only slightly, with 3 short cards.
+   - Remove Notes content the January 2026 outline does not test (NTI is the example), after checking each topic against the outline.
+   - Prev/next topic nav stops at the first and last topic in a domain. It should move into the previous or next domain. Domain pills are the only cross-domain control now.
+   - Brand/Generic: order rows by class and context. Moderate column padding. Two side-by-side tables (4 columns) so the topic does not scroll.
+   - OTC actives: more column padding, and a 4-column layout or similar so the topic does not scroll.
+   - High-Alert & LASA stays only in Patient Safety (3.1). #58 already moved that section out of Medications. Merge any unique Medications facts into the Patient Safety section if a second copy turns up.
 
 Course is the primary path; Notes summarize it. Lock course facts before Notes so the same error is not fixed twice. Course and notes audits use [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md). Standing rules: [AGENTS.md](AGENTS.md).
 
