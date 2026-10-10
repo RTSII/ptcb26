@@ -387,7 +387,8 @@
           "items": [
             "C-I: no accepted medical use, high abuse (heroin, LSD, and marijuana that is not an FDA-approved product and not under a state medical-marijuana license).",
             "Marijuana split (April 28, 2026): FDA-approved marijuana products and state-licensed medical marijuana are C-III. Other marijuana remains C-I while broader rescheduling is pending. Older “all marijuana is C-I” notes are out of date.",
-            "C-II: high abuse, accepted use — NO refills (oxycodone, hydrocodone, morphine, Adderall, fentanyl, methadone). Rx typically valid 30 days (state may vary).",
+            "C-II: high abuse, accepted use — NO refills (oxycodone, hydrocodone, morphine, Adderall, fentanyl, methadone).",
+            "C-II validity: no federal time limit to fill a signed prescription; the pharmacist confirms it is still needed. 30 days = CARA partial-fill window only (state may be stricter).",
             "C-III: moderate abuse (Tylenol #3, testosterone, buprenorphine) — up to 5 refills within 6 months of the written date.",
             "C-IV: lower abuse (alprazolam, lorazepam, tramadol, zolpidem, carisoprodol) — up to 5 refills within 6 months of the written date.",
             "C-V: lowest abuse (cough syrups with codeine, pregabalin). Federal law does not set a 5-refill / 6-month cap on Schedule V; follow the stricter state rule.",
@@ -419,12 +420,7 @@
         {
           "title": "Key Federal Laws",
           "items": [
-            "FDCA (1938): FDA drug safety authority; Durham-Humphrey (1951): Rx vs OTC classification.",
-            "Kefauver-Harris (1962): required proof of efficacy (thalidomide disaster).",
-            "Controlled Substances Act (1970): created the 5-schedule system; Poison Prevention Packaging Act (1970): child-resistant containers.",
-            "OBRA-90 (effective 1993): for each Medicaid beneficiary or caregiver who presents a prescription, an offer to counsel plus prospective DUR. Not limited to new prescriptions.",
-            "HIPAA (1996; Privacy 2003, Security 2005): protects patient PHI.",
-            "CMEA (2005): 3.6 g of base per day (pseudoephedrine, ephedrine, or phenylpropanolamine); 9 g of base per 30 days, of which not more than 7.5 g of base may be mail-order; photo ID + logbook (name, address, signature), except one package of not more than 60 mg pseudoephedrine.",
+            "Controlled Substances Act (1970): created the 5-schedule system; enforced by the DEA.",
             "The DATA 2000 X-waiver for office-based buprenorphine was eliminated in December 2022 (MAT Act). Any DEA-registered practitioner with Schedule III authority may prescribe buprenorphine for OUD; a separate X-waiver is no longer required. DSCSA (2013) is its own 2026 knowledge area (2.6) — see the DSCSA section.",
             "Biennial (every 2 years) controlled substance inventory required.",
             "Controlled-substance prescription records must be maintained for at least 2 years.",
@@ -435,25 +431,6 @@
           ]
         },
         {
-          "title": "HIPAA — Tech Specifics",
-          "items": [
-            "PHI = any info identifying the patient (name, DOB, Rx number, diagnosis).",
-            "Minimum necessary applies to most uses and disclosures. It does not apply to a disclosure to, or a request by, a health care provider for treatment. Notice of Privacy Practices at first fill.",
-            "Permitted disclosures: treatment, payment, operations (TPO) without extra authorization.",
-            "Breach notification within 60 days; civil penalties are four inflation-adjusted tiers (2025): minimum $145, $1,461, $14,602, or $73,011 per violation; per-violation maximum $73,011 except $2,190,294 for uncorrected willful neglect; calendar-year cap $2,190,294; plus criminal penalties."
-          ]
-        },
-        {
-          "title": "PPPA & Pseudoephedrine (CMEA)",
-          "items": [
-            "PPPA (1970): child-resistant packaging for most Rx and certain OTC drugs. Enforced by the CPSC, not the FDA. Sublingual nitroglycerin is exempt (also commonly tested: SL isosorbide, prednisone ≤105 mg per package, certain pediatric antibiotics).",
-            "Non-CRC request: a prescriber may request it for a single prescription. Only the patient may make a blanket request for all of their prescriptions. Document the request.",
-            "ADA packaging accommodations: easy-off caps, large-print labels, talking labels, and Braille labels.",
-            "Medication Guides: give the FDA Medication Guide with each fill of a drug that requires one, including refills.",
-            "CMEA: 3.6 g of base per day (pseudoephedrine, ephedrine, or phenylpropanolamine); 9 g of base per 30 days, of which not more than 7.5 g of base may be mail-order; photo ID + logbook (name, address, signature), except one package of not more than 60 mg pseudoephedrine; behind the counter."
-          ]
-        },
-        {
           "title": "Restricted Drug Programs (2.4) — REMS & CMEA",
           "items": [
             "Knowledge area 2.4: federal restricted programs and related processing — pseudoephedrine (CMEA) and Risk Evaluation and Mitigation Strategies (REMS).",
@@ -461,13 +438,14 @@
             "Clozapine REMS was removed effective June 13, 2025, so clozapine is not a current pharmacy REMS. Pharmacies do not enroll and do not confirm an ANC through a REMS before dispensing. Severe neutropenia risk, the boxed warning, and a Medication Guide remain. ANC monitoring stays with the prescriber per the labeling.",
             "iPLEDGE (isotretinoin): teratogen. Prescriber, certified pharmacy, and patients enroll — patients who can get pregnant and patients who cannot get pregnant. Maximum 30-day supply, no refills, authorization before each dispense. Patients who can get pregnant have a 7-day pickup window from specimen collection. The old 19-day lockout is not current: a missed window gets a repeat pregnancy test immediately, with no extra wait.",
             "THALOMID/lenalidomide remains a current pregnancy-prevention REMS. TIRF is not a routine current enroll-and-dispense REMS: production of TIRF medicines stopped September 30, 2024, and the REMS accepts no new enrollments. Tech action on a REMS reject: stop and notify the pharmacist.",
-            "CMEA (still 2.4): 3.6 g of base per day (pseudoephedrine, ephedrine, or phenylpropanolamine); 9 g of base per 30 days, of which not more than 7.5 g of base may be mail-order; photo ID + logbook; behind the counter or locked."
+            "Medication Guides: give the FDA Medication Guide with each fill of a drug that requires one, including refills.",
+            "CMEA: 3.6 g of base per day (pseudoephedrine, ephedrine, or phenylpropanolamine); 9 g of base per 30 days, of which not more than 7.5 g of base may be mail-order; photo ID + logbook (name, address, signature), except one package of not more than 60 mg pseudoephedrine; behind the counter or locked."
           ]
         },
         {
           "title": "DEA Number Verification",
           "items": [
-            "Format: 2 letters + 7 digits. First letter = registrant type (B = physician, C = pharmacy, M = mid-level); second letter = registrant's last-name initial.",
+            "Format: 2 letters + 7 digits. First letter: A = practitioner before 1 Oct 1985; B or F = practitioner after that date; M = mid-level. Second letter usually = last-name initial. C is not a pharmacy code.",
             "Check digit math: (1st+3rd+5th digits) + 2×(2nd+4th+6th digits) = sum; the last digit of the sum must equal the 7th (check) digit.",
             "Example: AB1234563 → (1+3+5)=9; (2+4+6)=12 ×2 =24; 9+24=33; last digit 3 = check digit 3. Valid."
           ]
@@ -478,11 +456,8 @@
             "Recall classes: Outline 2.5 is medication recalls. Class I = reasonable probability of serious adverse health consequences or death; Class II = temporary or medically reversible harm, or a remote probability of serious harm; Class III = adverse health consequences not likely (often labeling/packaging).",
             "Recall depth: wholesale, retail, or consumer (patient) level. A Class I medication recall usually reaches the consumer level, and patients who received the affected lot are notified.",
             "The firm initiates a recall. FDA may request one. Pharmacy action is the same: pull, quarantine, document, and follow the recall notice for returns/patient notification.",
-            "Market withdrawal is not a recall — the firm removes a product for a minor violation that would not be subject to legal action (e.g., a tamper-evident issue that is not a safety recall).",
-            "Orange Book codes: A/AB = therapeutically equivalent (substitutable); B = not equivalent.",
-            "NPI: 10-digit provider ID (effective 2007); required on claims; does NOT replace DEA number.",
-            "When federal and state rules differ, follow the stricter requirement.",
-            "On any recall: match NDC + lot + expiration, quarantine, document, and follow the notice for returns and patient notification. Class I is pulled immediately.",
+            "Market withdrawal: not a recall. The firm removes a product for a minor violation that would not be subject to legal action, or no violation (e.g., normal stock rotation).",
+            "On any recall: match NDC + lot + expiration, quarantine, document, and follow the notice for returns and patient notification.",
             "Take-back programs (2.3) are for unwanted patient-owned drugs (especially controls). A recall is a firm/FDA action on specific lots still in the supply chain — do not mix the two workflows."
           ]
         },
@@ -496,18 +471,6 @@
             "Suspect product: reason to believe it may be counterfeit, diverted, stolen, intentionally adulterated, or otherwise unfit. Illegitimate product: credible evidence that it is one of those things.",
             "Suspect product: do not dispense; quarantine; notify the pharmacist; verify the product identifier (NDC, serial, lot, expiration). Once the product is confirmed illegitimate, notify FDA (Form FDA 3911) and immediate trading partners within 24 hours.",
             "Keep DSCSA transaction records for 6 years. FDA used phased implementation milestones for electronic package-level tracing; learn the durable duties above rather than a specific exemption end-date."
-          ]
-        },
-        {
-          "title": "Counseling & Omnibus Laws",
-          "items": [
-            "OBRA-90: for each Medicaid beneficiary or caregiver who presents a prescription, prospective DUR and a pharmacist offer to counsel. The offer is not limited to new prescriptions. The patient may decline.",
-            "HIPAA: protects PHI; provide a Notice of Privacy Practices. Minimum necessary applies to most uses and disclosures. It does not apply to a disclosure to, or a request by, a health care provider for treatment.",
-            "FDCA 1938 (safety), Durham-Humphrey 1951 (Rx vs OTC), Kefauver-Harris 1962 (safety + efficacy, GMP).",
-            "Controlled Substances Act 1970: created the five DEA schedules; enforced by the DEA.",
-            "Poison Prevention Packaging Act 1970: child-resistant containers, enforced by the CPSC. Sublingual nitroglycerin is exempt. A prescriber may request non-CRC for one prescription; only the patient may make a blanket request.",
-            "Medication Guides are dispensed with each fill of specified drugs, including refills.",
-            "Combat Methamphetamine Epidemic Act: 3.6 g of base per day (pseudoephedrine, ephedrine, or phenylpropanolamine); 9 g of base per 30 days, of which not more than 7.5 g of base may be mail-order; photo ID + logbook; behind the counter."
           ]
         }
       ]
