@@ -290,12 +290,13 @@
     {
       "domain": "Order Entry and Processing",
       "weight": "22.50%",
-      "summary": "Order Entry and Processing (22.50% as of the January 6, 2026 outline). Sig code interpretation, pharmacy calculations, days supply, conversions, prescription intake, NDC format, and insurance processing. Alligation is not a tested calculation skill on the 2026 outline.",
+      "summary": "Order Entry and Processing (22.50% as of the January 6, 2026 outline). Sig code interpretation, pharmacy calculations, days supply, conversions, prescription intake, and NDC format. Alligation is not a tested calculation skill on the 2026 outline.",
       "sections": [
         {
           "title": "Common Sig Codes",
           "items": [
-            "PO = by mouth; PR = rectally; SL = sublingual; IV/IM/SC = injection routes.",
+            "PO = by mouth; PR = rectally; SL = sublingual; IV/IM = injection routes.",
+            "SC/SQ: do not use. Write subcut or subcutaneously.",
             "BID = twice daily; TID = 3x daily; QID = 4x daily; QHS = at bedtime; QAM = every morning.",
             "PRN = as needed; ac = before meals; pc = after meals; q6h = every 6 hours.",
             "gtt = drop. OD/OS/OU = right/left/both eyes; AD/AS/AU = right/left/both ears. Error-prone: do not use. Write right eye, left eye, both eyes, right ear, left ear, or both ears.",
@@ -305,9 +306,9 @@
         {
           "title": "Key Conversions",
           "items": [
-            "1 tsp = 5 mL; 1 tbsp = 15 mL; 1 fl oz = 30 mL; 1 cup = 240 mL.",
+            "1 tsp = 5 mL; 1 tbsp = 15 mL; 1 fl oz: ≈ 30 mL; 1 cup = 240 mL.",
             "1 kg = 2.2 lb; 1 lb = 454 g.",
-            "1 grain (gr) = 65 mg; 1 oz = 28.4 g; 1 g = 1,000 mg; 1 mg = 1,000 mcg.",
+            "1 grain (gr): ≈ 65 mg; 1 oz = 28.4 g; 1 g = 1,000 mg; 1 mg = 1,000 mcg.",
             "1 gallon = 3,785 mL; 1 pint = 473 mL; 1 quart = 946 mL.",
             "Temperature: °C = (°F − 32) × 5/9; body 37°C = 98.6°F; fridge 2–8°C = 36–46°F."
           ]
@@ -336,34 +337,17 @@
           "items": [
             "Verify patient identifiers: full name and date of birth.",
             "Confirm drug, strength, dosage form, quantity, directions, prescriber, and DEA (if controlled).",
-            "Check insurance/DUR and allergies before adjudication.",
             "Technicians enter data; the pharmacist performs the final clinical verification."
           ]
         },
         {
           "title": "NDC Format",
           "items": [
-            "National Drug Code = unique 10- or 11-digit, 3-segment number.",
-            "Segment 1 = labeler/manufacturer; Segment 2 = product (strength, dosage form); Segment 3 = package size.",
-            "Common formats: 5-4-2, 5-3-2, 4-4-2 (padded to 11 digits with a leading zero in the short segment)."
-          ]
-        },
-        {
-          "title": "Insurance / Third-Party Processing",
-          "items": [
-            "BIN routes the claim; PCN sub-routing; Group ID and Member ID identify plan/patient.",
-            "DAW codes: 0 = no product selection indicated, 1 = substitution not allowed by prescriber, 2 = substitution allowed, patient requested the brand.",
-            "COB = coordination of benefits (primary vs secondary).",
-            "Reject codes: 70 = not covered, 75 = prior auth required, 76 = plan limits/refill too soon, 25 = invalid prescriber ID."
-          ]
-        },
-        {
-          "title": "Auxiliary Labels",
-          "items": [
-            "Take with food: NSAIDs, metformin, iron. Empty stomach: levothyroxine, bisphosphonates.",
-            "Avoid alcohol: metronidazole, CNS depressants. Avoid sun: doxycycline, fluoroquinolones, sulfonamides.",
-            "May cause drowsiness: opioids, benzos, antihistamines. Shake well: suspensions.",
-            "Do not crush/chew: ER/XL/XR/SR, enteric-coated. Do not freeze insulin. Amoxicillin suspension: refrigeration is preferable, not required."
+            "FDA-assigned NDC: unique 10-digit, 3-segment number (4-4-2, 5-3-2, or 5-4-1).",
+            "Segment 1: labeler (FDA-assigned; manufacturer, repacker, relabeler, or distributor).",
+            "Segment 2: product (strength, dosage form, and formulation).",
+            "Segment 3: package size and type.",
+            "HIPAA NDC: 11-digit 5-4-2, made by adding a leading zero to the short segment."
           ]
         },
         {
@@ -372,10 +356,11 @@
             "Concentration: ratio 1:1000 = 1 g/1000 mL = 1 mg/mL. Percent w/v = g per 100 mL (0.9% = 0.9 g/100 mL).",
             "Percent to decimal: divide by 100 (0.75% = 0.0075). Percent w/w: mg per g = %×10 (1% cream = 10 mg/g; 0.25% cream = 2.5 mg/g).",
             "Weight-based dose: mg/kg/day × weight in kg. Convert lb→kg by dividing by 2.2.",
-            "Alligation (removed from the January 2026 outline): parts of high = target − low; parts of low = high − target. Review only if needed for practice, not as a 2026 tested skill.",
             "IV flow rate: gtt/min = (mL ÷ minutes) × drop factor; mL/hr = total volume ÷ hours.",
             "Temperature: °F = (°C × 9/5) + 32; °C = (°F − 32) × 5/9.",
-            "Days supply: tablets qty ÷ per-day; insulin (mL × 100) ÷ units/day; drops/ sprays multiply mL × 20 (or actuations) ÷ per-day; round down for billing.",
+            "Days supply: tablets qty ÷ per-day; drops mL × 20 ÷ per-day; round down for billing.",
+            "Insulin days supply: U-100 only, (mL × 100) ÷ units/day. U-500 is 500 units/mL (5× U-100); do not use ×100.",
+            "Sprays and inhalers: days supply = total actuations ÷ actuations per day. ProAir RespiClick is supplied as 200 actuations. Do not multiply those containers by 20.",
             "Alligation is not on the January 2026 PTCE calculation list; use C1V1 = C2V2 for dilution/concentration instead.",
             "Percentage strength: % w/v = g/100 mL; % v/v = mL/100 mL; % w/w = g/100 g.",
             "Ratio strength: 1:X means 1 g (or mL) per X mL total solution."
@@ -384,12 +369,10 @@
         {
           "title": "Reading the Prescription",
           "items": [
-            "Parts: inscription (drug/strength), subscription (quantity/refills), Signa/sig (patient directions).",
+            "Parts: inscription (drug/strength), subscription (dispensing directions to the pharmacist), Signa/sig (patient directions).",
             "\"Disp #30\" = dispense 30; refills are authorized separately (e.g., \"Refills: 2\").",
-            "DAW codes: 0 = no product selection indicated, 1 = substitution not allowed by prescriber, 2 = substitution allowed, patient requested the brand.",
             "Red flags to clarify with pharmacist: illegible handwriting, unusual dose, missing quantity/sig, or dangerous abbreviation.",
-            "Verify patient identity with two identifiers (full name + date of birth) before filling to prevent wrong-patient errors.",
-            "Non-controlled: per state law, commonly up to 1 year."
+            "Verify patient identity with two identifiers (full name + date of birth) before filling to prevent wrong-patient errors."
           ]
         }
       ]
