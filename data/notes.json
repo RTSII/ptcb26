@@ -20,9 +20,8 @@
             "Fluoroquinolones (-floxacin): ciprofloxacin, levofloxacin — tendon rupture black box, avoid dairy/antacids.",
             "Macrolides (-thromycin): azithromycin, clarithromycin — QTc prolongation.",
             "Tetracyclines (-cycline): doxycycline — photosensitivity, avoid dairy.",
-            "DPP-4 (-gliptin), SGLT-2 (-gliflozin), GLP-1 (-glutide): diabetes agents.",
-            "Triptans (-triptan): sumatriptan — migraine; CI in CAD.",
-            "-olol suffix = beta blockers (e.g., metoprolol, propranolol)."
+            "DPP-4 -gliptin, SGLT-2 -gliflozin, GLP-1 -glutide: diabetes agents.",
+            "Triptans (-triptan): sumatriptan — migraine; CI in CAD."
           ]
         },
         {
@@ -75,8 +74,7 @@
             "Flexeril = cyclobenzaprine",
             "Sinemet = carbidopa/levodopa",
             "Zyloprim = allopurinol",
-            "Imitrex = sumatriptan",
-            "Lipitor = atorvastatin."
+            "Imitrex = sumatriptan"
           ]
         },
         {
@@ -85,11 +83,9 @@
             "Rapid-acting: lispro (Humalog), aspart (NovoLog), glulisine (Apidra) — onset ~15 min; give with meals.",
             "Short-acting: regular (Humulin R, Novolin R) — onset ~30 min; only insulin safe IV.",
             "Intermediate: NPH (Humulin N, Novolin N) — cloudy; peak 4–10 hr; mix last.",
-            "Long-acting (basal): glargine (Lantus/Basaglar), degludec (Tresiba) — clear; do NOT mix. Detemir (Levemir) is discontinued in the US.",
+            "Long-acting (basal): glargine (Lantus/Basaglar), degludec (Tresiba) — clear; do NOT mix. Glargine — about 24 hours, no pronounced peak. Degludec lasts at least 42 hours. Detemir (Levemir) is discontinued in the US.",
             "Concentrated: Toujeo (glargine U-300), U-500 regular — NOT interchangeable unit-for-unit.",
             "Storage: unopened refrigerated 36–46°F; do NOT freeze; opened may be kept at room temp for a limited time per product.",
-            "Rapid-acting: lispro, aspart, glulisine — onset ~15 min; mealtime.",
-            "Long-acting: glargine — about 24 hours, no pronounced peak. Degludec lasts at least 42 hours.",
             "Unopened insulin: refrigerate. In-use Lantus vial: 28 days, refrigerated or room temperature. In-use Lantus SoloStar: 28 days at room temperature only (do not refrigerate). Never freeze."
           ]
         },
@@ -115,8 +111,7 @@
             "Fluoroquinolones: tendon rupture, QTc, peripheral neuropathy.",
             "Metoclopramide: tardive dyskinesia (black box), EPS.",
             "Pioglitazone: HF exacerbation, bladder cancer risk.",
-            "Bisphosphonates: esophageal irritation — stay upright 30 min, empty stomach.",
-            "ACE inhibitors (e.g., lisinopril) — dry, persistent cough."
+            "Bisphosphonates: esophageal irritation — stay upright 30 min, empty stomach."
           ]
         },
         {
@@ -169,8 +164,7 @@
             "Orally disintegrating tablets (ODT) dissolve on the tongue; effervescent tablets must be dissolved in water first.",
             "Transdermal patches: steady absorption, bypass first-pass; rotate sites, do not cut reservoir patches, fold before disposal (fentanyl).",
             "Suppositories (rectal/vaginal) bypass first-pass partially; store some refrigerated. Many metered-dose inhalers need priming; ProAir RespiClick does not.",
-            "Suspensions: \"shake well before use.\" Reconstituted antibiotic suspensions are not all refrigerated. Amoxicillin: discard after 14 days; refrigeration is preferable, not required. Azithromycin oral suspension: 5–30°C (41–86°F), use within 10 days.",
-            "Sublingual (SL): under the tongue for rapid absorption; nitroglycerin is a classic example."
+            "Suspensions: \"shake well before use.\" Reconstituted antibiotic suspensions are not all refrigerated. Amoxicillin: discard after 14 days; refrigeration is preferable, not required. Azithromycin oral suspension: 5–30°C (41–86°F), use within 10 days."
           ]
         },
         {
@@ -208,7 +202,7 @@
           "items": [
             "High-alert (ISMP): insulin, anticoagulants (heparin, warfarin, DOACs), opioids, concentrated electrolytes (KCl), chemotherapy, neuromuscular blockers, methotrexate, digoxin.",
             "LASA examples: hydrOXYzine vs hydrALAZINE, predniSONE vs prednisoLONE, DOPamine vs DOBUTamine, vinBLAStine vs vinCRIStine, Celebrex vs Cerebyx — use tall-man lettering.",
-            "Independent double-check required for all high-alert meds."
+            "Double-check: Independent double-check required for all high-alert meds."
           ]
         },
         {
@@ -261,8 +255,7 @@
             "Report errors/near-misses to improve systems (non-punitive culture).",
             "MedWatch: FDA adverse event reporting; FAERS public database; ISMP MERP; VAERS for vaccines.",
             "Root Cause Analysis (RCA): investigates WHY (reactive); FMEA: proactive failure analysis.",
-            "PPE donning: gown → mask → goggles → gloves; doffing: gloves → goggles → gown → mask.",
-            "Tall Man lettering distinguishes LASA pairs (e.g., hydrALAZINE vs hydrOXYzine)."
+            "PPE donning: gown → mask → goggles → gloves; doffing: gloves → goggles → gown → mask."
           ]
         },
         {
@@ -293,11 +286,7 @@
             "Hazardous-drug PPE: two pairs of chemotherapy-tested gloves + impermeable gown; eye/face/respiratory protection per risk.",
             "Counting trays and countertops (3.6): wipe with 70% isopropyl alcohol between fills; clean again after penicillin, sulfa, or a hazardous drug; use a dedicated tray for hazardous drugs.",
             "Optional sterile garbing only (not core PTCE), dirtiest to cleanest: shoe covers → hair/beard cover → mask → hand hygiene → gown → sterile gloves last.",
-            "Vaccine storage: most refrigerated at 2–8°C (36–46°F), do not freeze; monitor with calibrated thermometers and document temps.",
-            "NIOSH publishes the List of Hazardous Drugs in Healthcare Settings for safe handling.",
-            "USP <797> — standards for compounding sterile preparations.",
-            "USP <800> — standards for handling hazardous drugs.",
-            "USP <795> — non-sterile compounding chapter (not a dedicated 2026 PTCE procedure skill)."
+            "Vaccine storage: most refrigerated at 2–8°C (36–46°F), do not freeze; monitor with calibrated thermometers and document temps."
           ]
         },
         {
@@ -324,9 +313,8 @@
             "PO = by mouth; PR = rectally; SL = sublingual; IV/IM/SC = injection routes.",
             "BID = twice daily; TID = 3x daily; QID = 4x daily; QHS = at bedtime; QAM = every morning.",
             "PRN = as needed; ac = before meals; pc = after meals; q6h = every 6 hours.",
-            "gtt = drop. OD/OS/OU = right/left/both eyes; AD/AS/AU = right/left/both ears. Error-prone: do not use; write right eye, left eye, both eyes, right ear, left ear, or both ears.",
-            "ii tab = 2 tablets; i cap = 1 capsule; qs = quantity sufficient; UD = as directed.",
-            "bid — bis in die (twice daily)."
+            "gtt = drop. OD/OS/OU = right/left/both eyes; AD/AS/AU = right/left/both ears. Error-prone: do not use. Write right eye, left eye, both eyes, right ear, left ear, or both ears.",
+            "ii tab = 2 tablets; i cap = 1 capsule; qs = quantity sufficient; UD = as directed."
           ]
         },
         {
@@ -334,7 +322,7 @@
           "items": [
             "1 tsp = 5 mL; 1 tbsp = 15 mL; 1 fl oz = 30 mL; 1 cup = 240 mL.",
             "1 kg = 2.2 lb; 1 lb = 454 g.",
-            "1 grain (gr) ≈ 65 mg; 1 oz = 28.4 g; 1 g = 1,000 mg; 1 mg = 1,000 mcg.",
+            "1 grain (gr) = 65 mg; 1 oz = 28.4 g; 1 g = 1,000 mg; 1 mg = 1,000 mcg.",
             "1 gallon = 3,785 mL; 1 pint = 473 mL; 1 quart = 946 mL.",
             "Temperature: °C = (°F − 32) × 5/9; body 37°C = 98.6°F; fridge 2–8°C = 36–46°F."
           ]
@@ -344,7 +332,6 @@
           "items": [
             "Days supply = total quantity ÷ amount used per day.",
             "Percent w/v = g per 100 mL (solutions). Percent w/w = g per 100 g (creams, ointments).",
-            "Dilution: C1V1 = C2V2.",
             "IV flow rate (mL/hr) = total volume ÷ total time (hr).",
             "Drops/min = (volume × drop factor) ÷ time in minutes.",
             "Alligation (mixing two strengths to an intermediate): removed from the January 2026 PTCE calculation list — not a tested skill.",
@@ -436,7 +423,7 @@
             "C-III: moderate abuse (Tylenol #3, testosterone, buprenorphine) — up to 5 refills within 6 months of the written date.",
             "C-IV: lower abuse (alprazolam, lorazepam, tramadol, zolpidem, carisoprodol) — up to 5 refills within 6 months of the written date.",
             "C-V: lowest abuse (cough syrups with codeine, pregabalin). Federal law does not set a 5-refill / 6-month cap on Schedule V; follow the stricter state rule.",
-            "Tramadol → C-IV (2014); hydrocodone combos → C-II (Oct 6, 2014)."
+            "Tramadol: C-IV (2014); hydrocodone combos → C-II (Oct 6, 2014)."
           ]
         },
         {
@@ -447,10 +434,6 @@
             "Form 41: record destruction/disposal of controlled substances.",
             "Form 224: pharmacy application for DEA registration (224a = renewal every 3 years).",
             "CSOS (authorized 2005): electronic ordering of C-I/C-II; requires DEA digital certificate.",
-            "DEA Form 222 — order or transfer Schedule I & II (single-sheet paper or CSOS); not for destruction.",
-            "DEA Form 106 — theft or significant loss: 1-business-day written notice, then electronic Form 106 within 45 days (no paper).",
-            "DEA Form 41 — record destruction/disposal of controlled substances.",
-            "DEA Form 224 — pharmacy registration; renewed every 3 years.",
             "Take-back (2.3): unused patient-owned controlled substances go to a DEA-authorized collector, mail-back, or National Take Back event — never back into dispensable stock."
           ]
         },
@@ -476,7 +459,6 @@
             "CMEA (2005): 3.6 g of base per day (pseudoephedrine, ephedrine, or phenylpropanolamine); 9 g of base per 30 days, of which not more than 7.5 g of base may be mail-order; photo ID + logbook (name, address, signature), except one package of not more than 60 mg pseudoephedrine.",
             "The DATA 2000 X-waiver for office-based buprenorphine was eliminated in December 2022 (MAT Act). Any DEA-registered practitioner with Schedule III authority may prescribe buprenorphine for OUD; a separate X-waiver is no longer required. DSCSA (2013) is its own 2026 knowledge area (2.6) — see the DSCSA section.",
             "Biennial (every 2 years) controlled substance inventory required.",
-            "CSOS — Controlled Substance Ordering System for electronic Schedule II orders.",
             "Controlled-substance prescription records must be maintained for at least 2 years.",
             "C-III–V prescriptions may be transferred one time for a refill, unless the pharmacies share a real-time online database (then until refills are exhausted). An unfilled electronic C-II–V prescription may be transferred once for initial dispensing, pharmacist to pharmacist, at the patient’s request; it stays electronic. Authorized C-III–V refills transfer with it. A paper C-II cannot be transferred. Non-controlled refills transfer as state law allows, with no federal one-time cap.",
             "C-II–IV labels: “Caution: Federal law prohibits the transfer of this drug to any person other than the patient for whom it was prescribed.” Not required on C-V.",
@@ -525,7 +507,7 @@
         {
           "title": "FDA Medication Recalls (2.5)",
           "items": [
-            "Outline 2.5 is medication recalls. Recall classes: Class I = reasonable probability of serious adverse health consequences or death; Class II = temporary or medically reversible harm, or a remote probability of serious harm; Class III = adverse health consequences not likely (often labeling/packaging).",
+            "Recall classes: Outline 2.5 is medication recalls. Class I = reasonable probability of serious adverse health consequences or death; Class II = temporary or medically reversible harm, or a remote probability of serious harm; Class III = adverse health consequences not likely (often labeling/packaging).",
             "Recall depth: wholesale, retail, or consumer (patient) level. A Class I medication recall usually reaches the consumer level, and patients who received the affected lot are notified.",
             "The firm initiates a recall. FDA may request one. Pharmacy action is the same: pull, quarantine, document, and follow the recall notice for returns/patient notification.",
             "Market withdrawal is not a recall — the firm removes a product for a minor violation that would not be subject to legal action (e.g., a tamper-evident issue that is not a safety recall).",
