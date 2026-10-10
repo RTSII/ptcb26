@@ -151,8 +151,7 @@ body.notes .nx-home-btn:hover .nx-home-arrow {
 /* ==========================================================================
    2. MAIN CONTAINER & ACCORDIONS
    ========================================================================== */
-body.notes .nx-container,
-body.course:not(.lesson-open) .container {
+body.notes .nx-container {
   width: min(1400px, calc(100% - 32px));
   max-width: 1400px;
   margin: 0 auto;

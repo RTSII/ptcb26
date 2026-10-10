@@ -1313,21 +1313,22 @@ body.course .course-header-title {
   white-space: nowrap;
 }
 
-/* Idle list matches Notes: ~10vh under the header. Width is the Notes
-   container rule in notes.css. Opening eases that spacer shut
-   (body.course-reading) so the open card slides up under the header. */
+/* Idle list matches Notes vertical spacing: 10vh above the stack, 16px
+   below it. Opening a domain does not change that spacer or the header. */
 body.course:not(.lesson-open) .container {
   padding-top: 10vh;
   padding-bottom: 16px;
-  transition: padding-top 0.4s ease;
-}
-body.course.course-reading:not(.lesson-open) .container {
-  padding-top: 6px;
 }
 body.course .course-resume {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10vh;
   display: flex;
+  align-items: center;
   justify-content: center;
-  margin: 0 0 14px;
+  margin: 0;
 }
 body.course .course-resume-btn {
   width: auto;
@@ -1338,14 +1339,9 @@ body.course .course-resume-btn {
   white-space: normal;
   line-height: 1.35;
 }
-body.course #courseList {
+body.course #courseList.nx-notes-area {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  transition: gap 0.4s ease;
-}
-body.course.course-reading #courseList {
-  gap: 6px;
 }
 body.course #courseList > .module {
   margin-bottom: 0;
