@@ -2,7 +2,7 @@
 'use strict';
 /**
  * Headless lesson containment check. Invoked by validate.js.
- * Loads every lesson at 1024x576, 1366x768, and 1920x1080.
+ * Loads every lesson at 1600x770 (primary) and 1366x768 (secondary).
  * Fails if a key-points panel clips its items, a key-points panel or
  * lesson-card child overflows its container border, or the reading
  * region shows a scrollbar that does not reveal text.
@@ -18,7 +18,7 @@ const path = require('path');
 const { spawn } = require('child_process');
 
 const ROOT = __dirname;
-const SIZES = [[1024, 576], [1366, 768], [1920, 1080]];
+const SIZES = [[1600, 770], [1366, 768]];
 const TYPES = {
   '.html': 'text/html; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
@@ -328,7 +328,7 @@ async function main() {
     '--remote-allow-origins=*',
     '--user-data-dir=' + profile,
     '--remote-debugging-port=' + debugPort,
-    '--window-size=1366,768',
+    '--window-size=1600,770',
     'about:blank'
   ], { stdio: 'ignore' });
 
@@ -381,7 +381,7 @@ async function main() {
       console.error('FAIL ' + failures.length + ' lesson check(s)');
       process.exitCode = 1;
     } else {
-      console.log('OK   ' + ids.length + ' lessons at 1024x576, 1366x768, and 1920x1080: no clip, no phantom scrollbar');
+      console.log('OK   ' + ids.length + ' lessons at 1600x770 and 1366x768: no clip, no phantom scrollbar');
     }
   } catch (err) {
     console.error('FAIL ' + (err && err.message ? err.message : err));

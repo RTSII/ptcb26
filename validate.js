@@ -577,7 +577,7 @@ try {
     stdio: 'inherit',
     timeout: 120000
   });
-  ok('every lesson at 1024x576, 1366x768, and 1920x1080: no clip, no phantom scrollbar');
+  ok('every lesson at 1600x770 and 1366x768: no clip, no phantom scrollbar');
 } catch (err) {
   fail('lesson containment check failed');
 }
