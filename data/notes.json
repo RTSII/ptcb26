@@ -19,7 +19,7 @@
             "Benzodiazepines (-pam/-lam): lorazepam, alprazolam, diazepam, clonazepam — anxiety, seizures (C-IV controlled).",
             "Fluoroquinolones (-floxacin): ciprofloxacin, levofloxacin — tendon rupture black box, avoid dairy/antacids.",
             "Macrolides (-thromycin): azithromycin, clarithromycin — QTc prolongation.",
-            "Tetracyclines (-cycline): doxycycline — photosensitivity, avoid dairy.",
+            "Tetracyclines (-cycline): doxycycline — photosensitivity; food/milk don't markedly affect absorption.",
             "DPP-4 -gliptin, SGLT-2 -gliflozin, GLP-1 -glutide: diabetes agents.",
             "Triptans (-triptan): sumatriptan — migraine; CI in CAD."
           ]
@@ -80,9 +80,9 @@
         {
           "title": "Insulin Types",
           "items": [
-            "Rapid-acting: lispro (Humalog), aspart (NovoLog), glulisine (Apidra) — onset ~15 min; give with meals.",
-            "Short-acting: regular (Humulin R, Novolin R) — onset ~30 min; only insulin safe IV.",
-            "Intermediate: NPH (Humulin N, Novolin N) — cloudy; peak 4–10 hr; mix last.",
+            "Rapid-acting: lispro (Humalog), aspart (NovoLog), glulisine (Apidra) — onset ~15 min; give with meals. U-100 NovoLog may be given IV under supervision; not NovoLog Mix 70/30.",
+            "Short-acting: regular (Humulin R, Novolin R) — onset ~30 min; can be given IV.",
+            "Intermediate: NPH (Humulin N, Novolin N) — cloudy; Humulin N median maximum effect 6.5 hr (range 2.8–13 hr); mix last.",
             "Long-acting (basal): glargine (Lantus/Basaglar), degludec (Tresiba) — clear; do NOT mix. Glargine — about 24 hours, no pronounced peak. Degludec lasts at least 42 hours. Detemir (Levemir) is discontinued in the US.",
             "Concentrated: Toujeo (glargine U-300), U-500 regular — NOT interchangeable unit-for-unit.",
             "Storage: unopened refrigerated 36–46°F; never freeze. In-use Lantus vial: 28 days, refrigerated or room temperature. In-use Lantus SoloStar: 28 days at room temperature only (do not refrigerate)."
@@ -124,9 +124,9 @@
             "Nitroglycerin + PDE-5 inhibitors (sildenafil) → severe hypotension.",
             "St. John's Wort induces CYP3A4 → ↓ OCPs, warfarin, many drugs.",
             "Triptans/ergots: contraindicated in CAD, uncontrolled HTN.",
-            "PPIs (omeprazole) ↓ clopidogrel activation (CYP2C19).",
+            "Clopidogrel: avoid omeprazole or esomeprazole; both reduce antiplatelet activity. Dexlansoprazole, lansoprazole, and pantoprazole had less effect.",
             "Abacavir: HLA-B*5701 test before use (hypersensitivity).",
-            "Grapefruit inhibits CYP3A4, raising levels of statins, calcium channel blockers, and other substrates."
+            "Grapefruit juice: raises simvastatin levels; avoid grapefruit juice with simvastatin."
           ]
         },
         {
@@ -134,19 +134,9 @@
           "items": [
             "Varicella: frozen (-50°C to -15°C). MMR: refrigerate 2–8°C; M-M-R II may be refrigerated or frozen. Live vaccines: CI in pregnancy/immunocompromised.",
             "Inactivated influenza, Shingrix, pneumococcal, Tdap, Hep B: refrigerate 2–8°C.",
-            "COVID-19 mRNA: frozen/ultra-cold per product.",
+            "COVID-19 mRNA: storage is product-specific; some presentations are refrigerated and must not be frozen.",
             "Rule: most vaccines refrigerate and must not be frozen; varicella must be frozen; M-M-R II may be refrigerated or frozen."
           ]
-        },
-        {
-          "title": "Narrow Therapeutic Index (NTI) Drugs",
-          "items": [
-            "OPTIONAL / ARCHIVE — not emphasized on the January 6, 2026 PTCE. Removed as a dedicated PTCE knowledge area on the January 6, 2026 outline (old 1.8). Still useful as high-alert / monitoring context, not as a standalone NTI-list drill.",
-            "Classic examples: warfarin, digoxin, lithium, phenytoin, theophylline, levothyroxine, carbamazepine, valproic acid, tacrolimus, cyclosporine, aminoglycosides, vancomycin.",
-            "These agents often need therapeutic drug monitoring; treat them as high-alert rather than memorizing a standalone NTI roster."
-          ],
-          "optional": true,
-          "badge": "Not emphasized on 2026 PTCE"
         },
         {
           "title": "Known Teratogens (Pregnancy Safety)",
