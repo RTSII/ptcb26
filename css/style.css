@@ -35,7 +35,11 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { -webkit-text-size-adjust: 100%; }
+html {
+  -webkit-text-size-adjust: 100%;
+  background-color: #030014;
+  min-height: 100%;
+}
 
 body {
   font-family: var(--font-body);
@@ -1313,6 +1317,39 @@ body.course .course-header-title {
   white-space: nowrap;
 }
 
+/* The fixed grid, scanlines, and rain only paint the first viewport.
+   On the course list they follow the document so a long open domain
+   stays on the theme background. */
+body.course {
+  position: relative;
+  background-attachment: scroll;
+}
+body.course::before,
+body.course::after {
+  position: absolute;
+}
+body.course::before {
+  top: 0;
+  bottom: 0;
+  height: auto;
+}
+body.course:not(.lesson-open) #matrixRain {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+/* Full domain names wrap inside a header that is the same height open or
+   closed. Notes keeps the single-line ellipsis at its wider card. */
+body.course .nx-domain-header {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+body.course .nx-domain-name {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  line-height: 1.15;
+  font-size: 1.05rem;
+}
 /* Idle list matches Notes vertical spacing: 10vh above the stack, 16px
    below it. Opening a domain does not change that spacer or the header. */
 body.course:not(.lesson-open) .container {

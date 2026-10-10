@@ -260,6 +260,17 @@
       header + body + '</div>';
   }
 
+  function domainChips(groups) {
+    return '<div class="nx-domain-switch" role="group" aria-label="Switch domain">' +
+      groups.map(function (g, di) {
+        const active = di === openDomainIndex;
+        return '<button type="button" class="nx-domain-chip' + (active ? ' is-active' : '') + '" data-domain-switch="' + di + '"' +
+          (active ? ' disabled aria-current="true"' : '') +
+          ' aria-label="' + esc(g.name) + ', ' + esc(g.weight) + '">D' + (di + 1) + ' ' + esc(g.weight) + '</button>';
+      }).join('') +
+      '</div>';
+  }
+
   function renderList() {
     const groups = domainGroups();
     const target = resumeTarget();
@@ -271,12 +282,13 @@
         esc(target.verb) + ' "' + esc(target.entry.lesson.title) + '"</a></div>';
     }
 
-    // Closed list is the four domain cards. An open domain is rendered first
-    // so it sits at the top; the other domains stay collapsed cards below it,
-    // in domain order. Modules and lessons stay in course order inside the
-    // open card. Reload starts closed.
+    // Closed list is the four domain cards. An open domain is rendered first,
+    // under the Notes domain-pill row, so it sits at the top. The other
+    // domains stay collapsed cards below it, in domain order. Modules and
+    // lessons stay in course order inside the open card. Reload starts closed.
     const order = groups.map(function (g, di) { return di; });
     if (openDomainIndex >= 0 && openDomainIndex < groups.length) {
+      html += domainChips(groups);
       order.splice(openDomainIndex, 1);
       order.unshift(openDomainIndex);
     }
@@ -285,6 +297,7 @@
     }).join('');
 
     listView.innerHTML = html;
+    requestAnimationFrame(function () { window.dispatchEvent(new Event('resize')); });
   }
 
   function renderLesson(lessonId) {
@@ -386,10 +399,21 @@
     fitTimer = setTimeout(fitLessonBody, 60);
   });
 
-  // One open domain. The header toggles that card to the top. Lesson links
-  // are left to the router so a lesson still opens the full lesson page.
+  // One open domain. The pill row switches domains without closing.
+  // The header toggles that card to the top. Lesson links are left to the
+  // router so a lesson still opens the full lesson page.
   listView.addEventListener('click', function (e) {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const switchBtn = e.target.closest('[data-domain-switch]');
+    if (switchBtn && !switchBtn.disabled && listView.contains(switchBtn)) {
+      const idx = parseInt(switchBtn.getAttribute('data-domain-switch'), 10);
+      if (!isNaN(idx) && idx !== openDomainIndex) {
+        openDomainIndex = idx;
+        renderList();
+        window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      }
+      return;
+    }
     const toggleBtn = e.target.closest('[data-domain-toggle]');
     if (!toggleBtn || !listView.contains(toggleBtn)) return;
     const idx = parseInt(toggleBtn.getAttribute('data-domain-toggle'), 10);

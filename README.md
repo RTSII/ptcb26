@@ -140,11 +140,11 @@ There is no `app/` directory. Shared helpers are `window.App` (`Storage`, `Util`
 
 ## Current state
 
-Home is the reference HUD. Study Course is the large card and opens the course list. That list has one Resume button and four domain accordions matching Notes (same names, weights, and badges; closed on load; the same vertical gaps). Opening one moves that domain to the top with its modules and lessons in order, and the other domains stay collapsed cards below it. Practice Exam setup is the Exam Setup console. Dashboard cards are Resurrections glass, and that page does not run the rain. Notes accordions start closed. Header titles share one style ([UI_STANDARDS.md](UI_STANDARDS.md)). The Home wordmark is on Home and Course; Dashboard, Quiz, Practice Exam, and Flashcards still use the older wordmark ([TODO.md](TODO.md)).
+Home is the reference HUD. Study Course is the large card and opens the course list. That list has one Resume button and four domain accordions matching Notes (same names, weights, and badges; closed on load; the same vertical gaps). Opening one shows the Notes domain-pill row, moves that domain to the top with its modules and lessons in order, and the other domains stay collapsed cards below it. Practice Exam setup is the Exam Setup console. Dashboard cards are Resurrections glass, and that page does not run the rain. Notes accordions start closed. Header titles share one style ([UI_STANDARDS.md](UI_STANDARDS.md)). The Home wordmark is on Home and Course; Dashboard, Quiz, Practice Exam, and Flashcards still use the older wordmark ([TODO.md](TODO.md)).
 
 Notes still render the committed legacy `items` JSON. The v2 `blocks` file stays outside `data/` until the blocks runtime ships ([AGENTS.md](AGENTS.md)). The Notes plan is [study_notes_v4_plan.md](study_notes_v4_plan.md). What to do next is [TODO.md](TODO.md) **Next up**.
 
-Cache name: `sw.js` (`ptce-2026-v76`).
+Cache name: `sw.js` (`ptce-2026-v77`).
 
 Bank on this commit:
 

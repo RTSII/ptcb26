@@ -338,8 +338,12 @@ const FX = (() => {
     const matrix = matrixStage();
     const home = homeStage();
     font = matrix ? 16 : 15;
+    const courseScroll = document.body.classList.contains('course') &&
+      !document.body.classList.contains('lesson-open');
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.height = courseScroll
+      ? Math.max(window.innerHeight, document.documentElement.scrollHeight)
+      : window.innerHeight;
     const cols = Math.ceil(canvas.width / font);
     const rows = Math.ceil(canvas.height / font);
     ctx.font = font + 'px "Share Tech Mono", monospace';
