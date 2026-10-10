@@ -621,8 +621,7 @@
             "Dry-powder inhaler: do not use PROAIR RESPICLICK with a spacer or volume holding chamber.",
             "Nebulizer: a device that sprays liquids in aerosol form into gases delivered directly to the patient for breathing. Heated, ultrasonic, gas, venturi, and refillable nebulizers are included. Class II.",
             "Sterile Water for Injection: a diluent for parenteral drugs. Do not inject it until it is made approximately isotonic. Not for direct infusion.",
-            "Bacteriostatic Water for Injection contains 0.9% (9 mg/mL) or 1.1% (11 mg/mL) benzyl alcohol.",
-            "For neonates, use only preservative-free Sterile Water for Injection.",
+            "Bacteriostatic Water for Injection contains 0.9% (9 mg/mL) or 1.1% (11 mg/mL) benzyl alcohol. For neonates, use only preservative-free Sterile Water for Injection.",
             "Label-directed diluent: dilute Humalog U-100 to 0.1 unit/mL–1.0 unit/mL with 0.9% sodium chloride.",
             "Adult IM vaccine supplies (CDC): 1 mL or 3 mL syringe, 22- to 25-gauge needle, 1- to 1.5-inch needle, inserted at 90 degrees.",
             "Subcutaneous vaccine needle (CDC): 23- to 25-gauge, 5/8 inch (16 mm), inserted at 45 degrees."
@@ -659,13 +658,11 @@
           "title": "Returns",
           "intro": "Credit returns, non-creditable hazardous waste, and reverse distribution are different paths.",
           "bullets": [
-            "Credit return: a potentially creditable hazardous waste pharmaceutical is a prescription hazardous waste pharmaceutical expected to receive manufacturer credit, in the original manufacturer packaging (except a recall), undispensed, and unexpired or less than one year past expiration.",
-            "A reverse distributor receives it to verify that credit.",
+            "Credit return: a potentially creditable hazardous waste pharmaceutical is a prescription hazardous waste pharmaceutical expected to receive manufacturer credit, in the original manufacturer packaging (except a recall), undispensed, and unexpired or less than one year past expiration. A reverse distributor receives it to verify that credit.",
             "Non-creditable hazardous waste pharmaceutical: no reasonable expectation of manufacturer credit. Includes investigational drugs, free samples, residues in empty containers, and spill-cleanup material.",
             "Reverse distribute (controlled substances): a DEA-registered reverse distributor acquires them from another registrant or law enforcement to return them to the registered manufacturer, or to a registrant the manufacturer authorizes, or for destruction.",
             "A reverse distributor destroys a controlled substance received for destruction no later than 30 calendar days after receipt.",
-            "Returned drug product is identified and held. If storage, shipping, or the container casts doubt on safety, identity, strength, quality, or purity, it is destroyed unless testing proves those standards.",
-            "Records include lot number, reason, quantity, and disposition."
+            "Returned drug product is identified and held. If storage, shipping, or the container casts doubt on safety, identity, strength, quality, or purity, it is destroyed unless testing proves those standards. Records include lot number, reason, quantity, and disposition."
           ],
           "keyPoints": [
             "Credit return: original pack, undispensed, unexpired or <1 year past expiration"
@@ -730,8 +727,7 @@
             "Percent w/v (solutions) = grams per 100 mL. 0.9% NaCl = 0.9 g per 100 mL; in 500 mL that is 4.5 g. D5W = 5 g dextrose per 100 mL (50 g per 1,000 mL).",
             "Percent v/v = mL per 100 mL. Isopropyl alcohol 70% v/v = 70 mL per 100 mL; in 250 mL that is 175 mL.",
             "Ratio strength: 1:1000 = 1 g per 1,000 mL = 1 mg/mL (epinephrine).",
-            "Percent ↔ decimal: divide by 100 (0.75% = 0.0075).",
-            "Percent w/w (creams) = grams per 100 g. 1% hydrocortisone cream = 10 mg/g, so 0.25% cream = 2.5 mg/g (% × 10).",
+            "Percent ↔ decimal: divide by 100 (0.75% = 0.0075). Percent w/w (creams) = grams per 100 g. 1% hydrocortisone cream = 10 mg/g, so 0.25% cream = 2.5 mg/g (% × 10).",
             "Dilution: C1V1 = C2V2 keeps the amount of drug constant when changing concentration/volume — this remains in scope."
           ],
           "keyPoints": [
@@ -816,8 +812,7 @@
             "Birthday rule (dependent children on both parents' plans): the primary plan is the parent whose birth MONTH/DAY falls earlier in the calendar year.",
             "For a patient 65 or older covered through current employment (the patient's or a spouse's), the group health plan is primary and Medicare is secondary when the employer has 20 or more employees.",
             "Medicare is primary if that employer has fewer than 20 employees, or if there is no current-employment group plan. Medicaid is generally the payer of last resort.",
-            "A cash discount card lowers the cash price and is not billed with insurance on that fill.",
-            "A manufacturer copay coupon is used with commercial insurance to reduce the copay, and must not be used for Medicare or Medicaid."
+            "A cash discount card lowers the cash price and is not billed with insurance on that fill. A manufacturer copay coupon is used with commercial insurance to reduce the copay, and must not be used for Medicare or Medicaid."
           ],
           "keyPoints": [
             "PA = prescriber justifies to payer first",
