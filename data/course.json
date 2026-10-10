@@ -496,7 +496,8 @@
             "NIOSH maintains the list of hazardous drugs (antineoplastics, hormones, some antivirals).",
             "Hazardous-drug compounding PPE: TWO pairs of chemotherapy-tested gloves + an impermeable gown; add eye/face and respiratory protection per risk.",
             "Use a containment primary engineering control (C-PEC, e.g., BSC or CACI) inside a containment secondary engineering control (C-SEC) with negative pressure for HDs.",
-            "Hand hygiene: soap and water for at least 20 seconds when hands are visibly soiled, and during care of patients with suspected or confirmed infection during outbreaks of C. difficile and norovirus.",
+            "Hand hygiene: soap and water for at least 20 seconds.",
+            "Use soap and water when hands are visibly soiled, and during care of patients with suspected or confirmed infection during outbreaks of C. difficile and norovirus.",
             "Unless hands are visibly soiled, an alcohol-based rub (hand sanitizer) is preferred in most clinical situations.",
             "CDC infection-control PPE when using gown, mask or respirator, goggles or face shield, and gloves: don gown, then mask or respirator, then goggles or face shield, then gloves extended over the gown cuff.",
             "Remove gloves, then goggles or face shield, then gown, then mask or respirator.",
@@ -571,7 +572,7 @@
           "keyPoints": [
             "Barcode scan = right product",
             "ADC overrides = error risk",
-            "iPLEDGE, THALOMID; not clozapine or new TIRF",
+            "Not clozapine or new TIRF",
             "DUR / OTC / substitution → pharmacist",
             "Do not override clinical alerts"
           ]
