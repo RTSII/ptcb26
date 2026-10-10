@@ -118,7 +118,14 @@
   }
 
   const BODY_SCALES = [0.98, 0.96, 0.94, 0.92];
+  const HEAD_SCALES = [];
+  for (let n = 98; n >= 52; n -= 2) HEAD_SCALES.push(n / 100);
   const FIT_OVERFLOW = 60;
+  const FIT_HEAD_OVERFLOW = 100;
+  // These four still overflow after the body floor. Title and intro may scale
+  // for them only, so every other lesson keeps the body-only rule.
+  const HEAD_FIT = { m4l3: 1, m6l2: 1, m7l2: 1, m10l1: 1 };
+  let fitLessonId = '';
 
   function lessonTextPast(layout) {
     const edge = layout.getBoundingClientRect().bottom;
@@ -139,20 +146,56 @@
   function fitLessonBody() {
     const layout = document.querySelector('.lesson-layout');
     const body = layout && layout.querySelector('.lesson-body');
+    const title = document.querySelector('.lesson-title-main');
+    const intro = document.querySelector('.lesson-intro');
     if (!layout || !body) return;
     const lis = body.querySelectorAll('li');
-    function applyScale(scale) {
+    const allowHead = !!HEAD_FIT[fitLessonId];
+    function applyBody(scale) {
       const size = scale === 1 ? '' : 'calc(1.35rem * ' + scale + ')';
       for (let i = 0; i < lis.length; i++) lis[i].style.fontSize = size;
     }
-    applyScale(1);
-    const initial = lessonTextPast(layout);
-    if (initial <= 4 || initial > FIT_OVERFLOW) return;
-    for (let s = 0; s < BODY_SCALES.length; s++) {
-      applyScale(BODY_SCALES[s]);
-      if (layout.scrollHeight - layout.clientHeight <= 1 && lessonTextPast(layout) <= 1) return;
+    function applyHead(scale, margins) {
+      if (!title || !intro) return;
+      if (scale === 1) {
+        title.style.fontSize = '';
+        intro.style.fontSize = '';
+        title.style.marginBottom = '';
+        intro.style.marginBottom = '';
+        return;
+      }
+      title.style.fontSize = 'calc(1.9rem * ' + scale + ')';
+      intro.style.fontSize = 'calc(1.45rem * ' + scale + ')';
+      title.style.marginBottom = margins ? (8 * scale) + 'px' : '';
+      intro.style.marginBottom = margins ? (12 * scale) + 'px' : '';
     }
-    applyScale(1);
+    function bodyFits() {
+      return layout.scrollHeight - layout.clientHeight <= 1 && lessonTextPast(layout) <= 1;
+    }
+    function headFits() {
+      return layout.scrollHeight - layout.clientHeight <= 0.5 && lessonTextPast(layout) <= 1;
+    }
+    applyBody(1);
+    applyHead(1, false);
+    const initial = lessonTextPast(layout);
+    if (initial <= 4 || initial > (allowHead ? FIT_HEAD_OVERFLOW : FIT_OVERFLOW)) return;
+    for (let s = 0; s < BODY_SCALES.length; s++) {
+      applyBody(BODY_SCALES[s]);
+      if (bodyFits()) return;
+    }
+    if (allowHead) {
+      applyBody(0.92);
+      for (let h = 0; h < HEAD_SCALES.length; h++) {
+        applyHead(HEAD_SCALES[h], false);
+        if (headFits()) return;
+      }
+      for (let h = 0; h < HEAD_SCALES.length; h++) {
+        applyHead(HEAD_SCALES[h], true);
+        if (headFits()) return;
+      }
+    }
+    applyBody(1);
+    applyHead(1, false);
   }
 
   function renderList() {
@@ -251,6 +294,7 @@
       '</nav>';
 
     lessonView.innerHTML = html;
+    fitLessonId = lessonId;
     fitLessonBody();
 
     Util.el('#completeBtn').addEventListener('click', function () {
