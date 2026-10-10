@@ -36,6 +36,8 @@ Live backlog. History in `docs/archive/` is not this list.
    - Order Entry: 4.2 administration supplies; 4.3 lot number and expiration date; 4.4 credit return, return to stock, and reverse distribution.
 4. **Study Notes content audit.** Same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
 5. **Notes theme overhaul.** Only after the course audit and the notes audit are signed off (`study_notes_v4_plan.md`).
+   - Step 1, before layout: diff current `data/notes.json` against `a0e7321` (before `a7542b5`) and list lost or garbled content and broken titles/numbering to restore.
+   - Headers, titles, and numbering render correctly. Card layout and dimensions follow content and priority, not one repeated size. Group short cards (several short items as smaller sub-cards on one row) to remove marginal scrolls. Example: Federal FDA Recalls after #58 scrolls only slightly, with 3 short cards.
 
 Course is the primary path; Notes summarize it. Lock course facts before Notes so the same error is not fixed twice. Course and notes audits use [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md). Standing rules: [AGENTS.md](AGENTS.md).
 
