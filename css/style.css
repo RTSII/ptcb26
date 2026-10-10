@@ -1349,6 +1349,24 @@ body.course.course-reading #courseList {
 body.course #courseList > .module {
   margin-bottom: 0;
 }
+body.course .course-module + .course-module {
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(148, 163, 184, 0.18);
+}
+body.course .course-module-title {
+  margin: 2px 0 8px;
+  text-align: center;
+  font-family: "Chakra Petch", "Rajdhani", system-ui, sans-serif;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  color: #fff;
+}
+body.course .course-module-complete {
+  box-shadow: inset 3px 0 0 rgba(0, 255, 65, 0.7);
+}
 
 /* Lesson reader. Width and nav live on the individual lesson view only
    (body.course.lesson-open). The course module list keeps the shared container. */

@@ -29,7 +29,7 @@ Live backlog. History in `docs/archive/` is not this list.
    - Course-only: ADC overrides; regulatory agencies lesson; technician scope lesson.
    - Notes-only: FMEA; tech cannot verify their own work. Concurrent DUR is in course `m4l4`.
    - Garb vs PPE: course `m5l2` sterile garb order vs Notes routine PPE order.
-   - Consolidate Study Course structure into exactly the 4 main domains as accordion groups (Medications, Patient Safety, Order Entry, Federal), combining sub-domains/modules under them. Long lists are fine; the accordion moves the active section to the top.
+   - [x] Consolidate Study Course structure into exactly the 4 main domains as accordion groups (Medications, Patient Safety, Order Entry, Federal), combining sub-domains/modules under them. Long lists are fine; the accordion moves the active section to the top.
 3. **Notes missing KAs (after all Course fixes).**
    - Medications: 1.2 therapeutic duplications; 1.3 drug-laboratory; 1.5 allergies; 1.7 opened injectable dating; 1.8 light sensitivity and restricted access.
    - Patient Safety: 3.2 separating inventory; 3.3 misuse and adherence; 3.4 product integrity.
@@ -39,7 +39,7 @@ Live backlog. History in `docs/archive/` is not this list.
    - Step 1, before layout: diff current `data/notes.json` against `a0e7321` (before `a7542b5`) and list lost or garbled content and broken titles/numbering to restore.
    - Headers, titles, and numbering render correctly. Card layout and dimensions follow content and priority, not one repeated size. Group short cards (several short items as smaller sub-cards on one row) to remove marginal scrolls. Example: Federal FDA Recalls after #58 scrolls only slightly, with 3 short cards.
    - Remove Notes content the January 2026 outline does not test (NTI is the example), after checking each topic against the outline.
-   - Prev/next topic nav stops at the first and last topic in a domain. It should move into the previous or next domain. Domain pills are the only cross-domain control now.
+   - Bottom prev/next must move into the previous or next domain. They stop at the first and last topic in a domain. Domain pills are the only cross-domain control now. Do not add a second prev/next.
    - Brand/Generic: order rows by class and context. Moderate column padding. Two side-by-side tables (4 columns) so the topic does not scroll.
    - OTC actives: more column padding, and a 4-column layout or similar so the topic does not scroll.
    - High-Alert & LASA stays only in Patient Safety (3.1). #58 already moved that section out of Medications. Merge any unique Medications facts into the Patient Safety section if a second copy turns up.
