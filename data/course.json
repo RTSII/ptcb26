@@ -834,13 +834,13 @@
           "title": "Controlled Substance Schedules",
           "intro": "The Controlled Substances Act (1970) created five schedules based on abuse potential and accepted medical use.",
           "bullets": [
-            "Schedule I: HIGH abuse potential, NO accepted medical use — heroin, LSD, and marijuana that is neither an FDA-approved product nor covered by a state medical-marijuana license. No prescriptions.",
+            "Schedule I: HIGH abuse potential, NO accepted medical use — heroin and LSD. No prescriptions.",
             "Marijuana split (current as of April 28, 2026): FDA-approved marijuana products and marijuana under a qualifying state medical-marijuana license are Schedule III. Other marijuana stays Schedule I while broader rescheduling is still pending. Older materials that list all marijuana as C-I are out of date.",
             "Schedule II: high abuse potential WITH accepted medical use — oxycodone, hydrocodone/APAP (Norco), morphine, fentanyl, amphetamine (Adderall), methylphenidate (Ritalin).",
             "Schedule III: moderate abuse potential — Tylenol #3 (codeine/APAP), buprenorphine products, anabolic steroids.",
             "Schedule IV: lower abuse potential — benzodiazepines (alprazolam, lorazepam), zolpidem (Ambien), tramadol.",
             "Schedule V: lowest abuse potential — some cough preparations with limited codeine (e.g., guaifenesin/codeine), pregabalin (Lyrica).",
-            "Buprenorphine is Schedule III. The DATA 2000 X-waiver was eliminated in December 2022 (MAT Act) — a separate X number is no longer required to prescribe buprenorphine for OUD."
+            "The DATA 2000 X-waiver was eliminated in December 2022 (MAT Act) — a separate X number is no longer required to prescribe buprenorphine for OUD."
           ],
           "keyPoints": [
             "FDA-approved and state-licensed medical marijuana = C-III",
@@ -856,22 +856,22 @@
           "title": "Schedule II–V Prescription & Refill Rules",
           "intro": "Refill, transfer, and transmission rules differ by schedule.",
           "bullets": [
-            "C-II: NO refills — a new prescription is required each time; written or electronic (EPCS); no telephone call-ins except a true emergency.",
-            "An individual practitioner may issue multiple C-II prescriptions that together total up to a 90-day supply. On each prescription other than the first, if that first one is to be filled immediately, the practitioner writes the earliest date a pharmacy may fill it.",
+            "C-II: NO refills — a new prescription is required each time. Written or electronic (EPCS). No telephone call-ins except a true emergency.",
+            "An individual practitioner may issue multiple C-II prescriptions that together total up to a 90-day supply.",
+            "On each prescription other than the first, if that first one is to be filled immediately, the practitioner writes the earliest date a pharmacy may fill it.",
             "A controlled-substance prescription is dated and signed on the day it is issued. It must show the patient's full name and address, the drug name, strength, dosage form, quantity prescribed, directions for use, and the practitioner's name, address, and registration number.",
-            "C-II fax is the original prescription only in three cases: any C-II for a long-term care facility resident; a C-II narcotic for a patient in a qualifying hospice, with hospice noted on the prescription; a C-II narcotic compounded for direct parenteral, IV, IM, subcutaneous, or intraspinal infusion.",
-            "C-III and C-IV: up to 5 refills within 6 months of the issue date. Federal law does not set that cap on Schedule V; follow the stricter state rule.",
-            "Refills left on a C-III or C-IV: no more than 5 refills, and none after 6 months from the issue date. If 5 were authorized and 2 have been dispensed, 3 remain, and only while the 6-month date has not passed.",
-            "Emergency C-II oral authorization: the pharmacist may fill a quantity for the emergency period; the prescriber must deliver a written follow-up prescription within 7 days.",
-            "The pharmacist writes the oral order down immediately. Within 7 days the prescriber must deliver a follow-up for that emergency quantity. On paper, the face must read \"Authorization for Emergency Dispensing\" and the date of the oral order. It may be delivered in person or by mail postmarked within those 7 days, and the pharmacist attaches it to the written oral order. For an electronic prescription, the pharmacist annotates the record with the original authorization and the date of the oral order. If the prescriber fails to deliver the written prescription, the pharmacist notifies the nearest DEA office.",
+            "C-II fax is the original prescription only in three cases: any C-II for a long-term care facility resident, and a C-II narcotic for a patient in a qualifying hospice, with hospice noted on the prescription.",
+            "The third case: a C-II narcotic compounded for direct parenteral, IV, IM, subcutaneous, or intraspinal infusion.",
+            "Emergency C-II oral authorization: the pharmacist writes the oral order down immediately and may fill a quantity for the emergency period. Within 7 days the prescriber must deliver a follow-up for that emergency quantity. On paper, the face must read \"Authorization for Emergency Dispensing\" and the date of the oral order. It may be delivered in person or by mail postmarked within those 7 days, and the pharmacist attaches it to the written oral order.",
+            "For an electronic prescription, the pharmacist annotates the record with the original authorization and the date of the oral order. If the prescriber fails to deliver the written prescription, the pharmacist notifies the nearest DEA office.",
+            "C-III and C-IV: up to 5 refills within 6 months of the issue date. If 5 were authorized and 2 have been dispensed, 3 remain, and only while the 6-month date has not passed.",
+            "Federal law does not set that cap on Schedule V; follow the stricter state rule.",
             "C-II partial fills — if the patient or prescriber requests a partial (CARA 2016), remaining portions must be filled within 30 days of the written date, except an emergency oral C-II, whose remaining portions must be filled within 72 hours after the prescription is issued.",
-            "If the pharmacy cannot supply the full C-II quantity, the older rule still applies: remainder within 72 hours, then a new prescription is required.",
-            "If that remainder is not or cannot be filled within 72 hours of the first partial, the pharmacist notifies the prescriber. No further quantity may be supplied after those 72 hours without a new prescription.",
+            "If the pharmacy cannot supply the full C-II quantity, the older rule still applies: the remainder must be filled within 72 hours of the first partial. If that remainder is not or cannot be filled in those 72 hours, the pharmacist notifies the prescriber. No further quantity may be supplied without a new prescription.",
             "LTCF or terminally ill patients: remaining portions of C-II partial fills may be dispensed for up to 60 days from the written date.",
-            "After the applicable window, leftover quantity cannot be filled. Total dispensed cannot exceed the written amount. Document each partial.",
-            "Quantity left on a C-II partial: add every partial and stop at the written quantity. Example: 90 tablets written, 30 then 20 dispensed, 40 left.",
+            "After the applicable window, leftover quantity cannot be filled. Total dispensed cannot exceed the written amount: add every partial and stop at the written quantity (90 tablets written, 30 then 20 dispensed, 40 left). Document each partial.",
             "C-III–V transfers: one time to another pharmacy for a refill, unless the pharmacies share a real-time online database — then transfers may continue until the refills are used up.",
-            "Electronic controlled prescriptions: an unfilled electronic C-II–V prescription may be transferred once for initial dispensing, pharmacist to pharmacist, at the patient’s request. It stays electronic. Authorized C-III–V refills transfer with it. A paper C-II cannot be transferred.",
+            "Electronic controlled prescriptions: an unfilled electronic C-II–V prescription may be transferred once for initial dispensing, pharmacist to pharmacist, at the patient's request. It stays electronic. Authorized C-III–V refills transfer with it. A paper C-II cannot be transferred.",
             "Non-controlled prescriptions: remaining refills may be transferred as state law allows. Federal law does not impose a one-time cap."
           ],
           "keyPoints": [
@@ -891,15 +891,18 @@
           "intro": "Specific DEA forms document ordering, theft/loss, destruction, and registration of controlled substances.",
           "bullets": [
             "DEA Form 222 (single-sheet paper — not the old triplicate — or electronic CSOS): used to ORDER or TRANSFER Schedule I–II. Destruction/disposal is Form 41, never 222.",
-            "The registrant, or a person named in a power of attorney, signs Schedule I and II orders on Form 222 or electronically. The registrant (or a partner or officer) and the attorney-in-fact both sign the power of attorney, two witnesses sign it, and it is kept with the order records.",
+            "The registrant, or a person named in a power of attorney, signs Schedule I and II orders on Form 222 or electronically.",
+            "The registrant (or a partner or officer) and the attorney-in-fact both sign the power of attorney. Two witnesses sign it, and it is kept with the order records.",
             "DEA Form 106: theft or significant loss. Two steps — written notice to the local DEA field office within 1 business day of discovery, then electronic Form 106 within 45 calendar days. Paper Form 106 is not accepted.",
             "DEA Form 41: document DESTRUCTION/disposal of pharmacy-owned controlled substances.",
             "DEA Form 224: pharmacy DEA registration; renew every 3 YEARS.",
-            "C-II–IV dispensing labels must state: “Caution: Federal law prohibits the transfer of this drug to any person other than the patient for whom it was prescribed.” Schedule V does not require that federal statement.",
-            "Keep controlled-substance records (prescriptions, inventories, Form 222s, and invoices) for at least 2 years. Biennial inventory is every 2 years. An opened container of a C-II needs an exact count. An opened C-III–V container may be estimated unless it holds more than 1,000 tablets or capsules, which requires an exact count.",
-            "On receipt of a C-II order, record the date and the quantity received on the pharmacy’s copy of Form 222 (or the CSOS record).",
+            "On receipt of a C-II order, record the date and the quantity received on the pharmacy's copy of Form 222 (or the CSOS record).",
+            "C-II–IV dispensing labels must state: \"Caution: Federal law prohibits the transfer of this drug to any person other than the patient for whom it was prescribed.\" Schedule V does not require that federal statement.",
+            "Keep controlled-substance records (prescriptions, inventories, Form 222s, and invoices) for at least 2 years. Biennial inventory is every 2 years.",
+            "An opened container of a C-II needs an exact count. An opened C-III–V container may be estimated unless it holds more than 1,000 tablets or capsules, which requires an exact count.",
             "Returns of pharmacy stock to a reverse distributor: C-II on DEA Form 222 (or CSOS); C-III–V on an invoice. Patient-owned leftovers use take-back, not that invoice.",
-            "DEA number: 2 letters + 7 digits; the 2nd letter usually matches the registrant's last-name initial. Check-digit verification: add digits 1+3+5; add digits 2+4+6 and multiply by 2; the sum's last digit = the 7th digit.",
+            "DEA number: 2 letters + 7 digits; the 2nd letter usually matches the registrant's last-name initial.",
+            "Check-digit verification: add digits 1+3+5; add digits 2+4+6 and multiply by 2; the sum's last digit = the 7th digit.",
             "Take-back (2.3): unused patient-owned CS go to a DEA-authorized collector, mail-back, or National Take Back Day — they are never restocked into dispensable inventory.",
             "C-II storage: locked substantially constructed cabinet, or dispersed among non-controls so they are not obvious theft targets."
           ],
@@ -919,12 +922,11 @@
           "title": "Combat Methamphetamine Epidemic Act (CMEA)",
           "intro": "CMEA restricts OTC sales of pseudoephedrine and ephedrine to curb methamphetamine production.",
           "bullets": [
-            "Pseudoephedrine (Sudafed) and ephedrine are kept BEHIND THE COUNTER (not a prescription, but restricted).",
+            "Pseudoephedrine (Sudafed) and ephedrine are kept behind the counter (not a prescription, but restricted). Products must be stored behind the counter or in a locked cabinet.",
             "Daily sales limit: 3.6 grams of pseudoephedrine base, ephedrine base, or phenylpropanolamine base per purchaser per day.",
-            "Base, not the salt. A 30 mg pseudoephedrine HCl tablet contains 24.6 mg of pseudoephedrine base. 146 of those tablets are 3.5916 g of base, under the 3.6 g daily limit. 366 of those tablets equal the 9.0 g 30-day purchase limit.",
             "30-day purchase cap: 9 grams of the base per purchaser, of which not more than 7.5 grams of the base may be mail-order.",
             "Requirements: photo ID and a written or electronic logbook (purchaser name, address, and signature; date and time; product; quantity), except one sales package of not more than 60 mg pseudoephedrine.",
-            "Products must be stored behind the counter or in a locked cabinet."
+            "Base, not the salt. A 30 mg pseudoephedrine HCl tablet contains 24.6 mg of pseudoephedrine base. 146 of those tablets are 3.5916 g of base, under the 3.6 g daily limit. 366 of those tablets equal the 9.0 g 30-day purchase limit."
           ],
           "keyPoints": [
             "PSE behind the counter",
@@ -938,10 +940,13 @@
           "intro": "Knowledge area 2.4 is federal restricted-drug processing: pseudoephedrine (CMEA) and the REMS programs that are still in effect. A technician stops on a REMS reject and notifies the pharmacist.",
           "bullets": [
             "REMS (Risk Evaluation and Mitigation Strategy): extra FDA-required steps for drugs with known serious risks — certification, enrollment, labs, or a Medication Guide given with each fill.",
-            "Clozapine is not a current pharmacy REMS. FDA removed the Clozapine REMS effective June 13, 2025. Pharmacies do not enroll or confirm an ANC through a REMS before dispensing. Severe neutropenia risk, the boxed warning, and a Medication Guide remain. ANC monitoring stays with the prescriber, per the labeling.",
-            "iPLEDGE (isotretinoin): teratogen. Prescriber, certified pharmacy, and patients enroll — both patients who can get pregnant and patients who cannot get pregnant. Maximum 30-day supply, no refills, authorization before each dispense.",
-            "iPLEDGE pickup rule that is current: patients who can get pregnant have a 7-day window counted from pregnancy-test specimen collection. The old 19-day lockout is not current — if that window is missed, a repeat pregnancy test may be done immediately, with no extra waiting period.",
-            "TIRF is not a routine current enroll-and-dispense REMS. Production of TIRF medicines stopped September 30, 2024, and the REMS accepts no new patient, prescriber, or pharmacy enrollments. It remains only while the applications stay approved and any remaining supply is dispensed to already enrolled patients. The products were transmucosal immediate-release fentanyl for opioid-tolerant patients.",
+            "Clozapine is not a current pharmacy REMS. FDA removed the Clozapine REMS effective June 13, 2025. Pharmacies do not enroll or confirm an ANC through a REMS before dispensing.",
+            "Severe neutropenia risk, the boxed warning, and a Medication Guide remain. ANC monitoring stays with the prescriber, per the labeling.",
+            "iPLEDGE (isotretinoin): teratogen. Prescriber, certified pharmacy, and patients enroll — both patients who can get pregnant and patients who cannot get pregnant. Maximum 30-day supply, no refills, and authorization before each dispense.",
+            "iPLEDGE pickup rule that is current: patients who can get pregnant have a 7-day window counted from pregnancy-test specimen collection.",
+            "The old 19-day lockout is not current. If that window is missed, a repeat pregnancy test may be done immediately, with no extra waiting period.",
+            "TIRF is not a routine current enroll-and-dispense REMS. Production of TIRF medicines stopped September 30, 2024, and the REMS accepts no new patient, prescriber, or pharmacy enrollments.",
+            "TIRF remains only while the applications stay approved and any remaining supply is dispensed to already enrolled patients. The products were transmucosal immediate-release fentanyl for opioid-tolerant patients.",
             "THALOMID (thalidomide) and REVLIMID (lenalidomide): pregnancy-prevention REMS. Treat them as current restricted programs, not clozapine.",
             "Tech action on any REMS reject: stop, do not override, notify the pharmacist. A paper waiver does not replace REMS.",
             "CMEA sits in the same 2.4 bucket: 3.6 g of base per day (pseudoephedrine, ephedrine, or phenylpropanolamine); 9 g of base per 30 days, of which not more than 7.5 g of base may be mail-order; photo ID + logbook; behind the counter."
@@ -978,7 +983,7 @@
             "Pharmacies must provide a Notice of Privacy Practices (NPP) explaining how PHI is used and disclosed.",
             "Minimum necessary applies to most uses and disclosures. It does not apply to a disclosure to, or a request by, a health care provider for treatment.",
             "PHI may be shared without authorization for Treatment, Payment, and healthcare Operations (TPO).",
-            "Avoid discussing patient information in public areas; verify identity before releasing information; shred PHI documents."
+            "Avoid discussing patient information in public areas. Verify identity before releasing information. Shred PHI documents."
           ],
           "keyPoints": [
             "HIPAA protects PHI",
@@ -1015,7 +1020,8 @@
             "Durham-Humphrey Amendment (1951): established the prescription (legend) vs OTC distinction.",
             "Kefauver-Harris Amendment (1962): required drugs be proven safe AND EFFECTIVE, and established Good Manufacturing Practices (GMP).",
             "Poison Prevention Packaging Act (1970): child-resistant containers for most prescriptions and many OTC drugs. The CPSC enforces it, not the FDA. Sublingual nitroglycerin is exempt.",
-            "Non-child-resistant request: a prescriber may request it for one prescription only. The patient may request it, and only the patient may make a blanket request covering all of that patient’s prescriptions. Document the request.",
+            "A prescriber may request non-child-resistant packaging for one prescription only.",
+            "The patient may request it, and only the patient may make a blanket request covering all of that patient's prescriptions. Document the request.",
             "ADA packaging accommodations: easy-off caps, large-print labels, talking labels, and Braille labels.",
             "Medication Guides: when FDA requires one for a drug, give that guide with every fill, including refills — not only the first fill. Some REMS programs include this step.",
             "Drug Listing Act / NDC: every drug has a National Drug Code identifying labeler, product, and package size."
@@ -1069,11 +1075,10 @@
           "bullets": [
             "Recall classes: Class I = reasonable probability of serious adverse health consequences or death; Class II = temporary or medically reversible harm, or a remote probability of serious harm; Class III = adverse health consequences not likely.",
             "Recall depth is how far the notice goes: wholesale, retail, or consumer (patient) level. A Class I medication recall usually reaches the consumer level, and patients who received the affected lot are notified.",
-            "On a recall: identify affected lot numbers, quarantine the stock, and follow manufacturer/wholesaler return instructions.",
+            "The firm initiates a recall. FDA may request one. Pharmacy action: identify affected lot numbers, pull matching lots, quarantine the stock, document, and follow the notice (manufacturer/wholesaler return instructions).",
             "Rotate stock using FEFO (First-Expired, First-Out) to minimize expired product.",
             "Never dispense expired medication; remove expired/damaged units from active stock promptly.",
             "The NDC number (labeler-product-package) is used to identify recalled products and process returns.",
-            "The firm initiates a recall. FDA may request one. Pharmacy action is the same: pull matching lots, quarantine, document, follow the notice.",
             "A market withdrawal is not a recall — the firm removes product for a minor violation that would not usually trigger legal recall action.",
             "A stock recovery is also not a recall. The firm removes or corrects product that has not been marketed or has not left the firm's direct control, and no portion of the lot has been released for sale or use.",
             "Do not confuse a lot-specific recall with a patient take-back of leftover pills from home."
@@ -1114,7 +1119,8 @@
           "intro": "DSCSA (knowledge area 2.6, added on the January 6, 2026 outline) is the federal track-and-trace law for prescription drugs. Learn durable duties — serialization, authorized partners, suspect vs illegitimate handling, and 6-year records — not rapidly changing exemption end-dates.",
           "bullets": [
             "Product identifier: each package carries a unique serialized ID (usually a 2D data matrix) with NDC, serial number, lot number, and expiration date.",
-            "Current electronic exchange is Transaction Information (TI: product, lot, dates, and the parties) plus a Transaction Statement (TS: the seller attests it is authorized and did not knowingly ship suspect or illegitimate product). Transaction History (TH) was retired in November 2023. Do not memorize a mandatory TI + TH + TS set as current law.",
+            "Current electronic exchange is Transaction Information (TI: product, lot, dates, and the parties) plus a Transaction Statement (TS: the seller attests it is authorized and did not knowingly ship suspect or illegitimate product).",
+            "Transaction History (TH) was retired in November 2023. Do not memorize a mandatory TI + TH + TS set as current law.",
             "Authorized trading partners: licensed/registered manufacturers, wholesale distributors, dispensers (pharmacies), and repackagers. Accept product only from authorized partners.",
             "Suspect product: reason to believe it may be counterfeit, diverted, stolen, intentionally adulterated, or unfit. Do not dispense. Quarantine it, notify the pharmacist, and verify the product identifier (NDC, serial number, lot, and expiration).",
             "Illegitimate product: credible evidence that it is counterfeit, diverted, stolen, intentionally adulterated, or unfit. Within 24 hours of that determination, notify FDA (Form FDA 3911) and immediate trading partners. Keep DSCSA transaction records for 6 years (not the 2-year CSA clock).",
@@ -1134,13 +1140,17 @@
           "title": "Hazardous & Non-Hazardous Pharmaceutical Waste (2.1)",
           "intro": "Knowledge area 2.1 is federal storage, handling, and disposal of non-hazardous and hazardous pharmaceutical waste, including EPA P-list waste, plus the OSHA exposure steps tested with it.",
           "bullets": [
-            "EPA RCRA listed waste: P-list drugs are acutely hazardous when the listed chemical is the sole active ingredient. Examples: warfarin above 0.3% (P001); nicotine (P075), except FDA-approved OTC nicotine replacement products, which were removed from that listing. U-list drugs are toxic but not acute. Examples: cyclophosphamide (U058); lindane (U129).",
-            "P- and U-lists cover unused discarded commercial chemical products (the pure or technical grade, or a formulation in which the chemical is the sole active ingredient), off-specification product, container residue, and spill residue. That residue is hazardous waste unless the container is empty. A stock bottle, dispensing bottle, vial, or ampule (not over 1 liter or 10,000 pills), or a unit-dose container, is empty once the drug is removed the usual way. A hazardous-waste pharmaceutical that is also a scheduled controlled substance is not sewered. It is collected, stored, transported, and disposed of under DEA rules, and destroyed by a method DEA has publicly deemed non-retrievable or combusted at a permitted facility listed in the EPA rule.",
-            "A discarded drug can still be hazardous by characteristic (ignitable, corrosive, reactive, or toxic) when it is not on the P- or U-list. Non-hazardous pharmaceutical waste is the remaining drug waste. “Not on the P-list” does not mean trash or the drain.",
+            "EPA RCRA P-list drugs are acutely hazardous when the listed chemical is the sole active ingredient. Examples: warfarin above 0.3% (P001); nicotine (P075), except FDA-approved OTC nicotine replacement products, which were removed from that listing.",
+            "U-list drugs are toxic but not acute. Examples: cyclophosphamide (U058); lindane (U129).",
+            "A discarded drug can still be hazardous by characteristic (ignitable, corrosive, reactive, or toxic) when it is not on the P- or U-list. Non-hazardous pharmaceutical waste is the remaining drug waste. \"Not on the P-list\" does not mean trash or the drain.",
             "The 2019 EPA hazardous-waste pharmaceuticals rule banned sewering hazardous-waste drugs nationwide. Do not flush them.",
-            "Segregate waste before it leaves the pharmacy. The color map commonly used on the PTCE: black = RCRA hazardous pharmaceutical waste; yellow = trace chemotherapy; red = biohazard, including sharps; blue or white = non-hazardous pharmaceutical waste. Follow the pharmacy’s waste-vendor labels when they differ — the federal duty is segregation, not one national color statute.",
             "OSHA bloodborne pathogens: never recap a used needle by hand. Discard sharps at once in a rigid, puncture-resistant, closable container. After a needle-stick, wash the site, report it immediately, and follow post-exposure evaluation and prophylaxis (PEP).",
-            "OSHA exposure controls: know where the eyewash and the spill kit are. Flush eyes at the eyewash — 15 minutes is the usual tested minimum — and follow the Safety Data Sheet. Right-to-know (Hazard Communication): staff must be able to reach the SDS for hazardous chemicals they handle."
+            "P- and U-lists cover unused discarded commercial chemical products (the pure or technical grade, or a formulation in which the chemical is the sole active ingredient), off-specification product, container residue, and spill residue.",
+            "That residue is hazardous waste unless the container is empty. A stock bottle, dispensing bottle, vial, or ampule (not over 1 liter or 10,000 pills), or a unit-dose container, is empty once the drug is removed the usual way.",
+            "A hazardous-waste pharmaceutical that is also a scheduled controlled substance is not sewered. It is collected, stored, transported, and disposed of under DEA rules, and destroyed by a method DEA has publicly deemed non-retrievable or combusted at a permitted facility listed in the EPA rule.",
+            "Segregate waste before it leaves the pharmacy. The color map commonly used on the PTCE: black = RCRA hazardous pharmaceutical waste; yellow = trace chemotherapy; red = biohazard, including sharps; blue or white = non-hazardous pharmaceutical waste. Follow the pharmacy's waste-vendor labels when they differ — the federal duty is segregation, not one national color statute.",
+            "OSHA exposure controls: know where the eyewash and the spill kit are. Flush eyes at the eyewash — 15 minutes is the usual tested minimum — and follow the Safety Data Sheet.",
+            "Right-to-know (Hazard Communication): staff must be able to reach the SDS for hazardous chemicals they handle."
           ],
           "keyPoints": [
             "P-list = acute (warfarin >0.3%); U-list = toxic",
