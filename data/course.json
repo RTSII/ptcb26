@@ -17,9 +17,10 @@
           "intro": "Every drug has one official generic (nonproprietary) name and one or more brand (trade/proprietary) names. The PTCE heavily tests generic↔brand pairs. Learning suffix \"stems\" lets you identify a drug's class instantly.",
           "bullets": [
             "Generic names are lowercase; brand names are capitalized (e.g., lisinopril vs Zestril).",
-            "Common stems reveal the class: -pril = ACE inhibitor, -sartan = ARB, -olol = beta blocker, -vastatin = HMG-CoA reductase inhibitor (nystatin is an antifungal for oral candidiasis, not a statin), -prazole = PPI (aripiprazole is an antipsychotic, not a PPI), -tidine = H2 blocker, -azepam/-azolam = benzodiazepine.",
+            "Common stems: -pril = ACE inhibitor, -sartan = ARB, -olol = beta blocker, -vastatin = HMG-CoA reductase inhibitor, -prazole = PPI, -tidine = H2 blocker, -azepam/-azolam = benzodiazepine.",
+            "Stem exceptions: nystatin is an antifungal for oral candidiasis, not a statin; aripiprazole is an antipsychotic, not a PPI.",
             "-sartan: losartan (Cozaar), valsartan (Diovan). -vastatin: atorvastatin (Lipitor), simvastatin (Zocor), rosuvastatin (Crestor).",
-            "Antibiotics: -cillin = penicillins (amoxicillin), ceph- = cephalosporins (cephalexin/Keflex), -thromycin = macrolides (azithromycin/Zithromax, clarithromycin; -mycin is not one class — vancomycin is a glycopeptide), -floxacin = fluoroquinolones (ciprofloxacin/Cipro).",
+            "Antibiotic stems: -cillin = penicillins (amoxicillin); ceph- = cephalosporins (cephalexin/Keflex); -thromycin = macrolides (azithromycin/Zithromax, clarithromycin); -floxacin = fluoroquinolones (ciprofloxacin/Cipro). -mycin is not one class — vancomycin is a glycopeptide.",
             "On the exam, brand names often appear in the question and you must supply the generic class or a clinical fact."
           ],
           "keyPoints": [
@@ -35,11 +36,11 @@
           "bullets": [
             "ACE inhibitors (-pril): lisinopril (Zestril/Prinivil), enalapril — for HTN/HF; classic dry cough (bradykinin) and angioedema risk.",
             "ARBs (-sartan): losartan, valsartan — same indications as ACEIs without the cough; both classes are teratogenic (avoid in pregnancy).",
-            "Beta blockers (-olol): metoprolol (Lopressor=IR tartrate, Toprol-XL=ER succinate), atenolol (Tenormin) — lower HR/BP; caution in asthma, do not stop abruptly.",
+            "Beta blockers (-olol): metoprolol (Lopressor = IR tartrate; Toprol-XL = ER succinate), atenolol (Tenormin) — lower HR/BP; caution in asthma, do not stop abruptly.",
             "Calcium channel blockers: amlodipine (Norvasc, dihydropyridine → vasodilation, ankle edema); diltiazem/verapamil (non-DHP → also slow heart rate).",
             "Statins (-vastatin): atorvastatin, simvastatin, rosuvastatin — lower LDL; report unexplained muscle pain (myopathy/rhabdomyolysis); simvastatin interacts with grapefruit (CYP3A4).",
             "Diuretics: hydrochlorothiazide/HCTZ (thiazide, hypokalemia), furosemide/Lasix (loop, \"loses potassium\"), spironolactone (potassium-sparing).",
-            "Clopidogrel (Plavix) is a thienopyridine P2Y12 platelet inhibitor. Tablets contain 75 mg clopidogrel. It is indicated to reduce MI and stroke in acute coronary syndrome, and in recent MI, recent stroke, or established peripheral arterial disease."
+            "Clopidogrel (Plavix): thienopyridine P2Y12 platelet inhibitor; tablets contain 75 mg clopidogrel. Indicated to reduce MI and stroke in acute coronary syndrome, and in recent MI, recent stroke, or established peripheral arterial disease."
           ],
           "keyPoints": [
             "ACEI dry cough",
@@ -58,14 +59,15 @@
             "Amoxicillin: there are reports of severe reactions to cephalosporins in people with a history of penicillin hypersensitivity. Before amoxicillin, ask about prior reactions to penicillins, cephalosporins, or other allergens.",
             "Cephalosporins (ceph-/-cef-): cephalexin (Keflex). Generations 1–5 are not steadily broader gram-negative coverage; ceftaroline covers MRSA (gram-positive) plus some gram-negatives.",
             "Macrolides (-thromycin): azithromycin (Zithromax/Z-Pak = 6 tabs, 500 mg day 1 then 250 mg ×4), clarithromycin — QT prolongation risk.",
-            "Fluoroquinolones (-floxacin): ciprofloxacin (Cipro), levofloxacin — BOXED WARNING: tendinitis and tendon rupture, peripheral neuropathy, CNS effects, and myasthenia gravis exacerbation. Reserve them when there is no alternative for acute exacerbation of chronic bronchitis, uncomplicated cystitis, and acute sinusitis. Age >60 raises tendon-rupture risk. QT prolongation is a separate warning, not the box. Not first choice in children (arthropathy); approved for some pediatric uses (anthrax, plague).",
+            "Fluoroquinolones (-floxacin): ciprofloxacin (Cipro), levofloxacin — BOXED WARNING: tendinitis and tendon rupture, peripheral neuropathy, CNS effects, and myasthenia gravis exacerbation.",
+            "Reserve fluoroquinolones when there is no alternative for acute exacerbation of chronic bronchitis, uncomplicated cystitis, and acute sinusitis. Age >60 raises tendon-rupture risk. QT prolongation is a separate warning, not the box.",
+            "Fluoroquinolones are not first choice in children (arthropathy); approved for some pediatric uses (anthrax, plague).",
             "Tetracyclines: doxycycline, tetracycline — avoid in children <8 and pregnancy (permanent tooth discoloration); chelate with dairy/antacids.",
             "Sulfonamides: sulfamethoxazole/trimethoprim (Bactrim) — sulfa allergy, hyperkalemia, photosensitivity.",
             "Sulfamethoxazole/trimethoprim (Bactrim): fatalities and serious reactions include severe cutaneous adverse reactions, including Stevens-Johnson syndrome and toxic epidermal necrolysis.",
-            "Antifungals: fluconazole (Diflucan). Antivirals: acyclovir (Zovirax), oseltamivir (Tamiflu).",
-            "Oral acyclovir is indicated for acute herpes zoster (shingles), for initial and recurrent genital herpes, and for chickenpox (varicella).",
-            "Oseltamivir (Tamiflu) is an influenza neuraminidase inhibitor for treatment of acute, uncomplicated influenza A and B in patients 2 weeks of age and older who have been symptomatic for no more than 48 hours, and for prophylaxis of influenza A and B in patients 1 year and older.",
-            "Fluconazole (Diflucan) is indicated for vaginal candidiasis, oropharyngeal and esophageal candidiasis, and cryptococcal meningitis.",
+            "Antifungal: fluconazole (Diflucan) — vaginal candidiasis, oropharyngeal and esophageal candidiasis, and cryptococcal meningitis.",
+            "Antiviral: oral acyclovir (Zovirax) — acute herpes zoster (shingles), initial and recurrent genital herpes, and chickenpox (varicella).",
+            "Oseltamivir (Tamiflu): influenza neuraminidase inhibitor for treatment of acute, uncomplicated influenza A and B in patients 2 weeks of age and older who have been symptomatic for no more than 48 hours, and for prophylaxis of influenza A and B in patients 1 year and older.",
             "Oseltamivir (Tamiflu) treatment, adults and adolescents 13 years and older: 75 mg twice daily for 5 days."
           ],
           "keyPoints": [
@@ -80,21 +82,24 @@
           "title": "Endocrine: Diabetes & Thyroid",
           "intro": "Diabetes agents are frequently tested by class and mechanism; thyroid drugs have strict administration rules.",
           "bullets": [
-            "Metformin (Glucophage): first-line biguanide for T2DM; GI upset; take with food. Hold at the time of or before iodinated contrast only if eGFR is 30–60, or there is a history of liver disease, alcoholism, or heart failure, or the contrast is intra-arterial; recheck eGFR at 48 hours and restart if stable (lactic acidosis risk).",
+            "Metformin (Glucophage): first-line biguanide for T2DM; GI upset; take with food.",
+            "Hold metformin at the time of or before iodinated contrast only if eGFR is 30–60, or there is a history of liver disease, alcoholism, or heart failure, or the contrast is intra-arterial; recheck eGFR at 48 hours and restart if stable (lactic acidosis risk).",
             "Sulfonylureas: glipizide, glimepiride, glyburide — stimulate insulin release; main risk is HYPOGLYCEMIA.",
             "SGLT2 inhibitors (-gliflozin): empagliflozin (Jardiance) — increase urinary glucose excretion; genital infections, DKA risk.",
             "GLP-1 agonists: semaglutide (Ozempic), liraglutide (Victoza) — injectable, weight loss, GI upset.",
-            "Semaglutide (Ozempic) BOXED WARNING: risk of thyroid C-cell tumors. In rodents, semaglutide causes thyroid C-cell tumors. It is unknown whether Ozempic causes thyroid C-cell tumors, including medullary thyroid carcinoma (MTC), in humans. Contraindicated with a personal or family history of MTC or with Multiple Endocrine Neoplasia syndrome type 2 (MEN 2).",
+            "Semaglutide (Ozempic) BOXED WARNING: risk of thyroid C-cell tumors. In rodents, semaglutide causes thyroid C-cell tumors. It is unknown whether Ozempic causes thyroid C-cell tumors, including medullary thyroid carcinoma (MTC), in humans.",
+            "Ozempic is contraindicated with a personal or family history of MTC or with Multiple Endocrine Neoplasia syndrome type 2 (MEN 2).",
             "Liraglutide (Victoza) BOXED WARNING: risk of thyroid C-cell tumors. In rats and mice, liraglutide causes thyroid C-cell tumors. It is unknown whether Victoza causes thyroid C-cell tumors, including MTC, in humans. Contraindicated with a personal or family history of MTC and in MEN 2.",
-            "Semaglutide (Ozempic) is injected subcutaneously once weekly. Start at 0.25 mg once weekly. After 4 weeks, increase to 0.5 mg once weekly. A missed dose may be given within 5 days.",
+            "Semaglutide (Ozempic): inject subcutaneously once weekly. Start at 0.25 mg once weekly. After 4 weeks, increase to 0.5 mg once weekly. A missed dose may be given within 5 days.",
             "DPP-4 inhibitors (-gliptin): sitagliptin (Januvia). Thiazolidinediones (-glitazone): pioglitazone (Actos) — weight gain, fluid retention/HF caution.",
-            "Insulin types: rapid (lispro/Humalog, aspart/NovoLog ~15 min), short (Regular), intermediate (NPH), long (glargine/Lantus — about 24 h, no pronounced peak; degludec/Tresiba — at least 42 h). Detemir (Levemir) is discontinued in the US. Refrigerate unopened; in-use time is product-specific (Lantus vial: 28 days, refrigerated or room temperature; Lantus SoloStar: 28 days at room temperature only, do not refrigerate); never freeze.",
+            "Insulin types: rapid (lispro/Humalog, aspart/NovoLog ~15 min), short (Regular), intermediate (NPH), long (glargine/Lantus — about 24 h, no pronounced peak; degludec/Tresiba — at least 42 h). Detemir (Levemir) is discontinued in the US.",
+            "Refrigerate unopened insulin; never freeze. In-use time is product-specific (Lantus vial: 28 days, refrigerated or room temperature; Lantus SoloStar: 28 days at room temperature only, do not refrigerate).",
             "Levothyroxine (Synthroid): T4 replacement — take on empty stomach 30–60 min before breakfast, separate from calcium/iron by 4 h, consistent brand."
           ],
           "keyPoints": [
             "Metformin contrast hold is only for higher-risk patients",
             "Sulfonylureas → hypoglycemia",
-            "Insulin onset: rapid 15min, glargine no peak",
+            "Insulin onset: rapid 15 min, glargine no peak",
             "Levothyroxine empty stomach",
             "Ozempic box: thyroid C-cell tumors; no MTC or MEN 2"
           ]
@@ -105,7 +110,8 @@
           "intro": "Antidepressants, anxiolytics, sedatives, and analgesics — know class, schedule, and key warnings.",
           "bullets": [
             "SSRIs (no single class suffix; examples: fluoxetine (Prozac), sertraline (Zoloft), escitalopram (Lexapro)) — take 2–4 weeks to work; risk serotonin syndrome with MAOIs/triptans. -oxetine is not SSRI-only (duloxetine is an SNRI).",
-            "Lamotrigine ER (Lamictal XR) BOXED WARNING: serious rashes, including Stevens-Johnson syndrome. Incidence of these rashes is approximately 0.8% (8 per 1,000) in pediatric patients aged 2 to 16 years on adjunctive immediate-release lamotrigine for epilepsy, and 0.3% (3 per 1,000) in adults on adjunctive therapy for epilepsy. Rare toxic epidermal necrolysis and rash-related death are reported. Lamictal XR is not approved under age 13.",
+            "Lamotrigine ER (Lamictal XR) BOXED WARNING: serious rashes, including Stevens-Johnson syndrome. Incidence of these rashes is approximately 0.8% (8 per 1,000) in pediatric patients aged 2 to 16 years on adjunctive immediate-release lamotrigine for epilepsy, and 0.3% (3 per 1,000) in adults on adjunctive therapy for epilepsy.",
+            "Rare toxic epidermal necrolysis and rash-related death are reported. Lamictal XR is not approved under age 13.",
             "SNRIs: duloxetine (Cymbalta) — depression, anxiety, neuropathic pain; venlafaxine (Effexor XR) — MDD, GAD, social anxiety, and panic, not neuropathic pain.",
             "Benzodiazepines (-azepam/-azolam): alprazolam (Xanax), lorazepam (Ativan), diazepam (Valium) — C-IV, sedation/dependence; overdose reversed by flumazenil.",
             "Z-hypnotics for insomnia: zolpidem (Ambien), eszopiclone (Lunesta) — C-IV; next-day impairment.",
@@ -113,9 +119,9 @@
             "Acetaminophen (Tylenol): max 4 g/day (many recommend 3 g); hepatotoxicity in overdose; antidote N-acetylcysteine. Often combined with opioids (Norco = hydrocodone/APAP).",
             "Do not use acetaminophen with any other prescription or nonprescription drug that contains acetaminophen.",
             "Opioids (C-II): oxycodone, hydrocodone/APAP (Norco), tramadol (C-IV) — sedation, constipation (no tolerance), respiratory depression; reversed by naloxone.",
-            "Methylphenidate ER (Concerta) is a CNS stimulant for ADHD in patients 6 to 65 years old. BOXED WARNING: high potential for abuse and misuse, which can lead to a substance use disorder, including addiction. Misuse and abuse can result in overdose and death.",
-            "Sumatriptan tablets (Imitrex) are a 5-HT1B/1D agonist (triptan) for acute migraine with or without aura in adults. Not for prevention of migraine. Tablets contain 25 mg, 50 mg, or 100 mg sumatriptan.",
-            "Aripiprazole (Abilify) is an atypical antipsychotic indicated for schizophrenia. BOXED WARNING: increased mortality in elderly patients with dementia-related psychosis. Not approved for dementia-related psychosis."
+            "Methylphenidate ER (Concerta): CNS stimulant for ADHD in patients 6 to 65 years old. BOXED WARNING: high potential for abuse and misuse, which can lead to a substance use disorder, including addiction. Misuse and abuse can result in overdose and death.",
+            "Sumatriptan tablets (Imitrex): 5-HT1B/1D agonist (triptan) for acute migraine with or without aura in adults. Not for prevention of migraine. Tablets contain 25 mg, 50 mg, or 100 mg.",
+            "Aripiprazole (Abilify): atypical antipsychotic indicated for schizophrenia. BOXED WARNING: increased mortality in elderly patients with dementia-related psychosis. Not approved for dementia-related psychosis."
           ],
           "keyPoints": [
             "SSRI + MAOI = serotonin syndrome",
@@ -134,16 +140,15 @@
           "bullets": [
             "SABA rescue inhalers: albuterol (ProAir RespiClick, Ventolin HFA) — short-acting beta-agonist. Ventolin HFA: prime before first use. ProAir RespiClick: does not require priming.",
             "Inhaled corticosteroids (maintenance): fluticasone (Flovent); LABA: salmeterol (never used alone in asthma).",
-            "Montelukast (Singulair): leukotriene receptor antagonist for asthma/allergic rhinitis — boxed warning for neuropsychiatric effects.",
-            "PPIs (-prazole; aripiprazole is not a PPI): omeprazole (Prilosec), pantoprazole (Protonix), esomeprazole (Nexium) — take 30–60 min before the first meal; long-term use → B12 deficiency, fracture risk.",
-            "H2 blockers (-tidine): famotidine (Pepcid) — reduce gastric acid; weaker than PPIs.",
+            "Montelukast (Singulair): leukotriene receptor antagonist for asthma/allergic rhinitis — BOXED WARNING for neuropsychiatric effects.",
+            "PPIs (-prazole; aripiprazole is not a PPI): omeprazole (Prilosec), pantoprazole (Protonix), esomeprazole (Nexium) — take 30–60 min before the first meal; long-term use → B12 deficiency, fracture risk. H2 blockers (-tidine): famotidine (Pepcid) — reduce gastric acid; weaker than PPIs.",
             "Bisphosphonates: alendronate (Fosamax) for osteoporosis — take with plain water 30+ min before food and remain upright to prevent esophagitis.",
             "Alendronate (Fosamax) treatment of osteoporosis in postmenopausal women and in men: 10 mg daily or 70 mg once weekly. Prevention of osteoporosis in postmenopausal women: 5 mg daily or 35 mg once weekly.",
             "Gout: allopurinol (Zyloprim, chronic prevention), colchicine (acute flare). Antihistamines: loratadine (Claritin, non-sedating), diphenhydramine (Benadryl, sedating).",
             "Allopurinol: serious and sometimes fatal dermatologic reactions, including toxic epidermal necrolysis (TEN) and Stevens-Johnson syndrome (SJS), in approximately 5 in 10,000 (0.05%) patients. Discontinue at the first appearance of skin rash.",
-            "Tamsulosin is an alpha-1A adrenoceptor antagonist for the signs and symptoms of benign prostatic hyperplasia. It is not indicated for hypertension.",
-            "Prednisone is a glucocorticoid (systemic corticosteroid). Oral tablets contain 5 mg, 10 mg, or 20 mg. One labeled use is adjunctive short-term therapy in rheumatoid arthritis.",
-            "Tri-Sprintec (norgestimate and ethinyl estradiol) is a combination oral contraceptive indicated to prevent pregnancy in females of reproductive potential.",
+            "Tamsulosin: alpha-1A adrenoceptor antagonist for the signs and symptoms of benign prostatic hyperplasia. It is not indicated for hypertension.",
+            "Prednisone: glucocorticoid (systemic corticosteroid). Oral tablets contain 5 mg, 10 mg, or 20 mg. One labeled use is adjunctive short-term therapy in rheumatoid arthritis.",
+            "Tri-Sprintec (norgestimate and ethinyl estradiol): combination oral contraceptive indicated to prevent pregnancy in females of reproductive potential.",
             "Tri-Sprintec BOXED WARNING: cigarette smoking increases the risk of serious cardiovascular events from combination oral contraceptives. Contraindicated in women over 35 years of age who smoke."
           ],
           "keyPoints": [
@@ -151,7 +156,7 @@
             "PPIs before first meal",
             "Alendronate: plain water, stay upright",
             "Montelukast boxed warning",
-            "Alendronate treatment: 10 mg daily or 70 mg weekly"
+            "Alendronate treatment: 10 mg daily or 70 mg once weekly"
           ]
         }
       ]
@@ -175,9 +180,11 @@
             "Methotrexate tablets (Trexall) for rheumatoid arthritis: recommended starting dosage 7.5 mg orally once weekly. BOXED WARNING: tablets inadvertently administered once daily have resulted in death.",
             "Insulin: wrong-dose errors are common and dangerous; U-100 = 100 units/mL; use independent double checks.",
             "Anticoagulants: warfarin (monitor INR), heparin (monitor aPTT, HIT risk), DOACs (apixaban/Eliquis, rivaroxaban/Xarelto) — bleeding is the major harm.",
-            "Warfarin is a vitamin K antagonist indicated for prophylaxis and treatment of venous thrombosis and pulmonary embolism; prophylaxis and treatment of thromboembolic complications associated with atrial fibrillation and/or cardiac valve replacement; and reduction in the risk of death, recurrent MI, and thromboembolic events such as stroke after myocardial infarction.",
-            "Apixaban (Eliquis) is a factor Xa inhibitor indicated to reduce the risk of stroke and systemic embolism in nonvalvular atrial fibrillation, for DVT prophylaxis after hip or knee replacement, and for treatment of DVT and PE and reduction of recurrent DVT and PE.",
-            "Rivaroxaban (Xarelto) is a factor Xa inhibitor indicated to reduce the risk of stroke and systemic embolism in nonvalvular atrial fibrillation, for treatment of DVT, for treatment of PE, for reduction in the risk of recurrence of DVT or PE, and for DVT prophylaxis, which may lead to PE, after knee or hip replacement.",
+            "Warfarin: vitamin K antagonist indicated for prophylaxis and treatment of venous thrombosis and pulmonary embolism, and for prophylaxis and treatment of thromboembolic complications associated with atrial fibrillation and/or cardiac valve replacement.",
+            "Warfarin is indicated for reduction in the risk of death, recurrent MI, and thromboembolic events such as stroke after myocardial infarction.",
+            "Apixaban (Eliquis): factor Xa inhibitor indicated to reduce the risk of stroke and systemic embolism in nonvalvular atrial fibrillation, for DVT prophylaxis after hip or knee replacement, and for treatment of DVT and PE and reduction of recurrent DVT and PE.",
+            "Rivaroxaban (Xarelto): factor Xa inhibitor indicated to reduce the risk of stroke and systemic embolism in nonvalvular atrial fibrillation, for treatment of DVT, and for treatment of PE.",
+            "Rivaroxaban is indicated for reduction in the risk of recurrence of DVT or PE, and for DVT prophylaxis, which may lead to PE, after knee or hip replacement.",
             "Concentrated potassium chloride injection must ALWAYS be diluted before IV use — undiluted rapid IV push can cause fatal cardiac arrest.",
             "Risk-reduction strategies: independent double checks, standardized order sets, Tall Man lettering, and pharmacist profile review before ADC removal."
           ],
@@ -194,9 +201,8 @@
           "intro": "LASA pairs cause many dispensing errors. ISMP recommends Tall Man lettering to differentiate them.",
           "bullets": [
             "Tall Man lettering capitalizes the DISsimilar letters: predniSONE vs prednisoLONE; hydrALAZINE vs hydrOXYzine; DOBUTamine vs DOPamine; niCARdipine vs NIFEdipine.",
-            "Classic LASA pairs: predniSONE/prednisoLONE, hydrALAZINE (BP)/hydrOXYzine (antihistamine), clonidine/clonazepam, lamotrigine/lamivudine.",
-            "Prevention: segregate look-alike products on shelves, add warning labels to bins, use barcode scanning at verification, and read the full name + indication.",
-            "The goal is to draw attention to the differing letters, not to change pronunciation."
+            "Also classic LASA pairs: hydrALAZINE (BP)/hydrOXYzine (antihistamine), clonidine/clonazepam, lamotrigine/lamivudine.",
+            "Prevention: segregate look-alike products on shelves, add warning labels to bins, use barcode scanning at verification, and read the full name + indication. The goal is to draw attention to the differing letters, not to change pronunciation."
           ],
           "keyPoints": [
             "Capitalize differing letters",
@@ -227,16 +233,17 @@
           "title": "Pregnancy, Teratogens & Special Populations",
           "intro": "Certain drugs are contraindicated in pregnancy; technicians must recognize teratogens and handling restrictions.",
           "bullets": [
-            "Known teratogens (avoid in pregnancy): isotretinoin (Accutane), warfarin, methotrexate, ACE inhibitors/ARBs, tetracyclines, valproate, and finasteride. Statins are not an absolute avoid: stop them in most pregnant patients and weigh the individual need.",
+            "Known teratogens (avoid in pregnancy): isotretinoin (Accutane), warfarin, methotrexate, ACE inhibitors/ARBs, tetracyclines, valproate, and finasteride.",
+            "Statins are not an absolute avoid: stop them in most pregnant patients and weigh the individual need.",
             "Isotretinoin requires the iPLEDGE REMS program with strict pregnancy-prevention measures.",
             "Finasteride: pregnant women should not handle crushed or broken tablets (skin absorption). Dutasteride (Avodart) is a capsule; pregnant women should not handle the capsules because dutasteride can be absorbed through the skin from leakage.",
-            "Pediatric caution: tetracyclines (<8 y tooth staining), fluoroquinolones (cartilage), aspirin in children with viral illness (Reye's syndrome).",
+            "Pediatric caution: tetracyclines (<8 years, tooth staining), fluoroquinolones (cartilage), aspirin in children with viral illness (Reye's syndrome).",
             "The old letter categories (A/B/C/D/X) were replaced by the Pregnancy and Lactation Labeling Rule (PLLR) narrative format, but \"Category X = teratogen\" still appears on older references/exams."
           ],
           "keyPoints": [
             "Isotretinoin = iPLEDGE REMS",
             "Finasteride crushed = pregnancy handling hazard",
-            "Aspirin in kids = Reye's"
+            "Aspirin in children = Reye's"
           ]
         }
       ]
@@ -258,10 +265,10 @@
           "bullets": [
             "Sublingual (SL) dissolves under the tongue for rapid absorption and bypasses first-pass metabolism (nitroglycerin). Buccal = between cheek and gum.",
             "Enteric-coated (EC) resists stomach acid and dissolves in the small intestine — do NOT crush (aspirin EC, omeprazole).",
-            "Extended-release (ER/XL/SR/CR/LA) releases over time — do NOT crush or chew (risk of dose dumping). TOPROL-XL is scored and may be split; do not crush or chew it.",
-            "Orally disintegrating tablets (ODT) dissolve on the tongue; effervescent tablets must be fully dissolved in water first.",
+            "Extended-release (ER/XL/SR/CR/LA) releases over time — do NOT crush or chew (risk of dose dumping). Toprol-XL is scored and may be split; do not crush or chew it.",
+            "Orally disintegrating tablets (ODT) dissolve on the tongue; effervescent tablets must be fully dissolved in water first. Suspensions: \"shake well before use.\"",
             "Transdermal patches give steady absorption and bypass first-pass; rotate sites, never cut reservoir patches, fold before disposal (fentanyl patch is high-alert).",
-            "Suspensions: \"shake well before use.\" Many nasal sprays and metered-dose inhalers such as Ventolin HFA require priming before first use or after prolonged non-use. ProAir RespiClick does not require priming."
+            "Many nasal sprays and metered-dose inhalers such as Ventolin HFA require priming before first use or after prolonged non-use. ProAir RespiClick does not require priming."
           ],
           "keyPoints": [
             "SL bypasses first-pass",
@@ -276,14 +283,15 @@
           "intro": "Proper storage preserves potency and safety; the PTCE tests specific temperature requirements.",
           "bullets": [
             "Refrigerated (36–46°F / 2–8°C): unopened insulin, many vaccines, some biologics. Reconstituted antibiotic suspensions are not all refrigerated.",
-            "Unopened insulin must be refrigerated; once in use, time is product-specific (Lantus vial: 28 days, refrigerated or room temperature; Lantus SoloStar: 28 days at room temperature only, do not refrigerate; Tresiba: 56 days). Never freeze insulin. Detemir (Levemir) is discontinued in the US.",
+            "Unopened insulin must be refrigerated. Never freeze insulin. Detemir (Levemir) is discontinued in the US.",
+            "Once insulin is in use, time is product-specific (Lantus vial: 28 days, refrigerated or room temperature; Lantus SoloStar: 28 days at room temperature only, do not refrigerate; Tresiba: 56 days).",
             "Amoxicillin suspension: discard unused portion after 14 days. Refrigeration is preferable, not required. Azithromycin oral suspension: store at 5–30°C (41–86°F) and use within 10 days.",
             "Room temperature (68–77°F / 20–25°C) is the default for most tablets/capsules; protect from moisture and light.",
             "Nitroglycerin SL tablets: keep in the original glass container, tightly capped after each use, at room temperature, to prevent loss of potency.",
             "Most refrigerated vaccines must be stored at 2–8°C (36–46°F) and must NOT be frozen; some require frozen or ultra-cold storage.",
             "Once a multi-dose vial is opened (needle-punctured), date it and discard it within 28 days unless the manufacturer states another date for that opened vial. The beyond-use date should never exceed the manufacturer's original expiration date.",
             "Access to areas where hazardous drugs are handled must be restricted to authorized personnel. Designated areas must include storage of hazardous drugs.",
-            "A multi-dose vial used for more than one patient is kept and accessed in a clean medication preparation area, away from immediate patient treatment areas. If it enters a treatment area, dedicate it to that one patient."
+            "A multi-dose vial used for more than one patient is kept and accessed in a clean medication preparation area, away from immediate patient treatment areas. If a multi-dose vial enters a treatment area, dedicate it to that one patient."
           ],
           "keyPoints": [
             "Unopened insulin 2–8°C; SoloStar in use is room temp only",

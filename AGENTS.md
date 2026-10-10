@@ -23,6 +23,7 @@ Do not read `docs/archive/`. Those files are history.
 - Do not commit v2 `notes.json` until the blocks runtime ships with it. Keep that file outside `data/` until then.
 - No silent clinical fact edits.
 - **Sourced facts only.** When researching or adding/rewriting study content in this repo (course, notes, quiz, flashcards), every clinical, drug, legal, or numeric claim must be checked against an approved source listed in [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md) and cited in the PR. Never write facts from model memory alone. If it can't be verified, leave it out or flag it as verify. Never invent stems, patterns, mnemonics-as-facts, or numbers.
+- Prefer standard pharmacy abbreviations after a term's first mention in a lesson (tab/tabs, cap, mL, mg, mcg, IR/ER, PO). Do not abbreviate every word, invent forms, or use ISMP error-prone abbreviations.
 - Handoffs and prompts for another AI must be one paste-ready block, model-tailored and terse, with guardrails: touch only the task files, no destructive git, no merge without Rob's OK, preserve shared data/keys/styles, and run the verify loop.
 - This is a personal study app for Rob's sole use. Add no legal or medical disclaimers or hedging to content or UI, and don't hold back development over legal concerns. Accuracy comes from sourcing, not disclaimers.
 - **Docs on sign-off.** For non-trivial work (new features, new UI rules, multi-file changes, finished TODO items), once Rob signs off on the screenshots or current state, update the affected docs IN THE SAME PR before asking for the merge OK.

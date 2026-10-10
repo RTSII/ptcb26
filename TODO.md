@@ -29,6 +29,7 @@ Live backlog. History in `docs/archive/` is not this list.
    - Course-only: ADC overrides; regulatory agencies lesson; technician scope lesson.
    - Notes-only: FMEA; tech cannot verify their own work. Concurrent DUR is in course `m4l4`.
    - Garb vs PPE: course `m5l2` sterile garb order vs Notes routine PPE order.
+   - Consolidate Study Course structure into exactly the 4 main domains as accordion groups (Medications, Patient Safety, Order Entry, Federal), combining sub-domains/modules under them. Long lists are fine; the accordion moves the active section to the top.
 3. **Study Notes content audit.** Same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
 4. **Notes theme overhaul.** Only after the course audit and the notes audit are signed off (`study_notes_v4_plan.md`).
 
