@@ -36,7 +36,7 @@ Do not read `docs/archive/`. Those files are history.
 
 On every code change, run this loop before asking for review. In the PR description, record only failures found, what was fixed, and any open flags or known limits. No running log file.
 
-- `node validate.js`. It checks schema, IDs, domain names, and a few copy assertions, then runs `check-containment.js`. That loads every lesson at 1366×768 and fails if a key-points panel or a lesson-card child clips or overflows its container border. It is not a content sign-off.
+- `node validate.js`. It checks schema, IDs, domain names, and a few copy assertions, then runs `check-containment.js`. That loads every lesson at 1024×576, 1366×768, and 1920×1080. It fails if a key-points panel or a lesson-card child clips or overflows its container border, or if the reading region shows a scrollbar that does not reveal text. It is not a content sign-off.
 - Serve locally and load every touched page, plus Home. No console errors.
 - Exercise the touched feature end to end (start an exam, resume a lesson, flip a card).
 - Check phantom scroll at 1366×768 and 1920×1080. Real scroll only when dense content overflows. See [UI_STANDARDS.md](UI_STANDARDS.md).

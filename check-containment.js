@@ -2,9 +2,10 @@
 'use strict';
 /**
  * Headless lesson containment check. Invoked by validate.js.
- * Loads every lesson at 1366x768 and fails if a key-points panel clips
- * its items, or a key-points panel or lesson-card child overflows its
- * container border.
+ * Loads every lesson at 1024x576, 1366x768, and 1920x1080.
+ * Fails if a key-points panel clips its items, a key-points panel or
+ * lesson-card child overflows its container border, or the reading
+ * region shows a scrollbar that does not reveal text.
  *
  * Run: node check-containment.js
  * Chrome: CHROME_PATH, or google-chrome / chromium on PATH.
@@ -17,8 +18,7 @@ const path = require('path');
 const { spawn } = require('child_process');
 
 const ROOT = __dirname;
-const WIDTH = 1366;
-const HEIGHT = 768;
+const SIZES = [[1024, 576], [1366, 768], [1920, 1080]];
 const TYPES = {
   '.html': 'text/html; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
@@ -78,6 +78,27 @@ const MEASURE = `(() => {
     if (topIn < -1 || bottomIn > layout.scrollHeight + 1) {
       fails.push('key-points overflows .lesson-layout border');
     }
+  }
+  const lcs = getComputedStyle(layout);
+  const barW = layout.offsetWidth - layout.clientWidth
+    - (parseFloat(lcs.borderLeftWidth) || 0)
+    - (parseFloat(lcs.borderRightWidth) || 0);
+  const edge = layout.getBoundingClientRect().bottom;
+  let textPast = 0;
+  for (const el of layout.querySelectorAll('h3, li')) {
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    for (const r of range.getClientRects()) {
+      if (r.bottom - edge > textPast) textPast = r.bottom - edge;
+    }
+  }
+  const overflowPx = layout.scrollHeight - layout.clientHeight;
+  layout.scrollTop = layout.scrollHeight;
+  const moved = layout.scrollTop;
+  layout.scrollTop = 0;
+  const bar = barW > 1 || overflowPx > 0.5 || lcs.overflowY === 'scroll';
+  if (bar && (moved <= 4 || textPast <= 4)) {
+    fails.push('reading-region scrollbar does not reveal text (moved ' + moved + 'px, text hidden ' + Math.round(textPast) + 'px)');
   }
   return fails;
 })()`;
@@ -307,7 +328,7 @@ async function main() {
     '--remote-allow-origins=*',
     '--user-data-dir=' + profile,
     '--remote-debugging-port=' + debugPort,
-    '--window-size=' + WIDTH + ',' + HEIGHT,
+    '--window-size=1366,768',
     'about:blank'
   ], { stdio: 'ignore' });
 
@@ -330,13 +351,14 @@ async function main() {
     cdp = await connectCdp(page.webSocketDebuggerUrl);
     await cdp.call('Network.setCacheDisabled', { cacheDisabled: true });
     await cdp.call('Page.enable');
+    const failures = [];
+    for (const size of SIZES) {
     await cdp.call('Emulation.setDeviceMetricsOverride', {
-      width: WIDTH,
-      height: HEIGHT,
+      width: size[0],
+      height: size[1],
       deviceScaleFactor: 1,
       mobile: false
     });
-    const failures = [];
     for (const id of ids) {
       const url = 'http://127.0.0.1:' + httpPort + '/course.html?lesson=' + encodeURIComponent(id);
       await cdp.call('Page.navigate', { url });
@@ -350,15 +372,16 @@ async function main() {
         const value = ev && ev.result && ev.result.value;
         if (value) { fails = value; break; }
       }
-      if (!fails) failures.push(id + ': lesson did not render');
-      else if (fails.length) failures.push(id + ': ' + fails.join('; '));
+      if (!fails) failures.push(size[0] + 'x' + size[1] + ' ' + id + ': lesson did not render');
+      else if (fails.length) failures.push(size[0] + 'x' + size[1] + ' ' + id + ': ' + fails.join('; '));
+    }
     }
     if (failures.length) {
       failures.forEach((line) => console.error('FAIL ' + line));
-      console.error('FAIL ' + failures.length + ' lesson(s) at ' + WIDTH + 'x' + HEIGHT);
+      console.error('FAIL ' + failures.length + ' lesson check(s)');
       process.exitCode = 1;
     } else {
-      console.log('OK   ' + ids.length + ' lessons at ' + WIDTH + 'x' + HEIGHT + ': no key-points or card-child clip');
+      console.log('OK   ' + ids.length + ' lessons at 1024x576, 1366x768, and 1920x1080: no clip, no phantom scrollbar');
     }
   } catch (err) {
     console.error('FAIL ' + (err && err.message ? err.message : err));
