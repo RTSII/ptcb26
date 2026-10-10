@@ -3,7 +3,7 @@
     {
       "domain": "Medications",
       "weight": "35%",
-      "summary": "The largest domain on the PTCE (35% as of the January 6, 2026 outline). Focus on brand/generic pairs, drug classifications, mechanisms of action, indications, side effects, interactions, contraindications, insulin types, storage, and look-alike/sound-alike (LASA) drugs. Dedicated NTI-list items are no longer a standalone knowledge area.",
+      "summary": "The largest domain on the PTCE (35% as of the January 6, 2026 outline). Focus on brand/generic pairs, drug classifications, mechanisms of action, indications, side effects, interactions, contraindications, insulin types, and storage. Dedicated NTI-list items are no longer a standalone knowledge area.",
       "sections": [
         {
           "title": "Top Drug Classes & Suffixes",
@@ -106,15 +106,6 @@
           ]
         },
         {
-          "title": "High-Alert & LASA Drugs",
-          "items": [
-            "High-alert (ISMP): insulin, anticoagulants (heparin, warfarin, DOACs), opioids, concentrated electrolytes (KCl), chemotherapy, neuromuscular blockers, methotrexate, digoxin.",
-            "LASA examples: hydrOXYzine vs hydrALAZINE, predniSONE vs prednisoLONE, DOPamine vs DOBUTamine, vinBLAStine vs vinCRIStine, Celebrex vs Cerebyx — use tall-man lettering.",
-            "Independent double-check required for all high-alert meds.",
-            "High-alert classes: anticoagulants, insulin, opioids, neuromuscular blockers, chemotherapy."
-          ]
-        },
-        {
           "title": "Key Side Effects & Monitoring",
           "items": [
             "ACE inhibitors: dry cough, hyperkalemia, angioedema.",
@@ -166,8 +157,7 @@
         {
           "title": "Known Teratogens (Pregnancy Safety)",
           "items": [
-            "isotretinoin (iPLEDGE), thalidomide, warfarin, methotrexate, valproic acid, phenytoin, ACE inhibitors/ARBs, tetracyclines, lithium, misoprostol. Statins are not an absolute avoid: stop them in most pregnant patients and weigh the individual need.",
-            "Current REMS examples: iPLEDGE (isotretinoin) and THALOMID/lenalidomide. TIRF is not a routine current enroll-and-dispense REMS: production stopped September 30, 2024, and the REMS accepts no new enrollments. The Clozapine REMS was removed effective June 13, 2025, so clozapine is not a current pharmacy REMS."
+            "isotretinoin (iPLEDGE), thalidomide, warfarin, methotrexate, valproic acid, phenytoin, ACE inhibitors/ARBs, tetracyclines, lithium, misoprostol. Statins are not an absolute avoid: stop them in most pregnant patients and weigh the individual need."
           ]
         },
         {
@@ -211,8 +201,16 @@
     {
       "domain": "Patient Safety and Quality Assurance",
       "weight": "23.75%",
-      "summary": "Patient Safety and Quality Assurance (23.75% as of the January 6, 2026 outline). Covers error prevention, high-alert meds, ISMP error-prone abbreviations, NDC format, hygiene, reporting, and technician-relevant USP/hazardous-drug handling. Dedicated nonsterile compounding procedures are no longer a core knowledge area.",
+      "summary": "Patient Safety and Quality Assurance (23.75% as of the January 6, 2026 outline). Covers error prevention, high-alert and LASA drugs, ISMP error-prone abbreviations, hygiene, reporting, and technician-relevant USP/hazardous-drug handling. Dedicated nonsterile compounding procedures are no longer a core knowledge area.",
       "sections": [
+        {
+          "title": "High-Alert & LASA Drugs",
+          "items": [
+            "High-alert (ISMP): insulin, anticoagulants (heparin, warfarin, DOACs), opioids, concentrated electrolytes (KCl), chemotherapy, neuromuscular blockers, methotrexate, digoxin.",
+            "LASA examples: hydrOXYzine vs hydrALAZINE, predniSONE vs prednisoLONE, DOPamine vs DOBUTamine, vinBLAStine vs vinCRIStine, Celebrex vs Cerebyx — use tall-man lettering.",
+            "Independent double-check required for all high-alert meds."
+          ]
+        },
         {
           "title": "Error Prevention Basics",
           "items": [
@@ -238,14 +236,6 @@
           ]
         },
         {
-          "title": "NDC Format",
-          "items": [
-            "National Drug Code = unique 10- or 11-digit, 3-segment number.",
-            "Segment 1 = labeler/manufacturer; Segment 2 = product (strength, dosage form); Segment 3 = package size.",
-            "Common formats: 5-4-2, 5-3-2, 4-4-2 (padded to 11 digits with a leading zero in the short segment)."
-          ]
-        },
-        {
           "title": "Medication Error Types & DUR",
           "items": [
             "Outline 3.5 examples: incorrect dose, quantity, patient, drug, and route. Wrong time and omission are other error types; they are not the outline examples.",
@@ -268,7 +258,6 @@
         {
           "title": "Quality Assurance & Reporting",
           "items": [
-            "REMS: Risk Evaluation and Mitigation Strategy. Current examples include iPLEDGE (isotretinoin) and THALOMID/lenalidomide. TIRF is not a routine current enroll-and-dispense REMS: production stopped September 30, 2024, and the REMS accepts no new enrollments. The Clozapine REMS was removed effective June 13, 2025.",
             "Report errors/near-misses to improve systems (non-punitive culture).",
             "MedWatch: FDA adverse event reporting; FAERS public database; ISMP MERP; VAERS for vaccines.",
             "Root Cause Analysis (RCA): investigates WHY (reactive); FMEA: proactive failure analysis.",
@@ -277,11 +266,10 @@
           ]
         },
         {
-          "title": "Reporting Programs & Recalls",
+          "title": "Reporting Programs",
           "items": [
             "FDA MedWatch: voluntary reporting of adverse events, product problems, medication errors (Form 3500 professionals / 3500B consumers).",
             "ISMP MERP: voluntary, confidential national error reporting to identify and share prevention strategies.",
-            "Recall classes: Class I = reasonable probability of serious adverse health consequences or death; Class II = temporary or medically reversible harm, or a remote probability of serious harm; Class III = adverse health consequences not likely.",
             "NCC MERP error categories: A potential → B no reach → C reach/no harm → D monitoring to confirm no harm and/or intervention to preclude harm → E–I increasing harm (I = death).",
             "Report near misses (intercepted errors) too — they reveal system weaknesses before harm occurs."
           ]
@@ -328,7 +316,7 @@
     {
       "domain": "Order Entry and Processing",
       "weight": "22.50%",
-      "summary": "Order Entry and Processing (22.50% as of the January 6, 2026 outline). Sig code interpretation, pharmacy calculations, days supply, conversions, prescription intake, refill rules, and insurance processing. Alligation is not a tested calculation skill on the 2026 outline.",
+      "summary": "Order Entry and Processing (22.50% as of the January 6, 2026 outline). Sig code interpretation, pharmacy calculations, days supply, conversions, prescription intake, NDC format, and insurance processing. Alligation is not a tested calculation skill on the 2026 outline.",
       "sections": [
         {
           "title": "Common Sig Codes",
@@ -381,12 +369,11 @@
           ]
         },
         {
-          "title": "Refill Rules",
+          "title": "NDC Format",
           "items": [
-            "C-II: NO refills; Rx typically valid 30 days (state may vary).",
-            "C-III and C-IV: up to 5 refills within 6 months of the written date. Federal law does not set that cap on Schedule V; follow the stricter state rule.",
-            "Non-controlled: per state law, commonly up to 1 year.",
-            "C-II partial fills: if the pharmacy cannot supply the full quantity, remainder within 72 hours. If the patient or prescriber requests a partial (CARA 2016), remaining portions within 30 days of the written date, except an emergency oral C-II, whose remaining portions must be filled within 72 hours after the prescription is issued. LTCF/terminally ill: 60 days."
+            "National Drug Code = unique 10- or 11-digit, 3-segment number.",
+            "Segment 1 = labeler/manufacturer; Segment 2 = product (strength, dosage form); Segment 3 = package size.",
+            "Common formats: 5-4-2, 5-3-2, 4-4-2 (padded to 11 digits with a leading zero in the short segment)."
           ]
         },
         {
@@ -429,7 +416,8 @@
             "\"Disp #30\" = dispense 30; refills are authorized separately (e.g., \"Refills: 2\").",
             "DAW codes: 0 = no product selection indicated, 1 = substitution not allowed by prescriber, 2 = substitution allowed, patient requested the brand.",
             "Red flags to clarify with pharmacist: illegible handwriting, unusual dose, missing quantity/sig, or dangerous abbreviation.",
-            "Verify patient identity with two identifiers (full name + date of birth) before filling to prevent wrong-patient errors."
+            "Verify patient identity with two identifiers (full name + date of birth) before filling to prevent wrong-patient errors.",
+            "Non-controlled: per state law, commonly up to 1 year."
           ]
         }
       ]
@@ -444,9 +432,9 @@
           "items": [
             "C-I: no accepted medical use, high abuse (heroin, LSD, and marijuana that is not an FDA-approved product and not under a state medical-marijuana license).",
             "Marijuana split (April 28, 2026): FDA-approved marijuana products and state-licensed medical marijuana are C-III. Other marijuana remains C-I while broader rescheduling is pending. Older “all marijuana is C-I” notes are out of date.",
-            "C-II: high abuse, accepted use — NO refills (oxycodone, hydrocodone, morphine, Adderall, fentanyl, methadone).",
-            "C-III: moderate abuse (Tylenol #3, testosterone, buprenorphine) — up to 5 refills / 6 months.",
-            "C-IV: lower abuse (alprazolam, lorazepam, tramadol, zolpidem, carisoprodol) — up to 5 refills / 6 months.",
+            "C-II: high abuse, accepted use — NO refills (oxycodone, hydrocodone, morphine, Adderall, fentanyl, methadone). Rx typically valid 30 days (state may vary).",
+            "C-III: moderate abuse (Tylenol #3, testosterone, buprenorphine) — up to 5 refills within 6 months of the written date.",
+            "C-IV: lower abuse (alprazolam, lorazepam, tramadol, zolpidem, carisoprodol) — up to 5 refills within 6 months of the written date.",
             "C-V: lowest abuse (cough syrups with codeine, pregabalin). Federal law does not set a 5-refill / 6-month cap on Schedule V; follow the stricter state rule.",
             "Tramadol → C-IV (2014); hydrocodone combos → C-II (Oct 6, 2014)."
           ]
@@ -520,7 +508,7 @@
           "items": [
             "Knowledge area 2.4: federal restricted programs and related processing — pseudoephedrine (CMEA) and Risk Evaluation and Mitigation Strategies (REMS).",
             "REMS: FDA-required extra safety steps for drugs with serious risks. Common elements: pharmacy/prescriber certification, patient enrollment, a Medication Guide with each fill, and an authorization check before dispense.",
-            "Clozapine REMS was removed effective June 13, 2025. Pharmacies do not enroll and do not confirm an ANC through a REMS before dispensing. Severe neutropenia risk, the boxed warning, and a Medication Guide remain. ANC monitoring stays with the prescriber per the labeling.",
+            "Clozapine REMS was removed effective June 13, 2025, so clozapine is not a current pharmacy REMS. Pharmacies do not enroll and do not confirm an ANC through a REMS before dispensing. Severe neutropenia risk, the boxed warning, and a Medication Guide remain. ANC monitoring stays with the prescriber per the labeling.",
             "iPLEDGE (isotretinoin): teratogen. Prescriber, certified pharmacy, and patients enroll — patients who can get pregnant and patients who cannot get pregnant. Maximum 30-day supply, no refills, authorization before each dispense. Patients who can get pregnant have a 7-day pickup window from specimen collection. The old 19-day lockout is not current: a missed window gets a repeat pregnancy test immediately, with no extra wait.",
             "THALOMID/lenalidomide remains a current pregnancy-prevention REMS. TIRF is not a routine current enroll-and-dispense REMS: production of TIRF medicines stopped September 30, 2024, and the REMS accepts no new enrollments. Tech action on a REMS reject: stop and notify the pharmacist.",
             "CMEA (still 2.4): 3.6 g of base per day (pseudoephedrine, ephedrine, or phenylpropanolamine); 9 g of base per 30 days, of which not more than 7.5 g of base may be mail-order; photo ID + logbook; behind the counter or locked."
@@ -539,7 +527,6 @@
           "items": [
             "Outline 2.5 is medication recalls. Recall classes: Class I = reasonable probability of serious adverse health consequences or death; Class II = temporary or medically reversible harm, or a remote probability of serious harm; Class III = adverse health consequences not likely (often labeling/packaging).",
             "Recall depth: wholesale, retail, or consumer (patient) level. A Class I medication recall usually reaches the consumer level, and patients who received the affected lot are notified.",
-            "Identify recalled medication by NDC, lot, and expiration, then quarantine affected stock.",
             "The firm initiates a recall. FDA may request one. Pharmacy action is the same: pull, quarantine, document, and follow the recall notice for returns/patient notification.",
             "Market withdrawal is not a recall — the firm removes a product for a minor violation that would not be subject to legal action (e.g., a tamper-evident issue that is not a safety recall).",
             "Orange Book codes: A/AB = therapeutically equivalent (substitutable); B = not equivalent.",

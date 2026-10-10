@@ -23,15 +23,19 @@ Live backlog. History in `docs/archive/` is not this list.
 1. **Recheck longest lessons** after the key-points float. Reading-region overflow at 1366×768, most first: `m10l2` 1033, `m1l6` 636, `m1l5` 583, `m10l3` 552, `m1l3` 511, `m12l5` 480, `m1l4` 479, `m6l1` 469, `m4l4` 385, `m10l5` 376, `m2l1` 364, `m4l2` 312, `m3l3` 312, `m3l2` 301, `m12l2` 293, `m12l4` 241, `m5l3` 239, `m7l3` 228, `m7l4` 218, `m11l3` 207, `m10l1` 134, `m9l2` 113, `m4l3` 103, `m1l2` 103, `m6l2` 52, `m3l1` 51, `m10l4` 19, `m12l3` 8, `m12l1` 8. Re-check these. Key points stay on the right and no longer clip; leftover scroll is the lesson body. `m1l1`, `m2l2`, `m2l3`, `m2l4`, `m4l1`, `m5l1`, `m5l2`, `m5l4`, `m7l1`, `m7l2`, `m7l5`, `m8l1`, `m8l2`, `m8l3`, `m8l4`, `m8l5`, `m9l1`, `m11l1`, and `m11l2` fit with no reading-region overflow.
 2. **Match Study Course accordion UI/page to Study Notes accordion.**
    - Auxiliary labels: course Patient Safety `m6l1` vs Notes Order Entry.
-   - C-II refill and partial fill: course Federal `m10l2` vs Notes Order Entry.
+   - [x] C-II refill and partial fill: Notes Order Entry copy removed. Federal schedules and Key Federal Laws keep them (course `m10l2`).
    - OBRA-90 DUR: course Federal `m11l2` only vs Notes also under Patient Safety.
-   - NDC format: course Order Entry `m7l4`; Notes still list it under Patient Safety.
+   - [x] NDC format: Notes section is Order Entry, with course `m7l4`. Lot and expiration are still missing from Notes.
    - Course-only: ADC overrides; regulatory agencies lesson; technician scope lesson.
    - Notes-only: FMEA; tech cannot verify their own work. Concurrent DUR is in course `m4l4`.
    - Garb vs PPE: course `m5l2` sterile garb order vs Notes routine PPE order.
    - Consolidate Study Course structure into exactly the 4 main domains as accordion groups (Medications, Patient Safety, Order Entry, Federal), combining sub-domains/modules under them. Long lists are fine; the accordion moves the active section to the top.
-3. **Study Notes content audit.** Same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
-4. **Notes theme overhaul.** Only after the course audit and the notes audit are signed off (`study_notes_v4_plan.md`).
+3. **Notes missing KAs (after all Course fixes).**
+   - Medications: 1.2 therapeutic duplications; 1.3 drug-laboratory; 1.5 allergies; 1.7 opened injectable dating; 1.8 light sensitivity and restricted access.
+   - Patient Safety: 3.2 separating inventory; 3.3 misuse and adherence; 3.4 product integrity.
+   - Order Entry: 4.2 administration supplies; 4.3 lot number and expiration date; 4.4 credit return, return to stock, and reverse distribution.
+4. **Study Notes content audit.** Same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
+5. **Notes theme overhaul.** Only after the course audit and the notes audit are signed off (`study_notes_v4_plan.md`).
 
 Course is the primary path; Notes summarize it. Lock course facts before Notes so the same error is not fixed twice. Course and notes audits use [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md). Standing rules: [AGENTS.md](AGENTS.md).
 
