@@ -1364,6 +1364,7 @@ body.course.lesson-open .lesson-title-main {
   text-shadow: 0 0 14px rgba(0, 255, 65, 0.5);
   margin-bottom: 8px;
   overflow-wrap: break-word;
+  text-align: center;
 }
 body.course.lesson-open .lesson-intro {
   font-size: 1.45rem;
@@ -1372,6 +1373,7 @@ body.course.lesson-open .lesson-intro {
   margin-bottom: 12px;
   font-style: italic;
   overflow-wrap: break-word;
+  text-align: center;
 }
 .lesson-body { min-width: 0; }
 .lesson-body ul { list-style: none; }
@@ -1384,6 +1386,7 @@ body.course.lesson-open .lesson-body li {
   overflow-wrap: break-word;
 }
 .lesson-body li:last-child { border-bottom: none; }
+body.course.lesson-open .lesson-body li:last-child { padding-bottom: 0; }
 .lesson-body li::before { content: "▸"; color: var(--cyan); text-shadow: 0 0 6px rgba(5, 217, 232, 0.7); position: absolute; left: 0; }
 
 .key-points {
@@ -1539,8 +1542,8 @@ body.course.lesson-open .lesson-layout .key-points li {
 @media (min-width: 900px) {
   body.course.lesson-open .lesson-layout .key-points {
     float: right;
-    width: 335px;
-    margin: 0 0 12px 22px;
+    width: clamp(240px, 28%, 335px);
+    margin: 0 0 0 22px;
   }
   body.course.lesson-open .lesson-layout .key-points ul {
     display: block;

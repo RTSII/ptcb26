@@ -254,8 +254,8 @@ if (!/quiz\.html\?mode=missed/.test(dash) || !/quiz\.html\?mode=bookmarked/.test
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v67/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v67');
-else ok('sw.js cache is ptce-2026-v67');
+if (!/ptce-2026-v68/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v68');
+else ok('sw.js cache is ptce-2026-v68');
 if (/blueprint-hud/.test(sw)) fail('sw.js should not precache the removed Blueprint HUD');
 else ok('sw.js does not precache the Blueprint HUD');
 if (!/css\/exam-setup\.css/.test(sw) || !/js\/exam-setup\.js/.test(sw)) {
@@ -577,7 +577,7 @@ try {
     stdio: 'inherit',
     timeout: 120000
   });
-  ok('every lesson at 1366x768: key-points and card children stay inside their borders');
+  ok('every lesson at 1600x770 and 1366x768: no clip, no phantom scrollbar');
 } catch (err) {
   fail('lesson containment check failed');
 }
