@@ -208,8 +208,7 @@
           "items": [
             "High-alert (ISMP): insulin, anticoagulants (heparin, warfarin, DOACs), opioids, concentrated electrolytes (KCl), chemotherapy, neuromuscular blockers, methotrexate, digoxin.",
             "LASA examples: hydrOXYzine vs hydrALAZINE, predniSONE vs prednisoLONE, DOPamine vs DOBUTamine, vinBLAStine vs vinCRIStine, Celebrex vs Cerebyx — use tall-man lettering.",
-            "Independent double-check required for all high-alert meds.",
-            "High-alert classes: anticoagulants, insulin, opioids, neuromuscular blockers, chemotherapy."
+            "Independent double-check required for all high-alert meds."
           ]
         },
         {
@@ -528,7 +527,6 @@
           "items": [
             "Outline 2.5 is medication recalls. Recall classes: Class I = reasonable probability of serious adverse health consequences or death; Class II = temporary or medically reversible harm, or a remote probability of serious harm; Class III = adverse health consequences not likely (often labeling/packaging).",
             "Recall depth: wholesale, retail, or consumer (patient) level. A Class I medication recall usually reaches the consumer level, and patients who received the affected lot are notified.",
-            "Identify recalled medication by NDC, lot, and expiration, then quarantine affected stock.",
             "The firm initiates a recall. FDA may request one. Pharmacy action is the same: pull, quarantine, document, and follow the recall notice for returns/patient notification.",
             "Market withdrawal is not a recall — the firm removes a product for a minor violation that would not be subject to legal action (e.g., a tamper-evident issue that is not a safety recall).",
             "Orange Book codes: A/AB = therapeutically equivalent (substitutable); B = not equivalent.",
