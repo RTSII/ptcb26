@@ -582,7 +582,7 @@
             "Red flags requiring pharmacist clarification: illegible handwriting, unusual dose, missing quantity/sig, dangerous abbreviations."
           ],
           "keyPoints": [
-            "Inscription = drug+strength",
+            "Inscription = drug + strength",
             "Subscription = quantity/refills",
             "Signa = patient directions",
             "Disp #30 = dispense 30"
@@ -593,10 +593,13 @@
           "title": "Common SIG Codes & Abbreviations",
           "intro": "Recognize the high-frequency abbreviations used in directions. qd and the eye/ear codes are ISMP error-prone: know the meaning, and write the words instead.",
           "bullets": [
-            "Frequency: qd means daily, but it is error-prone — do not use it; write daily. BID (twice daily), TID (three times), QID (four times), q4h/q6h (every 4/6 hours), qhs (every night at bedtime), PRN (as needed).",
+            "qd means daily, but it is error-prone — do not use it; write daily.",
+            "BID (twice daily), TID (three times daily), QID (four times daily).",
+            "q4h (every 4 hours), q6h (every 6 hours), qhs (every night at bedtime), PRN (as needed).",
             "Meals/timing: ac (before meals), pc (after meals), hs (at bedtime).",
             "Routes: PO (by mouth), SL (sublingual), PR (rectally), top (topically), IM/IV/SubQ (injections).",
-            "Eyes/ears — recognize, do not use: OU = both eyes, OD = right eye, OS = left eye; AU = both ears, AD = right ear, AS = left ear. Write both eyes, right eye, left eye, both ears, right ear, or left ear.",
+            "Eyes — recognize, do not use: OU = both eyes, OD = right eye, OS = left eye. Write both eyes, right eye, or left eye.",
+            "Ears — recognize, do not use: AU = both ears, AD = right ear, AS = left ear. Write both ears, right ear, or left ear.",
             "Amounts: i = one, ii = two, ss = one-half; tab = tablet, cap = capsule, gtt(s) = drop(s), supp = suppository.",
             "Other: ud / ut dict = as directed, STAT = immediately, NR = no refills, DAW = dispense as written."
           ],
@@ -618,14 +621,15 @@
             "Dry-powder inhaler: do not use PROAIR RESPICLICK with a spacer or volume holding chamber.",
             "Nebulizer: a device that sprays liquids in aerosol form into gases delivered directly to the patient for breathing. Heated, ultrasonic, gas, venturi, and refillable nebulizers are included. Class II.",
             "Sterile Water for Injection: a diluent for parenteral drugs. Do not inject it until it is made approximately isotonic. Not for direct infusion.",
-            "Bacteriostatic Water for Injection contains 0.9% (9 mg/mL) or 1.1% (11 mg/mL) benzyl alcohol. For neonates, use only preservative-free Sterile Water for Injection.",
+            "Bacteriostatic Water for Injection contains 0.9% (9 mg/mL) or 1.1% (11 mg/mL) benzyl alcohol.",
+            "For neonates, use only preservative-free Sterile Water for Injection.",
             "Label-directed diluent: dilute Humalog U-100 to 0.1 unit/mL–1.0 unit/mL with 0.9% sodium chloride.",
             "Adult IM vaccine supplies (CDC): 1 mL or 3 mL syringe, 22- to 25-gauge needle, 1- to 1.5-inch needle, inserted at 90 degrees.",
             "Subcutaneous vaccine needle (CDC): 23- to 25-gauge, 5/8 inch (16 mm), inserted at 45 degrees."
           ],
           "keyPoints": [
             "Oral liquid: mL syringe, not a household spoon",
-            "Match the device on the label: oral mL syringe, U-100 syringe, spacer only if the inhaler allows it"
+            "Match the label: U-100 syringe; spacer only if the inhaler allows it"
           ]
         },
         {
@@ -633,8 +637,10 @@
           "title": "NDC, Lot, and Expiration",
           "intro": "The package carries an NDC, a lot number, and an expiration date.",
           "bullets": [
-            "FDA 10-digit NDC: labeler (assigned by FDA) – product (strength, dosage form, and formulation) – package (size and type). Configurations: 4-4-2, 5-3-2, or 5-4-1. A padded 12345-0678-09 can be 12345-678-09 or 12345-0678-9.",
-            "HIPAA billing uses an 11-digit 5-4-2 NDC. Add a leading zero to the short segment: 5-4-1 12345-6789-0 → 12345-6789-00; 5-3-2 12345-678-90 → 12345-0678-90; 4-4-2 1234-5678-90 → 01234-5678-90.",
+            "FDA 10-digit NDC: labeler (assigned by FDA) – product (strength, dosage form, and formulation) – package (size and type).",
+            "Configurations: 4-4-2, 5-3-2, or 5-4-1. A padded 12345-0678-09 can be 12345-678-09 or 12345-0678-9.",
+            "HIPAA billing uses an 11-digit 5-4-2 NDC. Add a leading zero to the short segment.",
+            "5-4-1: 12345-6789-0 → 12345-6789-00. 5-3-2: 12345-678-90 → 12345-0678-90. 4-4-2: 1234-5678-90 → 01234-5678-90.",
             "On March 7, 2033, FDA-assigned NDCs convert to 12-digit 6-4-2 (6-digit labeler, 4-digit product, 2-digit package) by adding leading zeros to the short segments.",
             "That rule does not change the HIPAA 11-digit format used for reimbursement. FDA does not intend to object to 10-digit NDCs on labels from March 7, 2033 through March 6, 2036.",
             "Lot number: it should yield the complete manufacturing history of the package. An incorrect lot number may misbrand the article.",
@@ -653,11 +659,13 @@
           "title": "Returns",
           "intro": "Credit returns, non-creditable hazardous waste, and reverse distribution are different paths.",
           "bullets": [
-            "Credit return: a potentially creditable hazardous waste pharmaceutical is a prescription hazardous waste pharmaceutical expected to receive manufacturer credit, in the original manufacturer packaging (except a recall), undispensed, and unexpired or less than one year past expiration. A reverse distributor receives it to verify that credit.",
+            "Credit return: a potentially creditable hazardous waste pharmaceutical is a prescription hazardous waste pharmaceutical expected to receive manufacturer credit, in the original manufacturer packaging (except a recall), undispensed, and unexpired or less than one year past expiration.",
+            "A reverse distributor receives it to verify that credit.",
             "Non-creditable hazardous waste pharmaceutical: no reasonable expectation of manufacturer credit. Includes investigational drugs, free samples, residues in empty containers, and spill-cleanup material.",
             "Reverse distribute (controlled substances): a DEA-registered reverse distributor acquires them from another registrant or law enforcement to return them to the registered manufacturer, or to a registrant the manufacturer authorizes, or for destruction.",
             "A reverse distributor destroys a controlled substance received for destruction no later than 30 calendar days after receipt.",
-            "Returned drug product is identified and held. If storage, shipping, or the container casts doubt on safety, identity, strength, quality, or purity, it is destroyed unless testing proves those standards. Records include lot number, reason, quantity, and disposition."
+            "Returned drug product is identified and held. If storage, shipping, or the container casts doubt on safety, identity, strength, quality, or purity, it is destroyed unless testing proves those standards.",
+            "Records include lot number, reason, quantity, and disposition."
           ],
           "keyPoints": [
             "Credit return: original pack, undispensed, unexpired or <1 year past expiration"
@@ -680,18 +688,17 @@
           "title": "Conversions & Household Measures",
           "intro": "Master the unit conversions that underpin most calculation questions.",
           "bullets": [
-            "Weight: 1 kg = 2.2 lb. Convert lb→kg by dividing by 2.2 (154 lb ÷ 2.2 = 70 kg).",
-            "Volume: 1 tsp = 5 mL; 1 tbsp = 15 mL = 3 tsp; 1 fl oz ≈ 30 mL; 1 L = 1000 mL.",
-            "Weight (metric): 1 g = 1000 mg; 1 mg = 1000 mcg.",
+            "Weight: 1 kg = 2.2 lb. Convert lb → kg by dividing by 2.2 (154 lb ÷ 2.2 = 70 kg). Metric: 1 g = 1,000 mg; 1 mg = 1,000 mcg.",
+            "Volume: 1 tsp = 5 mL; 1 tbsp = 15 mL = 3 tsp; 1 fl oz ≈ 30 mL; 1 L = 1,000 mL.",
             "Apothecary: 1 grain (gr) ≈ 65 mg (often rounded to 60 mg).",
-            "Roman numerals: ss = ½, I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000. (XLIV = 44, XC = 90.)",
+            "Roman numerals: ss = ½, I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1,000. (XLIV = 44, XC = 90.)",
             "Temperature: °F = (°C × 9/5) + 32; °C = (°F − 32) × 5/9."
           ],
           "keyPoints": [
             "1 kg = 2.2 lb",
             "1 tbsp = 15 mL; 1 tsp = 5 mL",
             "1 gr ≈ 65 mg",
-            "°F = (°C×1.8)+32"
+            "°F = (°C × 1.8) + 32"
           ]
         },
         {
@@ -700,7 +707,7 @@
           "intro": "The most common calculation tasks: dose size, days supply, and quantity to dispense.",
           "bullets": [
             "Dose from strength: (desired dose ÷ available strength) × quantity per unit. 250 mg needed, 125 mg tabs → 2 tabs.",
-            "Proportion: a/b = c/d, so a×d = b×c. 250 mg/5 mL = x/20 mL → x = (250×20)÷5 = 1,000 mg.",
+            "Proportion: a/b = c/d, so a × d = b × c. 250 mg/5 mL = x/20 mL → x = (250 × 20) ÷ 5 = 1,000 mg.",
             "Weight-based dose: mg/kg/day × weight in kg (15 mg/kg/day × 18 kg = 270 mg/day).",
             "Days supply (tablets): quantity ÷ tablets per day. 90 tabs at TID (3/day) = 30 days. Round DOWN for billing.",
             "Insulin days supply: (mL × 100 units for U-100) ÷ units per day. A 10 mL vial = 1,000 units; at 20 units/day lasts 50 days.",
@@ -722,8 +729,9 @@
           "bullets": [
             "Percent w/v (solutions) = grams per 100 mL. 0.9% NaCl = 0.9 g per 100 mL; in 500 mL that is 4.5 g. D5W = 5 g dextrose per 100 mL (50 g per 1,000 mL).",
             "Percent v/v = mL per 100 mL. Isopropyl alcohol 70% v/v = 70 mL per 100 mL; in 250 mL that is 175 mL.",
-            "Ratio strength: 1:1000 = 1 g per 1000 mL = 1 mg/mL (epinephrine).",
-            "Percent ↔ decimal: divide by 100 (0.75% = 0.0075). Percent w/w (creams) = grams per 100 g. 1% hydrocortisone cream = 10 mg/g, so 0.25% cream = 2.5 mg/g (% × 10).",
+            "Ratio strength: 1:1000 = 1 g per 1,000 mL = 1 mg/mL (epinephrine).",
+            "Percent ↔ decimal: divide by 100 (0.75% = 0.0075).",
+            "Percent w/w (creams) = grams per 100 g. 1% hydrocortisone cream = 10 mg/g, so 0.25% cream = 2.5 mg/g (% × 10).",
             "Dilution: C1V1 = C2V2 keeps the amount of drug constant when changing concentration/volume — this remains in scope."
           ],
           "keyPoints": [
@@ -740,7 +748,7 @@
           "bullets": [
             "mL per hour = total volume ÷ total hours. 1,000 mL over 8 hours = 125 mL/hr.",
             "Drops per minute: gtt/min = (volume in mL ÷ time in minutes) × drop factor (gtt/mL).",
-            "Example: 1,000 mL over 6 hours with a 15 gtt/mL set → (1000 ÷ 360) × 15 ≈ 42 gtt/min.",
+            "Example: 1,000 mL over 6 hours with a 15 gtt/mL set → (1,000 ÷ 360) × 15 ≈ 42 gtt/min.",
             "Know common drop factors: 10, 15, 20 gtt/mL (macro) and 60 gtt/mL (micro)."
           ],
           "keyPoints": [
@@ -806,8 +814,10 @@
             "Prior authorization (PA): the prescriber must justify medical necessity to the insurer BEFORE the claim will pay.",
             "Coordination of benefits (COB) determines which plan is primary when a patient has multiple insurers.",
             "Birthday rule (dependent children on both parents' plans): the primary plan is the parent whose birth MONTH/DAY falls earlier in the calendar year.",
-            "For a patient 65 or older covered through current employment (the patient's or a spouse's), the group health plan is primary and Medicare is secondary when the employer has 20 or more employees. Medicare is primary if that employer has fewer than 20 employees, or if there is no current-employment group plan. Medicaid is generally the payer of last resort.",
-            "A cash discount card lowers the cash price and is not billed with insurance on that fill. A manufacturer copay coupon is used with commercial insurance to reduce the copay, and must not be used for Medicare or Medicaid."
+            "For a patient 65 or older covered through current employment (the patient's or a spouse's), the group health plan is primary and Medicare is secondary when the employer has 20 or more employees.",
+            "Medicare is primary if that employer has fewer than 20 employees, or if there is no current-employment group plan. Medicaid is generally the payer of last resort.",
+            "A cash discount card lowers the cash price and is not billed with insurance on that fill.",
+            "A manufacturer copay coupon is used with commercial insurance to reduce the copay, and must not be used for Medicare or Medicaid."
           ],
           "keyPoints": [
             "PA = prescriber justifies to payer first",
