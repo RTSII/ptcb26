@@ -189,9 +189,9 @@
         {
           "title": "High-Alert & LASA Drugs",
           "items": [
-            "High-alert (ISMP): insulin, anticoagulants (heparin, warfarin, DOACs), opioids, concentrated electrolytes (KCl), chemotherapy, neuromuscular blockers, methotrexate, digoxin.",
-            "LASA examples: hydrOXYzine vs hydrALAZINE, predniSONE vs prednisoLONE, DOPamine vs DOBUTamine, vinBLAStine vs vinCRIStine, Celebrex vs Cerebyx — use tall-man lettering.",
-            "Double-check: Independent double-check required for all high-alert meds."
+            "ISMP acute-care examples: insulin, antithrombotics (warfarin, heparin, DOACs), opioids, KCl injection concentrate, chemotherapy, neuromuscular blockers, oral nononcologic methotrexate, IV inotropes (e.g. digoxin).",
+            "LASA examples: hydrOXYzine vs hydrALAZINE, predniSONE vs prednisoLONE, DOPamine vs DOBUTamine, vinBLAStine vs vinCRIStine, CeleBREX vs CeleXA — use tall-man lettering.",
+            "Double-check: limit to selected high-alert meds (e.g. chemo, opioid infusions, IV insulin, heparin infusions)."
           ]
         },
         {
@@ -200,7 +200,7 @@
             "Five rights: right patient, right drug, right dose, right route, right time (+ documentation, reason).",
             "Use 2 identifiers: full name and date of birth.",
             "Barcode scanning verifies the correct product against the order.",
-            "Independent double-checks for high-alert meds (e.g., insulin, heparin).",
+            "Double-check: selected high-alert meds only (e.g. chemo, opioid infusions, IV insulin, heparin infusions).",
             "Medication reconciliation compares a patient's meds to new orders to prevent duplication/omission.",
             "Pharmacist performs final verification; a tech cannot verify their own work."
           ]
@@ -214,7 +214,7 @@
             "Trailing zero (1.0 mg) → write 1 mg.",
             "No leading zero (.5 mg) → write 0.5 mg.",
             "'MS/MSO4/MgSO4' → spell out morphine sulfate or magnesium sulfate.",
-            "'μg' → write 'mcg'; 'cc' → write 'mL'; 'D/C' spell out; 'hs' → 'at bedtime'.",
+            "HS/hs: can mean half-strength or bedtime; write 'half-strength' or 'bedtime'. Also write mcg (not μg), mL (not cc), and spell out D/C.",
             "'OD/OS/OU' → write 'right eye'/'left eye'/'both eyes'. 'AD/AS/AU' → write 'right ear'/'left ear'/'both ears'."
           ]
         },
@@ -225,17 +225,15 @@
             "Process types: prescribing, transcription/entry, dispensing, administration, monitoring errors; near-miss = caught before patient.",
             "Adverse drug event (ADE): harm from a drug (may or may not be an error).",
             "Prospective DUR: BEFORE dispensing — interactions, allergies, duplication, dose.",
-            "Concurrent DUR: during therapy; Retrospective DUR: after dispensing (audits).",
-            "OBRA-90 (effective 1993): for each Medicaid beneficiary or caregiver who presents a prescription, prospective DUR and an offer to counsel. Not limited to new prescriptions."
+            "Concurrent DUR: reviews therapy before each Rx is dispensed, at point of sale. Retrospective DUR: after dispensing (audits)."
           ]
         },
         {
           "title": "USP Chapter IDs (2026 scope)",
           "items": [
-            "USP <795> (non-sterile compounding chapter): dedicated nonsterile compounding procedures were removed from the January 2026 PTCE outline — do not treat BUD tables or compounding technique as core tested skills.",
-            "USP <797> is the sterile compounding chapter. Cleanroom categories, ISO class drills, and garbing are CSPT-level — not core 2026 PTCE. Do not treat Category 1 vs Category 2 as required exam content.",
-            "USP <800> hazardous-drug handling has been official since December 1, 2019 (not December 1, 2023): containment, PPE, and spill kits.",
-            "Optional garbing enrichment only, dirtiest to cleanest: shoe covers → hair/beard cover → mask → hand hygiene → gown → sterile gloves."
+            "USP <795>: nonsterile compounding chapter.",
+            "USP <797>: sterile compounding chapter.",
+            "USP <800> hazardous-drug handling has been official since December 1, 2019 (not December 1, 2023): containment, PPE, and spill kits."
           ]
         },
         {
@@ -243,7 +241,7 @@
           "items": [
             "Report errors/near-misses to improve systems (non-punitive culture).",
             "MedWatch: FDA adverse event reporting; FAERS public database; ISMP MERP; VAERS for vaccines.",
-            "Root Cause Analysis (RCA): investigates WHY (reactive); FMEA: proactive failure analysis.",
+            "RCA: investigates why an error happened (reactive).",
             "PPE donning: gown → mask → goggles → gloves; doffing: gloves → goggles → gown → mask."
           ]
         },
@@ -261,7 +259,7 @@
           "items": [
             "Root cause analysis (RCA): systems-based review to find underlying process failures (not individual blame) after an error.",
             "PDSA cycle (Plan-Do-Study-Act): iterative method to test and refine quality improvements.",
-            "Independent double checks: two qualified staff separately verify high-alert meds before dispensing/administration.",
+            "Double-check: two staff separately verify selected high-alert meds (e.g. chemo, opioid infusions, IV insulin, heparin infusions).",
             "Prospective DUR screens before dispensing; retrospective DUR reviews prescribing/dispensing patterns afterward.",
             "Medication reconciliation at every transition of care prevents omissions, duplications, and dose errors."
           ]
@@ -269,12 +267,11 @@
         {
           "title": "Infection Control & Hazardous Materials",
           "items": [
-            "Hand hygiene: soap + water for at least 20 seconds; alcohol-based rub when hands not visibly soiled.",
+            "Hand hygiene: alcohol rub preferred unless visibly soiled. Soap and water when visibly soiled, before eating, after restroom, and for C. diff or norovirus.",
             "Sharps: rigid, puncture-resistant, closable sharps containers; never recap used needles by hand.",
             "NIOSH maintains the list of hazardous drugs (antineoplastics, hormones, some antivirals).",
-            "Hazardous-drug PPE: two pairs of chemotherapy-tested gloves + impermeable gown; eye/face/respiratory protection per risk.",
+            "HD PPE: two pairs of chemo gloves and a gown for compounding sterile or nonsterile HDs; two pairs for administering injectable antineoplastic HDs; other activities per SOP.",
             "Counting trays and countertops (3.6): wipe with 70% isopropyl alcohol between fills; clean again after penicillin, sulfa, or a hazardous drug; use a dedicated tray for hazardous drugs.",
-            "Optional sterile garbing only (not core PTCE), dirtiest to cleanest: shoe covers → hair/beard cover → mask → hand hygiene → gown → sterile gloves last.",
             "Vaccine storage: most refrigerated at 2–8°C (36–46°F), do not freeze; monitor with calibrated thermometers and document temps."
           ]
         },
@@ -285,8 +282,7 @@
             "Give the current VIS edition before immunization (not only afterward). Document the VIS publication date and the date it was provided.",
             "Post-immunization care (outline 3.3): for most vaccines, observe seated or lying down for 15 minutes (most syncope is within 15 minutes). Some people are observed for 30 minutes after a COVID-19 vaccine. If the patient feels faint, seat them and notify the pharmacist. Do not send them to drive off untreated.",
             "VAERS reports vaccine adverse events (outline 3.4). MedWatch is the general FDA drug/device program — do not mix the two.",
-            "OTC recommendation, therapeutic substitution, DUR/ADE, and allergy/interaction alerts require pharmacist intervention (3.3). Techs gather facts and escalate.",
-            "Purple Book (FDA biologics interchangeability) is not a January 2026 PTCE knowledge area — not treated as tested. Orange Book A/AB codes remain the small-molecule TE reference already in Federal notes."
+            "OTC recommendation, therapeutic substitution, DUR/ADE, and allergy/interaction alerts require pharmacist intervention (3.3). Techs gather facts and escalate."
           ]
         }
       ]
