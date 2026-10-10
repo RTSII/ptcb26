@@ -1313,8 +1313,9 @@ body.course .course-header-title {
   white-space: nowrap;
 }
 
-/* Idle list matches Notes: ~10vh under the header. Opening eases that spacer
-   shut (body.course-reading) so the open card slides up under the header. */
+/* Idle list matches Notes: ~10vh under the header. Width is the Notes
+   container rule in notes.css. Opening eases that spacer shut
+   (body.course-reading) so the open card slides up under the header. */
 body.course:not(.lesson-open) .container {
   padding-top: 10vh;
   padding-bottom: 16px;
@@ -1354,9 +1355,12 @@ body.course .course-module + .course-module {
   padding-top: 12px;
   border-top: 1px solid rgba(148, 163, 184, 0.18);
 }
+body.course .course-module-title,
+body.course .nx-domain-body .module-desc {
+  text-align: center;
+}
 body.course .course-module-title {
   margin: 2px 0 8px;
-  text-align: center;
   font-family: "Chakra Petch", "Rajdhani", system-ui, sans-serif;
   font-size: 1.02rem;
   font-weight: 700;
