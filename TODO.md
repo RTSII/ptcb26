@@ -20,8 +20,8 @@ Live backlog. History in `docs/archive/` is not this list.
   - **Partial scope (lesson stays on the default path):** `m11l3` — FDCA history, PPPA, ADA, and NDC sit outside 2.1–2.6; the Medication Guide bullet supports 2.4. `m12l2` — FEFO, expired stock, and NDC returns sit outside FDA recall 2.5; recall classes and initiation stay on the default path.
 - [x] **Course gap-fill.** Medications, Patient Safety, Order Entry, and Federal Requirements. Next is item 1.
 
-1. **Recheck longest lessons** after the key-points float. Reading-region overflow at 1366×768, most first: `m10l2` 1033, `m1l6` 636, `m1l5` 583, `m10l3` 552, `m1l3` 511, `m12l5` 480, `m1l4` 479, `m6l1` 469, `m4l4` 385, `m10l5` 376, `m2l1` 364, `m4l2` 312, `m3l3` 312, `m3l2` 301, `m12l2` 293, `m12l4` 241, `m5l3` 239, `m7l3` 228, `m7l4` 218, `m11l3` 207, `m10l1` 134, `m9l2` 113, `m4l3` 103, `m1l2` 103, `m6l2` 52, `m3l1` 51, `m10l4` 19, `m12l3` 8, `m12l1` 8. Re-check these. Key points stay on the right and no longer clip; leftover scroll is the lesson body. `m1l1`, `m2l2`, `m2l3`, `m2l4`, `m4l1`, `m5l1`, `m5l2`, `m5l4`, `m7l1`, `m7l2`, `m7l5`, `m8l1`, `m8l2`, `m8l3`, `m8l4`, `m8l5`, `m9l1`, `m11l1`, and `m11l2` fit with no reading-region overflow.
-2. **Match Study Course accordion UI/page to Study Notes accordion.**
+1. [x] **Study Course content and layout** signed off (Rob, 2026-10-10).
+2. **Match Study Course accordion UI/page to Study Notes accordion.** Waits until Notes overhaul step 1 (diff current `data/notes.json` against `a0e7321`) confirms the Notes breakdown.
    - Auxiliary labels: course Patient Safety `m6l1` vs Notes Order Entry.
    - [x] C-II refill and partial fill: Notes Order Entry copy removed. Federal schedules and Key Federal Laws keep them (course `m10l2`).
    - OBRA-90 DUR: course Federal `m11l2` only vs Notes also under Patient Safety.
@@ -89,8 +89,6 @@ Punch-list loop still open:
 1. Quick 10
 2. Chapter Test
 3. 30-question practice exam
-
-Federal Requirements and Patient Safety course pass 1 are done. Those two domains still need the three punch lists above. Medications and Order Entry are not signed off.
 
 `node validate.js` only checks structure and a few copy assertions. It does not close this loop. The pre-PR loop is in [AGENTS.md](AGENTS.md).
 
