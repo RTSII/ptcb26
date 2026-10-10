@@ -15,7 +15,7 @@ Do not read `docs/archive/`. Those files are history.
 
 1. Docs first: before any edit to existing frontend code or page content, read this file, [UI_STANDARDS.md](UI_STANDARDS.md), [README.md](README.md), and that page's HTML, CSS, and JS once. Reuse existing classes and patterns. No new layout unless Rob asked for one.
 2. Every agent, including subagents and parallel agents: research and gather, then plan, then execute only the requested task, then stop and report. No free rein. No extra scope.
-3. Content PRs are UI PRs. Screenshot every touched page at 1366×768. Confirm each is contained, padded, and free of clipping, spill, and wasted width. Put the screenshots in the report.
+3. Content PRs are UI PRs. Screenshot every touched page at 1600×770 (1366×768 secondary). Confirm each is contained, padded, and free of clipping, spill, and wasted width. Put the screenshots in the report.
 4. When Rob names a specific approach, follow it literally and ask before deviating. When he does not name a route or area, use best judgment within the requested scope, after the docs-first read, with no destructive actions, and state the chosen approach in the report.
 5. Grok Bot reviews screenshots before any merge, including standing-approval merges. Passing numbers alone do not count.
 
@@ -37,10 +37,10 @@ Do not read `docs/archive/`. Those files are history.
 
 On every code change, run this loop before asking for review. In the PR description, record only failures found, what was fixed, and any open flags or known limits. No running log file.
 
-- `node validate.js`. It checks schema, IDs, domain names, and a few copy assertions, then runs `check-containment.js`. That loads every lesson at 1366×768 and fails if a key-points panel or a lesson-card child clips or overflows its container border. It is not a content sign-off.
+- `node validate.js`. It checks schema, IDs, domain names, and a few copy assertions, then runs `check-containment.js`. That loads every lesson at 1600×770 (primary) and 1366×768 (secondary). It fails if a key-points panel or a lesson-card child clips or overflows its container border, or if the reading region shows a scrollbar that does not reveal text. It is not a content sign-off.
 - Serve locally and load every touched page, plus Home. No console errors.
 - Exercise the touched feature end to end (start an exam, resume a lesson, flip a card).
-- Check phantom scroll at 1366×768 and 1920×1080. Real scroll only when dense content overflows. See [UI_STANDARDS.md](UI_STANDARDS.md).
+- Check phantom scroll at 1600×770 and 1366×768. Real scroll only when dense content overflows. See [UI_STANDARDS.md](UI_STANDARDS.md). Rob's Chrome viewport is 1600×770 on a 1600×900 screen at 100% scaling. 1366×768 is the secondary check.
 - If assets changed, bump the service worker cache to the next version, and the matching check in `validate.js`.
 - Quick regression check of pages that share the touched CSS or JS.
 - Fix and re-run until this is clean.

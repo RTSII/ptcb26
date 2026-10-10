@@ -362,20 +362,20 @@
           "intro": "Know error severity, the prescription error types on outline 3.5, and the ISMP abbreviations that cause them.",
           "bullets": [
             "A near miss (close call) is an error INTERCEPTED before reaching the patient — report it to fix system weaknesses.",
-            "NCC MERP categories: A = circumstances with error potential; B = error did NOT reach patient; C = reached patient, NO harm; D = reached the patient and required monitoring to confirm no harm and/or intervention to preclude harm.",
+            "NCC MERP: A = circumstances with error potential; B = error did NOT reach patient; C = reached patient, NO harm; D = reached the patient and required monitoring to confirm no harm and/or intervention to preclude harm.",
             "Categories E–I = increasing harm: E = temporary harm requiring intervention; F = hospitalization; G = permanent harm; H = life-sustaining intervention; I = death.",
             "Outline 3.5 examples: incorrect dose, quantity, patient, drug, and route. Wrong time and omission are other error types; they are not the outline examples.",
             "Incorrect drug dosage on prospective DUR: daily dosage = strength × quantity dispensed ÷ days' supply. If that daily dosage lies outside the predetermined standard, stop and notify the pharmacist.",
-            "ISMP Do Not Use minimum list: spell out units (never U); spell out international units (never IU); write daily or every other day (never QD or QOD); write morphine sulfate or magnesium sulfate (never MS, MSO4, or MgSO4). Use a leading zero (0.5 mg, not .5 mg). Do not use a trailing zero (1 mg, not 1.0 mg).",
+            "ISMP Do Not Use: spell out units (never U) and international units (never IU); write daily or every other day (never QD or QOD); write morphine sulfate or magnesium sulfate (never MS, MSO4, or MgSO4). Leading zero: 0.5 mg, not .5 mg. No trailing zero: 1 mg, not 1.0 mg.",
             "Also on the ISMP error-prone list, but not that minimum Do Not Use set: write mL (never cc); write mcg (never µg). Eye and ear abbreviations are error-prone: do not use OD, OS, OU, AD, AS, or AU; write right eye, left eye, both eyes, right ear, left ear, or both ears.",
-            "More ISMP error-prone abbreviations: write discharge or discontinue (D/C meant as discharge has been read as discontinued); write half-strength or bedtime (HS/hs swap those meanings); write subcut or subcutaneously (SC, SQ, sub q); write 3 times weekly (TIW has been read as 3 times a day)."
+            "More ISMP error-prone abbreviations — write discharge or discontinue (D/C meant as discharge has been read as discontinued); half-strength or bedtime (HS/hs swap those meanings); subcut or subcutaneously (SC, SQ, sub q); 3 times weekly (TIW has been read as 3 times a day)."
           ],
           "keyPoints": [
             "Near miss = caught before patient",
             "Category C = reached patient, no harm",
-            "3.5 examples: dose, quantity, patient, drug, route",
-            "Do Not Use: U, IU, QD/QOD, trailing zero, missing leading zero, MS/MSO4",
-            "cc and µg: write mL and mcg; eye/ear codes: write the words"
+            "3.5: dose, quantity, patient, drug, route",
+            "No U, IU, QD/QOD, MS/MSO4; 0.5 not 1.0",
+            "mL not cc; mcg not µg; spell eye/ear"
           ]
         },
         {
@@ -384,10 +384,9 @@
           "intro": "Know where and how medication errors and adverse events are reported, and the FDA recall classes.",
           "bullets": [
             "FDA MedWatch: voluntary reporting of adverse events, product problems, and medication errors (Form 3500 for professionals, 3500B for consumers).",
-            "Product integrity: report a product-quality concern to MedWatch when quality, authenticity, performance, or safety is in doubt. Examples: suspect counterfeit, contamination, defective components, poor packaging or product mix-up, questionable stability, labeling concerns.",
+            "Product integrity: report a product-quality concern to MedWatch when quality, authenticity, performance, or safety is in doubt (suspect counterfeit, contamination, defective components, poor packaging or product mix-up, questionable stability, labeling concerns).",
             "ISMP MERP (Medication Errors Reporting Program): voluntary, CONFIDENTIAL national error reporting to share prevention strategies.",
-            "VAERS: Vaccine Adverse Event Reporting System (for vaccines).",
-            "Anyone may report to VAERS. Healthcare providers are required to report an adverse event on the VAERS Table of Reportable Events Following Vaccination that occurs within the specified time, and an adverse event the manufacturer lists as a contraindication to further doses.",
+            "VAERS (Vaccine Adverse Event Reporting System, for vaccines): anyone may report. Healthcare providers are required to report an adverse event on the VAERS Table of Reportable Events Following Vaccination that occurs within the specified time, and an adverse event the manufacturer lists as a contraindication to further doses.",
             "Recall classes: Class I = reasonable probability of serious adverse health consequences or death; Class II = temporary or medically reversible harm, or a remote probability of serious harm; Class III = adverse health consequences not likely.",
             "When a recall occurs: check lot numbers, quarantine affected stock, and follow the recall instructions for return/disposal."
           ],
@@ -408,9 +407,9 @@
             "Also on the ISMP acute-care high-alert list: neuromuscular blocking agents (succinylcholine, rocuronium, vecuronium) and oral sulfonylureas (glimepiride, glipiZIDE, glyBURIDE). Insulin U-500 and oral methotrexate for nononcologic use are singled out for special emphasis.",
             "ISMP community/ambulatory high-alert categories also include oral and parenteral immunosuppressants (azaTHIOprine, cycloSPORINE, tacrolimus) and pediatric liquid medications that require measurement.",
             "Humulin R U-500 is 500 units/mL, 5 times as much insulin in 1 mL as U-100 (100 units/mL). Use only a U-500 insulin syringe with the vial. A U-100 syringe used for a U-500 dose can give a 5-times overdose. Do not mix it with any other insulin and do not inject it intravenously.",
-            "Prospective DUR screens for interactions/duplications/contraindications BEFORE dispensing (at order entry); retrospective DUR reviews patterns afterward.",
-            "Prospective DUR, before the prescription is filled or delivered, screens for therapeutic duplication, drug-disease contraindication, drug-drug interaction, incorrect drug dosage, incorrect duration of treatment, drug-allergy interaction, and clinical abuse/misuse.",
-            "Part D concurrent DUR is the review of prescribed therapy before each prescription is dispensed, typically at the point of sale or point of distribution. It includes age/gender-related contraindications, over-utilization and under-utilization, drug-drug interactions, incorrect dosage or duration, drug-allergy contraindications, and clinical abuse/misuse.",
+            "Prospective DUR, before the prescription is filled or delivered (at order entry), screens for therapeutic duplication, drug-disease contraindication, drug-drug interaction, incorrect drug dosage, incorrect duration of treatment, drug-allergy interaction, and clinical abuse/misuse. Retrospective DUR reviews patterns afterward.",
+            "Part D concurrent DUR reviews prescribed therapy before each prescription is dispensed, typically at the point of sale or point of distribution.",
+            "Part D concurrent DUR includes age/gender-related contraindications, overutilization and underutilization, drug-drug interactions, incorrect dosage or duration, drug-allergy contraindications, and clinical abuse/misuse.",
             "Medication reconciliation compares all home medications to new orders at EVERY transition of care (admission, transfer, discharge)."
           ],
           "keyPoints": [
@@ -436,13 +435,13 @@
           "title": "USP Standards Overview",
           "intro": "Know which USP chapter applies. Dedicated nonsterile compounding procedures (old 1.9 / 4.1) were removed from the January 2026 outline — do not treat <795> technique or BUD tables as core tested skills.",
           "bullets": [
-            "USP <795>: NON-STERILE compounding chapter (oral suspensions, topicals, capsules). Removed as a dedicated 2026 procedure skill — chapter ID only.",
+            "USP <795>: NONSTERILE compounding chapter (oral suspensions, topicals, capsules). Removed as a dedicated 2026 procedure skill — chapter ID only.",
             "USP <797>: STERILE compounding chapter (IV admixtures, injections, ophthalmics). Cleanroom procedure and garbing depth are optional archive, not core PTCE.",
-            "USP <800>: safe HANDLING of HAZARDOUS DRUGS across both sterile and non-sterile settings — PPE, containment (C-PEC/C-SEC), and personnel protection.",
+            "USP <800>: safe HANDLING of HAZARDOUS DRUGS across both sterile and nonsterile settings — PPE, containment (C-PEC/C-SEC), and personnel protection.",
             "Beyond-use date (BUD): the date after which a COMPOUNDED preparation must NOT be used — assigned per USP limits and stability data, NOT the manufacturer expiration date."
           ],
           "keyPoints": [
-            "<795> non-sterile",
+            "<795> nonsterile",
             "<797> sterile",
             "<800> hazardous drugs",
             "BUD ≠ expiration date"
@@ -463,7 +462,7 @@
           ],
           "keyPoints": [
             "Optional archive — not core PTCE",
-            "Garb: shoes → hair → mask → hands → gown → gloves",
+            "Shoes, hair, mask, hands, gown, gloves",
             "Do not memorize cleanroom categories for the PTCE"
           ]
         },
@@ -475,9 +474,9 @@
             "NIOSH maintains the list of hazardous drugs (antineoplastics, hormones, some antivirals).",
             "Hazardous-drug compounding PPE: TWO pairs of chemotherapy-tested gloves + an impermeable gown; add eye/face and respiratory protection per risk.",
             "Use a containment primary engineering control (C-PEC, e.g., BSC or CACI) inside a containment secondary engineering control (C-SEC) with negative pressure for HDs.",
-            "Hand hygiene: soap and water for at least 20 seconds; alcohol-based rub when hands are not visibly soiled.",
-            "CDC infection-control PPE when using gown, mask or respirator, goggles or face shield, and gloves: don gown, then mask or respirator, then goggles or face shield, then gloves extended over the gown cuff. Remove gloves, then goggles or face shield, then gown, then mask or respirator.",
-            "Wash with soap and water when hands are visibly soiled, and during care of patients with suspected or confirmed infection during outbreaks of C. difficile and norovirus. Unless hands are visibly soiled, an alcohol-based hand sanitizer is preferred in most clinical situations.",
+            "Hand hygiene: soap and water for at least 20 seconds when hands are visibly soiled, and during care of patients with suspected or confirmed infection during outbreaks of C. difficile and norovirus.",
+            "Unless hands are visibly soiled, an alcohol-based rub (hand sanitizer) is preferred in most clinical situations.",
+            "CDC infection-control PPE (gown, mask or respirator, goggles or face shield, gloves): don gown, then mask or respirator, then goggles or face shield, then gloves extended over the gown cuff. Remove gloves, then goggles or face shield, then gown, then mask or respirator.",
             "Counting trays and countertops (outline 3.6): wipe with 70% isopropyl alcohol between fills. Clean again after penicillin, sulfa, or a hazardous drug before the next prescription. Use a dedicated tray for hazardous drugs.",
             "Sharps (needles/syringes): rigid, puncture-resistant, closable sharps containers — never regular trash or recycling; never recap by hand.",
             "Vaccine storage: most refrigerated at 2–8°C (36–46°F), do NOT freeze; monitor with calibrated thermometers and document temperatures."
@@ -498,12 +497,11 @@
           "intro": "OPTIONAL / NOT EMPHASIZED ON THE 2026 PTCE. Dedicated nonsterile compounding procedures (old 1.9 / related 4.1) were removed. Keep this only as historical review. Default-path study is chapter ID, hazardous-drug handling, and counting-tray/counter hygiene.",
           "bullets": [
             "Historical <795> technique topics included BUD assignment by risk, component selection, and nonsterile compounding steps (trituration, geometric dilution, levigation).",
-            "Those procedure skills are not a January 2026 tested knowledge area. If you see a BUD/technique item, treat it as archive — not core PTCE.",
-            "Still in scope nearby: which chapter is <795> vs <797> vs <800>, and 3.6 cleaning of trays, counters, equipment, handwashing, and PPE.",
-            "Do not spend default study time memorizing nonsterile BUD tables."
+            "Those procedure skills, including nonsterile BUD tables, are not a January 2026 tested knowledge area — do not memorize them on the default path. A BUD/technique item is archive, not core PTCE.",
+            "Still in scope nearby: which chapter is <795> vs <797> vs <800>, and 3.6 cleaning of trays, counters, equipment, handwashing, and PPE."
           ],
           "keyPoints": [
-            "795 technique = optional archive",
+            "<795> technique = optional archive",
             "Chapter ID still useful",
             "Hygiene/PPE remain tested (3.6)"
           ]
@@ -529,18 +527,20 @@
             "Automated dispensing cabinets (ADCs): requiring pharmacist PROFILE REVIEW before a drug can be removed closes the dangerous \"override\" gap.",
             "Drug utilization review (DUR): prospective screening at order entry; technicians flag interaction/duplication alerts to the pharmacist for the clinical decision.",
             "Auxiliary (warning) labels communicate cautions: \"May cause drowsiness,\" \"Take with food,\" \"Avoid alcohol,\" \"Refrigerate.\"",
-            "REMS (Risk Evaluation and Mitigation Strategy): FDA-required programs for known serious risks. Current examples include iPLEDGE (isotretinoin) and THALOMID/lenalidomide. TIRF is not a routine current enroll-and-dispense REMS: production stopped September 30, 2024, and the REMS accepts no new enrollments. The Clozapine REMS was removed effective June 13, 2025 — do not treat clozapine as a pharmacy REMS.",
-            "Tall Man lettering, look-alike bin segregation, and limiting available concentrations/strengths are additional error-reduction strategies.",
-            "FDA tall-man pair: buPROPion vs busPIRone.",
+            "REMS (Risk Evaluation and Mitigation Strategy): FDA-required programs for known serious risks. Examples: iPLEDGE (isotretinoin) and THALOMID/lenalidomide.",
+            "TIRF is not a routine current enroll-and-dispense REMS (production stopped September 30, 2024; no new enrollments). The Clozapine REMS was removed effective June 13, 2025 — do not treat clozapine as a pharmacy REMS.",
+            "Tall Man lettering, look-alike bin segregation, and limiting available concentrations/strengths are additional error-reduction strategies. FDA pair: buPROPion vs busPIRone.",
             "Issues that require pharmacist intervention (outline 3.3): DUR alerts, adverse drug events, OTC recommendations, therapeutic substitution, misuse/adherence concerns, allergies, and drug interactions.",
-            "Overutilization means quantity, strength, or duration greater than necessary to reach the therapeutic goal, or enough to risk a clinically significant undesirable effect, or both. Underutilization means insufficient quantity, strength, or duration to reach that goal, or enough to risk that effect, or both. Flag both to the pharmacist.",
-            "An adverse event is any untoward medical occurrence associated with the use of a drug product in humans, whether or not it is considered related to the drug. A medication error may or may not be associated with an adverse event. Off-label use, misuse, and abuse inconsistent with the FDA-approved labeling are not medication errors.",
-            "A technician’s job at those alerts is to stop, gather the facts, and notify the pharmacist — not to override a clinical alert or recommend a product."
+            "Overutilization means quantity, strength, or duration greater than necessary to reach the therapeutic goal, or enough to risk a clinically significant undesirable effect, or both.",
+            "Underutilization means insufficient quantity, strength, or duration to reach that goal, or enough to risk that effect, or both. Flag both to the pharmacist.",
+            "An adverse event is any untoward medical occurrence associated with the use of a drug product in humans, whether or not it is considered related to the drug.",
+            "A medication error may or may not be associated with an adverse event. Off-label use, misuse, and abuse inconsistent with the FDA-approved labeling are not medication errors.",
+            "A technician's job at those alerts is to stop, gather the facts, and notify the pharmacist — not to override a clinical alert or recommend a product."
           ],
           "keyPoints": [
             "Barcode scan = right product",
             "ADC overrides = error risk",
-            "REMS examples: iPLEDGE, THALOMID/lenalidomide — not clozapine or new TIRF enrollment",
+            "iPLEDGE, THALOMID/lenalidomide; not clozapine or new TIRF",
             "DUR / OTC / substitution → pharmacist",
             "Do not override clinical alerts"
           ]
@@ -550,9 +550,9 @@
           "title": "Pharmacist Intervention & Immunization Workflow (VIS / VAERS)",
           "intro": "Outline 3.3 and 3.4 include pharmacist intervention and event reporting. Immunizing pharmacies add VIS (before the dose), post-immunization observation, and VAERS. Purple Book biologics interchangeability is not a 2026 PTCE knowledge area.",
           "bullets": [
-            "VIS (Vaccine Information Statement): CDC sheet required by federal law before each dose of a covered vaccine. Use the current edition; document the VIS date and the date given.",
-            "Give the VIS before immunization — not only afterward and not only if the patient asks.",
-            "Post-immunization care: for most vaccines, observe the patient seated or lying down for 15 minutes (most syncope is within 15 minutes). Some people are observed for 30 minutes after a COVID-19 vaccine. If the patient feels faint, seat them and notify the pharmacist. Do not send them to the parking lot untreated.",
+            "VIS (Vaccine Information Statement): CDC sheet required by federal law before each dose of a covered vaccine. Use the current edition; document the VIS date and the date given. Give it before immunization — not only afterward and not only if the patient asks.",
+            "Post-immunization: for most vaccines, observe the patient seated or lying down for 15 minutes (most syncope is within 15 minutes). Some people are observed 30 minutes after a COVID-19 vaccine.",
+            "If the patient feels faint, seat them and notify the pharmacist. Do not send them to the parking lot untreated.",
             "VAERS = vaccine adverse events. MedWatch = general FDA drug/device/medication-error reports. Know which system matches the product.",
             "OTC recommendation and therapeutic substitution always go to the pharmacist (3.3).",
             "Purple Book (FDA licensed biologics / interchangeability) is not named on the January 2026 outline — skip it as tested content. Orange Book A/AB remains the small-molecule TE shorthand in Federal notes."
@@ -590,7 +590,7 @@
             "Red flags requiring pharmacist clarification: illegible handwriting, unusual dose, missing quantity/sig, dangerous abbreviations."
           ],
           "keyPoints": [
-            "Inscription = drug+strength",
+            "Inscription = drug + strength",
             "Subscription = quantity/refills",
             "Signa = patient directions",
             "Disp #30 = dispense 30"
@@ -601,10 +601,13 @@
           "title": "Common SIG Codes & Abbreviations",
           "intro": "Recognize the high-frequency abbreviations used in directions. qd and the eye/ear codes are ISMP error-prone: know the meaning, and write the words instead.",
           "bullets": [
-            "Frequency: qd means daily, but it is error-prone — do not use it; write daily. BID (twice daily), TID (three times), QID (four times), q4h/q6h (every 4/6 hours), qhs (every night at bedtime), PRN (as needed).",
+            "qd means daily, but it is error-prone — do not use it; write daily.",
+            "BID (twice daily), TID (three times daily), QID (four times daily).",
+            "q4h (every 4 hours), q6h (every 6 hours), qhs (every night at bedtime), PRN (as needed).",
             "Meals/timing: ac (before meals), pc (after meals), hs (at bedtime).",
             "Routes: PO (by mouth), SL (sublingual), PR (rectally), top (topically), IM/IV/SubQ (injections).",
-            "Eyes/ears — recognize, do not use: OU = both eyes, OD = right eye, OS = left eye; AU = both ears, AD = right ear, AS = left ear. Write both eyes, right eye, left eye, both ears, right ear, or left ear.",
+            "Eyes — recognize, do not use: OU = both eyes, OD = right eye, OS = left eye. Write both eyes, right eye, or left eye.",
+            "Ears — recognize, do not use: AU = both ears, AD = right ear, AS = left ear. Write both ears, right ear, or left ear.",
             "Amounts: i = one, ii = two, ss = one-half; tab = tablet, cap = capsule, gtt(s) = drop(s), supp = suppository.",
             "Other: ud / ut dict = as directed, STAT = immediately, NR = no refills, DAW = dispense as written."
           ],
@@ -633,7 +636,7 @@
           ],
           "keyPoints": [
             "Oral liquid: mL syringe, not a household spoon",
-            "Match the device on the label: oral mL syringe, U-100 syringe, spacer only if the inhaler allows it"
+            "Match the label: U-100 syringe; spacer only if the inhaler allows it"
           ]
         },
         {
@@ -641,8 +644,10 @@
           "title": "NDC, Lot, and Expiration",
           "intro": "The package carries an NDC, a lot number, and an expiration date.",
           "bullets": [
-            "FDA 10-digit NDC: labeler (assigned by FDA) – product (strength, dosage form, and formulation) – package (size and type). Configurations: 4-4-2, 5-3-2, or 5-4-1. A padded 12345-0678-09 can be 12345-678-09 or 12345-0678-9.",
-            "HIPAA billing uses an 11-digit 5-4-2 NDC. Add a leading zero to the short segment: 5-4-1 12345-6789-0 → 12345-6789-00; 5-3-2 12345-678-90 → 12345-0678-90; 4-4-2 1234-5678-90 → 01234-5678-90.",
+            "FDA 10-digit NDC: labeler (assigned by FDA) – product (strength, dosage form, and formulation) – package (size and type).",
+            "Configurations: 4-4-2, 5-3-2, or 5-4-1. A padded 12345-0678-09 can be 12345-678-09 or 12345-0678-9.",
+            "HIPAA billing uses an 11-digit 5-4-2 NDC. Add a leading zero to the short segment.",
+            "5-4-1: 12345-6789-0 → 12345-6789-00. 5-3-2: 12345-678-90 → 12345-0678-90. 4-4-2: 1234-5678-90 → 01234-5678-90.",
             "On March 7, 2033, FDA-assigned NDCs convert to 12-digit 6-4-2 (6-digit labeler, 4-digit product, 2-digit package) by adding leading zeros to the short segments.",
             "That rule does not change the HIPAA 11-digit format used for reimbursement. FDA does not intend to object to 10-digit NDCs on labels from March 7, 2033 through March 6, 2036.",
             "Lot number: it should yield the complete manufacturing history of the package. An incorrect lot number may misbrand the article.",
@@ -688,18 +693,17 @@
           "title": "Conversions & Household Measures",
           "intro": "Master the unit conversions that underpin most calculation questions.",
           "bullets": [
-            "Weight: 1 kg = 2.2 lb. Convert lb→kg by dividing by 2.2 (154 lb ÷ 2.2 = 70 kg).",
-            "Volume: 1 tsp = 5 mL; 1 tbsp = 15 mL = 3 tsp; 1 fl oz ≈ 30 mL; 1 L = 1000 mL.",
-            "Weight (metric): 1 g = 1000 mg; 1 mg = 1000 mcg.",
+            "Weight: 1 kg = 2.2 lb. Convert lb → kg by dividing by 2.2 (154 lb ÷ 2.2 = 70 kg). Metric: 1 g = 1,000 mg; 1 mg = 1,000 mcg.",
+            "Volume: 1 tsp = 5 mL; 1 tbsp = 15 mL = 3 tsp; 1 fl oz ≈ 30 mL; 1 L = 1,000 mL.",
             "Apothecary: 1 grain (gr) ≈ 65 mg (often rounded to 60 mg).",
-            "Roman numerals: ss = ½, I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000. (XLIV = 44, XC = 90.)",
+            "Roman numerals: ss = ½, I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1,000. (XLIV = 44, XC = 90.)",
             "Temperature: °F = (°C × 9/5) + 32; °C = (°F − 32) × 5/9."
           ],
           "keyPoints": [
             "1 kg = 2.2 lb",
             "1 tbsp = 15 mL; 1 tsp = 5 mL",
             "1 gr ≈ 65 mg",
-            "°F = (°C×1.8)+32"
+            "°F = (°C × 1.8) + 32"
           ]
         },
         {
@@ -708,7 +712,7 @@
           "intro": "The most common calculation tasks: dose size, days supply, and quantity to dispense.",
           "bullets": [
             "Dose from strength: (desired dose ÷ available strength) × quantity per unit. 250 mg needed, 125 mg tabs → 2 tabs.",
-            "Proportion: a/b = c/d, so a×d = b×c. 250 mg/5 mL = x/20 mL → x = (250×20)÷5 = 1,000 mg.",
+            "Proportion: a/b = c/d, so a × d = b × c. 250 mg/5 mL = x/20 mL → x = (250 × 20) ÷ 5 = 1,000 mg.",
             "Weight-based dose: mg/kg/day × weight in kg (15 mg/kg/day × 18 kg = 270 mg/day).",
             "Days supply (tablets): quantity ÷ tablets per day. 90 tabs at TID (3/day) = 30 days. Round DOWN for billing.",
             "Insulin days supply: (mL × 100 units for U-100) ÷ units per day. A 10 mL vial = 1,000 units; at 20 units/day lasts 50 days.",
@@ -730,7 +734,7 @@
           "bullets": [
             "Percent w/v (solutions) = grams per 100 mL. 0.9% NaCl = 0.9 g per 100 mL; in 500 mL that is 4.5 g. D5W = 5 g dextrose per 100 mL (50 g per 1,000 mL).",
             "Percent v/v = mL per 100 mL. Isopropyl alcohol 70% v/v = 70 mL per 100 mL; in 250 mL that is 175 mL.",
-            "Ratio strength: 1:1000 = 1 g per 1000 mL = 1 mg/mL (epinephrine).",
+            "Ratio strength: 1:1000 = 1 g per 1,000 mL = 1 mg/mL (epinephrine).",
             "Percent ↔ decimal: divide by 100 (0.75% = 0.0075). Percent w/w (creams) = grams per 100 g. 1% hydrocortisone cream = 10 mg/g, so 0.25% cream = 2.5 mg/g (% × 10).",
             "Dilution: C1V1 = C2V2 keeps the amount of drug constant when changing concentration/volume — this remains in scope."
           ],
@@ -748,7 +752,7 @@
           "bullets": [
             "mL per hour = total volume ÷ total hours. 1,000 mL over 8 hours = 125 mL/hr.",
             "Drops per minute: gtt/min = (volume in mL ÷ time in minutes) × drop factor (gtt/mL).",
-            "Example: 1,000 mL over 6 hours with a 15 gtt/mL set → (1000 ÷ 360) × 15 ≈ 42 gtt/min.",
+            "Example: 1,000 mL over 6 hours with a 15 gtt/mL set → (1,000 ÷ 360) × 15 ≈ 42 gtt/min.",
             "Know common drop factors: 10, 15, 20 gtt/mL (macro) and 60 gtt/mL (micro)."
           ],
           "keyPoints": [
@@ -814,7 +818,8 @@
             "Prior authorization (PA): the prescriber must justify medical necessity to the insurer BEFORE the claim will pay.",
             "Coordination of benefits (COB) determines which plan is primary when a patient has multiple insurers.",
             "Birthday rule (dependent children on both parents' plans): the primary plan is the parent whose birth MONTH/DAY falls earlier in the calendar year.",
-            "For a patient 65 or older covered through current employment (the patient's or a spouse's), the group health plan is primary and Medicare is secondary when the employer has 20 or more employees. Medicare is primary if that employer has fewer than 20 employees, or if there is no current-employment group plan. Medicaid is generally the payer of last resort.",
+            "For a patient 65 or older covered through current employment (the patient's or a spouse's), the group health plan is primary and Medicare is secondary when the employer has 20 or more employees.",
+            "Medicare is primary if that employer has fewer than 20 employees, or if there is no current-employment group plan. Medicaid is generally the payer of last resort.",
             "A cash discount card lowers the cash price and is not billed with insurance on that fill. A manufacturer copay coupon is used with commercial insurance to reduce the copay, and must not be used for Medicare or Medicaid."
           ],
           "keyPoints": [
@@ -842,13 +847,13 @@
           "title": "Controlled Substance Schedules",
           "intro": "The Controlled Substances Act (1970) created five schedules based on abuse potential and accepted medical use.",
           "bullets": [
-            "Schedule I: HIGH abuse potential, NO accepted medical use — heroin, LSD, and marijuana that is neither an FDA-approved product nor covered by a state medical-marijuana license. No prescriptions.",
+            "Schedule I: HIGH abuse potential, NO accepted medical use — heroin and LSD. No prescriptions.",
             "Marijuana split (current as of April 28, 2026): FDA-approved marijuana products and marijuana under a qualifying state medical-marijuana license are Schedule III. Other marijuana stays Schedule I while broader rescheduling is still pending. Older materials that list all marijuana as C-I are out of date.",
             "Schedule II: high abuse potential WITH accepted medical use — oxycodone, hydrocodone/APAP (Norco), morphine, fentanyl, amphetamine (Adderall), methylphenidate (Ritalin).",
             "Schedule III: moderate abuse potential — Tylenol #3 (codeine/APAP), buprenorphine products, anabolic steroids.",
             "Schedule IV: lower abuse potential — benzodiazepines (alprazolam, lorazepam), zolpidem (Ambien), tramadol.",
             "Schedule V: lowest abuse potential — some cough preparations with limited codeine (e.g., guaifenesin/codeine), pregabalin (Lyrica).",
-            "Buprenorphine is Schedule III. The DATA 2000 X-waiver was eliminated in December 2022 (MAT Act) — a separate X number is no longer required to prescribe buprenorphine for OUD."
+            "The DATA 2000 X-waiver was eliminated in December 2022 (MAT Act) — a separate X number is no longer required to prescribe buprenorphine for OUD."
           ],
           "keyPoints": [
             "FDA-approved and state-licensed medical marijuana = C-III",
@@ -864,22 +869,22 @@
           "title": "Schedule II–V Prescription & Refill Rules",
           "intro": "Refill, transfer, and transmission rules differ by schedule.",
           "bullets": [
-            "C-II: NO refills — a new prescription is required each time; written or electronic (EPCS); no telephone call-ins except a true emergency.",
-            "An individual practitioner may issue multiple C-II prescriptions that together total up to a 90-day supply. On each prescription other than the first, if that first one is to be filled immediately, the practitioner writes the earliest date a pharmacy may fill it.",
+            "C-II: NO refills — a new prescription is required each time. Written or electronic (EPCS). No telephone call-ins except a true emergency.",
+            "An individual practitioner may issue multiple C-II prescriptions that together total up to a 90-day supply.",
+            "On each prescription other than the first, if that first one is to be filled immediately, the practitioner writes the earliest date a pharmacy may fill it.",
             "A controlled-substance prescription is dated and signed on the day it is issued. It must show the patient's full name and address, the drug name, strength, dosage form, quantity prescribed, directions for use, and the practitioner's name, address, and registration number.",
-            "C-II fax is the original prescription only in three cases: any C-II for a long-term care facility resident; a C-II narcotic for a patient in a qualifying hospice, with hospice noted on the prescription; a C-II narcotic compounded for direct parenteral, IV, IM, subcutaneous, or intraspinal infusion.",
-            "C-III and C-IV: up to 5 refills within 6 months of the issue date. Federal law does not set that cap on Schedule V; follow the stricter state rule.",
-            "Refills left on a C-III or C-IV: no more than 5 refills, and none after 6 months from the issue date. If 5 were authorized and 2 have been dispensed, 3 remain, and only while the 6-month date has not passed.",
-            "Emergency C-II oral authorization: the pharmacist may fill a quantity for the emergency period; the prescriber must deliver a written follow-up prescription within 7 days.",
-            "The pharmacist writes the oral order down immediately. Within 7 days the prescriber must deliver a follow-up for that emergency quantity. On paper, the face must read \"Authorization for Emergency Dispensing\" and the date of the oral order. It may be delivered in person or by mail postmarked within those 7 days, and the pharmacist attaches it to the written oral order. For an electronic prescription, the pharmacist annotates the record with the original authorization and the date of the oral order. If the prescriber fails to deliver the written prescription, the pharmacist notifies the nearest DEA office.",
+            "C-II fax is the original prescription only in three cases: any C-II for a long-term care facility resident, and a C-II narcotic for a patient in a qualifying hospice, with hospice noted on the prescription.",
+            "The third case: a C-II narcotic compounded for direct parenteral, IV, IM, subcutaneous, or intraspinal infusion.",
+            "Emergency C-II oral authorization: the pharmacist writes the oral order down immediately and may fill a quantity for the emergency period. Within 7 days the prescriber must deliver a follow-up for that emergency quantity. On paper, the face must read \"Authorization for Emergency Dispensing\" and the date of the oral order. It may be delivered in person or by mail postmarked within those 7 days, and the pharmacist attaches it to the written oral order.",
+            "For an electronic prescription, the pharmacist annotates the record with the original authorization and the date of the oral order. If the prescriber fails to deliver the written prescription, the pharmacist notifies the nearest DEA office.",
+            "C-III and C-IV: up to 5 refills within 6 months of the issue date. If 5 were authorized and 2 have been dispensed, 3 remain, and only while the 6-month date has not passed.",
+            "Federal law does not set that cap on Schedule V; follow the stricter state rule.",
             "C-II partial fills — if the patient or prescriber requests a partial (CARA 2016), remaining portions must be filled within 30 days of the written date, except an emergency oral C-II, whose remaining portions must be filled within 72 hours after the prescription is issued.",
-            "If the pharmacy cannot supply the full C-II quantity, the older rule still applies: remainder within 72 hours, then a new prescription is required.",
-            "If that remainder is not or cannot be filled within 72 hours of the first partial, the pharmacist notifies the prescriber. No further quantity may be supplied after those 72 hours without a new prescription.",
+            "If the pharmacy cannot supply the full C-II quantity, the older rule still applies: the remainder must be filled within 72 hours of the first partial. If that remainder is not or cannot be filled in those 72 hours, the pharmacist notifies the prescriber. No further quantity may be supplied without a new prescription.",
             "LTCF or terminally ill patients: remaining portions of C-II partial fills may be dispensed for up to 60 days from the written date.",
-            "After the applicable window, leftover quantity cannot be filled. Total dispensed cannot exceed the written amount. Document each partial.",
-            "Quantity left on a C-II partial: add every partial and stop at the written quantity. Example: 90 tablets written, 30 then 20 dispensed, 40 left.",
+            "After the applicable window, leftover quantity cannot be filled. Total dispensed cannot exceed the written amount: add every partial and stop at the written quantity (90 tablets written, 30 then 20 dispensed, 40 left). Document each partial.",
             "C-III–V transfers: one time to another pharmacy for a refill, unless the pharmacies share a real-time online database — then transfers may continue until the refills are used up.",
-            "Electronic controlled prescriptions: an unfilled electronic C-II–V prescription may be transferred once for initial dispensing, pharmacist to pharmacist, at the patient’s request. It stays electronic. Authorized C-III–V refills transfer with it. A paper C-II cannot be transferred.",
+            "Electronic controlled prescriptions: an unfilled electronic C-II–V prescription may be transferred once for initial dispensing, pharmacist to pharmacist, at the patient's request. It stays electronic. Authorized C-III–V refills transfer with it. A paper C-II cannot be transferred.",
             "Non-controlled prescriptions: remaining refills may be transferred as state law allows. Federal law does not impose a one-time cap."
           ],
           "keyPoints": [
@@ -899,15 +904,18 @@
           "intro": "Specific DEA forms document ordering, theft/loss, destruction, and registration of controlled substances.",
           "bullets": [
             "DEA Form 222 (single-sheet paper — not the old triplicate — or electronic CSOS): used to ORDER or TRANSFER Schedule I–II. Destruction/disposal is Form 41, never 222.",
-            "The registrant, or a person named in a power of attorney, signs Schedule I and II orders on Form 222 or electronically. The registrant (or a partner or officer) and the attorney-in-fact both sign the power of attorney, two witnesses sign it, and it is kept with the order records.",
+            "The registrant, or a person named in a power of attorney, signs Schedule I and II orders on Form 222 or electronically.",
+            "The registrant (or a partner or officer) and the attorney-in-fact both sign the power of attorney. Two witnesses sign it, and it is kept with the order records.",
             "DEA Form 106: theft or significant loss. Two steps — written notice to the local DEA field office within 1 business day of discovery, then electronic Form 106 within 45 calendar days. Paper Form 106 is not accepted.",
             "DEA Form 41: document DESTRUCTION/disposal of pharmacy-owned controlled substances.",
             "DEA Form 224: pharmacy DEA registration; renew every 3 YEARS.",
-            "C-II–IV dispensing labels must state: “Caution: Federal law prohibits the transfer of this drug to any person other than the patient for whom it was prescribed.” Schedule V does not require that federal statement.",
-            "Keep controlled-substance records (prescriptions, inventories, Form 222s, and invoices) for at least 2 years. Biennial inventory is every 2 years. An opened container of a C-II needs an exact count. An opened C-III–V container may be estimated unless it holds more than 1,000 tablets or capsules, which requires an exact count.",
-            "On receipt of a C-II order, record the date and the quantity received on the pharmacy’s copy of Form 222 (or the CSOS record).",
+            "On receipt of a C-II order, record the date and the quantity received on the pharmacy's copy of Form 222 (or the CSOS record).",
+            "C-II–IV dispensing labels must state: \"Caution: Federal law prohibits the transfer of this drug to any person other than the patient for whom it was prescribed.\" Schedule V does not require that federal statement.",
+            "Keep controlled-substance records (prescriptions, inventories, Form 222s, and invoices) for at least 2 years. Biennial inventory is every 2 years.",
+            "An opened container of a C-II needs an exact count. An opened C-III–V container may be estimated unless it holds more than 1,000 tablets or capsules, which requires an exact count.",
             "Returns of pharmacy stock to a reverse distributor: C-II on DEA Form 222 (or CSOS); C-III–V on an invoice. Patient-owned leftovers use take-back, not that invoice.",
-            "DEA number: 2 letters + 7 digits; the 2nd letter usually matches the registrant's last-name initial. Check-digit verification: add digits 1+3+5; add digits 2+4+6 and multiply by 2; the sum's last digit = the 7th digit.",
+            "DEA number: 2 letters + 7 digits; the 2nd letter usually matches the registrant's last-name initial.",
+            "Check-digit verification: add digits 1+3+5; add digits 2+4+6 and multiply by 2; the sum's last digit = the 7th digit.",
             "Take-back (2.3): unused patient-owned CS go to a DEA-authorized collector, mail-back, or National Take Back Day — they are never restocked into dispensable inventory.",
             "C-II storage: locked substantially constructed cabinet, or dispersed among non-controls so they are not obvious theft targets."
           ],
@@ -927,12 +935,11 @@
           "title": "Combat Methamphetamine Epidemic Act (CMEA)",
           "intro": "CMEA restricts OTC sales of pseudoephedrine and ephedrine to curb methamphetamine production.",
           "bullets": [
-            "Pseudoephedrine (Sudafed) and ephedrine are kept BEHIND THE COUNTER (not a prescription, but restricted).",
+            "Pseudoephedrine (Sudafed) and ephedrine are kept behind the counter (not a prescription, but restricted). Products must be stored behind the counter or in a locked cabinet.",
             "Daily sales limit: 3.6 grams of pseudoephedrine base, ephedrine base, or phenylpropanolamine base per purchaser per day.",
-            "Base, not the salt. A 30 mg pseudoephedrine HCl tablet contains 24.6 mg of pseudoephedrine base. 146 of those tablets are 3.5916 g of base, under the 3.6 g daily limit. 366 of those tablets equal the 9.0 g 30-day purchase limit.",
             "30-day purchase cap: 9 grams of the base per purchaser, of which not more than 7.5 grams of the base may be mail-order.",
             "Requirements: photo ID and a written or electronic logbook (purchaser name, address, and signature; date and time; product; quantity), except one sales package of not more than 60 mg pseudoephedrine.",
-            "Products must be stored behind the counter or in a locked cabinet."
+            "Base, not the salt. A 30 mg pseudoephedrine HCl tablet contains 24.6 mg of pseudoephedrine base. 146 of those tablets are 3.5916 g of base, under the 3.6 g daily limit. 366 of those tablets equal the 9.0 g 30-day purchase limit."
           ],
           "keyPoints": [
             "PSE behind the counter",
@@ -946,10 +953,13 @@
           "intro": "Knowledge area 2.4 is federal restricted-drug processing: pseudoephedrine (CMEA) and the REMS programs that are still in effect. A technician stops on a REMS reject and notifies the pharmacist.",
           "bullets": [
             "REMS (Risk Evaluation and Mitigation Strategy): extra FDA-required steps for drugs with known serious risks — certification, enrollment, labs, or a Medication Guide given with each fill.",
-            "Clozapine is not a current pharmacy REMS. FDA removed the Clozapine REMS effective June 13, 2025. Pharmacies do not enroll or confirm an ANC through a REMS before dispensing. Severe neutropenia risk, the boxed warning, and a Medication Guide remain. ANC monitoring stays with the prescriber, per the labeling.",
-            "iPLEDGE (isotretinoin): teratogen. Prescriber, certified pharmacy, and patients enroll — both patients who can get pregnant and patients who cannot get pregnant. Maximum 30-day supply, no refills, authorization before each dispense.",
-            "iPLEDGE pickup rule that is current: patients who can get pregnant have a 7-day window counted from pregnancy-test specimen collection. The old 19-day lockout is not current — if that window is missed, a repeat pregnancy test may be done immediately, with no extra waiting period.",
-            "TIRF is not a routine current enroll-and-dispense REMS. Production of TIRF medicines stopped September 30, 2024, and the REMS accepts no new patient, prescriber, or pharmacy enrollments. It remains only while the applications stay approved and any remaining supply is dispensed to already enrolled patients. The products were transmucosal immediate-release fentanyl for opioid-tolerant patients.",
+            "Clozapine is not a current pharmacy REMS. FDA removed the Clozapine REMS effective June 13, 2025. Pharmacies do not enroll or confirm an ANC through a REMS before dispensing.",
+            "Severe neutropenia risk, the boxed warning, and a Medication Guide remain. ANC monitoring stays with the prescriber, per the labeling.",
+            "iPLEDGE (isotretinoin): teratogen. Prescriber, certified pharmacy, and patients enroll — both patients who can get pregnant and patients who cannot get pregnant. Maximum 30-day supply, no refills, and authorization before each dispense.",
+            "iPLEDGE pickup rule that is current: patients who can get pregnant have a 7-day window counted from pregnancy-test specimen collection.",
+            "The old 19-day lockout is not current. If that window is missed, a repeat pregnancy test may be done immediately, with no extra waiting period.",
+            "TIRF is not a routine current enroll-and-dispense REMS. Production of TIRF medicines stopped September 30, 2024, and the REMS accepts no new patient, prescriber, or pharmacy enrollments.",
+            "TIRF remains only while the applications stay approved and any remaining supply is dispensed to already enrolled patients. The products were transmucosal immediate-release fentanyl for opioid-tolerant patients.",
             "THALOMID (thalidomide) and REVLIMID (lenalidomide): pregnancy-prevention REMS. Treat them as current restricted programs, not clozapine.",
             "Tech action on any REMS reject: stop, do not override, notify the pharmacist. A paper waiver does not replace REMS.",
             "CMEA sits in the same 2.4 bucket: 3.6 g of base per day (pseudoephedrine, ephedrine, or phenylpropanolamine); 9 g of base per 30 days, of which not more than 7.5 g of base may be mail-order; photo ID + logbook; behind the counter."
@@ -986,7 +996,7 @@
             "Pharmacies must provide a Notice of Privacy Practices (NPP) explaining how PHI is used and disclosed.",
             "Minimum necessary applies to most uses and disclosures. It does not apply to a disclosure to, or a request by, a health care provider for treatment.",
             "PHI may be shared without authorization for Treatment, Payment, and healthcare Operations (TPO).",
-            "Avoid discussing patient information in public areas; verify identity before releasing information; shred PHI documents."
+            "Avoid discussing patient information in public areas. Verify identity before releasing information. Shred PHI documents."
           ],
           "keyPoints": [
             "HIPAA protects PHI",
@@ -1023,7 +1033,8 @@
             "Durham-Humphrey Amendment (1951): established the prescription (legend) vs OTC distinction.",
             "Kefauver-Harris Amendment (1962): required drugs be proven safe AND EFFECTIVE, and established Good Manufacturing Practices (GMP).",
             "Poison Prevention Packaging Act (1970): child-resistant containers for most prescriptions and many OTC drugs. The CPSC enforces it, not the FDA. Sublingual nitroglycerin is exempt.",
-            "Non-child-resistant request: a prescriber may request it for one prescription only. The patient may request it, and only the patient may make a blanket request covering all of that patient’s prescriptions. Document the request.",
+            "A prescriber may request non-child-resistant packaging for one prescription only.",
+            "The patient may request it, and only the patient may make a blanket request covering all of that patient's prescriptions. Document the request.",
             "ADA packaging accommodations: easy-off caps, large-print labels, talking labels, and Braille labels.",
             "Medication Guides: when FDA requires one for a drug, give that guide with every fill, including refills — not only the first fill. Some REMS programs include this step.",
             "Drug Listing Act / NDC: every drug has a National Drug Code identifying labeler, product, and package size."
@@ -1077,11 +1088,10 @@
           "bullets": [
             "Recall classes: Class I = reasonable probability of serious adverse health consequences or death; Class II = temporary or medically reversible harm, or a remote probability of serious harm; Class III = adverse health consequences not likely.",
             "Recall depth is how far the notice goes: wholesale, retail, or consumer (patient) level. A Class I medication recall usually reaches the consumer level, and patients who received the affected lot are notified.",
-            "On a recall: identify affected lot numbers, quarantine the stock, and follow manufacturer/wholesaler return instructions.",
+            "The firm initiates a recall. FDA may request one. Pharmacy action: identify affected lot numbers, pull matching lots, quarantine the stock, document, and follow the notice (manufacturer/wholesaler return instructions).",
             "Rotate stock using FEFO (First-Expired, First-Out) to minimize expired product.",
             "Never dispense expired medication; remove expired/damaged units from active stock promptly.",
             "The NDC number (labeler-product-package) is used to identify recalled products and process returns.",
-            "The firm initiates a recall. FDA may request one. Pharmacy action is the same: pull matching lots, quarantine, document, follow the notice.",
             "A market withdrawal is not a recall — the firm removes product for a minor violation that would not usually trigger legal recall action.",
             "A stock recovery is also not a recall. The firm removes or corrects product that has not been marketed or has not left the firm's direct control, and no portion of the lot has been released for sale or use.",
             "Do not confuse a lot-specific recall with a patient take-back of leftover pills from home."
@@ -1122,7 +1132,8 @@
           "intro": "DSCSA (knowledge area 2.6, added on the January 6, 2026 outline) is the federal track-and-trace law for prescription drugs. Learn durable duties — serialization, authorized partners, suspect vs illegitimate handling, and 6-year records — not rapidly changing exemption end-dates.",
           "bullets": [
             "Product identifier: each package carries a unique serialized ID (usually a 2D data matrix) with NDC, serial number, lot number, and expiration date.",
-            "Current electronic exchange is Transaction Information (TI: product, lot, dates, and the parties) plus a Transaction Statement (TS: the seller attests it is authorized and did not knowingly ship suspect or illegitimate product). Transaction History (TH) was retired in November 2023. Do not memorize a mandatory TI + TH + TS set as current law.",
+            "Current electronic exchange is Transaction Information (TI: product, lot, dates, and the parties) plus a Transaction Statement (TS: the seller attests it is authorized and did not knowingly ship suspect or illegitimate product).",
+            "Transaction History (TH) was retired in November 2023. Do not memorize a mandatory TI + TH + TS set as current law.",
             "Authorized trading partners: licensed/registered manufacturers, wholesale distributors, dispensers (pharmacies), and repackagers. Accept product only from authorized partners.",
             "Suspect product: reason to believe it may be counterfeit, diverted, stolen, intentionally adulterated, or unfit. Do not dispense. Quarantine it, notify the pharmacist, and verify the product identifier (NDC, serial number, lot, and expiration).",
             "Illegitimate product: credible evidence that it is counterfeit, diverted, stolen, intentionally adulterated, or unfit. Within 24 hours of that determination, notify FDA (Form FDA 3911) and immediate trading partners. Keep DSCSA transaction records for 6 years (not the 2-year CSA clock).",
@@ -1142,13 +1153,17 @@
           "title": "Hazardous & Non-Hazardous Pharmaceutical Waste (2.1)",
           "intro": "Knowledge area 2.1 is federal storage, handling, and disposal of non-hazardous and hazardous pharmaceutical waste, including EPA P-list waste, plus the OSHA exposure steps tested with it.",
           "bullets": [
-            "EPA RCRA listed waste: P-list drugs are acutely hazardous when the listed chemical is the sole active ingredient. Examples: warfarin above 0.3% (P001); nicotine (P075), except FDA-approved OTC nicotine replacement products, which were removed from that listing. U-list drugs are toxic but not acute. Examples: cyclophosphamide (U058); lindane (U129).",
-            "P- and U-lists cover unused discarded commercial chemical products (the pure or technical grade, or a formulation in which the chemical is the sole active ingredient), off-specification product, container residue, and spill residue. That residue is hazardous waste unless the container is empty. A stock bottle, dispensing bottle, vial, or ampule (not over 1 liter or 10,000 pills), or a unit-dose container, is empty once the drug is removed the usual way. A hazardous-waste pharmaceutical that is also a scheduled controlled substance is not sewered. It is collected, stored, transported, and disposed of under DEA rules, and destroyed by a method DEA has publicly deemed non-retrievable or combusted at a permitted facility listed in the EPA rule.",
-            "A discarded drug can still be hazardous by characteristic (ignitable, corrosive, reactive, or toxic) when it is not on the P- or U-list. Non-hazardous pharmaceutical waste is the remaining drug waste. “Not on the P-list” does not mean trash or the drain.",
+            "EPA RCRA P-list drugs are acutely hazardous when the listed chemical is the sole active ingredient. Examples: warfarin above 0.3% (P001); nicotine (P075), except FDA-approved OTC nicotine replacement products, which were removed from that listing.",
+            "U-list drugs are toxic but not acute. Examples: cyclophosphamide (U058); lindane (U129).",
+            "A discarded drug can still be hazardous by characteristic (ignitable, corrosive, reactive, or toxic) when it is not on the P- or U-list. Non-hazardous pharmaceutical waste is the remaining drug waste. \"Not on the P-list\" does not mean trash or the drain.",
             "The 2019 EPA hazardous-waste pharmaceuticals rule banned sewering hazardous-waste drugs nationwide. Do not flush them.",
-            "Segregate waste before it leaves the pharmacy. The color map commonly used on the PTCE: black = RCRA hazardous pharmaceutical waste; yellow = trace chemotherapy; red = biohazard, including sharps; blue or white = non-hazardous pharmaceutical waste. Follow the pharmacy’s waste-vendor labels when they differ — the federal duty is segregation, not one national color statute.",
             "OSHA bloodborne pathogens: never recap a used needle by hand. Discard sharps at once in a rigid, puncture-resistant, closable container. After a needle-stick, wash the site, report it immediately, and follow post-exposure evaluation and prophylaxis (PEP).",
-            "OSHA exposure controls: know where the eyewash and the spill kit are. Flush eyes at the eyewash — 15 minutes is the usual tested minimum — and follow the Safety Data Sheet. Right-to-know (Hazard Communication): staff must be able to reach the SDS for hazardous chemicals they handle."
+            "P- and U-lists cover unused discarded commercial chemical products (the pure or technical grade, or a formulation in which the chemical is the sole active ingredient), off-specification product, container residue, and spill residue.",
+            "That residue is hazardous waste unless the container is empty. A stock bottle, dispensing bottle, vial, or ampule (not over 1 liter or 10,000 pills), or a unit-dose container, is empty once the drug is removed the usual way.",
+            "A hazardous-waste pharmaceutical that is also a scheduled controlled substance is not sewered. It is collected, stored, transported, and disposed of under DEA rules, and destroyed by a method DEA has publicly deemed non-retrievable or combusted at a permitted facility listed in the EPA rule.",
+            "Segregate waste before it leaves the pharmacy. The color map commonly used on the PTCE: black = RCRA hazardous pharmaceutical waste; yellow = trace chemotherapy; red = biohazard, including sharps; blue or white = non-hazardous pharmaceutical waste. Follow the pharmacy's waste-vendor labels when they differ — the federal duty is segregation, not one national color statute.",
+            "OSHA exposure controls: know where the eyewash and the spill kit are. Flush eyes at the eyewash — 15 minutes is the usual tested minimum — and follow the Safety Data Sheet.",
+            "Right-to-know (Hazard Communication): staff must be able to reach the SDS for hazardous chemicals they handle."
           ],
           "keyPoints": [
             "P-list = acute (warfarin >0.3%); U-list = toxic",

@@ -109,6 +109,52 @@
     });
   }
 
+  function domainPillText(m) {
+    const labels = moduleLabels(course.modules);
+    const mi = course.modules.indexOf(m);
+    const num = labels[mi] ? labels[mi].domainNum : 1;
+    const shortName = String(m.domain).split(' and ')[0];
+    return 'Domain ' + num + ' · ' + shortName;
+  }
+
+  const BODY_SCALES = [0.98, 0.96, 0.94, 0.92];
+  const FIT_OVERFLOW = 60;
+
+  function lessonTextPast(layout) {
+    const edge = layout.getBoundingClientRect().bottom;
+    let past = 0;
+    const nodes = layout.querySelectorAll('h3, li');
+    for (let i = 0; i < nodes.length; i++) {
+      const range = document.createRange();
+      range.selectNodeContents(nodes[i]);
+      const rects = range.getClientRects();
+      for (let j = 0; j < rects.length; j++) {
+        const d = rects[j].bottom - edge;
+        if (d > past) past = d;
+      }
+    }
+    return past;
+  }
+
+  function fitLessonBody() {
+    const layout = document.querySelector('.lesson-layout');
+    const body = layout && layout.querySelector('.lesson-body');
+    if (!layout || !body) return;
+    const lis = body.querySelectorAll('li');
+    function applyScale(scale) {
+      const size = scale === 1 ? '' : 'calc(1.35rem * ' + scale + ')';
+      for (let i = 0; i < lis.length; i++) lis[i].style.fontSize = size;
+    }
+    applyScale(1);
+    const initial = lessonTextPast(layout);
+    if (initial <= 4 || initial > FIT_OVERFLOW) return;
+    for (let s = 0; s < BODY_SCALES.length; s++) {
+      applyScale(BODY_SCALES[s]);
+      if (layout.scrollHeight - layout.clientHeight <= 1 && lessonTextPast(layout) <= 1) return;
+    }
+    applyScale(1);
+  }
+
   function renderList() {
     const done = new Set(progress().completed);
     const labels = moduleLabels(course.modules);
@@ -179,7 +225,7 @@
       : '';
 
     let html = '<div class="lesson-header">' +
-      '<span class="crumb">' + esc(m.domain) + '</span>' +
+      '<span class="crumb">' + esc(domainPillText(m)) + '</span>' +
       '<span class="lesson-domain">' + esc(m.title) + '</span>' +
       '</div>' +
       optBanner +
@@ -205,6 +251,7 @@
       '</nav>';
 
     lessonView.innerHTML = html;
+    fitLessonBody();
 
     Util.el('#completeBtn').addEventListener('click', function () {
       if (!isDone(lessonId)) {
@@ -254,6 +301,13 @@
   }
 
   window.addEventListener('popstate', route);
+
+  let fitTimer = 0;
+  window.addEventListener('resize', function () {
+    if (!document.body.classList.contains('lesson-open')) return;
+    clearTimeout(fitTimer);
+    fitTimer = setTimeout(fitLessonBody, 60);
+  });
 
   // One open accordion. preventDefault keeps the native details toggle from
   // opening a second card; renderList applies the single open attribute.
