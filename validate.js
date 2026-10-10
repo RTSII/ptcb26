@@ -254,8 +254,8 @@ if (!/quiz\.html\?mode=missed/.test(dash) || !/quiz\.html\?mode=bookmarked/.test
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v66/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v66');
-else ok('sw.js cache is ptce-2026-v66');
+if (!/ptce-2026-v67/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v67');
+else ok('sw.js cache is ptce-2026-v67');
 if (/blueprint-hud/.test(sw)) fail('sw.js should not precache the removed Blueprint HUD');
 else ok('sw.js does not precache the Blueprint HUD');
 if (!/css\/exam-setup\.css/.test(sw) || !/js\/exam-setup\.js/.test(sw)) {
@@ -570,6 +570,17 @@ if (!/height:\s*100dvh/.test(lessonShell) || !/max-height:\s*100dvh/.test(lesson
 } else if (!/\.lesson-layout\s*\{[^}]*overflow-y:\s*auto/.test(lessonShell)) {
   fail('taller lessons should scroll inside the reading region');
 } else ok('lesson shell locks to the viewport and scrolls inside the reading region');
+
+console.log('\nLesson containment');
+try {
+  execFileSync(process.execPath, [path.join(ROOT, 'check-containment.js')], {
+    stdio: 'inherit',
+    timeout: 120000
+  });
+  ok('every lesson at 1366x768: key-points and card children stay inside their borders');
+} catch (err) {
+  fail('lesson containment check failed');
+}
 
 console.log(failed ? '\nFAILED ' + failed + ' check(s)' : '\nAll checks passed.');
 process.exit(failed ? 1 : 0);

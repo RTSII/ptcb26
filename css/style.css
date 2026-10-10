@@ -1513,37 +1513,48 @@ body.course.lesson-open .lesson-layout {
   overflow-x: hidden;
   overflow-y: auto;
 }
-@media (min-width: 1100px) {
-  body.course.lesson-open .lesson-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 32%);
-    gap: 14px 28px;
-    align-items: stretch;
-  }
-  body.course.lesson-open .lesson-body,
+/* Narrow: key points sit full width above the bullets, in two columns.
+   ≥900px: the panel floats right and grows with its items. Each bullet is a
+   flow-root so its marker and separator sit beside the panel, then the
+   remaining bullets run the full card width below it. */
+body.course.lesson-open .lesson-layout .key-points {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  min-height: 0;
+  margin: 0 0 14px;
+  overflow: visible;
+}
+body.course.lesson-open .lesson-layout .key-points ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+}
+body.course.lesson-open .lesson-layout .key-points h3,
+body.course.lesson-open .lesson-layout .key-points ul,
+body.course.lesson-open .lesson-layout .key-points li {
+  margin-top: 0;
+  max-height: none;
+}
+@media (min-width: 900px) {
   body.course.lesson-open .lesson-layout .key-points {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    margin-top: 0;
+    float: right;
+    width: 335px;
+    margin: 0 0 12px 22px;
   }
-  body.course.lesson-open .lesson-body ul,
   body.course.lesson-open .lesson-layout .key-points ul {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 8px;
+    display: block;
+  }
+  body.course.lesson-open .lesson-layout:has(.key-points) .lesson-body li {
+    display: flow-root;
   }
 }
-@media (min-width: 980px) and (max-width: 1099px) {
-  body.course.lesson-open .lesson-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
-    gap: 12px 22px;
-    align-items: start;
+@media (min-width: 1100px) {
+  body.course.lesson-open .lesson-layout .key-points {
+    width: calc(32% - 9px);
+    min-width: 300px;
+    margin-left: 28px;
   }
-  body.course.lesson-open .lesson-layout .key-points { margin-top: 0; }
 }
 
 /* ============ Flashcards: fill the laptop viewport, no document scroll ============ */

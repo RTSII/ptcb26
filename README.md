@@ -102,7 +102,8 @@ Every tracked file. Update this tree when a file is added, removed, or renamed (
 ├── icon.svg                    # PWA icon: red pill / blue pill mark
 ├── manifest.json               # install manifest; start_url is index.html
 ├── sw.js                       # service worker, cache ptce-2026-vNN
-└── validate.js                 # schema, ID, domain, and copy smoke checks
+├── validate.js                 # schema, ID, domain, copy, and containment checks
+└── check-containment.js        # headless lesson containment; invoked by validate.js
 
 css/
 ├── exam-setup.css              # practice-exam setup console; tokens stay on .xs
@@ -143,7 +144,7 @@ Home is the reference HUD. Study Course is the large card and opens the course l
 
 Notes still render the committed legacy `items` JSON. The v2 `blocks` file stays outside `data/` until the blocks runtime ships ([AGENTS.md](AGENTS.md)). The Notes plan is [study_notes_v4_plan.md](study_notes_v4_plan.md). What to do next is [TODO.md](TODO.md) **Next up**.
 
-Cache name: `sw.js` (`ptce-2026-v66`).
+Cache name: `sw.js` (`ptce-2026-v67`).
 
 Bank on this commit:
 
