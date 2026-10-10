@@ -161,10 +161,12 @@ Each section declares its layout and stores structured rows. The renderer does n
 |---|---|---|
 | `pairs` | Brand↔Generic, Sig codes, Conversions, ISMP Avoid→Use, Aux labels | Dense 3–4 column `key → value` grid. Keys in mono green, values in ice. |
 | `matrix` | Classes and stems, Insulin, Schedules, DEA Forms, Recall classes, USP chapters | Real multi-column tables. |
-| `cards` | Laws, REMS, DSCSA, Immunization, Dosage forms | 2–3 column chamfered pods. |
+| `cards` | Laws, REMS, DSCSA, Immunization, Dosage forms | Chamfered pods sized by content and priority. Short items share a row as smaller sub-cards. |
 | `formula` | Calculations | Formula in mono, a one-line meaning, a worked example. |
 | `timeline` | Federal laws, C-II partial-fill clocks, DUR | Horizontal SVG or CSS track. |
 | `figure` | NDC, DEA check-digit, MERP ladder, storage temps, PPE sequence | Inline SVG built in code. Decorative images are deferred. |
+
+Headers, titles, and numbering render correctly. Grouping short cards on one row removes a marginal scroll. Example: Federal FDA Recalls after #58 scrolls only slightly, with 3 short cards.
 
 Inline marks: `!!do NOT crush!!` → amber warning, `^^CI^^` → pink contraindication, `` `-pril` `` → green stem chip.
 
