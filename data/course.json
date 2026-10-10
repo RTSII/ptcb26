@@ -343,7 +343,7 @@
             "Verify the patient with two identifiers (full name + date of birth) before filling or dispensing."
           ],
           "keyPoints": [
-            "Patient, drug, dose, route, time",
+            "Five rights: patient, drug, dose, route, time",
             "Two identifiers: name + DOB",
             "Flag concerns to the pharmacist"
           ]
@@ -354,39 +354,19 @@
           "intro": "Know error severity, the prescription error types on outline 3.5, and the ISMP abbreviations that cause them.",
           "bullets": [
             "A near miss (close call) is an error INTERCEPTED before reaching the patient — report it to fix system weaknesses.",
-            "NCC MERP category A = circumstances with error potential.",
-            "Category B = error did NOT reach patient.",
-            "Category C = reached patient, NO harm.",
-            "Category D = reached the patient and required monitoring to confirm no harm and/or intervention to preclude harm.",
-            "Categories E–I = increasing harm.",
-            "Category E = temporary harm requiring intervention.",
-            "Category F = hospitalization.",
-            "Category G = permanent harm.",
-            "Category H = life-sustaining intervention.",
-            "Category I = death.",
-            "Outline 3.5 examples: incorrect dose, quantity, patient, drug, and route.",
-            "Wrong time and omission are other error types; they are not the outline examples.",
-            "Incorrect drug dosage on prospective DUR: daily dosage = strength × quantity dispensed ÷ days' supply.",
-            "If that daily dosage lies outside the predetermined standard, stop and notify the pharmacist.",
-            "ISMP Do Not Use minimum list: spell out units (never U).",
-            "Spell out international units (never IU).",
-            "Write daily or every other day (never QD or QOD).",
-            "Write morphine sulfate or magnesium sulfate (never MS, MSO4, or MgSO4).",
-            "Use a leading zero (0.5 mg, not .5 mg).",
-            "Do not use a trailing zero (1 mg, not 1.0 mg).",
-            "Also on the ISMP error-prone list, but not that minimum Do Not Use set: write mL (never cc); write mcg (never µg).",
-            "Eye and ear abbreviations are error-prone: do not use OD, OS, OU, AD, AS, or AU; write right eye, left eye, both eyes, right ear, left ear, or both ears.",
-            "More ISMP error-prone abbreviations: write discharge or discontinue (D/C meant as discharge has been read as discontinued).",
-            "Write half-strength or bedtime (HS/hs swap those meanings).",
-            "Write subcut or subcutaneously (SC, SQ, sub q).",
-            "Write 3 times weekly (TIW has been read as 3 times a day)."
+            "NCC MERP: A = circumstances with error potential; B = error did NOT reach patient; C = reached patient, NO harm; D = reached the patient and required monitoring to confirm no harm and/or intervention to preclude harm.",
+            "Categories E–I = increasing harm: E = temporary harm requiring intervention; F = hospitalization; G = permanent harm; H = life-sustaining intervention; I = death.",
+            "Outline 3.5 examples: incorrect dose, quantity, patient, drug, and route. Wrong time and omission are other error types; they are not the outline examples.",
+            "Incorrect drug dosage on prospective DUR: daily dosage = strength × quantity dispensed ÷ days' supply. If that daily dosage lies outside the predetermined standard, stop and notify the pharmacist.",
+            "ISMP Do Not Use: spell out units (never U) and international units (never IU); write daily or every other day (never QD or QOD); write morphine sulfate or magnesium sulfate (never MS, MSO4, or MgSO4). Leading zero: 0.5 mg, not .5 mg. No trailing zero: 1 mg, not 1.0 mg.",
+            "Also on the ISMP error-prone list, but not that minimum Do Not Use set: write mL (never cc); write mcg (never µg). Eye and ear abbreviations are error-prone: do not use OD, OS, OU, AD, AS, or AU; write right eye, left eye, both eyes, right ear, left ear, or both ears.",
+            "More ISMP error-prone abbreviations — write discharge or discontinue (D/C meant as discharge has been read as discontinued); half-strength or bedtime (HS/hs swap those meanings); subcut or subcutaneously (SC, SQ, sub q); 3 times weekly (TIW has been read as 3 times a day)."
           ],
           "keyPoints": [
             "Near miss = caught before patient",
-            "C = reached patient, no harm",
+            "Category C = reached patient, no harm",
             "3.5: dose, quantity, patient, drug, route",
-            "No U, IU, QD/QOD, MS/MSO4",
-            "Leading zero on; trailing zero off",
+            "No U, IU, QD/QOD, MS/MSO4; 0.5 not 1.0",
             "mL not cc; mcg not µg; spell eye/ear"
           ]
         },
@@ -396,22 +376,16 @@
           "intro": "Know where and how medication errors and adverse events are reported, and the FDA recall classes.",
           "bullets": [
             "FDA MedWatch: voluntary reporting of adverse events, product problems, and medication errors (Form 3500 for professionals, 3500B for consumers).",
-            "Product integrity: report a product-quality concern to MedWatch when quality, authenticity, performance, or safety is in doubt.",
-            "Examples: suspect counterfeit, contamination, defective components, poor packaging or product mix-up, questionable stability, labeling concerns.",
+            "Product integrity: report a product-quality concern to MedWatch when quality, authenticity, performance, or safety is in doubt (suspect counterfeit, contamination, defective components, poor packaging or product mix-up, questionable stability, labeling concerns).",
             "ISMP MERP (Medication Errors Reporting Program): voluntary, CONFIDENTIAL national error reporting to share prevention strategies.",
-            "VAERS: Vaccine Adverse Event Reporting System (for vaccines).",
-            "Anyone may report to VAERS.",
-            "Healthcare providers are required to report an adverse event on the VAERS Table of Reportable Events Following Vaccination that occurs within the specified time.",
-            "Healthcare providers are required to report an adverse event the manufacturer lists as a contraindication to further doses.",
-            "Recall Class I = reasonable probability of serious adverse health consequences or death.",
-            "Recall Class II = temporary or medically reversible harm, or a remote probability of serious harm.",
-            "Recall Class III = adverse health consequences not likely.",
+            "VAERS (Vaccine Adverse Event Reporting System, for vaccines): anyone may report. Healthcare providers are required to report an adverse event on the VAERS Table of Reportable Events Following Vaccination that occurs within the specified time, and an adverse event the manufacturer lists as a contraindication to further doses.",
+            "Recall classes: Class I = reasonable probability of serious adverse health consequences or death; Class II = temporary or medically reversible harm, or a remote probability of serious harm; Class III = adverse health consequences not likely.",
             "When a recall occurs: check lot numbers, quarantine affected stock, and follow the recall instructions for return/disposal."
           ],
           "keyPoints": [
             "MedWatch = FDA adverse events",
             "ISMP MERP = confidential error reporting",
-            "Class I = serious consequences or death"
+            "Class I = serious adverse health consequences or death"
           ]
         },
         {
@@ -422,17 +396,12 @@
             "Root cause analysis (RCA): a SYSTEMS-based review after an error to find underlying process failures — not individual blame.",
             "PDSA cycle (Plan-Do-Study-Act): the standard iterative cycle for testing and refining quality-improvement changes.",
             "Independent double checks: two qualified staff separately verify high-alert medications (insulin, anticoagulants, chemotherapy) before dispensing/administration.",
-            "Also on the ISMP acute-care high-alert list: neuromuscular blocking agents (succinylcholine, rocuronium, vecuronium) and oral sulfonylureas (glimepiride, glipiZIDE, glyBURIDE).",
-            "Insulin U-500 and oral methotrexate for nononcologic use are singled out for special emphasis.",
-            "ISMP community/ambulatory high-alert categories also include oral and parenteral immunosuppressants (azaTHIOprine, cycloSPORINE, tacrolimus).",
-            "Pediatric liquid medications that require measurement are also on that community/ambulatory high-alert list.",
-            "Humulin R U-500 is 500 units/mL, 5 times as much insulin in 1 mL as U-100 (100 units/mL).",
-            "Use only a U-500 insulin syringe with the vial. A U-100 syringe used for a U-500 dose can give a 5-times overdose.",
-            "Do not mix it with any other insulin and do not inject it intravenously.",
-            "Prospective DUR, before the prescription is filled or delivered (at order entry), screens for therapeutic duplication, drug-disease contraindication, drug-drug interaction, incorrect drug dosage, incorrect duration of treatment, drug-allergy interaction, and clinical abuse/misuse.",
-            "Retrospective DUR reviews patterns afterward.",
-            "Part D concurrent DUR is the review of prescribed therapy before each prescription is dispensed, typically at the point of sale or point of distribution.",
-            "It includes age/gender-related contraindications, overutilization and underutilization, drug-drug interactions, incorrect dosage or duration, drug-allergy contraindications, and clinical abuse/misuse.",
+            "Also on the ISMP acute-care high-alert list: neuromuscular blocking agents (succinylcholine, rocuronium, vecuronium) and oral sulfonylureas (glimepiride, glipiZIDE, glyBURIDE). Insulin U-500 and oral methotrexate for nononcologic use are singled out for special emphasis.",
+            "ISMP community/ambulatory high-alert categories also include oral and parenteral immunosuppressants (azaTHIOprine, cycloSPORINE, tacrolimus) and pediatric liquid medications that require measurement.",
+            "Humulin R U-500 is 500 units/mL, 5 times as much insulin in 1 mL as U-100 (100 units/mL). Use only a U-500 insulin syringe with the vial. A U-100 syringe used for a U-500 dose can give a 5-times overdose. Do not mix it with any other insulin and do not inject it intravenously.",
+            "Prospective DUR, before the prescription is filled or delivered (at order entry), screens for therapeutic duplication, drug-disease contraindication, drug-drug interaction, incorrect drug dosage, incorrect duration of treatment, drug-allergy interaction, and clinical abuse/misuse. Retrospective DUR reviews patterns afterward.",
+            "Part D concurrent DUR reviews prescribed therapy before each prescription is dispensed, typically at the point of sale or point of distribution.",
+            "Part D concurrent DUR includes age/gender-related contraindications, overutilization and underutilization, drug-drug interactions, incorrect dosage or duration, drug-allergy contraindications, and clinical abuse/misuse.",
             "Medication reconciliation compares all home medications to new orders at EVERY transition of care (admission, transfer, discharge)."
           ],
           "keyPoints": [
@@ -485,7 +454,8 @@
           ],
           "keyPoints": [
             "Optional archive — not core PTCE",
-            "Shoes, hair, mask, hands, gown, gloves"
+            "Shoes, hair, mask, hands, gown, gloves",
+            "Do not memorize cleanroom categories for the PTCE"
           ]
         },
         {
@@ -496,14 +466,10 @@
             "NIOSH maintains the list of hazardous drugs (antineoplastics, hormones, some antivirals).",
             "Hazardous-drug compounding PPE: TWO pairs of chemotherapy-tested gloves + an impermeable gown; add eye/face and respiratory protection per risk.",
             "Use a containment primary engineering control (C-PEC, e.g., BSC or CACI) inside a containment secondary engineering control (C-SEC) with negative pressure for HDs.",
-            "Hand hygiene: soap and water for at least 20 seconds.",
-            "Use soap and water when hands are visibly soiled, and during care of patients with suspected or confirmed infection during outbreaks of C. difficile and norovirus.",
+            "Hand hygiene: soap and water for at least 20 seconds when hands are visibly soiled, and during care of patients with suspected or confirmed infection during outbreaks of C. difficile and norovirus.",
             "Unless hands are visibly soiled, an alcohol-based rub (hand sanitizer) is preferred in most clinical situations.",
-            "CDC infection-control PPE when using gown, mask or respirator, goggles or face shield, and gloves: don gown, then mask or respirator, then goggles or face shield, then gloves extended over the gown cuff.",
-            "Remove gloves, then goggles or face shield, then gown, then mask or respirator.",
-            "Counting trays and countertops (outline 3.6): wipe with 70% isopropyl alcohol between fills.",
-            "Clean again after penicillin, sulfa, or a hazardous drug before the next prescription.",
-            "Use a dedicated tray for hazardous drugs.",
+            "CDC infection-control PPE (gown, mask or respirator, goggles or face shield, gloves): don gown, then mask or respirator, then goggles or face shield, then gloves extended over the gown cuff. Remove gloves, then goggles or face shield, then gown, then mask or respirator.",
+            "Counting trays and countertops (outline 3.6): wipe with 70% isopropyl alcohol between fills. Clean again after penicillin, sulfa, or a hazardous drug before the next prescription. Use a dedicated tray for hazardous drugs.",
             "Sharps (needles/syringes): rigid, puncture-resistant, closable sharps containers — never regular trash or recycling; never recap by hand.",
             "Vaccine storage: most refrigerated at 2–8°C (36–46°F), do NOT freeze; monitor with calibrated thermometers and document temperatures."
           ],
@@ -523,8 +489,7 @@
           "intro": "OPTIONAL / NOT EMPHASIZED ON THE 2026 PTCE. Dedicated nonsterile compounding procedures (old 1.9 / related 4.1) were removed. Keep this only as historical review. Default-path study is chapter ID, hazardous-drug handling, and counting-tray/counter hygiene.",
           "bullets": [
             "Historical <795> technique topics included BUD assignment by risk, component selection, and nonsterile compounding steps (trituration, geometric dilution, levigation).",
-            "Those procedure skills, including nonsterile BUD tables, are not a January 2026 tested knowledge area — do not memorize them on the default path.",
-            "If you see a BUD/technique item, treat it as archive — not core PTCE.",
+            "Those procedure skills, including nonsterile BUD tables, are not a January 2026 tested knowledge area — do not memorize them on the default path. A BUD/technique item is archive, not core PTCE.",
             "Still in scope nearby: which chapter is <795> vs <797> vs <800>, and 3.6 cleaning of trays, counters, equipment, handwashing, and PPE."
           ],
           "keyPoints": [
@@ -554,25 +519,20 @@
             "Automated dispensing cabinets (ADCs): requiring pharmacist PROFILE REVIEW before a drug can be removed closes the dangerous \"override\" gap.",
             "Drug utilization review (DUR): prospective screening at order entry; technicians flag interaction/duplication alerts to the pharmacist for the clinical decision.",
             "Auxiliary (warning) labels communicate cautions: \"May cause drowsiness,\" \"Take with food,\" \"Avoid alcohol,\" \"Refrigerate.\"",
-            "REMS (Risk Evaluation and Mitigation Strategy): FDA-required programs for known serious risks.",
-            "Current examples include iPLEDGE (isotretinoin) and THALOMID/lenalidomide.",
-            "TIRF is not a routine current enroll-and-dispense REMS: production stopped September 30, 2024, and the REMS accepts no new enrollments.",
-            "The Clozapine REMS was removed effective June 13, 2025 — do not treat clozapine as a pharmacy REMS.",
-            "Tall Man lettering, look-alike bin segregation, and limiting available concentrations/strengths are additional error-reduction strategies.",
-            "FDA tall-man pair: buPROPion vs busPIRone.",
+            "REMS (Risk Evaluation and Mitigation Strategy): FDA-required programs for known serious risks. Examples: iPLEDGE (isotretinoin) and THALOMID/lenalidomide.",
+            "TIRF is not a routine current enroll-and-dispense REMS (production stopped September 30, 2024; no new enrollments). The Clozapine REMS was removed effective June 13, 2025 — do not treat clozapine as a pharmacy REMS.",
+            "Tall Man lettering, look-alike bin segregation, and limiting available concentrations/strengths are additional error-reduction strategies. FDA pair: buPROPion vs busPIRone.",
             "Issues that require pharmacist intervention (outline 3.3): DUR alerts, adverse drug events, OTC recommendations, therapeutic substitution, misuse/adherence concerns, allergies, and drug interactions.",
             "Overutilization means quantity, strength, or duration greater than necessary to reach the therapeutic goal, or enough to risk a clinically significant undesirable effect, or both.",
-            "Underutilization means insufficient quantity, strength, or duration to reach the therapeutic goal, or enough to risk a clinically significant undesirable effect, or both.",
-            "Flag both to the pharmacist.",
+            "Underutilization means insufficient quantity, strength, or duration to reach that goal, or enough to risk that effect, or both. Flag both to the pharmacist.",
             "An adverse event is any untoward medical occurrence associated with the use of a drug product in humans, whether or not it is considered related to the drug.",
-            "A medication error may or may not be associated with an adverse event.",
-            "Off-label use, misuse, and abuse inconsistent with the FDA-approved labeling are not medication errors.",
+            "A medication error may or may not be associated with an adverse event. Off-label use, misuse, and abuse inconsistent with the FDA-approved labeling are not medication errors.",
             "A technician's job at those alerts is to stop, gather the facts, and notify the pharmacist — not to override a clinical alert or recommend a product."
           ],
           "keyPoints": [
             "Barcode scan = right product",
             "ADC overrides = error risk",
-            "Not clozapine or new TIRF",
+            "iPLEDGE, THALOMID/lenalidomide; not clozapine or new TIRF",
             "DUR / OTC / substitution → pharmacist",
             "Do not override clinical alerts"
           ]
@@ -582,22 +542,19 @@
           "title": "Pharmacist Intervention & Immunization Workflow (VIS / VAERS)",
           "intro": "Outline 3.3 and 3.4 include pharmacist intervention and event reporting. Immunizing pharmacies add VIS (before the dose), post-immunization observation, and VAERS. Purple Book biologics interchangeability is not a 2026 PTCE knowledge area.",
           "bullets": [
-            "VIS (Vaccine Information Statement): CDC sheet required by federal law before each dose of a covered vaccine. Use the current edition; document the VIS date and the date given.",
-            "Give the VIS before immunization — not only afterward and not only if the patient asks.",
-            "Post-immunization care: for most vaccines, observe the patient seated or lying down for 15 minutes (most syncope is within 15 minutes).",
-            "Some people are observed for 30 minutes after a COVID-19 vaccine.",
-            "If the patient feels faint, seat them and notify the pharmacist.",
-            "Do not send them to the parking lot untreated.",
+            "VIS (Vaccine Information Statement): CDC sheet required by federal law before each dose of a covered vaccine. Use the current edition; document the VIS date and the date given. Give it before immunization — not only afterward and not only if the patient asks.",
+            "Post-immunization: for most vaccines, observe the patient seated or lying down for 15 minutes (most syncope is within 15 minutes). Some people are observed 30 minutes after a COVID-19 vaccine.",
+            "If the patient feels faint, seat them and notify the pharmacist. Do not send them to the parking lot untreated.",
             "VAERS = vaccine adverse events. MedWatch = general FDA drug/device/medication-error reports. Know which system matches the product.",
             "OTC recommendation and therapeutic substitution always go to the pharmacist (3.3).",
-            "Purple Book (FDA licensed biologics / interchangeability) is not named on the January 2026 outline — skip it as tested content.",
-            "Orange Book A/AB remains the small-molecule TE shorthand in Federal notes."
+            "Purple Book (FDA licensed biologics / interchangeability) is not named on the January 2026 outline — skip it as tested content. Orange Book A/AB remains the small-molecule TE shorthand in Federal notes."
           ],
           "keyPoints": [
             "VIS before each covered dose",
             "Document VIS edition + date given",
             "Observe 15 minutes after most vaccines",
-            "VAERS vaccines; MedWatch drugs"
+            "VAERS for vaccines; MedWatch for drugs",
+            "OTC / substitution = pharmacist"
           ]
         }
       ]
