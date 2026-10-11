@@ -25,17 +25,13 @@ Live backlog. History in `docs/archive/` is not this list.
    - Auxiliary labels: course Patient Safety `m6l1` vs Notes Order Entry.
    - [x] C-II refill and partial fill: Notes Order Entry copy removed. Federal schedules and Key Federal Laws keep them (course `m10l2`).
    - OBRA-90 DUR: course Federal `m11l2` only vs Notes also under Patient Safety.
-   - [x] NDC format: Notes section is Order Entry, with course `m7l4`. Lot and expiration are still missing from Notes.
+   - [x] NDC format: Notes section is Order Entry, with course `m7l4`. Lot and expiration are in Notes (`Lot and Expiration`).
    - Course-only: ADC overrides; regulatory agencies lesson; technician scope lesson.
    - Notes-only: FMEA; tech cannot verify their own work. Concurrent DUR is in course `m4l4`.
    - Garb vs PPE: course `m5l2` sterile garb order vs Notes routine PPE order.
    - [x] Consolidate Study Course structure into exactly the 4 main domains as accordion groups (Medications, Patient Safety, Order Entry, Federal), combining sub-domains/modules under them. Long lists are fine; the accordion moves the active section to the top.
-3. **Notes missing KAs (after all Course fixes).**
-   - Medications: 1.2 therapeutic duplications; 1.3 drug-laboratory; 1.5 allergies; 1.7 opened injectable dating; 1.8 light sensitivity and restricted access.
-   - Patient Safety: 3.2 separating inventory; 3.3 misuse and adherence; 3.4 product integrity.
-   - Order Entry: 4.2 administration supplies; 4.3 lot number and expiration date; 4.4 credit return, return to stock, and reverse distribution.
-4. **Study Notes content audit.** Same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
-5. **Notes theme overhaul.** Only after the course audit and the notes audit are signed off (`study_notes_v4_plan.md`).
+3. **Study Notes content audit.** Same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
+4. **Notes theme overhaul.** Only after the course audit and the notes audit are signed off (`study_notes_v4_plan.md`).
    - Step 1, before layout: diff current `data/notes.json` against `a0e7321` (before `a7542b5`) and list lost or garbled content and broken titles/numbering to restore.
    - Headers, titles, and numbering render correctly. Card layout and dimensions follow content and priority, not one repeated size. Group short cards (several short items as smaller sub-cards on one row) to remove marginal scrolls. Example: Federal FDA Recalls after #58 scrolls only slightly, with 3 short cards.
    - Remove Notes content the January 2026 outline does not test (NTI is the example), after checking each topic against the outline.
