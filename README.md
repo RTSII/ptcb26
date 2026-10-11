@@ -118,6 +118,7 @@ data/
 └── questions.json              # quiz and practice-exam bank
 
 docs/
+├── notes-overhaul-plan.md      # approved Notes topic-body layout plan
 └── archive/                    # history; do not read for current work
     ├── README.md               # archive index
     ├── ROADMAP.md              # archived stage log
