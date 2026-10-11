@@ -85,7 +85,8 @@
             "Intermediate: NPH (Humulin N, Novolin N) — cloudy; Humulin N median maximum effect 6.5 hr (range 2.8–13 hr); mix last.",
             "Long-acting (basal): glargine (Lantus/Basaglar), degludec (Tresiba) — clear; do NOT mix. Glargine — about 24 hours, no pronounced peak. Degludec lasts at least 42 hours. Detemir (Levemir) is discontinued in the US.",
             "Concentrated: Toujeo (glargine U-300), U-500 regular — NOT interchangeable unit-for-unit.",
-            "Storage: unopened refrigerated 36–46°F; never freeze. In-use Lantus vial: 28 days, refrigerated or room temperature. In-use Lantus SoloStar: 28 days at room temperature only (do not refrigerate)."
+            "Storage: unopened refrigerated 36–46°F; never freeze. In-use Lantus vial: 28 days, refrigerated or room temperature. In-use Lantus SoloStar: 28 days at room temperature only (do not refrigerate).",
+            "Tresiba: 56 days once in use."
           ]
         },
         {
@@ -110,7 +111,10 @@
             "Fluoroquinolones: tendon rupture, QTc, peripheral neuropathy.",
             "Metoclopramide: tardive dyskinesia (black box), EPS.",
             "Pioglitazone: HF exacerbation, bladder cancer risk.",
-            "Bisphosphonates: esophageal irritation — stay upright 30 min, empty stomach."
+            "Bisphosphonates: esophageal irritation — stay upright 30 min, empty stomach.",
+            "Penicillins: amoxicillin, Augmentin — watch for allergy and anaphylaxis.",
+            "Amoxicillin: ask about prior reactions to penicillins, cephalosporins, or other allergens. Severe cephalosporin reactions are reported after penicillin hypersensitivity.",
+            "Sulfonamides: Bactrim — sulfa allergy."
           ]
         },
         {
@@ -126,7 +130,9 @@
             "Triptans/ergots: contraindicated in CAD, uncontrolled HTN.",
             "Clopidogrel: avoid omeprazole or esomeprazole; both reduce antiplatelet activity. Dexlansoprazole, lansoprazole, and pantoprazole had less effect.",
             "Abacavir: HLA-B*5701 test before use (hypersensitivity).",
-            "Grapefruit juice: raises simvastatin levels; avoid grapefruit juice with simvastatin."
+            "Grapefruit juice: raises simvastatin levels; avoid grapefruit juice with simvastatin.",
+            "Therapeutic duplication: two or more drugs from the same class, when the combined daily dose risks an adverse result. Flag it for the pharmacist.",
+            "Biotin: often in supplements; can interfere with certain lab tests and cause incorrect results that may go undetected, including falsely low troponin."
           ]
         },
         {
@@ -153,7 +159,10 @@
             "Orally disintegrating tablets (ODT) dissolve on the tongue; effervescent tablets must be dissolved in water first.",
             "Transdermal patches: steady absorption, bypass first-pass; rotate sites, do not cut reservoir patches, fold before disposal (fentanyl).",
             "Suppositories (rectal/vaginal) bypass first-pass partially; store some refrigerated. Many metered-dose inhalers need priming; ProAir RespiClick does not.",
-            "Suspensions: \"shake well before use.\" Reconstituted antibiotic suspensions are not all refrigerated. Amoxicillin: discard after 14 days; refrigeration is preferable, not required. Azithromycin oral suspension: 5–30°C (41–86°F), use within 10 days."
+            "Suspensions: \"shake well before use.\" Reconstituted antibiotic suspensions are not all refrigerated. Amoxicillin: discard after 14 days; refrigeration is preferable, not required. Azithromycin oral suspension: 5–30°C (41–86°F), use within 10 days.",
+            "Opened multi-dose vial: date it when needle-punctured and discard within 28 days unless the manufacturer states another date. Do not exceed the original expiration date.",
+            "Light: most tablets and capsules are stored at room temperature (68–77°F / 20–25°C); protect from moisture and light.",
+            "Restricted access: hazardous-drug handling areas are limited to authorized personnel, and designated areas must include hazardous-drug storage."
           ]
         },
         {
@@ -202,7 +211,8 @@
             "Barcode scanning verifies the correct product against the order.",
             "Double-check: selected high-alert meds only (e.g. chemo, opioid infusions, IV insulin, heparin infusions).",
             "Medication reconciliation compares a patient's meds to new orders to prevent duplication/omission.",
-            "Pharmacist performs final verification; a tech cannot verify their own work."
+            "Pharmacist performs final verification; a tech cannot verify their own work.",
+            "Separate inventory: segregate look-alike products on shelves/bins with warning labels; limit available concentrations/strengths."
           ]
         },
         {
@@ -251,7 +261,8 @@
             "FDA MedWatch: voluntary reporting of adverse events, product problems, medication errors (Form 3500 professionals / 3500B consumers).",
             "ISMP MERP: voluntary, confidential national error reporting to identify and share prevention strategies.",
             "NCC MERP error categories: A potential → B no reach → C reach/no harm → D monitoring to confirm no harm and/or intervention to preclude harm → E–I increasing harm (I = death).",
-            "Report near misses (intercepted errors) too — they reveal system weaknesses before harm occurs."
+            "Report near misses (intercepted errors) too — they reveal system weaknesses before harm occurs.",
+            "Product integrity: report product-quality concerns to MedWatch (suspect counterfeit, contamination, defective components, poor packaging/mix-up, questionable stability, labeling)."
           ]
         },
         {
@@ -282,7 +293,8 @@
             "Give the current VIS edition before immunization (not only afterward). Document the VIS publication date and the date it was provided.",
             "Post-immunization care (outline 3.3): for most vaccines, observe seated or lying down for 15 minutes (most syncope is within 15 minutes). Some people are observed for 30 minutes after a COVID-19 vaccine. If the patient feels faint, seat them and notify the pharmacist. Do not send them to drive off untreated.",
             "VAERS reports vaccine adverse events (outline 3.4). MedWatch is the general FDA drug/device program — do not mix the two.",
-            "OTC recommendation, therapeutic substitution, DUR/ADE, and allergy/interaction alerts require pharmacist intervention (3.3). Techs gather facts and escalate."
+            "OTC recommendation, therapeutic substitution, DUR/ADE, and allergy/interaction alerts require pharmacist intervention (3.3). Techs gather facts and escalate.",
+            "Misuse/adherence: concerns require pharmacist intervention."
           ]
         }
       ]
@@ -341,6 +353,21 @@
           ]
         },
         {
+          "title": "Administration Supplies",
+          "items": [
+            "Oral solutions: graduated oral syringe or measuring cup in mL, not a household teaspoon or tablespoon (Dilaudid label).",
+            "U-100 syringe: Humulin N doses are measured in units; U-100 is 100 units/mL (1 mL = 1 cc); use a syringe marked for U-100.",
+            "Flovent HFA: a valved holding chamber (spacer) and face mask may be used for young patients.",
+            "ProAir RespiClick: do not use with a spacer or volume holding chamber.",
+            "Nebulizer: sprays liquids in aerosol form into gases the patient breathes. Includes heated, ultrasonic, gas, venturi, and refillable nebulizers. Class II.",
+            "Sterile Water for Injection: diluent for parenteral drugs. Do not inject until approximately isotonic. Not for direct infusion.",
+            "Bacteriostatic water: 0.9% (9 mg/mL) or 1.1% (11 mg/mL) benzyl alcohol. Neonates: preservative-free Sterile Water for Injection only.",
+            "Humalog U-100: dilute to 0.1–1.0 unit/mL with 0.9% sodium chloride.",
+            "Adult IM vaccine: 1 mL or 3 mL syringe, 22- to 25-gauge, 1- to 1.5-inch needle, at 90 degrees.",
+            "Subcut vaccine: 23- to 25-gauge, 5/8 inch (16 mm), at 45 degrees."
+          ]
+        },
+        {
           "title": "NDC Format",
           "items": [
             "FDA-assigned NDC: unique 10-digit, 3-segment number (4-4-2, 5-3-2, or 5-4-1).",
@@ -348,6 +375,25 @@
             "Segment 2: product (strength, dosage form, and formulation).",
             "Segment 3: package size and type.",
             "HIPAA NDC: 11-digit 5-4-2, made by adding a leading zero to the short segment."
+          ]
+        },
+        {
+          "title": "Lot and Expiration",
+          "items": [
+            "Lot number: should yield the complete manufacturing history of the package. An incorrect lot number may misbrand the article.",
+            "Expiration: once passed, no guarantee the medicine is safe and effective. If expired, do not use it.",
+            "Expiration dating: follows the label storage conditions. If reconstituted at dispensing, the label bears expiration information for both the reconstituted and unreconstituted products.",
+            "Expiration placement: on the immediate container and the outer package, unless easily legible through the outer package. Single-dose containers in individual cartons may show the date on the carton instead."
+          ]
+        },
+        {
+          "title": "Returns",
+          "items": [
+            "Credit return: a potentially creditable hazardous waste pharmaceutical is expected to receive manufacturer credit, in the original manufacturer packaging (except a recall), undispensed, and unexpired or less than one year past expiration. A reverse distributor receives it to verify credit.",
+            "Non-creditable: no reasonable expectation of manufacturer credit. Includes investigational drugs, free samples, residues in empty containers, and spill-cleanup material.",
+            "Reverse distributor: a DEA-registered reverse distributor acquires controlled substances from another registrant or law enforcement to return them to the manufacturer, or to a registrant the manufacturer authorizes, or for destruction.",
+            "Destruction: a reverse distributor destroys a controlled substance received for destruction no later than 30 calendar days after receipt.",
+            "Returned product: identify and hold it. If storage, shipping, or the container casts doubt on safety, identity, strength, quality, or purity, destroy it unless testing proves those standards. Records include lot number, reason, quantity, and disposition."
           ]
         },
         {
