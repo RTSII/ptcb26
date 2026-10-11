@@ -30,3 +30,73 @@ Locked rules for UI edits and new components or templates. Home is the reference
 15. **Dashboard surface**. Dashboard cards are Resurrections glass: solid `#051318`, a faint `#00e5ff` top edge, white body text; titles, numbers, and bars are `#00ff41`, and average score and exams stay gold. The Dashboard page does not run the code rain.
 16. **Contained sections**. Key points stay a right-side panel that grows to fit its items (no clip, no internal scroll); bullets wrap beside it and run full width below. Under ~900px the panel is full width above, in two columns. Re-check layout after content PRs.
 17. **Lesson body fit**. If the reading region overflows by about 60px or less, step bullet text down to 0.92 until it fits; if it still overflows, leave it full size and scroll. Reporting Programs & Recalls, Pharmacist Intervention & Immunization Workflow (VIS / VAERS), Common SIG Codes & Abbreviations, and Controlled Substance Schedules may also step the title and intro down to 0.52 (margins with them only if the type alone still overflows), up to about 100px of overflow. Key points and buttons stay full size. Body text does not go below 0.92.
+
+## Named UI regions
+
+One line per region: name, page, locator, what it contains. Locators are the live nodes in that page's HTML or JS.
+
+- Home header | home | `body.home header.hx-header` | Wordmark
+- Home mode grid | home | `nav.hx-grid` | Study Course, telemetry, Quiz, Practice Exam, Flashcards, Notes, Dashboard
+- Home course card | home | `#hxCourseLink` | Study Course entry, next lesson, completion ring, domain bars
+- Home telemetry | home | `section.hx-tele` | Quiz accuracy, counts, blueprint weights
+- Home quiz card | home | `a.hx-quiz` | Quiz Mode entry
+- Home exam card | home | `a.hx-exam` | Practice Exam entry and best score
+- Home flashcard card | home | `a.hx-flash` | Flashcards entry
+- Home notes card | home | `a.hx-notes` | Study Notes entry
+- Home dashboard core | home | `#homeProgress` | Dashboard entry and live counts
+- Course header | course list | `body.course header.app-header` | Wordmark, Study Course title, Home
+- Course list | course list | `#courseList` | Resume control and the domain accordions
+- Course resume | course list | `.course-resume` | Start or Resume link for the saved lesson
+- Course domain pill row | course list | `#courseList .nx-domain-switch` | D1–D4 chips; only while a domain is open
+- Course domain accordion | course list | `#courseList .nx-domain-card` | Domain header; its modules and lessons when open
+- Course module | course list | `.course-module` | Title, description, progress, lesson links, domain quiz button
+- Lesson card | course lesson | `#lessonView` | The open lesson
+- Lesson title | course lesson | `#lessonView .lesson-title-main` | Centered lesson title
+- Lesson intro | course lesson | `#lessonView .lesson-intro` | Italic intro under the title
+- Lesson layout | course lesson | `#lessonView .lesson-layout` | Key-points panel and bullet body
+- Lesson key points panel | course lesson | `#lessonView .key-points` | Right-side key points
+- Lesson body | course lesson | `#lessonView .lesson-body` | Lesson bullets
+- Lesson actions | course lesson | `#lessonView .lesson-actions` | Mark complete and Test This Module
+- Lesson nav | course lesson | `#lessonView .lesson-nav` | Back, All Modules, Next
+- Notes header | notes | `body.notes header.nx-header` | Wordmark, Study Notes title, Home
+- Notes domain list | notes | `#notesArea` | Closed domain accordions, or the open domain
+- Notes domain pill row | notes | `#notesArea .nx-domain-switch` | D1–D4 chips; only while a domain is open
+- Notes domain accordion | notes | `#notesArea .nx-domain-card` | Domain header and, when open, the topic card
+- Notes topic card | notes | `.nx-topic-card` | Top nav, topic body, and bottom nav
+- Notes topic nav | notes | `.nx-topic-card-top` | Previous, topic selector, next
+- Notes topic selector | notes | `.nx-topic-select` | Topic dropdown in the top nav
+- Notes topic body | notes | `.nx-topic-content` | Scrollable notes inside the topic card
+- Notes bottom nav | notes | `.nx-topic-nav-bottom` | Previous, point count, next
+- Notes search | notes | `#notesSearch` | Filter under the accordions; hidden while a domain is open
+- Quiz header | quiz | `body.quiz header.app-header` | Wordmark, Quiz title, Exit, Home
+- Quiz setup | quiz | `#setup` | Mode, question count, chapter fields, Start
+- Quiz card | quiz | `#quiz` | Progress, stem, choices, previous and next
+- Quiz stem | quiz | `#qtext` | Question text
+- Quiz choices | quiz | `#choices` | Answer buttons (`.choice`)
+- Quiz results | quiz | `#results` | Score and review
+- Quiz exit dialog | quiz | `#exitDialog` | Leave-quiz confirm
+- Exam setup | exam setup | `#examSetup` | Length, timer, reactor, draw, start
+- Exam length | exam setup | `#lenGroup` | Length choices
+- Exam reactor | exam setup | `#reactor` | Question count and clock
+- Exam timer pick | exam setup | `#timGroup` | Timer choices
+- Exam draw | exam setup | `#domList` | Questions per domain
+- Exam setup rail | exam setup | `#examSetup .xs-rail` | Steak Dinner and Enter the Construct
+- Exam screen | exam | `#examScreen` | Progress, timer, question, previous, next, submit
+- Exam question card | exam | `#examQuestionCard` | Domain, stem, choices
+- Exam result | exam | `#examResultScreen` | Scaled score and domain breakdown
+- Flashcard filters | flashcards | `#filterRow` | Domain and bookmarked pills (`.pill`)
+- Flashcard stage | flashcards | `#cardArea` | Card, side arrows, counter, grade buttons
+- Flashcard | flashcards | `#flashcard` | Front prompt (`#frontText`) and back answer (`#backText`)
+- Flashcard actions | flashcards | `#cardArea .card-actions` | Flip, knew it, didn't know, bookmark
+- Flashcard counter | flashcards | `#counter` | Place in the deck
+- Dashboard stats | dashboard | `body.dashboard .stats-grid` | Quizzes, average, cards, exams
+- Dashboard focus | dashboard | `#weakDomain` | Weakest domain or subtopic
+- Dashboard focus actions | dashboard | `.focus-actions` | Review missed, bookmarked, weakest domain, weakest subtopic
+- Dashboard focus clears | dashboard | `.focus-clear` | Clear missed and clear bookmarks
+- Dashboard weights | dashboard | `.dash-weights` | PTCE domain weight bars (`#weightBars`)
+- Dashboard accuracy | dashboard | `#domainAccuracy` | Accuracy by domain
+- Dashboard trend | dashboard | `#trendChart` | Quiz score trend
+- Dashboard quiz history | dashboard | `#quizHistory` | Recent quizzes
+- Dashboard exam history | dashboard | `#examHistory` | Best practice exam
+- Dashboard backup | dashboard | `#exportBtn` | Export progress; `#importFile` sits in the same card
+- Dashboard reset | dashboard | `#resetBtn` | Clears all local progress

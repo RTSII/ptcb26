@@ -9,6 +9,8 @@ Read in this order:
 5. [README.md](README.md) for how to run the app and the content rules.
 6. [study_notes_v4_plan.md](study_notes_v4_plan.md) only for Notes content or the Notes theme overhaul.
 
+Plans and briefs name the regions they touch, and the regions they do not touch, using **Named UI regions** in [UI_STANDARDS.md](UI_STANDARDS.md).
+
 Do not read `docs/archive/`. Those files are history.
 
 ## Frontend edits
