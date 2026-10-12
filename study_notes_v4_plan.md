@@ -1,6 +1,7 @@
 # Study Notes v4: Terminal Codex Plan (ready handoff)
 
 **Status:** Next work is content review, not the theme overhaul. Order is [TODO.md](TODO.md) **Next up**. The plan-review-chat-then-stop gate is superseded. Do **not** commit the local v2 `notes.json` until the blocks runtime ships with it in that overhaul PR. Google AI art stays future (end of the Notes backlog in TODO.md).  
+**Topic-body layout:** [docs/notes-overhaul-plan.md](docs/notes-overhaul-plan.md) (approved 2026-10-11).  
 **Repo:** `Desktop\PTCB26` · `main` at `6dd6c07` (#40)  
 **Out of scope for now:** Course and Exam Matrix adoption (later). Google AI emblems / dosage-form art (future).  
 

@@ -31,13 +31,8 @@ Live backlog. History in `docs/archive/` is not this list.
    - Garb vs PPE: course `m5l2` sterile garb order vs Notes routine PPE order.
    - [x] Consolidate Study Course structure into exactly the 4 main domains as accordion groups (Medications, Patient Safety, Order Entry, Federal), combining sub-domains/modules under them. Long lists are fine; the accordion moves the active section to the top.
 3. [x] **Study Notes content audit** (#64–#67). Same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
-4. **Notes theme overhaul.** Only after the course audit and the notes audit are signed off (`study_notes_v4_plan.md`).
+4. **Notes theme overhaul.** Approved layout: [docs/notes-overhaul-plan.md](docs/notes-overhaul-plan.md). Earlier handoff: `study_notes_v4_plan.md`.
    - [x] Step 1, before layout: diff current `data/notes.json` against `a0e7321` (before `a7542b5`) and list lost or garbled content and broken titles/numbering to restore (#62).
-   - Headers, titles, and numbering render correctly. Card layout and dimensions follow content and priority, not one repeated size. Group short cards (several short items as smaller sub-cards on one row) to remove marginal scrolls. Example: Federal FDA Recalls after #58 scrolls only slightly, with 3 short cards.
-   - Bottom prev/next must move into the previous or next domain. They stop at the first and last topic in a domain. Domain pills are the only cross-domain control now. Do not add a second prev/next.
-   - Brand/Generic: order rows by class and context. Moderate column padding. Two side-by-side tables (4 columns) so the topic does not scroll.
-   - OTC actives: more column padding, and a 4-column layout or similar so the topic does not scroll.
-   - High-Alert & LASA stays only in Patient Safety (3.1). #58 already moved that section out of Medications. Merge any unique Medications facts into the Patient Safety section if a second copy turns up.
 
 Course is the primary path; Notes summarize it. Lock course facts before Notes so the same error is not fixed twice. Course and notes audits use [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md). Standing rules: [AGENTS.md](AGENTS.md).
 
