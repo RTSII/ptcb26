@@ -244,18 +244,15 @@ if (!/class="hx-card hx-mode hx-flash"\s+href="flashcards\.html"/.test(home) || 
 } else ok('peer modes are separate home panels');
 
 const dash = read('dashboard.html');
-if (!/id="weightBars"/.test(dash) || !/PTCE 2026 Domain Weights/.test(dash)) {
-  fail('dashboard should show PTCE 2026 domain weights');
-} else ok('dashboard shows PTCE 2026 domain weights');
-if (!/quiz\.html\?mode=missed/.test(dash) || !/quiz\.html\?mode=bookmarked/.test(dash)) {
-  fail('dashboard should keep Review Missed and Review Bookmarked links');
-} else ok('dashboard keeps missed and bookmarked entry points');
+if (/id="weightBars"|PTCE 2026 Domain Weights|id="weakDomain"|Focus Area|dash-weights|focus-actions|focus-clear/.test(dash)) {
+  fail('dashboard should not show the Focus Area card or domain weight cards');
+} else ok('dashboard drops the Focus Area card and domain weight cards');
 
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v82/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v82');
-else ok('sw.js cache is ptce-2026-v82');
+if (!/ptce-2026-v83/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v83');
+else ok('sw.js cache is ptce-2026-v83');
 if (/blueprint-hud/.test(sw)) fail('sw.js should not precache the removed Blueprint HUD');
 else ok('sw.js does not precache the Blueprint HUD');
 if (!/css\/exam-setup\.css/.test(sw) || !/js\/exam-setup\.js/.test(sw)) {
@@ -472,9 +469,12 @@ const dashHtml = read('dashboard.html');
 if (!/clearMissed/.test(appSrc) || !/clearBookmarks/.test(appSrc)) {
   fail('storage should be able to clear missed questions and bookmarks');
 } else ok('storage can clear missed questions and bookmarks');
-if (!/id="clearMissedBtn"/.test(dashHtml) || !/id="clearBookmarksBtn"/.test(dashHtml) || !/confirm\(/.test(dashSrc)) {
-  fail('dashboard Focus Area should expose confirmed clear controls');
-} else ok('dashboard Focus Area exposes confirmed clear controls');
+if (/id="clearMissedBtn"|id="clearBookmarksBtn"|#weakDomain|renderWeights|DOMAIN_WEIGHTS|weightBars/.test(dashHtml + '\n' + dashSrc)) {
+  fail('dashboard should not keep Focus Area clears or domain weight rendering');
+} else ok('dashboard drops Focus Area clears and domain weight rendering');
+if (!/confirm\(/.test(dashSrc)) {
+  fail('reset should still confirm before clearing progress');
+} else ok('reset still confirms before clearing progress');
 function modeBranch(src, marker) {
   const at = src.indexOf(marker);
   if (at === -1) return '';

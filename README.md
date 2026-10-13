@@ -18,7 +18,7 @@ Seven static pages, served from the repo root:
 | `flashcards.html` | Flip / filter deck. |
 | `quiz.html` | Quick 10, Chapter Test, Missed, Bookmarked, Weakest Domain, Weakest Subtopic. |
 | `exam.html` | Weighted practice exam. Length 30 / 60 / 90. Timer off, 60 min, or 110 min. |
-| `dashboard.html` | Local scores, domain accuracy, blueprint weights, export / import. |
+| `dashboard.html` | Local scores, domain accuracy, export / import. |
 
 Progress lives in `localStorage` under `ptce2026_progress_v1`. Study text lives in `data/*.json`. Markdown is project docs only.
 
@@ -145,7 +145,7 @@ Home is the reference HUD. Study Course is the large card and opens the course l
 
 Notes still render the committed legacy `items` JSON. The v2 `blocks` file stays outside `data/` until the blocks runtime ships ([AGENTS.md](AGENTS.md)). The Notes plan is [study_notes_v4_plan.md](study_notes_v4_plan.md). What to do next is [TODO.md](TODO.md) **Next up**.
 
-Cache name: `sw.js` (`ptce-2026-v82`).
+Cache name: `sw.js` (`ptce-2026-v83`).
 
 Bank on this commit:
 
