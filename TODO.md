@@ -34,7 +34,8 @@ Live backlog. History in `docs/archive/` is not this list.
 4. **Notes theme overhaul.** Approved layout: [docs/notes-overhaul-plan.md](docs/notes-overhaul-plan.md). Earlier handoff: `study_notes_v4_plan.md`.
    - [x] Key Federal Laws: biennial inventory and the 2-year prescription-record line are one card. The C-II–IV transfer-warning card is removed on purpose. The C-II receipt card stays separate. Do not restore or resplit those.
    - [x] Notes prev/next on the top and bottom bars cross domain boundaries. They stop only on the first topic and the last topic.
-   - [x] DSCSA card 7 spans the full topic-body width. Leave the card text and the `#07` index as they are.
+   - [x] DSCSA card 7 spans the full topic-body width. Leave the card text and the `#07` index as they are. Card 6's label is Handling suspect product.
+   - [x] Known Teratogens is a row on Patient Safety High-Alert & LASA Drugs, not its own Medications topic. Do not put that topic back.
    - [x] Step 1, before layout: diff current `data/notes.json` against `a0e7321` (before `a7542b5`) and list lost or garbled content and broken titles/numbering to restore (#62).
 
 Course is the primary path; Notes summarize it. Lock course facts before Notes so the same error is not fixed twice. Course and notes audits use [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md). Standing rules: [AGENTS.md](AGENTS.md).

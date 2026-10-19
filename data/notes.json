@@ -145,12 +145,6 @@
           ]
         },
         {
-          "title": "Known Teratogens (Pregnancy Safety)",
-          "items": [
-            "isotretinoin (iPLEDGE), thalidomide, warfarin, methotrexate, valproic acid, phenytoin, ACE inhibitors/ARBs, tetracyclines, lithium, misoprostol. Statins are not an absolute avoid: stop them in most pregnant patients and weigh the individual need."
-          ]
-        },
-        {
           "title": "Dosage Forms & Routes",
           "items": [
             "Sublingual (SL): dissolves under tongue, rapid absorption, bypasses first-pass (nitroglycerin). Buccal = between cheek and gum.",
@@ -200,7 +194,8 @@
           "items": [
             "ISMP acute-care examples: insulin, antithrombotics (warfarin, heparin, DOACs), opioids, KCl injection concentrate, chemotherapy, neuromuscular blockers, oral nononcologic methotrexate, IV inotropes (e.g. digoxin).",
             "LASA examples: hydrOXYzine vs hydrALAZINE, predniSONE vs prednisoLONE, DOPamine vs DOBUTamine, vinBLAStine vs vinCRIStine, CeleBREX vs CeleXA — use tall-man lettering.",
-            "Double-check: limit to selected high-alert meds (e.g. chemo, opioid infusions, IV insulin, heparin infusions)."
+            "Double-check: limit to selected high-alert meds (e.g. chemo, opioid infusions, IV insulin, heparin infusions).",
+            "Known teratogens: isotretinoin (iPLEDGE), thalidomide, warfarin, methotrexate, valproic acid, phenytoin, ACE inhibitors/ARBs, tetracyclines, lithium, misoprostol. Statins are not an absolute avoid: stop them in most pregnant patients and weigh the individual need."
           ]
         },
         {
@@ -513,7 +508,7 @@
             "Current exchange is electronic Transaction Information (TI) and a Transaction Statement (TS). Transaction History (TH) was retired in November 2023. Do not memorize a mandatory TI + TH + TS trio as current law.",
             "Authorized trading partners: manufacturers, wholesale distributors, dispensers (pharmacies), and repackagers that are appropriately licensed/registered. Dispensers may accept product only from authorized partners.",
             "Suspect product: reason to believe it may be counterfeit, diverted, stolen, intentionally adulterated, or otherwise unfit. Illegitimate product: credible evidence that it is one of those things.",
-            "Suspect product: do not dispense; quarantine; notify the pharmacist; verify the product identifier (NDC, serial, lot, expiration). Once the product is confirmed illegitimate, notify FDA (Form FDA 3911) and immediate trading partners within 24 hours.",
+            "Handling suspect product: do not dispense; quarantine; notify the pharmacist; verify the product identifier (NDC, serial, lot, expiration). Once the product is confirmed illegitimate, notify FDA (Form FDA 3911) and immediate trading partners within 24 hours.",
             "Keep DSCSA transaction records for 6 years. FDA used phased implementation milestones for electronic package-level tracing; learn the durable duties above rather than a specific exemption end-date."
           ]
         }

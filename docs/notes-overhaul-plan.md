@@ -101,7 +101,7 @@ From the screenshots and the measurements:
 | T1.6 | Key Side Effects & Monitoring | 1.5 | H (B, D1) | 11 | clin | heavy +146 / heavy +148 | 229 | P1 2-set, roomy |
 | T1.7 | Critical Interactions & Contraindications | 1.3 | H (B, D1) | 13 | brief | heavy +250 / heavy +333 | 344 | P4 cluster (arrow cards), standard |
 | T1.8 | Vaccine Storage | 1.8 | H (R, D1) | 4 | brief | fits* 0 / fits* 0 | 137 | P6 lanes + **VA-01** |
-| T1.9 | Known Teratogens (Pregnancy Safety) | 1.3 | M (none, D1) | 1 | brief | fits* 0 / fits* 0 | 86 | P4 chip wall + callout |
+| T1.9 | Known Teratogens (Pregnancy Safety) | 1.3 | M (none, D1) | 1 | brief | fits* 0 / fits* 0 | 86 | Moved 2026-10-19 onto High-Alert & LASA Drugs as the last row. Do not restore this topic. |
 | T1.10 | Dosage Forms & Routes | 1.4 | H (C, B, D1) | 10 | brief | heavy +132 / heavy +145 | 351 | P1 2-set icon run-in + **VA-02** |
 | T1.11 | Respiratory, Psych & Miscellaneous Agents | 1.6 | M (none, D1) | 9 | brief | fits 0 / heavy +141 | 290 | P4 cluster, standard |
 | T1.12 | Musculoskeletal, Bone & Gout | 1.6 | M (none, D1) | 4 | brief | fits* 0 / fits* 0 | 137 | P4 2×2, roomy |
@@ -310,6 +310,8 @@ Seven whole-body patterns (P1-P7) and five small modules (M1-M5) that sit inside
 - **Result:** est. 400 px (86%), no scroll. Replaces today's 3+1 cards and dead space.
 
 #### T1.9 Known Teratogens (KA 1.3, M, 1 item)
+
+Moved onto High-Alert & LASA Drugs as the last table row. This topic is no longer in `data/notes.json`. Do not restore it.
 - **Pattern:** P4 chip wall + callout, `roomy` with names at 1.1rem.
 - **Grouping:** the single item splits on commas outside parentheses into **10 chips** (isotretinoin (iPLEDGE), thalidomide, warfarin, methotrexate, valproic acid, phenytoin, ACE inhibitors/ARBs, tetracyclines, lithium, misoprostol), 2 rows of 5. The last sentence ("Statins are not an absolute avoid: ...") becomes an amber callout (M3) below, full width. A small alert-triangle icon sits on the callout.
 - **Order:** source order.
