@@ -253,8 +253,8 @@ if (/id="weightBars"|PTCE 2026 Domain Weights|id="weakDomain"|Focus Area|dash-we
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v90/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v90');
-else ok('sw.js cache is ptce-2026-v90');
+if (!/ptce-2026-v91/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v91');
+else ok('sw.js cache is ptce-2026-v91');
 if (/blueprint-hud/.test(sw)) fail('sw.js should not precache the removed Blueprint HUD');
 else ok('sw.js does not precache the Blueprint HUD');
 if (!/css\/exam-setup\.css/.test(sw) || !/js\/exam-setup\.js/.test(sw)) {
@@ -600,9 +600,9 @@ console.log('\nPage fit');
 try {
   execFileSync(process.execPath, [path.join(ROOT, 'check-page-fit.js')], {
     stdio: 'inherit',
-    timeout: 90000
+    timeout: 240000
   });
-  ok('top-level pages at 1600x770 and 1366x768: no empty-state page overflow');
+  ok('top-level pages at 1600x770 and 1366x768: empty state fits; heavy glance fit (dashboard allowlisted)');
 } catch (err) {
   fail('page overflow check failed');
 }

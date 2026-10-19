@@ -5,17 +5,17 @@ Read in this order:
 1. This file, for standing rules and the pre-PR loop.
 2. [TODO.md](TODO.md) **Next up**, for what to do, in that order.
 3. [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md) before any content audit or fact-fix.
-4. [UI_STANDARDS.md](UI_STANDARDS.md) before any UI change.
+4. [docs/general-ui-standards.md](docs/general-ui-standards.md), then [UI_STANDARDS.md](UI_STANDARDS.md), before any UI change. UI_STANDARDS extends the general rules with PTCB-only details.
 5. [README.md](README.md) for how to run the app and the content rules.
 6. [study_notes_v4_plan.md](study_notes_v4_plan.md) only for Notes content or the Notes theme overhaul.
 
-Plans and briefs name the regions they touch, and the regions they do not touch, using **Named UI regions** in [UI_STANDARDS.md](UI_STANDARDS.md).
+Plans and briefs name the regions they touch, and the regions they do not touch, using **Named UI regions** in [UI_STANDARDS.md](UI_STANDARDS.md). Screen fit is the general rule in [docs/general-ui-standards.md](docs/general-ui-standards.md).
 
 Do not read `docs/archive/`. Those files are history.
 
 ## Frontend edits
 
-1. Docs first: before any edit to existing frontend code or page content, read this file, [UI_STANDARDS.md](UI_STANDARDS.md), [README.md](README.md), and that page's HTML, CSS, and JS once. Reuse existing classes and patterns. No new layout unless Rob asked for one.
+1. Docs first: before any edit to existing frontend code or page content, read this file, [docs/general-ui-standards.md](docs/general-ui-standards.md), [UI_STANDARDS.md](UI_STANDARDS.md), [README.md](README.md), and that page's HTML, CSS, and JS once. Reuse existing classes and patterns. No new layout unless Rob asked for one.
 2. Every agent, including subagents and parallel agents: research and gather, then plan, then execute only the requested task, then stop and report. No free rein. No extra scope.
 3. Content PRs are UI PRs. Screenshot every touched page at 1600×770 (1366×768 secondary). Confirm each is contained, padded, and free of clipping, spill, and wasted width. Put the screenshots in the report.
 4. When Rob names a specific approach, follow it literally and ask before deviating. When he does not name a route or area, use best judgment within the requested scope, after the docs-first read, with no destructive actions, and state the chosen approach in the report.
@@ -30,7 +30,7 @@ Do not read `docs/archive/`. Those files are history.
 - This is a personal study app for Rob's sole use. Add no legal or medical disclaimers or hedging to content or UI, and don't hold back development over legal concerns. Accuracy comes from sourcing, not disclaimers.
 - **Docs on sign-off.** For non-trivial work (new features, new UI rules, multi-file changes, finished TODO items), once Rob signs off on the screenshots or current state, update the affected docs IN THE SAME PR before asking for the merge OK.
   - TODO/status: tick done items, add follow-ups, keep the priority order.
-  - `UI_STANDARDS.md`: any new standing UI rule, one line, no duplicates. README or plan files only if this work changed them.
+  - `docs/general-ui-standards.md` and `UI_STANDARDS.md`: any new standing UI rule, one line, no duplicates. README or plan files only if this work changed them.
   - Edit only docs related to this PR. No docs-only PRs for work that has its own PR. No doc edits for unrelated or in-progress work.
   - Skip this for small tweaks (copy, color nudge, one-line fix, cache bump). Keep few doc files and don't overload them.
   - Update the README Directory structure tree when files are added, removed, or renamed.
@@ -42,7 +42,7 @@ On every code change, run this loop before asking for review. In the PR descript
 - `node validate.js`. It checks schema, IDs, domain names, and a few copy assertions, then runs `check-containment.js`. That loads every lesson at 1600×770 (primary) and 1366×768 (secondary). It fails if a key-points panel or a lesson-card child clips or overflows its container border, or if the reading region shows a scrollbar that does not reveal text. It is not a content sign-off.
 - Serve locally and load every touched page, plus Home. No console errors.
 - Exercise the touched feature end to end (start an exam, resume a lesson, flip a card).
-- Check phantom scroll at 1600×770 and 1366×768. Real scroll only when dense content overflows. See [UI_STANDARDS.md](UI_STANDARDS.md). Rob's Chrome viewport is 1600×770 on a 1600×900 screen at 100% scaling. 1366×768 is the secondary check.
+- Check page fit at 1600×770 and 1366×768, empty and heavy. Glance screens do not page-scroll. See [docs/general-ui-standards.md](docs/general-ui-standards.md) and [UI_STANDARDS.md](UI_STANDARDS.md). Rob's Chrome viewport is 1600×770 on a 1600×900 screen at 100% scaling. 1366×768 is the secondary check.
 - If assets changed, bump the service worker cache to the next version, and the matching check in `validate.js`.
 - Quick regression check of pages that share the touched CSS or JS.
 - Fix and re-run until this is clean.

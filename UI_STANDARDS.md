@@ -1,8 +1,8 @@
 # UI standards
 
-Locked rules for UI edits and new components or templates. Home is the reference look.
+This file extends [docs/general-ui-standards.md](docs/general-ui-standards.md). Those rules apply to PTCB26. This file adds the PTCB-specific theme, header, lesson layout, viewports, regions, and page class. Home is the reference look.
 
-1. **Viewport fit (Chrome laptop)**. Primary viewport is 1600×770 (1600×900 screen at 100% scaling). Secondary is 1366×768. Content-hug cards. Dense only as needed. A card fills most or all of the viewport (at least ¾). Kill side and bottom dead space. Tight padding, including the card bottom and the buttons, out to the screen edge. Body type stays laptop-readable (no squint). Kill phantom overflow (a few pixels of scroll). Short pages never scroll. Real vertical scroll only when dense content genuinely overflows.
+1. **Viewport (Chrome laptop)**. Primary viewport is 1600×770 (1600×900 screen at 100% scaling). Secondary is 1366×768. Content-hug cards. Dense only as needed. A card fills most or all of the viewport (at least ¾). Kill side and bottom dead space. Tight padding, including the card bottom and the buttons, out to the screen edge. Body type stays laptop-readable (no squint); that is this app's readability floor. Kill phantom overflow (a few pixels of scroll). Whether a page scrolls follows the general screen-fit rule in [docs/general-ui-standards.md](docs/general-ui-standards.md) and the page classification below.
 2. **Organic shapes**. Cards and triggers are not limited to rounded rectangles or bento blocks. Reactor consoles, chamfered pods, and targeting reticles are in bounds. Measure from the center, with even padding. Tightness follows #1. Translucent radial glass is for interactive cores so Matrix rain shows through.
 3. **Physical metaphors**. Cards with a real counterpart (flashcards) follow the tool: Rolodex tab, stepped deck shadow, spindle notch. Functional badges and actions only.
 4. **Header (3-zone grid)**. `1fr auto 1fr` on every subpage. Far left: Red Pill / Blue Pill mark (`38px × 32px`) + `PTCE 2026`. Center: page title + icon. Far right: contextual nav (`‹ Home`, `‹ Course`, or a utility). Page header title = Orbitron 700 ~26px, #00ff41, soft green glow, defined once via shared tokens.
@@ -31,6 +31,31 @@ Locked rules for UI edits and new components or templates. Home is the reference
 16. **Contained sections**. Key points stay a right-side panel that grows to fit its items (no clip, no internal scroll); bullets wrap beside it and run full width below. Under ~900px the panel is full width above, in two columns. Re-check layout after content PRs.
 17. **Lesson body fit**. If the reading region overflows by about 60px or less, step bullet text down to 0.92 until it fits; if it still overflows, leave it full size and scroll. Reporting Programs & Recalls, Pharmacist Intervention & Immunization Workflow (VIS / VAERS), Common SIG Codes & Abbreviations, and Controlled Substance Schedules may also step the title down to 0.52 of the row size (the header's bottom margin with it only if the type alone still overflows), up to about 100px of overflow. Key points and buttons stay full size. Body text does not go below 0.92.
 18. **Lesson title row**. The domain pill and module label sit on the left of the lesson card's top row. The lesson title is centered in that same row, at most two lines; step its type down, then truncate, so it does not cover the pill or the label. The lesson intro stays in the data and is not shown. Bullets start under that row.
+
+## Page classification
+
+Screen fit follows the general screen-fit rule. `check-page-fit.js` loads every top-level page at 1600×770 and 1366×768, first empty, then with heavy saved progress.
+
+**Glance screens** fit with no page scroll in every data state (empty, typical, heavy):
+
+- Home (`index.html`)
+- Progress Dashboard (`dashboard.html`). Known exception: with live data the main region still scrolls. The fix is deferred in [TODO.md](TODO.md).
+- Quiz setup (`quiz.html` `#setup`)
+- Exam setup (`exam.html` `#examSetup`)
+- Course list, domain accordions closed (`course.html`)
+- Notes domain list, accordions closed (`notes.html`)
+- Flashcards (`flashcards.html`)
+
+**Reading screens** may scroll only inside the reading region. The frame, header, and nav stay fixed:
+
+- Course lessons (`body.course.lesson-open`; scroll in `#lessonView .lesson-layout`)
+- Notes topics (scroll in `.nx-topic-content`)
+
+**Other screens:**
+
+- Course list with one domain open (`#courseList .nx-domain-open`): index of that domain's modules and lessons. Not a glance screen and not the lesson reading region.
+- Quiz question (`#quiz`) and quiz results (`#results`). The header stays fixed. A long stem or the review list scrolls inside `main.container`.
+- Exam question (`#examScreen`) and exam result (`#examResultScreen`). Exam Setup is the glance screen. The question and the result are separate screens on `exam.html`.
 
 ## Named UI regions
 
