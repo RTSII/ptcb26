@@ -324,7 +324,7 @@
   }
 
   // 5. BRIEFING GRID (Procedures, Laws, Standards, Narrative Notes)
-  function renderBriefingGrid(items, term) {
+  function renderBriefingGrid(items, term, showIndex) {
     const cards = items.map((itemStr, idx) => {
       const text = String(itemStr || '').trim();
       const colonIdx = findOutsideParens(text, ': ');
@@ -342,13 +342,14 @@
 
       const tagHtml = highlightTerm(esc(tag), term);
       const narrativeHtml = highlightTerm(esc(narrative), term);
+      const indexHtml = showIndex ? `<span class="nx-card-index">#${String(idx + 1).padStart(2, '0')}</span>` : '';
+      const header = (showIndex || tag)
+        ? `<div class="nx-card-header-bar">${indexHtml}${tag ? `<span class="nx-card-tag">${tagHtml}</span>` : ''}</div>`
+        : '';
 
       return `
         <div class="nx-briefing-card">
-          <div class="nx-card-header-bar">
-            <span class="nx-card-index">#${String(idx + 1).padStart(2, '0')}</span>
-            ${tag ? `<span class="nx-card-tag">${tagHtml}</span>` : ''}
-          </div>
+          ${header}
           <div class="nx-card-narrative">${narrativeHtml}</div>
         </div>
       `;
@@ -380,25 +381,60 @@
         return renderClinicalTable(items, term);
       case 'briefing-grid':
       default:
-        return renderBriefingGrid(items, term);
+        return renderBriefingGrid(items, term, section.title !== 'Key Federal Laws');
     }
   }
 
   const ICON_PREV = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.5 5.25 8 12l6.5 6.75" fill="none" stroke="currentColor" stroke-width="2.35" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const ICON_NEXT = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.5 5.25 16 12l-6.5 6.75" fill="none" stroke="currentColor" stroke-width="2.35" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
-  function renderNavButton(action, domainIdx, enabled) {
+  function topicAt(domainIdx, topicIdx) {
+    const domain = loadedDomains[domainIdx];
+    const sections = domain && domain.sections ? domain.sections : [];
+    if (!domain || topicIdx < 0 || topicIdx >= sections.length) return null;
+    return {
+      domainIdx: domainIdx,
+      topicIdx: topicIdx,
+      domain: domain.domain,
+      title: sections[topicIdx].title
+    };
+  }
+
+  // Neighbor in the flattened topic list. A step off either end of a domain
+  // lands on the next domain's first topic, or the previous domain's last.
+  function topicNeighbor(domainIdx, topicIdx, delta) {
+    const domain = loadedDomains[domainIdx];
+    const sections = domain && domain.sections ? domain.sections : [];
+    const inside = topicIdx + delta;
+    if (inside >= 0 && inside < sections.length) return topicAt(domainIdx, inside);
+    const otherIdx = domainIdx + (delta < 0 ? -1 : 1);
+    const other = loadedDomains[otherIdx];
+    const otherSections = other && other.sections ? other.sections : [];
+    if (!other || !otherSections.length) return null;
+    return topicAt(otherIdx, delta < 0 ? otherSections.length - 1 : 0);
+  }
+
+  function navLabel(action, fromDomainIdx, target) {
+    const verb = action === 'prev' ? 'Previous topic' : 'Next topic';
+    if (!target) return verb;
+    if (target.domainIdx !== fromDomainIdx) return verb + ': ' + target.domain + ', ' + target.title;
+    return verb + ': ' + target.title;
+  }
+
+  function renderNavButton(action, domainIdx, target) {
     const isPrev = action === 'prev';
-    return `<button type="button" class="nx-nav-btn nx-btn-${isPrev ? 'prev' : 'next'}" data-action="${action}" data-domain="${domainIdx}" ${enabled ? '' : 'disabled'} aria-label="${isPrev ? 'Previous topic' : 'Next topic'}">${isPrev ? ICON_PREV : ICON_NEXT}</button>`;
+    const label = navLabel(action, domainIdx, target);
+    return `<button type="button" class="nx-nav-btn nx-btn-${isPrev ? 'prev' : 'next'}" data-action="${action}" data-domain="${domainIdx}" ${target ? '' : 'disabled'} aria-label="${esc(label)}" title="${esc(label)}">${isPrev ? ICON_PREV : ICON_NEXT}</button>`;
   }
 
   // Top row: icon prev, centered topic menu, icon next.
   // Bottom row: the same icons with the point count in the center (no "x of y", no second menu).
+  // Both bars walk every topic and cross domain boundaries.
   function renderTopicNavigation(domainIdx, currentIdx, totalTopics, sections, placement, pointCount) {
-    const hasPrev = currentIdx > 0;
-    const hasNext = currentIdx < totalTopics - 1;
-    const prev = renderNavButton('prev', domainIdx, hasPrev);
-    const next = renderNavButton('next', domainIdx, hasNext);
+    const prevTarget = topicNeighbor(domainIdx, currentIdx, -1);
+    const nextTarget = topicNeighbor(domainIdx, currentIdx, 1);
+    const prev = renderNavButton('prev', domainIdx, prevTarget);
+    const next = renderNavButton('next', domainIdx, nextTarget);
 
     let center;
     if (placement === 'bottom') {
@@ -617,26 +653,29 @@
       return;
     }
 
-    // 2. Topic Navigation Buttons (Prev / Next)
+    // 2. Topic Navigation Buttons (Prev / Next). Both bars cross domains.
     const navBtn = e.target.closest('.nx-nav-btn');
     if (navBtn && !navBtn.disabled) {
       const domainIdx = parseInt(navBtn.getAttribute('data-domain'), 10);
       const action = navBtn.getAttribute('data-action');
-      const domainData = loadedDomains[domainIdx];
-      if (!domainData) return;
+      if (!loadedDomains[domainIdx] || (action !== 'prev' && action !== 'next')) return;
+      const placement = navBtn.closest('.nx-topic-nav-bottom') ? 'bottom' : 'top';
+      const cur = activeTopic[domainIdx] || 0;
+      const target = topicNeighbor(domainIdx, cur, action === 'prev' ? -1 : 1);
+      if (!target) return;
 
-      const total = (domainData.sections || []).length;
-      let cur = activeTopic[domainIdx] || 0;
-
-      if (action === 'prev' && cur > 0) {
-        activeTopic[domainIdx] = cur - 1;
-      } else if (action === 'next' && cur < total - 1) {
-        activeTopic[domainIdx] = cur + 1;
-      }
-
+      const crossed = target.domainIdx !== domainIdx;
+      activeTopic[target.domainIdx] = target.topicIdx;
+      openDomainIndex = target.domainIdx;
       render(loadedDomains, searchInput ? searchInput.value : '');
-      const topicContent = Util.el(`[data-domain-card="${domainIdx}"] .nx-topic-content`);
+      const topicContent = Util.el('[data-domain-card="' + target.domainIdx + '"] .nx-topic-content');
       if (topicContent) topicContent.scrollTop = 0;
+      const focusBtn = Util.el('.nx-topic-nav-' + placement + ' .nx-btn-' + action);
+      if (focusBtn && !focusBtn.disabled) focusBtn.focus();
+      if (crossed) {
+        const live = Util.el('#nxTopicLive');
+        if (live) live.textContent = 'Domain ' + (target.domainIdx + 1) + ', ' + target.title;
+      }
     }
   });
 

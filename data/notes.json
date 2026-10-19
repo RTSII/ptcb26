@@ -145,12 +145,6 @@
           ]
         },
         {
-          "title": "Known Teratogens (Pregnancy Safety)",
-          "items": [
-            "isotretinoin (iPLEDGE), thalidomide, warfarin, methotrexate, valproic acid, phenytoin, ACE inhibitors/ARBs, tetracyclines, lithium, misoprostol. Statins are not an absolute avoid: stop them in most pregnant patients and weigh the individual need."
-          ]
-        },
-        {
           "title": "Dosage Forms & Routes",
           "items": [
             "Sublingual (SL): dissolves under tongue, rapid absorption, bypasses first-pass (nitroglycerin). Buccal = between cheek and gum.",
@@ -200,7 +194,8 @@
           "items": [
             "ISMP acute-care examples: insulin, antithrombotics (warfarin, heparin, DOACs), opioids, KCl injection concentrate, chemotherapy, neuromuscular blockers, oral nononcologic methotrexate, IV inotropes (e.g. digoxin).",
             "LASA examples: hydrOXYzine vs hydrALAZINE, predniSONE vs prednisoLONE, DOPamine vs DOBUTamine, vinBLAStine vs vinCRIStine, CeleBREX vs CeleXA — use tall-man lettering.",
-            "Double-check: limit to selected high-alert meds (e.g. chemo, opioid infusions, IV insulin, heparin infusions)."
+            "Double-check: limit to selected high-alert meds (e.g. chemo, opioid infusions, IV insulin, heparin infusions).",
+            "Known teratogens: isotretinoin (iPLEDGE), thalidomide, warfarin, methotrexate, valproic acid, phenytoin, ACE inhibitors/ARBs, tetracyclines, lithium, misoprostol. Statins are not an absolute avoid: stop them in most pregnant patients and weigh the individual need."
           ]
         },
         {
@@ -466,14 +461,12 @@
         {
           "title": "Key Federal Laws",
           "items": [
-            "Controlled Substances Act (1970): created the 5-schedule system; enforced by the DEA.",
-            "The DATA 2000 X-waiver for office-based buprenorphine was eliminated in December 2022 (MAT Act). Any DEA-registered practitioner with Schedule III authority may prescribe buprenorphine for OUD; a separate X-waiver is no longer required. DSCSA (2013) is its own 2026 knowledge area (2.6) — see the DSCSA section.",
-            "Biennial (every 2 years) controlled substance inventory required.",
-            "Controlled-substance prescription records must be maintained for at least 2 years.",
             "C-III–V prescriptions may be transferred one time for a refill, unless the pharmacies share a real-time online database (then until refills are exhausted). An unfilled electronic C-II–V prescription may be transferred once for initial dispensing, pharmacist to pharmacist, at the patient’s request; it stays electronic. Authorized C-III–V refills transfer with it. A paper C-II cannot be transferred. Non-controlled refills transfer as state law allows, with no federal one-time cap.",
-            "C-II–IV labels: “Caution: Federal law prohibits the transfer of this drug to any person other than the patient for whom it was prescribed.” Not required on C-V.",
+            "C-II partial fills: pharmacy cannot supply → remainder within 72 hours. Patient or prescriber requests a partial (CARA 2016) → remaining portions within 30 days of the written date, except an emergency oral C-II (remaining portions within 72 hours after the prescription is issued). LTCF/terminally ill → 60 days. After the window, leftover quantity needs a new prescription.",
+            "The DATA 2000 X-waiver for office-based buprenorphine was eliminated in December 2022 (MAT Act). Any DEA-registered practitioner with Schedule III authority may prescribe buprenorphine for OUD; a separate X-waiver is no longer required. DSCSA (2013) is its own 2026 knowledge area (2.6) — see the DSCSA section.",
             "C-II receipt: record the date and quantity received on the pharmacy’s copy of Form 222. Returns to a reverse distributor: C-II on Form 222 (or CSOS); C-III–V on an invoice.",
-            "C-II partial fills: pharmacy cannot supply → remainder within 72 hours. Patient or prescriber requests a partial (CARA 2016) → remaining portions within 30 days of the written date, except an emergency oral C-II (remaining portions within 72 hours after the prescription is issued). LTCF/terminally ill → 60 days. After the window, leftover quantity needs a new prescription."
+            "Controlled Substances Act (1970): created the 5-schedule system; enforced by the DEA.",
+            "Inventory and records: controlled-substance inventory at least every 2 years (biennial), and controlled-substance prescription records kept for at least 2 years."
           ]
         },
         {
@@ -515,7 +508,7 @@
             "Current exchange is electronic Transaction Information (TI) and a Transaction Statement (TS). Transaction History (TH) was retired in November 2023. Do not memorize a mandatory TI + TH + TS trio as current law.",
             "Authorized trading partners: manufacturers, wholesale distributors, dispensers (pharmacies), and repackagers that are appropriately licensed/registered. Dispensers may accept product only from authorized partners.",
             "Suspect product: reason to believe it may be counterfeit, diverted, stolen, intentionally adulterated, or otherwise unfit. Illegitimate product: credible evidence that it is one of those things.",
-            "Suspect product: do not dispense; quarantine; notify the pharmacist; verify the product identifier (NDC, serial, lot, expiration). Once the product is confirmed illegitimate, notify FDA (Form FDA 3911) and immediate trading partners within 24 hours.",
+            "Handling suspect product: do not dispense; quarantine; notify the pharmacist; verify the product identifier (NDC, serial, lot, expiration). Once the product is confirmed illegitimate, notify FDA (Form FDA 3911) and immediate trading partners within 24 hours.",
             "Keep DSCSA transaction records for 6 years. FDA used phased implementation milestones for electronic package-level tracing; learn the durable duties above rather than a specific exemption end-date."
           ]
         }

@@ -655,6 +655,24 @@ button.nx-domain-header:hover {
   background: #0f1826;
   border-color: var(--nx-border-silver);
 }
+/* DSCSA card 7 sits alone on the last row. Span it the way .nx-token-single does.
+   Three columns keep 1366 on the same grid as 1600; the tighter gap and padding there clear the leftover scrollbar. */
+.nx-topic-card[aria-label*="Drug Supply Chain Security Act (2.6)"] .nx-briefing-card:last-child {
+  grid-column: 1 / -1;
+}
+@media (min-width: 641px) {
+  .nx-topic-card[aria-label*="Drug Supply Chain Security Act (2.6)"] .nx-briefing-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 641px) and (max-width: 1400px) {
+  .nx-topic-card[aria-label*="Drug Supply Chain Security Act (2.6)"] .nx-briefing-grid {
+    gap: 10px;
+  }
+  .nx-topic-card[aria-label*="Drug Supply Chain Security Act (2.6)"] .nx-briefing-card {
+    padding: 10px 14px;
+  }
+}
 .nx-card-header-bar {
   display: flex;
   align-items: center;
