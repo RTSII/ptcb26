@@ -1372,26 +1372,60 @@ body.course .course-module-complete {
    (body.course.lesson-open). The course module list keeps the shared container. */
 .lesson-header { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
 .lesson-domain { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-dim); }
+/* Top row: pill + module label on the left, lesson title centered on the card.
+   The intro stays in the lesson data and is not rendered. */
+body.course.lesson-open .lesson-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 8px;
+}
+body.course.lesson-open .lesson-header-meta {
+  grid-area: 1 / 1;
+  justify-self: start;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  max-width: 100%;
+  z-index: 1;
+}
+body.course.lesson-open .lesson-header-meta .crumb {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+body.course.lesson-open .lesson-header-meta .lesson-domain {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 body.course.lesson-open .lesson-title-main {
+  grid-area: 1 / 1;
+  justify-self: center;
+  align-self: center;
+  width: max-content;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
   font-family: var(--font-display);
-  font-size: 1.9rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  letter-spacing: 1px;
-  line-height: 1.25;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
   color: #fff;
   text-shadow: 0 0 14px rgba(0, 255, 65, 0.5);
-  margin-bottom: 8px;
   overflow-wrap: break-word;
   text-align: center;
+  z-index: 0;
 }
-body.course.lesson-open .lesson-intro {
-  font-size: 1.45rem;
-  line-height: 1.4;
-  color: var(--ink);
-  margin-bottom: 12px;
-  font-style: italic;
-  overflow-wrap: break-word;
-  text-align: center;
+body.course.lesson-open .lesson-title-main.is-clamped {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 .lesson-body { min-width: 0; }
 .lesson-body ul { list-style: none; }
@@ -1522,8 +1556,6 @@ body.course.lesson-open #lessonView.card-block {
 }
 body.course.lesson-open .lesson-header,
 body.course.lesson-open .archive-banner,
-body.course.lesson-open .lesson-title-main,
-body.course.lesson-open .lesson-intro,
 body.course.lesson-open .lesson-actions,
 body.course.lesson-open .lesson-nav {
   flex: 0 0 auto;
