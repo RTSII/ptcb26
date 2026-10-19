@@ -42,7 +42,7 @@ Items that are off the 2026 core are optional course lessons or `featured: false
 
 ## Working rules
 
-Standing rules, the reading order, and the pre-PR loop are in [AGENTS.md](AGENTS.md). UI rules are in [UI_STANDARDS.md](UI_STANDARDS.md). What's left is [TODO.md](TODO.md).
+Standing rules, the reading order, and the pre-PR loop are in [AGENTS.md](AGENTS.md). UI rules are in [docs/general-ui-standards.md](docs/general-ui-standards.md) (screen fit and layout defaults 7–12) and [UI_STANDARDS.md](UI_STANDARDS.md) (PTCB extends them). What's left is [TODO.md](TODO.md).
 
 ## Run it
 
@@ -73,7 +73,7 @@ Cache name: see `sw.js`.
 - App shell (navigations, HTML, CSS, JS) is network-first, cache fallback if offline.
 - JSON and the other same-origin assets are cache-first.
 
-Asset URLs carry a query-string cache buster. After a cache-name bump, follow [UI_STANDARDS.md](UI_STANDARDS.md). A hard refresh (`Ctrl + Shift + R`) bypasses disk cache.
+Asset URLs carry a query-string cache buster. After a cache-name bump, follow [docs/general-ui-standards.md](docs/general-ui-standards.md) and [UI_STANDARDS.md](UI_STANDARDS.md). A hard refresh (`Ctrl + Shift + R`) bypasses disk cache.
 
 ## Directory structure
 
@@ -86,7 +86,7 @@ Every tracked file. Update this tree when a file is added, removed, or renamed (
 ├── AUDIT_RUBRIC.md             # sourced-fact rules for course and notes audits
 ├── README.md                   # how to run the app, content rules, this tree
 ├── TODO.md                     # live backlog; Next up is the work order
-├── UI_STANDARDS.md             # locked UI rules; Home is the reference look
+├── UI_STANDARDS.md             # PTCB UI rules; extends docs/general-ui-standards.md
 └── study_notes_v4_plan.md      # Notes v4 plan; theme overhaul waits on TODO
 
 # pages
@@ -104,7 +104,7 @@ Every tracked file. Update this tree when a file is added, removed, or renamed (
 ├── sw.js                       # service worker, cache ptce-2026-vNN
 ├── validate.js                 # schema, ID, domain, copy, containment, and page-fit checks
 ├── check-containment.js        # headless lesson containment; invoked by validate.js
-└── check-page-fit.js           # empty-state page overflow at 1600x770 and 1366x768
+└── check-page-fit.js           # empty-state and heavy glance overflow at 1600x770 and 1366x768
 
 css/
 ├── exam-setup.css              # practice-exam setup console; tokens stay on .xs
@@ -119,6 +119,7 @@ data/
 └── questions.json              # quiz and practice-exam bank
 
 docs/
+├── general-ui-standards.md     # Rob's general UI standard (v2) for all his apps
 ├── notes-overhaul-plan.md      # approved Notes topic-body layout plan
 └── archive/                    # history; do not read for current work
     ├── README.md               # archive index
@@ -142,11 +143,11 @@ There is no `app/` directory. Shared helpers are `window.App` (`Storage`, `Util`
 
 ## Current state
 
-Home is the reference HUD. Study Course is the large card and opens the course list. That list has one Resume button and four domain accordions matching Notes (same names, weights, and badges; closed on load; the same vertical gaps). Opening one shows the Notes domain-pill row, moves that domain to the top with its modules and lessons in order, and the other domains stay collapsed cards below it. Practice Exam setup is the Exam Setup console. Dashboard cards are Resurrections glass, and that page does not run the rain. Notes accordions start closed. Header titles share one style ([UI_STANDARDS.md](UI_STANDARDS.md)). The Home wordmark is on Home and Course; Dashboard, Quiz, Practice Exam, and Flashcards still use the older wordmark ([TODO.md](TODO.md)).
+Home is the reference HUD. Study Course is the large card and opens the course list. That list has one Resume button and four domain accordions matching Notes (same names, weights, and badges; closed on load; the same vertical gaps). Opening one shows the Notes domain-pill row, moves that domain to the top with its modules and lessons in order, and the other domains stay collapsed cards below it. Practice Exam setup is the Exam Setup console. Dashboard cards are Resurrections glass, and that page does not run the rain. Notes accordions start closed. Header titles share one style ([docs/general-ui-standards.md](docs/general-ui-standards.md), [UI_STANDARDS.md](UI_STANDARDS.md)). The Home wordmark is on Home and Course; Dashboard, Quiz, Practice Exam, and Flashcards still use the older wordmark ([TODO.md](TODO.md)).
 
 Notes still render the committed legacy `items` JSON. The v2 `blocks` file stays outside `data/` until the blocks runtime ships ([AGENTS.md](AGENTS.md)). The Notes plan is [study_notes_v4_plan.md](study_notes_v4_plan.md). What to do next is [TODO.md](TODO.md) **Next up**.
 
-Cache name: `sw.js` (`ptce-2026-v88`).
+Cache name: `sw.js` (`ptce-2026-v91`).
 
 Bank on this commit:
 

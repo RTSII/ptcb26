@@ -1,14 +1,17 @@
 #!/usr/bin/env node
 'use strict';
 /**
- * Empty-state page overflow. Invoked by validate.js.
+ * Page overflow. Invoked by validate.js.
  * Loads every top-level page at 1600x770 (primary) and 1366x768
- * (secondary) with a fresh profile (no saved progress). Fails when the
- * document, the body, or the page's main container overflows by more
- * than half a pixel, unless the page is on ALLOW.
+ * (secondary) twice: a fresh profile (no saved progress), then the
+ * glance screens again with heavy progress in localStorage.
+ * Fails when the document, the body, or the page's main container
+ * overflows by more than half a pixel, unless that page is allowlisted
+ * for that pass.
  *
- * ALLOW is only for a page whose empty state is genuinely taller than
- * the laptop viewport. Do not list a short page to hide a phantom scrollbar.
+ * The empty pass has no allowlist. Do not hide a phantom scrollbar.
+ * The heavy pass allowlists only the Progress Dashboard. It scrolls
+ * with live data, and that fix is deferred in TODO.md.
  *
  * Run: node check-page-fit.js
  * Chrome: CHROME_PATH, or google-chrome / chromium on PATH.
@@ -32,7 +35,12 @@ const PAGES = [
   '/exam.html',
   '/flashcards.html'
 ];
-const ALLOW = new Set([
+const GLANCE = PAGES.slice();
+const PROGRESS_KEY = 'ptce2026_progress_v1';
+// Heavy-data page scroll that is already deferred. Do not add a page
+// here to hide a new overflow. Other glance failures stay failures.
+const HEAVY_ALLOW = new Map([
+  ['/dashboard.html', 'Progress Dashboard scrolls with live data. Fix deferred in TODO.md (Dashboard live-data scroll). Expected.']
 ]);
 const TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -59,21 +67,40 @@ const MEASURE = `(() => {
   const bodyPx = scrollPx(body);
   const mainPx = scrollPx(main);
   const path = location.pathname;
+  let seedQuizzes = 0;
+  try {
+    const raw = localStorage.getItem('ptce2026_progress_v1');
+    if (raw) seedQuizzes = (JSON.parse(raw).quizzes || []).length;
+  } catch (e) { seedQuizzes = 0; }
   let settled = document.readyState === 'complete';
   if (path.endsWith('/course.html')) settled = settled && !!document.querySelector('#courseList .nx-domain-card');
   if (path.endsWith('/notes.html')) settled = settled && !!document.querySelector('#notesArea .nx-domain-card');
-  if (path.endsWith('/dashboard.html')) settled = settled && !!document.querySelector('#domainAccuracy .domain-row, #domainAccuracy p');
-  if (path.endsWith('/flashcards.html')) settled = settled && !!document.querySelector('#flashcard');
-  if (path.endsWith('/index.html')) settled = settled && !!document.querySelector('.hx-grid');
+  if (path.endsWith('/dashboard.html')) {
+    settled = settled && !!document.querySelector('#domainAccuracy .domain-row, #domainAccuracy p');
+    if (seedQuizzes > 0) settled = settled && !!document.querySelector('#quizHistory .hist-row');
+  }
+  if (path.endsWith('/flashcards.html')) {
+    settled = settled && !!document.querySelector('#flashcard') && !!document.querySelector('#filterRow .pill');
+  }
+  if (path.endsWith('/index.html')) {
+    settled = settled && !!document.querySelector('.hx-grid');
+    const next = document.querySelector('#hxCourseNext');
+    if (next && /Loading course map/.test(next.textContent || '')) settled = false;
+    if (seedQuizzes > 0) {
+      const qz = document.querySelector('#homeQuizzes');
+      if (!qz || !qz.textContent || qz.textContent === '0') settled = false;
+    }
+  }
   if (path.endsWith('/quiz.html')) settled = settled && !!document.querySelector('#setup');
-  if (path.endsWith('/exam.html')) settled = settled && !!document.querySelector('#introScreen');
+  if (path.endsWith('/exam.html')) settled = settled && !!document.querySelector('#introScreen #lenGroup .xs-opt');
   const overflow = Math.max(docPx, bodyPx, mainPx);
   return {
     settled: settled,
     overflow: overflow,
     doc: docPx,
     body: bodyPx,
-    main: mainPx
+    main: mainPx,
+    seedQuizzes: seedQuizzes
   };
 })()`;
 
@@ -291,6 +318,179 @@ async function measure(cdp) {
   return last;
 }
 
+function isoDaysAgo(days) {
+  return new Date(Date.now() - days * 86400000).toISOString();
+}
+
+function loadJson(rel) {
+  return JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
+}
+
+// Real storage shape from js/app.js Storage.defaults / recordQuiz / recordExam.
+// The schema has no streak counter. A streak is 21 consecutive days of quizzes
+// ending today, plus lastVisit today.
+function buildHeavyProgress() {
+  const course = loadJson('data/course.json');
+  const questions = loadJson('data/questions.json').questions || [];
+  const cards = loadJson('data/flashcards.json').cards || [];
+  const domains = [
+    'Medications',
+    'Patient Safety and Quality Assurance',
+    'Order Entry and Processing',
+    'Federal Requirements'
+  ];
+  const featured = [];
+  (course.modules || []).forEach((mod) => {
+    (mod.lessons || []).forEach((lesson) => {
+      if (!lesson.optional) featured.push(lesson);
+    });
+  });
+  const resumeLesson = featured.reduce((best, lesson) => {
+    return (lesson.title || '').length > (best.title || '').length ? lesson : best;
+  }, featured[0]);
+  const completed = featured.filter((lesson) => lesson.id !== resumeLesson.id).map((lesson) => lesson.id);
+
+  const missed = {};
+  questions.slice(0, 48).forEach((q, i) => {
+    missed[String(q.id)] = { wrong: (i % 4) + 1, last: isoDaysAgo(i % 21) };
+  });
+  const bookmarkedQuestions = questions.slice(10, 80).map((q) => String(q.id));
+  const bookmarkedCards = cards.slice(0, 50).map((card) => String(card.id));
+  const reviewed = cards.map((card) => String(card.id));
+  const known = cards.slice(0, Math.floor(cards.length * 0.7)).map((card) => String(card.id));
+  const knownSet = new Set(known);
+  const unknown = reviewed.filter((id) => !knownSet.has(id));
+  const cardState = {};
+  cards.forEach((card, i) => {
+    const box = (i % 5) + 1;
+    const due = new Date(Date.now() + (i % 3 === 0 ? -86400000 : box * 86400000)).toISOString();
+    cardState[String(card.id)] = { box: box, due: due };
+  });
+
+  const quizzes = [];
+  for (let day = 0; day < 21; day++) {
+    const qs = [];
+    for (let k = 0; k < 10; k++) {
+      const q = questions[(day * 5 + k) % questions.length];
+      qs.push({ id: String(q.id), correct: (k + day) % 4 !== 0 });
+    }
+    const correct = qs.filter((row) => row.correct).length;
+    const chapter = day % 2 === 0;
+    quizzes.push({
+      date: isoDaysAgo(day),
+      mode: chapter ? 'chapter' : 'quick10',
+      domain: chapter ? domains[day % domains.length] : null,
+      subtopic: null,
+      total: qs.length,
+      correct: correct,
+      score: Math.round((correct / qs.length) * 100),
+      duration: 240000 + day * 1000,
+      questions: qs
+    });
+  }
+
+  const exams = [];
+  for (let i = 0; i < 6; i++) {
+    const qs = [];
+    for (let k = 0; k < 90; k++) {
+      const q = questions[(i * 13 + k) % questions.length];
+      qs.push({ id: String(q.id), correct: (k + i) % 5 !== 0 });
+    }
+    const correct = qs.filter((row) => row.correct).length;
+    const score = Math.round((correct / qs.length) * 100);
+    exams.push({
+      date: isoDaysAgo(i * 3),
+      mode: 'exam',
+      total: qs.length,
+      correct: correct,
+      score: score,
+      scaled: Math.round(1000 + (score / 100) * 600),
+      duration: 110 * 60 * 1000,
+      questions: qs
+    });
+  }
+
+  return {
+    progress: {
+      flashcards: { known: known, unknown: unknown, reviewed: reviewed },
+      cardState: cardState,
+      bookmarkedQuestions: bookmarkedQuestions,
+      bookmarkedCards: bookmarkedCards,
+      missed: missed,
+      course: { completed: completed, lastLesson: resumeLesson.id },
+      quizzes: quizzes,
+      exams: exams,
+      lastVisit: new Date().toISOString()
+    },
+    summary: {
+      lessons: completed.length,
+      resume: resumeLesson.title,
+      quizzes: quizzes.length,
+      streakDays: 21,
+      exams: exams.length,
+      missed: Object.keys(missed).length,
+      bookmarkedQuestions: bookmarkedQuestions.length,
+      bookmarkedCards: bookmarkedCards.length,
+      reviewed: reviewed.length
+    }
+  };
+}
+
+function heavySeedSource(progress) {
+  const payload = JSON.stringify(progress);
+  return 'try{localStorage.setItem(' + JSON.stringify(PROGRESS_KEY) + ',' + JSON.stringify(payload) + ');}catch(e){}';
+}
+
+async function runPass(cdp, httpPort, passName, pages, allow, expectSeed) {
+  const failures = [];
+  const allowedOverflows = [];
+  for (const size of SIZES) {
+    await cdp.call('Emulation.setDeviceMetricsOverride', {
+      width: size[0],
+      height: size[1],
+      deviceScaleFactor: 1,
+      mobile: false
+    });
+    for (const rel of pages) {
+      const label = passName + ' ' + size[0] + 'x' + size[1] + ' ' + rel;
+      await cdp.call('Page.navigate', { url: 'http://127.0.0.1:' + httpPort + rel });
+      const value = await measure(cdp);
+      if (!value || !value.settled) {
+        const line = label + ': page did not render';
+        console.error('FAIL ' + line);
+        failures.push(line);
+        continue;
+      }
+      if (expectSeed && !(value.seedQuizzes > 0)) {
+        const line = label + ': heavy progress was not in localStorage';
+        console.error('FAIL ' + line);
+        failures.push(line);
+        continue;
+      }
+      if (!expectSeed && value.seedQuizzes > 0) {
+        const line = label + ': empty pass saw saved progress';
+        console.error('FAIL ' + line);
+        failures.push(line);
+        continue;
+      }
+      const overflow = value.overflow;
+      const detail = 'overflow ' + Math.round(overflow) + 'px (document ' +
+        Math.round(value.doc) + ', body ' + Math.round(value.body) + ', main ' + Math.round(value.main) + ')';
+      const note = allow.get(rel);
+      if (overflow > 0.5 && note) {
+        console.log('OK   allowlisted ' + label + ' ' + detail + ' — ' + note);
+        allowedOverflows.push(label + ' ' + detail);
+      } else if (overflow > 0.5) {
+        console.error('FAIL ' + label + ' ' + detail);
+        failures.push(label + ' ' + detail);
+      } else {
+        console.log('OK   ' + label + ' ' + detail);
+      }
+    }
+  }
+  return { failures: failures, allowedOverflows: allowedOverflows };
+}
+
 async function main() {
   const chromePath = findChrome();
   if (!chromePath) {
@@ -328,50 +528,36 @@ async function main() {
   };
   process.on('SIGINT', () => { stop(); process.exit(1); });
 
-  const failures = [];
   try {
     const page = await waitJson(debugPort);
     cdp = await connectCdp(page.webSocketDebuggerUrl);
     await cdp.call('Network.setCacheDisabled', { cacheDisabled: true });
     await cdp.call('Page.enable');
-    for (const size of SIZES) {
-      await cdp.call('Emulation.setDeviceMetricsOverride', {
-        width: size[0],
-        height: size[1],
-        deviceScaleFactor: 1,
-        mobile: false
-      });
-      for (const rel of PAGES) {
-        const label = size[0] + 'x' + size[1] + ' ' + rel;
-        await cdp.call('Page.navigate', { url: 'http://127.0.0.1:' + httpPort + rel });
-        const value = await measure(cdp);
-        if (!value || !value.settled) {
-          const line = label + ': page did not render';
-          console.error('FAIL ' + line);
-          failures.push(line);
-          continue;
-        }
-        const overflow = value.overflow;
-        const detail = 'overflow ' + Math.round(overflow) + 'px (document ' +
-          Math.round(value.doc) + ', body ' + Math.round(value.body) + ', main ' + Math.round(value.main) + ')';
-        const allowed = ALLOW.has(rel);
-        if (overflow > 0.5 && !allowed) {
-          console.error('FAIL ' + label + ' ' + detail);
-          failures.push(label + ' ' + detail);
-        } else if (overflow > 0.5 && allowed) {
-          console.log('OK   allowlisted ' + label + ' ' + detail);
-        } else {
-          console.log('OK   ' + label + ' ' + detail);
-        }
-      }
+    const empty = await runPass(cdp, httpPort, 'empty', PAGES, new Map(), false);
+    const built = buildHeavyProgress();
+    const sum = built.summary;
+    console.log(
+      'heavy seed: ' + sum.lessons + ' lessons complete, resume "' + sum.resume + '"; ' +
+      sum.quizzes + ' quizzes on ' + sum.streakDays + ' consecutive days (streak); ' +
+      sum.exams + ' exams; ' + sum.missed + ' missed; ' +
+      sum.bookmarkedQuestions + ' bookmarked questions; ' +
+      sum.bookmarkedCards + ' bookmarked cards; ' + sum.reviewed + ' cards reviewed'
+    );
+    const added = await cdp.call('Page.addScriptToEvaluateOnNewDocument', {
+      source: heavySeedSource(built.progress)
+    });
+    const heavy = await runPass(cdp, httpPort, 'heavy', GLANCE, HEAVY_ALLOW, true);
+    if (added && added.identifier) {
+      await cdp.call('Page.removeScriptToEvaluateOnNewDocument', { identifier: added.identifier });
     }
+    const failures = empty.failures.concat(heavy.failures);
     if (failures.length) {
-      console.error('FAIL ' + failures.length + ' page(s) overflow in the empty state');
+      console.error('FAIL ' + failures.length + ' page-fit check(s)');
       process.exitCode = 1;
-    } else if (ALLOW.size) {
-      console.log('OK   empty-state page fit; allowlisted: ' + [...ALLOW].join(', '));
+    } else if (heavy.allowedOverflows.length) {
+      console.log('OK   empty state fits. Heavy glance fits except the allowlisted Progress Dashboard (' + heavy.allowedOverflows.length + ' viewport check(s) scrolled, as expected).');
     } else {
-      console.log('OK   every top-level page at 1600x770 and 1366x768: no empty-state overflow');
+      console.log('OK   empty state fits. Heavy glance fits, including the Progress Dashboard.');
     }
   } catch (err) {
     console.error('FAIL ' + (err && err.message ? err.message : err));
