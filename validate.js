@@ -251,8 +251,8 @@ if (/id="weightBars"|PTCE 2026 Domain Weights|id="weakDomain"|Focus Area|dash-we
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v87/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v87');
-else ok('sw.js cache is ptce-2026-v87');
+if (!/ptce-2026-v88/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v88');
+else ok('sw.js cache is ptce-2026-v88');
 if (/blueprint-hud/.test(sw)) fail('sw.js should not precache the removed Blueprint HUD');
 else ok('sw.js does not precache the Blueprint HUD');
 if (!/css\/exam-setup\.css/.test(sw) || !/js\/exam-setup\.js/.test(sw)) {
@@ -475,6 +475,15 @@ if (/id="clearMissedBtn"|id="clearBookmarksBtn"|#weakDomain|renderWeights|DOMAIN
 if (!/confirm\(/.test(dashSrc)) {
   fail('reset should still confirm before clearing progress');
 } else ok('reset still confirms before clearing progress');
+if (/importFile|Import Progress|importJSON/.test(dashHtml + '\n' + dashSrc)) {
+  fail('dashboard should not keep Import Progress');
+} else ok('dashboard drops Import Progress');
+if (!/Backup & Reset/.test(dashHtml) || !/id="resetBtn"/.test(dashHtml) || !/id="exportBtn"/.test(dashHtml)) {
+  fail('backup card should keep Reset and Export under Backup & Reset');
+} else ok('backup card is Backup & Reset with Reset and Export');
+if (!/body\.dashboard\s*\{[^}]*height:\s*100dvh/.test(css) || !/body\.dashboard\s*\{[^}]*overflow:\s*hidden/.test(css)) {
+  fail('dashboard should lock to the viewport so the document cannot scroll');
+} else ok('dashboard locks to the viewport');
 function modeBranch(src, marker) {
   const at = src.indexOf(marker);
   if (at === -1) return '';
@@ -580,6 +589,17 @@ try {
   ok('every lesson at 1600x770 and 1366x768: no clip, no phantom scrollbar');
 } catch (err) {
   fail('lesson containment check failed');
+}
+
+console.log('\nPage fit');
+try {
+  execFileSync(process.execPath, [path.join(ROOT, 'check-page-fit.js')], {
+    stdio: 'inherit',
+    timeout: 90000
+  });
+  ok('top-level pages at 1600x770 and 1366x768: no empty-state page overflow');
+} catch (err) {
+  fail('page overflow check failed');
 }
 
 console.log(failed ? '\nFAILED ' + failed + ' check(s)' : '\nAll checks passed.');

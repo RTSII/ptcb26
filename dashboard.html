@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=56">
+  <link rel="stylesheet" href="css/style.css?v=57">
 </head>
 <body class="dashboard">
   <header class="app-header">
@@ -80,16 +80,17 @@
     </div>
 
     <div class="card-block">
-      <h3>Backup & Restore</h3>
+      <h3>Backup & Reset</h3>
       <div class="btn-row">
-        <button class="btn" id="exportBtn">Export Progress</button>
-        <label class="btn outline" for="importFile">Import Progress</label>
-        <input type="file" id="importFile" accept="application/json,.json" class="hidden">
+        <button type="button" class="btn danger" id="resetBtn">
+          <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 4.75h6M5.75 7.25h12.5M8.25 7.25l.55 11.1a1 1 0 0 0 1 .9h4.4a1 1 0 0 0 1-.9l.55-11.1M10.25 11v5.25M13.75 11v5.25" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Reset All Progress
+        </button>
+        <button type="button" class="btn" id="exportBtn">
+          <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15.5V4M8 8l4-4 4 4M6 12.5V19h12v-6.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Export Progress
+        </button>
       </div>
-    </div>
-
-    <div class="btn-row">
-      <button class="btn outline" id="resetBtn">Reset All Progress</button>
     </div>
   </main>
 

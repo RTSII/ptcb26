@@ -95,5 +95,5 @@ One line per region: name, page, locator, what it contains. Locators are the liv
 - Dashboard trend | dashboard | `#trendChart` | Quiz score trend
 - Dashboard quiz history | dashboard | `#quizHistory` | Recent quizzes
 - Dashboard exam history | dashboard | `#examHistory` | Best practice exam
-- Dashboard backup | dashboard | `#exportBtn` | Export progress; `#importFile` sits in the same card
+- Dashboard backup | dashboard | `#exportBtn` | Export progress. Reset (`#resetBtn`) is in the same card.
 - Dashboard reset | dashboard | `#resetBtn` | Clears all local progress
