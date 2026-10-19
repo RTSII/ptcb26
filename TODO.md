@@ -32,6 +32,8 @@ Live backlog. History in `docs/archive/` is not this list.
    - [x] Consolidate Study Course structure into exactly the 4 main domains as accordion groups (Medications, Patient Safety, Order Entry, Federal), combining sub-domains/modules under them. Long lists are fine; the accordion moves the active section to the top.
 3. [x] **Study Notes content audit** (#64–#67). Same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
 4. **Notes theme overhaul.** Approved layout: [docs/notes-overhaul-plan.md](docs/notes-overhaul-plan.md). Earlier handoff: `study_notes_v4_plan.md`.
+   - [x] Key Federal Laws: biennial inventory and the 2-year prescription-record line are one card. The C-II–IV transfer-warning card is removed on purpose. The C-II receipt card stays separate. Do not restore or resplit those.
+   - [x] Notes prev/next on the top and bottom bars cross domain boundaries. They stop only on the first topic and the last topic.
    - [x] Step 1, before layout: diff current `data/notes.json` against `a0e7321` (before `a7542b5`) and list lost or garbled content and broken titles/numbering to restore (#62).
 
 Course is the primary path; Notes summarize it. Lock course facts before Notes so the same error is not fixed twice. Course and notes audits use [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md). Standing rules: [AGENTS.md](AGENTS.md).

@@ -63,10 +63,10 @@ One line per region: name, page, locator, what it contains. Locators are the liv
 - Notes domain pill row | notes | `#notesArea .nx-domain-switch` | D1–D4 chips; only while a domain is open
 - Notes domain accordion | notes | `#notesArea .nx-domain-card` | Domain header and, when open, the topic card
 - Notes topic card | notes | `.nx-topic-card` | Top nav, topic body, and bottom nav
-- Notes topic nav | notes | `.nx-topic-card-top` | Previous, topic selector, next
+- Notes topic nav | notes | `.nx-topic-card-top` | Previous, topic selector, next. Prev and next cross into the adjacent domain.
 - Notes topic selector | notes | `.nx-topic-select` | Topic dropdown in the top nav
 - Notes topic body | notes | `.nx-topic-content` | Scrollable notes inside the topic card
-- Notes bottom nav | notes | `.nx-topic-nav-bottom` | Previous, point count, next
+- Notes bottom nav | notes | `.nx-topic-nav-bottom` | Previous, point count, next. Same cross-domain prev and next as the top bar.
 - Notes search | notes | `#notesSearch` | Filter under the accordions; hidden while a domain is open
 - Quiz header | quiz | `body.quiz header.app-header` | Wordmark, Quiz title, Exit, Home
 - Quiz setup | quiz | `#setup` | Mode, question count, chapter fields, Start
