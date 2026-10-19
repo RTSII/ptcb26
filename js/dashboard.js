@@ -114,22 +114,6 @@
     setTimeout(() => URL.revokeObjectURL(a.href), 1000);
   });
 
-  // Import progress from a JSON file
-  Util.el('#importFile').addEventListener('change', function (e) {
-    const file = e.target.files && e.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = function () {
-      try {
-        Storage.importJSON(reader.result);
-        location.reload();
-      } catch (err) {
-        alert('Import failed: not a valid progress file.');
-      }
-    };
-    reader.readAsText(file);
-  });
-
   const progress = Storage.read();
   Util.fetchJSON('data/questions.json')
     .then(function (data) {

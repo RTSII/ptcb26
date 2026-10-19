@@ -2385,7 +2385,20 @@ body.home .footer-note {
 }
 
 /* ============ Dashboard header + tighter progress page ============ */
+/* Short page, same viewport lock as Home, Quiz, Flashcards, and Exam.
+   The shared body rule is min-height: 100vh plus overflow-x: hidden, and
+   that hidden axis computes overflow-y to auto. The card stack sat a few
+   pixels under 770, so a real window painted a document scrollbar. */
+body.dashboard {
+  height: 100dvh;
+  max-height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
 body.dashboard .app-header {
+  flex: 0 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
@@ -2645,6 +2658,23 @@ body.dashboard .btn.outline:hover {
   background: rgba(0, 255, 65, 0.08);
   box-shadow: none;
 }
+body.dashboard .btn.danger {
+  color: #ffd0dc;
+  border-color: rgba(255, 56, 96, 0.85);
+  background: rgba(255, 42, 109, 0.12);
+  text-shadow: none;
+}
+body.dashboard .btn.danger:hover {
+  color: #fff;
+  background: rgba(255, 42, 109, 0.24);
+  box-shadow: none;
+}
+body.dashboard .btn .btn-icon {
+  width: 1.1em;
+  height: 1.1em;
+  flex: 0 0 auto;
+  display: block;
+}
 body.dashboard .bar-track {
   background: #031016;
   border: 1px solid rgba(0, 229, 255, 0.22);
@@ -2677,7 +2707,13 @@ body.dashboard .trend-fill {
 body.dashboard .trend-val { font-size: 0.72rem; }
 body.dashboard .hist-row { border-bottom-color: rgba(0, 229, 255, 0.18); }
 body.dashboard .score-big { color: #00ff41; text-shadow: none; }
-body.dashboard .container { padding: 6px 12px 0; }
+body.dashboard .container {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 6px 12px 8px;
+}
 
 /* Card interiors sit on the center line: titles, prompts, stats, and bars. */
 body.dashboard .stat-box {
@@ -2730,23 +2766,21 @@ body.dashboard .hist-row {
   text-align: center;
   gap: 16px;
 }
+body.dashboard .container > .card-block:last-child {
+  margin-bottom: 0;
+}
 body.dashboard .card-block > .btn-row {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 16rem));
+  display: flex;
+  flex-wrap: nowrap;
   justify-content: center;
-  gap: 8px;
+  align-items: stretch;
+  gap: 12px;
+  margin-top: 8px;
 }
 body.dashboard .card-block > .btn-row .btn {
-  width: 100%;
-}
-body.dashboard .container > .card-block:has(+ .btn-row) {
-  margin-bottom: 0;
-}
-body.dashboard > .btn-row,
-body.dashboard .container > .btn-row {
-  justify-content: center;
-  margin-top: 6px;
-  margin-bottom: 0;
+  width: 18rem;
+  max-width: 46%;
+  white-space: nowrap;
 }
 @media (min-width: 900px) {
   body.dashboard #domainAccuracy { grid-template-columns: repeat(4, minmax(0, 1fr)); }

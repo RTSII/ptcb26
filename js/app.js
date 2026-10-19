@@ -173,16 +173,8 @@ const Storage = (() => {
       return !s.due || new Date(s.due).getTime() <= now;
     });
   };
-  // ---- Export / import ----
+  // ---- Export ----
   const exportJSON = () => JSON.stringify(read(), null, 2);
-  const importJSON = (text) => {
-    const data = JSON.parse(text);
-    if (!data || typeof data !== 'object' || !Array.isArray(data.quizzes)) {
-      throw new Error('Invalid progress file');
-    }
-    write(data);
-    return true;
-  };
   // ---- Course progress ----
   const markLessonComplete = (lessonId) => {
     const d = read();
@@ -205,7 +197,7 @@ const Storage = (() => {
     read, write, touch, recordQuiz, recordExam, setFlashStatus, markReviewed, clear,
     toggleBookmark, isBookmarked, getBookmarks, recordQuestionOutcome, getMissed,
     clearMissed, clearBookmarks,
-    gradeCard, dueCards, exportJSON, importJSON,
+    gradeCard, dueCards, exportJSON,
     markLessonComplete, setLastLesson, getCourseProgress
   };
 })();
