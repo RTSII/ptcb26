@@ -127,12 +127,16 @@
   const BODY_SCALES = [0.98, 0.96, 0.94, 0.92];
   const HEAD_SCALES = [];
   for (let n = 98; n >= 52; n -= 2) HEAD_SCALES.push(n / 100);
+  const TITLE_SCALES = [];
+  for (let n = 100; n >= 66; n -= 2) TITLE_SCALES.push(n / 100);
   const FIT_OVERFLOW = 60;
   const FIT_HEAD_OVERFLOW = 100;
-  // These four still overflow after the body floor. Title and intro may scale
-  // for them only, so every other lesson keeps the body-only rule.
+  const TITLE_PREF = 1.5;
+  // These four still overflow after the body floor. The title may scale
+  // for them only. The intro stays in the data and is not rendered.
   const HEAD_FIT = { m4l3: 1, m6l2: 1, m7l2: 1, m10l1: 1 };
   let fitLessonId = '';
+  let titleRowScale = 1;
 
   function lessonTextPast(layout) {
     const edge = layout.getBoundingClientRect().bottom;
@@ -150,59 +154,183 @@
     return past;
   }
 
+  function lessonOverflow(layout) {
+    return Math.max(layout.scrollHeight - layout.clientHeight, lessonTextPast(layout));
+  }
+
+  // Center the title on the top row. Keep the domain pill and module label
+  // fully visible when a one- or two-line title still clears them. Otherwise
+  // ellipsize the label and keep the title at most two lines.
+  function fitLessonTitle() {
+    const header = document.querySelector('.lesson-header');
+    const meta = header && header.querySelector('.lesson-header-meta');
+    const title = header && header.querySelector('.lesson-title-main');
+    const pill = meta && meta.querySelector('.crumb');
+    if (!header || !meta || !title || !pill) return;
+    const gap = 12;
+    meta.style.maxWidth = 'none';
+    title.classList.remove('is-clamped');
+    title.style.width = 'max-content';
+    title.style.maxWidth = 'none';
+    const headerW = header.clientWidth;
+    const fullMeta = meta.getBoundingClientRect().width;
+    const pillW = pill.getBoundingClientRect().width;
+    const minMeta = pillW + gap + 36;
+    function applyScale(scale) {
+      title.style.fontSize = scale === 1
+        ? TITLE_PREF + 'rem'
+        : 'calc(' + TITLE_PREF + 'rem * ' + scale + ')';
+    }
+    function lineCount() {
+      const lh = parseFloat(getComputedStyle(title).lineHeight) || 1;
+      return title.getBoundingClientRect().height / lh;
+    }
+    function naturalWidth() {
+      title.style.width = 'max-content';
+      title.style.maxWidth = 'none';
+      return title.getBoundingClientRect().width;
+    }
+    function linesIn(lane) {
+      const w = Math.max(40, Math.floor(lane));
+      title.style.width = w + 'px';
+      title.style.maxWidth = w + 'px';
+      return lineCount();
+    }
+    function use(scale, maxW, clamp) {
+      titleRowScale = scale;
+      applyScale(scale);
+      title.style.width = 'max-content';
+      title.style.maxWidth = Math.max(40, Math.floor(maxW)) + 'px';
+      title.classList.toggle('is-clamped', !!clamp);
+      title.dataset.titleScale = String(scale);
+    }
+    // Smallest width at which this size wraps to at most two lines.
+    function minLane(scale) {
+      applyScale(scale);
+      const one = naturalWidth();
+      const cap = Math.max(80, headerW - 2 * (minMeta + gap));
+      let lane = Math.max(80, Math.ceil(one / 2.2));
+      if (lane > cap) lane = cap;
+      for (let n = 0; n < 12; n++) {
+        if (linesIn(lane) <= 2.05) return lane;
+        if (lane >= cap - 1) return null;
+        lane = Math.min(cap, lane + Math.max(20, Math.ceil(one * 0.05)));
+      }
+      return null;
+    }
+    for (let i = 0; i < TITLE_SCALES.length; i++) {
+      const scale = TITLE_SCALES[i];
+      applyScale(scale);
+      const one = naturalWidth();
+      const fullLane = headerW - 2 * (fullMeta + gap);
+      if (one + 2 * (fullMeta + gap) <= headerW + 1) {
+        use(scale, Math.max(one + 8, fullLane), false);
+        return;
+      }
+      if (fullLane >= 160 && linesIn(fullLane) <= 2.05) {
+        use(scale, fullLane, false);
+        return;
+      }
+    }
+    // Full label does not fit. Shrink the title first. Ellipsize the label
+    // only for the leftover, and only as far as the pill plus a stub.
+    let chosen = null;
+    for (let i = 0; i < TITLE_SCALES.length; i++) {
+      const scale = TITLE_SCALES[i];
+      const need = minLane(scale);
+      if (!need) continue;
+      const room = (headerW - need) / 2 - gap;
+      if (room < minMeta) continue;
+      const cut = Math.max(0, fullMeta - room);
+      // A few dozen pixels of ellipsis is enough. Past that, shrink the
+      // title further so the module label stays readable. Scales are tried
+      // largest first, so the first modest cut is the largest readable title.
+      if (cut <= 64) {
+        chosen = { scale: scale, need: need, room: room, cut: cut };
+        break;
+      }
+      if (!chosen || cut < chosen.cut) chosen = { scale: scale, need: need, room: room, cut: cut };
+    }
+    if (chosen) {
+      meta.style.maxWidth = Math.floor(chosen.room) + 'px';
+      use(chosen.scale, chosen.need + 8, false);
+      return;
+    }
+    const floor = TITLE_SCALES[TITLE_SCALES.length - 1];
+    const lane = Math.max(80, headerW - 2 * (minMeta + gap));
+    meta.style.maxWidth = Math.floor(minMeta) + 'px';
+    use(floor, lane, true);
+  }
+
   function fitLessonBody() {
     const layout = document.querySelector('.lesson-layout');
     const body = layout && layout.querySelector('.lesson-body');
     const title = document.querySelector('.lesson-title-main');
-    const intro = document.querySelector('.lesson-intro');
+    const header = document.querySelector('.lesson-header');
     if (!layout || !body) return;
     const lis = body.querySelectorAll('li');
     const allowHead = !!HEAD_FIT[fitLessonId];
+    const rowScale = titleRowScale || 1;
     function applyBody(scale) {
       const size = scale === 1 ? '' : 'calc(1.35rem * ' + scale + ')';
       for (let i = 0; i < lis.length; i++) lis[i].style.fontSize = size;
+      body.dataset.bodyScale = String(scale);
     }
     function applyHead(scale, margins) {
-      if (!title || !intro) return;
-      if (scale === 1) {
-        title.style.fontSize = '';
-        intro.style.fontSize = '';
-        title.style.marginBottom = '';
-        intro.style.marginBottom = '';
-        return;
-      }
-      title.style.fontSize = 'calc(1.9rem * ' + scale + ')';
-      intro.style.fontSize = 'calc(1.45rem * ' + scale + ')';
-      title.style.marginBottom = margins ? (8 * scale) + 'px' : '';
-      intro.style.marginBottom = margins ? (12 * scale) + 'px' : '';
+      if (!title) return;
+      const used = Math.max(0.52, Math.min(rowScale, scale));
+      title.style.fontSize = 'calc(' + TITLE_PREF + 'rem * ' + used + ')';
+      title.dataset.titleScale = String(Math.round(used * 100) / 100);
+      if (header) header.style.marginBottom = margins ? (8 * used) + 'px' : '';
     }
-    function bodyFits() {
-      return layout.scrollHeight - layout.clientHeight <= 1 && lessonTextPast(layout) <= 1;
+    function boxExtra() {
+      return layout.scrollHeight - layout.clientHeight;
     }
-    function headFits() {
-      return layout.scrollHeight - layout.clientHeight <= 0.5 && lessonTextPast(layout) <= 1;
+    // A few pixels of box overflow with the glyphs already inside the
+    // reading region is a phantom scrollbar. Pull the header's bottom
+    // margin in so the reading region grows and the bar goes away.
+    function absorb() {
+      if (lessonTextPast(layout) > 1) return false;
+      if (boxExtra() <= 0.5) return true;
+      if (boxExtra() > 4 || !header) return false;
+      const mb = parseFloat(getComputedStyle(header).marginBottom) || 0;
+      header.style.marginBottom = Math.max(0, mb - Math.ceil(boxExtra())) + 'px';
+      return lessonTextPast(layout) <= 1 && boxExtra() <= 0.5;
+    }
+    function fitted() {
+      return absorb();
     }
     applyBody(1);
     applyHead(1, false);
-    const initial = lessonTextPast(layout);
-    if (initial <= 4 || initial > (allowHead ? FIT_HEAD_OVERFLOW : FIT_OVERFLOW)) return;
+    if (fitted()) return;
+    const initial = lessonOverflow(layout);
+    if (initial > (allowHead ? FIT_HEAD_OVERFLOW : FIT_OVERFLOW)) return;
     for (let s = 0; s < BODY_SCALES.length; s++) {
       applyBody(BODY_SCALES[s]);
-      if (bodyFits()) return;
+      if (header && !allowHead) header.style.marginBottom = '';
+      if (fitted()) return;
     }
     if (allowHead) {
       applyBody(0.92);
       for (let h = 0; h < HEAD_SCALES.length; h++) {
+        if (HEAD_SCALES[h] >= rowScale - 0.001) continue;
         applyHead(HEAD_SCALES[h], false);
-        if (headFits()) return;
+        if (fitted()) return;
       }
       for (let h = 0; h < HEAD_SCALES.length; h++) {
+        if (HEAD_SCALES[h] >= rowScale - 0.001) continue;
         applyHead(HEAD_SCALES[h], true);
-        if (headFits()) return;
+        if (fitted()) return;
       }
     }
     applyBody(1);
     applyHead(1, false);
+  }
+
+  function fitLesson() {
+    if (!document.body.classList.contains('lesson-open')) return;
+    fitLessonTitle();
+    fitLessonBody();
   }
 
   function domainGroups() {
@@ -315,12 +443,13 @@
       : '';
 
     let html = '<div class="lesson-header">' +
-      '<span class="crumb">' + esc(domainPillText(m)) + '</span>' +
-      '<span class="lesson-domain">' + esc(m.title) + '</span>' +
+      '<div class="lesson-header-meta">' +
+        '<span class="crumb">' + esc(domainPillText(m)) + '</span>' +
+        '<span class="lesson-domain" title="' + esc(m.title) + '">' + esc(m.title) + '</span>' +
+      '</div>' +
+      '<h2 class="lesson-title-main">' + esc(l.title) + '</h2>' +
       '</div>' +
       optBanner +
-      '<h2 class="lesson-title-main">' + esc(l.title) + '</h2>' +
-      '<p class="lesson-intro">' + esc(l.intro) + '</p>' +
       '<div class="lesson-layout">' +
       (l.keyPoints && l.keyPoints.length ?
         '<div class="key-points"><h3>⭐ Key Points to Remember</h3><ul>' +
@@ -342,7 +471,8 @@
 
     lessonView.innerHTML = html;
     fitLessonId = lessonId;
-    fitLessonBody();
+    titleRowScale = 1;
+    fitLesson();
 
     Util.el('#completeBtn').addEventListener('click', function () {
       if (!isDone(lessonId)) {
@@ -396,8 +526,14 @@
   window.addEventListener('resize', function () {
     if (!document.body.classList.contains('lesson-open')) return;
     clearTimeout(fitTimer);
-    fitTimer = setTimeout(fitLessonBody, 60);
+    fitTimer = setTimeout(fitLesson, 60);
   });
+
+  if (document.fonts && document.fonts.addEventListener) {
+    document.fonts.addEventListener('loadingdone', function () {
+      fitLesson();
+    });
+  }
 
   // One open domain. The pill row switches domains without closing.
   // The header toggles that card to the top. Lesson links are left to the

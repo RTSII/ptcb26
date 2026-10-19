@@ -29,7 +29,8 @@ Locked rules for UI edits and new components or templates. Home is the reference
 14. **UI work sequence**. Lock these rules, test on the Chrome laptop viewport, then extras. After any service-worker cache bump, unregister the service worker and clear site data before judging UI. The code-change loop is **Verify before PR** in [AGENTS.md](AGENTS.md).
 15. **Dashboard surface**. Dashboard cards are Resurrections glass: solid `#051318`, a faint `#00e5ff` top edge, white body text; titles, numbers, and bars are `#00ff41`, and average score and exams stay gold. The Dashboard page does not run the code rain.
 16. **Contained sections**. Key points stay a right-side panel that grows to fit its items (no clip, no internal scroll); bullets wrap beside it and run full width below. Under ~900px the panel is full width above, in two columns. Re-check layout after content PRs.
-17. **Lesson body fit**. If the reading region overflows by about 60px or less, step bullet text down to 0.92 until it fits; if it still overflows, leave it full size and scroll. Reporting Programs & Recalls, Pharmacist Intervention & Immunization Workflow (VIS / VAERS), Common SIG Codes & Abbreviations, and Controlled Substance Schedules may also step the title and intro down to 0.52 (margins with them only if the type alone still overflows), up to about 100px of overflow. Key points and buttons stay full size. Body text does not go below 0.92.
+17. **Lesson body fit**. If the reading region overflows by about 60px or less, step bullet text down to 0.92 until it fits; if it still overflows, leave it full size and scroll. Reporting Programs & Recalls, Pharmacist Intervention & Immunization Workflow (VIS / VAERS), Common SIG Codes & Abbreviations, and Controlled Substance Schedules may also step the title down to 0.52 of the row size (the header's bottom margin with it only if the type alone still overflows), up to about 100px of overflow. Key points and buttons stay full size. Body text does not go below 0.92.
+18. **Lesson title row**. The domain pill and module label sit on the left of the lesson card's top row. The lesson title is centered in that same row, at most two lines; step its type down, then truncate, so it does not cover the pill or the label. The lesson intro stays in the data and is not shown. Bullets start under that row.
 
 ## Named UI regions
 
@@ -51,8 +52,8 @@ One line per region: name, page, locator, what it contains. Locators are the liv
 - Course domain accordion | course list | `#courseList .nx-domain-card` | Domain header; its modules and lessons when open
 - Course module | course list | `.course-module` | Title, description, progress, lesson links, domain quiz button
 - Lesson card | course lesson | `#lessonView` | The open lesson
-- Lesson title | course lesson | `#lessonView .lesson-title-main` | Centered lesson title
-- Lesson intro | course lesson | `#lessonView .lesson-intro` | Italic intro under the title
+- Lesson meta | course lesson | `#lessonView .lesson-header-meta` | Domain pill and module label, left side of the top row
+- Lesson title | course lesson | `#lessonView .lesson-header .lesson-title-main` | Lesson title centered on the top row (at most two lines)
 - Lesson layout | course lesson | `#lessonView .lesson-layout` | Key-points panel and bullet body
 - Lesson key points panel | course lesson | `#lessonView .key-points` | Right-side key points
 - Lesson body | course lesson | `#lessonView .lesson-body` | Lesson bullets
