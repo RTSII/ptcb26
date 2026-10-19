@@ -251,8 +251,8 @@ if (/id="weightBars"|PTCE 2026 Domain Weights|id="weakDomain"|Focus Area|dash-we
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v84/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v84');
-else ok('sw.js cache is ptce-2026-v84');
+if (!/ptce-2026-v85/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v85');
+else ok('sw.js cache is ptce-2026-v85');
 if (/blueprint-hud/.test(sw)) fail('sw.js should not precache the removed Blueprint HUD');
 else ok('sw.js does not precache the Blueprint HUD');
 if (!/css\/exam-setup\.css/.test(sw) || !/js\/exam-setup\.js/.test(sw)) {
