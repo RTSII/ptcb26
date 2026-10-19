@@ -42,7 +42,7 @@ Items that are off the 2026 core are optional course lessons or `featured: false
 
 ## Working rules
 
-Standing rules, the reading order, and the pre-PR loop are in [AGENTS.md](AGENTS.md). UI rules are in [docs/general-ui-standards.md](docs/general-ui-standards.md) and [UI_STANDARDS.md](UI_STANDARDS.md) (this app extends the general rules). What's left is [TODO.md](TODO.md).
+Standing rules, the reading order, and the pre-PR loop are in [AGENTS.md](AGENTS.md). UI rules are in [docs/general-ui-standards.md](docs/general-ui-standards.md) (screen fit and layout defaults 7–12) and [UI_STANDARDS.md](UI_STANDARDS.md) (PTCB extends them). What's left is [TODO.md](TODO.md).
 
 ## Run it
 
@@ -119,7 +119,7 @@ data/
 └── questions.json              # quiz and practice-exam bank
 
 docs/
-├── general-ui-standards.md     # Rob's general UI standard for all his apps
+├── general-ui-standards.md     # Rob's general UI standard (v2) for all his apps
 ├── notes-overhaul-plan.md      # approved Notes topic-body layout plan
 └── archive/                    # history; do not read for current work
     ├── README.md               # archive index

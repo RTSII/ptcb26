@@ -5,11 +5,11 @@ Read in this order:
 1. This file, for standing rules and the pre-PR loop.
 2. [TODO.md](TODO.md) **Next up**, for what to do, in that order.
 3. [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md) before any content audit or fact-fix.
-4. [docs/general-ui-standards.md](docs/general-ui-standards.md), then [UI_STANDARDS.md](UI_STANDARDS.md), before any UI change. UI_STANDARDS extends the general rules with PTCB-only details.
+4. [docs/general-ui-standards.md](docs/general-ui-standards.md), then [UI_STANDARDS.md](UI_STANDARDS.md), before any UI change. UI_STANDARDS extends general rules 1–12 with PTCB-only details.
 5. [README.md](README.md) for how to run the app and the content rules.
 6. [study_notes_v4_plan.md](study_notes_v4_plan.md) only for Notes content or the Notes theme overhaul.
 
-Plans and briefs name the regions they touch, and the regions they do not touch, using **Named UI regions** in [UI_STANDARDS.md](UI_STANDARDS.md). Screen fit is the general rule in [docs/general-ui-standards.md](docs/general-ui-standards.md).
+Plans and briefs name the regions they touch, and the regions they do not touch, using **Named UI regions** in [UI_STANDARDS.md](UI_STANDARDS.md). Screen fit and the layout defaults are in [docs/general-ui-standards.md](docs/general-ui-standards.md).
 
 Do not read `docs/archive/`. Those files are history.
 
