@@ -75,6 +75,7 @@ Superseded by the block above (do not follow these):
 - [ ] Notes palette: Matrix-cohesive (retire slate-as-end-state) per `study_notes_v4_plan.md`
 - [ ] Trim redundant Notes search/filter/nav chrome
 - [ ] Shared `matrix.css` tokens — `UI_STANDARDS.md` documents the UI templates; extraction stays open
+- [ ] After the Home telemetry helix is signed off, point the Home telemetry named region at `section.hx-helix` in `UI_STANDARDS.md`.
 
 ## Study sign-off
 
