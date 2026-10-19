@@ -55,26 +55,15 @@
           "title": "Antibiotics & Anti-Infectives",
           "intro": "Know the major antibiotic classes, their stems, spectrum, and signature safety points.",
           "bullets": [
-            "Penicillins (-cillin): amoxicillin, amoxicillin/clavulanate (Augmentin) — common for ear/strep; watch for allergy/anaphylaxis.",
-            "Amoxicillin: there are reports of severe reactions to cephalosporins in people with a history of penicillin hypersensitivity. Before amoxicillin, ask about prior reactions to penicillins, cephalosporins, or other allergens.",
-            "Cephalosporins (ceph-/-cef-): cephalexin (Keflex). Generations 1–5 are not steadily broader gram-negative coverage; ceftaroline covers MRSA (gram-positive) plus some gram-negatives.",
-            "Macrolides (-thromycin): azithromycin (Zithromax/Z-Pak = 6 tabs, 500 mg day 1 then 250 mg ×4), clarithromycin — QT prolongation risk.",
-            "Fluoroquinolones (-floxacin): ciprofloxacin (Cipro), levofloxacin — BOXED WARNING: tendinitis and tendon rupture, peripheral neuropathy, CNS effects, and myasthenia gravis exacerbation.",
-            "Reserve fluoroquinolones when there is no alternative for acute exacerbation of chronic bronchitis, uncomplicated cystitis, and acute sinusitis. Age >60 raises tendon-rupture risk. QT prolongation is a separate warning, not the box.",
-            "Fluoroquinolones are not first choice in children (arthropathy); approved for some pediatric uses (anthrax, plague).",
-            "Tetracyclines: doxycycline, tetracycline — avoid in children <8 and pregnancy (permanent tooth discoloration); chelate with dairy/antacids.",
-            "Sulfonamides: sulfamethoxazole/trimethoprim (Bactrim) — sulfa allergy, hyperkalemia, photosensitivity.",
-            "Sulfamethoxazole/trimethoprim (Bactrim): fatalities and serious reactions include severe cutaneous adverse reactions, including Stevens-Johnson syndrome and toxic epidermal necrolysis.",
-            "Antifungal: fluconazole (Diflucan) — vaginal candidiasis, oropharyngeal and esophageal candidiasis, and cryptococcal meningitis.",
-            "Antiviral: oral acyclovir (Zovirax) — acute herpes zoster (shingles), initial and recurrent genital herpes, and chickenpox (varicella).",
-            "Oseltamivir (Tamiflu): influenza neuraminidase inhibitor for treatment of acute, uncomplicated influenza A and B in patients 2 weeks of age and older who have been symptomatic for no more than 48 hours, and for prophylaxis of influenza A and B in patients 1 year and older.",
-            "Oseltamivir (Tamiflu) treatment, adults and adolescents 13 years and older: 75 mg twice daily for 5 days."
+            "Z-Pak = 6 tabs: 500 mg day 1, then 250 mg × 4.",
+            "Ceftaroline covers MRSA plus some gram-negatives.",
+            "Penicillins (-cillin): amoxicillin and Augmentin for ear infections and strep; watch for allergy/anaphylaxis. Ask about penicillin, cephalosporin, or other allergens first. Severe cephalosporin reactions are reported after penicillin hypersensitivity. Cephalosporins (ceph-/-cef-): cephalexin (Keflex). Generations 1–5 are not steadily broader gram-negative coverage. Macrolides (-thromycin): azithromycin (Zithromax) and clarithromycin. QT risk.",
+            "Fluoroquinolones (-floxacin): ciprofloxacin (Cipro), levofloxacin. Box: tendon rupture, tendinitis, peripheral neuropathy, CNS effects, myasthenia gravis exacerbation. QT is a separate warning, not the box. Use one only if there is no alternative for acute exacerbation of chronic bronchitis, uncomplicated cystitis, or acute sinusitis. Age over 60 raises rupture risk. Not first choice in children (arthropathy); anthrax and plague are approved.",
+            "Tetracyclines: no doxycycline or tetracycline under age 8 or in pregnancy (permanent tooth stain). They chelate with dairy and antacids. Bactrim: sulfa allergy, hyperkalemia, photosensitivity, SJS, TEN, with fatalities reported. Diflucan: vaginal, oropharyngeal, and esophageal candidiasis, plus cryptococcal meningitis. Zovirax oral: shingles, initial and recurrent genital herpes, chickenpox (varicella). Tamiflu, a neuraminidase inhibitor: flu A and B, acute, uncomplicated, age ≥2 weeks, symptoms ≤48 h; prophylaxis if age ≥1 year. Age ≥13: 75 mg twice daily for 5 days."
           ],
           "keyPoints": [
-            "Z-Pak = 6 tablets",
-            "FQ box: tendon, neuropathy, CNS, myasthenia",
-            "Tetracycline <8 years old",
-            "Check penicillin allergy"
+            "Z-Pak = 6 tabs",
+            "FQ box: tendon, nerves, CNS, myasthenia"
           ]
         },
         {
@@ -82,26 +71,15 @@
           "title": "Endocrine: Diabetes & Thyroid",
           "intro": "Diabetes agents are frequently tested by class and mechanism; thyroid drugs have strict administration rules.",
           "bullets": [
-            "Metformin (Glucophage): first-line biguanide for T2DM; GI upset; take with food.",
-            "Hold metformin at the time of or before iodinated contrast only if eGFR is 30–60, or there is a history of liver disease, alcoholism, or heart failure, or the contrast is intra-arterial; recheck eGFR at 48 hours and restart if stable (lactic acidosis risk).",
-            "Sulfonylureas: glipizide, glimepiride, glyburide — stimulate insulin release; main risk is HYPOGLYCEMIA.",
-            "SGLT2 inhibitors (-gliflozin): empagliflozin (Jardiance) — increase urinary glucose excretion; genital infections, DKA risk.",
-            "GLP-1 agonists: semaglutide (Ozempic), liraglutide (Victoza) — injectable, weight loss, GI upset.",
-            "Semaglutide (Ozempic) BOXED WARNING: risk of thyroid C-cell tumors. In rodents, semaglutide causes thyroid C-cell tumors. It is unknown whether Ozempic causes thyroid C-cell tumors, including medullary thyroid carcinoma (MTC), in humans.",
-            "Ozempic is contraindicated with a personal or family history of MTC or with Multiple Endocrine Neoplasia syndrome type 2 (MEN 2).",
-            "Liraglutide (Victoza) BOXED WARNING: risk of thyroid C-cell tumors. In rats and mice, liraglutide causes thyroid C-cell tumors. It is unknown whether Victoza causes thyroid C-cell tumors, including MTC, in humans. Contraindicated with a personal or family history of MTC and in MEN 2.",
-            "Semaglutide (Ozempic): inject subcutaneously once weekly. Start at 0.25 mg once weekly. After 4 weeks, increase to 0.5 mg once weekly. A missed dose may be given within 5 days.",
-            "DPP-4 inhibitors (-gliptin): sitagliptin (Januvia). Thiazolidinediones (-glitazone): pioglitazone (Actos) — weight gain, fluid retention/HF caution.",
-            "Insulin types: rapid (lispro/Humalog, aspart/NovoLog ~15 min), short (Regular), intermediate (NPH), long (glargine/Lantus — about 24 h, no pronounced peak; degludec/Tresiba — at least 42 h). Detemir (Levemir) is discontinued in the US.",
-            "Refrigerate unopened insulin; never freeze. In-use time is product-specific (Lantus vial: 28 days, refrigerated or room temperature; Lantus SoloStar: 28 days at room temperature only, do not refrigerate).",
-            "Levothyroxine (Synthroid): T4 replacement — take on empty stomach 30–60 min before breakfast, separate from calcium/iron by 4 h, consistent brand."
+            "Metformin (Glucophage): first-line biguanide for T2DM. GI upset; take with food.",
+            "Sulfonylureas release insulin; main risk is hypoglycemia: glipizide, glimepiride, glyburide.",
+            "Hold metformin for iodinated contrast at or before the dose only if eGFR is 30–60, or the pt has a history of liver disease, alcoholism, or heart failure, or the contrast is intra-arterial. Recheck eGFR at 48 h and restart if stable (lactic acidosis). Empagliflozin (Jardiance, -gliflozin): more urinary glucose, genital infections, DKA. Sitagliptin (Januvia, -gliptin). Pioglitazone (Actos, -glitazone): weight gain, fluid, HF caution.",
+            "Ozempic (semaglutide) and Victoza (liraglutide) are injectable GLP-1s (weight loss, GI upset). Box: thyroid C-cell tumors. Semaglutide in rodents; liraglutide in rats and mice. Unknown in humans, including medullary thyroid carcinoma (MTC). No personal or family MTC, and no MEN 2 (multiple endocrine neoplasia type 2). Ozempic: subcut weekly, start 0.25 mg, then 0.5 mg after 4 weeks. Missed dose: within 5 days.",
+            "Insulin: lispro (Humalog) and aspart (NovoLog) ~15 min; Regular short; NPH intermediate; glargine (Lantus) ~24 h, no peak; degludec (Tresiba) ≥42 h. Levemir is discontinued. Unopened: refrigerate, never freeze. Vial in use 28 days, fridge or room. SoloStar 28 days, room temp only; do not refrigerate. Levothyroxine (Synthroid, T4): empty stomach, 30–60 min before breakfast, 4 h from calcium or iron, same brand."
           ],
           "keyPoints": [
-            "Metformin contrast hold is only for higher-risk patients",
-            "Sulfonylureas → hypoglycemia",
-            "Insulin onset: rapid 15 min, glargine no peak",
-            "Levothyroxine empty stomach",
-            "Ozempic box: thyroid C-cell tumors; no MTC or MEN 2"
+            "Contrast hold: higher-risk pts only",
+            "GLP-1 box: no MTC or MEN 2"
           ]
         },
         {
@@ -109,28 +87,15 @@
           "title": "CNS, Psychiatric & Pain Agents",
           "intro": "Antidepressants, anxiolytics, sedatives, and analgesics — know class, schedule, and key warnings.",
           "bullets": [
-            "SSRIs (no single class suffix; examples: fluoxetine (Prozac), sertraline (Zoloft), escitalopram (Lexapro)) — take 2–4 weeks to work; risk serotonin syndrome with MAOIs/triptans. -oxetine is not SSRI-only (duloxetine is an SNRI).",
-            "Lamotrigine ER (Lamictal XR) BOXED WARNING: serious rashes, including Stevens-Johnson syndrome. Incidence of these rashes is approximately 0.8% (8 per 1,000) in pediatric patients aged 2 to 16 years on adjunctive immediate-release lamotrigine for epilepsy, and 0.3% (3 per 1,000) in adults on adjunctive therapy for epilepsy.",
-            "Rare toxic epidermal necrolysis and rash-related death are reported. Lamictal XR is not approved under age 13.",
-            "SNRIs: duloxetine (Cymbalta) — depression, anxiety, neuropathic pain; venlafaxine (Effexor XR) — MDD, GAD, social anxiety, and panic, not neuropathic pain.",
-            "Benzodiazepines (-azepam/-azolam): alprazolam (Xanax), lorazepam (Ativan), diazepam (Valium) — C-IV, sedation/dependence; overdose reversed by flumazenil.",
-            "Z-hypnotics for insomnia: zolpidem (Ambien), eszopiclone (Lunesta) — C-IV; next-day impairment.",
-            "NSAIDs: ibuprofen (Advil/Motrin), naproxen (Aleve), meloxicam (Mobic), celecoxib (Celebrex) — GI bleed/CV risk, take with food.",
-            "Acetaminophen (Tylenol): max 4 g/day (many recommend 3 g); hepatotoxicity in overdose; antidote N-acetylcysteine. Often combined with opioids (Norco = hydrocodone/APAP).",
-            "Do not use acetaminophen with any other prescription or nonprescription drug that contains acetaminophen.",
-            "Opioids (C-II): oxycodone, hydrocodone/APAP (Norco), tramadol (C-IV) — sedation, constipation (no tolerance), respiratory depression; reversed by naloxone.",
-            "Methylphenidate ER (Concerta): CNS stimulant for ADHD in patients 6 to 65 years old. BOXED WARNING: high potential for abuse and misuse, which can lead to a substance use disorder, including addiction. Misuse and abuse can result in overdose and death.",
-            "Sumatriptan tablets (Imitrex): 5-HT1B/1D agonist (triptan) for acute migraine with or without aura in adults. Not for prevention of migraine. Tablets contain 25 mg, 50 mg, or 100 mg.",
-            "Aripiprazole (Abilify): atypical antipsychotic indicated for schizophrenia. BOXED WARNING: increased mortality in elderly patients with dementia-related psychosis. Not approved for dementia-related psychosis."
+            "Flumazenil reverses benzos. Naloxone reverses opioids.",
+            "Zolpidem (Ambien) and eszopiclone (Lunesta) are C-IV.",
+            "SSRIs have no one suffix: fluoxetine (Prozac), sertraline (Zoloft), escitalopram (Lexapro). Onset 2–4 weeks. Serotonin syndrome with an MAOI or triptan. -oxetine is not SSRI-only; duloxetine is an SNRI. Lamictal XR: serious rash, including SJS. About 0.8% (8 per 1,000) at ages 2 to 16 on adjunctive IR lamotrigine for epilepsy; 0.3% (3 per 1,000) adults on adjunctive epilepsy therapy. Rare TEN and rash-related death. Not approved under 13.",
+            "Duloxetine (Cymbalta): depression, anxiety, neuropathic pain. Venlafaxine (Effexor XR): MDD, GAD, social anxiety, panic, not neuropathic pain. Benzos C-IV (sedation, dependence): alprazolam (Xanax), lorazepam (Ativan), diazepam (Valium). NSAIDs: ibuprofen (Advil, Motrin), naproxen (Aleve), meloxicam (Mobic), celecoxib (Celebrex); GI bleed and CV risk; take with food. Z-drugs can impair the next day.",
+            "APAP max 4 g/day (many recommend 3 g). Overdose: hepatotoxic; antidote N-acetylcysteine. Do not combine APAP products. Norco = hydrocodone/APAP. Oxycodone and Norco are C-II; tramadol is C-IV. No constipation tolerance. Sedation and respiratory depression. Concerta (methylphenidate ER): CNS stimulant for ADHD, ages 6 to 65. Box: abuse and misuse can cause addiction, overdose, and death. Imitrex: 5-HT1B/1D; 25, 50, or 100 mg; acute migraine with or without aura in adults; not prevention. Abilify: schizophrenia. Box: higher death in elderly dementia psychosis; not approved for it."
           ],
           "keyPoints": [
             "SSRI + MAOI = serotonin syndrome",
-            "Benzos & Z-drugs = C-IV",
-            "APAP max 4 g/day",
-            "Naloxone reverses opioids",
-            "Lamotrigine: serious rash, including SJS",
-            "Do not combine acetaminophen products",
-            "Methylphenidate = CNS stimulant for ADHD"
+            "APAP max 4 g/day"
           ]
         },
         {
@@ -138,25 +103,15 @@
           "title": "Respiratory, GI & Miscellaneous",
           "intro": "Respiratory inhalers, GI acid agents, and other high-frequency drugs.",
           "bullets": [
-            "SABA rescue inhalers: albuterol (ProAir RespiClick, Ventolin HFA) — short-acting beta-agonist. Ventolin HFA: prime before first use. ProAir RespiClick: does not require priming.",
-            "Inhaled corticosteroids (maintenance): fluticasone (Flovent); LABA: salmeterol (never used alone in asthma).",
-            "Montelukast (Singulair): leukotriene receptor antagonist for asthma/allergic rhinitis — BOXED WARNING for neuropsychiatric effects.",
-            "PPIs (-prazole; aripiprazole is not a PPI): omeprazole (Prilosec), pantoprazole (Protonix), esomeprazole (Nexium) — take 30–60 min before the first meal; long-term use → B12 deficiency, fracture risk. H2 blockers (-tidine): famotidine (Pepcid) — reduce gastric acid; weaker than PPIs.",
-            "Bisphosphonates: alendronate (Fosamax) for osteoporosis — take with plain water 30+ min before food and remain upright to prevent esophagitis.",
-            "Alendronate (Fosamax) treatment of osteoporosis in postmenopausal women and in men: 10 mg daily or 70 mg once weekly. Prevention of osteoporosis in postmenopausal women: 5 mg daily or 35 mg once weekly.",
-            "Gout: allopurinol (Zyloprim, chronic prevention), colchicine (acute flare). Antihistamines: loratadine (Claritin, non-sedating), diphenhydramine (Benadryl, sedating).",
-            "Allopurinol: serious and sometimes fatal dermatologic reactions, including toxic epidermal necrolysis (TEN) and Stevens-Johnson syndrome (SJS), in approximately 5 in 10,000 (0.05%) patients. Discontinue at the first appearance of skin rash.",
-            "Tamsulosin: alpha-1A adrenoceptor antagonist for the signs and symptoms of benign prostatic hyperplasia. It is not indicated for hypertension.",
-            "Prednisone: glucocorticoid (systemic corticosteroid). Oral tablets contain 5 mg, 10 mg, or 20 mg. One labeled use is adjunctive short-term therapy in rheumatoid arthritis.",
-            "Tri-Sprintec (norgestimate and ethinyl estradiol): combination oral contraceptive indicated to prevent pregnancy in females of reproductive potential.",
-            "Tri-Sprintec BOXED WARNING: cigarette smoking increases the risk of serious cardiovascular events from combination oral contraceptives. Contraindicated in women over 35 years of age who smoke."
+            "Prime Ventolin HFA. ProAir RespiClick needs no prime. Both are rescue albuterol (SABA).",
+            "Salmeterol (LABA) is never used alone in asthma. Fluticasone (Flovent) is the ICS.",
+            "Montelukast (Singulair): leukotriene receptor antagonist for asthma and allergic rhinitis. Box: neuropsychiatric effects. PPIs (-prazole; aripiprazole is not one): omeprazole (Prilosec), pantoprazole (Protonix), esomeprazole (Nexium), 30–60 min before the first meal. Long-term: low B12, fractures. Famotidine (Pepcid) is a weaker H2 blocker (-tidine).",
+            "Alendronate (Fosamax), a bisphosphonate: plain water, ≥30 min before food, stay upright (esophagitis). Treatment of osteoporosis, postmenopausal women and men: 10 mg daily or 70 mg weekly. Prevention of osteoporosis, postmenopausal women: 5 mg daily or 35 mg weekly. Allopurinol (Zyloprim) prevents gout; colchicine treats the flare. TEN/SJS in about 5 in 10,000 (0.05%). Stop at the first rash.",
+            "Loratadine (Claritin) does not sedate; diphenhydramine (Benadryl) does. Tamsulosin: alpha-1A blocker for signs and symptoms of BPH, not hypertension. Prednisone, a systemic glucocorticoid: tabs 5, 10, or 20 mg; short-term adjunct in rheumatoid arthritis. Tri-Sprintec (norgestimate and ethinyl estradiol) is a combination OC that prevents pregnancy. Box: smoking raises serious CV events. Contraindicated over 35 if the pt smokes."
           ],
           "keyPoints": [
-            "Albuterol = rescue; prime Ventolin HFA, not ProAir RespiClick",
-            "PPIs before first meal",
-            "Alendronate: plain water, stay upright",
-            "Montelukast boxed warning",
-            "Alendronate treatment: 10 mg daily or 70 mg once weekly"
+            "Prime Ventolin HFA only",
+            "Treat: 10 mg daily or 70 mg weekly"
           ]
         }
       ]
@@ -176,23 +131,15 @@
           "title": "High-Alert Medications",
           "intro": "High-alert medications bear a heightened risk of significant harm when used in error. The ISMP list is a PTCE favorite.",
           "bullets": [
-            "High-alert classes: insulin, anticoagulants (warfarin, heparin, DOACs), opioids, concentrated electrolytes (KCl), chemotherapy, and methotrexate.",
-            "Methotrexate tablets (Trexall) for rheumatoid arthritis: recommended starting dosage 7.5 mg orally once weekly. BOXED WARNING: tablets inadvertently administered once daily have resulted in death.",
-            "Insulin: wrong-dose errors are common and dangerous; U-100 = 100 units/mL; use independent double checks.",
-            "Anticoagulants: warfarin (monitor INR), heparin (monitor aPTT, HIT risk), DOACs (apixaban/Eliquis, rivaroxaban/Xarelto) — bleeding is the major harm.",
-            "Warfarin: vitamin K antagonist indicated for prophylaxis and treatment of venous thrombosis and pulmonary embolism, and for prophylaxis and treatment of thromboembolic complications associated with atrial fibrillation and/or cardiac valve replacement.",
-            "Warfarin is indicated for reduction in the risk of death, recurrent MI, and thromboembolic events such as stroke after myocardial infarction.",
-            "Apixaban (Eliquis): factor Xa inhibitor indicated to reduce the risk of stroke and systemic embolism in nonvalvular atrial fibrillation, for DVT prophylaxis after hip or knee replacement, and for treatment of DVT and PE and reduction of recurrent DVT and PE.",
-            "Rivaroxaban (Xarelto): factor Xa inhibitor indicated to reduce the risk of stroke and systemic embolism in nonvalvular atrial fibrillation, for treatment of DVT, and for treatment of PE.",
-            "Rivaroxaban is indicated for reduction in the risk of recurrence of DVT or PE, and for DVT prophylaxis, which may lead to PE, after knee or hip replacement.",
-            "Concentrated potassium chloride injection must ALWAYS be diluted before IV use — undiluted rapid IV push can cause fatal cardiac arrest.",
-            "Risk-reduction strategies: independent double checks, standardized order sets, Tall Man lettering, and pharmacist profile review before ADC removal."
+            "High-alert: insulin, anticoagulants, opioids, KCl, chemotherapy, methotrexate.",
+            "Trexall for RA: start 7.5 mg PO once weekly. Daily dosing has caused death.",
+            "U-100 = 100 units/mL. Wrong insulin doses are common; use an independent double check. Dilute concentrated KCl before IV use. Undiluted rapid IV push can cause fatal cardiac arrest. Also: standard order sets, Tall Man, RPh profile review before ADC removal.",
+            "Bleeding is the main harm. Warfarin (vitamin K antagonist), INR: prophylaxis and treatment of venous thrombosis and PE, and of thromboembolic complications with AF and/or valve replacement. Also cuts death, recurrent MI, and events such as stroke after MI. Heparin: aPTT and HIT.",
+            "Apixaban (Eliquis), factor Xa: cut stroke and systemic embolism in nonvalvular AF; DVT prophylaxis after hip or knee replacement; treat DVT and PE and cut recurrence. Rivaroxaban (Xarelto), factor Xa: same stroke use; treat DVT; treat PE; cut DVT or PE recurrence; DVT prophylaxis, which may lead to PE, after knee or hip replacement."
           ],
           "keyPoints": [
-            "Insulin, anticoagulants, opioids, KCl, chemo = high-alert",
-            "KCl concentrate must be diluted",
-            "Independent double checks reduce harm",
-            "Oral methotrexate for RA: once weekly"
+            "Methotrexate for RA: once weekly",
+            "Dilute concentrated KCl before IV"
           ]
         },
         {
@@ -282,23 +229,15 @@
           "title": "Storage Requirements",
           "intro": "Proper storage preserves potency and safety; the PTCE tests specific temperature requirements.",
           "bullets": [
-            "Refrigerated (36–46°F / 2–8°C): unopened insulin, many vaccines, some biologics. Reconstituted antibiotic suspensions are not all refrigerated.",
-            "Unopened insulin must be refrigerated. Never freeze insulin. Detemir (Levemir) is discontinued in the US.",
-            "Once insulin is in use, time is product-specific (Lantus vial: 28 days, refrigerated or room temperature; Lantus SoloStar: 28 days at room temperature only, do not refrigerate; Tresiba: 56 days).",
-            "Amoxicillin suspension: discard unused portion after 14 days. Refrigeration is preferable, not required. Azithromycin oral suspension: store at 5–30°C (41–86°F) and use within 10 days.",
-            "Room temperature (68–77°F / 20–25°C) is the default for most tablets/capsules; protect from moisture and light.",
-            "Nitroglycerin SL tablets: keep in the original glass container, tightly capped after each use, at room temperature, to prevent loss of potency.",
-            "Most refrigerated vaccines must be stored at 2–8°C (36–46°F) and must NOT be frozen; some require frozen or ultra-cold storage.",
-            "Once a multi-dose vial is opened (needle-punctured), date it and discard it within 28 days unless the manufacturer states another date for that opened vial. The beyond-use date should never exceed the manufacturer's original expiration date.",
-            "Access to areas where hazardous drugs are handled must be restricted to authorized personnel. Designated areas must include storage of hazardous drugs.",
-            "A multi-dose vial used for more than one patient is kept and accessed in a clean medication preparation area, away from immediate patient treatment areas. If a multi-dose vial enters a treatment area, dedicate it to that one patient."
+            "Never freeze insulin. Detemir (Levemir) is discontinued in the US.",
+            "NTG SL: original glass, tight cap, room temp, so it keeps potency.",
+            "Unopened insulin, many vaccines, and some biologics: 2–8°C (36–46°F). Most refrigerated vaccines must not be frozen; some need frozen or ultra-cold storage. In use: Lantus vial 28 days, fridge or room. SoloStar 28 days at room temp only; do not refrigerate. Tresiba 56 days.",
+            "Amox susp: discard unused after 14 days; fridge preferable, not required. Azithromycin oral susp: 5–30°C (41–86°F), use within 10 days. Not every reconstituted antibiotic susp is refrigerated. Room temp 20–25°C (68–77°F) is the default for most tabs and caps. Protect from moisture and light.",
+            "Opened multi-dose vial: date the puncture; discard in 28 days unless that label says otherwise. Beyond-use never past the manufacturer expiration. For more than one pt, keep it in a clean prep area, away from treatment. If it enters the treatment area, dedicate it to that one pt. HD areas: authorized staff only, and designated areas must include HD storage."
           ],
           "keyPoints": [
-            "Unopened insulin 2–8°C; SoloStar in use is room temp only",
-            "Amox susp: 14 days, fridge preferable not required; azithromycin susp: 5–30°C, 10 days",
-            "Nitroglycerin: original glass, tightly capped",
-            "Opened multi-dose vial: 28 days unless the label says otherwise",
-            "HD storage: authorized staff only"
+            "Unopened insulin 2–8°C; never freeze",
+            "Opened MDV: 28 days unless label differs"
           ]
         },
         {
@@ -306,26 +245,18 @@
           "title": "Major Drug Interactions",
           "intro": "Technicians flag potential interactions for the pharmacist. Know the classic high-yield combinations.",
           "bullets": [
-            "Therapeutic duplication: two or more drugs from the same therapeutic class when the combined daily dose risks an adverse medical result. Flag it for the pharmacist.",
-            "Warfarin + NSAIDs/aspirin → increased bleeding risk; warfarin + many antibiotics (Bactrim, metronidazole, macrolides) → increased INR.",
-            "Warfarin: eat a normal diet and keep vitamin K intake consistent. Avoid drastic changes such as large amounts of leafy green vegetables.",
-            "MAOI + SSRI/serotonergic drugs → serotonin syndrome (avoid; require washout period).",
-            "Sildenafil (Viagra) + nitrates (nitroglycerin) → severe hypotension (contraindicated).",
-            "Grapefruit juice inhibits intestinal CYP3A4 → raises levels of simvastatin and many other 3A4 substrates.",
-            "St. John's wort, a dietary supplement, is a strong CYP3A inducer. The effect varies widely and is preparation dependent.",
-            "Products containing St. John's wort may decrease the effectiveness of combined oral contraceptives such as Tri-Sprintec. Use back-up contraception during the enzyme inducer and for 28 days after it is stopped.",
-            "Biotin, often found in dietary supplements, can significantly interfere with certain lab tests and cause incorrect results that may go undetected, including falsely low troponin.",
-            "ACE inhibitor + potassium-sparing diuretic (spironolactone) or K+ supplements → hyperkalemia.",
-            "Calcium/iron/antacids chelate and block absorption of tetracyclines, fluoroquinolones, and levothyroxine — separate administration by several hours."
+            "Therapeutic duplication: two or more drugs in one class when the combined daily dose risks harm. Flag it for the RPh.",
+            "Warfarin + NSAID or aspirin: more bleeding. Warfarin + Bactrim, metronidazole, or a macrolide: higher INR. Keep vitamin K steady. Avoid a sudden jump in leafy greens.",
+            "MAOI + SSRI or another serotonergic drug: serotonin syndrome. Avoid; a washout is required.",
+            "Sildenafil (Viagra) + a nitrate (nitroglycerin): severe hypotension. Contraindicated.",
+            "Grapefruit juice inhibits intestinal CYP3A4 and raises simvastatin and many other CYP3A4 substrates.",
+            "St. John's wort is a strong CYP3A inducer; the effect varies and depends on the preparation. It may weaken combined OCs such as Tri-Sprintec. Back-up contraception during the inducer and for 28 days after it stops.",
+            "Biotin in supplements can skew some labs without being noticed, including a falsely low troponin.",
+            "ACE inhibitor + spironolactone or a K+ supplement: hyperkalemia. Calcium, iron, and antacids chelate tetracyclines, fluoroquinolones, and levothyroxine. Separate by several hours."
           ],
           "keyPoints": [
-            "Warfarin + NSAID = bleeding",
-            "Sildenafil + nitrate = hypotension",
-            "Grapefruit + simvastatin",
-            "Separate Ca/Fe from tetracyclines",
-            "Same-class pair = therapeutic duplication",
-            "St. John's wort = strong CYP3A inducer",
-            "Biotin can falsify some lab tests"
+            "Viagra + nitrate = contraindicated",
+            "St. John's wort: CYP3A inducer; 28-day back-up"
           ]
         }
       ]
@@ -361,21 +292,18 @@
           "title": "Error Types, Near Misses & NCC MERP Categories",
           "intro": "Know error severity, the prescription error types on outline 3.5, and the ISMP abbreviations that cause them.",
           "bullets": [
-            "A near miss (close call) is an error INTERCEPTED before reaching the patient — report it to fix system weaknesses.",
-            "NCC MERP: A = circumstances with error potential; B = error did NOT reach patient; C = reached patient, NO harm; D = reached the patient and required monitoring to confirm no harm and/or intervention to preclude harm.",
-            "Categories E–I = increasing harm: E = temporary harm requiring intervention; F = hospitalization; G = permanent harm; H = life-sustaining intervention; I = death.",
-            "Outline 3.5 examples: incorrect dose, quantity, patient, drug, and route. Wrong time and omission are other error types; they are not the outline examples.",
-            "Incorrect drug dosage on prospective DUR: daily dosage = strength × quantity dispensed ÷ days' supply. If that daily dosage lies outside the predetermined standard, stop and notify the pharmacist.",
-            "ISMP Do Not Use: spell out units (never U) and international units (never IU); write daily or every other day (never QD or QOD); write morphine sulfate or magnesium sulfate (never MS, MSO4, or MgSO4). Leading zero: 0.5 mg, not .5 mg. No trailing zero: 1 mg, not 1.0 mg.",
-            "Also on the ISMP error-prone list, but not that minimum Do Not Use set: write mL (never cc); write mcg (never µg). Eye and ear abbreviations are error-prone: do not use OD, OS, OU, AD, AS, or AU; write right eye, left eye, both eyes, right ear, left ear, or both ears.",
-            "More ISMP error-prone abbreviations — write discharge or discontinue (D/C meant as discharge has been read as discontinued); half-strength or bedtime (HS/hs swap those meanings); subcut or subcutaneously (SC, SQ, sub q); 3 times weekly (TIW has been read as 3 times a day)."
+            "Near miss: caught before the pt. Report it.",
+            "Outline 3.5: wrong dose, quantity, pt, drug, or route. Wrong time and omission are other types, not those examples.",
+            "NCC MERP: A = circumstances with error potential; B = did not reach the pt.",
+            "C = reached the pt, no harm. D = reached the pt and needed monitoring to confirm no harm and/or an intervention to preclude harm.",
+            "E = temporary harm needing intervention; F = hospitalization; G = permanent harm; H = life-sustaining intervention; I = death.",
+            "Prospective DUR: daily dose = strength × qty dispensed ÷ days' supply. Outside the set standard, stop and tell the RPh.",
+            "ISMP Do Not Use: units not U; international units not IU; daily or every other day, not QD or QOD; morphine sulfate or magnesium sulfate, not MS, MSO4, or MgSO4. Write 0.5 mg, not .5 mg. Write 1 mg, not 1.0 mg.",
+            "Also: mL not cc; mcg not µg. Spell right eye, left eye, both eyes, right ear, left ear, both ears (not OD, OS, OU, AD, AS, AU). D/C is not discharge or discontinue. HS/hs swaps half-strength and bedtime. Subcut, not SC, SQ, or sub q. 3 times weekly, not TIW (read as 3 times a day)."
           ],
           "keyPoints": [
-            "Near miss = caught before patient",
-            "Category C = reached patient, no harm",
-            "3.5: dose, quantity, patient, drug, route",
-            "No U, IU, QD/QOD, MS/MSO4; 0.5 not 1.0",
-            "mL not cc; mcg not µg; spell eye/ear"
+            "Near miss = caught before the pt",
+            "No U, IU, QD, QOD, MS, MSO4, or MgSO4"
           ]
         },
         {
@@ -401,21 +329,15 @@
           "title": "Continuous Quality Improvement (CQI)",
           "intro": "Quality improvement uses structured methods to reduce errors and improve processes.",
           "bullets": [
-            "Root cause analysis (RCA): a SYSTEMS-based review after an error to find underlying process failures — not individual blame.",
-            "PDSA cycle (Plan-Do-Study-Act): the standard iterative cycle for testing and refining quality-improvement changes.",
-            "Independent double checks: two qualified staff separately verify high-alert medications (insulin, anticoagulants, chemotherapy) before dispensing/administration.",
-            "Also on the ISMP acute-care high-alert list: neuromuscular blocking agents (succinylcholine, rocuronium, vecuronium) and oral sulfonylureas (glimepiride, glipiZIDE, glyBURIDE). Insulin U-500 and oral methotrexate for nononcologic use are singled out for special emphasis.",
-            "ISMP community/ambulatory high-alert categories also include oral and parenteral immunosuppressants (azaTHIOprine, cycloSPORINE, tacrolimus) and pediatric liquid medications that require measurement.",
-            "Humulin R U-500 is 500 units/mL, 5 times as much insulin in 1 mL as U-100 (100 units/mL). Use only a U-500 insulin syringe with the vial. A U-100 syringe used for a U-500 dose can give a 5-times overdose. Do not mix it with any other insulin and do not inject it intravenously.",
-            "Prospective DUR, before the prescription is filled or delivered (at order entry), screens for therapeutic duplication, drug-disease contraindication, drug-drug interaction, incorrect drug dosage, incorrect duration of treatment, drug-allergy interaction, and clinical abuse/misuse. Retrospective DUR reviews patterns afterward.",
-            "Part D concurrent DUR reviews prescribed therapy before each prescription is dispensed, typically at the point of sale or point of distribution.",
-            "Part D concurrent DUR includes age/gender-related contraindications, overutilization and underutilization, drug-drug interactions, incorrect dosage or duration, drug-allergy contraindications, and clinical abuse/misuse.",
-            "Medication reconciliation compares all home medications to new orders at EVERY transition of care (admission, transfer, discharge)."
+            "RCA finds the process failure, not a person to blame.",
+            "PDSA is Plan-Do-Study-Act. Med rec: admission, transfer, discharge.",
+            "Independent double check: two qualified staff separately verify insulin, anticoagulants, and chemotherapy before dispensing or administration. Acute-care high-alert also: neuromuscular blockers (succinylcholine, rocuronium, vecuronium); oral sulfonylureas (glimepiride, glipiZIDE, glyBURIDE). U-500 and oral methotrexate for nononcologic use are singled out.",
+            "Community high-alert also: azaTHIOprine, cycloSPORINE, tacrolimus (oral and parenteral) and pediatric liquids that must be measured. Humulin R U-500 is 500 units/mL, 5 times the insulin in 1 mL of U-100 (100 units/mL). Use only a U-500 syringe. A U-100 syringe can give a 5-times overdose. Do not mix with any other insulin. Do not inject IV.",
+            "Prospective DUR, before the Rx is filled or delivered: therapeutic duplication, drug-disease, drug-drug, wrong dose, wrong duration, drug-allergy, abuse or misuse. Retrospective DUR looks at patterns later. Part D concurrent DUR, before each dispense (point of sale or distribution): age or gender, overutilization, underutilization, drug-drug, wrong dose or duration, drug-allergy, abuse or misuse."
           ],
           "keyPoints": [
-            "RCA = system focus, not blame",
-            "PDSA = Plan-Do-Study-Act",
-            "Med rec at every transition of care"
+            "RCA = the system, not blame",
+            "U-500 syringe only; never IV"
           ]
         }
       ]
@@ -471,22 +393,19 @@
           "title": "Hazardous Drugs & Infection Control",
           "intro": "Safe handling protects both patients and workers from hazardous-drug exposure and contamination.",
           "bullets": [
-            "NIOSH maintains the list of hazardous drugs (antineoplastics, hormones, some antivirals).",
-            "Hazardous-drug compounding PPE: TWO pairs of chemotherapy-tested gloves + an impermeable gown; add eye/face and respiratory protection per risk.",
-            "Use a containment primary engineering control (C-PEC, e.g., BSC or CACI) inside a containment secondary engineering control (C-SEC) with negative pressure for HDs.",
-            "Hand hygiene: soap and water for at least 20 seconds when hands are visibly soiled, and during care of patients with suspected or confirmed infection during outbreaks of C. difficile and norovirus.",
-            "Unless hands are visibly soiled, an alcohol-based rub (hand sanitizer) is preferred in most clinical situations.",
-            "CDC infection-control PPE (gown, mask or respirator, goggles or face shield, gloves): don gown, then mask or respirator, then goggles or face shield, then gloves extended over the gown cuff. Remove gloves, then goggles or face shield, then gown, then mask or respirator.",
-            "Counting trays and countertops (outline 3.6): wipe with 70% isopropyl alcohol between fills. Clean again after penicillin, sulfa, or a hazardous drug before the next prescription. Use a dedicated tray for hazardous drugs.",
-            "Sharps (needles/syringes): rigid, puncture-resistant, closable sharps containers — never regular trash or recycling; never recap by hand.",
-            "Vaccine storage: most refrigerated at 2–8°C (36–46°F), do NOT freeze; monitor with calibrated thermometers and document temperatures."
+            "NIOSH lists hazardous drugs: antineoplastics, hormones, and some antivirals.",
+            "HD compounding PPE: two pairs of chemotherapy-tested gloves plus an impermeable gown. Add eye, face, and respiratory protection for the risk.",
+            "Compound HDs in a C-PEC (BSC or CACI) inside a negative-pressure C-SEC.",
+            "Soap and water for at least 20 seconds when hands are visibly soiled, and when caring for pts with suspected or confirmed infection during C. difficile or norovirus outbreaks. If hands are not visibly soiled, an alcohol-based rub is preferred.",
+            "CDC don order: gown, then mask or respirator, then goggles or face shield, then gloves over the gown cuff. Doff: gloves, then goggles or face shield, then gown, then mask or respirator.",
+            "Outline 3.6: wipe counting trays and counters with 70% isopropyl alcohol between fills. Clean again after penicillin, sulfa, or an HD before the next Rx. Use a dedicated tray for HDs.",
+            "Sharps go in a rigid, puncture-resistant, closable container. Never regular trash, recycling, or recapping by hand.",
+            "Most vaccines: refrigerate at 2–8°C (36–46°F) and do not freeze. Monitor with a calibrated thermometer and document the temperatures."
           ],
           "keyPoints": [
-            "NIOSH = HD list",
-            "Double chemo gloves + gown",
-            "Sharps → puncture-resistant container",
-            "70% IPA between fills; dedicated HD tray",
-            "Hand hygiene ≥ 20 seconds"
+            "Double chemo gloves + impermeable gown",
+            "Don: gown, mask, eye, gloves",
+            "70% IPA between fills; dedicated HD tray"
           ]
         },
         {
@@ -523,26 +442,15 @@
           "title": "Safety Technology & Workflow Safeguards",
           "intro": "Technology and process design reduce dispensing errors at the point of care.",
           "bullets": [
-            "Barcode scanning verifies the correct product (NDC) against the order at the point of verification, reducing wrong-drug errors.",
-            "Automated dispensing cabinets (ADCs): requiring pharmacist PROFILE REVIEW before a drug can be removed closes the dangerous \"override\" gap.",
-            "Drug utilization review (DUR): prospective screening at order entry; technicians flag interaction/duplication alerts to the pharmacist for the clinical decision.",
-            "Auxiliary (warning) labels communicate cautions: \"May cause drowsiness,\" \"Take with food,\" \"Avoid alcohol,\" \"Refrigerate.\"",
-            "REMS (Risk Evaluation and Mitigation Strategy): FDA-required programs for known serious risks. Examples: iPLEDGE (isotretinoin) and THALOMID/lenalidomide.",
-            "TIRF is not a routine current enroll-and-dispense REMS (production stopped September 30, 2024; no new enrollments). The Clozapine REMS was removed effective June 13, 2025 — do not treat clozapine as a pharmacy REMS.",
-            "Tall Man lettering, look-alike bin segregation, and limiting available concentrations/strengths are additional error-reduction strategies. FDA pair: buPROPion vs busPIRone.",
-            "Issues that require pharmacist intervention (outline 3.3): DUR alerts, adverse drug events, OTC recommendations, therapeutic substitution, misuse/adherence concerns, allergies, and drug interactions.",
-            "Overutilization means quantity, strength, or duration greater than necessary to reach the therapeutic goal, or enough to risk a clinically significant undesirable effect, or both.",
-            "Underutilization means insufficient quantity, strength, or duration to reach that goal, or enough to risk that effect, or both. Flag both to the pharmacist.",
-            "An adverse event is any untoward medical occurrence associated with the use of a drug product in humans, whether or not it is considered related to the drug.",
-            "A medication error may or may not be associated with an adverse event. Off-label use, misuse, and abuse inconsistent with the FDA-approved labeling are not medication errors.",
-            "A technician's job at those alerts is to stop, gather the facts, and notify the pharmacist — not to override a clinical alert or recommend a product."
+            "The tech stops, gathers the facts, and tells the RPh.",
+            "Do not override a clinical alert or recommend a product.",
+            "Barcode the NDC at verification. An ADC needs RPh profile review before removal. Prospective DUR is at order entry. The tech flags interaction and duplication; the RPh decides. Auxiliary labels: \"May cause drowsiness,\" \"Take with food,\" \"Avoid alcohol,\" \"Refrigerate.\"",
+            "REMS examples: iPLEDGE and THALOMID/lenalidomide. TIRF production stopped September 30, 2024; no new enrollments. Clozapine REMS ended June 13, 2025. Tall Man, separate look-alike bins, fewer strengths. FDA pair: buPROPion vs busPIRone. Call the RPh (3.3) for DUR alerts, adverse events, OTC advice, substitution, misuse or adherence, allergies, and interactions.",
+            "Overuse: quantity, strength, or duration past the goal, or enough to risk a clinically significant undesirable effect, or both. Underuse: too little to reach the goal, or enough to risk that effect, or both. An adverse event is any untoward medical occurrence with a drug in humans, related or not. A medication error may lack one. Off-label use, misuse, and abuse outside the FDA label are not medication errors."
           ],
           "keyPoints": [
-            "Barcode scan = right product",
-            "ADC overrides = error risk",
-            "iPLEDGE, THALOMID/lenalidomide; not clozapine or new TIRF",
-            "DUR / OTC / substitution → pharmacist",
-            "Do not override clinical alerts"
+            "Barcode = right NDC",
+            "Do not override a clinical alert"
           ]
         },
         {
@@ -623,20 +531,19 @@
           "title": "Administration Supplies",
           "intro": "Match the measuring device, diluent, and vaccine needle to the product label.",
           "bullets": [
-            "Oral solutions (Dilaudid label): measure with a graduated oral syringe or measuring cup in mL, not a household teaspoon or tablespoon.",
-            "U-100 insulin syringe: Humulin N labeling says doses are measured in units, U-100 insulin contains 100 units/mL (1 mL = 1 cc), and the syringe must be marked for U-100 insulin.",
-            "Spacer: FLOVENT HFA labeling says a valved holding chamber (a kind of spacer) and face mask may be used to deliver FLOVENT HFA to young patients.",
-            "Dry-powder inhaler: do not use PROAIR RESPICLICK with a spacer or volume holding chamber.",
-            "Nebulizer: a device that sprays liquids in aerosol form into gases delivered directly to the patient for breathing. Heated, ultrasonic, gas, venturi, and refillable nebulizers are included. Class II.",
-            "Sterile Water for Injection: a diluent for parenteral drugs. Do not inject it until it is made approximately isotonic. Not for direct infusion.",
-            "Bacteriostatic Water for Injection contains 0.9% (9 mg/mL) or 1.1% (11 mg/mL) benzyl alcohol. For neonates, use only preservative-free Sterile Water for Injection.",
-            "Label-directed diluent: dilute Humalog U-100 to 0.1 unit/mL–1.0 unit/mL with 0.9% sodium chloride.",
-            "Adult IM vaccine supplies (CDC): 1 mL or 3 mL syringe, 22- to 25-gauge needle, 1- to 1.5-inch needle, inserted at 90 degrees.",
-            "Subcutaneous vaccine needle (CDC): 23- to 25-gauge, 5/8 inch (16 mm), inserted at 45 degrees."
+            "Dilaudid oral solution: measure in mL with a graduated oral syringe or cup, not a household teaspoon or tablespoon.",
+            "Humulin N label: doses are in units. U-100 = 100 units/mL (the label equates 1 mL with 1 cc). The syringe must be marked for U-100.",
+            "FLOVENT HFA: a valved holding chamber (a spacer) and a face mask may be used for young pts. PROAIR RESPICLICK: do not use a spacer or volume holding chamber.",
+            "Nebulizer (Class II): sprays a liquid as an aerosol into gas the pt breathes. Includes heated, ultrasonic, gas, venturi, and refillable nebulizers.",
+            "Sterile Water for Injection is a parenteral diluent. Do not inject it until it is made approximately isotonic. Not for direct infusion.",
+            "Bacteriostatic Water for Injection: 0.9% (9 mg/mL) or 1.1% (11 mg/mL) benzyl alcohol. Neonates: preservative-free Sterile Water for Injection only.",
+            "Humalog U-100 label diluent: 0.9% sodium chloride, diluted to 0.1–1 unit/mL.",
+            "Adult IM vaccine (CDC): 1 mL or 3 mL syringe, 22- to 25-gauge, 1- to 1.5-inch needle, at 90°. Subcut vaccine: 23- to 25-gauge, 5/8 inch (16 mm), at 45°."
           ],
           "keyPoints": [
-            "Oral liquid: mL syringe, not a household spoon",
-            "Match the label: U-100 syringe; spacer only if the inhaler allows it"
+            "Oral liquid: mL, not a household spoon",
+            "U-100 syringe; spacer only if the inhaler allows it",
+            "IM vaccine 90°; subcut 45°, 5/8 inch"
           ]
         },
         {
@@ -644,21 +551,18 @@
           "title": "NDC, Lot, and Expiration",
           "intro": "The package carries an NDC, a lot number, and an expiration date.",
           "bullets": [
-            "FDA 10-digit NDC: labeler (assigned by FDA) – product (strength, dosage form, and formulation) – package (size and type).",
-            "Configurations: 4-4-2, 5-3-2, or 5-4-1. A padded 12345-0678-09 can be 12345-678-09 or 12345-0678-9.",
-            "HIPAA billing uses an 11-digit 5-4-2 NDC. Add a leading zero to the short segment.",
-            "5-4-1: 12345-6789-0 → 12345-6789-00. 5-3-2: 12345-678-90 → 12345-0678-90. 4-4-2: 1234-5678-90 → 01234-5678-90.",
-            "On March 7, 2033, FDA-assigned NDCs convert to 12-digit 6-4-2 (6-digit labeler, 4-digit product, 2-digit package) by adding leading zeros to the short segments.",
-            "That rule does not change the HIPAA 11-digit format used for reimbursement. FDA does not intend to object to 10-digit NDCs on labels from March 7, 2033 through March 6, 2036.",
-            "Lot number: it should yield the complete manufacturing history of the package. An incorrect lot number may misbrand the article.",
-            "Expiration date: once it has passed there is no guarantee the medicine will be safe and effective. If it has expired, do not use it.",
-            "Expiration dating follows the storage conditions on the label. If the product is reconstituted at dispensing, the label bears expiration information for both the reconstituted and unreconstituted products.",
-            "The expiration date appears on the immediate container and the outer package, unless it is easily legible through the outer package. Single-dose containers in individual cartons may show the date on the carton instead."
+            "10-digit NDC: labeler (FDA-assigned) – product (strength, form, formulation) – package (size and type). Formats: 4-4-2, 5-3-2, or 5-4-1.",
+            "Padded 12345-0678-09 can be 12345-678-09 or 12345-0678-9.",
+            "HIPAA billing is 11-digit 5-4-2. Pad the short segment: 12345-6789-0 → 12345-6789-00; 12345-678-90 → 12345-0678-90; 1234-5678-90 → 01234-5678-90.",
+            "On March 7, 2033, FDA NDCs become 12-digit 6-4-2 by adding leading zeros. HIPAA 11-digit 5-4-2 for reimbursement does not change.",
+            "FDA does not intend to object to 10-digit NDCs on labels from March 7, 2033 through March 6, 2036.",
+            "Lot number: the package's full manufacturing history. A wrong lot number may misbrand the article.",
+            "Past expiration, safety and effect are not guaranteed. Do not use it. Dating follows labeled storage. A product reconstituted at dispensing lists dates for both forms.",
+            "The date is on the immediate container and the outer package, unless readable through the outer package. A single-dose container in its carton may show the date on the carton only."
           ],
           "keyPoints": [
-            "10-digit NDC: 4-4-2, 5-3-2, or 5-4-1",
-            "2033-03-07: FDA NDC becomes 6-4-2; HIPAA 5-4-2 stays",
-            "Lot = manufacturing history; do not use after expiration"
+            "10-digit: 4-4-2, 5-3-2, or 5-4-1",
+            "2033-03-07: FDA NDC becomes 6-4-2"
           ]
         },
         {
@@ -869,33 +773,14 @@
           "title": "Schedule II–V Prescription & Refill Rules",
           "intro": "Refill, transfer, and transmission rules differ by schedule.",
           "bullets": [
-            "C-II: NO refills — a new prescription is required each time. Written or electronic (EPCS). No telephone call-ins except a true emergency.",
-            "An individual practitioner may issue multiple C-II prescriptions that together total up to a 90-day supply.",
-            "On each prescription other than the first, if that first one is to be filled immediately, the practitioner writes the earliest date a pharmacy may fill it.",
-            "A controlled-substance prescription is dated and signed on the day it is issued. It must show the patient's full name and address, the drug name, strength, dosage form, quantity prescribed, directions for use, and the practitioner's name, address, and registration number.",
-            "C-II fax is the original prescription only in three cases: any C-II for a long-term care facility resident, and a C-II narcotic for a patient in a qualifying hospice, with hospice noted on the prescription.",
-            "The third case: a C-II narcotic compounded for direct parenteral, IV, IM, subcutaneous, or intraspinal infusion.",
-            "Emergency C-II oral authorization: the pharmacist writes the oral order down immediately and may fill a quantity for the emergency period. Within 7 days the prescriber must deliver a follow-up for that emergency quantity. On paper, the face must read \"Authorization for Emergency Dispensing\" and the date of the oral order. It may be delivered in person or by mail postmarked within those 7 days, and the pharmacist attaches it to the written oral order.",
-            "For an electronic prescription, the pharmacist annotates the record with the original authorization and the date of the oral order. If the prescriber fails to deliver the written prescription, the pharmacist notifies the nearest DEA office.",
-            "C-III and C-IV: up to 5 refills within 6 months of the issue date. If 5 were authorized and 2 have been dispensed, 3 remain, and only while the 6-month date has not passed.",
-            "Federal law does not set that cap on Schedule V; follow the stricter state rule.",
-            "C-II partial fills — if the patient or prescriber requests a partial (CARA 2016), remaining portions must be filled within 30 days of the written date, except an emergency oral C-II, whose remaining portions must be filled within 72 hours after the prescription is issued.",
-            "If the pharmacy cannot supply the full C-II quantity, the older rule still applies: the remainder must be filled within 72 hours of the first partial. If that remainder is not or cannot be filled in those 72 hours, the pharmacist notifies the prescriber. No further quantity may be supplied without a new prescription.",
-            "LTCF or terminally ill patients: remaining portions of C-II partial fills may be dispensed for up to 60 days from the written date.",
-            "After the applicable window, leftover quantity cannot be filled. Total dispensed cannot exceed the written amount: add every partial and stop at the written quantity (90 tablets written, 30 then 20 dispensed, 40 left). Document each partial.",
-            "C-III–V transfers: one time to another pharmacy for a refill, unless the pharmacies share a real-time online database — then transfers may continue until the refills are used up.",
-            "Electronic controlled prescriptions: an unfilled electronic C-II–V prescription may be transferred once for initial dispensing, pharmacist to pharmacist, at the patient's request. It stays electronic. Authorized C-III–V refills transfer with it. A paper C-II cannot be transferred.",
-            "Non-controlled prescriptions: remaining refills may be transferred as state law allows. Federal law does not impose a one-time cap."
+            "C-II: no refills. Written or EPCS. Phone only for a true emergency.",
+            "C-III/IV: 5 refills in 6 months. C-V: no federal cap; stricter state rule.",
+            "Multiple C-II Rxs may total 90 days. If the first fills now, each later Rx shows the earliest fill date. Date and sign it that day: pt full name and address; drug, strength, dosage form, qty, directions; prescriber name, address, DEA number. A C-II fax is the original only for an LTCF C-II, a hospice C-II narcotic with hospice noted, or a C-II narcotic compounded for direct parenteral, IV, IM, subcut, or intraspinal infusion. Emergency oral C-II: write it at once, emergency qty only. Follow-up within 7 days, in person or postmarked. Paper face: \"Authorization for Emergency Dispensing\" and the oral date; attach it to the oral order. On an e-Rx, note the authorization and oral date. If never delivered, notify the nearest DEA office.",
+            "CARA partial: rest within 30 days of the written date. Emergency oral rest: 72 h after issue. Cannot supply the full qty: rest within 72 h of the first partial, else notify the prescriber; no more without a new Rx. LTCF or terminal: 60 days. Then the rest is void. Do not exceed the written qty (90 written, 30 then 20, 40 left). Document each partial. C-III–V transfer once, or until refills are gone on a shared real-time database. Unfilled e-Rx C-II–V: once, RPh to RPh, at the pt request, stays electronic; C-III–V refills go with it. Paper C-II cannot. Non-controlled refills follow state law; no federal one-time cap."
           ],
           "keyPoints": [
-            "C-II = no refills",
-            "C-III and C-IV = 5 refills / 6 months; C-V follows state law",
-            "C-II fax original: LTCF any C-II; hospice C-II narcotic; infusion C-II narcotic",
-            "CARA request = 30 days, except emergency oral = 72 hours",
-            "Cannot supply = 72 hours",
-            "LTCF/terminal = 60 days",
-            "C-III–V transfer once, unless shared real-time database",
-            "E-Rx C-II–V: one initial-fill transfer; C-III–V refills go with it"
+            "C-II has no refills",
+            "Partials: 30 days, 72 h, or 60 days"
           ]
         },
         {
@@ -903,31 +788,15 @@
           "title": "DEA Forms, Registration & Recordkeeping",
           "intro": "Specific DEA forms document ordering, theft/loss, destruction, and registration of controlled substances.",
           "bullets": [
-            "DEA Form 222 (single-sheet paper — not the old triplicate — or electronic CSOS): used to ORDER or TRANSFER Schedule I–II. Destruction/disposal is Form 41, never 222.",
-            "The registrant, or a person named in a power of attorney, signs Schedule I and II orders on Form 222 or electronically.",
-            "The registrant (or a partner or officer) and the attorney-in-fact both sign the power of attorney. Two witnesses sign it, and it is kept with the order records.",
-            "DEA Form 106: theft or significant loss. Two steps — written notice to the local DEA field office within 1 business day of discovery, then electronic Form 106 within 45 calendar days. Paper Form 106 is not accepted.",
-            "DEA Form 41: document DESTRUCTION/disposal of pharmacy-owned controlled substances.",
-            "DEA Form 224: pharmacy DEA registration; renew every 3 YEARS.",
-            "On receipt of a C-II order, record the date and the quantity received on the pharmacy's copy of Form 222 (or the CSOS record).",
-            "C-II–IV dispensing labels must state: \"Caution: Federal law prohibits the transfer of this drug to any person other than the patient for whom it was prescribed.\" Schedule V does not require that federal statement.",
-            "Keep controlled-substance records (prescriptions, inventories, Form 222s, and invoices) for at least 2 years. Biennial inventory is every 2 years.",
-            "An opened container of a C-II needs an exact count. An opened C-III–V container may be estimated unless it holds more than 1,000 tablets or capsules, which requires an exact count.",
-            "Returns of pharmacy stock to a reverse distributor: C-II on DEA Form 222 (or CSOS); C-III–V on an invoice. Patient-owned leftovers use take-back, not that invoice.",
-            "DEA number: 2 letters + 7 digits; the 2nd letter usually matches the registrant's last-name initial.",
-            "Check-digit verification: add digits 1+3+5; add digits 2+4+6 and multiply by 2; the sum's last digit = the 7th digit.",
-            "Take-back (2.3): unused patient-owned CS go to a DEA-authorized collector, mail-back, or National Take Back Day — they are never restocked into dispensable inventory.",
-            "C-II storage: locked substantially constructed cabinet, or dispersed among non-controls so they are not obvious theft targets."
+            "Form 41 destroys pharmacy-owned CS. Form 222 does not.",
+            "Form 224 is the pharmacy registration, renewed every 3 years.",
+            "Form 222 is single-sheet paper, not the old triplicate, or CSOS. It orders or transfers C-I and C-II. The registrant, or a person named in a power of attorney, signs it. The registrant (or a partner or officer) and the attorney-in-fact both sign the power; two witnesses; keep it with the orders. On a C-II receipt, write the date and quantity on the pharmacy copy of 222 or the CSOS record.",
+            "Form 106: theft or significant loss. Written notice to the local DEA office within 1 business day, then electronic Form 106 within 45 calendar days. Paper Form 106 is not accepted. C-II–IV label: \"Caution: Federal law prohibits the transfer of this drug to any person other than the patient for whom it was prescribed.\" C-V does not.",
+            "Keep Rxs, inventories, 222s, and invoices at least 2 years. Inventory is biennial. Opened C-II: exact count. Opened C-III–V: estimate unless the container holds more than 1,000 tabs or caps. Reverse distributor: C-II on 222 or CSOS; C-III–V on an invoice. Pt leftovers are take-back (collector, mail-back, or National Take Back Day), never restocked. DEA number: 2 letters + 7 digits; 2nd letter is usually the last-name initial. Check: (1+3+5) + 2×(2+4+6); last digit of the sum is the 7th. Store C-II locked in a substantial cabinet, or dispersed among non-controls so they are not obvious."
           ],
           "keyPoints": [
-            "222 = order/transfer C-I/II (single-sheet or CSOS)",
-            "41 = destruction (not 222)",
-            "106 = written notice in 1 business day, then electronic form in 45 days",
-            "224 = registration (3 yr)",
-            "C-II–IV label: federal transfer caution",
-            "CS records kept 2 years; biennial inventory; C-II exact count",
-            "Reverse distributor: C-II on 222, C-III–V on invoice",
-            "Take-back ≠ restock"
+            "222 order; 41 destroy; 106 theft",
+            "106: 1 business day, then 45 days"
           ]
         },
         {
@@ -952,25 +821,15 @@
           "title": "Restricted Programs: REMS, iPLEDGE & CMEA (2.4)",
           "intro": "Knowledge area 2.4 is federal restricted-drug processing: pseudoephedrine (CMEA) and the REMS programs that are still in effect. A technician stops on a REMS reject and notifies the pharmacist.",
           "bullets": [
-            "REMS (Risk Evaluation and Mitigation Strategy): extra FDA-required steps for drugs with known serious risks — certification, enrollment, labs, or a Medication Guide given with each fill.",
-            "Clozapine is not a current pharmacy REMS. FDA removed the Clozapine REMS effective June 13, 2025. Pharmacies do not enroll or confirm an ANC through a REMS before dispensing.",
-            "Severe neutropenia risk, the boxed warning, and a Medication Guide remain. ANC monitoring stays with the prescriber, per the labeling.",
-            "iPLEDGE (isotretinoin): teratogen. Prescriber, certified pharmacy, and patients enroll — both patients who can get pregnant and patients who cannot get pregnant. Maximum 30-day supply, no refills, and authorization before each dispense.",
-            "iPLEDGE pickup rule that is current: patients who can get pregnant have a 7-day window counted from pregnancy-test specimen collection.",
-            "The old 19-day lockout is not current. If that window is missed, a repeat pregnancy test may be done immediately, with no extra waiting period.",
-            "TIRF is not a routine current enroll-and-dispense REMS. Production of TIRF medicines stopped September 30, 2024, and the REMS accepts no new patient, prescriber, or pharmacy enrollments.",
-            "TIRF remains only while the applications stay approved and any remaining supply is dispensed to already enrolled patients. The products were transmucosal immediate-release fentanyl for opioid-tolerant patients.",
-            "THALOMID (thalidomide) and REVLIMID (lenalidomide): pregnancy-prevention REMS. Treat them as current restricted programs, not clozapine.",
-            "Tech action on any REMS reject: stop, do not override, notify the pharmacist. A paper waiver does not replace REMS.",
-            "CMEA sits in the same 2.4 bucket: 3.6 g of base per day (pseudoephedrine, ephedrine, or phenylpropanolamine); 9 g of base per 30 days, of which not more than 7.5 g of base may be mail-order; photo ID + logbook; behind the counter."
+            "On a REMS reject: stop, do not override, tell the RPh.",
+            "A paper waiver does not replace a REMS authorization.",
+            "REMS adds FDA steps for a known serious risk: certification, enrollment, labs, or a Medication Guide with each fill. Clozapine REMS ended June 13, 2025. Do not enroll or confirm an ANC in a REMS. Neutropenia risk, the box, and the Medication Guide remain. The prescriber monitors ANC, per the labeling.",
+            "iPLEDGE (isotretinoin, a teratogen): prescriber, certified pharmacy, and every pt enroll, whether or not they can get pregnant. Max 30-day supply, no refills, authorize each dispense. Pts who can get pregnant: 7 days from pregnancy-test collection. The 19-day lockout is not current. If missed, repeat the test now.",
+            "TIRF production stopped September 30, 2024. No new pt, prescriber, or pharmacy enrollments. Leftover supply only for already-enrolled pts, while applications stay approved. It was transmucosal immediate-release fentanyl for opioid-tolerant pts. THALOMID (thalidomide) and REVLIMID (lenalidomide) are current pregnancy-prevention REMS. CMEA: 3.6 g base/day (pseudoephedrine, ephedrine, or phenylpropanolamine); 9 g base/30 days, of which ≤7.5 g base may be mail-order. Photo ID, logbook, behind the counter."
           ],
           "keyPoints": [
-            "Clozapine REMS removed June 13, 2025",
-            "ANC monitoring = prescriber, per labeling",
-            "iPLEDGE: patients who can get pregnant; no 19-day lockout",
-            "Current REMS examples: iPLEDGE, THALOMID/lenalidomide; TIRF is not a new-enrollment REMS",
-            "Never override a REMS block",
-            "CMEA = 3.6 g base/day; 9 g base/30 days (≤7.5 g mail-order)"
+            "Clozapine REMS ended June 13, 2025",
+            "19-day iPLEDGE lockout is not current"
           ]
         }
       ]
@@ -1028,24 +887,19 @@
           "title": "Consumer Protection & Packaging Laws",
           "intro": "Several federal laws govern drug safety, labeling, and packaging.",
           "bullets": [
-            "Pure Food and Drug Act (1906): prohibited adulterated/misbranded drugs — the start of federal drug regulation.",
-            "Food, Drug, and Cosmetic Act (FDCA) 1938: required drugs be proven SAFE (after the sulfanilamide elixir disaster); created the FDA's modern authority.",
-            "Durham-Humphrey Amendment (1951): established the prescription (legend) vs OTC distinction.",
-            "Kefauver-Harris Amendment (1962): required drugs be proven safe AND EFFECTIVE, and established Good Manufacturing Practices (GMP).",
-            "Poison Prevention Packaging Act (1970): child-resistant containers for most prescriptions and many OTC drugs. The CPSC enforces it, not the FDA. Sublingual nitroglycerin is exempt.",
-            "A prescriber may request non-child-resistant packaging for one prescription only.",
-            "The patient may request it, and only the patient may make a blanket request covering all of that patient's prescriptions. Document the request.",
-            "ADA packaging accommodations: easy-off caps, large-print labels, talking labels, and Braille labels.",
-            "Medication Guides: when FDA requires one for a drug, give that guide with every fill, including refills — not only the first fill. Some REMS programs include this step.",
-            "Drug Listing Act / NDC: every drug has a National Drug Code identifying labeler, product, and package size."
+            "Pure Food and Drug Act (1906): banned adulterated and misbranded drugs. The start of federal drug regulation.",
+            "FDCA (1938), after the sulfanilamide elixir disaster: drugs must be proven safe. It created the FDA's modern authority.",
+            "Durham-Humphrey (1951): Rx (legend) vs OTC. Kefauver-Harris (1962): proven safe and effective, and it established GMP.",
+            "PPPA (1970): child-resistant containers for most Rxs and many OTC drugs. The CPSC enforces it, not the FDA. SL nitroglycerin is exempt.",
+            "A prescriber may request non-child-resistant packaging for one Rx only. Only the pt may make a blanket request for all of that pt's Rxs. Document the request.",
+            "ADA packaging: easy-off caps, large-print labels, talking labels, and Braille labels.",
+            "When FDA requires a Medication Guide, give it with every fill, including refills, not only the first fill. Some REMS programs include this step.",
+            "Drug Listing Act: every drug has an NDC that identifies the labeler, the product, and the package size."
           ],
           "keyPoints": [
-            "FDCA 1938 = safety",
-            "Durham-Humphrey 1951 = Rx vs OTC",
-            "Kefauver-Harris 1962 = safety + efficacy + GMP",
+            "1938 safe; 1951 Rx vs OTC; 1962 effective + GMP",
             "PPPA = CPSC; SL nitroglycerin exempt",
-            "Only the patient may blanket-request non-CRC",
-            "Medication Guide with each required fill"
+            "Only the pt may blanket-request non-CRC"
           ]
         }
       ]
@@ -1086,23 +940,18 @@
           "title": "Recalls, Expiration & Stock Management",
           "intro": "Outline 2.5 is FDA requirements for medication recalls. Handling recalled and expired stock protects patients. Take-back is a separate 2.3 workflow for patient-owned leftovers.",
           "bullets": [
-            "Recall classes: Class I = reasonable probability of serious adverse health consequences or death; Class II = temporary or medically reversible harm, or a remote probability of serious harm; Class III = adverse health consequences not likely.",
-            "Recall depth is how far the notice goes: wholesale, retail, or consumer (patient) level. A Class I medication recall usually reaches the consumer level, and patients who received the affected lot are notified.",
-            "The firm initiates a recall. FDA may request one. Pharmacy action: identify affected lot numbers, pull matching lots, quarantine the stock, document, and follow the notice (manufacturer/wholesaler return instructions).",
-            "Rotate stock using FEFO (First-Expired, First-Out) to minimize expired product.",
-            "Never dispense expired medication; remove expired/damaged units from active stock promptly.",
-            "The NDC number (labeler-product-package) is used to identify recalled products and process returns.",
-            "A market withdrawal is not a recall — the firm removes product for a minor violation that would not usually trigger legal recall action.",
-            "A stock recovery is also not a recall. The firm removes or corrects product that has not been marketed or has not left the firm's direct control, and no portion of the lot has been released for sale or use.",
-            "Do not confuse a lot-specific recall with a patient take-back of leftover pills from home."
+            "Class I: reasonable probability of serious harm or death. Class II: temporary or medically reversible harm, or a remote probability of serious harm. Class III: adverse consequences unlikely.",
+            "Depth = wholesale, retail, or consumer. A Class I medication recall usually reaches the consumer, and pts who received that lot are notified.",
+            "The firm initiates a recall; FDA may request one. Pull the matching lots, quarantine, document, and follow the return instructions.",
+            "FEFO (first-expired, first-out). Never dispense expired drug. Pull expired or damaged units from active stock.",
+            "The NDC (labeler–product–package) identifies the recalled product and the return.",
+            "A market withdrawal is not a recall: the firm pulls product for a minor violation that would not usually trigger legal recall action.",
+            "A stock recovery is not a recall: product that was not marketed, or never left the firm's direct control, and no part of the lot was released for sale or use.",
+            "A lot-specific recall is not a pt take-back of leftover home meds."
           ],
           "keyPoints": [
-            "Class I = most serious; usually consumer level + patient notice",
-            "Depth = wholesale, retail, or consumer",
-            "FEFO = first-expired, first-out",
-            "Never dispense expired drugs",
-            "Match NDC + lot + expiry, then quarantine",
-            "Market withdrawal ≠ recall class"
+            "I serious or death; II reversible; III unlikely",
+            "Withdrawal and stock recovery ≠ recall"
           ]
         },
         {
@@ -1131,21 +980,18 @@
           "title": "DSCSA Essentials for Technicians",
           "intro": "DSCSA (knowledge area 2.6, added on the January 6, 2026 outline) is the federal track-and-trace law for prescription drugs. Learn durable duties — serialization, authorized partners, suspect vs illegitimate handling, and 6-year records — not rapidly changing exemption end-dates.",
           "bullets": [
-            "Product identifier: each package carries a unique serialized ID (usually a 2D data matrix) with NDC, serial number, lot number, and expiration date.",
-            "Current electronic exchange is Transaction Information (TI: product, lot, dates, and the parties) plus a Transaction Statement (TS: the seller attests it is authorized and did not knowingly ship suspect or illegitimate product).",
-            "Transaction History (TH) was retired in November 2023. Do not memorize a mandatory TI + TH + TS set as current law.",
-            "Authorized trading partners: licensed/registered manufacturers, wholesale distributors, dispensers (pharmacies), and repackagers. Accept product only from authorized partners.",
-            "Suspect product: reason to believe it may be counterfeit, diverted, stolen, intentionally adulterated, or unfit. Do not dispense. Quarantine it, notify the pharmacist, and verify the product identifier (NDC, serial number, lot, and expiration).",
-            "Illegitimate product: credible evidence that it is counterfeit, diverted, stolen, intentionally adulterated, or unfit. Within 24 hours of that determination, notify FDA (Form FDA 3911) and immediate trading partners. Keep DSCSA transaction records for 6 years (not the 2-year CSA clock).",
-            "FDA used phased implementation milestones for electronic package-level tracing. Exam focus is the technician duties above, not a specific exemption sunset date."
+            "Product identifier: a unique serialized ID, usually a 2D data matrix, with NDC, serial number, lot number, and expiration date.",
+            "Current electronic exchange is Transaction Information (product, lot, dates, and the parties) plus a Transaction Statement (the seller attests it is authorized and did not knowingly ship suspect or illegitimate product).",
+            "Transaction History was retired in November 2023. Do not memorize TI + TH + TS as the current required set.",
+            "Authorized trading partners only: licensed or registered manufacturers, wholesale distributors, dispensers (pharmacies), and repackagers.",
+            "Suspect product: reason to believe it may be counterfeit, diverted, stolen, intentionally adulterated, or unfit. Do not dispense. Quarantine it, notify the RPh, and verify the identifier (NDC, serial, lot, and expiration).",
+            "Illegitimate product: credible evidence of those same defects. Within 24 hours of that determination, notify FDA (Form FDA 3911) and immediate trading partners. Keep DSCSA transaction records for 6 years, not the 2-year CSA clock.",
+            "FDA used phased milestones for electronic package-level tracing. The exam focus is these tech duties, not a specific exemption end date."
           ],
           "keyPoints": [
-            "Identifier = NDC + serial + lot + expiry",
+            "ID = NDC + serial + lot + expiry",
             "TI + TS current; TH retired Nov 2023",
-            "Buy only from authorized partners",
-            "Suspect: quarantine and verify the identifier",
-            "Illegitimate: FDA 3911 + partners within 24 hours",
-            "DSCSA records kept 6 years"
+            "Illegitimate: FDA 3911 within 24 hours; records 6 years"
           ]
         },
         {
@@ -1153,24 +999,15 @@
           "title": "Hazardous & Non-Hazardous Pharmaceutical Waste (2.1)",
           "intro": "Knowledge area 2.1 is federal storage, handling, and disposal of non-hazardous and hazardous pharmaceutical waste, including EPA P-list waste, plus the OSHA exposure steps tested with it.",
           "bullets": [
-            "EPA RCRA P-list drugs are acutely hazardous when the listed chemical is the sole active ingredient. Examples: warfarin above 0.3% (P001); nicotine (P075), except FDA-approved OTC nicotine replacement products, which were removed from that listing.",
-            "U-list drugs are toxic but not acute. Examples: cyclophosphamide (U058); lindane (U129).",
-            "A discarded drug can still be hazardous by characteristic (ignitable, corrosive, reactive, or toxic) when it is not on the P- or U-list. Non-hazardous pharmaceutical waste is the remaining drug waste. \"Not on the P-list\" does not mean trash or the drain.",
-            "The 2019 EPA hazardous-waste pharmaceuticals rule banned sewering hazardous-waste drugs nationwide. Do not flush them.",
-            "OSHA bloodborne pathogens: never recap a used needle by hand. Discard sharps at once in a rigid, puncture-resistant, closable container. After a needle-stick, wash the site, report it immediately, and follow post-exposure evaluation and prophylaxis (PEP).",
-            "P- and U-lists cover unused discarded commercial chemical products (the pure or technical grade, or a formulation in which the chemical is the sole active ingredient), off-specification product, container residue, and spill residue.",
-            "That residue is hazardous waste unless the container is empty. A stock bottle, dispensing bottle, vial, or ampule (not over 1 liter or 10,000 pills), or a unit-dose container, is empty once the drug is removed the usual way.",
-            "A hazardous-waste pharmaceutical that is also a scheduled controlled substance is not sewered. It is collected, stored, transported, and disposed of under DEA rules, and destroyed by a method DEA has publicly deemed non-retrievable or combusted at a permitted facility listed in the EPA rule.",
-            "Segregate waste before it leaves the pharmacy. The color map commonly used on the PTCE: black = RCRA hazardous pharmaceutical waste; yellow = trace chemotherapy; red = biohazard, including sharps; blue or white = non-hazardous pharmaceutical waste. Follow the pharmacy's waste-vendor labels when they differ — the federal duty is segregation, not one national color statute.",
-            "OSHA exposure controls: know where the eyewash and the spill kit are. Flush eyes at the eyewash — 15 minutes is the usual tested minimum — and follow the Safety Data Sheet.",
-            "Right-to-know (Hazard Communication): staff must be able to reach the SDS for hazardous chemicals they handle."
+            "Do not flush hazardous-waste drugs. EPA banned that sewer path in 2019.",
+            "U-list is toxic, not acute: cyclophosphamide U058, lindane U129.",
+            "P-list is acute when that chemical is the sole active ingredient. Warfarin above 0.3% is P001. Nicotine is P075, except FDA-approved OTC nicotine replacement, which was removed. Ignitable, corrosive, reactive, or toxic waste can still be hazardous off the lists. Other drug waste is non-hazardous. Not on the P-list does not mean trash or the drain.",
+            "Lists cover unused commercial products (pure, technical grade, or sole active), off-specification product, container residue, and spill residue. Residue is hazardous unless the container is empty: a stock bottle, dispensing bottle, vial, or ampule up to 1 liter or 10,000 pills, or a unit-dose, once emptied the usual way. A scheduled hazardous-waste drug is not sewered. Collect, store, transport, and dispose of it under DEA rules. Destroy it by a method DEA has publicly deemed non-retrievable, or combust it at a permitted facility named in the EPA rule.",
+            "Colors often used: black RCRA, yellow trace chemo, red biohazard including sharps, blue or white non-hazardous. Follow the vendor if labels differ. Federal duty is segregation, not one color code. No hand recap. Sharps: rigid, puncture-resistant, closable. After a stick: wash, report, PEP. Eyewash 15 minutes, then the SDS. Know the spill kit. Staff must be able to reach the SDS (Hazard Communication)."
           ],
           "keyPoints": [
-            "P-list = acute (warfarin >0.3%); U-list = toxic",
-            "Do not flush hazardous-waste drugs (EPA, 2019)",
-            "Black = RCRA hazardous; yellow = trace chemo",
-            "Needle-stick → wash, report, PEP",
-            "Eyewash, spill kit, and SDS access"
+            "P-list acute; U-list toxic",
+            "Needle-stick: wash, report, PEP"
           ]
         }
       ]
