@@ -86,6 +86,13 @@ Punch-list loop still open:
 
 `node validate.js` only checks structure and a few copy assertions. It does not close this loop. The pre-PR loop is in [AGENTS.md](AGENTS.md).
 
+## Later
+
+- [ ] **Dashboard live-data scroll.** With live data the Dashboard still scrolls about 300px in the main region. Possible fix: a fixed chart height and showing only the last few quiz attempts. Deferred because Rob may combine the Progress Dashboard with Home Telemetry.
+- [ ] **Home helix telemetry column (PR 2).** A vertical 3D helix of cards in the far-right column (`.hx-tele`, cols 10–12). It auto-scrolls, pauses on hover, scrubs up and down on click-hold or drag, scrolls with the mouse wheel on hover, and a quick click opens the matching Dashboard section. Look reference: https://motion.dev/examples/react-gallery-helix. Rebuild in vanilla JS/CSS. No React and no paid dependency. Include a reduced-motion fallback.
+- [ ] **Practice Exam drill-mode gaps.** After the Home Quiz card is removed: Quick 10, chapter test, Missed, Bookmarked, Weakest Domain and Subtopic, and subtopic and difficulty filters. Rob will choose between a left-side card that toggles a popover and putting these options in the Exam parent card.
+- [ ] **Study Course graphic.** A new graphic for the Home Study Course card. TBD. The circular course ring stays hidden because it duplicates the Dashboard reactor.
+
 ## From ROADMAP (Rob to confirm)
 
 - [ ] iPhone Safari pass: portrait and landscape, safe area, no horizontal scroll, tap targets, flashcard flip, long rationales, and the Dashboard on a narrow screen.

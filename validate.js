@@ -224,9 +224,11 @@ if (/Quick 10|reviewMissedCard|reviewBookmarkedCard|home-weights|id="weightBars"
 if (!/Study Course/.test(home) || !/class="hx-card hx-course" href="course\.html"/.test(home)) {
   fail('Study Course should remain the featured home hero');
 } else ok('Study Course remains the featured home hero');
-if (!/href="flashcards\.html"/.test(home) || !/href="quiz\.html"/.test(home) || !/href="exam\.html"/.test(home)) {
-  fail('home should keep Flashcards, Quiz, and Practice Exam entry points');
-} else ok('home keeps Flashcards, Quiz, and Practice Exam');
+if (!/href="flashcards\.html"/.test(home) || !/href="exam\.html"/.test(home)) {
+  fail('home should keep Flashcards and Practice Exam entry points');
+} else if (/hx-quiz|href="quiz\.html"/.test(home)) {
+  fail('home should not keep a Quiz card; quiz.html stays for course lesson tests');
+} else ok('home keeps Flashcards and Practice Exam and drops the Quiz card');
 if (!/id="homeProgress"/.test(home) || !/href="dashboard\.html"/.test(home)) {
   fail('home progress control should link to the dashboard');
 } else if (/<details[\s\S]*class="home-progress"/.test(home)) {
@@ -239,8 +241,8 @@ if (/class="menu-card[^"]*"\s+href="dashboard\.html"/.test(home)) {
 } else ok('dashboard is not an equal-weight home tile');
 if (!/class="hx-card hx-mode hx-notes"\s+href="notes\.html"/.test(home)) fail('Study Notes should be a home peer panel');
 else ok('Study Notes is a home peer panel');
-if (!/class="hx-card hx-mode hx-flash"\s+href="flashcards\.html"/.test(home) || !/class="hx-card hx-mode hx-quiz"\s+href="quiz\.html"/.test(home) || !/class="hx-card hx-mode hx-exam"\s+href="exam\.html"/.test(home) || !/class="hx-card hx-mode hx-notes"\s+href="notes\.html"/.test(home)) {
-  fail('Flash, Quiz, Practice, and Notes should be separate home panels');
+if (!/class="hx-card hx-mode hx-flash"\s+href="flashcards\.html"/.test(home) || !/class="hx-card hx-mode hx-exam"\s+href="exam\.html"/.test(home) || !/class="hx-card hx-mode hx-notes"\s+href="notes\.html"/.test(home)) {
+  fail('Flash, Practice, and Notes should be separate home panels');
 } else ok('peer modes are separate home panels');
 
 const dash = read('dashboard.html');
@@ -251,8 +253,8 @@ if (/id="weightBars"|PTCE 2026 Domain Weights|id="weakDomain"|Focus Area|dash-we
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v89/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v89');
-else ok('sw.js cache is ptce-2026-v89');
+if (!/ptce-2026-v90/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v90');
+else ok('sw.js cache is ptce-2026-v90');
 if (/blueprint-hud/.test(sw)) fail('sw.js should not precache the removed Blueprint HUD');
 else ok('sw.js does not precache the Blueprint HUD');
 if (!/css\/exam-setup\.css/.test(sw) || !/js\/exam-setup\.js/.test(sw)) {
@@ -539,6 +541,9 @@ const courseSrc = read('js/course.js');
 if (!/optional/.test(courseSrc) || !/archive-badge/.test(courseSrc)) {
   fail('course.js should render optional/archive lessons off the featured path');
 } else ok('course.js labels optional 2026-archive lessons');
+if (!/quiz\.html\?mode=chapter/.test(courseSrc)) {
+  fail('course lesson tests should still link to quiz.html');
+} else ok('course lesson tests still link to quiz.html');
 
 console.log('\nLesson page layout');
 const courseHtml = read('course.html');

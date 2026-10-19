@@ -79,7 +79,7 @@
             </span>
           </div>
 
-          <!-- Concentric HUD rings: the progress arc is course completion -->
+          <!-- Course ring hidden in CSS; it duplicates the Dashboard reactor. -->
           <div class="hx-reactor" aria-hidden="true">
             <svg viewBox="0 0 200 200" focusable="false">
               <circle class="r-track" cx="100" cy="100" r="84"/>
@@ -127,22 +127,7 @@
         </div>
       </section>
 
-      <!-- ===== Quiz ===== -->
-      <a class="hx-card hx-mode hx-quiz" href="quiz.html">
-        <div class="hx-tagline"><span class="hx-tag">DIAGNOSTIC <b>// 02</b></span></div>
-        <svg class="hx-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-          <circle cx="24" cy="24" r="17" fill="none" stroke="url(#hudGrad)" stroke-width="1.6"/>
-          <circle cx="24" cy="24" r="10" fill="none" stroke="url(#hudGrad)" stroke-width="1.6" stroke-dasharray="3 3"/>
-          <path d="M24 3v8M24 37v8M3 24h8M37 24h8" stroke="#00ff41" stroke-width="1.6" stroke-linecap="round"/>
-          <circle cx="24" cy="24" r="2.6" fill="#ff2a6d"/>
-        </svg>
-        <h2 class="hx-title">Quiz Mode</h2>
-        <p class="hx-desc">Untimed drills with answer rationales.</p>
-        <p class="hx-data" id="hxQuizData">Pick a domain to begin</p>
-        <span class="hx-go" aria-hidden="true">Run drill <i>→</i></span>
-      </a>
-
-      <!-- ===== Practice Exam (tall) ===== -->
+      <!-- ===== Practice Exam ===== -->
       <a class="hx-card hx-mode hx-exam" href="exam.html">
         <div class="hx-tagline"><span class="hx-tag">SIMULATION <b>// 03</b></span></div>
         <svg class="hx-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">

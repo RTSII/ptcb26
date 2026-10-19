@@ -109,26 +109,7 @@
     if (!window.App || !App.Storage) return;
     const p = App.Storage.read();
 
-    // 1. Quizzes stats
-    const quizzes = p.quizzes.length;
-    const scoreOf = (a) => (typeof a.score === 'number' ? a.score : App.Util.pct(a.correct || 0, a.total || 0));
-    const avg = quizzes
-      ? Math.round(p.quizzes.reduce((sum, attempt) => sum + scoreOf(attempt), 0) / quizzes)
-      : null;
-
-    const quizData = document.getElementById('hxQuizData');
-    if (quizData) {
-      const missedCount = Object.keys(p.missed || {}).length;
-      if (missedCount > 0) {
-        quizData.innerHTML = `<span class="warn">${missedCount} missed</span> ready for review`;
-      } else if (quizzes > 0) {
-        quizData.innerHTML = `<b>${quizzes}</b> attempts logged · <b>${avg}%</b> avg`;
-      } else {
-        quizData.textContent = 'Pick a domain to begin';
-      }
-    }
-
-    // 2. Flashcards stats (cards due today)
+    // Flashcards stats (cards due today)
     const flashData = document.getElementById('hxFlashData');
     if (flashData) {
       const reviewedCount = p.flashcards?.reviewed?.length || 0;
@@ -140,7 +121,7 @@
       }
     }
 
-    // 3. Exams stats
+    // Exams stats
     const examBest = document.getElementById('hxExamBest');
     if (examBest) {
       if (p.exams && p.exams.length > 0) {
