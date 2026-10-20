@@ -94,7 +94,7 @@
           const p = s.total ? Math.round((s.completed / s.total) * 100) : 0;
           return `
             <div class="hx-dom">
-              <span class="hx-dom-name">${esc(d.label)} <em>${s.completed}/${s.total}</em></span>
+              <span class="hx-dom-name"><span class="hx-dom-label">${esc(d.label)}</span><em>${s.completed}/${s.total}</em></span>
               <span class="hx-dom-bar"><i style="--p:${p}"></i></span>
             </div>
           `;
@@ -133,9 +133,202 @@
     }
   }
 
+  // Vertical helix. Cards travel downward: u = 0 is the top, u = 1 is the bottom.
+  // Auto motion increases offset so each card's u grows and it moves down, then wraps.
+  function initHelix() {
+    const root = document.getElementById('hxHelix');
+    if (!root) return;
+    const stage = root.querySelector('.hx-helix-stage');
+    const cards = Array.from(root.querySelectorAll('.hx-helix-card'));
+    const n = cards.length;
+    if (!stage || !n) return;
+
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const CYCLE = 26;
+    const DRAG_PX = 8;
+    let reduce = motion.matches;
+    let offset = 0.5;
+    let hovering = false;
+    let dragging = false;
+    let dragMoved = false;
+    let kbdPause = false;
+    let lastY = 0;
+    let startY = 0;
+    let lastT = 0;
+    let raf = 0;
+
+    const wrap = (v) => ((v % 1) + 1) % 1;
+
+    function layout() {
+      const rect = stage.getBoundingClientRect();
+      const travel = Math.max(rect.height * 0.94, 1);
+      const radius = Math.min(rect.width * 0.2, 42);
+      for (let i = 0; i < n; i++) {
+        const u = wrap(i / n + offset);
+        const angle = (u - 0.5) * Math.PI * 2;
+        const x = Math.sin(angle) * radius;
+        const y = (u - 0.5) * travel;
+        const z = Math.cos(angle) * radius;
+        const facing = (Math.cos(angle) + 1) / 2;
+        const edge = Math.sin(Math.PI * u);
+        const scale = 0.56 + 0.44 * facing * (0.42 + 0.58 * edge);
+        const opacity = edge * (0.08 + 0.92 * facing);
+        const rotY = Math.sin(angle) * -26;
+        const card = cards[i];
+        card.style.transform = 'translate(-50%, -50%) translate3d(' +
+          x.toFixed(2) + 'px, ' + y.toFixed(2) + 'px, ' + z.toFixed(2) +
+          'px) rotateY(' + rotY.toFixed(2) + 'deg) scale(' + scale.toFixed(3) + ')';
+        card.style.opacity = opacity.toFixed(3);
+        card.style.zIndex = String(100 + Math.round(z));
+        card.style.pointerEvents = opacity < 0.42 ? 'none' : 'auto';
+      }
+    }
+
+    function frame(t) {
+      const dt = lastT ? Math.min(0.05, (t - lastT) / 1000) : 0;
+      lastT = t;
+      if (!reduce && !hovering && !dragging && !kbdPause) offset += dt / CYCLE;
+      layout();
+      raf = requestAnimationFrame(frame);
+    }
+
+    function bringToFront(card) {
+      const i = cards.indexOf(card);
+      if (i < 0) return;
+      const current = wrap(offset);
+      const desired = wrap(0.5 - i / n);
+      let delta = desired - current;
+      if (delta > 0.5) delta -= 1;
+      if (delta < -0.5) delta += 1;
+      offset += delta;
+      layout();
+    }
+
+    if (motion.addEventListener) {
+      motion.addEventListener('change', (e) => { reduce = e.matches; });
+    }
+
+    root.addEventListener('pointerenter', () => { hovering = true; });
+    root.addEventListener('pointerleave', () => { hovering = false; });
+    cards.forEach((card) => { card.draggable = false; });
+
+    function onPointerMove(e) {
+      if (!dragging) return;
+      const dy = e.clientY - lastY;
+      lastY = e.clientY;
+      if (!dy) return;
+      const travel = Math.max(stage.getBoundingClientRect().height * 0.94, 1);
+      offset += dy / travel;
+      if (Math.abs(e.clientY - startY) > DRAG_PX) dragMoved = true;
+    }
+    function endDrag() {
+      if (!dragging) return;
+      dragging = false;
+      root.classList.remove('is-dragging');
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerup', endDrag);
+      window.removeEventListener('pointercancel', endDrag);
+    }
+    root.addEventListener('pointerdown', (e) => {
+      if (e.button !== 0) return;
+      dragging = true;
+      dragMoved = false;
+      lastY = startY = e.clientY;
+      root.classList.add('is-dragging');
+      window.addEventListener('pointermove', onPointerMove);
+      window.addEventListener('pointerup', endDrag);
+      window.addEventListener('pointercancel', endDrag);
+    });
+    root.addEventListener('click', (e) => {
+      if (!dragMoved) return;
+      e.preventDefault();
+      e.stopPropagation();
+      dragMoved = false;
+    }, true);
+    root.addEventListener('focusin', (e) => {
+      const card = e.target.closest('.hx-helix-card');
+      if (!card || !root.contains(card) || !card.matches(':focus-visible')) return;
+      kbdPause = true;
+      bringToFront(card);
+    });
+    root.addEventListener('focusout', (e) => {
+      if (root.contains(e.relatedTarget)) return;
+      kbdPause = false;
+    });
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        cancelAnimationFrame(raf);
+        lastT = 0;
+      } else {
+        raf = requestAnimationFrame(frame);
+      }
+    });
+
+    layout();
+    raf = requestAnimationFrame(frame);
+  }
+
+  // Step --hx-fit down until the desktop frame fits the window. The grid
+  // already fills 100dvh; this only shrinks type, padding, and gaps.
+  function initFit() {
+    const root = document.body;
+    const wide = window.matchMedia('(min-width: 900px)');
+    const STEPS = [1, 0.96, 0.92, 0.88, 0.84, 0.8, 0.76, 0.72];
+    const SKIP = '.hx-tagline, .hx-helix, .hx-helix *';
+
+    function pagePast() {
+      const se = document.scrollingElement || document.documentElement;
+      const main = document.querySelector('main');
+      function px(el) {
+        if (!el) return 0;
+        return el.scrollHeight - el.clientHeight;
+      }
+      return Math.max(px(se), px(document.body), px(main));
+    }
+
+    function cardPast() {
+      let past = 0;
+      document.querySelectorAll('.hx-course, .hx-exam, .hx-flash, .hx-notes, .hx-dash-core').forEach((card) => {
+        const box = card.getBoundingClientRect();
+        if (box.height < 2) return;
+        card.querySelectorAll('h1, h2, p, dl, .hx-go, .hx-domains, .hx-cta, .hx-icon, .hx-data, .hx-specs, .dash-core-content').forEach((el) => {
+          if (el.closest(SKIP) || el.offsetParent === null) return;
+          const r = el.getBoundingClientRect();
+          past = Math.max(past, r.bottom - box.bottom, box.top - r.top);
+        });
+      });
+      return past;
+    }
+
+    function fit() {
+      if (!wide.matches) {
+        root.style.removeProperty('--hx-fit');
+        return;
+      }
+      let chosen = STEPS[STEPS.length - 1];
+      for (let i = 0; i < STEPS.length; i++) {
+        root.style.setProperty('--hx-fit', String(STEPS[i]));
+        void root.offsetHeight;
+        if (pagePast() <= 0.5 && cardPast() <= 1) {
+          chosen = STEPS[i];
+          break;
+        }
+      }
+      root.style.setProperty('--hx-fit', String(chosen));
+    }
+
+    window.addEventListener('resize', fit);
+    if (wide.addEventListener) wide.addEventListener('change', fit);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    fit();
+    return fit;
+  }
+
   function init() {
-    loadCourseMeta();
+    const refit = initFit();
+    loadCourseMeta().then(refit);
     loadAuxTelemetry();
+    initHelix();
   }
 
   if (document.readyState === 'loading') {

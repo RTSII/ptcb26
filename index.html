@@ -96,34 +96,48 @@
         </div>
 
         <div class="hx-domains" id="hxDomains" aria-label="Lesson completion by domain">
-          <div class="hx-dom"><span class="hx-dom-name">Medications</span><span class="hx-dom-bar"><i style="--p:0"></i></span></div>
-          <div class="hx-dom"><span class="hx-dom-name">Patient Safety</span><span class="hx-dom-bar"><i style="--p:0"></i></span></div>
-          <div class="hx-dom"><span class="hx-dom-name">Order Entry</span><span class="hx-dom-bar"><i style="--p:0"></i></span></div>
-          <div class="hx-dom"><span class="hx-dom-name">Federal</span><span class="hx-dom-bar"><i style="--p:0"></i></span></div>
+          <div class="hx-dom"><span class="hx-dom-name"><span class="hx-dom-label">Medications</span></span><span class="hx-dom-bar"><i style="--p:0"></i></span></div>
+          <div class="hx-dom"><span class="hx-dom-name"><span class="hx-dom-label">Patient Safety</span></span><span class="hx-dom-bar"><i style="--p:0"></i></span></div>
+          <div class="hx-dom"><span class="hx-dom-name"><span class="hx-dom-label">Order Entry</span></span><span class="hx-dom-bar"><i style="--p:0"></i></span></div>
+          <div class="hx-dom"><span class="hx-dom-name"><span class="hx-dom-label">Federal</span></span><span class="hx-dom-bar"><i style="--p:0"></i></span></div>
         </div>
       </a>
 
-      <!-- ===== Telemetry (live, read-only) ===== -->
-      <section class="hx-card hx-tele" aria-label="Study telemetry">
-        <div class="hx-tagline">
-          <span class="hx-tag">OPERATOR <b>// TELEMETRY</b></span>
-          <a class="hx-link" href="dashboard.html">Full report
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <!-- ===== Telemetry helix (same stats, vertical spiral) ===== -->
+      <section class="hx-helix" id="hxHelix" aria-label="Study telemetry">
+        <div class="hx-helix-stage">
+          <a class="hx-helix-card" href="dashboard.html#domainAccuracy">
+            <span class="hx-helix-num" id="homeAvg">—</span>
+            <span class="hx-helix-lbl">Quiz accuracy</span>
           </a>
-        </div>
-        <div class="hx-stats">
-          <div class="hx-stat"><span class="hx-stat-num" id="homeAvg">—</span><span class="hx-stat-lbl">Quiz accuracy</span></div>
-          <div class="hx-stat"><span class="hx-stat-num" id="homeQuizzes">0</span><span class="hx-stat-lbl">Quizzes</span></div>
-          <div class="hx-stat"><span class="hx-stat-num" id="homeCards">0</span><span class="hx-stat-lbl">Cards reviewed</span></div>
-          <div class="hx-stat"><span class="hx-stat-num" id="homeExams">0</span><span class="hx-stat-lbl">Exams</span></div>
-        </div>
-        <div class="hx-blueprint" aria-label="PTCE 2026 domain weights">
-          <div class="hx-bp-bar">
-            <i style="--w:35"></i><i style="--w:23.75"></i><i style="--w:22.5"></i><i style="--w:18.75"></i>
-          </div>
-          <div class="hx-bp-legend">
-            <span>MED 35%</span><span>SAFETY 23.75%</span><span>ORDER 22.5%</span><span>FED 18.75%</span>
-          </div>
+          <a class="hx-helix-card" href="dashboard.html#quizHistory">
+            <span class="hx-helix-num" id="homeQuizzes">0</span>
+            <span class="hx-helix-lbl">Quizzes</span>
+          </a>
+          <a class="hx-helix-card" href="dashboard.html">
+            <span class="hx-helix-num" id="homeCards">0</span>
+            <span class="hx-helix-lbl">Cards reviewed</span>
+          </a>
+          <a class="hx-helix-card" href="dashboard.html#examHistory">
+            <span class="hx-helix-num" id="homeExams">0</span>
+            <span class="hx-helix-lbl">Exams</span>
+          </a>
+          <a class="hx-helix-card" href="dashboard.html#domainAccuracy" data-tone="med">
+            <span class="hx-helix-num">35%</span>
+            <span class="hx-helix-lbl">Med weight</span>
+          </a>
+          <a class="hx-helix-card" href="dashboard.html#domainAccuracy" data-tone="safety">
+            <span class="hx-helix-num">23.75%</span>
+            <span class="hx-helix-lbl">Safety weight</span>
+          </a>
+          <a class="hx-helix-card" href="dashboard.html#domainAccuracy" data-tone="order">
+            <span class="hx-helix-num">22.5%</span>
+            <span class="hx-helix-lbl">Order weight</span>
+          </a>
+          <a class="hx-helix-card" href="dashboard.html#domainAccuracy" data-tone="fed">
+            <span class="hx-helix-num">18.75%</span>
+            <span class="hx-helix-lbl">Fed weight</span>
+          </a>
         </div>
       </section>
 
