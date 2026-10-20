@@ -46,3 +46,17 @@ On every code change, run this loop before asking for review. In the PR descript
 - If assets changed, bump the service worker cache to the next version, and the matching check in `validate.js`.
 - Quick regression check of pages that share the touched CSS or JS.
 - Fix and re-run until this is clean.
+
+## Git rules: two stations
+
+1. GitHub is the source of truth. All changes go through a branch and a PR. The local copies on the Cube and the HP laptop are test copies: pull-only, with no edits or commits made in them.
+2. Sync before testing. Before any test on a machine, git fetch and confirm the copy matches origin/main (or the PR branch under test). If it's behind, run git pull --ff-only. If it's dirty or has diverged, stop and report to Rob. No force, reset, or stash.
+3. After a merge, update the machine Rob is currently on. The other machine catches up the next time he uses it (rule 2).
+4. Testing a PR locally means checking out that PR's branch in the local copy, then switching back to main afterward. Results record the machine name and the commit SHA tested.
+5. Machine-generated files stay out of git: logs, build output, local data, and libraries go in .gitignore. Each machine's repo path is recorded in the project's station notes.
+6. One agent at a time runs git commands on a given local copy.
+
+### Stations
+
+- Cube mini PC (host CUBE): C:\Users\rtsii\Desktop\PTCB26, served with python -m http.server 8000 --bind 127.0.0.1 from the repo root.
+- HP laptop: C:\Users\rtsii\Desktop\ptcb26, same serve command.

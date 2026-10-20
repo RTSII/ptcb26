@@ -63,6 +63,8 @@ Open `http://127.0.0.1:8000/`. `fetch()` of the JSON files needs a local server.
 
 On `localhost`, `127.0.0.1`, and `::1`, `js/app.js` unregisters any service worker and deletes Cache Storage so a normal refresh shows the files Python just served.
 
+Two-station git rules and the Cube and HP paths are in [AGENTS.md](AGENTS.md#git-rules-two-stations).
+
 ## Service worker
 
 Cache name: see `sw.js`.
