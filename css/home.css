@@ -12,8 +12,8 @@ body.home {
   --hx-dim: #9cc9a9;
   --hx-cyan: #05d9e8;
   --hx-pink: #ff2a6d;
-  --hx-fill-a: rgba(9, 32, 18, 0.96);
-  --hx-fill-b: rgba(3, 15, 9, 0.96);
+  --hx-fill-a: rgba(9, 32, 18, 0.84);
+  --hx-fill-b: rgba(3, 15, 9, 0.84);
   --hx-cut: 16px;
   --hx-fit: 1;
   --hx-gap: calc(clamp(6px, 1.25vw, 20px) * var(--hx-fit));
@@ -200,11 +200,10 @@ a.hx-card:focus-visible::after {
   font-size: clamp(0.62rem, 0.62vw, 0.74rem);
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(156, 201, 169, 0.75);
+  color: var(--hx-dim);
   white-space: nowrap;
 }
 .hx-tag b { color: var(--hx-green); font-weight: 500; }
-.hx-meta { color: rgba(156, 201, 169, 0.6); }
 .hx-link {
   pointer-events: auto;
   display: inline-flex;
@@ -274,8 +273,8 @@ a.hx-card:hover .hx-go i { transform: translateX(4px); }
 /* ---------- HERO: Study Course ---------- */
 .hx-course {
   --hx-cut: 26px;
-  --hx-fill-a: rgba(10, 40, 22, 0.975);
-  --hx-fill-b: rgba(3, 16, 9, 0.975);
+  --hx-fill-a: rgba(10, 40, 22, 0.85);
+  --hx-fill-b: rgba(3, 16, 9, 0.85);
   --edge: linear-gradient(140deg, rgba(182, 255, 201, 0.85), rgba(0, 255, 65, 0.35) 30%, rgba(0, 255, 65, 0.16) 60%, rgba(5, 217, 232, 0.55));
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
@@ -585,7 +584,7 @@ a.hx-card:hover .hx-go i { transform: translateX(4px); }
   background:
     radial-gradient(110% 70% at 20% 0%, rgba(5, 217, 232, 0.12), transparent 60%),
     radial-gradient(100% 60% at 80% 100%, rgba(0, 255, 65, 0.08), transparent 70%),
-    linear-gradient(180deg, rgba(6, 28, 16, 0.88), rgba(2, 15, 8, 0.84)) !important;
+    linear-gradient(180deg, rgba(6, 28, 16, 0.77), rgba(2, 15, 8, 0.74)) !important;
   z-index: -2;
 }
 /* Stacked ghost card behind the main rolodex index card */
@@ -719,7 +718,7 @@ a.hx-card:hover .hx-go i { transform: translateX(4px); }
   pointer-events: none;
   border-radius: 50%;
   border: 1px solid rgba(0, 255, 65, 0.45);
-  background: radial-gradient(circle at center, rgba(0, 255, 65, 0.08) 0%, rgba(3, 20, 10, 0.55) 60%, rgba(2, 12, 6, 0.82) 100%);
+  background: radial-gradient(circle at center, rgba(0, 255, 65, 0.08) 0%, rgba(3, 20, 10, 0.48) 60%, rgba(2, 12, 6, 0.72) 100%);
   box-shadow: 0 0 30px rgba(0, 255, 65, 0.2), inset 0 0 25px rgba(0, 255, 65, 0.12);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);

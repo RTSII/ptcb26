@@ -305,6 +305,7 @@
     function fit() {
       if (!wide.matches) {
         root.style.removeProperty('--hx-fit');
+        applyHomeRainMask();
         return;
       }
       let chosen = STEPS[STEPS.length - 1];
@@ -317,6 +318,8 @@
         }
       }
       root.style.setProperty('--hx-fit', String(chosen));
+      void root.offsetHeight;
+      applyHomeRainMask();
     }
 
     window.addEventListener('resize', fit);
@@ -326,8 +329,117 @@
     return fit;
   }
 
+  // Reveal the shared rain canvas only inside the home cards and the dashboard ring.
+  // Gaps, the header, the footer, and the helix column stay the plain dark field.
+  function applyHomeRainMask() {
+    const canvas = document.getElementById('matrixRain');
+    if (!canvas) return;
+    const box = canvas.getBoundingClientRect();
+    const w = Math.max(1, Math.round(box.width));
+    const h = Math.max(1, Math.round(box.height));
+    const ox = box.left;
+    const oy = box.top;
+    const shapes = [];
+
+    function cutOf(el) {
+      const n = parseFloat(getComputedStyle(el).getPropertyValue('--hx-cut'));
+      return Number.isFinite(n) ? n : 16;
+    }
+
+    document.querySelectorAll('.hx-course, .hx-flash, .hx-notes, .hx-exam').forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      const x = rect.left - ox;
+      const y = rect.top - oy;
+      const rw = rect.width;
+      const rh = rect.height;
+      if (rw < 2 || rh < 2) return;
+      const cut = Math.min(cutOf(el), rw / 2, rh / 2);
+      let pts;
+      if (el.classList.contains('hx-flash')) {
+        const tab = Math.min(140, rw);
+        const step = Math.min(155, rw);
+        const lip = Math.min(12, rh / 2);
+        pts = [
+          [x, y],
+          [x + tab, y],
+          [x + step, y + lip],
+          [x + rw, y + lip],
+          [x + rw, y + rh - cut],
+          [x + rw - cut, y + rh],
+          [x, y + rh]
+        ];
+      } else {
+        pts = [
+          [x + cut, y],
+          [x + rw, y],
+          [x + rw, y + rh - cut],
+          [x + rw - cut, y + rh],
+          [x, y + rh],
+          [x, y + cut]
+        ];
+      }
+      shapes.push('<polygon points="' + pts.map((p) => p[0].toFixed(1) + ',' + p[1].toFixed(1)).join(' ') + '"/>');
+    });
+
+    const ring = document.querySelector('.hx-dash-core .dash-r-ring');
+    const svg = ring && ring.ownerSVGElement;
+    const ctm = svg && svg.getScreenCTM && svg.getScreenCTM();
+    if (ctm) {
+      const cx = parseFloat(ring.getAttribute('cx')) || 100;
+      const cy = parseFloat(ring.getAttribute('cy')) || 100;
+      const radius = parseFloat(ring.getAttribute('r')) || 94;
+      const pt = svg.createSVGPoint();
+      pt.x = cx;
+      pt.y = cy;
+      const c = pt.matrixTransform(ctm);
+      pt.x = cx + radius;
+      const edge = pt.matrixTransform(ctm);
+      const rad = Math.hypot(edge.x - c.x, edge.y - c.y);
+      if (rad >= 4) {
+        shapes.push('<circle cx="' + (c.x - ox).toFixed(1) + '" cy="' + (c.y - oy).toFixed(1) + '" r="' + rad.toFixed(1) + '"/>');
+      }
+    }
+
+    const markup = shapes.length
+      ? '<svg xmlns="http://www.w3.org/2000/svg" width="' + w + '" height="' + h + '" viewBox="0 0 ' + w + ' ' + h + '" fill="white">' + shapes.join('') + '</svg>'
+      : '<svg xmlns="http://www.w3.org/2000/svg" width="' + w + '" height="' + h + '"></svg>';
+    const mask = 'url("data:image/svg+xml,' + encodeURIComponent(markup) + '")';
+    canvas.style.maskImage = mask;
+    canvas.style.webkitMaskImage = mask;
+    canvas.style.maskRepeat = 'no-repeat';
+    canvas.style.webkitMaskRepeat = 'no-repeat';
+    canvas.style.maskSize = '100% 100%';
+    canvas.style.webkitMaskSize = '100% 100%';
+    canvas.style.maskPosition = '0 0';
+    canvas.style.webkitMaskPosition = '0 0';
+    canvas.style.maskMode = 'alpha';
+  }
+
+  function initRainMask() {
+    if (!document.getElementById('matrixRain')) return;
+    let queued = false;
+    function schedule() {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(() => {
+        queued = false;
+        applyHomeRainMask();
+      });
+    }
+    const ro = new ResizeObserver(schedule);
+    const grid = document.querySelector('.hx-grid');
+    if (grid) ro.observe(grid);
+    document.querySelectorAll('.hx-course, .hx-flash, .hx-notes, .hx-exam, .hx-dash-core, .dash-reactor').forEach((el) => {
+      ro.observe(el);
+    });
+    window.addEventListener('resize', schedule);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(schedule);
+    applyHomeRainMask();
+  }
+
   function init() {
     const refit = initFit();
+    initRainMask();
     loadCourseMeta().then(refit);
     loadAuxTelemetry();
     initHelix();
