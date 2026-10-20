@@ -200,11 +200,10 @@ a.hx-card:focus-visible::after {
   font-size: clamp(0.62rem, 0.62vw, 0.74rem);
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(156, 201, 169, 0.75);
+  color: var(--hx-dim);
   white-space: nowrap;
 }
 .hx-tag b { color: var(--hx-green); font-weight: 500; }
-.hx-meta { color: rgba(156, 201, 169, 0.6); }
 .hx-link {
   pointer-events: auto;
   display: inline-flex;

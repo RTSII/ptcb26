@@ -382,20 +382,28 @@
     });
 
     const ring = document.querySelector('.hx-dash-core .dash-r-ring');
-    if (ring) {
-      const b = ring.getBoundingClientRect();
-      const rad = Math.min(b.width, b.height) / 2;
+    const svg = ring && ring.ownerSVGElement;
+    const ctm = svg && svg.getScreenCTM && svg.getScreenCTM();
+    if (ctm) {
+      const cx = parseFloat(ring.getAttribute('cx')) || 100;
+      const cy = parseFloat(ring.getAttribute('cy')) || 100;
+      const radius = parseFloat(ring.getAttribute('r')) || 94;
+      const pt = svg.createSVGPoint();
+      pt.x = cx;
+      pt.y = cy;
+      const c = pt.matrixTransform(ctm);
+      pt.x = cx + radius;
+      const edge = pt.matrixTransform(ctm);
+      const rad = Math.hypot(edge.x - c.x, edge.y - c.y);
       if (rad >= 4) {
-        const cx = b.left + b.width / 2 - ox;
-        const cy = b.top + b.height / 2 - oy;
-        shapes.push('<circle cx="' + cx.toFixed(1) + '" cy="' + cy.toFixed(1) + '" r="' + rad.toFixed(1) + '"/>');
+        shapes.push('<circle cx="' + (c.x - ox).toFixed(1) + '" cy="' + (c.y - oy).toFixed(1) + '" r="' + rad.toFixed(1) + '"/>');
       }
     }
 
-    const svg = shapes.length
+    const markup = shapes.length
       ? '<svg xmlns="http://www.w3.org/2000/svg" width="' + w + '" height="' + h + '" viewBox="0 0 ' + w + ' ' + h + '" fill="white">' + shapes.join('') + '</svg>'
       : '<svg xmlns="http://www.w3.org/2000/svg" width="' + w + '" height="' + h + '"></svg>';
-    const mask = 'url("data:image/svg+xml,' + encodeURIComponent(svg) + '")';
+    const mask = 'url("data:image/svg+xml,' + encodeURIComponent(markup) + '")';
     canvas.style.maskImage = mask;
     canvas.style.webkitMaskImage = mask;
     canvas.style.maskRepeat = 'no-repeat';
