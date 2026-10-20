@@ -1,5 +1,7 @@
 // Service worker: offline caching for the PTCE 2026 Study App
-const CACHE = 'ptce-2026-v92';
+// Cache generation. Every local css/js link in HTML uses ?v=<this number>.
+// Bump the number here and in those links together. validate.js checks both.
+const CACHE = 'ptce-2026-v93';
 const ASSETS = [
   './',
   'index.html',
@@ -68,7 +70,8 @@ function store(request, response) {
 }
 
 function networkFirst(request) {
-  return fetch(request).then((response) => {
+  // Revalidate so a normal browser HTTP cache cannot keep a stale shell file.
+  return fetch(request, { cache: 'no-cache' }).then((response) => {
     store(request, response);
     return response;
   }).catch(() => caches.match(request, { ignoreSearch: true }));
