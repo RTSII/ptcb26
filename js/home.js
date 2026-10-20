@@ -94,7 +94,7 @@
           const p = s.total ? Math.round((s.completed / s.total) * 100) : 0;
           return `
             <div class="hx-dom">
-              <span class="hx-dom-name">${esc(d.label)} <em>${s.completed}/${s.total}</em></span>
+              <span class="hx-dom-name"><span class="hx-dom-label">${esc(d.label)}</span><em>${s.completed}/${s.total}</em></span>
               <span class="hx-dom-bar"><i style="--p:${p}"></i></span>
             </div>
           `;
@@ -268,8 +268,65 @@
     raf = requestAnimationFrame(frame);
   }
 
+  // Step --hx-fit down until the desktop frame fits the window. The grid
+  // already fills 100dvh; this only shrinks type, padding, and gaps.
+  function initFit() {
+    const root = document.body;
+    const wide = window.matchMedia('(min-width: 900px)');
+    const STEPS = [1, 0.96, 0.92, 0.88, 0.84, 0.8, 0.76, 0.72];
+    const SKIP = '.hx-tagline, .hx-helix, .hx-helix *';
+
+    function pagePast() {
+      const se = document.scrollingElement || document.documentElement;
+      const main = document.querySelector('main');
+      function px(el) {
+        if (!el) return 0;
+        return el.scrollHeight - el.clientHeight;
+      }
+      return Math.max(px(se), px(document.body), px(main));
+    }
+
+    function cardPast() {
+      let past = 0;
+      document.querySelectorAll('.hx-course, .hx-exam, .hx-flash, .hx-notes, .hx-dash-core').forEach((card) => {
+        const box = card.getBoundingClientRect();
+        if (box.height < 2) return;
+        card.querySelectorAll('h1, h2, p, dl, .hx-go, .hx-domains, .hx-cta, .hx-icon, .hx-data, .hx-specs, .dash-core-content').forEach((el) => {
+          if (el.closest(SKIP) || el.offsetParent === null) return;
+          const r = el.getBoundingClientRect();
+          past = Math.max(past, r.bottom - box.bottom, box.top - r.top);
+        });
+      });
+      return past;
+    }
+
+    function fit() {
+      if (!wide.matches) {
+        root.style.removeProperty('--hx-fit');
+        return;
+      }
+      let chosen = STEPS[STEPS.length - 1];
+      for (let i = 0; i < STEPS.length; i++) {
+        root.style.setProperty('--hx-fit', String(STEPS[i]));
+        void root.offsetHeight;
+        if (pagePast() <= 0.5 && cardPast() <= 1) {
+          chosen = STEPS[i];
+          break;
+        }
+      }
+      root.style.setProperty('--hx-fit', String(chosen));
+    }
+
+    window.addEventListener('resize', fit);
+    if (wide.addEventListener) wide.addEventListener('change', fit);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    fit();
+    return fit;
+  }
+
   function init() {
-    loadCourseMeta();
+    const refit = initFit();
+    loadCourseMeta().then(refit);
     loadAuxTelemetry();
     initHelix();
   }
