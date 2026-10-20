@@ -253,8 +253,32 @@ if (/id="weightBars"|PTCE 2026 Domain Weights|id="weakDomain"|Focus Area|dash-we
 console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
-if (!/ptce-2026-v92/.test(sw)) fail('sw.js cache version should be bumped to ptce-2026-v92');
-else ok('sw.js cache is ptce-2026-v92');
+const cacheVer = (sw.match(/const CACHE = 'ptce-2026-v(\d+)'/) || [])[1];
+if (cacheVer !== '93') fail('sw.js cache version should be bumped to ptce-2026-v93');
+else ok('sw.js cache is ptce-2026-v93');
+const shellPages = ['index.html', 'course.html', 'notes.html', 'flashcards.html', 'quiz.html', 'exam.html', 'dashboard.html'];
+let shellMiss = 0;
+shellPages.forEach((page) => {
+  const html = read(page);
+  const refs = html.match(/(?:href|src)="(?:\.\/)?(?:css|js)\/[^"]+"/g) || [];
+  if (!refs.length) {
+    fail(page + ' has no local css/js links');
+    shellMiss++;
+    return;
+  }
+  refs.forEach((ref) => {
+    const url = ref.slice(ref.indexOf('"') + 1, -1);
+    if (!url.endsWith('?v=' + cacheVer)) {
+      fail(page + ' ' + url + ' should use ?v=' + cacheVer);
+      shellMiss++;
+    }
+  });
+});
+if (!shellMiss) ok('local css/js links use ?v=' + cacheVer);
+const networkFirstBody = sw.slice(sw.indexOf('function networkFirst'), sw.indexOf('function cacheFirst'));
+if (!/cache:\s*'no-cache'/.test(networkFirstBody)) {
+  fail('sw.js networkFirst should fetch app-shell requests with cache: no-cache');
+} else ok('sw.js app shell revalidates instead of reusing a stale HTTP cache');
 if (/blueprint-hud/.test(sw)) fail('sw.js should not precache the removed Blueprint HUD');
 else ok('sw.js does not precache the Blueprint HUD');
 if (!/css\/exam-setup\.css/.test(sw) || !/js\/exam-setup\.js/.test(sw)) {

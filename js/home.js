@@ -162,7 +162,9 @@
     function layout() {
       const rect = stage.getBoundingClientRect();
       const travel = Math.max(rect.height * 0.94, 1);
-      const radius = Math.min(rect.width * 0.2, 42);
+      const cardW = cards[0].offsetWidth || 0;
+      const room = (rect.width - cardW) / 2;
+      const radius = Math.max(0, Math.min(rect.width * 0.2, 42, room - 8));
       for (let i = 0; i < n; i++) {
         const u = wrap(i / n + offset);
         const angle = (u - 0.5) * Math.PI * 2;
