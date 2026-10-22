@@ -905,6 +905,6 @@ PLAN COMPLETE
 - Duplicates: each domain layout PR removes rows repeated across topics, keeping one copy where it fits best, no fact changes (e.g. Sig codes repeated across pages; formulas and alligation in T3.3 and T3.9; double-check line in T2.1/T2.2/T2.8).
 - PRs: one layout PR per domain (D1-D4, app order) plus the nav fix; each code-built visual aid (VA-01..VA-07) gets its own PR.
 - Building starts only on Rob's explicit go.
-- Rob 2026-10-22: tables default to alphabetical order (two-pair tables fill column by column); selective ordering only when it drastically reduces scroll or page count.
+- Rob 2026-10-22: tables default to alphabetical order; selective ordering only when it drastically reduces scroll or page count. (Two-pair tables currently fill column by column; that is PTCB's interpretation, pending Rob's confirmation.)
 
 PLAN APPROVED 2026-10-11 (decisions in section 9)
