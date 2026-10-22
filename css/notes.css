@@ -630,56 +630,60 @@ button.nx-domain-header:hover {
   line-height: 1.55;
 }
 
-/* Pair tables: Drug|Key|Drug|Key and Brand|Generic|Brand|Generic.
-   Name columns shrink to their text. Value columns share what is left.
-   The 1% width is the shrink-to-content hint; nowrap keeps the name on one line. */
+/* Pair tables: name | value | gutter | name | value.
+   --nx-pair-pad-x is the shared horizontal padding from balancePairTables(). */
 .nx-pair-wrap {
-  overflow: hidden;
+  overflow: visible;
 }
 .nx-data-table.nx-pair-table {
-  table-layout: auto;
+  table-layout: fixed;
+  width: 100%;
+  --nx-pair-pad-x: 20px;
 }
 .nx-data-table.nx-pair-table th,
 .nx-data-table.nx-pair-table td {
-  padding: 8px 14px;
+  box-sizing: border-box;
+  padding: 10px var(--nx-pair-pad-x);
   vertical-align: middle;
+  line-height: 1.4;
 }
-.nx-data-table.nx-pair-table.nx-pair-dense th,
-.nx-data-table.nx-pair-table.nx-pair-dense td {
-  padding: 4px 14px;
-  line-height: 1.25;
+/* 14 brand rows at the normal badge (0.95rem) and table (0.92rem) sizes.
+   Vertical padding is the fit lever for 1600x730 with the bookmarks bar. */
+.nx-data-table.nx-pair-table.nx-pair-brand th,
+.nx-data-table.nx-pair-table.nx-pair-brand td {
+  padding: 2px var(--nx-pair-pad-x);
+  line-height: 1.35;
 }
-.nx-pair-table.nx-pair-dense .nx-brand-badge,
-.nx-pair-table.nx-pair-dense .nx-generic-name {
-  font-size: 0.92rem;
-  line-height: 1.25;
+.nx-data-table.nx-pair-table.nx-pair-measure th,
+.nx-data-table.nx-pair-table.nx-pair-measure td {
+  padding: 0;
+  white-space: nowrap;
 }
 .nx-pair-table .nx-pair-name {
-  width: 1%;
   white-space: nowrap;
 }
 .nx-pair-table .nx-pair-value {
-  width: auto;
+  white-space: normal;
 }
-.nx-pair-brand .nx-pair-value {
-  white-space: nowrap;
-}
-.nx-pair-table th:nth-child(3),
-.nx-pair-table td:nth-child(3) {
-  border-left: 1px solid var(--nx-border-hairline);
+.nx-data-table.nx-pair-table th.nx-pair-gutter,
+.nx-data-table.nx-pair-table td.nx-pair-gutter {
+  padding: 0;
+  border-bottom-color: transparent;
+  white-space: normal;
 }
 .nx-pair-drug {
   font-family: var(--nx-font-display);
   font-weight: 700;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
+  line-height: 1.35;
   color: #ffffff;
 }
 .nx-pair-table .nx-brand-badge,
 .nx-pair-table .nx-otc-badge,
 .nx-pair-table .nx-generic-name,
 .nx-pair-table .nx-active-ing,
-.nx-pair-table .nx-details-body {
-  font-size: 0.92rem;
+.nx-pair-table .nx-details-body,
+.nx-pair-table .nx-pair-note {
   line-height: 1.35;
 }
 .nx-pair-note {
@@ -688,7 +692,6 @@ button.nx-domain-header:hover {
   font-family: var(--nx-font-reading);
   font-size: 0.92rem;
   font-weight: 400;
-  line-height: 1.35;
   color: var(--nx-text-muted);
 }
 

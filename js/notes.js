@@ -96,20 +96,29 @@
   // Row-major fill (left pair, then right pair, then the next row) so the
   // original order reads left to right. Column-major would park the second
   // half of the list at the top of the right side.
+  const PAIR_GUTTER = '<td class="nx-pair-gutter" aria-hidden="true"></td>';
+
   function renderPairTable(entries, nameHeader, valueHeader, term, kind) {
     const rows = [];
     for (let i = 0; i < entries.length; i += 2) {
       const stripe = (i / 2) % 2 === 0 ? 'nx-row-even' : 'nx-row-odd';
-      rows.push(`<tr class="${stripe}">${renderPairCells(entries[i], term, kind)}${renderPairCells(entries[i + 1], term, kind)}</tr>`);
+      rows.push(`<tr class="${stripe}">${renderPairCells(entries[i], term, kind)}${PAIR_GUTTER}${renderPairCells(entries[i + 1], term, kind)}</tr>`);
     }
-    const dense = kind === 'brand' ? ' nx-pair-dense' : '';
     return `
       <div class="nx-table-wrap nx-pair-wrap">
-        <table class="nx-data-table nx-pair-table nx-pair-${kind}${dense}">
+        <table class="nx-data-table nx-pair-table nx-pair-${kind}">
+          <colgroup>
+            <col class="nx-pair-name">
+            <col class="nx-pair-value">
+            <col class="nx-pair-gutter">
+            <col class="nx-pair-name">
+            <col class="nx-pair-value">
+          </colgroup>
           <thead>
             <tr>
               <th scope="col" class="nx-pair-name">${esc(nameHeader)}</th>
               <th scope="col" class="nx-pair-value">${esc(valueHeader)}</th>
+              <th class="nx-pair-gutter" aria-hidden="true"></th>
               <th scope="col" class="nx-pair-name">${esc(nameHeader)}</th>
               <th scope="col" class="nx-pair-value">${esc(valueHeader)}</th>
             </tr>
@@ -118,6 +127,90 @@
         </table>
       </div>
     `;
+  }
+
+  // Each text column is the widest content in that column, plus the same
+  // horizontal padding on every text cell. The two name columns share the
+  // wider name and the two value columns share the wider value, so the
+  // halves mirror. Leftover card width becomes equal extra padding, with a
+  // capped center gutter so one column cannot swallow the slack. When the
+  // longest keys cannot stay on one line, the value columns share what
+  // remains and the text wraps. Font size stays put.
+  function balancePairTables() {
+    const basePad = 20;
+    const minPad = 10;
+    const maxGutter = 56;
+    document.querySelectorAll('.nx-pair-table').forEach(table => {
+      const wrap = table.closest('.nx-pair-wrap');
+      const header = table.tHead && table.tHead.rows[0];
+      const cols = table.querySelectorAll('col');
+      if (!wrap || !header || header.cells.length < 5 || cols.length < 5) return;
+      const contentIdx = [0, 1, 3, 4];
+      const avail = wrap.clientWidth;
+      if (!avail) return;
+
+      table.classList.add('nx-pair-measure');
+      table.style.tableLayout = 'auto';
+      table.style.width = 'max-content';
+      contentIdx.forEach(i => { cols[i].style.width = ''; });
+      cols[2].style.width = '0px';
+      const measured = contentIdx.map(i => Math.ceil(header.cells[i].getBoundingClientRect().width));
+      table.classList.remove('nx-pair-measure');
+
+      const nameW = Math.max(measured[0], measured[2]);
+      const valueW = Math.max(measured[1], measured[3]);
+      const text = [nameW, valueW, nameW, valueW];
+      const textSum = nameW * 2 + valueW * 2;
+      let pad = basePad;
+      let gutter = avail - textSum - basePad * 8;
+      let widths;
+
+      if (gutter >= 0) {
+        if (gutter > maxGutter) {
+          pad = basePad + (gutter - maxGutter) / 8;
+          gutter = maxGutter;
+        }
+        widths = text.map(w => w + pad * 2);
+      } else if (textSum + minPad * 8 <= avail) {
+        const room = avail - textSum;
+        gutter = room >= minPad * 8 + 16 ? 16 : 0;
+        pad = (room - gutter) / 8;
+        widths = text.map(w => w + pad * 2);
+      } else {
+        pad = minPad;
+        gutter = 12;
+        const nameCols = [text[0] + pad * 2, text[2] + pad * 2];
+        let valueRoom = avail - nameCols[0] - nameCols[1] - gutter;
+        if (valueRoom < 120) {
+          gutter = 0;
+          valueRoom = avail - nameCols[0] - nameCols[1];
+        }
+        const leftValue = Math.floor(valueRoom / 2);
+        widths = [nameCols[0], leftValue, nameCols[1], valueRoom - leftValue];
+      }
+
+      const floored = widths.map(w => Math.max(0, Math.floor(w)));
+      let gutterPx = Math.max(0, Math.floor(gutter));
+      const slack = avail - (floored.reduce((sum, w) => sum + w, 0) + gutterPx);
+      gutterPx += slack;
+      if (gutterPx < 0) {
+        const take = Math.ceil(-gutterPx / 2);
+        floored[1] = Math.max(0, floored[1] - take);
+        floored[3] = Math.max(0, floored[3] - (-gutterPx - take));
+        gutterPx = 0;
+      }
+
+      const fittedPad = Math.min(
+        pad,
+        (floored[0] - text[0]) / 2,
+        (floored[2] - text[2]) / 2
+      );
+      table.style.setProperty('--nx-pair-pad-x', Math.max(minPad, fittedPad).toFixed(2) + 'px');
+      table.style.width = '100%';
+      table.style.tableLayout = 'fixed';
+      contentIdx.forEach((colIndex, i) => { cols[colIndex].style.width = floored[i] + 'px'; });
+      cols[2].style.width = gutterPx + 'px';
+    });
   }
 
   function renderPairCells(entry, term, kind) {
@@ -561,6 +654,7 @@
             searchInput.focus();
           });
         }
+        balancePairTables();
         return;
       }
 
@@ -570,6 +664,7 @@
         </div>
         ${domainBlocks.join('')}
       `;
+      balancePairTables();
       return;
     }
 
@@ -632,6 +727,7 @@
     } else {
       area.innerHTML = cards.join('');
     }
+    balancePairTables();
   }
 
   // Event Delegation for Accordion Toggles and Topic Pagers
@@ -723,6 +819,13 @@
       render(loadedDomains, '');
       searchInput.focus();
     });
+  }
+
+  window.addEventListener('resize', () => {
+    window.requestAnimationFrame(balancePairTables);
+  });
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(balancePairTables);
   }
 
   // Data Loader
