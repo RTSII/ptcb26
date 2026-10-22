@@ -92,119 +92,122 @@
     return 'briefing-grid';
   }
 
-  // 1. BRAND / GENERIC TABLE (2-Column Data Grid with explicit headers)
-  function renderBrandTable(items, term) {
-    const parsedPairs = [];
-    items.forEach(raw => {
-      const line = String(raw || '').trim().replace(/\.$/, '');
-      if (line.includes(' = ')) {
-        const parts = line.split(' = ');
-        parsedPairs.push({ brand: parts[0].trim(), generic: parts.slice(1).join(' = ').trim() });
-      } else {
-        parsedPairs.push({ brand: line, generic: '—' });
-      }
-    });
-
-    // Split pairs into two balanced columns for widescreen 2-up layout
-    const mid = Math.ceil(parsedPairs.length / 2);
-    const col1 = parsedPairs.slice(0, mid);
-    const col2 = parsedPairs.slice(mid);
-
-    function buildTableHtml(pairs) {
-      if (!pairs.length) return '';
-      let rows = pairs.map((p, idx) => {
-        const rowClass = idx % 2 === 0 ? 'nx-row-even' : 'nx-row-odd';
-        const brandHtml = highlightTerm(esc(p.brand), term);
-        const genericHtml = highlightTerm(esc(p.generic), term);
-        return `<tr class="${rowClass}">
-          <td class="nx-cell-brand"><span class="nx-brand-badge">${brandHtml}</span></td>
-          <td class="nx-cell-generic"><span class="nx-generic-name">${genericHtml}</span></td>
-        </tr>`;
-      }).join('');
-
-      return `
-        <div class="nx-table-wrap">
-          <table class="nx-data-table nx-brand-table">
-            <thead>
-              <tr>
-                <th scope="col" class="nx-th-brand">BRAND NAME</th>
-                <th scope="col" class="nx-th-generic">GENERIC NAME</th>
-              </tr>
-            </thead>
-            <tbody>${rows}</tbody>
-          </table>
-        </div>
-      `;
+  // Four-column pair table: name | value | name | value, one row of two pairs.
+  // Row-major fill (left pair, then right pair, then the next row) so the
+  // original order reads left to right. Column-major would park the second
+  // half of the list at the top of the right side.
+  function renderPairTable(entries, nameHeader, valueHeader, term, kind) {
+    const rows = [];
+    for (let i = 0; i < entries.length; i += 2) {
+      const stripe = (i / 2) % 2 === 0 ? 'nx-row-even' : 'nx-row-odd';
+      rows.push(`<tr class="${stripe}">${renderPairCells(entries[i], term, kind)}${renderPairCells(entries[i + 1], term, kind)}</tr>`);
     }
-
+    const dense = kind === 'brand' ? ' nx-pair-dense' : '';
     return `
-      <div class="nx-brand-grid-container">
-        <div class="nx-table-dual-col">
-          ${buildTableHtml(col1)}
-          ${col2.length ? buildTableHtml(col2) : ''}
-        </div>
+      <div class="nx-table-wrap nx-pair-wrap">
+        <table class="nx-data-table nx-pair-table nx-pair-${kind}${dense}">
+          <thead>
+            <tr>
+              <th scope="col" class="nx-pair-name">${esc(nameHeader)}</th>
+              <th scope="col" class="nx-pair-value">${esc(valueHeader)}</th>
+              <th scope="col" class="nx-pair-name">${esc(nameHeader)}</th>
+              <th scope="col" class="nx-pair-value">${esc(valueHeader)}</th>
+            </tr>
+          </thead>
+          <tbody>${rows.join('')}</tbody>
+        </table>
       </div>
     `;
   }
 
-  // 2. OTC ACTIVE INGREDIENTS TABLE (3-Column Table with explicit headers)
-  function renderOtcTable(items, term) {
-    const flatItems = [];
+  function renderPairCells(entry, term, kind) {
+    if (!entry) return '<td class="nx-pair-name"></td><td class="nx-pair-value"></td>';
+    const nameHtml = highlightTerm(esc(entry.name), term);
+    const valueHtml = highlightTerm(esc(entry.value), term);
+    let nameClass = 'nx-pair-drug';
+    let valueInner = `<span class="nx-details-body">${valueHtml}</span>`;
+    if (kind === 'brand') {
+      nameClass = 'nx-brand-badge';
+      valueInner = `<span class="nx-generic-name">${valueHtml}</span>`;
+    } else if (kind === 'otc') {
+      nameClass = 'nx-otc-badge';
+      const note = entry.note && entry.note !== '—' && entry.note !== '-'
+        ? `<span class="nx-pair-note">${highlightTerm(esc(entry.note), term)}</span>`
+        : '';
+      valueInner = `<span class="nx-active-ing">${valueHtml}</span>${note}`;
+    }
+    return `<td class="nx-pair-name"><span class="${nameClass}">${nameHtml}</span></td><td class="nx-pair-value">${valueInner}</td>`;
+  }
+
+  function parseOtcSegment(clean) {
+    const eqIdx = findOutsideParens(clean, '=');
+    if (eqIdx <= 0) return { name: clean, value: '', note: '' };
+    const name = clean.slice(0, eqIdx).trim();
+    const remainder = clean.slice(eqIdx + 1).trim();
+    const parenIdx = remainder.indexOf('(');
+    if (parenIdx > 0) {
+      return {
+        name: name,
+        value: remainder.slice(0, parenIdx).trim(),
+        note: remainder.slice(parenIdx + 1).replace(/\)\s*$/, '').trim()
+      };
+    }
+    return { name: name, value: remainder, note: '' };
+  }
+
+  // A trailing "(note)" on the last brand of one source item applies to the
+  // brands before it that have no note of their own. That is how
+  // "Claritin = loratadine; Zyrtec = cetirizine; Allegra = fexofenadine (2nd-gen antihistamines)."
+  // is written. Brands that already have a note keep their own.
+  function parseOtcEntries(items) {
+    const entries = [];
     items.forEach(itemStr => {
-      // Semicolon split outside parens
-      const parts = splitOutsideParens(itemStr, ';');
-      parts.forEach(p => {
-        const clean = p.trim().replace(/\.$/, '');
-        if (clean) flatItems.push(clean);
+      const parts = splitOutsideParens(itemStr, ';')
+        .map(part => part.trim().replace(/\.$/, ''))
+        .filter(Boolean)
+        .map(parseOtcSegment);
+      const shared = parts.length > 1 && parts[parts.length - 1].note && parts.slice(0, -1).every(part => !part.note)
+        ? parts[parts.length - 1].note
+        : '';
+      parts.forEach(part => {
+        if (shared && !part.note) part.note = shared;
+        entries.push(part);
       });
     });
+    return entries;
+  }
 
-    const rows = flatItems.map((item, idx) => {
-      const eqIdx = findOutsideParens(item, '=');
-      let brand = item;
-      let active = '—';
-      let notes = '—';
-
-      if (eqIdx > 0) {
-        brand = item.slice(0, eqIdx).trim();
-        const remainder = item.slice(eqIdx + 1).trim();
-        const parenIdx = remainder.indexOf('(');
-        if (parenIdx > 0) {
-          active = remainder.slice(0, parenIdx).trim();
-          notes = remainder.slice(parenIdx + 1).replace(/\)$/, '').trim();
-        } else {
-          active = remainder;
-        }
+  // 1. BRAND / GENERIC: Brand | Generic | Brand | Generic
+  function renderBrandTable(items, term) {
+    const entries = items.map(raw => {
+      const line = String(raw || '').trim().replace(/\.$/, '');
+      if (line.includes(' = ')) {
+        const parts = line.split(' = ');
+        const generic = parts.slice(1).join(' = ').trim();
+        return { name: parts[0].trim(), value: generic === '—' ? '' : generic };
       }
+      return { name: line, value: '' };
+    });
+    return renderPairTable(entries, 'Brand', 'Generic', term, 'brand');
+  }
 
-      const rowClass = idx % 2 === 0 ? 'nx-row-even' : 'nx-row-odd';
-      const brandHtml = highlightTerm(esc(brand), term);
-      const activeHtml = highlightTerm(esc(active), term);
-      const notesHtml = highlightTerm(esc(notes), term);
+  // 2. OTC: Brand | Generic | Brand | Generic. The old third column is a
+  // muted second line under the generic. Empty placeholders are omitted.
+  function renderOtcTable(items, term) {
+    return renderPairTable(parseOtcEntries(items), 'Brand', 'Generic', term, 'otc');
+  }
 
-      return `
-        <tr class="${rowClass}">
-          <td class="nx-cell-otc-brand"><span class="nx-otc-badge">${brandHtml}</span></td>
-          <td class="nx-cell-otc-active"><span class="nx-active-ing">${activeHtml}</span></td>
-          <td class="nx-cell-otc-notes"><span class="nx-notes-body">${notesHtml}</span></td>
-        </tr>
-      `;
-    }).join('');
-
-    return `
-      <div class="nx-table-wrap">
-        <table class="nx-data-table nx-otc-table">
-          <thead>
-            <tr>
-              <th scope="col" style="width: 25%;">OTC BRAND NAME</th>
-              <th scope="col" style="width: 25%;">ACTIVE INGREDIENT</th>
-              <th scope="col" style="width: 50%;">CLINICAL CLASS &amp; KEY PEARLS</th>
-            </tr>
-          </thead>
-          <tbody>${rows}</tbody>
-        </table>
-      </div>
-    `;
+  // Side effects: Drug | Key | Drug | Key. Same pair table, short rows.
+  function renderSideEffectTable(items, term) {
+    const entries = items.map(raw => {
+      const text = String(raw || '').trim();
+      const colonIdx = findOutsideParens(text, ': ');
+      if (colonIdx > 0) {
+        return { name: text.slice(0, colonIdx).trim(), value: text.slice(colonIdx + 2).trim() };
+      }
+      return { name: text, value: '' };
+    });
+    return renderPairTable(entries, 'Drug', 'Key', term, 'side');
   }
 
   // 3. TOKEN MATRIX (Sig Codes, Abbreviations, Conversions)
@@ -313,8 +316,8 @@
         <table class="nx-data-table nx-clinical-table">
           <thead>
             <tr>
-              <th scope="col" style="width: 32%;">CLASSIFICATION / SCHEDULE / TERM</th>
-              <th scope="col" style="width: 68%;">CLINICAL SPECIFICATIONS, MECHANISMS &amp; PEARLS</th>
+              <th scope="col" class="nx-th-term" style="width: 32%;">Drug/Term</th>
+              <th scope="col" class="nx-th-key" style="width: 68%;">Key</th>
             </tr>
           </thead>
           <tbody>${rows}</tbody>
@@ -378,6 +381,9 @@
       case 'token-grid':
         return renderTokenGrid(items, term);
       case 'clinical-table':
+        if ((section.title || '').toLowerCase().includes('side effects')) {
+          return renderSideEffectTable(items, term);
+        }
         return renderClinicalTable(items, term);
       case 'briefing-grid':
       default:
