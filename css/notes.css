@@ -630,45 +630,44 @@ button.nx-domain-header:hover {
   line-height: 1.55;
 }
 
-/* Pair tables: name | value | gutter | name | value.
-   --nx-pair-pad-x is the shared horizontal padding from balancePairTables(). */
+/* Pair tables: name | value | name | value, alphabetical, filled column by column.
+   balancePairTables() sizes each column to its widest entry plus the same
+   horizontal padding (--nx-pair-pad-x), then splits any spare width evenly
+   across the four columns. Font sizes are the normal Notes table sizes. */
 .nx-pair-wrap {
-  overflow: visible;
+  overflow-x: auto;
 }
 .nx-data-table.nx-pair-table {
   table-layout: fixed;
   width: 100%;
-  --nx-pair-pad-x: 20px;
+  --nx-pair-pad-x: 16px;
+  --nx-pair-pad-y: 10px;
+}
+.nx-data-table.nx-pair-table.nx-pair-brand {
+  --nx-pair-pad-y: 3px;
 }
 .nx-data-table.nx-pair-table th,
 .nx-data-table.nx-pair-table td {
   box-sizing: border-box;
-  padding: 10px var(--nx-pair-pad-x);
+  padding: var(--nx-pair-pad-y) var(--nx-pair-pad-x);
   vertical-align: middle;
-  line-height: 1.4;
-}
-/* 14 brand rows at the normal badge (0.95rem) and table (0.92rem) sizes.
-   Vertical padding is the fit lever for 1600x730 with the bookmarks bar. */
-.nx-data-table.nx-pair-table.nx-pair-brand th,
-.nx-data-table.nx-pair-table.nx-pair-brand td {
-  padding: 2px var(--nx-pair-pad-x);
   line-height: 1.35;
+}
+/* Divider between the two pairs instead of a spacer column. */
+.nx-data-table.nx-pair-table th:nth-child(3),
+.nx-data-table.nx-pair-table td:nth-child(3) {
+  border-left: 1px solid var(--nx-border-silver);
 }
 .nx-data-table.nx-pair-table.nx-pair-measure th,
 .nx-data-table.nx-pair-table.nx-pair-measure td {
-  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
   white-space: nowrap;
 }
 .nx-pair-table .nx-pair-name {
   white-space: nowrap;
 }
 .nx-pair-table .nx-pair-value {
-  white-space: normal;
-}
-.nx-data-table.nx-pair-table th.nx-pair-gutter,
-.nx-data-table.nx-pair-table td.nx-pair-gutter {
-  padding: 0;
-  border-bottom-color: transparent;
   white-space: normal;
 }
 .nx-pair-drug {

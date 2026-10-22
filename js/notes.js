@@ -92,17 +92,22 @@
     return 'briefing-grid';
   }
 
-  // Four-column pair table: name | value | name | value, one row of two pairs.
-  // Row-major fill (left pair, then right pair, then the next row) so the
-  // original order reads left to right. Column-major would park the second
-  // half of the list at the top of the right side.
-  const PAIR_GUTTER = '<td class="nx-pair-gutter" aria-hidden="true"></td>';
+  // Four-column pair table: name | value | name | value, two pairs per row.
+  // Entries are sorted A-Z by name (case-insensitive) at render time and
+  // filled column by column: the left pair runs from A through the middle
+  // (ceil(n/2) entries) and the right pair continues from there.
+  function sortPairEntries(entries) {
+    return entries.slice().sort((a, b) =>
+      String(a.name || '').localeCompare(String(b.name || ''), 'en', { sensitivity: 'base' }));
+  }
 
   function renderPairTable(entries, nameHeader, valueHeader, term, kind) {
+    const sorted = sortPairEntries(entries);
+    const half = Math.ceil(sorted.length / 2);
     const rows = [];
-    for (let i = 0; i < entries.length; i += 2) {
-      const stripe = (i / 2) % 2 === 0 ? 'nx-row-even' : 'nx-row-odd';
-      rows.push(`<tr class="${stripe}">${renderPairCells(entries[i], term, kind)}${PAIR_GUTTER}${renderPairCells(entries[i + 1], term, kind)}</tr>`);
+    for (let i = 0; i < half; i++) {
+      const stripe = i % 2 === 0 ? 'nx-row-even' : 'nx-row-odd';
+      rows.push(`<tr class="${stripe}">${renderPairCells(sorted[i], term, kind)}${renderPairCells(sorted[half + i], term, kind)}</tr>`);
     }
     return `
       <div class="nx-table-wrap nx-pair-wrap">
@@ -110,7 +115,6 @@
           <colgroup>
             <col class="nx-pair-name">
             <col class="nx-pair-value">
-            <col class="nx-pair-gutter">
             <col class="nx-pair-name">
             <col class="nx-pair-value">
           </colgroup>
@@ -118,7 +122,6 @@
             <tr>
               <th scope="col" class="nx-pair-name">${esc(nameHeader)}</th>
               <th scope="col" class="nx-pair-value">${esc(valueHeader)}</th>
-              <th class="nx-pair-gutter" aria-hidden="true"></th>
               <th scope="col" class="nx-pair-name">${esc(nameHeader)}</th>
               <th scope="col" class="nx-pair-value">${esc(valueHeader)}</th>
             </tr>
@@ -129,94 +132,105 @@
     `;
   }
 
-  // Each text column is the widest content in that column, plus the same
-  // horizontal padding on every text cell. The two name columns share the
-  // wider name and the two value columns share the wider value, so the
-  // halves mirror. Leftover card width becomes equal extra padding, with a
-  // capped center gutter so one column cannot swallow the slack. When the
-  // longest keys cannot stay on one line, the value columns share what
-  // remains and the text wraps. Font size stays put.
+  // Each column is its widest entry plus the same horizontal padding on
+  // every cell. Spare card width is split evenly across all four columns.
+  // If the longest keys cannot stay on one line, names keep their width and
+  // the two value columns share the rest in proportion to their text, so
+  // keys wrap instead of the font shrinking.
   function balancePairTables() {
-    const basePad = 20;
-    const minPad = 10;
-    const maxGutter = 56;
+    const PAD = 16;
+    const MIN_PAD = 10;
+    const MIN_VALUE = 140;
     document.querySelectorAll('.nx-pair-table').forEach(table => {
       const wrap = table.closest('.nx-pair-wrap');
       const header = table.tHead && table.tHead.rows[0];
       const cols = table.querySelectorAll('col');
-      if (!wrap || !header || header.cells.length < 5 || cols.length < 5) return;
-      const contentIdx = [0, 1, 3, 4];
+      if (!wrap || !header || header.cells.length < 4 || cols.length < 4) return;
       const avail = wrap.clientWidth;
       if (!avail) return;
 
       table.classList.add('nx-pair-measure');
       table.style.tableLayout = 'auto';
       table.style.width = 'max-content';
-      contentIdx.forEach(i => { cols[i].style.width = ''; });
-      cols[2].style.width = '0px';
-      const measured = contentIdx.map(i => Math.ceil(header.cells[i].getBoundingClientRect().width));
+      cols.forEach(col => { col.style.width = ''; });
+      // Content width of each column, without padding (the divider border is
+      // counted as part of column 3).
+      const text = [0, 1, 2, 3].map(i => Math.ceil(header.cells[i].getBoundingClientRect().width));
       table.classList.remove('nx-pair-measure');
 
-      const nameW = Math.max(measured[0], measured[2]);
-      const valueW = Math.max(measured[1], measured[3]);
-      const text = [nameW, valueW, nameW, valueW];
-      const textSum = nameW * 2 + valueW * 2;
-      let pad = basePad;
-      let gutter = avail - textSum - basePad * 8;
+      const textSum = text.reduce((sum, w) => sum + w, 0);
+      let pad = PAD;
+      if (textSum + pad * 8 > avail) pad = Math.max(MIN_PAD, Math.floor((avail - textSum) / 8));
       let widths;
-
-      if (gutter >= 0) {
-        if (gutter > maxGutter) {
-          pad = basePad + (gutter - maxGutter) / 8;
-          gutter = maxGutter;
-        }
-        widths = text.map(w => w + pad * 2);
-      } else if (textSum + minPad * 8 <= avail) {
-        const room = avail - textSum;
-        gutter = room >= minPad * 8 + 16 ? 16 : 0;
-        pad = (room - gutter) / 8;
-        widths = text.map(w => w + pad * 2);
+      const spare = avail - textSum - pad * 8;
+      if (spare >= 0) {
+        const each = spare / 4;
+        widths = text.map(w => w + pad * 2 + each);
       } else {
-        pad = minPad;
-        gutter = 12;
-        const nameCols = [text[0] + pad * 2, text[2] + pad * 2];
-        let valueRoom = avail - nameCols[0] - nameCols[1] - gutter;
-        if (valueRoom < 120) {
-          gutter = 0;
-          valueRoom = avail - nameCols[0] - nameCols[1];
-        }
-        const leftValue = Math.floor(valueRoom / 2);
-        widths = [nameCols[0], leftValue, nameCols[1], valueRoom - leftValue];
+        const nameA = text[0] + pad * 2;
+        const nameB = text[2] + pad * 2;
+        // On very narrow screens keep each value column readable and let the
+        // table scroll sideways inside its wrap instead of collapsing.
+        const valueRoom = Math.max(avail - nameA - nameB, MIN_VALUE * 2);
+        const leftShare = text[1] / (text[1] + text[3] || 1);
+        const leftValue = Math.min(Math.max(valueRoom * leftShare, MIN_VALUE), valueRoom - MIN_VALUE);
+        widths = [nameA, leftValue, nameB, valueRoom - leftValue];
       }
 
       const floored = widths.map(w => Math.max(0, Math.floor(w)));
-      let gutterPx = Math.max(0, Math.floor(gutter));
-      const slack = avail - (floored.reduce((sum, w) => sum + w, 0) + gutterPx);
-      gutterPx += slack;
-      if (gutterPx < 0) {
-        const take = Math.ceil(-gutterPx / 2);
-        floored[1] = Math.max(0, floored[1] - take);
-        floored[3] = Math.max(0, floored[3] - (-gutterPx - take));
-        gutterPx = 0;
-      }
+      // Hand leftover rounding pixels out one at a time so no column hoards them.
+      let rest = avail - floored.reduce((sum, w) => sum + w, 0);
+      for (let i = 0; rest > 0; i = (i + 1) % 4, rest--) floored[i]++;
+      const tableW = floored.reduce((sum, w) => sum + w, 0);
 
-      const fittedPad = Math.min(
-        pad,
-        (floored[0] - text[0]) / 2,
-        (floored[2] - text[2]) / 2
-      );
-      table.style.setProperty('--nx-pair-pad-x', Math.max(minPad, fittedPad).toFixed(2) + 'px');
-      table.style.width = '100%';
+      table.style.setProperty('--nx-pair-pad-x', pad + 'px');
+      table.style.width = tableW + 'px';
       table.style.tableLayout = 'fixed';
-      contentIdx.forEach((colIndex, i) => { cols[colIndex].style.width = floored[i] + 'px'; });
-      cols[2].style.width = gutterPx + 'px';
+      cols.forEach((col, i) => { col.style.width = floored[i] + 'px'; });
+
+      if (table.classList.contains('nx-pair-brand')) fitPairRows(table, wrap);
+      watchPairScroller(table.closest('.nx-topic-content'));
     });
+  }
+
+  // The topic card settles its height after the domain opens (transitions),
+  // so re-balance whenever a scroller holding a pair table changes size.
+  const pairWatched = new WeakSet();
+  let pairFrame = 0;
+  const pairObserver = typeof ResizeObserver === 'function'
+    ? new ResizeObserver(() => {
+      if (pairFrame) return;
+      pairFrame = window.requestAnimationFrame(() => { pairFrame = 0; balancePairTables(); });
+    })
+    : null;
+  function watchPairScroller(scroller) {
+    if (!pairObserver || !scroller || pairWatched.has(scroller)) return;
+    pairWatched.add(scroller);
+    pairObserver.observe(scroller);
+  }
+
+  // The brand table has the most rows. Start its rows at the tight padding,
+  // then spread whatever height the topic card has left evenly over every
+  // row, up to the normal 8px, so short screens never get a scrollbar and
+  // taller ones get roomier rows.
+  function fitPairRows(table, wrap) {
+    const MIN_Y = 3;
+    const MAX_Y = 8;
+    const scroller = table.closest('.nx-topic-content');
+    table.style.setProperty('--nx-pair-pad-y', MIN_Y + 'px');
+    if (!scroller) return;
+    const padBottom = parseFloat(getComputedStyle(scroller).paddingBottom) || 0;
+    const free = scroller.getBoundingClientRect().bottom - padBottom - wrap.getBoundingClientRect().bottom;
+    const rowCount = table.rows.length;
+    if (free <= 0 || !rowCount) return;
+    const padY = Math.min(MAX_Y, MIN_Y + Math.floor(free / rowCount) / 2);
+    table.style.setProperty('--nx-pair-pad-y', padY + 'px');
   }
 
   function renderPairCells(entry, term, kind) {
     if (!entry) return '<td class="nx-pair-name"></td><td class="nx-pair-value"></td>';
     const nameHtml = highlightTerm(esc(entry.name), term);
-    const valueHtml = highlightTerm(esc(entry.value), term);
+    const valueHtml = highlightTerm(esc(String(entry.value || '').replace(/\.\s*$/, '')), term);
     let nameClass = 'nx-pair-drug';
     let valueInner = `<span class="nx-details-body">${valueHtml}</span>`;
     if (kind === 'brand') {
