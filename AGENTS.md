@@ -18,7 +18,7 @@ Do not read `docs/archive/`. Those files are history.
 0. Money and security rules outrank every process rule in this file. If the PR/merge workflow would ever need spending (on-demand credit, paid usage), stop and ask Rob.
 1. No cloud or extra agents by default. PTCB makes code changes itself on its own computer, on a branch with a draft PR. A cloud agent needs Rob's explicit OK for each launch and each follow-up or reply, and the ask must say it bills on-demand.
 2. Any usage, credit, or billing error is a hard stop: halt, report to Rob, and don't retry, launch, or reply to agents until he says so.
-3. Before any merge ask, PTCB renders screenshots itself at 1600x730 and 1366x768 (defaults for Rob's HP laptop in Chrome) and shows them.
+3. Before any merge ask, PTCB renders screenshots itself at 1600x770 and 1366x768 (the established check sizes for Rob's HP laptop in Chrome) and shows them. PTCB may add an extra 1600x730 bookmarks-bar check; that size is PTCB's assumption, not Rob's spec.
 4. Merges are unchanged: Rob OKs each one; then mark ready, squash-merge, and fast-forward the current station.
 
 - Notes tables default to alphabetical order; selective ordering only when it drastically reduces scroll or page count. Size columns to content with even padding and split spare width evenly; don't shrink font to fit, fix column widths first. These are best-practice defaults, not hard constraints.
