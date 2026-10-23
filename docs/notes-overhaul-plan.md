@@ -1,6 +1,6 @@
 # Study Notes topic-body overhaul: macro plan
 
-**Status:** topic-body layouts are still planning only. Two later edits are already in the app and must not be redone or reverted by a layout stage: Key Federal Laws (T4.4) card text, and cross-domain prev/next on both bars (section 6).
+**Status (2026-10-22):** stages 0 and 2–14 are not built. Stage 1 (cross-domain prev/next) shipped in #72. Interim, outside the stage plan: the three short pair topics (T1.3, T1.5, T1.6) render as alphabetical two-pair, four-column tables (#82, #83); a stage 3 build must keep that look or replace it with Rob's OK. Two other later edits are already in the app and must not be redone or reverted by a layout stage: Key Federal Laws (T4.4) card text, and cross-domain prev/next on both bars (section 6).
 **Baseline:** `main` @ `87e1f88`, service worker cache `ptce-2026-v82`.
 **Content status:** `data/notes.json` is audited and signed off, except the T4.4 edit in section 6. No other fact is added, removed, or reworded by a layout stage.
 
@@ -905,6 +905,6 @@ PLAN COMPLETE
 - Duplicates: each domain layout PR removes rows repeated across topics, keeping one copy where it fits best, no fact changes (e.g. Sig codes repeated across pages; formulas and alligation in T3.3 and T3.9; double-check line in T2.1/T2.2/T2.8).
 - PRs: one layout PR per domain (D1-D4, app order) plus the nav fix; each code-built visual aid (VA-01..VA-07) gets its own PR.
 - Building starts only on Rob's explicit go.
-- Rob 2026-10-22: tables default to alphabetical order; selective ordering only when it drastically reduces scroll or page count. (Two-pair tables currently fill column by column; that is PTCB's interpretation, pending Rob's confirmation.)
+- Rob 2026-10-22: tables default to alphabetical order; selective ordering only when it drastically reduces scroll or page count. (Two-pair tables fill column by column; shipped that way in #83, which Rob merged as-is on 2026-10-22.)
 
 PLAN APPROVED 2026-10-11 (decisions in section 9)

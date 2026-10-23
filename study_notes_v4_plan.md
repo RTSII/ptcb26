@@ -1,8 +1,8 @@
 # Study Notes v4: Terminal Codex Plan (ready handoff)
 
-**Status:** Next work is content review, not the theme overhaul. Order is [TODO.md](TODO.md) **Next up**. The plan-review-chat-then-stop gate is superseded. Do **not** commit the local v2 `notes.json` until the blocks runtime ships with it in that overhaul PR. Google AI art stays future (end of the Notes backlog in TODO.md).  
+**Status:** Course and Notes content audits are done (#61, #64–#68). Next work is the Notes overhaul stages in [docs/notes-overhaul-plan.md](docs/notes-overhaul-plan.md); order is [TODO.md](TODO.md) **Next up**. The plan-review-chat-then-stop gate is superseded. Do **not** commit the local v2 `notes.json` until the blocks runtime ships with it in that overhaul PR. Google AI art stays future (end of the Notes backlog in TODO.md).  
 **Topic-body layout:** [docs/notes-overhaul-plan.md](docs/notes-overhaul-plan.md) (approved 2026-10-11).  
-**Repo:** `Desktop\PTCB26` · `main` at `6dd6c07` (#40)  
+**Repo:** `Desktop\PTCB26` (Cube) and `Desktop\ptcb26` (HP) · `main` at `047727c` (#83), cache `ptce-2026-v96`  
 **Out of scope for now:** Course and Exam Matrix adoption (later). Google AI emblems / dosage-form art (future).  
 
 ---
@@ -15,7 +15,7 @@
 | 2 | Search / nav | **Trim redundant** search / filter / nav. |
 | 3 | Content shape | **Merge duplicate and misfiled notes** at content time (map below). |
 | 4 | Fact flags | Document candidates for **future review/test**. Standing rule: [AGENTS.md](AGENTS.md). |
-| 5 | Workflow | **Next step:** [TODO.md](TODO.md) **Next up**. The plan-review-chat-then-stop gate is superseded. Cloud agents + PRs. Standing rules are in [AGENTS.md](AGENTS.md). |
+| 5 | Workflow | **Next step:** [TODO.md](TODO.md) **Next up**. The plan-review-chat-then-stop gate is superseded. Local branch + draft PR; no cloud agents without Rob's OK (AGENTS.md Cost & workflow rules). Standing rules are in [AGENTS.md](AGENTS.md). |
 | 6 | Scope | Notes theme overhaul stays **Notes-only**. Course **content** review is first (no UI). Course / Exam Matrix tokens stay later. |
 
 ---
@@ -42,7 +42,7 @@ Rob lost faith in the Claude/Devin visual-aid analysis. That plan leaned on deco
 
 **Recommendation (docs-only now):** keep the v2 JSON as **local WIP only**. Do **not** merge it onto main yet — current `notes.js` counts `.items` and has **zero** `.blocks` support; swapping files would break Study Notes until the runtime rewrite ships.
 
-When implementation starts (**Next up** #3 only): ship the blocks runtime and v2 JSON together in one PR, after Rob signs off Course and Notes content (steps 1 and 2).
+When implementation starts: ship the blocks runtime and v2 JSON together in one PR. Course and Notes content are signed off (#61, #64–#68).
 
 ### Section merge map (main 44 → v2 41)
 
