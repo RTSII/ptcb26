@@ -194,7 +194,7 @@
           "items": [
             "ISMP acute-care examples: insulin, antithrombotics (warfarin, heparin, DOACs), opioids, KCl injection concentrate, chemotherapy, neuromuscular blockers, oral nononcologic methotrexate, IV inotropes (e.g. digoxin).",
             "LASA examples: hydrOXYzine vs hydrALAZINE, predniSONE vs prednisoLONE, DOPamine vs DOBUTamine, vinBLAStine vs vinCRIStine, CeleBREX vs CeleXA — use tall-man lettering.",
-            "Double-check: limit to selected high-alert meds (e.g. chemo, opioid infusions, IV insulin, heparin infusions).",
+            "Double-check: two staff separately verify; limit to selected high-alert meds (e.g. chemo, opioid infusions, IV insulin, heparin infusions).",
             "Known teratogens: isotretinoin (iPLEDGE), thalidomide, warfarin, methotrexate, valproic acid, phenytoin, ACE inhibitors/ARBs, tetracyclines, lithium, misoprostol. Statins are not an absolute avoid: stop them in most pregnant patients and weigh the individual need."
           ]
         },
@@ -204,7 +204,6 @@
             "Five rights: right patient, right drug, right dose, right route, right time (+ documentation, reason).",
             "Use 2 identifiers: full name and date of birth.",
             "Barcode scanning verifies the correct product against the order.",
-            "Double-check: selected high-alert meds only (e.g. chemo, opioid infusions, IV insulin, heparin infusions).",
             "Medication reconciliation compares a patient's meds to new orders to prevent duplication/omission.",
             "Pharmacist performs final verification; a tech cannot verify their own work.",
             "Separate inventory: segregate look-alike products on shelves/bins with warning labels; limit available concentrations/strengths."
@@ -265,7 +264,6 @@
           "items": [
             "Root cause analysis (RCA): systems-based review to find underlying process failures (not individual blame) after an error.",
             "PDSA cycle (Plan-Do-Study-Act): iterative method to test and refine quality improvements.",
-            "Double-check: two staff separately verify selected high-alert meds (e.g. chemo, opioid infusions, IV insulin, heparin infusions).",
             "Prospective DUR screens before dispensing; retrospective DUR reviews prescribing/dispensing patterns afterward.",
             "Medication reconciliation at every transition of care prevents omissions, duplications, and dose errors."
           ]
@@ -327,7 +325,6 @@
             "Percent w/v = g per 100 mL (solutions). Percent w/w = g per 100 g (creams, ointments).",
             "IV flow rate (mL/hr) = total volume ÷ total time (hr).",
             "Drops/min = (volume × drop factor) ÷ time in minutes.",
-            "Alligation (mixing two strengths to an intermediate): removed from the January 2026 PTCE calculation list — not a tested skill.",
             "Powder volume = final volume − diluent added.",
             "Dose by weight = mg/kg × weight (kg).",
             "Dilution: C1V1 = C2V2 (use the same concentration units on both sides).",

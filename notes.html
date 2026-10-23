@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=96">
-  <link rel="stylesheet" href="css/notes.css?v=96">
+  <link rel="stylesheet" href="css/style.css?v=97">
+  <link rel="stylesheet" href="css/notes.css?v=97">
 </head>
 <body class="notes">
   <!-- Matrix Header: Left = Pill + Logo, Center = Title + Icon, Right = Home Button -->
@@ -68,6 +68,17 @@
 
   <main class="container nx-container">
     <p id="nxTopicLive" class="nx-sr" aria-live="polite"></p>
+    <!-- Search filter in the idle top band above the domain accordions; folds shut while a domain is open -->
+    <section class="nx-top-filter-wrap" aria-label="Filter Study Notes">
+      <div class="nx-top-filter">
+        <svg class="nx-search-glyph" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input type="search" id="notesSearch" placeholder="SEARCH CODEX // drugs, stems, conversions, laws" autocomplete="off" spellcheck="false" aria-label="Filter study notes across all domains">
+        <button type="button" id="notesSearchClear" class="nx-search-clear" aria-label="Clear filter query" hidden>✕</button>
+      </div>
+    </section>
     <!-- Domain Accordion Area (Rendered dynamically by notes.js) -->
     <div id="notesArea" class="nx-notes-area">
       <div class="nx-loading-state">
@@ -76,20 +87,9 @@
       </div>
     </div>
 
-    <!-- Centered Search Filter Bar Below Accordion -->
-    <section class="nx-bottom-filter-wrap" aria-label="Filter Study Notes">
-      <div class="nx-bottom-filter">
-        <svg class="nx-search-glyph" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
-          <path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        <input type="search" id="notesSearch" placeholder="SEARCH CODEX // filter drugs, stems, conversions, regulations..." autocomplete="off" spellcheck="false" aria-label="Filter study notes across all domains">
-        <button type="button" id="notesSearchClear" class="nx-search-clear" aria-label="Clear filter query" hidden>✕</button>
-      </div>
-    </section>
   </main>
 
-  <script src="js/app.js?v=96"></script>
-  <script src="js/notes.js?v=96"></script>
+  <script src="js/app.js?v=97"></script>
+  <script src="js/notes.js?v=97"></script>
 </body>
 </html>
