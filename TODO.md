@@ -10,7 +10,7 @@ The consolidated open list. Main is `047727c` (#83), cache `ptce-2026-v96`. One 
 
 1. [ ] **P2 · Fold Amoxicillin into the Penicillins row?** Optional follow-up to #83 (merged as-is, Amoxicillin kept separate).
 2. [ ] **P3 · Roomier Brand / Generic rows?** Optional follow-up to #83 (rows pad 3–8px to fill the card today).
-3. [ ] **P2 · Practice Exam drill modes and Home exam card.** Quick 10, chapter test, Missed, Bookmarked, Weakest Domain/Subtopic, subtopic and difficulty filters have no Home entry since #76. Rob picks a left-side popover card or options inside the Practice Exam card; the Home Practice Exam card gets its new design with that.
+3. [ ] **P2 · Practice Exam drill modes.** Quick 10, chapter test, Missed, Bookmarked, Weakest Domain/Subtopic, subtopic and difficulty filters have no Home entry since #76. The Home Practice Exam card is gone (Home 3-column relayout, `ptce-2026-v98`): the left-column ring (`#homeExam`, formerly the Dashboard ring) is the exam entry. Rob picks where drill modes live (a popover from the ring, or options in Exam Setup).
 
 **Notes**
 
@@ -42,7 +42,7 @@ The consolidated open list. Main is `047727c` (#83), cache `ptce-2026-v96`. One 
 **Future**
 
 16. [ ] **P3 · AI art cards** (e.g. mL-to-tsp household measures). Gated behind the Notes review overhaul; code-built aids come first, and art never replaces them (plan §9 dropped VA-R1 from the overhaul).
-17. [ ] **P3 · Study Course graphic** for the Home Study Course card. TBD; the course ring stays hidden because it duplicates the Dashboard ring.
+17. [ ] **P3 · Study Course graphic** for the Home Study Course card. TBD; the course ring stays hidden because it would duplicate the Practice Exam ring.
 18. [ ] **P3 · Device and deploy passes (Rob to confirm).** iPhone Safari (portrait/landscape, safe area, tap targets, flip, long rationales, narrow Dashboard); accessibility (headings, focus, keyboard, contrast, not color alone, labels, reduced motion); GitHub Pages deploy.
 
 Course is the primary path; Notes summarize it. Lock course facts before Notes so the same error is not fixed twice. Course and notes audits use [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md). Standing rules: [AGENTS.md](AGENTS.md).
@@ -111,7 +111,7 @@ Superseded by the block above (do not follow these):
 - [x] Flashcards trigger: tabbed physical Rolodex index card with stepped deck depth and spindle notch icon
 - [x] Study Notes Codex v2 baseline (3-zone header, layouts, parenthesis-safe parsing)
 - [x] Cascading Katakana Matrix rain FX (depth layers, white lead tips, no static grid floor overlays)
-- [x] Service worker and `?v=` cache busters. Current name: `ptce-2026-v96` in `sw.js`
+- [x] Service worker and `?v=` cache busters. Current name: `ptce-2026-v98` in `sw.js`
 - [x] Study Course home: chapters closed on load, title in the centered header, chapter titles centered (`ptce-2026-v49`)
 - [x] Home course card (#37)
 - [x] Dashboard Resurrections glass cards with no rain on the Dashboard (#38)
@@ -122,6 +122,7 @@ Superseded by the block above (do not follow these):
 - [ ] Trim redundant Notes search/filter/nav chrome (bottom filter done in #86: moved to the top band)
 - [ ] Shared `matrix.css` tokens — `UI_STANDARDS.md` documents the UI templates; extraction stays open (Next up 7)
 - [x] Home relayout (#76), telemetry helix (#77, #80), and rain mask (#81). `UI_STANDARDS.md` Home regions now point at `section.hx-helix`.
+- [x] Home 3-column relayout (`ptce-2026-v98`): Practice Exam ring left (the Dashboard ring retitled, links to `exam.html`), Study Course over Flashcards + Notes center, helix right. Old Practice Exam card removed; the helix tiles are the Dashboard entry.
 
 ## Later
 

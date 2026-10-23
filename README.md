@@ -12,7 +12,7 @@ Seven static pages, served from the repo root:
 
 | Page | Role |
 |---|---|
-| `index.html` | Home. Study Course is the large card; the Dashboard ring, Practice Exam, Flashcards, and Study Notes cards sit around it, and a telemetry card helix runs down the far-right column. Quiz Mode has no Home card since #76; `quiz.html` still works. |
+| `index.html` | Home. Three columns: the Practice Exam ring on the left, Study Course over Flashcards and Study Notes in the center, and a telemetry card helix (the Dashboard entry) on the right. Quiz Mode has no Home card since #76; `quiz.html` still works. |
 | `course.html` | 12 modules. Work a lesson, then jump into a domain quiz. |
 | `notes.html` | Compressed notes by domain. |
 | `flashcards.html` | Flip / filter deck. |
@@ -145,7 +145,7 @@ There is no `app/` directory. Shared helpers are `window.App` (`Storage`, `Util`
 
 ## Current state
 
-Home is the reference HUD (#76 relayout, #77/#80 helix and ring, #81 rain mask). Matrix rain on Home shows only inside the cards and the Dashboard ring; the gaps, header, footer, and helix column stay dark. Study Course is the large card and opens the course list. That list has one Resume button and four domain accordions matching Notes (same names, weights, and badges; closed on load; the same vertical gaps). Opening one shows the Notes domain-pill row, moves that domain to the top with its modules and lessons in order, and the other domains stay collapsed cards below it. Practice Exam setup is the Exam Setup console. Dashboard cards are Resurrections glass, and that page does not run the rain. Notes accordions start closed. Header titles share one style ([docs/general-ui-standards.md](docs/general-ui-standards.md), [UI_STANDARDS.md](UI_STANDARDS.md)). The Home wordmark is on Home and Course; Notes, Dashboard, Quiz, Practice Exam, and Flashcards still use the older pill-icon wordmark ([TODO.md](TODO.md)).
+Home is the reference HUD (#76 relayout, #77/#80 helix and ring, #81 rain mask). Matrix rain on Home shows only inside the cards and the Practice Exam ring; the gaps, header, footer, and helix column stay dark. Study Course is the large card and opens the course list. That list has one Resume button and four domain accordions matching Notes (same names, weights, and badges; closed on load; the same vertical gaps). Opening one shows the Notes domain-pill row, moves that domain to the top with its modules and lessons in order, and the other domains stay collapsed cards below it. Practice Exam setup is the Exam Setup console. Dashboard cards are Resurrections glass, and that page does not run the rain. Notes accordions start closed. Header titles share one style ([docs/general-ui-standards.md](docs/general-ui-standards.md), [UI_STANDARDS.md](UI_STANDARDS.md)). The Home wordmark is on Home and Course; Notes, Dashboard, Quiz, Practice Exam, and Flashcards still use the older pill-icon wordmark ([TODO.md](TODO.md)).
 
 Notes still render the committed legacy `items` JSON. The three short pair topics (Common Brand / Generic Pairs, Common OTC Active Ingredients, Key Side Effects & Monitoring) render as alphabetical two-pair, four-column tables filled column by column (#82, #83). The topic-body layout stages in [docs/notes-overhaul-plan.md](docs/notes-overhaul-plan.md) are not built yet. The v2 `blocks` file stays outside `data/` until the blocks runtime ships ([AGENTS.md](AGENTS.md)). The Notes plan is [study_notes_v4_plan.md](study_notes_v4_plan.md). What to do next is [TODO.md](TODO.md) **Next up**.
 
