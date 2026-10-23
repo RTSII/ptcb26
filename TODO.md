@@ -2,7 +2,54 @@
 
 Live backlog. History in `docs/archive/` is not this list.
 
-## Next up (in order)
+## Next up (remaining tasks, 2026-10-22)
+
+The consolidated open list. Main is `047727c` (#83), cache `ptce-2026-v96`. One PR per task unless noted; Rob OKs every merge ([AGENTS.md](AGENTS.md) Cost & workflow rules). Priority: **P1** next, **P2** soon, **P3** later.
+
+**Decisions waiting on Rob**
+
+1. [ ] **P2 · Fold Amoxicillin into the Penicillins row?** Optional follow-up to #83 (merged as-is, Amoxicillin kept separate).
+2. [ ] **P3 · Roomier Brand / Generic rows?** Optional follow-up to #83 (rows pad 3–8px to fill the card today).
+3. [ ] **P2 · Practice Exam drill modes and Home exam card.** Quick 10, chapter test, Missed, Bookmarked, Weakest Domain/Subtopic, subtopic and difficulty filters have no Home entry since #76. Rob picks a left-side popover card or options inside the Practice Exam card; the Home Practice Exam card gets its new design with that.
+
+**Notes**
+
+4. [ ] **P1 · Remove the bottom "Search Codex" filter.** `section.nx-bottom-filter-wrap` / `#notesSearch` in `notes.html` and its `css/notes.css` rules (UI_STANDARDS rule 8; v4 decision 2).
+5. [ ] **P2 · Notes overhaul stage 0 + stage 2.** `check-notes-containment.js` harness, then the body shell (`css/notes-body.css`, `js/notes-body.js`, `js/notes-layouts.js`). None of these files exist yet ([docs/notes-overhaul-plan.md](docs/notes-overhaul-plan.md) §7). Stage 1 (cross-domain prev/next) shipped in #72.
+6. [ ] **P2 · Notes overhaul stages 3–7: one layout PR per domain (D1–D4).** Not built. #82/#83 only re-laid the three short pair tables. Each domain PR also removes cross-topic duplicate rows (plan §9).
+7. [ ] **P3 · Notes visual aids VA-01–VA-07 and Matrix palette.** One PR per code-built aid (stages 8–14), plus retiring slate for the Matrix-cohesive palette and the shared `css/matrix.css` tokens (not extracted yet).
+
+**Dashboard / Home**
+
+8. [ ] **P2 · Dashboard live-data scroll.** With heavy saved progress the Dashboard main region still scrolls (about 300px when logged 10-19; about 800px reported 10-22, verify). Fix candidates: fixed chart height, show only the last few quiz attempts. Rob may still combine Dashboard with Home telemetry.
+9. [ ] **P2 · Old pill-icon headers to the Home brand.** Notes, Dashboard, Quiz, Practice Exam, and Flashcards still use `matrix-pill-icon`; only Home and Course use `hx-logo`.
+
+**Content fixes**
+
+10. [ ] **P1 · Duplicate "Double-check … selected high-alert meds" line ×3** in Patient Safety: High-Alert & LASA Drugs, Error Prevention Basics, Quality Improvement Methods. Keep one copy, no fact change.
+11. [ ] **P1 · Duplicate alligation line ×2** in Order Entry: Core Calculations and Essential Calculations Reference. Keep one copy, no fact change.
+12. [ ] **P3 · Open verify flags.** Insulin onset/peak/duration curve (F-011, F-012); C-PS-004, C-PS-005; C-OE-001, C-OE-003; and the unsourced, deferred lines in the done log below. Source each per [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md) or leave it out.
+13. [ ] **P3 · Course vs Notes breakdown leftovers (verify).** Auxiliary labels (course `m6l1` vs Notes Order Entry); OBRA-90 DUR placement; course-only ADC overrides / agencies / technician scope; Notes-only FMEA and "tech cannot verify own work"; garb vs PPE order. The four-domain accordion match itself shipped (#63).
+
+**Docs**
+
+14. [x] **Docs refresh** (#85, 10-22): README current state, this list, UI_STANDARDS helix region, plan status lines.
+
+**Study sign-off**
+
+15. [ ] **P2 · Study sign-off passes with punch lists:** Quick 10 → Chapter Test → 30-question practice exam. Report gaps, stale post-2020 facts, wrong answers, and UI blockers. Course content (including Federal and Patient Safety) was signed off 2026-10-10 (#61). `node validate.js` does not close this loop.
+
+**Future**
+
+16. [ ] **P3 · AI art cards** (e.g. mL-to-tsp household measures). Gated behind the Notes review overhaul; code-built aids come first, and art never replaces them (plan §9 dropped VA-R1 from the overhaul).
+17. [ ] **P3 · Study Course graphic** for the Home Study Course card. TBD; the course ring stays hidden because it duplicates the Dashboard ring.
+18. [ ] **P3 · Device and deploy passes (Rob to confirm).** iPhone Safari (portrait/landscape, safe area, tap targets, flip, long rationales, narrow Dashboard); accessibility (headings, focus, keyboard, contrast, not color alone, labels, reduced motion); GitHub Pages deploy.
+
+Course is the primary path; Notes summarize it. Lock course facts before Notes so the same error is not fixed twice. Course and notes audits use [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md). Standing rules: [AGENTS.md](AGENTS.md).
+
+## Done log
+
+Shipped work kept for its verify flags and deferred lines. Item 12 above tracks what is still open here.
 
 - [x] **Fact flags** (#42). Six plan flags, plus course `m1l5` SSRI stems and `m1l4` / `m3l2` insulin and detemir. Insulin onset/peak/duration curve stays verify (F-011, F-012).
 - [x] **Domain 1 Course accuracy fixes** (#43). FACT and misleading claims from the Domain 1 course audit.
@@ -18,10 +65,9 @@ Live backlog. History in `docs/archive/` is not this list.
   - [x] **Federal gap content.** C-FED-005; C-FED-006; C-FED-007; C-FED-010; C-FED-023; C-FED-026; C-FED-027. Applied as GF-FED-001–010 in m10 and m12.
     - **Unsourced, deferred:** same-day issuance of multiple Schedule II prescriptions. Current 21 CFR 1306.12(b) does not require them to be issued on the same day.
   - **Partial scope (lesson stays on the default path):** `m11l3` — FDCA history, PPPA, ADA, and NDC sit outside 2.1–2.6; the Medication Guide bullet supports 2.4. `m12l2` — FEFO, expired stock, and NDC returns sit outside FDA recall 2.5; recall classes and initiation stay on the default path.
-- [x] **Course gap-fill.** Medications, Patient Safety, Order Entry, and Federal Requirements. Next is item 1.
-
-1. [x] **Study Course content and layout** signed off (Rob, 2026-10-10).
-2. **Match Study Course accordion UI/page to Study Notes accordion.** Waits until Notes overhaul step 1 (diff current `data/notes.json` against `a0e7321`) confirms the Notes breakdown.
+- [x] **Course gap-fill.** Medications, Patient Safety, Order Entry, and Federal Requirements (#48–#51).
+- [x] **Study Course content and layout** signed off (Rob, 2026-10-10; #60 fit, #61 sign-off).
+- [x] **Match Study Course accordion UI/page to Study Notes accordion** (#63). Open breakdown leftovers are Next up item 13.
    - Auxiliary labels: course Patient Safety `m6l1` vs Notes Order Entry.
    - [x] C-II refill and partial fill: Notes Order Entry copy removed. Federal schedules and Key Federal Laws keep them (course `m10l2`).
    - OBRA-90 DUR: course Federal `m11l2` only vs Notes also under Patient Safety.
@@ -30,15 +76,15 @@ Live backlog. History in `docs/archive/` is not this list.
    - Notes-only: FMEA; tech cannot verify their own work. Concurrent DUR is in course `m4l4`.
    - Garb vs PPE: course `m5l2` sterile garb order vs Notes routine PPE order.
    - [x] Consolidate Study Course structure into exactly the 4 main domains as accordion groups (Medications, Patient Safety, Order Entry, Federal), combining sub-domains/modules under them. Long lists are fine; the accordion moves the active section to the top.
-3. [x] **Study Notes content audit** (#64–#67). Same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
-4. **Notes theme overhaul.** Approved layout: [docs/notes-overhaul-plan.md](docs/notes-overhaul-plan.md). Earlier handoff: `study_notes_v4_plan.md`.
+- [x] **Study Notes content audit** (#64–#67), missing topics added (#68), misplaced topics moved (#58), duplicates dropped (#62). Same standard ([AUDIT_RUBRIC.md](AUDIT_RUBRIC.md)).
+- **Notes theme overhaul** (open: Next up items 4–7). Approved layout (#70): [docs/notes-overhaul-plan.md](docs/notes-overhaul-plan.md). Earlier handoff: `study_notes_v4_plan.md`.
    - [x] Key Federal Laws: biennial inventory and the 2-year prescription-record line are one card. The C-II–IV transfer-warning card is removed on purpose. The C-II receipt card stays separate. Do not restore or resplit those.
    - [x] Notes prev/next on the top and bottom bars cross domain boundaries. They stop only on the first topic and the last topic.
    - [x] DSCSA card 7 spans the full topic-body width. Leave the card text and the `#07` index as they are. Card 6's label is Handling suspect product.
    - [x] Known Teratogens is a row on Patient Safety High-Alert & LASA Drugs, not its own Medications topic. Do not put that topic back.
    - [x] Step 1, before layout: diff current `data/notes.json` against `a0e7321` (before `a7542b5`) and list lost or garbled content and broken titles/numbering to restore (#62).
+   - [x] Short pair topics as alphabetical two-pair, four-column tables filled column by column (#82, #83, merged 2026-10-22).
 
-Course is the primary path; Notes summarize it. Lock course facts before Notes so the same error is not fixed twice. Course and notes audits use [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md). Standing rules: [AGENTS.md](AGENTS.md).
 
 Superseded by the block above (do not follow these):
 
@@ -54,7 +100,7 @@ Superseded by the block above (do not follow these):
 - [x] Content audit: main 44→v2 41 merge map, dup clusters, 6 review flags documented
 - [ ] **Do not commit** the local v2 notes file, and keep it outside `data/` until `js/notes.js` reads `blocks` (old runtime renders it empty). Ship it with the blocks runtime in the Notes theme overhaul (see **Next up**).
 - [ ] Course / Exam Matrix tokens later
-- [ ] Future: Google AI prompt pack / `assets/notes` emblems + dosage-form specimens (deferred; Word doc reference-only)
+- [ ] Future (Next up 16): Google AI prompt pack / `assets/notes` emblems + dosage-form specimens (deferred; Word doc reference-only)
 - [ ] Future: clarify/revive decorative art only after space-saving visual-aid strategy is locked
 
 
@@ -65,36 +111,26 @@ Superseded by the block above (do not follow these):
 - [x] Flashcards trigger: tabbed physical Rolodex index card with stepped deck depth and spindle notch icon
 - [x] Study Notes Codex v2 baseline (3-zone header, layouts, parenthesis-safe parsing)
 - [x] Cascading Katakana Matrix rain FX (depth layers, white lead tips, no static grid floor overlays)
-- [x] Service worker and `?v=` cache busters. Current name: `ptce-2026-v67` in `sw.js`
+- [x] Service worker and `?v=` cache busters. Current name: `ptce-2026-v96` in `sw.js`
 - [x] Study Course home: chapters closed on load, title in the centered header, chapter titles centered (`ptce-2026-v49`)
 - [x] Home course card (#37)
 - [x] Dashboard Resurrections glass cards with no rain on the Dashboard (#38)
 - [x] Exam Setup console (#39)
 - [x] Study Course Resume button with one-open accordions and the Home brand (#40)
-- [ ] Switch the Dashboard, Quiz, Practice Exam, and Flashcards headers to the Home brand
-- [ ] Notes palette: Matrix-cohesive (retire slate-as-end-state) per `study_notes_v4_plan.md`
-- [ ] Trim redundant Notes search/filter/nav chrome
-- [ ] Shared `matrix.css` tokens — `UI_STANDARDS.md` documents the UI templates; extraction stays open
-- [ ] After the Home telemetry helix is signed off, point the Home telemetry named region at `section.hx-helix` in `UI_STANDARDS.md`.
-
-## Study sign-off
-
-Punch-list loop still open:
-
-1. Quick 10
-2. Chapter Test
-3. 30-question practice exam
-
-`node validate.js` only checks structure and a few copy assertions. It does not close this loop. The pre-PR loop is in [AGENTS.md](AGENTS.md).
+- [ ] Switch the Notes, Dashboard, Quiz, Practice Exam, and Flashcards headers to the Home brand (Next up 9)
+- [ ] Notes palette: Matrix-cohesive (retire slate-as-end-state) per `study_notes_v4_plan.md` (Next up 7)
+- [ ] Trim redundant Notes search/filter/nav chrome (bottom filter: Next up 4)
+- [ ] Shared `matrix.css` tokens — `UI_STANDARDS.md` documents the UI templates; extraction stays open (Next up 7)
+- [x] Home relayout (#76), telemetry helix (#77, #80), and rain mask (#81). `UI_STANDARDS.md` Home regions now point at `section.hx-helix`.
 
 ## Later
 
-- [ ] **Dashboard live-data scroll.** With live data the Dashboard still scrolls about 300px in the main region. Possible fix: a fixed chart height and showing only the last few quiz attempts. Deferred because Rob may combine the Progress Dashboard with Home Telemetry.
-- [ ] **Home helix telemetry column (PR 2).** A vertical 3D helix of cards in the far-right column (`.hx-tele`, cols 10–12). It auto-scrolls, pauses on hover, scrubs up and down on click-hold or drag, scrolls with the mouse wheel on hover, and a quick click opens the matching Dashboard section. Look reference: https://motion.dev/examples/react-gallery-helix. Rebuild in vanilla JS/CSS. No React and no paid dependency. Include a reduced-motion fallback.
-- [ ] **Practice Exam drill-mode gaps.** After the Home Quiz card is removed: Quick 10, chapter test, Missed, Bookmarked, Weakest Domain and Subtopic, and subtopic and difficulty filters. Rob will choose between a left-side card that toggles a popover and putting these options in the Exam parent card.
-- [ ] **Study Course graphic.** A new graphic for the Home Study Course card. TBD. The circular course ring stays hidden because it duplicates the Dashboard reactor.
+- [ ] **Dashboard live-data scroll.** Next up item 8.
+- [x] **Home helix telemetry column.** Shipped in #77, #80, #81.
+- [ ] **Practice Exam drill-mode gaps.** Next up item 3.
+- [ ] **Study Course graphic.** Next up item 17.
 
-## From ROADMAP (Rob to confirm)
+## From ROADMAP (Rob to confirm; Next up item 18)
 
 - [ ] iPhone Safari pass: portrait and landscape, safe area, no horizontal scroll, tap targets, flashcard flip, long rationales, and the Dashboard on a narrow screen.
 - [ ] Accessibility pass: semantic headings, visible keyboard focus, keyboard navigation, contrast, feedback not by color alone, meaningful labels, and reduced motion.

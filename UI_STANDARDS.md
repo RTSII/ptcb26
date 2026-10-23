@@ -62,14 +62,13 @@ This file extends [docs/general-ui-standards.md](docs/general-ui-standards.md) (
 One line per region: name, page, locator, what it contains. Locators are the live nodes in that page's HTML or JS.
 
 - Home header | home | `body.home header.hx-header` | Wordmark
-- Home mode grid | home | `nav.hx-grid` | Study Course, telemetry, Quiz, Practice Exam, Flashcards, Notes, Dashboard
+- Home mode grid | home | `nav.hx-grid` | Study Course, telemetry helix, Practice Exam, Flashcards, Notes, Dashboard
 - Home course card | home | `#hxCourseLink` | Study Course entry, next lesson, completion ring, domain bars
-- Home telemetry | home | `section.hx-tele` | Quiz accuracy, counts, blueprint weights
-- Home quiz card | home | `a.hx-quiz` | Quiz Mode entry
+- Home telemetry helix | home | `section.hx-helix` | Far-right card helix: quiz accuracy, counts, blueprint weights; each card links to its Dashboard section
 - Home exam card | home | `a.hx-exam` | Practice Exam entry and best score
 - Home flashcard card | home | `a.hx-flash` | Flashcards entry
 - Home notes card | home | `a.hx-notes` | Study Notes entry
-- Home dashboard core | home | `#homeProgress` | Dashboard entry and live counts
+- Home dashboard core | home | `#homeProgress` | Dashboard ring entry and live counts
 - Course header | course list | `body.course header.app-header` | Wordmark, Study Course title, Home
 - Course list | course list | `#courseList` | Resume control and the domain accordions
 - Course resume | course list | `.course-resume` | Start or Resume link for the saved lesson
