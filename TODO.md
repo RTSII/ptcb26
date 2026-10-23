@@ -33,7 +33,7 @@ The consolidated open list. Main is `047727c` (#83), cache `ptce-2026-v96`. One 
 
 **Docs**
 
-14. [ ] **P1 · Merge the 10-22 docs refresh PR** (README current state, this list, UI_STANDARDS helix region, plan status lines).
+14. [x] **Docs refresh** (#85, 10-22): README current state, this list, UI_STANDARDS helix region, plan status lines.
 
 **Study sign-off**
 
