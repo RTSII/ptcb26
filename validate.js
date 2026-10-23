@@ -257,8 +257,8 @@ console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
 const cacheVer = (sw.match(/const CACHE = 'ptce-2026-v(\d+)'/) || [])[1];
-if (cacheVer !== '98') fail('sw.js cache version should be bumped to ptce-2026-v98');
-else ok('sw.js cache is ptce-2026-v98');
+if (cacheVer !== '99') fail('sw.js cache version should be bumped to ptce-2026-v99');
+else ok('sw.js cache is ptce-2026-v99');
 const shellPages = ['index.html', 'course.html', 'notes.html', 'flashcards.html', 'quiz.html', 'exam.html', 'dashboard.html'];
 let shellMiss = 0;
 shellPages.forEach((page) => {

@@ -62,12 +62,12 @@ This file extends [docs/general-ui-standards.md](docs/general-ui-standards.md) (
 One line per region: name, page, locator, what it contains. Locators are the live nodes in that page's HTML or JS.
 
 - Home header | home | `body.home header.hx-header` | Wordmark
-- Home mode grid | home | `nav.hx-grid` | Desktop: three sections with wide spacer gaps, side columns equal (`1fr`), center `1.5fr`: Practice Exam ring left, Study Course over Flashcards + Notes center (under the logo), telemetry helix right
-- Home course card | home | `#hxCourseLink` | Study Course entry, next lesson (up to two lines), domain bars (2 × 2 on desktop)
+- Home mode grid | home | `nav.hx-grid` | Desktop: size container, equal side columns (22%) for the Practice Exam ring (left) and telemetry helix (right). Study Course is the centered anchor (52cqw wide, landscape, under the logo). Below it, Flashcards (main's 421:251 index-card shape) sits near the ring and Notes (wider, shorter) near the helix, with a deliberate gap between them. Leftover height splits above and below the stack
+- Home course card | home | `#hxCourseLink` | Study Course entry, next lesson, domain bars
 - Home telemetry helix | home | `section.hx-helix` | Right-column card helix, untitled: avg quiz score, counts, blueprint weights; each card links to the Dashboard section that shows the same number. Cards stay well short of the column width. It is Home's only Dashboard entry
 - Home flashcard card | home | `a.hx-flash` | Flashcards entry
 - Home notes card | home | `a.hx-notes` | Study Notes entry
-- Home exam ring | home | `#homeExam` (`a.hx-dash-core`) | Practice Exam entry: reactor ring, stacked PRACTICE / EXAM title, links to `exam.html`; left column, centered on the middle row
+- Home exam ring | home | `#homeExam` (`a.hx-dash-core`) | Practice Exam entry: reactor ring (18.5cqw), stacked PRACTICE / EXAM title, links to `exam.html`; centered in the left column
 - Course header | course list | `body.course header.app-header` | Wordmark, Study Course title, Home
 - Course list | course list | `#courseList` | Resume control and the domain accordions
 - Course resume | course list | `.course-resume` | Start or Resume link for the saved lesson

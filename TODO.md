@@ -10,7 +10,7 @@ The consolidated open list. Main is `047727c` (#83), cache `ptce-2026-v96`. One 
 
 1. [ ] **P2 · Fold Amoxicillin into the Penicillins row?** Optional follow-up to #83 (merged as-is, Amoxicillin kept separate).
 2. [ ] **P3 · Roomier Brand / Generic rows?** Optional follow-up to #83 (rows pad 3–8px to fill the card today).
-3. [ ] **P2 · Practice Exam drill modes.** Quick 10, chapter test, Missed, Bookmarked, Weakest Domain/Subtopic, subtopic and difficulty filters have no Home entry since #76. The Home Practice Exam card is gone (Home 3-column relayout, `ptce-2026-v98`): the left-column ring (`#homeExam`, formerly the Dashboard ring) is the exam entry. Rob picks where drill modes live (a popover from the ring, or options in Exam Setup).
+3. [ ] **P2 · Practice Exam drill modes.** Quick 10, chapter test, Missed, Bookmarked, Weakest Domain/Subtopic, subtopic and difficulty filters have no Home entry since #76. The Home Practice Exam card is gone (Home 3-column relayout, `ptce-2026-v99`): the left-column ring (`#homeExam`, formerly the Dashboard ring) is the exam entry. Rob picks where drill modes live (a popover from the ring, or options in Exam Setup).
 
 **Notes**
 
@@ -111,7 +111,7 @@ Superseded by the block above (do not follow these):
 - [x] Flashcards trigger: tabbed physical Rolodex index card with stepped deck depth and spindle notch icon
 - [x] Study Notes Codex v2 baseline (3-zone header, layouts, parenthesis-safe parsing)
 - [x] Cascading Katakana Matrix rain FX (depth layers, white lead tips, no static grid floor overlays)
-- [x] Service worker and `?v=` cache busters. Current name: `ptce-2026-v98` in `sw.js`
+- [x] Service worker and `?v=` cache busters. Current name: `ptce-2026-v99` in `sw.js`
 - [x] Study Course home: chapters closed on load, title in the centered header, chapter titles centered (`ptce-2026-v49`)
 - [x] Home course card (#37)
 - [x] Dashboard Resurrections glass cards with no rain on the Dashboard (#38)
@@ -122,7 +122,7 @@ Superseded by the block above (do not follow these):
 - [ ] Trim redundant Notes search/filter/nav chrome (bottom filter done in #86: moved to the top band)
 - [ ] Shared `matrix.css` tokens — `UI_STANDARDS.md` documents the UI templates; extraction stays open (Next up 7)
 - [x] Home relayout (#76), telemetry helix (#77, #80), and rain mask (#81). `UI_STANDARDS.md` Home regions now point at `section.hx-helix`.
-- [x] Home 3-column relayout (`ptce-2026-v98`): Practice Exam ring left (the Dashboard ring retitled, links to `exam.html`), Study Course over Flashcards + Notes center, helix right. Old Practice Exam card removed; the helix tiles are the Dashboard entry.
+- [x] Home 3-column relayout (`ptce-2026-v99`, #87): Practice Exam ring left (the Dashboard ring retitled and ~31% smaller, links to `exam.html`), landscape Study Course centered as the anchor, Flashcards (main shape) and a wider, shorter Notes card offset below it, helix right. Old Practice Exam card removed; the helix tiles are the Dashboard entry.
 
 ## Later
 
