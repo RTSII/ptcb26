@@ -13,6 +13,18 @@ Plans and briefs name the regions they touch, and the regions they do not touch,
 
 Do not read `docs/archive/`. Those files are history.
 
+## Cost & workflow rules (Rob, 2026-10-22)
+
+0. Money and security rules outrank every process rule in this file. If the PR/merge workflow would ever need spending (on-demand credit, paid usage), stop and ask Rob.
+1. No cloud or extra agents by default. PTCB makes code changes itself on its own computer, on a branch with a draft PR. A cloud agent needs Rob's explicit OK for each launch and each follow-up or reply, and the ask must say it bills on-demand.
+2. Any usage, credit, or billing error is a hard stop: halt, report to Rob, and don't retry, launch, or reply to agents until he says so.
+3. Before any merge ask, PTCB renders screenshots itself at 1600x770 and 1366x768 (the established check sizes for Rob's HP laptop in Chrome) and shows them. PTCB may add an extra 1600x730 bookmarks-bar check; that size is PTCB's assumption, not Rob's spec.
+4. Merges are unchanged: Rob OKs each one; then mark ready, squash-merge, and fast-forward the current station.
+5. Locked specs: the established viewport targets (1600x770 and 1366x768, the usable area of Rob's HP laptop 1600x900 screen in Chrome) and other long-established key specs are never changed, replaced, or reinterpreted without Rob's explicit OK and North's verification. Any extra test sizes are labeled as the agent's own checks, not Rob's spec.
+6. Card fit is the agent's job: when Rob flags a UI problem, work out from the page itself which card or container he means, measure its usable area at both targets, and design the content to fill it well, with balanced columns, even padding, and readable type. Rob shouldn't have to crop screenshots or spell out obvious layouts (like a 4-column brand/generic table). Ask only if it's genuinely ambiguous, and then ask once with an annotated screenshot.
+
+- Notes tables default to alphabetical order; selective ordering only when it drastically reduces scroll or page count. Size columns to content with even padding and split spare width evenly; don't shrink font to fit, fix column widths first. These are best-practice defaults, not hard constraints.
+
 ## Frontend edits
 
 1. Docs first: before any edit to existing frontend code or page content, read this file, [docs/general-ui-standards.md](docs/general-ui-standards.md), [UI_STANDARDS.md](UI_STANDARDS.md), [README.md](README.md), and that page's HTML, CSS, and JS once. Reuse existing classes and patterns. No new layout unless Rob asked for one.
