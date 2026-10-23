@@ -277,6 +277,7 @@ a.hx-card:hover .hx-go i { transform: translateX(4px); }
   --hx-fill-b: rgba(3, 16, 9, 0.85);
   --edge: linear-gradient(140deg, rgba(182, 255, 201, 0.85), rgba(0, 255, 65, 0.35) 30%, rgba(0, 255, 65, 0.16) 60%, rgba(5, 217, 232, 0.55));
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-rows: minmax(0, 1fr) auto;
   align-items: stretch;
   justify-items: stretch;
@@ -478,8 +479,8 @@ a.hx-card:hover .hx-go i { transform: translateX(4px); }
   position: absolute;
   left: 50%;
   top: 50%;
-  width: min(128px, 74%);
-  height: calc(clamp(60px, 11vh, 78px) * var(--hx-fit));
+  width: min(156px, 60%);
+  height: calc(clamp(64px, 12vh, 92px) * var(--hx-fit));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -505,7 +506,7 @@ a.hx-card:hover .hx-go i { transform: translateX(4px); }
 .hx-helix-num {
   font-family: var(--hx-display);
   font-weight: 700;
-  font-size: calc(clamp(0.95rem, 1.05vw, 1.45rem) * var(--hx-fit));
+  font-size: calc(clamp(1.05rem, 1.2vw, 1.6rem) * var(--hx-fit));
   line-height: 1;
   color: #fff;
   text-shadow: 0 0 14px rgba(0, 255, 65, 0.4);
@@ -514,7 +515,7 @@ a.hx-card:hover .hx-go i { transform: translateX(4px); }
 }
 .hx-helix-lbl {
   font-family: var(--hx-mono);
-  font-size: 0.58rem;
+  font-size: 0.64rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--hx-dim);
@@ -527,29 +528,7 @@ a.hx-card:hover .hx-go i { transform: translateX(4px); }
   outline-offset: 3px;
 }
 
-/* ---------- Exam specs ---------- */
-.hx-specs {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  width: 100%;
-  max-width: 200px;
-  margin: 0;
-}
-.hx-specs div {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-  padding: calc(4px * var(--hx-fit)) 2px;
-  border-bottom: 1px dashed rgba(0, 255, 65, 0.16);
-  font-family: var(--hx-mono);
-  font-size: calc(clamp(0.7rem, 0.55vw, 0.84rem) * var(--hx-fit));
-}
-.hx-specs dt { color: var(--hx-dim); letter-spacing: 0.08em; text-transform: uppercase; }
-.hx-specs dd { color: #fff; margin: 0; font-weight: 700; }
-
 /* Accent tints: one per mode, used sparingly */
-.hx-exam  { --edge: linear-gradient(160deg, rgba(0, 255, 65, 0.6), rgba(0, 255, 65, 0.14) 45%, rgba(5, 217, 232, 0.45)); }
 .hx-notes { --edge: linear-gradient(140deg, rgba(0, 255, 65, 0.5), rgba(0, 255, 65, 0.12) 50%, rgba(0, 255, 65, 0.4)); }
 
 /* ---------- Flashcards: Matrix Rolodex Index Card (Tactical Engram Deck) ---------- */
@@ -782,50 +761,33 @@ a.hx-card:hover .hx-go i { transform: translateX(4px); }
   padding: 4px;
   max-width: 68%;
   max-height: 68%;
+  /* The wide tag line sits on top; nudge the stack down so every line clears the pink arc. */
+  transform: translateY(3.4cqmin);
 }
 .dash-core-tag {
   font-family: var(--hx-mono);
-  font-size: clamp(0.48rem, 5.4cqmin, 0.68rem);
-  letter-spacing: 0.12em;
+  font-size: clamp(0.5625rem, 4cqmin, 0.75rem);
+  letter-spacing: 0;
+  word-spacing: -0.2em;
   color: var(--hx-green);
   text-transform: uppercase;
   white-space: nowrap;
 }
+.dash-core-title span { display: block; }
 .dash-core-title {
   font-family: var(--hx-display);
   font-weight: 700;
-  font-size: clamp(0.85rem, 13cqmin, 1.55rem);
+  font-size: clamp(0.8rem, 6.8cqmin, 1.85rem);
   letter-spacing: 0.08em;
   color: #fff;
   line-height: 1.05;
   text-shadow: 0 0 14px rgba(0, 255, 65, 0.6);
   white-space: nowrap;
 }
-.dash-core-stats {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-family: var(--hx-mono);
-  font-size: clamp(0.5rem, 6.2cqmin, 0.76rem);
-  color: var(--hx-mint);
-  margin-top: 3px;
-  background: rgba(0, 0, 0, 0.55);
-  padding: 2px 8px;
-  border-radius: 999px;
-  border: 1px solid rgba(0, 255, 65, 0.28);
-  white-space: nowrap;
-  max-width: 100%;
-}
-.dash-pill-stat b {
-  color: #fff;
-}
-.dash-stat-div {
-  color: rgba(0, 255, 65, 0.45);
-}
 .dash-core-cta {
   font-family: var(--hx-mono);
-  font-size: clamp(0.5rem, 5.6cqmin, 0.72rem);
-  letter-spacing: 0.14em;
+  font-size: clamp(0.625rem, 4.4cqmin, 0.8rem);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--hx-cyan);
   display: inline-flex;
@@ -873,47 +835,88 @@ body.home .hx-foot {
     flex: 1 1 auto;
     min-height: 0;
     overflow: hidden;
-    padding-right: 6px;
   }
+  /* Three sections: Practice Exam ring | Study Course over Flashcards + Notes | helix.
+     The grid is a size container; cqw/cqh below are its content box.
+     Side columns are equal (22cqw). The course spans the grid but is centered
+     at 52cqw wide, so it stays the anchor under the logo. Row 2 is free-placed:
+     Flashcards (main's 421:251 index-card shape) sits just right of the ring,
+     Notes (wider, shorter) sits just left of the helix, and the gap between them
+     is a deliberate offset under the centered course. Leftover height splits
+     above (under the header divider) and below. */
   body.home .hx-grid {
+    --hx-ring: min(18.5cqw, 44cqh);
+    --hx-flash-w: 24cqw;
+    --hx-notes-w: 25.5cqw;
     flex: 1 1 auto;
     min-height: 0;
-    grid-template-columns: repeat(18, minmax(0, 1fr));
-    grid-template-rows: minmax(0, 0.95fr) minmax(0, 0.9fr) minmax(0, 1.22fr);
-    gap: var(--hx-gap);
+    container-type: size;
+    grid-template-columns: [exam] 22% [center] minmax(0, 1fr) [helix] 22%;
+    /* Track sizes cannot use the grid's own cq units, so items carry their heights. */
+    grid-template-rows: auto auto;
+    align-content: center;
+    column-gap: 0;
+    row-gap: clamp(24px, 6.5%, 56px);
     overflow: hidden;
   }
 
-  /* 18 columns × 3 rows.
-     Course 1–10, rows 1–2. Dashboard 11–15, rows 1–2.
-     Bottom: Flash 1–5, Notes 6–10, Exam 11–15.
-     Helix 16–18, rows 1–3 (narrower than the old 10–12 telemetry span). */
-  .hx-course { grid-column: 1 / 11; grid-row: 1 / 3; }
+  .hx-course { grid-column: 1 / -1; grid-row: 1; justify-self: center; width: 52cqw; height: min(52cqh, 26cqw); }
+  .hx-flash {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: start;
+    align-self: start;
+    width: var(--hx-flash-w);
+    height: calc(var(--hx-flash-w) * 251 / 421);
+    /* ring right edge (11cqw + ring/2) plus breathing room */
+    margin-left: calc(11cqw + var(--hx-ring) / 2 + clamp(28px, 2.6cqw, 48px));
+  }
+  .hx-notes {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: end;
+    align-self: start;
+    width: var(--hx-notes-w);
+    height: calc(var(--hx-notes-w) / 2.25);
+    /* just past the course's right edge (24cqw from the grid edge), short of the helix */
+    margin-right: 22.5cqw;
+    /* match Flashcards: content centered, not pushed down by the mode top pad */
+    padding-top: calc(clamp(8px, 1.8vh, 20px) * var(--hx-fit));
+    padding-bottom: calc(clamp(6px, 1.5vh, 18px) * var(--hx-fit));
+  }
   .hx-dash-core {
-    grid-column: 11 / 16;
+    grid-column: 1;
     grid-row: 1 / 3;
-    justify-self: stretch;
-    align-self: stretch;
-    width: auto;
-    height: auto;
+    justify-self: center;
+    align-self: center;
+    width: var(--hx-ring);
+    height: var(--hx-ring);
     max-width: none;
     max-height: none;
-    aspect-ratio: auto;
+    aspect-ratio: 1;
     margin: 0 !important;
   }
   .hx-dash-core .dash-reactor {
-    width: calc(min(100cqw, 100cqh) - 40px);
-    height: calc(min(100cqw, 100cqh) - 40px);
+    width: calc(min(100cqw, 100cqh) - 16px);
+    height: calc(min(100cqw, 100cqh) - 16px);
   }
-  .hx-flash { grid-column: 1 / 6; grid-row: 3 / 4; }
-  .hx-notes { grid-column: 6 / 11; grid-row: 3 / 4; }
-  .hx-exam  { grid-column: 11 / 16; grid-row: 3 / 4; }
+  /* Wider course card: let the description run on one line where it can. */
+  .hx-course .hx-desc { max-width: 60ch; }
+  /* Next lesson: up to two balanced lines so the longest lesson name (118 chars) reads whole. */
+  .hx-next {
+    max-width: min(100%, 66ch);
+    white-space: normal;
+    text-wrap: balance;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 1.5;
+  }
   .hx-helix {
-    grid-column: 16 / 19;
-    grid-row: 1 / 4;
+    grid-column: 3;
+    grid-row: 1 / 3;
     min-height: 0;
     height: 100%;
-    margin-left: clamp(22px, 2.4vw, 42px);
   }
   .hx-mode {
     gap: calc(clamp(2px, 0.7vh, 8px) * var(--hx-fit));
@@ -950,9 +953,6 @@ body.home .hx-foot {
   .hx-course { min-height: 0; }
   .hx-course-body { grid-template-columns: 1fr; }
   .hx-mode { min-height: 170px; }
-  .hx-exam { grid-column: 1 / -1; }
-  .hx-specs { flex-direction: row; max-width: none; justify-content: center; gap: 16px; }
-  .hx-specs div { border-bottom: 0; }
   .hx-dash-core {
     grid-column: 1 / -1;
     margin: 16px auto !important;

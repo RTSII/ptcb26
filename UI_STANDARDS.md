@@ -62,13 +62,12 @@ This file extends [docs/general-ui-standards.md](docs/general-ui-standards.md) (
 One line per region: name, page, locator, what it contains. Locators are the live nodes in that page's HTML or JS.
 
 - Home header | home | `body.home header.hx-header` | Wordmark
-- Home mode grid | home | `nav.hx-grid` | Study Course, telemetry helix, Practice Exam, Flashcards, Notes, Dashboard
-- Home course card | home | `#hxCourseLink` | Study Course entry, next lesson, completion ring, domain bars
-- Home telemetry helix | home | `section.hx-helix` | Far-right card helix: quiz accuracy, counts, blueprint weights; each card links to its Dashboard section
-- Home exam card | home | `a.hx-exam` | Practice Exam entry and best score
+- Home mode grid | home | `nav.hx-grid` | Desktop (≥900px): the grid is a size container with equal 22% side columns: Practice Exam ring left, telemetry helix right. Study Course is the centered anchor under the logo: 52cqw wide × min(52cqh, 26cqw) tall (landscape, about 805×349 at 1600×770). Below it, with a gap of clamp(24px, 6.5%, 56px), Flashcards (24cqw, main's 421:251 index-card shape) starts about 40px right of the ring, and Notes (25.5cqw, 2.25:1, wider and shorter) ends just past the course's right edge, short of the helix. The gap between them is a deliberate offset. The stack is centered vertically, so leftover height becomes space under the header divider and above the footer. Tablet and phone stack the cards; the ring comes last
+- Home course card | home | `#hxCourseLink` | Study Course entry; next lesson wraps to two balanced lines (66ch) so the longest lesson name reads whole; four domain bars in one row
+- Home telemetry helix | home | `section.hx-helix` | Right-column card helix, untitled: avg quiz score, counts, blueprint weights; each card links to the Dashboard section that shows the same number. Cards stay well short of the column width. It is Home's only Dashboard entry
 - Home flashcard card | home | `a.hx-flash` | Flashcards entry
 - Home notes card | home | `a.hx-notes` | Study Notes entry
-- Home dashboard core | home | `#homeProgress` | Dashboard ring entry and live counts
+- Home exam ring | home | `#homeExam` (`a.hx-dash-core`) | Practice Exam entry, centered in the left column: reactor ring min(18.5cqw, 44cqh) (about 271px reactor at 1600×770, 229px at 1366×768), links to `exam.html`. Ring text scales with the reactor (cqmin): tag SIMULATION // 03 (4cqmin, at least 9px, no letter-spacing), stacked PRACTICE / EXAM (6.8cqmin), BEGIN → (4.4cqmin, at least 10px). The text block sits slightly low (translateY 3.4cqmin). Every line stays inside the inner pink arc with at least 4px clear
 - Course header | course list | `body.course header.app-header` | Wordmark, Study Course title, Home
 - Course list | course list | `#courseList` | Resume control and the domain accordions
 - Course resume | course list | `.course-resume` | Start or Resume link for the saved lesson

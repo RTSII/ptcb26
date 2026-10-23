@@ -120,17 +120,6 @@
         flashData.textContent = 'No cards due';
       }
     }
-
-    // Exams stats
-    const examBest = document.getElementById('hxExamBest');
-    if (examBest) {
-      if (p.exams && p.exams.length > 0) {
-        const best = Math.max(...p.exams.map(e => (typeof e.score === 'number' ? e.score : App.Util.pct(e.correct || 0, e.total || 0))));
-        examBest.textContent = `${best}%`;
-      } else {
-        examBest.textContent = '—';
-      }
-    }
   }
 
   // Vertical helix. Cards travel downward: u = 0 is the top, u = 1 is the bottom.
@@ -164,7 +153,7 @@
       const travel = Math.max(rect.height * 0.94, 1);
       const cardW = cards[0].offsetWidth || 0;
       const room = (rect.width - cardW) / 2;
-      const radius = Math.max(0, Math.min(rect.width * 0.2, 42, room - 8));
+      const radius = Math.max(0, Math.min(rect.width * 0.2, 54, room - 8));
       for (let i = 0; i < n; i++) {
         const u = wrap(i / n + offset);
         const angle = (u - 0.5) * Math.PI * 2;
@@ -290,10 +279,10 @@
 
     function cardPast() {
       let past = 0;
-      document.querySelectorAll('.hx-course, .hx-exam, .hx-flash, .hx-notes, .hx-dash-core').forEach((card) => {
+      document.querySelectorAll('.hx-course, .hx-flash, .hx-notes, .hx-dash-core').forEach((card) => {
         const box = card.getBoundingClientRect();
         if (box.height < 2) return;
-        card.querySelectorAll('h1, h2, p, dl, .hx-go, .hx-domains, .hx-cta, .hx-icon, .hx-data, .hx-specs, .dash-core-content').forEach((el) => {
+        card.querySelectorAll('h1, h2, p, .hx-go, .hx-domains, .hx-cta, .hx-icon, .hx-data, .dash-core-content').forEach((el) => {
           if (el.closest(SKIP) || el.offsetParent === null) return;
           const r = el.getBoundingClientRect();
           past = Math.max(past, r.bottom - box.bottom, box.top - r.top);
@@ -346,7 +335,7 @@
       return Number.isFinite(n) ? n : 16;
     }
 
-    document.querySelectorAll('.hx-course, .hx-flash, .hx-notes, .hx-exam').forEach((el) => {
+    document.querySelectorAll('.hx-course, .hx-flash, .hx-notes').forEach((el) => {
       const rect = el.getBoundingClientRect();
       const x = rect.left - ox;
       const y = rect.top - oy;
@@ -429,7 +418,7 @@
     const ro = new ResizeObserver(schedule);
     const grid = document.querySelector('.hx-grid');
     if (grid) ro.observe(grid);
-    document.querySelectorAll('.hx-course, .hx-flash, .hx-notes, .hx-exam, .hx-dash-core, .dash-reactor').forEach((el) => {
+    document.querySelectorAll('.hx-course, .hx-flash, .hx-notes, .hx-dash-core, .dash-reactor').forEach((el) => {
       ro.observe(el);
     });
     window.addEventListener('resize', schedule);

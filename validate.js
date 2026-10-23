@@ -229,20 +229,23 @@ if (!/href="flashcards\.html"/.test(home) || !/href="exam\.html"/.test(home)) {
 } else if (/hx-quiz|href="quiz\.html"/.test(home)) {
   fail('home should not keep a Quiz card; quiz.html stays for course lesson tests');
 } else ok('home keeps Flashcards and Practice Exam and drops the Quiz card');
-if (!/id="homeProgress"/.test(home) || !/href="dashboard\.html"/.test(home)) {
-  fail('home progress control should link to the dashboard');
+if (!/href="dashboard\.html#/.test(home)) {
+  fail('home telemetry helix should link to the dashboard');
 } else if (/<details[\s\S]*class="home-progress"/.test(home)) {
   fail('home progress should not be a disclosure block');
-} else if (!/id="homeProgress"[^>]*aria-label="Progress Dashboard/.test(home)) {
-  fail('progress entry should be a labeled dashboard control');
-} else ok('home progress is a labeled dashboard control');
+} else ok('home telemetry helix links to the dashboard');
+if (!/class="hx-card hx-dash-core" href="exam\.html" id="homeExam"[^>]*aria-label="Practice Exam/.test(home)) {
+  fail('home Practice Exam ring should be a labeled link to exam.html');
+} else if (/class="hx-card hx-mode hx-exam"/.test(home)) {
+  fail('the old Practice Exam card should be gone; the ring is the exam entry');
+} else ok('home Practice Exam ring links to exam.html');
 if (/class="menu-card[^"]*"\s+href="dashboard\.html"/.test(home)) {
   fail('dashboard should not be an equal-weight home tile');
 } else ok('dashboard is not an equal-weight home tile');
 if (!/class="hx-card hx-mode hx-notes"\s+href="notes\.html"/.test(home)) fail('Study Notes should be a home peer panel');
 else ok('Study Notes is a home peer panel');
-if (!/class="hx-card hx-mode hx-flash"\s+href="flashcards\.html"/.test(home) || !/class="hx-card hx-mode hx-exam"\s+href="exam\.html"/.test(home) || !/class="hx-card hx-mode hx-notes"\s+href="notes\.html"/.test(home)) {
-  fail('Flash, Practice, and Notes should be separate home panels');
+if (!/class="hx-card hx-mode hx-flash"\s+href="flashcards\.html"/.test(home) || !/class="hx-card hx-mode hx-notes"\s+href="notes\.html"/.test(home)) {
+  fail('Flashcards and Notes should be separate home panels');
 } else ok('peer modes are separate home panels');
 
 const dash = read('dashboard.html');
@@ -254,8 +257,8 @@ console.log('\nService worker');
 const sw = read('sw.js');
 const appJs = read('js/app.js');
 const cacheVer = (sw.match(/const CACHE = 'ptce-2026-v(\d+)'/) || [])[1];
-if (cacheVer !== '97') fail('sw.js cache version should be bumped to ptce-2026-v97');
-else ok('sw.js cache is ptce-2026-v97');
+if (cacheVer !== '99') fail('sw.js cache version should be bumped to ptce-2026-v99');
+else ok('sw.js cache is ptce-2026-v99');
 const shellPages = ['index.html', 'course.html', 'notes.html', 'flashcards.html', 'quiz.html', 'exam.html', 'dashboard.html'];
 let shellMiss = 0;
 shellPages.forEach((page) => {

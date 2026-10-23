@@ -421,8 +421,8 @@ const FX = (() => {
 window.App = { Storage, Util, DOMAINS, FX };
 
 function renderHomeProgress() {
-  const root = document.getElementById('homeProgress');
-  if (!root) return;
+  // Home only: the telemetry helix holds these counts.
+  if (!document.getElementById('hxHelix')) return;
   const p = Storage.read();
   const scoreOf = (a) => (typeof a.score === 'number' ? a.score : Util.pct(a.correct || 0, a.total || 0));
   const quizzes = p.quizzes.length;
@@ -441,9 +441,6 @@ function renderHomeProgress() {
   set('homeCards', String(cards));
   set('homeExams', String(exams));
   set('homeLessons', String(lessons));
-  set('homeQuizzesCore', String(quizzes));
-  set('homeAvgCore', avg == null ? '—' : avg + '%');
-  set('homeCardsCore', String(cards));
   const snap = document.getElementById('homeProgressSnap');
   if (snap) {
     snap.textContent = quizzes + ' quizzes · ' + (avg == null ? '— avg' : avg + '% avg') +

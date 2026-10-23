@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=97">
-  <link rel="stylesheet" href="css/home.css?v=97">
+  <link rel="stylesheet" href="css/style.css?v=99">
+  <link rel="stylesheet" href="css/home.css?v=99">
 </head>
 <body class="home">
   <!-- Shared SVG defs: dual-tone gradient used by HUD icons -->
@@ -106,15 +106,15 @@
       <!-- ===== Telemetry helix (same stats, vertical spiral) ===== -->
       <section class="hx-helix" id="hxHelix" aria-label="Study telemetry">
         <div class="hx-helix-stage">
-          <a class="hx-helix-card" href="dashboard.html#domainAccuracy">
+          <a class="hx-helix-card" href="dashboard.html#dashStats">
             <span class="hx-helix-num" id="homeAvg">—</span>
-            <span class="hx-helix-lbl">Quiz accuracy</span>
+            <span class="hx-helix-lbl">Avg quiz score</span>
           </a>
           <a class="hx-helix-card" href="dashboard.html#quizHistory">
             <span class="hx-helix-num" id="homeQuizzes">0</span>
             <span class="hx-helix-lbl">Quizzes</span>
           </a>
-          <a class="hx-helix-card" href="dashboard.html">
+          <a class="hx-helix-card" href="dashboard.html#dashStats">
             <span class="hx-helix-num" id="homeCards">0</span>
             <span class="hx-helix-lbl">Cards reviewed</span>
           </a>
@@ -140,26 +140,6 @@
           </a>
         </div>
       </section>
-
-      <!-- ===== Practice Exam ===== -->
-      <a class="hx-card hx-mode hx-exam" href="exam.html">
-        <div class="hx-tagline"><span class="hx-tag">SIMULATION <b>// 03</b></span></div>
-        <svg class="hx-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-          <circle cx="24" cy="26" r="16" fill="none" stroke="url(#hudGrad)" stroke-width="1.6"/>
-          <path d="M24 26V16" stroke="#b6ffc9" stroke-width="1.8" stroke-linecap="round"/>
-          <path d="M24 26l7 4" stroke="#ff2a6d" stroke-width="1.8" stroke-linecap="round"/>
-          <path d="M19 4h10M24 4v6" stroke="#00ff41" stroke-width="1.6" stroke-linecap="round"/>
-          <path d="M24 12.5a13.5 13.5 0 0 1 13.5 13.5" fill="none" stroke="#05d9e8" stroke-width="1.6" stroke-linecap="round" opacity=".8"/>
-        </svg>
-        <h2 class="hx-title">Practice Exam</h2>
-        <p class="hx-desc">Full simulated PTCE on the official blueprint.</p>
-        <dl class="hx-specs">
-          <div><dt>Questions</dt><dd>90</dd></div>
-          <div><dt>Time</dt><dd>110 min</dd></div>
-          <div><dt>Best</dt><dd id="hxExamBest">—</dd></div>
-        </dl>
-        <span class="hx-go" aria-hidden="true">Begin exam <i>→</i></span>
-      </a>
 
       <!-- ===== Flashcards ===== -->
       <a class="hx-card hx-mode hx-flash" href="flashcards.html">
@@ -190,8 +170,8 @@
         <span class="hx-go" aria-hidden="true">Open <i>→</i></span>
       </a>
 
-      <!-- ===== System Dashboard (Circular Matrix Reactor Telemetry Core) ===== -->
-      <a class="hx-card hx-dash-core" href="dashboard.html" id="homeProgress" aria-label="Progress Dashboard & Telemetry" title="Access Matrix Dashboard">
+      <!-- ===== Practice Exam (circular Matrix reactor; left column) ===== -->
+      <a class="hx-card hx-dash-core" href="exam.html" id="homeExam" aria-label="Practice Exam: begin a simulated PTCE" title="Begin Practice Exam">
         <div class="dash-reactor" aria-hidden="true">
           <svg viewBox="0 0 200 200" focusable="false">
             <!-- Outer radar compass & tick rings -->
@@ -211,16 +191,9 @@
 
           <!-- Core content -->
           <div class="dash-core-content">
-            <span class="dash-core-tag">MAINFRAME // 06</span>
-            <div class="dash-core-title">DASHBOARD</div>
-            <div class="dash-core-stats">
-              <span class="dash-pill-stat"><b id="homeQuizzesCore">0</b> QZ</span>
-              <span class="dash-stat-div">·</span>
-              <span class="dash-pill-stat"><b id="homeAvgCore">—</b></span>
-              <span class="dash-stat-div">·</span>
-              <span class="dash-pill-stat"><b id="homeCardsCore">0</b> CRD</span>
-            </div>
-            <span class="dash-core-cta">ENTER <i>→</i></span>
+            <span class="dash-core-tag">SIMULATION // 03</span>
+            <div class="dash-core-title"><span>PRACTICE</span><span>EXAM</span></div>
+            <span class="dash-core-cta">BEGIN <i>→</i></span>
           </div>
         </div>
       </a>
@@ -229,7 +202,7 @@
     <p class="footer-note hx-foot">Built for personal CPhT exam prep · Data stored locally in your browser</p>
   </main>
 
-  <script src="js/app.js?v=97"></script>
-  <script src="js/home.js?v=97"></script>
+  <script src="js/app.js?v=99"></script>
+  <script src="js/home.js?v=99"></script>
 </body>
 </html>
