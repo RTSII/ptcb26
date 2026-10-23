@@ -10,7 +10,7 @@ The consolidated open list. Main is `047727c` (#83), cache `ptce-2026-v96`. One 
 
 1. [ ] **P2 · Fold Amoxicillin into the Penicillins row?** Optional follow-up to #83 (merged as-is, Amoxicillin kept separate).
 2. [ ] **P3 · Roomier Brand / Generic rows?** Optional follow-up to #83 (rows pad 3–8px to fill the card today).
-3. [ ] **P2 · Practice Exam drill modes.** Quick 10, chapter test, Missed, Bookmarked, Weakest Domain/Subtopic, subtopic and difficulty filters have no Home entry since #76. The Home Practice Exam card is gone (Home 3-column relayout, `ptce-2026-v99`): the left-column ring (`#homeExam`, formerly the Dashboard ring) is the exam entry. Rob picks where drill modes live (a popover from the ring, or options in Exam Setup).
+3. [ ] **P2 · Practice Exam drill modes.** The Home Practice Exam card part is resolved (#87): the left-column Practice Exam ring (`#homeExam`) replaced the card. Still open: Quick 10, chapter test, Missed, Bookmarked, Weakest Domain/Subtopic, subtopic and difficulty filters have no Home entry since #76. Rob picks where they live (a popover from the ring, or options in Exam Setup).
 
 **Notes**
 
@@ -122,7 +122,7 @@ Superseded by the block above (do not follow these):
 - [ ] Trim redundant Notes search/filter/nav chrome (bottom filter done in #86: moved to the top band)
 - [ ] Shared `matrix.css` tokens — `UI_STANDARDS.md` documents the UI templates; extraction stays open (Next up 7)
 - [x] Home relayout (#76), telemetry helix (#77, #80), and rain mask (#81). `UI_STANDARDS.md` Home regions now point at `section.hx-helix`.
-- [x] Home 3-column relayout (`ptce-2026-v99`, #87): Practice Exam ring left (the Dashboard ring retitled and ~31% smaller, links to `exam.html`), landscape Study Course centered as the anchor, Flashcards (main shape) and a wider, shorter Notes card offset below it, helix right. Old Practice Exam card removed; the helix tiles are the Dashboard entry.
+- [x] Home 3-column relayout (#87, `ptce-2026-v99`). The Practice Exam ring is on the left: the Dashboard ring retitled, about 31% smaller, linking to `exam.html`, with its text kept inside the arcs. The landscape Study Course is the centered anchor; its next lesson wraps to two lines. Below it, Flashcards (main's shape) and a wider, shorter Notes card sit offset. The untitled helix is on the right. The old Practice Exam card is removed, and the helix tiles are the Dashboard entry (`#dashStats` anchor added).
 
 ## Later
 

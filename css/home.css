@@ -762,12 +762,13 @@ a.hx-card:hover .hx-go i { transform: translateX(4px); }
   max-width: 68%;
   max-height: 68%;
   /* The wide tag line sits on top; nudge the stack down so every line clears the pink arc. */
-  transform: translateY(2.2cqmin);
+  transform: translateY(3.4cqmin);
 }
 .dash-core-tag {
   font-family: var(--hx-mono);
-  font-size: clamp(0.44rem, 3.3cqmin, 0.68rem);
-  letter-spacing: 0.08em;
+  font-size: clamp(0.5625rem, 4cqmin, 0.75rem);
+  letter-spacing: 0;
+  word-spacing: -0.2em;
   color: var(--hx-green);
   text-transform: uppercase;
   white-space: nowrap;
@@ -785,8 +786,8 @@ a.hx-card:hover .hx-go i { transform: translateX(4px); }
 }
 .dash-core-cta {
   font-family: var(--hx-mono);
-  font-size: clamp(0.46rem, 3.5cqmin, 0.72rem);
-  letter-spacing: 0.14em;
+  font-size: clamp(0.625rem, 4.4cqmin, 0.8rem);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--hx-cyan);
   display: inline-flex;
