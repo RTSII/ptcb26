@@ -26,8 +26,8 @@ The consolidated open list. Main is `047727c` (#83), cache `ptce-2026-v96`. One 
 
 **Content fixes**
 
-10. [x] **P1 · Duplicate "Double-check … selected high-alert meds" line ×3** in Patient Safety: High-Alert & LASA Drugs, Error Prevention Basics, Quality Improvement Methods. Keep one copy, no fact change. Done on `fix/p1-notes-cleanup-1022` (pending merge): kept High-Alert & LASA Drugs, removed Error Prevention Basics and Quality Improvement Methods copies.
-11. [x] **P1 · Duplicate alligation line ×2** in Order Entry: Core Calculations and Essential Calculations Reference. Keep one copy, no fact change. Done on `fix/p1-notes-cleanup-1022` (pending merge): kept Essential Calculations Reference, removed the Core Calculations copy.
+10. [x] **P1 · Duplicate "Double-check … selected high-alert meds" line ×3** in Patient Safety: High-Alert & LASA Drugs, Error Prevention Basics, Quality Improvement Methods. Keep one copy, no fact change. Done (#86): kept High-Alert & LASA Drugs, removed Error Prevention Basics and Quality Improvement Methods copies; folded the QI definition ("two staff separately verify") into the kept line.
+11. [x] **P1 · Duplicate alligation line ×2** in Order Entry: Core Calculations and Essential Calculations Reference. Keep one copy, no fact change. Done (#86): kept Essential Calculations Reference, removed the Core Calculations copy.
 12. [ ] **P3 · Open verify flags.** Insulin onset/peak/duration curve (F-011, F-012); C-PS-004, C-PS-005; C-OE-001, C-OE-003; and the unsourced, deferred lines in the done log below. Source each per [AUDIT_RUBRIC.md](AUDIT_RUBRIC.md) or leave it out.
 13. [ ] **P3 · Course vs Notes breakdown leftovers (verify).** Auxiliary labels (course `m6l1` vs Notes Order Entry); OBRA-90 DUR placement; course-only ADC overrides / agencies / technician scope; Notes-only FMEA and "tech cannot verify own work"; garb vs PPE order. The four-domain accordion match itself shipped (#63).
 
