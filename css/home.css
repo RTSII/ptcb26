@@ -761,11 +761,13 @@ a.hx-card:hover .hx-go i { transform: translateX(4px); }
   padding: 4px;
   max-width: 68%;
   max-height: 68%;
+  /* The wide tag line sits on top; nudge the stack down so every line clears the pink arc. */
+  transform: translateY(2.2cqmin);
 }
 .dash-core-tag {
   font-family: var(--hx-mono);
-  font-size: clamp(0.48rem, 5.4cqmin, 0.68rem);
-  letter-spacing: 0.12em;
+  font-size: clamp(0.44rem, 3.3cqmin, 0.68rem);
+  letter-spacing: 0.08em;
   color: var(--hx-green);
   text-transform: uppercase;
   white-space: nowrap;
@@ -774,7 +776,7 @@ a.hx-card:hover .hx-go i { transform: translateX(4px); }
 .dash-core-title {
   font-family: var(--hx-display);
   font-weight: 700;
-  font-size: clamp(0.85rem, 11cqmin, 1.85rem);
+  font-size: clamp(0.8rem, 6.8cqmin, 1.85rem);
   letter-spacing: 0.08em;
   color: #fff;
   line-height: 1.05;
@@ -783,7 +785,7 @@ a.hx-card:hover .hx-go i { transform: translateX(4px); }
 }
 .dash-core-cta {
   font-family: var(--hx-mono);
-  font-size: clamp(0.5rem, 5.6cqmin, 0.72rem);
+  font-size: clamp(0.46rem, 3.5cqmin, 0.72rem);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--hx-cyan);
@@ -899,7 +901,16 @@ body.home .hx-foot {
   }
   /* Wider course card: let the description run on one line where it can. */
   .hx-course .hx-desc { max-width: 60ch; }
-  .hx-next { max-width: 64ch; }
+  /* Next lesson: up to two balanced lines so the longest lesson name (118 chars) reads whole. */
+  .hx-next {
+    max-width: min(100%, 66ch);
+    white-space: normal;
+    text-wrap: balance;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 1.5;
+  }
   .hx-helix {
     grid-column: 3;
     grid-row: 1 / 3;
