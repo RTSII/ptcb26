@@ -155,7 +155,7 @@ body.notes .nx-container {
   width: min(1400px, calc(100% - 32px));
   max-width: 1400px;
   margin: 0 auto;
-  padding: 10vh 0 16px;
+  padding: 0 0 16px;
   transition: padding-top 0.4s ease;
 }
 
@@ -763,19 +763,24 @@ button.nx-domain-header:hover {
 }
 
 /* ==========================================================================
-   6. SEARCH FILTER BAR CENTERED AT BOTTOM
+   6. SEARCH FILTER BAR IN THE IDLE TOP BAND
+   The band is the ~10vh idle spacer above the domain accordions (UI_STANDARDS
+   rule 11). It folds shut while a domain is open, so the reading card keeps
+   its height.
    ========================================================================== */
-.nx-bottom-filter-wrap {
-  margin-top: 20px;
+.nx-top-filter-wrap {
+  height: 10vh;
+  min-height: 56px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0;
   padding: 0;
+  margin: 0;
+  overflow: hidden;
+  transition: height 0.4s ease, min-height 0.4s ease, opacity 0.25s ease;
 }
 
-.nx-bottom-filter {
+.nx-top-filter {
   width: min(580px, 92%);
   display: flex;
   align-items: center;
@@ -784,10 +789,10 @@ button.nx-domain-header:hover {
   background: linear-gradient(180deg, rgba(14, 22, 34, 0.96), rgba(9, 15, 23, 0.96));
   border: 1px solid var(--nx-border-silver);
   border-radius: 999px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(148, 163, 184, 0.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(148, 163, 184, 0.15);
   transition: all 0.25s ease;
 }
-.nx-bottom-filter:focus-within {
+.nx-top-filter:focus-within {
   border-color: var(--nx-matrix-cyan);
   box-shadow: 0 10px 36px rgba(0, 0, 0, 0.7), 0 0 20px rgba(56, 189, 248, 0.35);
   background: linear-gradient(180deg, rgba(20, 31, 47, 0.98), rgba(12, 19, 29, 0.98));
@@ -813,6 +818,11 @@ button.nx-domain-header:hover {
 #notesSearch::placeholder {
   color: var(--nx-text-faint);
   font-size: 0.84rem;
+}
+/* One clear control: hide the browser's own search ✕ beside .nx-search-clear. */
+#notesSearch::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .nx-search-clear {
@@ -975,7 +985,7 @@ mark.note-highlight {
   body.notes .nx-logo-text {
     display: none;
   }
-  .nx-bottom-filter {
+  .nx-top-filter {
     width: 95%;
   }
   .nx-domain-header {
@@ -1100,13 +1110,18 @@ body.notes.nx-reading .nx-topic-content {
   overflow-y: auto;
   overscroll-behavior: contain;
 }
-body.notes.nx-reading .nx-bottom-filter-wrap {
-  display: none;
+body.notes.nx-reading .nx-top-filter-wrap {
+  flex: 0 0 auto;
+  height: 0;
+  min-height: 0;
+  opacity: 0;
+  visibility: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
   body.notes .nx-container,
-  .nx-notes-area {
+  .nx-notes-area,
+  .nx-top-filter-wrap {
     transition: none;
   }
 }

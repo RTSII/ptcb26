@@ -14,7 +14,7 @@ The consolidated open list. Main is `047727c` (#83), cache `ptce-2026-v96`. One 
 
 **Notes**
 
-4. [ ] **P1 · Remove the bottom "Search Codex" filter.** `section.nx-bottom-filter-wrap` / `#notesSearch` in `notes.html` and its `css/notes.css` rules (UI_STANDARDS rule 8; v4 decision 2). **Blocked (2026-10-22):** it is the only search on Notes (`#notesSearch`, wired in `js/notes.js`); Rob to decide remove anyway vs move search elsewhere.
+4. [x] **P1 · Bottom "Search Codex" filter — Done (#86): moved, not removed.** It is the only Notes search, so Rob chose to move it. `#notesSearch` + `#notesSearchClear` now sit in `section.nx-top-filter-wrap` in the idle ~10vh top band above the domain accordions; the band folds shut while a domain is open (search hidden, as before). The old bottom wrap and its CSS are gone. No page scroll; topic-card height and in-card scroll match main at 1600x770 and 1366x768.
 5. [ ] **P2 · Notes overhaul stage 0 + stage 2.** `check-notes-containment.js` harness, then the body shell (`css/notes-body.css`, `js/notes-body.js`, `js/notes-layouts.js`). None of these files exist yet ([docs/notes-overhaul-plan.md](docs/notes-overhaul-plan.md) §7). Stage 1 (cross-domain prev/next) shipped in #72.
 6. [ ] **P2 · Notes overhaul stages 3–7: one layout PR per domain (D1–D4).** Not built. #82/#83 only re-laid the three short pair tables. Each domain PR also removes cross-topic duplicate rows (plan §9).
 7. [ ] **P3 · Notes visual aids VA-01–VA-07 and Matrix palette.** One PR per code-built aid (stages 8–14), plus retiring slate for the Matrix-cohesive palette and the shared `css/matrix.css` tokens (not extracted yet).
@@ -119,7 +119,7 @@ Superseded by the block above (do not follow these):
 - [x] Study Course Resume button with one-open accordions and the Home brand (#40)
 - [ ] Switch the Notes, Dashboard, Quiz, Practice Exam, and Flashcards headers to the Home brand (Next up 9)
 - [ ] Notes palette: Matrix-cohesive (retire slate-as-end-state) per `study_notes_v4_plan.md` (Next up 7)
-- [ ] Trim redundant Notes search/filter/nav chrome (bottom filter: Next up 4)
+- [ ] Trim redundant Notes search/filter/nav chrome (bottom filter done in #86: moved to the top band)
 - [ ] Shared `matrix.css` tokens — `UI_STANDARDS.md` documents the UI templates; extraction stays open (Next up 7)
 - [x] Home relayout (#76), telemetry helix (#77, #80), and rain mask (#81). `UI_STANDARDS.md` Home regions now point at `section.hx-helix`.
 
