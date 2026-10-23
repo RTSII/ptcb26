@@ -839,6 +839,9 @@ button.nx-domain-header:hover {
   justify-content: center;
   transition: all 0.2s ease;
 }
+.nx-search-clear[hidden] {
+  display: none;
+}
 .nx-search-clear:hover {
   background: rgba(244, 63, 94, 0.3);
   color: #fff;
