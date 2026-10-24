@@ -104,7 +104,7 @@ One line per region: name, page, locator, what it contains. Locators are the liv
 - Exam reactor | exam setup | `#reactor` | Question count and clock
 - Exam timer pick | exam setup | `#timGroup` | Timer choices
 - Exam draw | exam setup | `#domList` | Questions per domain
-- Exam setup rail | exam setup | `#examSetup .xs-rail` | Steak Dinner and Enter the Construct: two separate see-through gel capsules (200x62, about 3.2:1; blue and red, tinted glass with a top gloss and colored glow), no socket or background behind them. Style is `.xs-pill` in `css/exam-setup.css`; the plan is to reuse it for the app-wide header if Rob likes it
+- Exam setup rail | exam setup | `#examSetup .xs-rail` | Steak Dinner and Enter the Construct: two separate see-through gel capsules (200x62, about 3.2:1; blue and red, tinted glass with a colored glow and no white highlight), no socket or background behind them. Style is `.xs-pill` in `css/exam-setup.css`; the plan is to reuse it for the app-wide header if Rob likes it
 - Exam screen | exam | `#examScreen` | Progress, timer, question, previous, next, submit
 - Exam question card | exam | `#examQuestionCard` | Domain, stem, choices
 - Exam result | exam | `#examResultScreen` | Scaled score and domain breakdown
