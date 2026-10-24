@@ -149,7 +149,7 @@ Home is the reference HUD (#76 relayout, #77/#80 helix and ring, #81 rain mask, 
 
 Notes still render the committed legacy `items` JSON. The three short pair topics (Common Brand / Generic Pairs, Common OTC Active Ingredients, Key Side Effects & Monitoring) render as alphabetical two-pair, four-column tables filled column by column (#82, #83). The topic-body layout stages in [docs/notes-overhaul-plan.md](docs/notes-overhaul-plan.md) are not built yet. The v2 `blocks` file stays outside `data/` until the blocks runtime ships ([AGENTS.md](AGENTS.md)). The Notes plan is [study_notes_v4_plan.md](study_notes_v4_plan.md). What to do next is [TODO.md](TODO.md) **Next up**.
 
-Cache name: `sw.js` (`ptce-2026-v99`). Local css/js links use the same number as `?v=`.
+Cache name: `sw.js` (`ptce-2026-v100`). Local css/js links use the same number as `?v=`.
 
 Bank on this commit:
 
