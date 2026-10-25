@@ -134,7 +134,8 @@
   font:700 14px/1 var(--head); text-align:center;
   background:
     radial-gradient(120% 70% at 50% 108%, rgba(var(--tint),.55), rgba(var(--tint),0) 62%),
-    linear-gradient(180deg, rgba(var(--tint),.62) 0%, rgba(var(--tint),.32) 36%, rgba(var(--deep),.42) 72%, rgba(var(--tint),.58) 100%);
+    linear-gradient(180deg, rgba(var(--tint),.62) 0%, rgba(var(--tint),.32) 36%, rgba(var(--deep),.42) 72%, rgba(var(--tint),.58) 100%),
+    var(--base);
   box-shadow:
     inset 0 0 0 1.5px rgba(var(--tint),.55),
         inset 0 2px 3px rgba(255,255,255,.2),
@@ -142,18 +143,21 @@
     inset 0 0 22px rgba(var(--tint),.35),
     0 0 14px rgba(var(--glow),.55), 0 0 36px rgba(var(--glow),.30), 0 7px 16px rgba(0,0,0,.45);
   text-shadow:0 0 8px rgba(var(--glow),.9), 0 1px 2px rgba(0,0,0,.6);
-  transition:transform .15s, box-shadow .15s}
+  transition:transform .32s cubic-bezier(.2,.8,.25,1), box-shadow .32s ease, filter .32s ease}
 .xs-pill span{position:relative; z-index:1; letter-spacing:.04em; padding-left:.04em}
 /* faint glass highlight along the top of the capsule, plus a soft one on the lower curve */
 .xs-pill::before{content:""; position:absolute; z-index:0; left:11%; right:11%; top:4px; height:30%; border-radius:50% / 100% 100% 0 0;
   background:linear-gradient(180deg, rgba(255,255,255,.26), rgba(255,255,255,.07) 60%, rgba(255,255,255,0)); pointer-events:none}
 .xs-pill::after{content:""; position:absolute; z-index:0; left:12%; right:12%; bottom:4px; height:16%; border-radius:999px;
   background:linear-gradient(0deg, rgba(var(--tint),.55), rgba(var(--tint),0)); pointer-events:none}
-.xs-pill--blue{--tint:60,150,255; --deep:0,20,170; --glow:30,100,255}
-.xs-pill--red{--tint:255,50,60; --deep:150,0,10; --glow:255,20,40}
-.xs-pill:hover{transform:translateY(-1px); filter:brightness(1.15) saturate(1.1)}
-.xs-pill:active{transform:translateY(1px)}
-.xs-pill:focus-visible{outline:2px solid var(--cyan); outline-offset:6px}
+.xs-pill--blue{--tint:60,150,255; --deep:0,20,170; --glow:30,100,255; --base:#030a35}
+.xs-pill--red{--tint:255,50,60; --deep:150,0,10; --glow:255,20,40; --base:#2e0409}
+.xs-pill:hover, .xs-pill:focus-visible{transform:translateY(-4px) scale(1.1); z-index:3; filter:brightness(1.15) saturate(1.1);
+  box-shadow:inset 0 0 0 1.5px rgba(var(--tint),.7), inset 0 2px 3px rgba(255,255,255,.2), inset 0 -9px 16px rgba(var(--deep),.55), inset 0 0 22px rgba(var(--tint),.4),
+    0 0 20px rgba(var(--glow),.7), 0 0 48px rgba(var(--glow),.38), 0 16px 26px rgba(0,0,0,.5)}
+.xs-pill:active{transform:translateY(-1px) scale(1.03)}
+@media (prefers-reduced-motion:reduce){.xs-pill:hover, .xs-pill:focus-visible{transform:none} .xs-pill:active{transform:none}}
+.xs-pill:focus-visible{outline:2px solid var(--cyan); outline-offset:8px}
 .xs-pill.is-loading{cursor:progress}
 .xs-pill.is-loading::after{content:""; position:absolute; inset:0; height:auto; border-radius:0; z-index:2;
   background:linear-gradient(100deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%); background-size:220% 100%;
