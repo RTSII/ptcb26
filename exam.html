@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=100">
-  <link rel="stylesheet" href="css/exam-setup.css?v=100">
+  <link rel="stylesheet" href="css/style.css?v=103">
+  <link rel="stylesheet" href="css/exam-setup.css?v=103">
 </head>
 <body class="exam">
   <header class="app-header">
@@ -59,7 +59,16 @@
           <header class="xs-head">
             <p class="xs-tag">Simulation <b>// 03</b></p>
             <h2 class="xs-title" id="xsTitle">Exam Setup<span class="xs-cursor" aria-hidden="true"></span></h2>
-            <p class="xs-tag xs-tag--r">PTCE 2026 Blueprint</p>
+            <button type="button" class="xq-mode" id="xqOpen" aria-haspopup="dialog" aria-expanded="false" aria-controls="xqPanel" aria-label="Quiz Mode. Press and hold to open.">
+              <svg class="xq-mode-svg" viewBox="0 0 68 68" aria-hidden="true">
+                <path class="xq-mode-edge" d="M1.5 20V9.5L9.5 1.5H20 M27 1.5H41 M48 1.5H58.5L66.5 9.5V20 M66.5 26V29.5L63 33V35L66.5 38.5V42 M66.5 48V58.5L58.5 66.5H48 M41 66.5H27 M20 66.5H9.5L1.5 58.5V48 M1.5 42V38.5L5 35V33L1.5 29.5V26"/>
+                <path class="xq-mode-prog" pathLength="100" d="M1.5 20V9.5L9.5 1.5H20 M27 1.5H41 M48 1.5H58.5L66.5 9.5V20 M66.5 26V29.5L63 33V35L66.5 38.5V42 M66.5 48V58.5L58.5 66.5H48 M41 66.5H27 M20 66.5H9.5L1.5 58.5V48 M1.5 42V38.5L5 35V33L1.5 29.5V26"/>
+                <path class="xq-mode-tk" d="M7 16L10 13 M61 16L58 13 M7 52L10 55 M61 52L58 55"/>
+                <path class="xq-mode-dash" d="M25 46H43"/>
+              </svg>
+              <span class="xq-mode-fill"></span>
+              <span class="xq-mode-lbl">Mode</span>
+            </button>
           </header>
 
           <div class="xs-core">
@@ -145,6 +154,44 @@
           </div>
           <p class="xs-status" id="xsStatus" role="status" aria-live="polite"></p>
         </div>
+
+        <!-- Quiz Mode holo panel: projects over the setup slab from the emitter -->
+        <div class="xq" id="xqPanel" role="dialog" aria-modal="false" aria-labelledby="xqTitle" hidden>
+          <div class="xq-slab">
+            <div class="xq-grid" aria-hidden="true"></div>
+            <div class="xq-beam" aria-hidden="true"></div>
+            <header class="xq-head">
+              <div class="xq-hc">
+                <p class="xq-tag">Holodeck <b>// 04</b> // Short drills</p>
+                <h2 class="xq-title" id="xqTitle">Quiz Mode</h2>
+              </div>
+              <button type="button" class="xq-mode is-on" id="xqClose" aria-controls="xqPanel" aria-label="Close Quiz Mode" title="Close">
+              <svg class="xq-mode-svg" viewBox="0 0 68 68" aria-hidden="true">
+                <path class="xq-mode-edge" d="M1.5 20V9.5L9.5 1.5H20 M27 1.5H41 M48 1.5H58.5L66.5 9.5V20 M66.5 26V29.5L63 33V35L66.5 38.5V42 M66.5 48V58.5L58.5 66.5H48 M41 66.5H27 M20 66.5H9.5L1.5 58.5V48 M1.5 42V38.5L5 35V33L1.5 29.5V26"/>
+                <path class="xq-mode-prog" pathLength="100" d="M1.5 20V9.5L9.5 1.5H20 M27 1.5H41 M48 1.5H58.5L66.5 9.5V20 M66.5 26V29.5L63 33V35L66.5 38.5V42 M66.5 48V58.5L58.5 66.5H48 M41 66.5H27 M20 66.5H9.5L1.5 58.5V48 M1.5 42V38.5L5 35V33L1.5 29.5V26"/>
+                <path class="xq-mode-tk" d="M7 16L10 13 M61 16L58 13 M7 52L10 55 M61 52L58 55"/>
+                <path class="xq-mode-dash" d="M25 46H43"/>
+              </svg>
+              <span class="xq-mode-fill"></span>
+              <span class="xq-mode-lbl">Mode</span>
+            </button>
+            </header>
+
+            <div class="xq-body">
+              <p class="xq-plabel" id="xqModeLabel">Select mode</p>
+              <div class="xq-tiles" role="radiogroup" aria-labelledby="xqModeLabel" id="xqTiles"></div>
+              <div class="xq-chapter" id="xqChapter">
+                <p class="xq-plabel" id="xqChapLabel">Chapter</p>
+                <div class="xq-chips" role="radiogroup" aria-labelledby="xqChapLabel" id="xqChips"></div>
+              </div>
+              <p class="xq-status" id="xqStatus" role="status" aria-live="polite"></p>
+            </div>
+          </div>
+          <div class="xq-rail">
+            <button type="button" class="xs-pill xs-pill--blue" id="xqBack"><span>Back to Exam</span></button>
+            <button type="button" class="xs-pill xs-pill--red" id="xqStart"><span>Start Quiz</span></button>
+          </div>
+        </div>
       </section>
     </div>
 
@@ -174,8 +221,8 @@
     </div>
   </main>
 
-  <script src="js/app.js?v=100"></script>
-  <script src="js/exam-setup.js?v=100"></script>
-  <script src="js/exam.js?v=100"></script>
+  <script src="js/app.js?v=103"></script>
+  <script src="js/exam-setup.js?v=103"></script>
+  <script src="js/exam.js?v=103"></script>
 </body>
 </html>

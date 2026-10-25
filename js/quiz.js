@@ -71,6 +71,8 @@
 
   // Events
   startBtn.addEventListener('click', startQuiz);
+  // Deep link from the Practice Exam Quiz Mode panel: quiz.html?mode=...&go=1 starts right away.
+  if (params.get('go') === '1') startQuiz();
   prevBtn.addEventListener('click', () => nav(-1));
   nextBtn.addEventListener('click', () => nav(1));
   retryBtn.addEventListener('click', () => location.reload());
