@@ -21,7 +21,7 @@
     100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 10px 100%, 0 calc(100% - 10px),
     0 62%, var(--k) calc(62% - var(--k)), var(--k) calc(38% + var(--k)), 0 38%, 0 var(--cut))}
 .xs-slab::before, .xs-slab::after{content:""; position:absolute; z-index:-2; clip-path:var(--shape)}
-.xs-slab::before{inset:0; background:linear-gradient(160deg, rgba(0,255,65,.7), rgba(0,143,17,.35) 40%, rgba(0,255,65,.18) 70%, rgba(0,229,255,.45))}
+.xs-slab::before{inset:0; background:linear-gradient(160deg, var(--neon-blue), rgba(0,229,255,.78) 45%, rgba(0,229,255,.7) 70%, var(--neon-blue))}
 .xs-slab::after{inset:1px; background:linear-gradient(180deg, #03100a, var(--slab) 30%, #010602)}
 .xs-rain{position:absolute; inset:1px; z-index:-1; clip-path:var(--shape); overflow:hidden; pointer-events:none;
   -webkit-mask:linear-gradient(180deg, transparent, #000 25%, #000 70%, transparent);
