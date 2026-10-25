@@ -149,7 +149,7 @@
     const wrap = (v) => ((v % 1) + 1) % 1;
     const smooth = (a, b, v) => { const t = Math.min(1, Math.max(0, (v - a) / (b - a))); return t * t * (3 - 2 * t); };
     // Border fills slowly as a card travels from the top into the middle, stays full there, then drains toward the bottom.
-    const borderFill = (u) => (u < 0.5 ? smooth(0.03, 0.4, u) : 1 - smooth(0.6, 0.97, u));
+    const borderFill = (absT) => Math.min(1, Math.max(0, (3.4 - absT) / 3.2));
 
     // Per-card SVG border (four quarter paths) sized to the card; rebuilt when the card size changes.
     const NS = 'http://www.w3.org/2000/svg';
@@ -192,31 +192,36 @@
       new MutationObserver(mark).observe(num, { childList: true, characterData: true, subtree: true });
     });
 
+    // Helix model (after the Framer Helix3DCarousel): t is the card's slot distance from the front, -n/2..n/2.
+    // Each slot turns STEP degrees around the helix, so 8 cards make one full turn. The front card (t = 0) faces
+    // the viewer flat; cards above and below swing out to opposite sides, twist away, shrink and fade to nothing
+    // before they wrap from the bottom back to the top, so the loop never pops.
+    const STEP = 44;
+    const FADE_IN = 2.3, FADE_OUT = 3.6;
     function layout() {
       const rect = stage.getBoundingClientRect();
       const travel = Math.max(rect.height * 0.94, 1);
       const cardW = cards[0].offsetWidth || 0;
       const room = (rect.width - cardW) / 2;
-      const radius = Math.max(0, Math.min(rect.width * 0.2, 54, room - 8));
+      const radius = Math.max(0, Math.min(rect.width * 0.26, 84, room - 6));
+      const span = n / 2;
+      const sp = travel / n;
       for (let i = 0; i < n; i++) {
         const u = wrap(i / n + offset);
-        const angle = (u - 0.5) * Math.PI * 2;
-        const x = Math.sin(angle) * radius;
-        // Wider spacing around the middle so the front card is clear of its neighbours; tighter (and faded) at the ends.
-        const y = (u - 0.5) * travel + Math.sin((u - 0.5) * Math.PI * 2) * travel * 0.075;
-        const z = Math.cos(angle) * radius;
-        const facing = (Math.cos(angle) + 1) / 2;
-        const edge = Math.sin(Math.PI * u);
-        const scale = 0.56 + 0.44 * facing * (0.42 + 0.58 * edge);
-        const opacity = edge * (0.08 + 0.92 * facing);
-        const rotY = Math.sin(angle) * -26;
+        const t = (u - 0.5) * n;
+        const absT = Math.abs(t);
+        const th = t * STEP * Math.PI / 180;
+        const x = Math.sin(th) * radius;
+        const y = sp * (t + 0.3 * Math.sin(t * Math.PI / span));
+        const scale = Math.max(0.58, 1 - absT * 0.14);
+        const opacity = 1 - smooth(FADE_IN, FADE_OUT, absT);
+        const rotY = t * STEP * 0.62;
         const card = cards[i];
-        card.style.transform = 'translate(-50%, -50%) translate3d(' +
-          x.toFixed(2) + 'px, ' + y.toFixed(2) + 'px, ' + z.toFixed(2) +
+        card.style.transform = 'translate(-50%, -50%) translate(' + x.toFixed(2) + 'px, ' + y.toFixed(2) +
           'px) rotateY(' + rotY.toFixed(2) + 'deg) scale(' + scale.toFixed(3) + ')';
         card.style.opacity = opacity.toFixed(3);
-        card.style.zIndex = String(100 + Math.round(z));
-        card.style.setProperty('--bp', borderFill(u).toFixed(3));
+        card.style.zIndex = String(100 - Math.round(absT * 10));
+        card.style.setProperty('--bp', borderFill(absT).toFixed(3));
         card.style.pointerEvents = opacity < 0.42 ? 'none' : 'auto';
       }
     }
