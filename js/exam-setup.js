@@ -342,8 +342,7 @@
     const paint = v => {
       p = v;
       btn.style.setProperty('--p', v.toFixed(3));
-      btn.style.setProperty('--t', Math.min(1, v / 0.6).toFixed(3));              // border segments trace in first
-      btn.style.setProperty('--f', Math.max(0, (v - 0.45) / 0.55).toFixed(3));    // then the fill rises
+      btn.style.setProperty('--f', v.toFixed(3));   // hover shows the hollow neon border; holding fills it
     };
     function tick(t) {
       const dt = Math.min(64, t - last); last = t;
@@ -356,7 +355,7 @@
       }
       raf = requestAnimationFrame(tick);
     }
-    function reset() { busy = false; btn.classList.remove('is-armed', 'is-charging'); ['--p', '--t', '--f'].forEach(k => btn.style.removeProperty(k)); p = 0; }
+    function reset() { busy = false; btn.classList.remove('is-armed', 'is-charging'); ['--p', '--f'].forEach(k => btn.style.removeProperty(k)); p = 0; }
     function press() {
       if (busy || holding || reduceMotion) return;
       holding = true; btn.classList.add('is-charging'); last = performance.now();
@@ -402,7 +401,6 @@
     });
     const isChap = quiz.mode === 'chapter';
     $('xqChapter').classList.toggle('is-off', !isChap);
-    root.querySelectorAll('.xq-chip').forEach(c => { c.disabled = !isChap; });
     const ch = QUIZ_CHAPTERS.find(x => x.value === quiz.chapter);
     $('xqStatus').innerHTML = `Mode <b>// ${m.name}</b>` + (isChap ? ` <b>// ${ch.name}</b>` : '') + ' // ready';
   }
@@ -435,7 +433,7 @@
     root.querySelector('.xs-rail').inert = on;
     panel.inert = !on;
     if (on) {
-      setTimeout(() => { if (quiz.open) (root.querySelector('.xq-tile[aria-checked="true"]') || $('xqStart')).focus(); }, reduceMotion ? 0 : 500);
+      setTimeout(() => { if (quiz.open) $('xqPanel').focus({ preventScroll: true }); }, reduceMotion ? 0 : 500);
     } else {
       $('xqOpen').focus({ preventScroll: true });
     }
@@ -462,11 +460,11 @@
       b.dataset.value = c.value;
       b.setAttribute('role', 'radio');
       b.textContent = c.name;
-      b.addEventListener('click', () => { quiz.chapter = c.value; renderQuiz(); });
+      b.addEventListener('click', () => { quiz.chapter = c.value; quiz.mode = 'chapter'; renderQuiz(); });  // picking a chapter implies Chapter Test
       chips.appendChild(b);
     });
     radioKeys(tiles, '.xq-tile', v => { quiz.mode = v; renderQuiz(); });
-    radioKeys(chips, '.xq-chip', v => { quiz.chapter = v; renderQuiz(); });
+    radioKeys(chips, '.xq-chip', v => { quiz.chapter = v; quiz.mode = 'chapter'; renderQuiz(); });
     makeHold($('xqOpen'), () => setQuizOpen(true));
     $('xqClose').addEventListener('click', () => setQuizOpen(false));
     $('xqBack').addEventListener('click', () => setQuizOpen(false));
