@@ -339,7 +339,12 @@
   function makeHold(btn, onDone) {
     const HOLD = 950;
     let raf = 0, last = 0, p = 0, holding = false, busy = false;
-    const paint = v => { p = v; btn.style.setProperty('--p', v.toFixed(3)); };
+    const paint = v => {
+      p = v;
+      btn.style.setProperty('--p', v.toFixed(3));
+      btn.style.setProperty('--t', Math.min(1, v / 0.6).toFixed(3));              // border segments trace in first
+      btn.style.setProperty('--f', Math.max(0, (v - 0.45) / 0.55).toFixed(3));    // then the fill rises
+    };
     function tick(t) {
       const dt = Math.min(64, t - last); last = t;
       if (holding) {
@@ -351,7 +356,7 @@
       }
       raf = requestAnimationFrame(tick);
     }
-    function reset() { busy = false; btn.classList.remove('is-armed', 'is-charging'); btn.style.removeProperty('--p'); p = 0; }
+    function reset() { busy = false; btn.classList.remove('is-armed', 'is-charging'); ['--p', '--t', '--f'].forEach(k => btn.style.removeProperty(k)); p = 0; }
     function press() {
       if (busy || holding || reduceMotion) return;
       holding = true; btn.classList.add('is-charging'); last = performance.now();

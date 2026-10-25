@@ -111,7 +111,7 @@ Superseded by the block above (do not follow these):
 - [x] Flashcards trigger: tabbed physical Rolodex index card with stepped deck depth and spindle notch icon
 - [x] Study Notes Codex v2 baseline (3-zone header, layouts, parenthesis-safe parsing)
 - [x] Cascading Katakana Matrix rain FX (depth layers, white lead tips, no static grid floor overlays)
-- [x] Service worker and `?v=` cache busters. Current name: `ptce-2026-v102` in `sw.js`
+- [x] Service worker and `?v=` cache busters. Current name: `ptce-2026-v103` in `sw.js`
 - [x] Study Course home: chapters closed on load, title in the centered header, chapter titles centered (`ptce-2026-v49`)
 - [x] Home course card (#37)
 - [x] Dashboard Resurrections glass cards with no rain on the Dashboard (#38)
@@ -124,7 +124,7 @@ Superseded by the block above (do not follow these):
 - [x] Home relayout (#76), telemetry helix (#77, #80), and rain mask (#81). `UI_STANDARDS.md` Home regions now point at `section.hx-helix`.
 - [x] Home 3-column relayout (#87, `ptce-2026-v99`). The Practice Exam ring is on the left: the Dashboard ring retitled, about 31% smaller, linking to `exam.html`, with its text kept inside the arcs. The landscape Study Course is the centered anchor; its next lesson wraps to two lines. Below it, Flashcards (main's shape) and a wider, shorter Notes card sit offset. The untitled helix is on the right. The old Practice Exam card is removed, and the helix tiles are the Dashboard entry (`#dashStats` anchor added).
 - [x] Practice Exam setup capsules (`ptce-2026-v100`): Steak Dinner and Enter the Construct restyled as narrower, see-through red and blue gel capsules, closer to the movie props, each its own button. Possible follow-up: reuse as the app-wide header pills (Rob decides).
-- [x] Practice Exam Quiz Mode holo panel (`ptce-2026-v102`): a hold-to-activate HUD "Mode" square in the Exam Setup header projects a cyan holo panel over the setup slab with minimal quiz options; Start launches the existing quiz page with `go=1` (auto-start). Possible follow-up: fold the quiz run into this page, and reuse the switch and capsules app-wide (Rob decides).
+- [x] Practice Exam Quiz Mode holo panel (`ptce-2026-v103`): a hold-to-activate HUD "Mode" square in the Exam Setup header projects a cyan holo panel over the setup slab with minimal quiz options; Start launches the existing quiz page with `go=1` (auto-start). Possible follow-up: fold the quiz run into this page, and reuse the switch and capsules app-wide (Rob decides).
 
 ## Later
 
