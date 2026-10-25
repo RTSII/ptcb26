@@ -520,7 +520,7 @@ a.hx-card:hover .hx-go i { transform: translateX(4px); }
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
-.hx-helix-num.is-zero { color: var(--neon-red); text-shadow: 0 0 12px rgba(255, 51, 71, 0.55); }
+.hx-helix-num.is-zero { color: var(--neon-red); text-shadow: 0 0 12px rgba(201, 10, 29, 0.6); }
 .hx-helix-lbl {
   font-family: var(--hx-mono);
   font-size: 0.64rem;
