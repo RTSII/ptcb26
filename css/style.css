@@ -7,6 +7,12 @@
   --line: rgba(5, 217, 232, 0.25);
   --pink: #ff2a6d;
   --cyan: #05d9e8;
+  /* Shared neon standard (from the Practice Exam Quiz Mode card). Helix uses it first; other cards can adopt it. */
+  --neon-blue: #00e5ff;
+  --neon-red: #ff3347;
+  --neon-glass-a: rgba(0, 50, 78, 0.82);
+  --neon-glass-b: rgba(1, 18, 32, 0.9);
+  --neon-dim: #8fd0df;
   --violet: #b967ff;
   --green: #00ff41;
   --amber: #ffd319;

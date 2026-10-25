@@ -473,7 +473,6 @@ a.hx-card:hover .hx-go i { transform: translateX(4px); }
   inset: 0;
   perspective: 900px;
   perspective-origin: 50% 46%;
-  transform-style: preserve-3d;
 }
 .hx-helix-card {
   position: absolute;
@@ -489,44 +488,51 @@ a.hx-card:hover .hx-go i { transform: translateX(4px); }
   padding: 8px 10px;
   text-decoration: none;
   color: var(--hx-ice);
-  background:
-    radial-gradient(120% 80% at 50% 0%, rgba(0, 255, 65, 0.14), transparent 58%),
-    linear-gradient(180deg, rgba(10, 36, 20, 0.94), rgba(2, 14, 8, 0.94));
-  border: 1px solid rgba(0, 255, 65, 0.5);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(0, 255, 65, 0.08);
+  background: linear-gradient(180deg, var(--neon-glass-a), var(--neon-glass-b));
+  border: 0;
   clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
   user-select: none;
   -webkit-user-select: none;
   transform-origin: center center;
   will-change: transform, opacity;
 }
-.hx-helix-card[data-tone="safety"] { border-color: rgba(0, 255, 65, 0.32); }
-.hx-helix-card[data-tone="order"] { border-color: rgba(5, 217, 232, 0.55); }
-.hx-helix-card[data-tone="fed"] { border-color: rgba(255, 42, 109, 0.55); }
+/* Liquid border: four quarter-paths grow from the middle of the top and bottom edges, round the corners and meet at the
+   middle of each side. --bp (0..1) is set from the card's place on the helix: hollow at the ends, full in the middle. */
+.hx-helix-edge { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.hx-helix-edge path {
+  fill: none;
+  stroke: var(--neon-blue);
+  stroke-width: 2;
+  stroke-linecap: butt;
+  stroke-linejoin: miter;
+  stroke-dasharray: 100;
+  stroke-dashoffset: calc(100 - var(--bp, 1) * 100);
+  opacity: calc(var(--bp, 1) * 30);
+  filter: drop-shadow(0 0 3px rgba(0, 229, 255, 0.85));
+}
 .hx-helix-num {
   font-family: var(--hx-display);
   font-weight: 700;
   font-size: calc(clamp(1.05rem, 1.2vw, 1.6rem) * var(--hx-fit));
   line-height: 1;
-  color: #fff;
-  text-shadow: 0 0 14px rgba(0, 255, 65, 0.4);
+  color: var(--neon-blue);
+  text-shadow: 0 0 12px rgba(0, 229, 255, 0.55);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
+.hx-helix-num.is-zero { color: var(--neon-red); text-shadow: 0 0 12px rgba(255, 51, 71, 0.55); }
 .hx-helix-lbl {
   font-family: var(--hx-mono);
   font-size: 0.64rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--hx-dim);
+  color: var(--neon-dim);
   text-align: center;
   line-height: 1.2;
   max-width: 16ch;
 }
-.hx-helix-card:focus-visible {
-  outline: 2px solid var(--hx-green);
-  outline-offset: 3px;
-}
+.hx-helix-card:focus-visible { outline: none; }
+.hx-helix-card:focus-visible .hx-helix-edge path { stroke-width: 3; }
 
 /* Accent tints: one per mode, used sparingly */
 .hx-notes { --edge: linear-gradient(140deg, rgba(0, 255, 65, 0.5), rgba(0, 255, 65, 0.12) 50%, rgba(0, 255, 65, 0.4)); }

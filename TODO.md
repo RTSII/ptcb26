@@ -130,6 +130,7 @@ Superseded by the block above (do not follow these):
 
 - [ ] **Dashboard live-data scroll.** Next up item 8.
 - [x] **Home helix telemetry column.** Shipped in #77, #80, #81.
+- [ ] Helix polish (`ptce-2026-v105`, draft): no card overlap, liquid border fill, neon-blue standard, red zeros, quiz-blue glass background. Pending Rob's OK; then decide which other card borders adopt `--neon-blue`.
 - [ ] **Practice Exam drill-mode gaps.** Next up item 3.
 - [ ] **Study Course graphic.** Next up item 17.
 
