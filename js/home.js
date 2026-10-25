@@ -147,6 +147,50 @@
     let raf = 0;
 
     const wrap = (v) => ((v % 1) + 1) % 1;
+    const smooth = (a, b, v) => { const t = Math.min(1, Math.max(0, (v - a) / (b - a))); return t * t * (3 - 2 * t); };
+    // Border fills slowly as a card travels from the top into the middle, stays full there, then drains toward the bottom.
+    const borderFill = (u) => (u < 0.5 ? smooth(0.03, 0.4, u) : 1 - smooth(0.6, 0.97, u));
+
+    // Per-card SVG border (four quarter paths) sized to the card; rebuilt when the card size changes.
+    const NS = 'http://www.w3.org/2000/svg';
+    const CUT = 10;
+    function buildEdge(card) {
+      let svg = card.querySelector('.hx-helix-edge');
+      if (!svg) {
+        svg = document.createElementNS(NS, 'svg');
+        svg.setAttribute('class', 'hx-helix-edge');
+        svg.setAttribute('aria-hidden', 'true');
+        for (let k = 0; k < 4; k++) {
+          const p = document.createElementNS(NS, 'path');
+          p.setAttribute('pathLength', '100');
+          svg.appendChild(p);
+        }
+        card.appendChild(svg);
+      }
+      const w = card.offsetWidth, h = card.offsetHeight, i = 1, c = CUT;
+      svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+      const d = [
+        'M' + w / 2 + ' ' + i + 'H' + (w - i) + 'V' + h / 2,                                        // top middle -> right middle
+        'M' + w / 2 + ' ' + (h - i) + 'H' + (w - c) + 'L' + (w - i) + ' ' + (h - c) + 'V' + h / 2,   // bottom middle -> right middle
+        'M' + w / 2 + ' ' + i + 'H' + c + 'L' + i + ' ' + c + 'V' + h / 2,                          // top middle -> left middle
+        'M' + w / 2 + ' ' + (h - i) + 'H' + i + 'V' + h / 2                                        // bottom middle -> left middle
+      ];
+      svg.querySelectorAll('path').forEach((p, k) => p.setAttribute('d', d[k]));
+    }
+    cards.forEach(buildEdge);
+    if (window.ResizeObserver) {
+      const ro = new ResizeObserver(() => cards.forEach(buildEdge));
+      cards.forEach((c) => ro.observe(c));
+    }
+
+    // Numbers read red when there is nothing yet (0, 0%, or a dash), neon blue otherwise.
+    cards.forEach((card) => {
+      const num = card.querySelector('.hx-helix-num');
+      if (!num) return;
+      const mark = () => num.classList.toggle('is-zero', /^\s*(—|-|0+(\.0+)?%?)?\s*$/.test(num.textContent));
+      mark();
+      new MutationObserver(mark).observe(num, { childList: true, characterData: true, subtree: true });
+    });
 
     function layout() {
       const rect = stage.getBoundingClientRect();
@@ -158,7 +202,8 @@
         const u = wrap(i / n + offset);
         const angle = (u - 0.5) * Math.PI * 2;
         const x = Math.sin(angle) * radius;
-        const y = (u - 0.5) * travel;
+        // Wider spacing around the middle so the front card is clear of its neighbours; tighter (and faded) at the ends.
+        const y = (u - 0.5) * travel + Math.sin((u - 0.5) * Math.PI * 2) * travel * 0.075;
         const z = Math.cos(angle) * radius;
         const facing = (Math.cos(angle) + 1) / 2;
         const edge = Math.sin(Math.PI * u);
@@ -171,6 +216,7 @@
           'px) rotateY(' + rotY.toFixed(2) + 'deg) scale(' + scale.toFixed(3) + ')';
         card.style.opacity = opacity.toFixed(3);
         card.style.zIndex = String(100 + Math.round(z));
+        card.style.setProperty('--bp', borderFill(u).toFixed(3));
         card.style.pointerEvents = opacity < 0.42 ? 'none' : 'auto';
       }
     }
