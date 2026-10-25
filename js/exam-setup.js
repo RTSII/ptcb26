@@ -334,53 +334,52 @@
   ];
   const quiz = { mode: 'quick10', chapter: 'All', open: false };
 
-  function setSwitch(btn, on) {
-    btn.classList.toggle('is-on', on);
-    btn.setAttribute('aria-checked', on ? 'true' : 'false');
-    const th = btn.querySelector('.xq-sw-thumb');
-    if (th) th.style.removeProperty('--x');
-    if (th) th.style.transform = '';
-  }
-
-  // Drag the lever or click/press it. Past halfway on release it latches.
-  function makeSwitch(btn, onChange) {
-    const track = btn.querySelector('.xq-sw-track');
-    const thumb = btn.querySelector('.xq-sw-thumb');
-    const travel = () => track.clientWidth - thumb.offsetWidth - 4;
-    let down = null, moved = false, swallow = false;
-    track.addEventListener('pointerdown', e => {
-      down = { x: e.clientX, on: btn.classList.contains('is-on') };
-      moved = false;
-      track.setPointerCapture(e.pointerId);
-    });
-    track.addEventListener('pointermove', e => {
-      if (!down) return;
-      const dx = e.clientX - down.x;
-      if (Math.abs(dx) > 4) { moved = true; btn.classList.add('is-drag'); }
-      if (!moved) return;
-      const x = Math.max(0, Math.min(travel(), (down.on ? travel() : 0) + dx));
-      thumb.style.transform = `translateX(${x}px)`;
-      thumb.dataset.x = x;
-    });
-    const end = () => {
-      if (!down) return;
-      const wasMoved = moved;
-      const x = parseFloat(thumb.dataset.x || '0');
-      btn.classList.remove('is-drag');
-      thumb.style.transform = '';
-      delete thumb.dataset.x;
-      down = null;
-      if (wasMoved) {
-        swallow = true;
-        setTimeout(() => { swallow = false; }, 0);
-        onChange(x > travel() / 2);
+  // Press and hold the HUD Mode button: the perimeter traces in and a fill rises; at 100% it locks and opens the panel.
+  // Letting go early drains it back. Keyboard: hold Space or Enter. Assistive tech and reduced motion open on a plain click.
+  function makeHold(btn, onDone) {
+    const HOLD = 950;
+    let raf = 0, last = 0, p = 0, holding = false, busy = false;
+    const paint = v => { p = v; btn.style.setProperty('--p', v.toFixed(3)); };
+    function tick(t) {
+      const dt = Math.min(64, t - last); last = t;
+      if (holding) {
+        paint(Math.min(1, p + dt / HOLD));
+        if (p >= 1) { holding = false; busy = true; btn.classList.add('is-armed'); setTimeout(() => { onDone(); }, 260); setTimeout(reset, 900); return; }
+      } else {
+        paint(Math.max(0, p - dt / 260));
+        if (p <= 0) { btn.classList.remove('is-charging'); return; }
       }
-    };
-    track.addEventListener('pointerup', end);
-    track.addEventListener('pointercancel', end);
-    btn.addEventListener('click', () => {
-      if (swallow) return;
-      onChange(!btn.classList.contains('is-on'));
+      raf = requestAnimationFrame(tick);
+    }
+    function reset() { busy = false; btn.classList.remove('is-armed', 'is-charging'); btn.style.removeProperty('--p'); p = 0; }
+    function press() {
+      if (busy || holding || reduceMotion) return;
+      holding = true; btn.classList.add('is-charging'); last = performance.now();
+      cancelAnimationFrame(raf); raf = requestAnimationFrame(tick);
+    }
+    function release() {
+      if (!holding) return;
+      holding = false; last = performance.now();
+      cancelAnimationFrame(raf); raf = requestAnimationFrame(tick);
+    }
+    btn.addEventListener('pointerdown', e => {
+      if (e.button !== 0) return;
+      btn.setPointerCapture(e.pointerId);
+      press();
+    });
+    btn.addEventListener('pointerup', release);
+    btn.addEventListener('pointercancel', release);
+    btn.addEventListener('contextmenu', e => e.preventDefault());
+    btn.addEventListener('keydown', e => {
+      if (e.key !== ' ' && e.key !== 'Enter') return;
+      e.preventDefault();
+      if (!e.repeat) { if (reduceMotion) onDone(); else press(); }
+    });
+    btn.addEventListener('keyup', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); release(); } });
+    btn.addEventListener('blur', release);
+    btn.addEventListener('click', e => {
+      // pointer clicks have detail >= 1 and go through the hold; detail 0 is assistive tech or reduced motion
+      if (e.detail === 0 || reduceMotion) { if (!busy) onDone(); }
     });
   }
 
@@ -420,14 +419,13 @@
     if (quiz.open === on) return;
     quiz.open = on;
     const panel = $('xqPanel');
-    const origin = $('xqOpen').querySelector('.xq-sw-thumb').getBoundingClientRect();
+    const origin = $('xqOpen').getBoundingClientRect();
     const box = root.getBoundingClientRect();
     panel.style.setProperty('--ex', `${origin.left + origin.width / 2 - box.left}px`);
     panel.style.setProperty('--ey', `${origin.top + origin.height / 2 - box.top}px`);
     panel.classList.toggle('is-open', on);
     root.classList.toggle('is-quiz', on);
-    setSwitch($('xqOpen'), on);
-    setSwitch($('xqClose'), on);
+    $('xqOpen').setAttribute('aria-expanded', on ? 'true' : 'false');
     root.querySelector('.xs-slab').inert = on;
     root.querySelector('.xs-rail').inert = on;
     panel.inert = !on;
@@ -464,8 +462,8 @@
     });
     radioKeys(tiles, '.xq-tile', v => { quiz.mode = v; renderQuiz(); });
     radioKeys(chips, '.xq-chip', v => { quiz.chapter = v; renderQuiz(); });
-    makeSwitch($('xqOpen'), setQuizOpen);
-    makeSwitch($('xqClose'), setQuizOpen);
+    makeHold($('xqOpen'), () => setQuizOpen(true));
+    $('xqClose').addEventListener('click', () => setQuizOpen(false));
     $('xqBack').addEventListener('click', () => setQuizOpen(false));
     $('xqStart').addEventListener('click', () => {
       const q = new URLSearchParams({ mode: quiz.mode, go: '1' });
