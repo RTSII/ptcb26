@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=100">
-  <link rel="stylesheet" href="css/exam-setup.css?v=100">
+  <link rel="stylesheet" href="css/style.css?v=101">
+  <link rel="stylesheet" href="css/exam-setup.css?v=101">
 </head>
 <body class="exam">
   <header class="app-header">
@@ -59,7 +59,13 @@
           <header class="xs-head">
             <p class="xs-tag">Simulation <b>// 03</b></p>
             <h2 class="xs-title" id="xsTitle">Exam Setup<span class="xs-cursor" aria-hidden="true"></span></h2>
-            <p class="xs-tag xs-tag--r">PTCE 2026 Blueprint</p>
+            <div class="xs-head-r">
+              <p class="xs-tag xs-tag--r">PTCE 2026 Blueprint</p>
+              <button type="button" class="xq-sw" id="xqOpen" role="switch" aria-checked="false" aria-controls="xqPanel" aria-label="Quiz Mode panel">
+                <span class="xq-sw-lbl">Quiz</span>
+                <span class="xq-sw-track" aria-hidden="true"><i class="xq-sw-led"></i><span class="xq-sw-thumb"><b></b><b></b><b></b></span></span>
+              </button>
+            </div>
           </header>
 
           <div class="xs-core">
@@ -145,6 +151,39 @@
           </div>
           <p class="xs-status" id="xsStatus" role="status" aria-live="polite"></p>
         </div>
+
+        <!-- Quiz Mode holo panel: projects over the setup slab from the emitter -->
+        <div class="xq" id="xqPanel" role="dialog" aria-modal="false" aria-labelledby="xqTitle" hidden>
+          <div class="xq-slab">
+            <div class="xq-grid" aria-hidden="true"></div>
+            <div class="xq-beam" aria-hidden="true"></div>
+            <header class="xq-head">
+              <p class="xq-tag">Holodeck <b>// 04</b></p>
+              <h2 class="xq-title" id="xqTitle">Quiz Mode</h2>
+              <div class="xs-head-r">
+                <p class="xq-tag xq-tag--r">Short drills</p>
+                <button type="button" class="xq-sw is-on" id="xqClose" role="switch" aria-checked="true" aria-controls="xqPanel" aria-label="Quiz Mode panel">
+                <span class="xq-sw-lbl">Quiz</span>
+                <span class="xq-sw-track" aria-hidden="true"><i class="xq-sw-led"></i><span class="xq-sw-thumb"><b></b><b></b><b></b></span></span>
+              </button>
+              </div>
+            </header>
+
+            <div class="xq-body">
+              <p class="xq-plabel" id="xqModeLabel">Select mode</p>
+              <div class="xq-tiles" role="radiogroup" aria-labelledby="xqModeLabel" id="xqTiles"></div>
+              <div class="xq-chapter" id="xqChapter">
+                <p class="xq-plabel" id="xqChapLabel">Chapter</p>
+                <div class="xq-chips" role="radiogroup" aria-labelledby="xqChapLabel" id="xqChips"></div>
+              </div>
+              <p class="xq-status" id="xqStatus" role="status" aria-live="polite"></p>
+            </div>
+          </div>
+          <div class="xq-rail">
+            <button type="button" class="xs-pill xs-pill--blue" id="xqBack"><span>Back to Exam</span></button>
+            <button type="button" class="xs-pill xs-pill--red" id="xqStart"><span>Start Quiz</span></button>
+          </div>
+        </div>
       </section>
     </div>
 
@@ -174,8 +213,8 @@
     </div>
   </main>
 
-  <script src="js/app.js?v=100"></script>
-  <script src="js/exam-setup.js?v=100"></script>
-  <script src="js/exam.js?v=100"></script>
+  <script src="js/app.js?v=101"></script>
+  <script src="js/exam-setup.js?v=101"></script>
+  <script src="js/exam.js?v=101"></script>
 </body>
 </html>

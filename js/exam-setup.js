@@ -311,6 +311,173 @@
     root.classList.toggle('is-paused', document.hidden || hostHidden);
   }
 
+
+  /* ---------- Quiz Mode holo panel ---------- */
+  const QUIZ_MODES = [
+    { value: 'quick10', name: 'Quick 10', desc: 'Ten random questions',
+      icon: '<path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/>' },
+    { value: 'chapter', name: 'Chapter Test', desc: 'One chapter, your pick',
+      icon: '<path d="M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4V4Z"/><path d="M8 9h8M8 13h6"/>' },
+    { value: 'missed', name: 'Missed', desc: 'Redo what you got wrong',
+      icon: '<path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/>' },
+    { value: 'bookmarked', name: 'Bookmarked', desc: 'Your flagged questions',
+      icon: '<path d="M6 3h12v18l-6-4-6 4V3Z"/>' },
+    { value: 'weak', name: 'Weakest', desc: 'Targets your weakest area',
+      icon: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 1v5M12 18v5M1 12h5M18 12h5"/>' }
+  ];
+  const QUIZ_CHAPTERS = [
+    { value: 'All', name: 'All' },
+    { value: 'Medications', name: 'Medications' },
+    { value: 'Patient Safety and Quality Assurance', name: 'Patient Safety' },
+    { value: 'Order Entry and Processing', name: 'Order Entry' },
+    { value: 'Federal Requirements', name: 'Federal' }
+  ];
+  const quiz = { mode: 'quick10', chapter: 'All', open: false };
+
+  function setSwitch(btn, on) {
+    btn.classList.toggle('is-on', on);
+    btn.setAttribute('aria-checked', on ? 'true' : 'false');
+    const th = btn.querySelector('.xq-sw-thumb');
+    if (th) th.style.removeProperty('--x');
+    if (th) th.style.transform = '';
+  }
+
+  // Drag the lever or click/press it. Past halfway on release it latches.
+  function makeSwitch(btn, onChange) {
+    const track = btn.querySelector('.xq-sw-track');
+    const thumb = btn.querySelector('.xq-sw-thumb');
+    const travel = () => track.clientWidth - thumb.offsetWidth - 4;
+    let down = null, moved = false, swallow = false;
+    track.addEventListener('pointerdown', e => {
+      down = { x: e.clientX, on: btn.classList.contains('is-on') };
+      moved = false;
+      track.setPointerCapture(e.pointerId);
+    });
+    track.addEventListener('pointermove', e => {
+      if (!down) return;
+      const dx = e.clientX - down.x;
+      if (Math.abs(dx) > 4) { moved = true; btn.classList.add('is-drag'); }
+      if (!moved) return;
+      const x = Math.max(0, Math.min(travel(), (down.on ? travel() : 0) + dx));
+      thumb.style.transform = `translateX(${x}px)`;
+      thumb.dataset.x = x;
+    });
+    const end = () => {
+      if (!down) return;
+      const wasMoved = moved;
+      const x = parseFloat(thumb.dataset.x || '0');
+      btn.classList.remove('is-drag');
+      thumb.style.transform = '';
+      delete thumb.dataset.x;
+      down = null;
+      if (wasMoved) {
+        swallow = true;
+        setTimeout(() => { swallow = false; }, 0);
+        onChange(x > travel() / 2);
+      }
+    };
+    track.addEventListener('pointerup', end);
+    track.addEventListener('pointercancel', end);
+    btn.addEventListener('click', () => {
+      if (swallow) return;
+      onChange(!btn.classList.contains('is-on'));
+    });
+  }
+
+  function renderQuiz() {
+    const m = QUIZ_MODES.find(x => x.value === quiz.mode);
+    root.querySelectorAll('.xq-tile').forEach(t => {
+      const on = t.dataset.value === quiz.mode;
+      t.setAttribute('aria-checked', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+    });
+    root.querySelectorAll('.xq-chip').forEach(c => {
+      const on = c.dataset.value === quiz.chapter;
+      c.setAttribute('aria-checked', on ? 'true' : 'false');
+      c.tabIndex = on ? 0 : -1;
+    });
+    const isChap = quiz.mode === 'chapter';
+    $('xqChapter').classList.toggle('is-off', !isChap);
+    root.querySelectorAll('.xq-chip').forEach(c => { c.disabled = !isChap; });
+    const ch = QUIZ_CHAPTERS.find(x => x.value === quiz.chapter);
+    $('xqStatus').innerHTML = `Mode <b>// ${m.name}</b>` + (isChap ? ` <b>// ${ch.name}</b>` : '') + ' // ready';
+  }
+
+  function radioKeys(group, selector, pick) {
+    group.addEventListener('keydown', e => {
+      const keys = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
+      if (!(e.key in keys)) return;
+      const items = [...group.querySelectorAll(selector)].filter(i => !i.disabled);
+      const i = items.findIndex(x => x.getAttribute('aria-checked') === 'true');
+      const n = items[(i + keys[e.key] + items.length) % items.length];
+      e.preventDefault();
+      pick(n.dataset.value);
+      n.focus();
+    });
+  }
+
+  function setQuizOpen(on) {
+    if (quiz.open === on) return;
+    quiz.open = on;
+    const panel = $('xqPanel');
+    const origin = $('xqOpen').querySelector('.xq-sw-thumb').getBoundingClientRect();
+    const box = root.getBoundingClientRect();
+    panel.style.setProperty('--ex', `${origin.left + origin.width / 2 - box.left}px`);
+    panel.style.setProperty('--ey', `${origin.top + origin.height / 2 - box.top}px`);
+    panel.classList.toggle('is-open', on);
+    root.classList.toggle('is-quiz', on);
+    setSwitch($('xqOpen'), on);
+    setSwitch($('xqClose'), on);
+    root.querySelector('.xs-slab').inert = on;
+    root.querySelector('.xs-rail').inert = on;
+    panel.inert = !on;
+    if (on) {
+      setTimeout(() => { if (quiz.open) (root.querySelector('.xq-tile[aria-checked="true"]') || $('xqStart')).focus(); }, reduceMotion ? 0 : 500);
+    } else {
+      $('xqOpen').focus({ preventScroll: true });
+    }
+  }
+
+  function initQuiz() {
+    if (!$('xqPanel')) return;
+    const tiles = $('xqTiles');
+    QUIZ_MODES.forEach(m => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'xq-tile';
+      b.dataset.value = m.value;
+      b.setAttribute('role', 'radio');
+      b.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${m.icon}</svg><span class="xq-tname">${m.name}</span><span class="xq-tdesc">${m.desc}</span>`;
+      b.addEventListener('click', () => { quiz.mode = m.value; renderQuiz(); });
+      tiles.appendChild(b);
+    });
+    const chips = $('xqChips');
+    QUIZ_CHAPTERS.forEach(c => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'xq-chip';
+      b.dataset.value = c.value;
+      b.setAttribute('role', 'radio');
+      b.textContent = c.name;
+      b.addEventListener('click', () => { quiz.chapter = c.value; renderQuiz(); });
+      chips.appendChild(b);
+    });
+    radioKeys(tiles, '.xq-tile', v => { quiz.mode = v; renderQuiz(); });
+    radioKeys(chips, '.xq-chip', v => { quiz.chapter = v; renderQuiz(); });
+    makeSwitch($('xqOpen'), setQuizOpen);
+    makeSwitch($('xqClose'), setQuizOpen);
+    $('xqBack').addEventListener('click', () => setQuizOpen(false));
+    $('xqStart').addEventListener('click', () => {
+      const q = new URLSearchParams({ mode: quiz.mode, go: '1' });
+      if (quiz.mode === 'chapter' && quiz.chapter !== 'All') q.set('domain', quiz.chapter);
+      if (quiz.mode === 'chapter' && quiz.chapter === 'All') q.set('domain', 'All');
+      location.href = 'quiz.html?' + q.toString();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && quiz.open) setQuizOpen(false); });
+    $('xqPanel').inert = true;
+    renderQuiz();
+  }
+
   /* ---------- init ---------- */
   function init() {
     if (!root) return;
@@ -327,6 +494,7 @@
     });
     render('init');
     requestAnimationFrame(() => requestAnimationFrame(drawWeightArcs));
+    initQuiz();
     $('startBtn').addEventListener('click', onStart);
     $('backBtn').addEventListener('click', onBack);
     document.addEventListener('visibilitychange', syncPaused);

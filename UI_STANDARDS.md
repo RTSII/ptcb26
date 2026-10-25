@@ -105,6 +105,7 @@ One line per region: name, page, locator, what it contains. Locators are the liv
 - Exam timer pick | exam setup | `#timGroup` | Timer choices
 - Exam draw | exam setup | `#domList` | Questions per domain
 - Exam setup rail | exam setup | `#examSetup .xs-rail` | Steak Dinner and Enter the Construct: two separate see-through gel capsules (200x62, about 3.2:1; blue and red, tinted glass with a faint top highlight and colored glow), no socket or background behind them. Style is `.xs-pill` in `css/exam-setup.css`; the plan is to reuse it for the app-wide header if Rob likes it
+- Quiz Mode holo panel | exam setup | `#xqPanel` (switch `#xqOpen`) | A cockpit slide switch in the Exam Setup header projects a cyan holo panel over the setup slab, same footprint, from the switch outward. Minimal options: mode tiles (Quick 10, Chapter Test, Missed, Bookmarked, Weakest), a chapter row that is live only for Chapter Test, and its own Back to Exam and Start Quiz capsules. Start opens `quiz.html?mode=...&go=1` (and `&domain=` for a chapter), which now auto-starts on `go=1`. Esc or the switch closes it. Reduced motion gets no animation.
 - Exam screen | exam | `#examScreen` | Progress, timer, question, previous, next, submit
 - Exam question card | exam | `#examQuestionCard` | Domain, stem, choices
 - Exam result | exam | `#examResultScreen` | Scaled score and domain breakdown
