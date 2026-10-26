@@ -531,6 +531,7 @@ a.hx-card:hover .hx-go i { transform: translateX(4px); }
   line-height: 1.2;
   max-width: 16ch;
 }
+.hx-helix-card > :not(.hx-helix-edge) { opacity: var(--tx, 1); }
 .hx-helix-card:focus-visible { outline: none; }
 .hx-helix-card:focus-visible .hx-helix-edge path { stroke-width: 3; }
 
