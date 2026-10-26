@@ -121,3 +121,6 @@ One line per region: name, page, locator, what it contains. Locators are the liv
 - Dashboard exam history | dashboard | `#examHistory` | Best practice exam
 - Dashboard backup | dashboard | `#exportBtn` | Export progress. Reset (`#resetBtn`) is in the same card.
 - Dashboard reset | dashboard | `#resetBtn` | Clears all local progress
+
+
+- Exam Setup: the Mode diamond must clear the card's top border by the same gap it has to the sub-card below (`--mgap` on `.xs` adds top padding; exam page content is top-anchored 60px under the header). Helix `MIN_GAP` (js/home.js, 6px) is the minimum edge-to-edge gap between drawn neighbour cards at every offset.
