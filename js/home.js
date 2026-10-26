@@ -203,6 +203,80 @@
     const BACK_OPACITY = 0.3;
     const END_FADE_A = 3.0, END_FADE_B = 3.85;
     const TILT = 1;
+    // Minimum edge-to-edge gap (px) kept between neighbouring cards at every offset, measured on the drawn boxes
+    // (including the perspective growth of the near edge).
+    const MIN_GAP = 6;
+    // y(t) for the helix: the original helical curve, pushed outward from the centre wherever the drawn boxes of two
+    // neighbouring cards (one step apart) would be closer than MIN_GAP. Odd in t, solved on a grid and cached.
+    let yCache = null;
+    function spacedY(stageH, cardW, cardH, sp, span) {
+      const key = [stageH.toFixed(1), cardW, cardH, sp.toFixed(2)].join('|');
+      if (yCache && yCache.key === key) return yCache.fn;
+      const cs = getComputedStyle(stage);
+      const P = parseFloat(cs.perspective) || 900;
+      const oy = (parseFloat((cs.perspectiveOrigin || '').split(' ')[1]) || stageH * 0.5) - stageH / 2;
+      const rad = (d) => d * Math.PI / 180;
+      // Drawn top and bottom (relative to the stage centre) of the card at helix position tau whose centre is at Y.
+      const ext = (tau, Y) => {
+        const a = tau * STEP;
+        const sc = 0.56 + 0.44 * (Math.cos(rad(a)) + 1) / 2;
+        const hh = cardH * sc / 2;
+        const z = (cardW * sc / 2) * Math.abs(Math.sin(rad(TILT * a)));
+        const mA = P / Math.max(P - z, 1), mB = P / (P + z);
+        const proj = (yy, m) => oy + (yy - oy) * m;
+        return {
+          top: Math.min(proj(Y - hh, mA), proj(Y - hh, mB)),
+          bot: Math.max(proj(Y + hh, mA), proj(Y + hh, mB))
+        };
+      };
+      // Smallest Y for the card at tau so its top clears 'floor' (a neighbour's bottom plus the gap).
+      const solveY = (tau, floor, lo) => {
+        let a = lo, b = lo + 600;
+        for (let k = 0; k < 40; k++) {
+          const m = (a + b) / 2;
+          if (ext(tau, m).top >= floor) b = m; else a = m;
+        }
+        return b;
+      };
+      const SUB = 0.05, per = Math.round(1 / SUB), N = Math.ceil(n / 2 / SUB);
+      const Y = [];
+      for (let k = 0; k <= N; k++) { const t = k * SUB; Y.push(sp * (t + 0.3 * Math.sin(t * Math.PI / span))); }
+      // Pairs straddling the centre: the card at tau and its neighbour one step back at tau - 1. Both rows of the table are
+      // used (the perspective origin is not at the centre, so the mirrored pair is not identical); share the push.
+      for (let pass = 0; pass < 8; pass++) {
+        for (let k = 1; k < per; k++) {
+          const j = per - k, tau = k * SUB;
+          const d = MIN_GAP - (ext(tau, Y[k]).top - ext(tau - 1, -Y[j]).bot);
+          if (d > 0.01) { Y[k] += d / 2; Y[j] += d / 2; }
+        }
+      }
+      // Beyond that, each card clears the one a step nearer the centre, on both sides of the helix.
+      for (let k = per; k <= N; k++) {
+        const tau = k * SUB;
+        const nbP = ext(tau - 1, Y[k - per]);
+        let y = Math.max(Y[k], solveY(tau, nbP.bot + MIN_GAP, Y[k - per]));
+        // Mirrored side: card at -tau must end above the card at -(tau - 1); bottom falls as Y grows.
+        const nbN = ext(1 - tau, -Y[k - per]);
+        let lo = y, hi = y + 600;
+        if (ext(-tau, -y).bot > nbN.top - MIN_GAP) {
+          for (let it = 0; it < 40; it++) {
+            const m = (lo + hi) / 2;
+            if (ext(-tau, -m).bot <= nbN.top - MIN_GAP) hi = m; else lo = m;
+          }
+          y = hi;
+        }
+        Y[k] = y;
+      }
+      const fn = (t) => {
+        const f = Math.min(Math.abs(t) / SUB, N);
+        const k = Math.min(Math.floor(f), N - 1);
+        const v = Y[k] + (Y[k + 1] - Y[k]) * (f - k);
+        return t < 0 ? -v : v;
+      };
+      yCache = { key, fn };
+      return fn;
+    }
+
     function layout() {
       const rect = stage.getBoundingClientRect();
       const travel = Math.max(rect.height * 0.94, 1);
@@ -211,6 +285,8 @@
       const radius = Math.max(0, Math.min(rect.width * 0.26, 84, room - 6));
       const span = n / 2;
       const sp = travel / n;
+      const cardH = cards[0].offsetHeight || 0;
+      const yAt = spacedY(rect.height, cardW, cardH, sp, span);
       for (let i = 0; i < n; i++) {
         const u = wrap(i / n + offset);
         const t = (u - 0.5) * n;
@@ -219,7 +295,7 @@
         const absDeg = Math.abs(deg);
         const th = deg * Math.PI / 180;
         const x = Math.sin(th) * radius;
-        const y = sp * (t + 0.3 * Math.sin(t * Math.PI / span));
+        const y = yAt(t);
         const depth = (Math.cos(th) + 1) / 2;
         const scale = 0.56 + 0.44 * depth;
         const body = 1 - (1 - BACK_OPACITY) * smooth(70, 110, absDeg);

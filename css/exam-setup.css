@@ -9,13 +9,14 @@
   --head:"Orbitron", system-ui, sans-serif;
   --mono:"Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --ring:clamp(220px, calc(100dvh - 445px), 350px);
+  --mgap:max(0px, calc(var(--ring) / 2 - 140.6px));
   position:relative; width:min(940px, 100%);
   color:var(--text); font:15px/1.45 var(--mono);
 }
 .xs.is-paused *{animation-play-state:paused !important}
 
 /* console slab silhouette: chamfered corners + side clamps at reactor height */
-.xs-slab{position:relative; isolation:isolate; padding:14px 24px 42px; --cut:24px; --k:7px;
+.xs-slab{position:relative; isolation:isolate; padding:calc(14px + var(--mgap)) 24px 42px; --cut:24px; --k:7px;
   --shape:polygon(var(--cut) 0, calc(100% - 10px) 0, 100% 10px,
     100% 38%, calc(100% - var(--k)) calc(38% + var(--k)), calc(100% - var(--k)) calc(62% - var(--k)), 100% 62%,
     100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 10px 100%, 0 calc(100% - 10px),
@@ -212,8 +213,8 @@ body.exam:has(#introScreen:not(.hidden)) .container{
   width:100%;
   max-width:1040px;
   display:grid;
-  place-items:center;
-  padding:8px 18px 8px;
+  place-items:start center;
+  padding:60px 18px 8px;
   overflow:hidden;
 }
 body.exam:has(#introScreen:not(.hidden)) #introScreen{width:min(940px, 100%)}
