@@ -149,7 +149,7 @@
     const wrap = (v) => ((v % 1) + 1) % 1;
     const smooth = (a, b, v) => { const t = Math.min(1, Math.max(0, (v - a) / (b - a))); return t * t * (3 - 2 * t); };
     // Border fills slowly as a card travels from the top into the middle, stays full there, then drains toward the bottom.
-    const borderFill = (u) => (u < 0.5 ? smooth(0.03, 0.4, u) : 1 - smooth(0.6, 0.97, u));
+    const borderFill = (absT) => Math.min(1, Math.max(0, (3.4 - absT) / 3.2));
 
     // Per-card SVG border (four quarter paths) sized to the card; rebuilt when the card size changes.
     const NS = 'http://www.w3.org/2000/svg';
@@ -192,32 +192,46 @@
       new MutationObserver(mark).observe(num, { childList: true, characterData: true, subtree: true });
     });
 
+    // Helix model (after the Framer Helix3DCarousel): t is the card's slot distance from the front, -n/2..n/2.
+    // Each slot turns STEP degrees around the helix, so 8 cards make one full turn, and every card is turned
+    // to face outward from the axis: it enters at the top on the left with its right side nearer, passes flat at
+    // the front, then twists with its left side nearer (larger) and right side farther (smaller) as it goes down.
+    // The text fades out as the face turns away (TEXT_FADE_A..B degrees); the back half of the helix is drawn as
+    // dim, textless glass shells (BACK_OPACITY, 0 hides them) and everything is gone before the loop wraps.
+    const STEP = 44;
+    const TEXT_FADE_A = 52, TEXT_FADE_B = 86;
+    const BACK_OPACITY = 0.3;
+    const END_FADE_A = 3.0, END_FADE_B = 3.85;
+    const TILT = 1;
     function layout() {
       const rect = stage.getBoundingClientRect();
       const travel = Math.max(rect.height * 0.94, 1);
       const cardW = cards[0].offsetWidth || 0;
       const room = (rect.width - cardW) / 2;
-      const radius = Math.max(0, Math.min(rect.width * 0.2, 54, room - 8));
+      const radius = Math.max(0, Math.min(rect.width * 0.26, 84, room - 6));
+      const span = n / 2;
+      const sp = travel / n;
       for (let i = 0; i < n; i++) {
         const u = wrap(i / n + offset);
-        const angle = (u - 0.5) * Math.PI * 2;
-        const x = Math.sin(angle) * radius;
-        // Wider spacing around the middle so the front card is clear of its neighbours; tighter (and faded) at the ends.
-        const y = (u - 0.5) * travel + Math.sin((u - 0.5) * Math.PI * 2) * travel * 0.075;
-        const z = Math.cos(angle) * radius;
-        const facing = (Math.cos(angle) + 1) / 2;
-        const edge = Math.sin(Math.PI * u);
-        const scale = 0.56 + 0.44 * facing * (0.42 + 0.58 * edge);
-        const opacity = edge * (0.08 + 0.92 * facing);
-        const rotY = Math.sin(angle) * -26;
+        const t = (u - 0.5) * n;
+        const absT = Math.abs(t);
+        const deg = t * STEP;
+        const absDeg = Math.abs(deg);
+        const th = deg * Math.PI / 180;
+        const x = Math.sin(th) * radius;
+        const y = sp * (t + 0.3 * Math.sin(t * Math.PI / span));
+        const depth = (Math.cos(th) + 1) / 2;
+        const scale = 0.56 + 0.44 * depth;
+        const body = 1 - (1 - BACK_OPACITY) * smooth(70, 110, absDeg);
+        const opacity = body * (1 - smooth(END_FADE_A, END_FADE_B, absT));
         const card = cards[i];
-        card.style.transform = 'translate(-50%, -50%) translate3d(' +
-          x.toFixed(2) + 'px, ' + y.toFixed(2) + 'px, ' + z.toFixed(2) +
-          'px) rotateY(' + rotY.toFixed(2) + 'deg) scale(' + scale.toFixed(3) + ')';
+        card.style.transform = 'translate(-50%, -50%) translate(' + x.toFixed(2) + 'px, ' + y.toFixed(2) +
+          'px) rotateY(' + (TILT * deg).toFixed(2) + 'deg) scale(' + scale.toFixed(3) + ')';
         card.style.opacity = opacity.toFixed(3);
-        card.style.zIndex = String(100 + Math.round(z));
-        card.style.setProperty('--bp', borderFill(u).toFixed(3));
-        card.style.pointerEvents = opacity < 0.42 ? 'none' : 'auto';
+        card.style.zIndex = String(100 + Math.round(Math.cos(th) * 50));
+        card.style.setProperty('--tx', (1 - smooth(TEXT_FADE_A, TEXT_FADE_B, absDeg)).toFixed(3));
+        card.style.setProperty('--bp', borderFill(absT).toFixed(3));
+        card.style.pointerEvents = absDeg > 70 || opacity < 0.42 ? 'none' : 'auto';
       }
     }
 
