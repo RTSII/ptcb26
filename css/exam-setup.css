@@ -267,6 +267,24 @@ body.exam:has(#introScreen:not(.hidden)) #introScreen{width:min(940px, 100%)}
 @keyframes xq-mode-ping{from{transform:scale(1); opacity:.9} to{transform:scale(1.7); opacity:0}}
 .xq-mode.is-on:hover{filter:drop-shadow(0 0 16px rgba(0,229,255,1))}
 
+/* Open-Mode button (#xqOpen) states. Hover/focus: the frame turns a quarter-turn-ish (45deg) into a diamond and drops to a
+   dim, non-neon blue with no glow. Press/hold: border and accents snap fully on instantly, then the fill rises as before. */
+#xqOpen{--dim:#3d97ae}
+#xqOpen .xq-mode-svg{transition:transform .38s cubic-bezier(.2,.8,.25,1)}
+#xqOpen .xq-mode-fill{transition:clip-path .38s cubic-bezier(.2,.8,.25,1)}
+#xqOpen:hover, #xqOpen:focus-visible{--t:0; filter:none}
+#xqOpen:hover .xq-mode-svg, #xqOpen:focus-visible .xq-mode-svg, #xqOpen.is-charging .xq-mode-svg, #xqOpen.is-armed .xq-mode-svg, #xqOpen.is-on .xq-mode-svg{transform:rotate(45deg) scale(.72)}
+#xqOpen:hover .xq-mode-fill, #xqOpen:focus-visible .xq-mode-fill, #xqOpen.is-charging .xq-mode-fill, #xqOpen.is-armed .xq-mode-fill, #xqOpen.is-on .xq-mode-fill{
+  clip-path:polygon(50% 0, 50% 0, 100% 50%, 100% 50%, 50% 100%, 50% 100%, 0 50%, 0 50%)}
+#xqOpen:hover .xq-mode-edge, #xqOpen:focus-visible .xq-mode-edge, #xqOpen:hover .xq-mode-tk, #xqOpen:focus-visible .xq-mode-tk,
+#xqOpen:hover .xq-mode-mark, #xqOpen:focus-visible .xq-mode-mark, #xqOpen:hover .xq-mode-dash, #xqOpen:focus-visible .xq-mode-dash{stroke:var(--dim); stroke-opacity:.85}
+#xqOpen.is-charging, #xqOpen.is-armed, #xqOpen.is-on{--t:1}
+#xqOpen.is-charging .xq-mode-prog{transition:none}
+#xqOpen.is-charging .xq-mode-edge, #xqOpen.is-armed .xq-mode-edge, #xqOpen.is-on .xq-mode-edge{stroke:var(--c1); stroke-opacity:1}
+#xqOpen.is-charging .xq-mode-tk{stroke:var(--c1); stroke-opacity:1}
+#xqOpen.is-charging:hover{filter:drop-shadow(0 0 calc(4px + var(--p) * 10px) rgba(0,229,255,.7))}
+@media (prefers-reduced-motion:reduce){#xqOpen .xq-mode-svg{transition:none}}
+
 /* overlay: same footprint as the setup slab; its own rail sits where the exam rail is */
 .xq{--ex:90%; --ey:6%; --xc:#00e5ff; position:absolute; inset:0; z-index:6; pointer-events:none; visibility:hidden;
   clip-path:circle(0 at var(--ex) var(--ey)); transition:clip-path .8s cubic-bezier(.2,.75,.2,1), visibility 0s .8s}
@@ -306,17 +324,20 @@ body.exam:has(#introScreen:not(.hidden)) #introScreen{width:min(940px, 100%)}
 .xq-tile{all:unset; touch-action:manipulation; box-sizing:border-box; cursor:pointer; position:relative; isolation:isolate; min-height:212px; padding:22px 14px 18px;
   display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:14px; --c:18px;
   --ts:polygon(var(--c) 0, 100% 0, 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, 0 100%, 0 var(--c));
-  transition:transform .2s, filter .2s}
+  transition:transform .32s cubic-bezier(.2,.8,.25,1), filter .32s ease}
 .xq-tile::before, .xq-tile::after{content:""; position:absolute; z-index:-1; clip-path:var(--ts)}
 .xq-tile::before{inset:0; background:rgba(0,229,255,.38); transition:background-color .2s}
 .xq-tile::after{inset:1px; background:linear-gradient(180deg, rgba(0,50,78,.82), rgba(1,18,32,.9))}
 .xq-tile:hover::before{background:rgba(0,229,255,.62)}
 .xq-tile:focus-visible{outline:none}
+.xq-tile:hover, .xq-tile:focus-visible{transform:translateY(-6px) scale(1.07); z-index:2; filter:drop-shadow(0 12px 12px rgba(0,0,0,.5))}
 .xq-tile:focus-visible::before{background:var(--cyan)}
 .xq-tile svg{width:46px; height:46px; color:var(--cyan); filter:drop-shadow(0 0 6px rgba(0,229,255,.7)); flex:0 0 auto}
 .xq-tname{font:700 15px/1.2 var(--head); letter-spacing:.1em; color:#eaffff; text-transform:uppercase}
 .xq-tdesc{font:14px/1.4 var(--mono); color:#8fd0df}
 .xq-tile[aria-checked="true"]{transform:translateY(-4px); animation:xq-sel 2.4s ease-in-out infinite}
+.xq-tile[aria-checked="true"]:hover, .xq-tile[aria-checked="true"]:focus-visible{transform:translateY(-7px) scale(1.07)}
+@media (prefers-reduced-motion:reduce){.xq-tile:hover, .xq-tile:focus-visible, .xq-tile[aria-checked="true"]:hover{transform:none}}
 @keyframes xq-sel{0%,100%{filter:drop-shadow(0 0 8px rgba(0,229,255,.45))} 50%{filter:drop-shadow(0 0 20px rgba(0,229,255,.9))}}
 .xq-tile[aria-checked="true"] svg{animation:xq-ico 2.4s ease-in-out infinite}
 @keyframes xq-ico{0%,100%{filter:drop-shadow(0 0 4px rgba(0,229,255,.6))} 50%{filter:drop-shadow(0 0 11px #bff9ff)}}
