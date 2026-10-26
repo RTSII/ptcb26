@@ -267,15 +267,15 @@ body.exam:has(#introScreen:not(.hidden)) #introScreen{width:min(940px, 100%)}
 @keyframes xq-mode-ping{from{transform:scale(1); opacity:.9} to{transform:scale(1.7); opacity:0}}
 .xq-mode.is-on:hover{filter:drop-shadow(0 0 16px rgba(0,229,255,1))}
 
-/* Open-Mode button (#xqOpen) states. Hover/focus: the frame turns a quarter-turn-ish (45deg) into a diamond and drops to a
+/* Open-Mode button (#xqOpen) states. Hover/focus: the frame turns turns 45deg clockwise about its exact center (no scale, no skew) into a diamond and drops to a
    dim, non-neon blue with no glow. Press/hold: border and accents snap fully on instantly, then the fill rises as before. */
 #xqOpen{--dim:#3d97ae}
-#xqOpen .xq-mode-svg{transition:transform .38s cubic-bezier(.2,.8,.25,1)}
-#xqOpen .xq-mode-fill{transition:clip-path .38s cubic-bezier(.2,.8,.25,1)}
+#xqOpen .xq-mode-svg{transform:rotate(0deg); transform-origin:50% 50%; transition:transform .38s cubic-bezier(.2,.8,.25,1)}
+#xqOpen .xq-mode-fill{transition:clip-path .38s cubic-bezier(.2,.8,.25,1), inset .38s cubic-bezier(.2,.8,.25,1)}
 #xqOpen:hover, #xqOpen:focus-visible{--t:0; filter:none}
-#xqOpen:hover .xq-mode-svg, #xqOpen:focus-visible .xq-mode-svg, #xqOpen.is-charging .xq-mode-svg, #xqOpen.is-armed .xq-mode-svg, #xqOpen.is-on .xq-mode-svg{transform:rotate(45deg) scale(.72)}
+#xqOpen:hover .xq-mode-svg, #xqOpen:focus-visible .xq-mode-svg, #xqOpen.is-charging .xq-mode-svg, #xqOpen.is-armed .xq-mode-svg, #xqOpen.is-on .xq-mode-svg{transform:rotate(45deg)}
 #xqOpen:hover .xq-mode-fill, #xqOpen:focus-visible .xq-mode-fill, #xqOpen.is-charging .xq-mode-fill, #xqOpen.is-armed .xq-mode-fill, #xqOpen.is-on .xq-mode-fill{
-  clip-path:polygon(50% 0, 50% 0, 100% 50%, 100% 50%, 50% 100%, 50% 100%, 0 50%, 0 50%)}
+  inset:-9%; clip-path:polygon(50% 0, 50% 0, 100% 50%, 100% 50%, 50% 100%, 50% 100%, 0 50%, 0 50%)}
 #xqOpen:hover .xq-mode-edge, #xqOpen:focus-visible .xq-mode-edge, #xqOpen:hover .xq-mode-tk, #xqOpen:focus-visible .xq-mode-tk,
 #xqOpen:hover .xq-mode-mark, #xqOpen:focus-visible .xq-mode-mark, #xqOpen:hover .xq-mode-dash, #xqOpen:focus-visible .xq-mode-dash{stroke:var(--dim); stroke-opacity:.85}
 #xqOpen.is-charging, #xqOpen.is-armed, #xqOpen.is-on{--t:1}
